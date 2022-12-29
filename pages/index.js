@@ -1,10 +1,12 @@
 import Faq from '../components/Faq';
 import ImageSlide from '../components/ImageSlide';
+import Meta from '../components/Meta';
 import Navbar from '../components/Navbar';
 
 export default function Home() {
   return (
     <div className="bg-gray-400 overflow-hidden">
+      <Meta />
       <Navbar
         logoUrl="image/logolb3r.png"
         logoAlt="Logo"
