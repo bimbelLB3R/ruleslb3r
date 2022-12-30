@@ -4,13 +4,14 @@ const Payment = () => {
   return (
     <>
       <Navbar
-        logoUrl="../../image/home.svg"
+        logoUrl="../../image/logolb3r.png"
         logoAlt="Logo"
         menuItems={[
           { label: 'Kembali ke Home', url: '/' },
           { label: 'Cara Membuat Kelas Baru', url: '/rules/newclass' },
           { label: 'Aturan One Day Before', url: '/rules/odb' },
           { label: 'Ketentuan Kegiatan Belajar', url: '/rules/kbm' },
+          { label: 'Ketentuan Berhenti Belajar', url: '/rules/off' },
         ]}
       />
       <div className="flex justify-center items-center m-auto overflow-scroll mb-20 md:max-w-2xl">

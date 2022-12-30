@@ -4,13 +4,14 @@ const Odb = () => {
   return (
     <>
       <Navbar
-        logoUrl="../../image/home.svg"
+        logoUrl="../../image/logolb3r.png"
         logoAlt="Logo"
         menuItems={[
           { label: 'Kembali ke Home', url: '/' },
           { label: 'Cara Membuat Kelas Baru', url: '/rules/newclass' },
           { label: 'Sistem Pembayaran & Biaya', url: '/rules/payment' },
           { label: 'Ketentuan Kegiatan Belajar', url: '/rules/kbm' },
+          { label: 'Ketentuan Berhenti Belajar', url: '/rules/off' },
         ]}
       />
       <div className="flex justify-center items-center m-auto overflow-scroll mb-20 md:max-w-2xl">
@@ -73,6 +74,14 @@ const Odb = () => {
                 <td className="text-justify">
                   Tidak semua mata pelajaran akan diadakan ODB, tergantung
                   berbagai faktor (pengajar dll)
+                </td>
+              </tr>
+              <tr>
+                <td className="align-top">8.</td>
+                <td className="text-justify">
+                  Dalam kondisi tertentu, akan dilakukan penggabungan (merge)
+                  kelas, misal ketika jumlah kelas ODB melebihi jumlah pengajar
+                  yang tersedia.
                 </td>
               </tr>
             </tbody>

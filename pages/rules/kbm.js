@@ -4,13 +4,14 @@ const Kbm = () => {
   return (
     <>
       <Navbar
-        logoUrl="../../image/home.svg"
+        logoUrl="../../image/logolb3r.png"
         logoAlt="Logo"
         menuItems={[
           { label: 'Kembali ke Home', url: '/' },
           { label: 'Sistem Pembayaran & Biaya', url: '/rules/payment' },
           { label: 'Cara Membuat Kelas Baru', url: '/rules/newclass' },
           { label: 'Aturan One Day Before', url: '/rules/odb' },
+          { label: 'Ketentuan Berhenti Belajar', url: '/rules/off' },
         ]}
       />
       <div className="flex justify-center items-center m-auto overflow-scroll mb-20 md:max-w-2xl">
@@ -89,7 +90,8 @@ const Kbm = () => {
                   Siswa yang terlambat datang tidak akan mendapatkan tambahan
                   waktu, sedangkan jika pengajar terlambat datang maka siswa
                   berhak mengajukan tambahan jam di hari yang sama atau diwaktu
-                  lain.
+                  lain di minggu atau bulan yang sama. Ingat, jam pengganti
+                  tidak bisa diakumulasi di bulan berikutnya.
                 </td>
               </tr>
               <tr>
