@@ -104,7 +104,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
+    <div className="flex justify-center items-center min-h-screen bg-gray-400 text-gray-900">
       <form
         className="space-y-3 w-full max-w-lg mx-auto p-5"
         onSubmit={submitForm}>
@@ -113,8 +113,8 @@ const ContactForm = () => {
           <input
             name="name"
             type="text"
-            className="form-input form-field-contact w-full"
-            placeholder="Full Name"
+            className=" w-full"
+            placeholder="Nama Lengkap"
             onChange={handleChange}
           />
         </div>
@@ -122,7 +122,7 @@ const ContactForm = () => {
           <input
             name="email"
             type="email"
-            className="form-input form-field-contact w-full"
+            className=" w-full"
             placeholder="Email"
             onChange={handleChange}
           />
@@ -131,7 +131,7 @@ const ContactForm = () => {
           <input
             name="topic"
             type="text"
-            className="form-input form-field-contact w-full"
+            className=" w-full"
             placeholder="Instagram Kamu"
             onChange={handleChange}
           />
