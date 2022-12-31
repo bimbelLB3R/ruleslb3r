@@ -6,7 +6,7 @@ const Navbar = ({ logoUrl, logoAlt, menuItems }) => {
 
   return (
     <div className="">
-      <nav className="fixed bottom-0 md:relative z-50 w-full flex items-center justify-center md:justify-between flex-wrap bg-gray-400 md:bg-gray-900 p-6">
+      <nav className="fixed bottom-0 md:relative z-40 w-full flex items-center justify-center md:justify-between flex-wrap bg-gray-400 md:bg-gray-900 p-6">
         <div className="hidden md:visible md:flex items-center flex-shrink-0 text-white mr-6">
           <a href="/">
             <img
@@ -26,10 +26,10 @@ const Navbar = ({ logoUrl, logoAlt, menuItems }) => {
               width="36"
               height="36"
               fill="currentColor"
-              class="bi bi-list"
+              className="bi bi-list"
               viewBox="0 0 16 16">
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
               />
             </svg>
