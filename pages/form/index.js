@@ -23,7 +23,8 @@ const ContactForm = () => {
     try {
       await doc.useServiceAccountAuth({
         client_email: GOOGLE_CLIENT_EMAIL,
-        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+        private_key: GOOGLE_SERVICE_PRIVATE_KEY,
+        // private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
       });
       // loads document properties and worksheets
       await doc.loadInfo();

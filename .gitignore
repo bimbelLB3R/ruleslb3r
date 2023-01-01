@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+#other
+bimbel-lb3r-c6f78e83617e.json
+.gitignore
