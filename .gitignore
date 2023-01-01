@@ -35,4 +35,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+bimbel-lb3r-c6f78e83617e.json
+.env
+
 
