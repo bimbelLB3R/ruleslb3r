@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import Swal from 'sweetalert2';
+import Loader from '../../components/Loader';
+import { useRouter } from 'next/router';
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -10,6 +12,8 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 const ContactForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -76,8 +80,9 @@ const ContactForm = () => {
           Topic: form.topic,
           Description: form.description,
         };
-
-        appendSpreadsheet(newRow);
+        setIsLoading(true); // set status loading menjadi true
+        await appendSpreadsheet(newRow);
+        setIsLoading(false); // set status loading menjadi false setelah proses selesai
         e.target.reset();
 
         Swal.fire({
@@ -86,6 +91,7 @@ const ContactForm = () => {
           icon: 'success',
           confirmButtonText: 'Ok',
         });
+        router.push('/');
       } else {
         Swal.fire({
           title: `${form.name} pernah kirim saran`,
@@ -147,9 +153,13 @@ const ContactForm = () => {
           />
         </div>
         <button
-          className="bg-green-200 px-3 py-1 font-semibold shadow-md rounded-md"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center"
           type="submit">
-          Kirim Saran
+          {isLoading ? (
+            <Loader /> // tampilkan komponen loader jika proses append sedang berlangsung
+          ) : (
+            'Kirim Saran' // tampilkan teks 'Submit' jika proses append selesai
+          )}
         </button>
       </form>
     </div>
