@@ -36,5 +36,5 @@ yarn-error.log*
 next-env.d.ts
 
 #other
-bimbel-lb3r-c6f78e83617e.json
-.gitignore
+/bimbel-lb3r-c6f78e83617e.json
+/.gitignore
