@@ -14,8 +14,8 @@ const Kbm = () => {
           { label: 'Ketentuan Berhenti Belajar', url: '/rules/off' },
         ]}
       />
-      <div className="flex justify-center items-center m-auto overflow-scroll mb-20 md:max-w-2xl">
-        <div className="bg-gray-400 text-gray-900 p-4 overflow-scroll">
+      <div className="flex justify-center items-center m-auto overflow-scroll xl:overflow-auto mb-20 md:max-w-2xl">
+        <div className="bg-gray-400 text-gray-900 p-4 overflow-scroll xl:overflow-auto">
           <h1 className=" text-lg font-semibold p-4 fixed z-50 md:relative top-0 left-0 bg-gray-900 w-full text-gray-100">
             Ketentuan Kegiatan Belajar
           </h1>
