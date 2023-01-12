@@ -21,6 +21,7 @@
     "googleapis": "^110.0.0",
     "js-cookie": "^3.0.1",
     "jsonwebtoken": "^8.5.1",
+    "katex": "^0.16.4",
     "knex": "^2.3.0",
     "mysql": "^2.18.1",
     "next": "12.3.1",
@@ -29,6 +30,7 @@
     "next-fonts": "^1.5.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-latex": "^2.0.0",
     "react-responsive-carousel": "^3.2.23",
     "react-slick": "^0.29.0",
     "sweetalert2": "^11.6.16"
