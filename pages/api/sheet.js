@@ -9,7 +9,7 @@ const keys = {
   client_email: clientEmail,
   private_key: privateKey,
 };
-
+console.log(clientEmail);
 export default function handler(req, res) {
   try {
     const client = new google.auth.JWT(
