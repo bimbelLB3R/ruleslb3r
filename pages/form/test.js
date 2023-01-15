@@ -1,17 +1,17 @@
 import Head from 'next/head';
 import NavSoal from '../../components/NavSoal';
 import { Radio } from 'antd';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Home({ sheetdata }) {
   const [selectedValues, setSelectedValues] = useState({});
-
+  // console.log(process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL);
   useEffect(() => {
     // Retrieve the selected values from local storage on initial render
 
     sheetdata.forEach((index) => {
       const savedValue = localStorage.getItem(`group${index[0]}`);
-      console.log(index[0]);
+      // console.log(index[0]);
       // console.log(localStorage.key(index));
       if (savedValue) {
         setSelectedValues((selectedValues) => ({
@@ -24,8 +24,8 @@ export default function Home({ sheetdata }) {
   }, []);
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name);
-    console.log(value);
+    // console.log(name);
+    // console.log(value);
     setSelectedValues((selectedValues) => ({
       ...selectedValues,
       [name]: value,
@@ -47,124 +47,114 @@ export default function Home({ sheetdata }) {
         <NavSoal sumSoal={sheetdata} />
       </div>
       <main>
-        <div className="max-w-xl mb-2 flex items-center justify-center m-auto p-4 bg-gray-200 text-gray-900">
-          <div className="mb-12">
-            {sheetdata.map((item, index) => (
-              <div key={index}>
-                {/* Bacaan */}
-                <p className="text-center mb-2 indent-8 font-semibold mt-4">
-                  {item[2]}
-                </p>
-                <div className="flex items-center justify-center">
-                  <img src={item[27]} className="w-full" />
-                </div>
-                <p className="text-justify mb-2 indent-8">{item[3]}</p>
-                <p className="text-justify mb-2 indent-8">{item[4]}</p>
-                <p className="text-justify mb-2 indent-8">{item[5]}</p>
-                <p className="text-justify mb-2 indent-8">{item[6]}</p>
-                <p className="text-justify mb-4 indent-8">{item[7]}</p>
-                {/* Tambahan bacaan kolom orange */}
-                <p className="text-justify mb-4 indent-8">{item[14]}</p>
-                <p className="text-justify mb-4 indent-8">{item[15]}</p>
-                <p className="text-justify mb-4 indent-8">{item[16]}</p>
-                <p className="text-justify mb-4 indent-8">{item[17]}</p>
-                <p className="text-center mb-4 indent-8 font-semibold">
-                  {item[18]}
-                </p>
-                <p className="text-justify mb-4 indent-8">{item[19]}</p>
-                <p className="text-justify mb-4 indent-8">{item[20]}</p>
-                <p className="text-justify mb-4 indent-8">{item[21]}</p>
-                <p className="text-justify mb-4 indent-8">{item[22]}</p>
-                <p className="text-justify mb-4 indent-8">{item[23]}</p>
-                {/* Pertanyaan */}
-                <div className="flex space-x-2 ">
-                  <p
-                    className="text-justify mb-2 bg-gray-300 p-1"
-                    id={item[28]}>
-                    {item[28]}
+        <form>
+          <div className="max-w-xl mb-2 flex items-center justify-center m-auto p-4 bg-gray-200 text-gray-900">
+            <div className="mb-12">
+              {sheetdata.map((item, index) => (
+                <div key={index}>
+                  {/* Bacaan */}
+                  <p className="text-center mb-2 indent-8 font-semibold mt-4">
+                    {item[2]}
                   </p>
-                  <p className="text-justify mb-2 bg-gray-300 p-1">{item[8]}</p>
+                  <div className="flex items-center justify-center">
+                    <img src={item[27]} className="w-full" />
+                  </div>
+                  <p className="text-justify mb-2 indent-8">{item[3]}</p>
+                  <p className="text-justify mb-2 indent-8">{item[4]}</p>
+                  <p className="text-justify mb-2 indent-8">{item[5]}</p>
+                  <p className="text-justify mb-2 indent-8">{item[6]}</p>
+                  <p className="text-justify mb-4 indent-8">{item[7]}</p>
+                  {/* Tambahan bacaan kolom orange */}
+                  <p className="text-justify mb-4 indent-8">{item[14]}</p>
+                  <p className="text-justify mb-4 indent-8">{item[15]}</p>
+                  <p className="text-justify mb-4 indent-8">{item[16]}</p>
+                  <p className="text-justify mb-4 indent-8">{item[17]}</p>
+                  <p className="text-center mb-4 indent-8 font-semibold">
+                    {item[18]}
+                  </p>
+                  <p className="text-justify mb-4 indent-8">{item[19]}</p>
+                  <p className="text-justify mb-4 indent-8">{item[20]}</p>
+                  <p className="text-justify mb-4 indent-8">{item[21]}</p>
+                  <p className="text-justify mb-4 indent-8">{item[22]}</p>
+                  <p className="text-justify mb-4 indent-8">{item[23]}</p>
+                  {/* Pertanyaan */}
+                  <div className="flex space-x-2 ">
+                    <p
+                      className="text-justify mb-2 bg-gray-300 p-1"
+                      id={item[28]}>
+                      {item[28]}
+                    </p>
+                    <p className="text-justify mb-2 bg-gray-300 p-1">
+                      {item[8]}
+                    </p>
+                  </div>
+                  {/* Opsi Jawaban */}
+                  <div className="pr-4 pl-4">
+                    <Radio.Group
+                      onChange={handleChange}
+                      value={selectedValues[`group${index}`]}
+                      name={`group${index}`}>
+                      <div className="flex space-x-1">
+                        <Radio value="A" className="text-justify ">
+                          <div className="flex items-center space-x-2 mb-2">
+                            <p className="font-semibold">A</p>
+                            <p className="text-justify ">{item[9]}</p>
+                          </div>
+                        </Radio>
+                      </div>
+                      <div className="flex space-x-1">
+                        <Radio value="B" className="text-justify ">
+                          <div className="flex items-center space-x-2 mb-2">
+                            <p className="font-semibold">B</p>
+                            <p className="text-justify ">{item[10]}</p>
+                          </div>
+                        </Radio>
+                      </div>
+                      <div className="flex space-x-1">
+                        <Radio value="C" className="text-justify ">
+                          <div className="flex items-center space-x-2 mb-2">
+                            <p className="font-semibold">C</p>
+                            <p className="text-justify ">{item[11]}</p>
+                          </div>
+                        </Radio>
+                      </div>
+                      <div className="flex space-x-1">
+                        <Radio value="D" className="text-justify ">
+                          <div className="flex items-center space-x-2 mb-2">
+                            <p className="font-semibold">D</p>
+                            <p className="text-justify ">{item[12]}</p>
+                          </div>
+                        </Radio>
+                      </div>
+                      <div className="flex space-x-1">
+                        <Radio value="E" className=" flex items-start">
+                          <div className="flex items-center space-x-2 mb-2">
+                            <p className="font-semibold">E</p>
+                            <p className="text-justify ">{item[13]}</p>
+                          </div>
+                        </Radio>
+                      </div>
+                    </Radio.Group>
+                  </div>
                 </div>
-                {/* Opsi Jawaban */}
-                <div className="pr-4 pl-4">
-                  {/* <div className="flex space-x-1">
-                    <p className="text-justify ">A.</p>
-                    <p className="text-justify ">{item[9]}</p>
-                  </div>
-                  <div className="flex space-x-1">
-                    <p className="text-justify ">B.</p>
-                    <p className="text-justify ">{item[10]}</p>
-                  </div>
-                  <div className="flex space-x-1">
-                    <p className="text-justify ">C.</p>
-                    <p className="text-justify ">{item[11]}</p>
-                  </div>
-                  <div className="flex space-x-1">
-                    <p className="text-justify ">D.</p>
-                    <p className="text-justify ">{item[12]}</p>
-                  </div>
-                  <div className="flex space-x-1">
-                    <p className="text-justify ">E.</p>
-                    <p className="text-justify mb-2">{item[13]}</p>
-                  </div> */}
-
-                  <Radio.Group
-                    onChange={handleChange}
-                    value={selectedValues[`group${index}`]}
-                    name={`group${index}`}>
-                    <div className="flex space-x-1">
-                      <Radio value="A" className="text-justify ">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <p className="font-semibold">A</p>
-                          <p className="text-justify ">{item[9]}</p>
-                        </div>
-                      </Radio>
-                    </div>
-                    <div className="flex space-x-1">
-                      <Radio value="B" className="text-justify ">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <p className="font-semibold">B</p>
-                          <p className="text-justify ">{item[10]}</p>
-                        </div>
-                      </Radio>
-                    </div>
-                    <div className="flex space-x-1">
-                      <Radio value="C" className="text-justify ">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <p className="font-semibold">C</p>
-                          <p className="text-justify ">{item[11]}</p>
-                        </div>
-                      </Radio>
-                    </div>
-                    <div className="flex space-x-1">
-                      <Radio value="D" className="text-justify ">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <p className="font-semibold">D</p>
-                          <p className="text-justify ">{item[12]}</p>
-                        </div>
-                      </Radio>
-                    </div>
-                    <div className="flex space-x-1">
-                      <Radio value="E" className=" flex items-start">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <p className="font-semibold">E</p>
-                          <p className="text-justify ">{item[13]}</p>
-                        </div>
-                      </Radio>
-                    </div>
-                  </Radio.Group>
-                </div>
+              ))}
+              <div className="flex justify-end">
+                <button
+                  className="bg-blue-600 p-4 rounded-full text-gray-100"
+                  type="submit">
+                  Kirim Jawaban
+                </button>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
+        </form>
       </main>
     </div>
   );
 }
 
 export async function getServerSideProps() {
-  const req = await fetch('https://ruleslb3r.vercel.app/api/sheet');
+  const req = await fetch('http://localhost:3000/api/sheet');
   const res = await req.json();
 
   return {

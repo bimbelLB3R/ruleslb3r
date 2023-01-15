@@ -1,12 +1,16 @@
 import { google } from 'googleapis';
-import keys from './key';
+// import keys from './key';
+// import dotenv from 'dotenv';
+// dotenv.config();
 
 export default function handler(req, res) {
   try {
     const client = new google.auth.JWT(
-      keys.client_email,
+      // keys.client_email,
+      process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL,
       null,
-      keys.private_key,
+      // keys.private_key,
+      process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY,
       ['https://www.googleapis.com/auth/spreadsheets']
     );
 

@@ -22,7 +22,7 @@ const ContactForm = () => {
   });
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
-
+  // console.log(SPREADSHEET_ID);
   const appendSpreadsheet = async (row) => {
     try {
       await doc.useServiceAccountAuth({
@@ -50,7 +50,7 @@ const ContactForm = () => {
     const sheet = doc.sheetsById[SHEET_ID]; // tambahkan baris ini untuk mendefinisikan sheet
     const rows = await sheet.getRows();
 
-    console.log(rows);
+    // console.log(rows);
     const nameExists = rows.find((row) => row.name === name); //penulisan row.name , name nya harus sama dengan di google sheet name
     if (!nameExists) {
       // Name does not exist, form can be submitted

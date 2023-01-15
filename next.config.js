@@ -9,6 +9,7 @@
 // custom font
 
 // next.config.js
+require('dotenv').config();
 module.exports = {
   webpack: (config, { isServer }) => {
     if (!isServer) {
