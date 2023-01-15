@@ -1,7 +1,7 @@
 import { google } from 'googleapis';
 // import keys from './key';
-// import dotenv from 'dotenv';
-// dotenv.config();
+import dotenv from 'dotenv';
+dotenv.config();
 const clientEmail = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
 const privateKey = process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
