@@ -91,7 +91,7 @@ const Newmember = () => {
           icon: 'success',
           confirmButtonText: 'Ok',
         });
-        router.push('/');
+        router.push('/form/login');
       } else {
         Swal.fire({
           title: `${form.nisn} sudah terdaftar`,

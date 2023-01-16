@@ -86,7 +86,7 @@ const Loginmember = () => {
           icon: 'success',
           confirmButtonText: 'Ok',
         });
-        router.push('/');
+        router.push('/form/snbt');
       } else {
         Swal.fire({
           title: `${form.nisn} belum terdaftar`,

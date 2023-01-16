@@ -18,6 +18,11 @@ export default function Home() {
           { label: 'Aturan One Day Before', url: '/rules/odb' },
           { label: 'Ketentuan Kegiatan Belajar', url: '/rules/kbm' },
           { label: 'Ketentuan Berhenti Belajar', url: '/rules/off' },
+          {
+            label: 'DAFTAR SNBT',
+            url: '/form/newmember',
+            className: 'bg-blue-600 p-2 hover:bg-blue-400',
+          },
         ]}
       />
       <ImageSlide />
