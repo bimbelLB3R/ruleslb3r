@@ -21,7 +21,6 @@ export default function Home() {
           {
             label: 'DAFTAR SNBT',
             url: '/form/newmember',
-            className: 'bg-blue-600 p-2 hover:bg-blue-400',
           },
         ]}
       />
