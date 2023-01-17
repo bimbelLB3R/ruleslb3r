@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import Swal from 'sweetalert2';
 import Loader from '../../components/Loader';
@@ -6,25 +6,59 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import NavSoal from '../../components/NavSoal';
 import { Radio } from 'antd';
+// import Timer from '../../components/Timer';
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
 // sheet jawaban
 const SHEET_ID3 = process.env.NEXT_PUBLIC_SHEET_ID3;
 // sheet database siswa
-const SHEET_ID = process.env.NEXT_PUBLIC_SHEET_ID;
+const SHEET_ID2 = process.env.NEXT_PUBLIC_SHEET_ID2;
 const GOOGLE_CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
 const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 // console.log(SHEET_ID3);
 
 const ContactForm = ({ sheetdata }) => {
-  // console.log(sheetdata);
-  useEffect(() => {
-    // Retrieve the selected values from local storage on initial render
+  const formRef = useRef(null);
+  // const initialTimeLeft = localStorage.getItem('timer') || 10;
+  // const [timeLeft, setTimeLeft] = useState(initialTimeLeft);
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     localStorage.setItem('timer', timeLeft);
+  //     setTimeLeft((timeLeft) => timeLeft - 1);
+  //   }, 1000);
 
+  //   if (timeLeft === 0) {
+  //     submitFormAuto();
+  //     localStorage.clear();
+  //     router.push('/');
+  //   }
+  //   return () => {
+  //     clearInterval(intervalId);
+  //     setTimeLeft(initialTimeLeft);
+  //   };
+  // }, [timeLeft]);
+
+  // console.log(sheetdata);
+  const [storedName, setStorageName] = useState('Student');
+  useEffect(() => {
+    // cek apakah ada name di local storage
+    const storedName = localStorage.getItem('name');
+    if (!storedName) {
+      router.push('/form/login');
+    } else {
+      setStorageName(storedName);
+    }
     sheetdata.forEach((index) => {
+      // cek apakah sudah ada nisn dan nama di local storage
+      const storedNisn = localStorage.getItem('nisn');
+
+      if (storedNisn) {
+        setForm({ ...form, nisn: storedNisn });
+      }
       const savedValue = localStorage.getItem(`group${index[0]}`);
+
       // console.log(index[0]);
       // console.log(localStorage.key(index));
       if (savedValue) {
@@ -73,8 +107,8 @@ const ContactForm = ({ sheetdata }) => {
       private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
     });
     await doc.loadInfo(); // tambahkan baris ini untuk memastikan sheet telah terdefinisi
-    const sheet = doc.sheetsById[SHEET_ID3]; // tambahkan baris ini untuk mendefinisikan sheet
-    const rows = await sheet.getRows();
+    const sheet3 = doc.sheetsById[SHEET_ID3]; // tambahkan baris ini untuk mendefinisikan sheet
+    const rows = await sheet3.getRows();
     //penulisan row.nisn , nisn nya harus sama dengan di google sheet nisn
     const nisnExists = rows.find((row) => row.nisn == nisn);
     // if nisn already exist return true
@@ -86,8 +120,9 @@ const ContactForm = ({ sheetdata }) => {
 
   // cek nisn sdh ada atau belum end
 
-  const submitForm = async (e, sheet) => {
+  const submitForm = async (e, sheet3) => {
     e.preventDefault();
+
     // cek ricek
 
     let isValid = true;
@@ -119,7 +154,7 @@ const ContactForm = ({ sheetdata }) => {
     // cek ricek end
 
     if (isValid) {
-      const nisnAda = await checkNisn(form.nisn, sheet);
+      const nisnAda = await checkNisn(form.nisn, sheet3);
       if (nisnAda) {
         setErrorMessage('NISN already exist');
       }
@@ -133,8 +168,8 @@ const ContactForm = ({ sheetdata }) => {
       appendSpreadsheet(newRow);
       // Show a message to indicate that the data has been sent
       Swal.fire({
-        title: 'Data has been sent',
-        text: 'Thank you for submitting your data',
+        title: 'Jawabanmu Berhasil Terkirim',
+        text: 'Lanjutkan Soal Berikutnya',
         icon: 'success',
       });
       // clear localstorage
@@ -151,6 +186,73 @@ const ContactForm = ({ sheetdata }) => {
       });
     }
   };
+
+  // Duplikasi submit form, untuk yang auto submit
+  const submitFormAuto = async (sheet3) => {
+    // cek ricek
+
+    let isValid = true;
+    // let errorMessage = '';
+    function isNumber(value) {
+      return /^\d+$/.test(value);
+    }
+
+    // Check if nisn is not empty
+    if (!form.nisn) {
+      isValid = false;
+      // errorMessage = 'NISN is required';
+      setErrorMessage('NISN is required');
+    }
+    if (isValid && !isNumber(form.nisn)) {
+      isValid = false;
+      // errorMessage = 'NISN is must be number';
+      setErrorMessage('NISN must be a number');
+    }
+
+    // Check if all radiobuttons have been selected
+    if (
+      isValid &&
+      !Object.values(selectedValues).every((value) => value !== null)
+    ) {
+      isValid = false;
+      errorMessage = 'All question must be answered';
+    }
+    // cek ricek end
+
+    if (isValid) {
+      const nisnAda = await checkNisn(form.nisn, sheet3);
+      if (nisnAda) {
+        setErrorMessage('NISN already exist');
+      }
+      const newRow = {
+        nisn: form.nisn,
+        ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
+          acc[name] = savedValue;
+          return acc;
+        }, {}),
+      };
+      appendSpreadsheet(newRow);
+      // Show a message to indicate that the data has been sent
+      Swal.fire({
+        title: 'Waktu Habis, Jawabanmu Terkirim Otomatis',
+        text: 'Lanjutkan Soal Berikutnya',
+        icon: 'success',
+      });
+      // clear localstorage
+      localStorage.clear();
+      // Reset the form
+      setForm({ nisn: '', name: '' });
+      setSelectedValues({});
+      router.push('/');
+    } else {
+      Swal.fire({
+        title: 'Error',
+        text: errorMessage,
+        icon: 'error',
+      });
+    }
+  };
+  // Duplikasi submit form, untuk yang auto submit
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -176,14 +278,18 @@ const ContactForm = ({ sheetdata }) => {
       <div className="md:flex justify-center fixed bottom-0 z-50 overflow-auto left-0 right-0 ">
         <NavSoal sumSoal={sheetdata} />
       </div>
+      {/* Selamat datang peserta */}
+      <div className="md:flex justify-center fixed top-0 z-50 overflow-auto left-0 right-0 bg-gray-900 text-gray-100">
+        <p className="text-center font-semibold p-2">Welcome, {storedName}</p>
+      </div>
       <main>
-        <form onSubmit={submitForm}>
-          <div className="max-w-xl mb-2 flex items-center justify-center m-auto p-4 bg-gray-200 text-gray-900">
+        <form onSubmit={submitForm} ref={formRef}>
+          <div className="max-w-xl mb-2 flex items-center justify-center m-auto p-4 bg-gray-300 text-gray-900">
             <div className="mb-12">
               <div>
-                <label htmlFor="nisn">NISN:</label>
+                {/* <label htmlFor="nisn">NISN:</label> */}
                 <input
-                  type="number"
+                  type="hidden"
                   name="nisn"
                   id="nisn"
                   className="w-full"
@@ -192,10 +298,28 @@ const ContactForm = ({ sheetdata }) => {
                   onChange={(e) => setForm({ ...form, nisn: e.target.value })}
                 />
               </div>
+              {/* Timer */}
+              <div>
+                <div className="flex justify-start items-center space-x-2 fixed top-3 z-50 overflow-auto left-10 right-10 text-gray-100">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-alarm"
+                    viewBox="0 0 16 16">
+                    <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z" />
+                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z" />
+                  </svg>
+                  <div>
+                    <p className="text-xs">timer </p>
+                  </div>
+                </div>
+              </div>
               {sheetdata.map((item, index) => (
-                <div key={index}>
+                <div key={index} className="bg-gray-300">
                   {/* Bacaan */}
-                  <p className="text-center mb-2 indent-8 font-semibold mt-4">
+                  <p className="text-center mb-2 indent-8 font-semibold mt-12">
                     {item[2]}
                   </p>
                   <div className="flex items-center justify-center">
@@ -237,7 +361,7 @@ const ContactForm = ({ sheetdata }) => {
                       value={selectedValues[`group${index}`]}
                       name={`group${index}`}>
                       <div className="flex space-x-1">
-                        <Radio value="A" className="text-justify ">
+                        <Radio value="A" className="text-justify">
                           <div className="flex items-center space-x-2 mb-2">
                             <p className="font-semibold">A</p>
                             <p className="text-justify ">{item[9]}</p>
@@ -270,7 +394,7 @@ const ContactForm = ({ sheetdata }) => {
                       </div>
                       <div className="flex space-x-1">
                         <Radio value="E" className=" flex items-start">
-                          <div className="flex items-center space-x-2 mb-2">
+                          <div className="flex items-center space-x-2">
                             <p className="font-semibold">E</p>
                             <p className="text-justify ">{item[13]}</p>
                           </div>
@@ -281,7 +405,7 @@ const ContactForm = ({ sheetdata }) => {
                 </div>
               ))}
               <div className="flex justify-end">
-                <button
+                {/* <button
                   className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center w-full justify-center"
                   type="submit">
                   {isLoading ? (
@@ -289,6 +413,20 @@ const ContactForm = ({ sheetdata }) => {
                   ) : (
                     'Klik untuk Kirim Jawaban Jika Kamu sudah yakin' // tampilkan teks 'Submit' jika proses append selesai
                   )}
+                </button> */}
+                <button
+                  type="submit"
+                  className="flex space-x-2 items-center justify-end fixed top-3 z-50 overflow-auto  text-gray-100 right-10">
+                  <p>Kirim</p>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    className="bi bi-send"
+                    viewBox="0 0 16 16">
+                    <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
+                  </svg>
                 </button>
               </div>
             </div>
@@ -312,3 +450,11 @@ export async function getServerSideProps() {
     },
   };
 }
+
+// cek localstorage dari serverside
+// export async function getInitialProps(ctx) {
+//   if (!ctx.req && !localStorage.getItem('nisn')) {
+//     Router.push('/form/login');
+//   }
+//   return {};
+// }

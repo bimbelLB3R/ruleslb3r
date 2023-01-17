@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import Swal from 'sweetalert2';
 import Loader from './Loader';
 import { useRouter } from 'next/router';
+// import session from 'express-session';
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -19,7 +20,14 @@ const Loginmember = () => {
     nisn: '',
     nama: '',
   });
+  // cek apakah sudah ada nisn dan nama di local storage
+  useEffect(() => {
+    const storedNisn = localStorage.getItem('nisn');
 
+    if (storedNisn) {
+      router.push('/form/snbt');
+    }
+  }, []);
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
   const appendSpreadsheet = async (row) => {
@@ -76,17 +84,21 @@ const Loginmember = () => {
           nama: form.nama,
         };
         setIsLoading(true); // set status loading menjadi true
-        await appendSpreadsheet(newRow);
+        // await appendSpreadsheet(newRow);
+        localStorage.setItem('name', form.nama);
+        localStorage.setItem('nisn', form.nisn);
+        localStorage.setItem('timer', 10);
         setIsLoading(false); // set status loading menjadi false setelah proses selesai
-        e.target.reset();
+        // e.target.reset();
+
+        router.push('/form/snbt');
 
         Swal.fire({
           title: 'Kamu Berhasil Masuk',
-          text: 'Terima kasih telah bergabung program SNBT LB3R',
+          text: 'Tunggu sebentar....',
           icon: 'success',
           confirmButtonText: 'Ok',
         });
-        router.push('/form/snbt');
       } else {
         Swal.fire({
           title: `${form.nisn} belum terdaftar`,

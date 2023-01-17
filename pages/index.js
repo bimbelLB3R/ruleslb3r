@@ -19,7 +19,7 @@ export default function Home() {
           { label: 'Ketentuan Kegiatan Belajar', url: '/rules/kbm' },
           { label: 'Ketentuan Berhenti Belajar', url: '/rules/off' },
           {
-            label: 'DAFTAR SNBT',
+            label: 'MULAI SNBT',
             url: '/form/newmember',
           },
         ]}
