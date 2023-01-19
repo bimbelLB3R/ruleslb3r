@@ -2,7 +2,7 @@ import { Accordion } from 'flowbite-react';
 const Faq = () => {
   return (
     <div className="flex items-center justify-center">
-      <div className="md:max-w-2xl mb-24 overflow-hidden">
+      <div className="md:max-w-2xl mb-36 overflow-hidden">
         <Accordion alwaysOpen={true}>
           <Accordion.Panel>
             <Accordion.Title>

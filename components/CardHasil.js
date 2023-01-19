@@ -1,11 +1,27 @@
 import { Card, Dropdown } from 'flowbite-react';
+import React, { useState } from 'react';
 
-const CardHasil = ({ sheetdata, filteredNisn, storedName, storedNisn }) => {
+const CardHasil = ({
+  sheetdata,
+  filteredNisn,
+  storedName,
+  storedNisn,
+  tipeSoal,
+}) => {
   //   console.log(filteredNisn);
+  console.log(tipeSoal);
+  const [hapusLocal, setHapusLocal] = useState('');
+  // const [tipeSoal, setTipeSoal] = useState('');
+  const handleHapus = () => {
+    setHapusLocal(localStorage.clear());
+  };
 
   return (
     <div className="max-w-sm">
       <Card>
+        <p className="bg-blue-600 w-full p-4 text-[16] font-bold rounded-xl text-gray-50">
+          {tipeSoal}
+        </p>
         <div className="flex justify-end px-4 pt-4">
           <Dropdown inline={true} label="">
             <Dropdown.Item>
@@ -52,7 +68,7 @@ const CardHasil = ({ sheetdata, filteredNisn, storedName, storedNisn }) => {
           </svg>
         </div>
         <div>
-          <div>
+          <div className="border-b-2">
             <h5 className=" text-xl font-medium text-gray-900 dark:text-white">
               {storedName}
             </h5>
@@ -69,10 +85,13 @@ const CardHasil = ({ sheetdata, filteredNisn, storedName, storedNisn }) => {
             </div>
           ))}
           <div className="mt-4 flex space-x-3 lg:mt-6">
-            <a
-              href="/"
-              className="inline-flex items-center rounded-lg bg-blue-700 py-2 px-4 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Lanjut
+            <a href="/">
+              <button
+                onClick={handleHapus}
+                href="/"
+                className="inline-flex items-center rounded-lg bg-blue-700 py-2 px-4 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Lanjut
+              </button>
             </a>
             <a
               href="/form/snbt"

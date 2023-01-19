@@ -27,6 +27,7 @@ const ContactForm = ({ sheetdata }) => {
 
   const [storedNisn, setStorageNisn] = useState('');
   const [storedName, setStorageName] = useState('Student');
+  const [tipeSoal, setTipeSoal] = useState('');
   // console.log(storedName);
   // console.log(storedNisn);
   const filteredData = sheetdata.map((item) => item);
@@ -36,12 +37,14 @@ const ContactForm = ({ sheetdata }) => {
     // cek apakah ada name di local storage
     const storedName = localStorage.getItem('name');
     const storedNisn = localStorage.getItem('nisn');
+    const tipeSoal = localStorage.getItem('tipeSoal');
 
     if (!storedName) {
       router.push('/form/login');
     } else {
       setStorageName(storedName);
       setStorageNisn(storedNisn);
+      setTipeSoal(tipeSoal);
     }
     // sheetdata.forEach((index) => {
     //   // cek apakah sudah ada nisn dan nama di local storage
@@ -91,6 +94,7 @@ const ContactForm = ({ sheetdata }) => {
                 filteredNisn={filteredNisn}
                 storedName={storedName}
                 storedNisn={storedNisn}
+                tipeSoal={tipeSoal}
               />
             </div>
           </div>

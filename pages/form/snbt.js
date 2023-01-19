@@ -21,6 +21,8 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
 // console.log(SHEET_ID3);
 
 const ContactForm = ({ sheetdata }) => {
+  // console.log(sheetdata[0][1]);
+  const tipeSoal = sheetdata[0][1];
   const formRef = useRef(null);
 
   // console.log(sheetdata);
@@ -161,6 +163,7 @@ const ContactForm = ({ sheetdata }) => {
       // Reset the form
       setForm({ nisn: '', name: '' });
       setSelectedValues({});
+      localStorage.setItem('tipeSoal', tipeSoal);
       router.push('/form/output');
     } else {
       Swal.fire({
@@ -265,7 +268,7 @@ const ContactForm = ({ sheetdata }) => {
       {/* Selamat datang peserta */}
       <div className="md:flex justify-center fixed top-0 z-50 overflow-auto left-0 right-0 bg-gray-900 text-gray-100">
         <p className="text-center font-semibold p-2 text-xs">
-          Welcome, {storedName}
+          {storedName} is doing {tipeSoal} now...
         </p>
       </div>
       <main>
