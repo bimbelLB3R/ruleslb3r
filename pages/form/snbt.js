@@ -6,7 +6,8 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import NavSoal from '../../components/NavSoal';
 import { Radio } from 'antd';
-// import Timer from '../../components/Timer';
+import Timer from '../../components/Timer';
+import Modali from '../../components/Modali';
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -21,24 +22,6 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
 
 const ContactForm = ({ sheetdata }) => {
   const formRef = useRef(null);
-  // const initialTimeLeft = localStorage.getItem('timer') || 10;
-  // const [timeLeft, setTimeLeft] = useState(initialTimeLeft);
-  // useEffect(() => {
-  //   const intervalId = setInterval(() => {
-  //     localStorage.setItem('timer', timeLeft);
-  //     setTimeLeft((timeLeft) => timeLeft - 1);
-  //   }, 1000);
-
-  //   if (timeLeft === 0) {
-  //     submitFormAuto();
-  //     localStorage.clear();
-  //     router.push('/');
-  //   }
-  //   return () => {
-  //     clearInterval(intervalId);
-  //     setTimeLeft(initialTimeLeft);
-  //   };
-  // }, [timeLeft]);
 
   // console.log(sheetdata);
   const [storedName, setStorageName] = useState('Student');
@@ -111,6 +94,7 @@ const ContactForm = ({ sheetdata }) => {
     const rows = await sheet3.getRows();
     //penulisan row.nisn , nisn nya harus sama dengan di google sheet nisn
     const nisnExists = rows.find((row) => row.nisn == nisn);
+    // console.log(nisnExists);
     // if nisn already exist return true
     if (nisnExists) {
       return false;
@@ -173,11 +157,11 @@ const ContactForm = ({ sheetdata }) => {
         icon: 'success',
       });
       // clear localstorage
-      localStorage.clear();
+      // localStorage.clear();
       // Reset the form
       setForm({ nisn: '', name: '' });
       setSelectedValues({});
-      router.push('/');
+      router.push('/form/output');
     } else {
       Swal.fire({
         title: 'Error',
@@ -280,7 +264,9 @@ const ContactForm = ({ sheetdata }) => {
       </div>
       {/* Selamat datang peserta */}
       <div className="md:flex justify-center fixed top-0 z-50 overflow-auto left-0 right-0 bg-gray-900 text-gray-100">
-        <p className="text-center font-semibold p-2">Welcome, {storedName}</p>
+        <p className="text-center font-semibold p-2 text-xs">
+          Welcome, {storedName}
+        </p>
       </div>
       <main>
         <form onSubmit={submitForm} ref={formRef}>
@@ -300,21 +286,27 @@ const ContactForm = ({ sheetdata }) => {
               </div>
               {/* Timer */}
               <div>
-                <div className="flex justify-start items-center space-x-2 fixed top-3 z-50 overflow-auto left-10 right-10 text-gray-100">
+                <a
+                  href="/"
+                  className="flex justify-start items-center space-x-2 fixed top-1 z-50 overflow-auto left-10 right-10 text-gray-100">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    className="bi bi-alarm"
-                    viewBox="0 0 16 16">
-                    <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z" />
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z" />
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                    />
                   </svg>
-                  <div>
-                    <p className="text-xs">timer </p>
+
+                  <div className="">
+                    <p className="text-xs"></p>
                   </div>
-                </div>
+                </a>
               </div>
               {sheetdata.map((item, index) => (
                 <div key={index} className="bg-gray-300">
@@ -343,64 +335,66 @@ const ContactForm = ({ sheetdata }) => {
                   <p className="text-justify mb-4 indent-8">{item[21]}</p>
                   <p className="text-justify mb-4 indent-8">{item[22]}</p>
                   <p className="text-justify mb-4 indent-8">{item[23]}</p>
-                  {/* Pertanyaan */}
-                  <div className="flex space-x-2 ">
-                    <p
-                      className="text-justify mb-2 bg-gray-300 p-1"
-                      id={item[28]}>
-                      {item[28]}
-                    </p>
-                    <p className="text-justify mb-2 bg-gray-300 p-1">
-                      {item[8]}
-                    </p>
-                  </div>
-                  {/* Opsi Jawaban */}
-                  <div className="pr-4 pl-4">
-                    <Radio.Group
-                      onChange={handleChange}
-                      value={selectedValues[`group${index}`]}
-                      name={`group${index}`}>
-                      <div className="flex space-x-1">
-                        <Radio value="A" className="text-justify">
-                          <div className="flex items-center space-x-2 mb-2">
-                            <p className="font-semibold">A</p>
-                            <p className="text-justify ">{item[9]}</p>
-                          </div>
-                        </Radio>
-                      </div>
-                      <div className="flex space-x-1">
-                        <Radio value="B" className="text-justify ">
-                          <div className="flex items-center space-x-2 mb-2">
-                            <p className="font-semibold">B</p>
-                            <p className="text-justify ">{item[10]}</p>
-                          </div>
-                        </Radio>
-                      </div>
-                      <div className="flex space-x-1">
-                        <Radio value="C" className="text-justify ">
-                          <div className="flex items-center space-x-2 mb-2">
-                            <p className="font-semibold">C</p>
-                            <p className="text-justify ">{item[11]}</p>
-                          </div>
-                        </Radio>
-                      </div>
-                      <div className="flex space-x-1">
-                        <Radio value="D" className="text-justify ">
-                          <div className="flex items-center space-x-2 mb-2">
-                            <p className="font-semibold">D</p>
-                            <p className="text-justify ">{item[12]}</p>
-                          </div>
-                        </Radio>
-                      </div>
-                      <div className="flex space-x-1">
-                        <Radio value="E" className=" flex items-start">
-                          <div className="flex items-center space-x-2">
-                            <p className="font-semibold">E</p>
-                            <p className="text-justify ">{item[13]}</p>
-                          </div>
-                        </Radio>
-                      </div>
-                    </Radio.Group>
+                  <div className=" border-dashed border-l-2 border-yellow-900">
+                    {/* Pertanyaan */}
+                    <div className="flex space-x-2 ">
+                      <p
+                        className="text-justify mb-2 bg-gray-300 p-1"
+                        id={item[28]}>
+                        {item[28]}
+                      </p>
+                      <p className="text-justify mb-2 bg-gray-300 p-1">
+                        {item[8]}
+                      </p>
+                    </div>
+                    {/* Opsi Jawaban */}
+                    <div className="pr-4 pl-4">
+                      <Radio.Group
+                        onChange={handleChange}
+                        value={selectedValues[`group${index}`]}
+                        name={`group${index}`}>
+                        <div className="flex space-x-1">
+                          <Radio value="A" className="text-justify">
+                            <div className="flex items-center space-x-2 mb-2">
+                              <p className="font-semibold">A</p>
+                              <p className="text-justify ">{item[9]}</p>
+                            </div>
+                          </Radio>
+                        </div>
+                        <div className="flex space-x-1">
+                          <Radio value="B" className="text-justify ">
+                            <div className="flex items-center space-x-2 mb-2">
+                              <p className="font-semibold">B</p>
+                              <p className="text-justify ">{item[10]}</p>
+                            </div>
+                          </Radio>
+                        </div>
+                        <div className="flex space-x-1">
+                          <Radio value="C" className="text-justify ">
+                            <div className="flex items-center space-x-2 mb-2">
+                              <p className="font-semibold">C</p>
+                              <p className="text-justify ">{item[11]}</p>
+                            </div>
+                          </Radio>
+                        </div>
+                        <div className="flex space-x-1">
+                          <Radio value="D" className="text-justify ">
+                            <div className="flex items-center space-x-2 mb-2">
+                              <p className="font-semibold">D</p>
+                              <p className="text-justify ">{item[12]}</p>
+                            </div>
+                          </Radio>
+                        </div>
+                        <div className="flex space-x-1">
+                          <Radio value="E" className=" flex items-start">
+                            <div className="flex items-center space-x-2">
+                              <p className="font-semibold">E</p>
+                              <p className="text-justify ">{item[13]}</p>
+                            </div>
+                          </Radio>
+                        </div>
+                      </Radio.Group>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -417,7 +411,7 @@ const ContactForm = ({ sheetdata }) => {
                 <button
                   type="submit"
                   className="flex space-x-2 items-center justify-end fixed top-3 z-50 overflow-auto  text-gray-100 right-10">
-                  <p>Kirim</p>
+                  <p className="text-xs">Kirim</p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -432,6 +426,7 @@ const ContactForm = ({ sheetdata }) => {
             </div>
           </div>
         </form>
+        {/* <Modali /> */}
       </main>
     </div>
   );

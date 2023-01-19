@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import Loader from './Loader';
 import { useRouter } from 'next/router';
 // import session from 'express-session';
+import cookie from 'js-cookie';
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -87,7 +88,8 @@ const Loginmember = () => {
         // await appendSpreadsheet(newRow);
         localStorage.setItem('name', form.nama);
         localStorage.setItem('nisn', form.nisn);
-        localStorage.setItem('timer', 10);
+        // localStorage.setItem('remainingTime', 15);
+        cookie.set('timer', '10');
         setIsLoading(false); // set status loading menjadi false setelah proses selesai
         // e.target.reset();
 
@@ -153,6 +155,7 @@ const Loginmember = () => {
                   placeholder="Masukkan NISN kamu"
                   required=""
                   onChange={handleChange}
+                  autoComplete="off"
                 />
               </div>
               <div>
@@ -169,6 +172,7 @@ const Loginmember = () => {
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required=""
                   onChange={handleChange}
+                  autoComplete="off"
                 />
               </div>
               <div className="flex items-center justify-between">
