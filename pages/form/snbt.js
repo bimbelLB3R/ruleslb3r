@@ -6,8 +6,6 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import NavSoal from '../../components/NavSoal';
 import { Radio } from 'antd';
-import Timer from '../../components/Timer';
-import Modali from '../../components/Modali';
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
