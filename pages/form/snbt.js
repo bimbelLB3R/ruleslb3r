@@ -111,26 +111,26 @@ const ContactForm = ({ sheetdata }) => {
   // };
 
   // cek nisn sdh ada atau belum end
-  const checkNisn = async (nisn) => {
-    await doc.useServiceAccountAuth({
-      client_email: GOOGLE_CLIENT_EMAIL,
-      private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-    });
-    await doc.loadInfo();
-    const sheet3 = doc.sheetsById[SHEET_ID3];
-    const sheet4 = doc.sheetsById[SHEET_ID4];
-    const rows = await sheet3.getRows();
-    const rowToDelete = rows.find((row) => row.nisn === nisn);
+  // const checkNisn = async (nisn) => {
+  //   await doc.useServiceAccountAuth({
+  //     client_email: GOOGLE_CLIENT_EMAIL,
+  //     private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+  //   });
+  //   await doc.loadInfo();
+  //   const sheet3 = doc.sheetsById[SHEET_ID3];
+  //   const sheet4 = doc.sheetsById[SHEET_ID4];
+  //   const rows = await sheet3.getRows();
+  //   const rowToDelete = rows.find((row) => row.nisn === nisn);
 
-    const rows4 = await sheet4.getRows();
-    const rowToDelete4 = rows4.find((row) => row.nisn === nisn);
+  //   const rows4 = await sheet4.getRows();
+  //   const rowToDelete4 = rows4.find((row) => row.nisn === nisn);
 
-    if (rowToDelete) {
-      await rowToDelete.del();
-      await rowToDelete4.del();
-      return true;
-    }
-  };
+  //   if (rowToDelete) {
+  //     await rowToDelete.del();
+  //     await rowToDelete4.del();
+  //     return true;
+  //   }
+  // };
 
   // Up date jawaban dan analisis
   // const checkNisn = async (nisn, newData) => {
