@@ -23,6 +23,9 @@ const CardHasil = ({
           {tipeSoal}
         </p>
         <div className="flex justify-end px-4 pt-4">
+          <p className="text-xs italic text-red-600">
+            Refresh Halaman Untuk Up date Skor!
+          </p>
           <Dropdown inline={true} label="">
             <Dropdown.Item>
               <a
@@ -95,7 +98,7 @@ const CardHasil = ({
             </div>
           ))}
           <div>
-            <p className="text-xs text-justify indent-6">
+            <p className="text-xs text-justify indent-6 border-l-2 border-gray-300 p-2 mt-2">
               Perlu {storedName} ketahui bahwa dalam Try Out SNBT menggunakan
               metode IRT, skor kamu bisa berubah-ubah disebabkan penambahan
               jumlah peserta TO. Makin banyak peserta yang menjawab benar pada

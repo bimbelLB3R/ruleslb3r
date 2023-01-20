@@ -327,7 +327,7 @@ const ContactForm = ({ sheetdata }) => {
       </div>
       {/* Selamat datang peserta */}
       <div className="md:flex justify-center fixed top-0 z-50 overflow-auto left-0 right-0 bg-gray-900 text-gray-100">
-        <p className="text-center font-semibold p-2 text-xs">
+        <p className="text-center  p-2 text-xs">
           {storedName} is doing {tipeSoal} now...
         </p>
       </div>
@@ -473,7 +473,7 @@ const ContactForm = ({ sheetdata }) => {
                 </button> */}
                 <button
                   type="submit"
-                  className="flex space-x-2 items-center justify-end fixed top-3 z-50 overflow-auto  text-gray-100 right-10">
+                  className="flex space-x-2 items-center justify-end fixed top-3 z-50 overflow-auto  text-gray-100 right-2">
                   <p className="text-xs">Kirim</p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
