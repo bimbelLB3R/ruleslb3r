@@ -125,11 +125,11 @@ const ContactForm = ({ sheetdata }) => {
     const rows4 = await sheet4.getRows();
     const rowToDelete4 = rows4.find((row) => row.nisn === nisn);
 
-    // if (rowToDelete) {
-    //   await rowToDelete.del();
-    //   await rowToDelete4.del();
-    //   return true;
-    // }
+    if (rowToDelete) {
+      await rowToDelete.del();
+      await rowToDelete4.del();
+      return true;
+    }
   };
 
   // Up date jawaban dan analisis
