@@ -28,21 +28,21 @@ const CardHasil = ({
               <a
                 href="#"
                 className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
-                Edit
+                Download Soal
               </a>
             </Dropdown.Item>
             <Dropdown.Item>
               <a
                 href="#"
                 className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
-                Export Data
+                Download Pembahasan
               </a>
             </Dropdown.Item>
             <Dropdown.Item>
               <a
                 href="#"
                 className="block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
-                Delete
+                Lihat Skor Peserta Lain
               </a>
             </Dropdown.Item>
           </Dropdown>
@@ -79,24 +79,46 @@ const CardHasil = ({
           {filteredNisn.map((item, index) => (
             <div key={index} className="border-b-2">
               <p>
-                Skor Kamu (Percobaan ke-{index + 1}) :{' '}
-                <span className="font-bold">{item[14]}</span>
+                Skor Kamu :{' '}
+                <span className="font-bold text-red-900">{item[8]}/1000</span>
+              </p>
+              <p>
+                Jumlah jawaban benar :{' '}
+                <span className="font-bold text-red-900">
+                  {item[5]} dari {item[7]} soal
+                </span>
+              </p>
+              <p>
+                Jumlah Peserta :{' '}
+                <span className="font-bold text-red-900">{item[6]}</span>
               </p>
             </div>
           ))}
+          <div>
+            <p className="text-xs text-justify indent-6">
+              Perlu {storedName} ketahui bahwa dalam Try Out SNBT menggunakan
+              metode IRT, skor kamu bisa berubah-ubah disebabkan penambahan
+              jumlah peserta TO. Makin banyak peserta yang menjawab benar pada
+              suatu soal, maka soal tersebut skornya makin rendah (soal
+              dikriteriakan sebagai soal mudah). Dan sebaliknya , makin sedikit
+              peserta yang menjawab benar pada suatu soal, maka soal tersebut
+              memiliki skor tinggi. Itu artinya, jika kamu mampu menjawab soal
+              dengan kriteria sulit, maka skormu menjadi tinggi.
+            </p>
+          </div>
           <div className="mt-4 flex space-x-3 lg:mt-6">
             <a href="/">
               <button
                 onClick={handleHapus}
                 href="/"
                 className="inline-flex items-center rounded-lg bg-blue-700 py-2 px-4 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Lanjut
+                Lanjut Soal Yang Lain
               </button>
             </a>
             <a
               href="/form/snbt"
               className="inline-flex items-center rounded-lg border border-gray-300 bg-white py-2 px-4 text-center text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
-              Kembali
+              Coba Kerjakan Lagi
             </a>
           </div>
         </div>

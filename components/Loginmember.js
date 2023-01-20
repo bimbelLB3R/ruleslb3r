@@ -89,7 +89,7 @@ const Loginmember = () => {
         localStorage.setItem('name', form.nama);
         localStorage.setItem('nisn', form.nisn);
         // localStorage.setItem('remainingTime', 15);
-        cookie.set('timer', '10');
+        // cookie.set('timer', '10');
         setIsLoading(false); // set status loading menjadi false setelah proses selesai
         // e.target.reset();
 
@@ -162,13 +162,13 @@ const Loginmember = () => {
                 <label
                   htmlFor="nama"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Nama Lengkap
+                  Nama Panggilan
                 </label>
                 <input
                   type="nama"
                   name="nama"
                   id="nama"
-                  placeholder="Nama saat mendaftar"
+                  placeholder="Nama panggilan"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required=""
                   onChange={handleChange}

@@ -13,6 +13,8 @@ import Modali from '../../components/Modali';
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
 // sheet jawaban
 const SHEET_ID3 = process.env.NEXT_PUBLIC_SHEET_ID3;
+// sheet analisis
+const SHEET_ID4 = process.env.NEXT_PUBLIC_SHEET_ID4;
 // sheet database siswa
 const SHEET_ID2 = process.env.NEXT_PUBLIC_SHEET_ID2;
 const GOOGLE_CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
@@ -84,27 +86,86 @@ const ContactForm = ({ sheetdata }) => {
     }
   };
 
-  // cek nisn sdh ada atau belum
+  // // cek nisn sdh ada atau belum
+  // const checkNisn = async (nisn) => {
+  //   // const nisn2 = nisn.toLowerCase();
+  //   await doc.useServiceAccountAuth({
+  //     client_email: GOOGLE_CLIENT_EMAIL,
+  //     private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+  //   });
+  //   await doc.loadInfo(); // tambahkan baris ini untuk memastikan sheet telah terdefinisi
+  //   const sheet3 = doc.sheetsById[SHEET_ID3]; // tambahkan baris ini untuk mendefinisikan sheet
+  //   const rows = await sheet3.getRows();
+  //   //penulisan row.nisn , nisn nya harus sama dengan di google sheet nisn
+  //   const nisnExists = rows.find((row) => row.nisn == nisn);
+  //   // console.log(nisnExists);
+  //   // if nisn already exist return true
+  //   // tambahan untuk cek nisn yg sdh ada dijawaban
+  //   // const sheetId = sheet3.sheetsByIndex[3].nisn;
+  //   // tambahan untuk cek nisn yg sdh ada dijawabanend
+  //   if (nisnExists) {
+  //     // await sheet3.deleteRow(sheetId, rowIndex);
+  //     return false;
+  //   }
+  //   return true;
+  // };
+
+  // cek nisn sdh ada atau belum end
   const checkNisn = async (nisn) => {
-    // const nisn2 = nisn.toLowerCase();
     await doc.useServiceAccountAuth({
       client_email: GOOGLE_CLIENT_EMAIL,
       private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
     });
-    await doc.loadInfo(); // tambahkan baris ini untuk memastikan sheet telah terdefinisi
-    const sheet3 = doc.sheetsById[SHEET_ID3]; // tambahkan baris ini untuk mendefinisikan sheet
+    await doc.loadInfo();
+    const sheet3 = doc.sheetsById[SHEET_ID3];
+    const sheet4 = doc.sheetsById[SHEET_ID4];
     const rows = await sheet3.getRows();
-    //penulisan row.nisn , nisn nya harus sama dengan di google sheet nisn
-    const nisnExists = rows.find((row) => row.nisn == nisn);
-    // console.log(nisnExists);
-    // if nisn already exist return true
-    if (nisnExists) {
-      return false;
+    const rowToDelete = rows.find((row) => row.nisn === nisn);
+
+    const rows4 = await sheet4.getRows();
+    const rowToDelete4 = rows4.find((row) => row.nisn === nisn);
+
+    if (rowToDelete) {
+      await rowToDelete.del();
+      await rowToDelete4.del();
+      return true;
     }
-    return true;
   };
 
-  // cek nisn sdh ada atau belum end
+  // Up date jawaban dan analisis
+  // const checkNisn = async (nisn, newData) => {
+  //   await doc.useServiceAccountAuth({
+  //     client_email: GOOGLE_CLIENT_EMAIL,
+  //     private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+  //   });
+  //   await doc.loadInfo();
+  //   const sheet3 = doc.sheetsById[SHEET_ID3];
+  //   const sheet4 = doc.sheetsById[SHEET_ID4];
+  //   const rows1 = await sheet3.getRows();
+  //   const rows2 = await sheet4.getRows();
+  //   const rowToUpdate1 = rows1.find((row) => row.nisn === nisn);
+  //   const rowToUpdate2 = rows2.find((row) => row.nisn === nisn);
+  //   if (rowToUpdate1) {
+  //     //update the data in sheet 1
+  //     for (const key in newData) {
+  //       rowToUpdate1[key] = newData[key];
+  //     }
+  //     await rowToUpdate1.save();
+  //   }
+  //   if (rowToUpdate2) {
+  //     //update the data in sheet 2
+  //     for (const key in newData) {
+  //       rowToUpdate2[key] = newData[key];
+  //     }
+  //     await rowToUpdate2.save();
+  //   } else {
+  //     //if no row found in sheet 2 with the same nisn, add a new row
+  //     await sheet4.addRow(newData);
+  //   }
+  //   return true;
+  // };
+
+  // Up date jawaban dan analisis end
 
   const submitForm = async (e, sheet3) => {
     e.preventDefault();
@@ -142,7 +203,7 @@ const ContactForm = ({ sheetdata }) => {
     if (isValid) {
       const nisnAda = await checkNisn(form.nisn, sheet3);
       if (nisnAda) {
-        setErrorMessage('NISN already exist');
+        setErrorMessage('Jawabanmu sudah di update');
       }
       const newRow = {
         nisn: form.nisn,
@@ -174,72 +235,73 @@ const ContactForm = ({ sheetdata }) => {
     }
   };
 
-  // Duplikasi submit form, untuk yang auto submit
-  const submitFormAuto = async (sheet3) => {
-    // cek ricek
+  // // Duplikasi submit form, untuk yang auto submit
+  // const submitFormAuto = async (sheet3) => {
+  //   // cek ricek
 
-    let isValid = true;
-    // let errorMessage = '';
-    function isNumber(value) {
-      return /^\d+$/.test(value);
-    }
+  //   let isValid = true;
+  //   // let errorMessage = '';
+  //   function isNumber(value) {
+  //     return /^\d+$/.test(value);
+  //   }
 
-    // Check if nisn is not empty
-    if (!form.nisn) {
-      isValid = false;
-      // errorMessage = 'NISN is required';
-      setErrorMessage('NISN is required');
-    }
-    if (isValid && !isNumber(form.nisn)) {
-      isValid = false;
-      // errorMessage = 'NISN is must be number';
-      setErrorMessage('NISN must be a number');
-    }
+  //   // Check if nisn is not empty
+  //   if (!form.nisn) {
+  //     isValid = false;
+  //     // errorMessage = 'NISN is required';
+  //     setErrorMessage('NISN is required');
+  //   }
+  //   if (isValid && !isNumber(form.nisn)) {
+  //     isValid = false;
+  //     // errorMessage = 'NISN is must be number';
+  //     setErrorMessage('NISN must be a number');
+  //   }
 
-    // Check if all radiobuttons have been selected
-    if (
-      isValid &&
-      !Object.values(selectedValues).every((value) => value !== null)
-    ) {
-      isValid = false;
-      errorMessage = 'All question must be answered';
-    }
-    // cek ricek end
+  //   // Check if all radiobuttons have been selected
+  //   if (
+  //     isValid &&
+  //     !Object.values(selectedValues).every((value) => value !== null)
+  //   ) {
+  //     isValid = false;
+  //     errorMessage = 'All question must be answered';
+  //   }
+  //   // cek ricek end
 
-    if (isValid) {
-      const nisnAda = await checkNisn(form.nisn, sheet3);
-      if (nisnAda) {
-        setErrorMessage('NISN already exist');
-      }
-      const newRow = {
-        nisn: form.nisn,
-        ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
-          acc[name] = savedValue;
-          return acc;
-        }, {}),
-      };
-      appendSpreadsheet(newRow);
-      // Show a message to indicate that the data has been sent
-      Swal.fire({
-        title: 'Waktu Habis, Jawabanmu Terkirim Otomatis',
-        text: 'Lanjutkan Soal Berikutnya',
-        icon: 'success',
-      });
-      // clear localstorage
-      localStorage.clear();
-      // Reset the form
-      setForm({ nisn: '', name: '' });
-      setSelectedValues({});
-      router.push('/');
-    } else {
-      Swal.fire({
-        title: 'Error',
-        text: errorMessage,
-        icon: 'error',
-      });
-    }
-  };
-  // Duplikasi submit form, untuk yang auto submit
+  //   if (isValid) {
+  //     const nisnAda = await checkNisn(form.nisn, sheet3);
+  //     if (nisnAda) {
+  //       setErrorMessage('NISN already exist');
+  //     }
+
+  //     const newRow = {
+  //       nisn: form.nisn,
+  //       ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
+  //         acc[name] = savedValue;
+  //         return acc;
+  //       }, {}),
+  //     };
+  //     appendSpreadsheet(newRow);
+  //     // Show a message to indicate that the data has been sent
+  //     Swal.fire({
+  //       title: 'Waktu Habis, Jawabanmu Terkirim Otomatis',
+  //       text: 'Lanjutkan Soal Berikutnya',
+  //       icon: 'success',
+  //     });
+  //     // clear localstorage
+  //     localStorage.clear();
+  //     // Reset the form
+  //     setForm({ nisn: '', name: '' });
+  //     setSelectedValues({});
+  //     router.push('/');
+  //   } else {
+  //     Swal.fire({
+  //       title: 'Error',
+  //       text: errorMessage,
+  //       icon: 'error',
+  //     });
+  //   }
+  // };
+  // // Duplikasi submit form, untuk yang auto submit
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -439,7 +501,7 @@ export default ContactForm;
 
 // ambil data soal
 export async function getServerSideProps() {
-  const req = await fetch('https://ruleslb3r.vercel.app/api/sheet');
+  const req = await fetch('http:localhost:3000/api/sheet');
   const res = await req.json();
 
   return {
