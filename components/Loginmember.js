@@ -16,7 +16,7 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 const Loginmember = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const router = useRouter();
   const [form, setForm] = useState({
     nisn: '',
@@ -76,6 +76,7 @@ const Loginmember = () => {
   // cek apakah nama sudah ada end
 
   const submitForm = async (e, sheet3) => {
+    setIsButtonDisabled(true);
     e.preventDefault();
 
     if (form.nisn !== '' && form.nama !== '') {
@@ -86,14 +87,14 @@ const Loginmember = () => {
           nisn: form.nisn,
           nama: form.nama,
         };
-        setIsLoading(true); // set status loading menjadi true
+
         // await appendSpreadsheet(newRow);
         localStorage.setItem('name', form.nama);
         localStorage.setItem('nisn', form.nisn);
         const link = localStorage.getItem('link');
         // localStorage.setItem('remainingTime', 15);
         // cookie.set('timer', '10');
-        setIsLoading(false); // set status loading menjadi false setelah proses selesai
+
         // e.target.reset();
 
         router.push(`/form/${link}`);
@@ -215,15 +216,16 @@ const Loginmember = () => {
                   Forgot NISN & Name?
                 </a>
               </div>
-              <button
-                type="submit"
-                className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                {isLoading ? (
-                  <Loader /> // tampilkan komponen loader jika proses append sedang berlangsung
-                ) : (
-                  'Sign in' // tampilkan teks 'Submit' jika proses append selesai
-                )}
-              </button>
+              {isButtonDisabled ? (
+                <Loader /> // tampilkan komponen loader jika proses append sedang berlangsung
+              ) : (
+                <button
+                  disabled={isButtonDisabled}
+                  type="submit"
+                  className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Sign in
+                </button>
+              )}
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Don’t have an account yet?{' '}
                 <a

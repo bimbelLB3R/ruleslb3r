@@ -12,7 +12,7 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 const Newmember = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const router = useRouter();
   const [form, setForm] = useState({
     nama: '',
@@ -63,6 +63,7 @@ const Newmember = () => {
   // cek apakah nama sudah ada end
 
   const submitForm = async (e, sheet) => {
+    setIsButtonDisabled(true);
     e.preventDefault();
 
     if (
@@ -80,9 +81,9 @@ const Newmember = () => {
           asalsekolah: form.asalsekolah,
           wa: form.wa,
         };
-        setIsLoading(true); // set status loading menjadi true
+        // setIsLoading(true); // set status loading menjadi true
         await appendSpreadsheet(newRow);
-        setIsLoading(false); // set status loading menjadi false setelah proses selesai
+        // setIsLoading(false); // set status loading menjadi false setelah proses selesai
         e.target.reset();
 
         Swal.fire({
@@ -227,10 +228,11 @@ const Newmember = () => {
                 </div>
               </div>
 
-              {isLoading ? (
+              {isButtonDisabled ? (
                 <Loader /> // tampilkan komponen loader jika proses append sedang berlangsung
               ) : (
                 <button
+                  disabled={isButtonDisabled}
                   type="submit"
                   className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   Create an account

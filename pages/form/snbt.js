@@ -56,7 +56,7 @@ const ContactForm = ({ sheetdata }) => {
       // console.log(savedValue);
     });
   }, []);
-
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [selectedValues, setSelectedValues] = useState({});
@@ -64,6 +64,10 @@ const ContactForm = ({ sheetdata }) => {
   const [form, setForm] = useState({
     nisn: '',
   });
+
+  // const handleClick = () => {
+  //   setIsButtonDisabled(true);
+  // };
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
   // console.log(SPREADSHEET_ID);
@@ -168,7 +172,7 @@ const ContactForm = ({ sheetdata }) => {
 
   const submitForm = async (e, sheet3) => {
     e.preventDefault();
-
+    setIsButtonDisabled(true);
     // cek ricek
 
     let isValid = true;
@@ -462,10 +466,13 @@ const ContactForm = ({ sheetdata }) => {
                     'Klik untuk Kirim Jawaban Jika Kamu sudah yakin' // tampilkan teks 'Submit' jika proses append selesai
                   )}
                 </button> */}
-                {isLoading ? (
-                  <Loader />
+                {isButtonDisabled ? (
+                  <p className="flex space-x-2 items-center justify-end fixed top-0 z-50 overflow-auto  text-gray-50 right-2">
+                    <Loader />
+                  </p>
                 ) : (
                   <button
+                    disabled={isButtonDisabled}
                     type="submit"
                     className="flex space-x-2 items-center justify-end fixed top-2 z-50 overflow-auto  text-gray-100 right-2">
                     <p className="text-xs">Kirim</p>
