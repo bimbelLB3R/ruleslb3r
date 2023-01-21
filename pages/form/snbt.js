@@ -56,6 +56,7 @@ const ContactForm = ({ sheetdata }) => {
       // console.log(savedValue);
     });
   }, []);
+
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [selectedValues, setSelectedValues] = useState({});
@@ -210,7 +211,9 @@ const ContactForm = ({ sheetdata }) => {
           return acc;
         }, {}),
       };
+      setIsLoading(true); // set status loading menjadi true
       appendSpreadsheet(newRow);
+      setIsLoading(false); // set status loading menjadi false setelah proses selesai
       // Show a message to indicate that the data has been sent
       Swal.fire({
         title: 'Jawabanmu Berhasil Terkirim',
@@ -322,8 +325,8 @@ const ContactForm = ({ sheetdata }) => {
       </Head>
 
       {/* navigasi soal */}
-      <div className="md:flex justify-center fixed bottom-0 z-50 overflow-auto left-0 right-0 ">
-        <NavSoal sumSoal={sheetdata} />
+      <div className="sm:flex justify-center fixed bottom-0 z-50 overflow-auto left-0 right-0 ">
+        <NavSoal sumSoal={sheetdata} tipeSoal={tipeSoal} />
       </div>
       {/* Selamat datang peserta */}
       <div className="md:flex justify-center fixed top-0 z-50 overflow-auto left-0 right-0 bg-gray-900 text-gray-100">
@@ -348,29 +351,7 @@ const ContactForm = ({ sheetdata }) => {
                 />
               </div>
               {/* Timer */}
-              <div>
-                <a
-                  href="/"
-                  className="flex justify-start items-center space-x-2 fixed top-1 z-50 overflow-auto left-10 right-10 text-gray-100">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="w-6 h-6">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-                    />
-                  </svg>
 
-                  <div className="">
-                    <p className="text-xs"></p>
-                  </div>
-                </a>
-              </div>
               {sheetdata.map((item, index) => (
                 <div key={index} className="bg-gray-300">
                   {/* Bacaan */}
@@ -420,7 +401,9 @@ const ContactForm = ({ sheetdata }) => {
                           <Radio value="A" className="text-justify">
                             <div className="flex items-center space-x-2 mb-2">
                               <p className="font-semibold">A</p>
-                              <p className="text-justify ">{item[9]}</p>
+                              <p className="text-justify border p-1 border-gray-600 rounded-xl">
+                                {item[9]}
+                              </p>
                             </div>
                           </Radio>
                         </div>
@@ -428,7 +411,9 @@ const ContactForm = ({ sheetdata }) => {
                           <Radio value="B" className="text-justify ">
                             <div className="flex items-center space-x-2 mb-2">
                               <p className="font-semibold">B</p>
-                              <p className="text-justify ">{item[10]}</p>
+                              <p className="text-justify border p-1 border-gray-600 rounded-xl">
+                                {item[10]}
+                              </p>
                             </div>
                           </Radio>
                         </div>
@@ -436,7 +421,9 @@ const ContactForm = ({ sheetdata }) => {
                           <Radio value="C" className="text-justify ">
                             <div className="flex items-center space-x-2 mb-2">
                               <p className="font-semibold">C</p>
-                              <p className="text-justify ">{item[11]}</p>
+                              <p className="text-justify border p-1 border-gray-600 rounded-xl">
+                                {item[11]}
+                              </p>
                             </div>
                           </Radio>
                         </div>
@@ -444,7 +431,9 @@ const ContactForm = ({ sheetdata }) => {
                           <Radio value="D" className="text-justify ">
                             <div className="flex items-center space-x-2 mb-2">
                               <p className="font-semibold">D</p>
-                              <p className="text-justify ">{item[12]}</p>
+                              <p className="text-justify border p-1 border-gray-600 rounded-xl">
+                                {item[12]}
+                              </p>
                             </div>
                           </Radio>
                         </div>
@@ -452,7 +441,9 @@ const ContactForm = ({ sheetdata }) => {
                           <Radio value="E" className=" flex items-start">
                             <div className="flex items-center space-x-2">
                               <p className="font-semibold">E</p>
-                              <p className="text-justify ">{item[13]}</p>
+                              <p className="text-justify border p-1 border-gray-600 rounded-xl">
+                                {item[13]}
+                              </p>
                             </div>
                           </Radio>
                         </div>
@@ -471,20 +462,24 @@ const ContactForm = ({ sheetdata }) => {
                     'Klik untuk Kirim Jawaban Jika Kamu sudah yakin' // tampilkan teks 'Submit' jika proses append selesai
                   )}
                 </button> */}
-                <button
-                  type="submit"
-                  className="flex space-x-2 items-center justify-end fixed top-3 z-50 overflow-auto  text-gray-100 right-2">
-                  <p className="text-xs">Kirim</p>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    fill="currentColor"
-                    className="bi bi-send"
-                    viewBox="0 0 16 16">
-                    <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
-                  </svg>
-                </button>
+                {isLoading ? (
+                  <Loader />
+                ) : (
+                  <button
+                    type="submit"
+                    className="flex space-x-2 items-center justify-end fixed top-2 z-50 overflow-auto  text-gray-100 right-2">
+                    <p className="text-xs">Kirim</p>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      fill="currentColor"
+                      className="bi bi-send"
+                      viewBox="0 0 16 16">
+                      <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
+                    </svg>
+                  </button>
+                )}
               </div>
             </div>
           </div>

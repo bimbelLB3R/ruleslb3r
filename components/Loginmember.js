@@ -5,6 +5,7 @@ import Loader from './Loader';
 import { useRouter } from 'next/router';
 // import session from 'express-session';
 import cookie from 'js-cookie';
+import Dropdown from './DropdownTipeSoal';
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -26,7 +27,8 @@ const Loginmember = () => {
     const storedNisn = localStorage.getItem('nisn');
 
     if (storedNisn) {
-      router.push('/form/snbt');
+      // router.push('/form/snbt');
+      localStorage.clear();
     }
   }, []);
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
@@ -88,12 +90,13 @@ const Loginmember = () => {
         // await appendSpreadsheet(newRow);
         localStorage.setItem('name', form.nama);
         localStorage.setItem('nisn', form.nisn);
+        const link = localStorage.getItem('link');
         // localStorage.setItem('remainingTime', 15);
         // cookie.set('timer', '10');
         setIsLoading(false); // set status loading menjadi false setelah proses selesai
         // e.target.reset();
 
-        router.push('/form/snbt');
+        router.push(`/form/${link}`);
 
         Swal.fire({
           title: 'Kamu Berhasil Masuk',
@@ -123,7 +126,7 @@ const Loginmember = () => {
     <div className="bg-gray-50 dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a
-          href="#"
+          href="/"
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
           <img
             className="w-18 h-12 mr-2"
@@ -148,15 +151,19 @@ const Loginmember = () => {
                   NISN
                 </label>
                 <input
-                  type="nisn"
+                  type="text"
                   name="nisn"
                   id="nisn"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Masukkan NISN kamu"
+                  placeholder="NISN Kamu"
                   required=""
                   onChange={handleChange}
                   autoComplete="off"
                 />
+                <p className="text-[10px] text-red-600">
+                  Jika NISN kamu dimulai angka 0, misal 012345, maka tambahkan
+                  angka 1 didepannya menjadi 1012345
+                </p>
               </div>
               <div>
                 <label
@@ -174,6 +181,14 @@ const Loginmember = () => {
                   onChange={handleChange}
                   autoComplete="off"
                 />
+              </div>
+              <div>
+                <label
+                  htmlFor="tipesoal"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Pilih Soal
+                </label>
+                <Dropdown />
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-start">

@@ -113,7 +113,7 @@ const Newmember = () => {
     <div className="bg-gray-50 dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a
-          href="#"
+          href="/"
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
           <img
             className="w-18 h-12 mr-2"
@@ -155,15 +155,19 @@ const Newmember = () => {
                   NISN
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   name="nisn"
                   id="nisn"
-                  placeholder="Harus NISN valid"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="NISN Kamu"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
                   required=""
                   onChange={handleChange}
                   autoComplete="off"
                 />
+                <p className="text-[10px] text-red-600">
+                  Jika NISN kamu dimulai angka 0, misal 012345, maka tambahkan
+                  angka 1 didepannya menjadi 1012345
+                </p>
               </div>
               <div>
                 <label
@@ -222,15 +226,16 @@ const Newmember = () => {
                   </label>
                 </div>
               </div>
-              <button
-                type="submit"
-                className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                {isLoading ? (
-                  <Loader /> // tampilkan komponen loader jika proses append sedang berlangsung
-                ) : (
-                  'Create an account' // tampilkan teks 'Submit' jika proses append selesai
-                )}
-              </button>
+
+              {isLoading ? (
+                <Loader /> // tampilkan komponen loader jika proses append sedang berlangsung
+              ) : (
+                <button
+                  type="submit"
+                  className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Create an account
+                </button>
+              )}
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Already have an account?{' '}
                 <a

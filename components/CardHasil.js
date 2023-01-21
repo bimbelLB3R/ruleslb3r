@@ -15,6 +15,9 @@ const CardHasil = ({
   const handleHapus = () => {
     setHapusLocal(localStorage.clear());
   };
+  const handleLocal = () => {
+    localStorage.removeItem('tipeSoal');
+  };
 
   return (
     <div className="max-w-sm">
@@ -93,7 +96,7 @@ const CardHasil = ({
               </p>
               <p>
                 Jumlah Peserta :{' '}
-                <span className="font-bold text-red-900">{item[6]}</span>
+                <span className="font-bold text-red-900">{item[6]} Orang</span>
               </p>
             </div>
           ))}
@@ -110,7 +113,7 @@ const CardHasil = ({
             </p>
           </div>
           <div className="mt-4 flex space-x-3 lg:mt-6">
-            <a href="/">
+            <a href="/form/login">
               <button
                 onClick={handleHapus}
                 href="/"
@@ -119,6 +122,7 @@ const CardHasil = ({
               </button>
             </a>
             <a
+              onClick={handleLocal}
               href="/form/snbt"
               className="inline-flex items-center rounded-lg border border-gray-300 bg-white py-2 px-4 text-center text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
               Coba Kerjakan Lagi

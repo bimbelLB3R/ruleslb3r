@@ -1,14 +1,38 @@
 import { Button } from 'flowbite-react';
 import React, { useState, useEffect, useRef } from 'react';
 
-export default function NavSoal({ sumSoal }) {
+export default function NavSoal({ sumSoal, tipeSoal }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const handleLocal = () => {
+    localStorage.setItem('tipeSoal', tipeSoal);
+  };
   return (
     <div>
       {/* modal */}
 
       {/* modal end */}
-      <div className=" text-gray-100 text-center font-bold p-2 fixed bottom-8 left-0 right-0 z-50  flex md:items-center justify-center">
+      <div className=" text-gray-100 text-center font-bold p-2 fixed bottom-8 left-0 right-0 z-50  flex md:items-center justify-center space-x-2">
+        <div className="bg-gray-800 p-2 rounded text-xs">
+          <a href="/" className=" text-gray-100">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-6 h-6">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+              />
+            </svg>
+
+            <div className="">
+              <p className="text-xs"></p>
+            </div>
+          </a>
+        </div>
         {/* modal */}
         <div
           className={`${
@@ -40,7 +64,10 @@ export default function NavSoal({ sumSoal }) {
             </svg>
           </button>
           {/* Lihat hasil */}
-          <a href="/form/output" className="bg-gray-800 p-2 rounded text-xs">
+          <a
+            onClick={handleLocal}
+            href="/form/output"
+            className="bg-gray-800 p-2 rounded text-xs">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
