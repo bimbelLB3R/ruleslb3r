@@ -1,4 +1,5 @@
 import { Button } from 'flowbite-react';
+import Link from 'next/link';
 import React, { useState, useEffect, useRef } from 'react';
 
 export default function NavSoal({ sumSoal, tipeSoal, pages }) {
@@ -7,6 +8,11 @@ export default function NavSoal({ sumSoal, tipeSoal, pages }) {
   const handleLocal = () => {
     localStorage.setItem('tipeSoal', tipeSoal);
   };
+  const [link, setLink] = useState('');
+  useEffect(() => {
+    const link = localStorage.getItem('link');
+    setLink(link);
+  });
   return (
     <div>
       {/* modal */}
@@ -65,7 +71,7 @@ export default function NavSoal({ sumSoal, tipeSoal, pages }) {
             </svg>
           </button>
           {/* Lihat hasil */}
-          <a
+          {/* <a
             onClick={handleLocal}
             href="/form/output"
             className="bg-gray-800 p-2 rounded text-xs">
@@ -81,7 +87,24 @@ export default function NavSoal({ sumSoal, tipeSoal, pages }) {
                 d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"
               />
             </svg>
-          </a>
+          </a> */}
+          <Link
+            onClick={handleLocal}
+            href={`/form/output${link}`}
+            className="bg-gray-800 p-2 rounded text-xs">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              className="bi bi-graph-up"
+              viewBox="0 0 16 16">
+              <path
+                fillRule="evenodd"
+                d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"
+              />
+            </svg>
+          </Link>
         </div>
       </div>
       {/* <Button.Group>
