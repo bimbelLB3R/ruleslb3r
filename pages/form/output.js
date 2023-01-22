@@ -8,6 +8,7 @@ import NavSoal from '../../components/NavSoal';
 import { Radio } from 'antd';
 import Timer from '../../components/Timer';
 import CardHasil from '../../components/CardHasil';
+import { runFireworks } from '../../libs/utils';
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -34,6 +35,7 @@ const ContactForm = ({ sheetdata }) => {
   const filteredNisn = filteredData.filter((item) => item[1] === storedNisn);
   // console.log(filteredNisn);
   useEffect(() => {
+    runFireworks();
     // cek apakah ada name di local storage
     const storedName = localStorage.getItem('name');
     const storedNisn = localStorage.getItem('nisn');

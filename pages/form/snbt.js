@@ -371,12 +371,14 @@ const ContactForm = ({ sheetdata }) => {
       <div className="sm:flex justify-center fixed bottom-0 z-50 overflow-auto left-0 right-0 ">
         <NavSoal sumSoal={sheetdata} tipeSoal={tipeSoal} pages={pages} />
 
-        <div className="bg-gray-800 flex flex-row">
+        <div className=" flex flex-row">
           {pages.map((page) => (
             <Button
               key={page}
               className={`page-button ${
-                isChecked[page] ? 'active bg-yellow-400' : 'bg-gray-800'
+                isChecked[page]
+                  ? 'active bg-yellow-400'
+                  : 'bg-gray-800 rounded-none '
               }`}
               onClick={() => setCurrentPage(page)}>
               {page}
@@ -514,9 +516,12 @@ const ContactForm = ({ sheetdata }) => {
                         checked={isChecked[item[28]]}
                         onChange={() => handleCheckbox(item[28])}
                       />
-                      <label htmlFor={`page-${item[28]}`} className="text-xs">
+                      <label
+                        htmlFor={`page-${item[28]}`}
+                        className="text-xs pl-10 pr-10 text-center">
                         {/* Page {item[28]} */}
-                        Tandai jika kamu masih ragu-ragu dengan jawabanmu
+                        Tandai jika kamu masih ragu-ragu dengan jawabanmu atau
+                        soal mau dilewati dulu
                       </label>
                     </div>
                     {/* <div>
