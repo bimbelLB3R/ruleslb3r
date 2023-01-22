@@ -371,17 +371,18 @@ const ContactForm = ({ sheetdata }) => {
       <div className="sm:flex justify-center fixed bottom-0 z-50 overflow-auto left-0 right-0 ">
         <NavSoal sumSoal={sheetdata} tipeSoal={tipeSoal} pages={pages} />
 
-        {pages.map((page) => (
-          <div className="bg-gray-800" key={page}>
+        <div className="bg-gray-800 flex flex-row">
+          {pages.map((page) => (
             <Button
+              key={page}
               className={`page-button ${
                 isChecked[page] ? 'active bg-yellow-400' : 'bg-gray-800'
               }`}
               onClick={() => setCurrentPage(page)}>
               {page}
             </Button>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       {/* Selamat datang peserta */}
       <div className="md:flex justify-center fixed top-0 z-50 overflow-auto left-0 right-0 bg-gray-900 text-gray-100">
