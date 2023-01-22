@@ -1,15 +1,15 @@
 import { Card, Dropdown } from 'flowbite-react';
-import React, { useState } from 'react';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 
-const CardHasil = ({
-  sheetdata,
-  filteredNisn,
-  storedName,
-  storedNisn,
-  tipeSoal,
-}) => {
+const CardHasil = ({ filteredNisn, storedName, storedNisn, tipeSoal }) => {
+  const [link, setLink] = useState('');
+  useEffect(() => {
+    const link = localStorage.getItem('link');
+    setLink(link);
+  });
   //   console.log(filteredNisn);
-  console.log(tipeSoal);
+  // console.log(tipeSoal);
   const [hapusLocal, setHapusLocal] = useState('');
   // const [tipeSoal, setTipeSoal] = useState('');
   const handleHapus = () => {
@@ -121,12 +121,15 @@ const CardHasil = ({
                 Lanjut Soal Yang Lain
               </button>
             </a>
-            <a
+            {/* <a
               onClick={handleLocal}
               href="/form/snbt"
               className="inline-flex items-center rounded-lg border border-gray-300 bg-white py-2 px-4 text-center text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
               Coba Kerjakan Lagi
-            </a>
+            </a> */}
+            <Link href={`/form/${link}`} className="underline">
+              Ulangi Lagi
+            </Link>
           </div>
         </div>
       </Card>
