@@ -231,7 +231,7 @@ const ContactForm = ({ sheetdata }) => {
       setForm({ nisn: '', name: '' });
       setSelectedValues({});
       localStorage.setItem('tipeSoal', tipeSoal);
-      router.push('/form/output');
+      router.push('/form/outputsnbt');
     } else {
       Swal.fire({
         title: 'Error',
@@ -420,33 +420,61 @@ const ContactForm = ({ sheetdata }) => {
                   <div className="flex items-center justify-center">
                     <img src={item[27]} className="w-full" />
                   </div>
-                  <p className="text-justify mb-2 indent-8">{item[3]}</p>
-                  <p className="text-justify mb-2 indent-8">{item[4]}</p>
-                  <p className="text-justify mb-2 indent-8">{item[5]}</p>
-                  <p className="text-justify mb-2 indent-8">{item[6]}</p>
-                  <p className="text-justify mb-4 indent-8">{item[7]}</p>
+                  <p className="text-justify mb-2 indent-8 hover:bg-green-400">
+                    {item[3]}
+                  </p>
+                  <p className="text-justify mb-2 indent-8 hover:bg-green-400">
+                    {item[4]}
+                  </p>
+                  <p className="text-justify mb-2 indent-8 hover:bg-green-400">
+                    {item[5]}
+                  </p>
+                  <p className="text-justify mb-2 indent-8 hover:bg-green-400">
+                    {item[6]}
+                  </p>
+                  <p className="text-justify mb-4 indent-8 hover:bg-green-400">
+                    {item[7]}
+                  </p>
                   {/* Tambahan bacaan kolom orange */}
-                  <p className="text-justify mb-4 indent-8">{item[14]}</p>
-                  <p className="text-justify mb-4 indent-8">{item[15]}</p>
-                  <p className="text-justify mb-4 indent-8">{item[16]}</p>
-                  <p className="text-justify mb-4 indent-8">{item[17]}</p>
-                  <p className="text-center mb-4 indent-8 font-semibold">
+                  <p className="text-justify mb-4 indent-8 hover:bg-green-400">
+                    {item[14]}
+                  </p>
+                  <p className="text-justify mb-4 indent-8 hover:bg-green-400">
+                    {item[15]}
+                  </p>
+                  <p className="text-justify mb-4 indent-8 hover:bg-green-400">
+                    {item[16]}
+                  </p>
+                  <p className="text-justify mb-4 indent-8 hover:bg-green-400">
+                    {item[17]}
+                  </p>
+                  <p className="text-center mb-4 indent-8 hover:bg-green-400 font-semibold">
                     {item[18]}
                   </p>
-                  <p className="text-justify mb-4 indent-8">{item[19]}</p>
-                  <p className="text-justify mb-4 indent-8">{item[20]}</p>
-                  <p className="text-justify mb-4 indent-8">{item[21]}</p>
-                  <p className="text-justify mb-4 indent-8">{item[22]}</p>
-                  <p className="text-justify mb-4 indent-8">{item[23]}</p>
+                  <p className="text-justify mb-4 indent-8 hover:bg-green-400">
+                    {item[19]}
+                  </p>
+                  <p className="text-justify mb-4 indent-8 hover:bg-green-400">
+                    {item[20]}
+                  </p>
+                  <p className="text-justify mb-4 indent-8 hover:bg-green-400">
+                    {item[21]}
+                  </p>
+                  <p className="text-justify mb-4 indent-8 hover:bg-green-400">
+                    {item[22]}
+                  </p>
+                  <p className="text-justify mb-4 indent-8 hover:bg-green-400">
+                    {item[23]}
+                  </p>
                   <div className=" border-dashed border-l-2 border-yellow-900">
                     {/* Pertanyaan */}
                     <div className="flex space-x-2 ">
                       <p
-                        className="text-justify mb-2 bg-gray-300 p-1"
+                        className="text-justify mb-2 bg-yellow-300 flex items-center p-1"
                         id={item[28]}>
                         {item[28]}
                       </p>
-                      <p className="text-justify mb-2 bg-gray-300 p-1">
+                      <p className="text-justify mb-2 bg-gray-300 p-1 border-b-2 border-t-2 border-yellow-400">
                         {item[8]}
                       </p>
                     </div>
@@ -460,7 +488,7 @@ const ContactForm = ({ sheetdata }) => {
                           <Radio value="A" className="text-justify">
                             <div className="flex items-center space-x-2 mb-2">
                               <p className="font-semibold">A</p>
-                              <p className="text-justify border p-1 border-gray-600 rounded-xl">
+                              <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
                                 {item[9]}
                               </p>
                             </div>
@@ -470,7 +498,7 @@ const ContactForm = ({ sheetdata }) => {
                           <Radio value="B" className="text-justify ">
                             <div className="flex items-center space-x-2 mb-2">
                               <p className="font-semibold">B</p>
-                              <p className="text-justify border p-1 border-gray-600 rounded-xl">
+                              <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
                                 {item[10]}
                               </p>
                             </div>
@@ -480,7 +508,7 @@ const ContactForm = ({ sheetdata }) => {
                           <Radio value="C" className="text-justify ">
                             <div className="flex items-center space-x-2 mb-2">
                               <p className="font-semibold">C</p>
-                              <p className="text-justify border p-1 border-gray-600 rounded-xl">
+                              <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
                                 {item[11]}
                               </p>
                             </div>
@@ -490,7 +518,7 @@ const ContactForm = ({ sheetdata }) => {
                           <Radio value="D" className="text-justify ">
                             <div className="flex items-center space-x-2 mb-2">
                               <p className="font-semibold">D</p>
-                              <p className="text-justify border p-1 border-gray-600 rounded-xl">
+                              <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
                                 {item[12]}
                               </p>
                             </div>
@@ -500,7 +528,7 @@ const ContactForm = ({ sheetdata }) => {
                           <Radio value="E" className=" flex items-start">
                             <div className="flex items-center space-x-2">
                               <p className="font-semibold">E</p>
-                              <p className="text-justify border p-1 border-gray-600 rounded-xl">
+                              <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
                                 {item[13]}
                               </p>
                             </div>
@@ -523,6 +551,9 @@ const ContactForm = ({ sheetdata }) => {
                         Tandai jika kamu masih ragu-ragu dengan jawabanmu atau
                         soal mau dilewati dulu
                       </label>
+                      <p className="border-b-2 border-gray-400 p-2 text-gray-800 text-xs">
+                        Page-{item[28]}
+                      </p>
                     </div>
                     {/* <div>
                       <Button

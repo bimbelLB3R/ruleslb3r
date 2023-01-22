@@ -59,19 +59,23 @@ const CardHasil = ({ filteredNisn, storedName, storedNisn, tipeSoal }) => {
             src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
             alt="Bonnie image"
           /> */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="36"
-            height="36"
-            fill="currentColor"
-            className="bi bi-person-circle"
-            viewBox="0 0 16 16">
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-            <path
-              fillRule="evenodd"
-              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-            />
-          </svg>
+          <div className="hover:cursor-pointer">
+            <a href={`/form/output${link}`}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                fill="currentColor"
+                className="bi bi-arrow-counterclockwise"
+                viewBox="0 0 16 16">
+                <path
+                  fillRule="evenodd"
+                  d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"
+                />
+                <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+              </svg>
+            </a>
+          </div>
         </div>
         <div>
           <div className="border-b-2">
@@ -127,9 +131,9 @@ const CardHasil = ({ filteredNisn, storedName, storedNisn, tipeSoal }) => {
               className="inline-flex items-center rounded-lg border border-gray-300 bg-white py-2 px-4 text-center text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
               Coba Kerjakan Lagi
             </a> */}
-            <Link href={`/form/${link}`} className="underline">
-              Ulangi Lagi
-            </Link>
+            <div className="underline">
+              <Link href={`/form/${link}`}>Ulangi Lagi</Link>
+            </div>
           </div>
         </div>
       </Card>
