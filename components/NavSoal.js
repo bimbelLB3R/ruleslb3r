@@ -1,7 +1,8 @@
 import { Button } from 'flowbite-react';
 import React, { useState, useEffect, useRef } from 'react';
 
-export default function NavSoal({ sumSoal, tipeSoal }) {
+export default function NavSoal({ sumSoal, tipeSoal, pages }) {
+  const [currentPage, setCurrentPage] = useState(1);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleLocal = () => {
     localStorage.setItem('tipeSoal', tipeSoal);
@@ -11,8 +12,8 @@ export default function NavSoal({ sumSoal, tipeSoal }) {
       {/* modal */}
 
       {/* modal end */}
-      <div className=" text-gray-100 text-center font-bold p-2 fixed bottom-8 left-0 right-0 z-50  flex md:items-center justify-center space-x-2">
-        <div className="bg-gray-800 p-2 rounded text-xs">
+      <div className=" text-gray-100 text-center font-bold p-2 fixed bottom-10 left-0 right-0 z-50  flex md:items-center justify-center space-x-2">
+        <div className="bg-gray-800 p-1 rounded text-xs">
           <a href="/" className=" text-gray-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -83,23 +84,16 @@ export default function NavSoal({ sumSoal, tipeSoal }) {
           </a>
         </div>
       </div>
-      <Button.Group>
-        {sumSoal.map((item) => (
-          <Button key={item[0]} className="bg-gray-800" href={`#${item[28]}`}>
-            {item[28]}
+      {/* <Button.Group>
+        {pages.map((page) => (
+          <Button
+            key={page}
+            className="bg-gray-800"
+            onClick={() => setCurrentPage(page)}>
+            {page}
           </Button>
         ))}
-        {/* <Button color="gray">2</Button>
-        <Button color="gray">3</Button>
-        <Button color="gray">4</Button>
-        <Button color="gray">5</Button>
-        <Button color="gray">6</Button>
-        <Button color="gray">7</Button>
-        <Button color="gray">8</Button>
-        <Button color="gray">9</Button>
-        <Button color="gray">10</Button>
-    <Button color="gray">11</Button> */}
-      </Button.Group>
+      </Button.Group> */}
     </div>
   );
 }

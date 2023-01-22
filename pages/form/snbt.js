@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import NavSoal from '../../components/NavSoal';
 import { Radio } from 'antd';
+import { Button } from 'flowbite-react';
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -38,7 +39,7 @@ const ContactForm = ({ sheetdata }) => {
     sheetdata.forEach((index) => {
       // cek apakah sudah ada nisn dan nama di local storage
       const storedNisn = localStorage.getItem('nisn');
-
+      // console.log(index[0]);
       if (storedNisn) {
         setForm({ ...form, nisn: storedNisn });
       }
@@ -320,6 +321,44 @@ const ContactForm = ({ sheetdata }) => {
     localStorage.setItem(name, value);
   };
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 1;
+  const paginatedPosts = sheetdata.slice(
+    (currentPage - 1) * postsPerPage,
+    currentPage * postsPerPage
+  );
+  // console.log(paginatedPosts);
+  const totalPages = Math.ceil(sheetdata.length / postsPerPage);
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+  // console.log(pages);
+  const handlePrevious = () => {
+    setCurrentPage(currentPage - 1);
+  };
+  const handleNext = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  const [isChecked, setIsChecked] = useState(new Array(totalPages).fill(false));
+  const handleCheckbox = (page) => {
+    setIsChecked((prevState) => {
+      const newState = [...prevState];
+      newState[page] = !newState[page];
+      localStorage.setItem(`isChecked-${page}`, JSON.stringify(newState[page]));
+      return newState;
+    });
+  };
+
+  useEffect(() => {
+    const totalPages = Math.ceil(sheetdata.length / postsPerPage);
+    const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+    const isCheckedFromStorage = pages.map((page) =>
+      JSON.parse(localStorage.getItem(`isChecked-${page - 1}`))
+    );
+    if (isCheckedFromStorage) {
+      setIsChecked(isCheckedFromStorage);
+    }
+  }, []);
+
   return (
     <div>
       <Head>
@@ -330,7 +369,19 @@ const ContactForm = ({ sheetdata }) => {
 
       {/* navigasi soal */}
       <div className="sm:flex justify-center fixed bottom-0 z-50 overflow-auto left-0 right-0 ">
-        <NavSoal sumSoal={sheetdata} tipeSoal={tipeSoal} />
+        <NavSoal sumSoal={sheetdata} tipeSoal={tipeSoal} pages={pages} />
+
+        {pages.map((page) => (
+          <div className="bg-gray-800" key={page}>
+            <Button
+              className={`page-button ${
+                isChecked[page] ? 'active bg-yellow-400' : 'bg-gray-800'
+              }`}
+              onClick={() => setCurrentPage(page)}>
+              {page}
+            </Button>
+          </div>
+        ))}
       </div>
       {/* Selamat datang peserta */}
       <div className="md:flex justify-center fixed top-0 z-50 overflow-auto left-0 right-0 bg-gray-900 text-gray-100">
@@ -340,8 +391,8 @@ const ContactForm = ({ sheetdata }) => {
       </div>
       <main>
         <form onSubmit={submitForm} ref={formRef}>
-          <div className="max-w-xl mb-2 flex items-center justify-center m-auto p-4 bg-gray-300 text-gray-900">
-            <div className="mb-12">
+          <div className="max-w-xl  flex items-center justify-center m-auto p-4 bg-gray-300 text-gray-900">
+            <div className="mb-4">
               <div>
                 {/* <label htmlFor="nisn">NISN:</label> */}
                 <input
@@ -356,8 +407,9 @@ const ContactForm = ({ sheetdata }) => {
               </div>
               {/* Timer */}
 
-              {sheetdata.map((item, index) => (
-                <div key={index} className="bg-gray-300">
+              {paginatedPosts.map((item) => (
+                <div key={item[0]} className="bg-gray-300">
+                  {/* {console.log(item[0])} */}
                   {/* Bacaan */}
                   <p className="text-center mb-2 indent-8 font-semibold mt-12">
                     {item[2]}
@@ -399,8 +451,8 @@ const ContactForm = ({ sheetdata }) => {
                     <div className="pr-4 pl-4">
                       <Radio.Group
                         onChange={handleChange}
-                        value={selectedValues[`group${index}`]}
-                        name={`group${index}`}>
+                        value={selectedValues[`group${item[0]}`]}
+                        name={`group${item[0]}`}>
                         <div className="flex space-x-1">
                           <Radio value="A" className="text-justify">
                             <div className="flex items-center space-x-2 mb-2">
@@ -453,8 +505,33 @@ const ContactForm = ({ sheetdata }) => {
                         </div>
                       </Radio.Group>
                     </div>
+                    <div className="checklist flex flex-col items-center mt-10">
+                      <input
+                        className="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        type="checkbox"
+                        id={`page-${item[28]}`}
+                        checked={isChecked[item[28]]}
+                        onChange={() => handleCheckbox(item[28])}
+                      />
+                      <label htmlFor={`page-${item[28]}`} className="text-xs">
+                        {/* Page {item[28]} */}
+                        Tandai jika kamu masih ragu-ragu dengan jawabanmu
+                      </label>
+                    </div>
+                    {/* <div>
+                      <Button
+                        className={`page-button ${
+                          isChecked[item[28]]
+                            ? 'active bg-yellow-400'
+                            : 'bg-gray-800'
+                        }`}
+                        onClick={() => setCurrentPage(item[28])}>
+                        {item[28]}
+                      </Button>
+                    </div> */}
                   </div>
                 </div>
+                // tombol ragu2
               ))}
               <div className="flex justify-end">
                 {/* <button
@@ -491,7 +568,54 @@ const ContactForm = ({ sheetdata }) => {
             </div>
           </div>
         </form>
-        {/* <Modali /> */}
+        <div className="max-w-xl mb-20 flex items-center justify-center m-auto p-4 bg-gray-300 text-gray-900 space-x-8">
+          {/* tombol next n before */}
+          <button
+            onClick={handlePrevious}
+            disabled={currentPage <= 1}
+            className="bg-green-400 p-2 text-gray-50">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              className="bi bi-arrow-left-square-fill"
+              viewBox="0 0 16 16">
+              <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
+            </svg>
+          </button>
+
+          {/* <div className="checklist">
+            {pages.map((page) => (
+              <div key={page}>
+                <input
+                  type="checkbox"
+                  id={`page-${page}`}
+                  checked={isChecked[page - 1]}
+                  onChange={() => handleCheckbox(page)}
+                />
+                <label htmlFor={`page-${page}`}>Page {page}</label>
+              </div>
+            ))}
+          </div> */}
+
+          <button
+            className="bg-green-400 p-2 text-gray-50"
+            onClick={handleNext}
+            disabled={
+              currentPage >= Math.ceil(sheetdata.length / postsPerPage)
+            }>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              className="bi bi-arrow-right-square-fill"
+              viewBox="0 0 16 16">
+              <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z" />
+            </svg>
+          </button>
+        </div>
       </main>
     </div>
   );
