@@ -417,8 +417,8 @@ const ContactForm = ({ sheetdata }) => {
                   <p className="text-center mb-2 indent-8 font-semibold mt-12">
                     {item[2]}
                   </p>
-                  <div className="flex items-center justify-center">
-                    <img src={item[27]} className="w-full" />
+                  <div className="flex items-center justify-center hover:w-full hover:absolute hover:z-50 hover:right-0 hover:left-0] ">
+                    <img src={item[27]} className="w-full " />
                   </div>
                   <p className="text-justify mb-2 indent-8 hover:bg-green-400">
                     {item[3]}
