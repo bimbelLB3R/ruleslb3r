@@ -14,6 +14,9 @@ const CardHasil = ({ filteredNisn, storedName, storedNisn, tipeSoal }) => {
   // const [tipeSoal, setTipeSoal] = useState('');
   const handleHapus = () => {
     setHapusLocal(localStorage.clear());
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    }
   };
   const handleLocal = () => {
     localStorage.removeItem('tipeSoal');
