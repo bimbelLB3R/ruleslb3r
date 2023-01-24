@@ -374,7 +374,7 @@ const ContactForm = ({ sheetdata }) => {
                         {item[28]}
                       </p>
                       <p className="text-justify mb-2 bg-gray-300 p-1 border-b-2 border-t-2 border-yellow-400">
-                        {item[8]}
+                        <Latex>{item[8]}</Latex>
                       </p>
                     </div>
                     {/* Opsi Jawaban */}
