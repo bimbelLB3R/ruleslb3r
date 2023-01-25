@@ -262,7 +262,7 @@ const ContactForm = ({ sheetdata }) => {
         </p>
       </div>
       <main>
-        <form onSubmit={submitForm} ref={formRef}>
+        <form onSubmit={submitForm}>
           <div className="max-w-xl  flex items-center justify-center m-auto p-4 bg-gray-300 text-gray-900">
             <div className="mb-4">
               <div>
