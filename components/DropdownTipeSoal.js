@@ -21,19 +21,19 @@ export default function Dropdown() {
         <option className="text-lg p-2 " value="snbt">
           Literasi BI
         </option>
-        <option className="text-lg p-2 " value="Literasi B Eng">
+        <option className="text-lg p-2 " value="#">
           Literasi English
         </option>
-        <option className="text-lg p-2 " value="snbtpenau">
+        <option className="text-lg p-2 " value="#">
           Penalaran Umum
         </option>
-        <option className="text-lg p-2 " value="Pemahaman Bacaan dan Menulis">
+        <option className="text-lg p-2 " value="#">
           Pemahaman Bacaan & Menulis
         </option>
         <option className="text-lg p-2 " value="matematika">
           Penalaran Matematika
         </option>
-        <option className="text-lg p-2 " value="Pengetahuan dan Pemahaman Umum">
+        <option className="text-lg p-2 " value="#">
           Pengetahuan & Pemahaman Umum
         </option>
         <option className="text-lg p-2 " value="kuantitatif">

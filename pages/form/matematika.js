@@ -202,6 +202,8 @@ const ContactForm = ({ sheetdata }) => {
   };
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedPage, setSelectedPage] = useState(null);
+  const [isChecked, setIsChecked] = useState({});
   const postsPerPage = 1;
   const paginatedPosts = sheetdata.slice(
     (currentPage - 1) * postsPerPage,
@@ -218,26 +220,12 @@ const ContactForm = ({ sheetdata }) => {
     setCurrentPage(currentPage + 1);
   };
 
-  const [isChecked, setIsChecked] = useState(new Array(totalPages).fill(false));
+  // console.log(isChecked);
+  // page dalam handle checkbox mendeteksi perubahan page pada input dan mengirimnya ke local storage. page disini hanay sbg argumen yg menerima currentpage dari input checkbox yg dipilih
   const handleCheckbox = (page) => {
-    setIsChecked((prevState) => {
-      const newState = [...prevState];
-      newState[page] = !newState[page];
-      localStorage.setItem(`isChecked-${page}`, JSON.stringify(newState[page]));
-      return newState;
-    });
+    setSelectedPage(page);
+    setIsChecked({ ...isChecked, [page]: !isChecked[page] });
   };
-
-  useEffect(() => {
-    const totalPages = Math.ceil(sheetdata.length / postsPerPage);
-    const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
-    const isCheckedFromStorage = pages.map((page) =>
-      JSON.parse(localStorage.getItem(`isChecked-${page - 1}`))
-    );
-    if (isCheckedFromStorage) {
-      setIsChecked(isCheckedFromStorage);
-    }
-  }, []);
 
   return (
     <div>
@@ -268,17 +256,21 @@ const ContactForm = ({ sheetdata }) => {
         <NavSoal sumSoal={sheetdata} tipeSoal={tipeSoal} pages={pages} />
 
         <div className=" flex flex-row">
-          {pages.map((page) => (
-            <Button
+          {Array.from(
+            Array(Math.ceil(sheetdata.length / postsPerPage)).keys()
+          ).map((page) => (
+            <button
               key={page}
-              className={`page-button ${
-                isChecked[page]
-                  ? 'active bg-yellow-400'
-                  : 'bg-gray-800 rounded-none '
+              className={` ${
+                isChecked[page + 1]
+                  ? ' bg-yellow-400 pl-4 pr-4 pt-2 pb-2'
+                  : 'bg-gray-800 rounded-none  pl-4 pr-4 pt-2 pb-2 text-gray-50'
               }`}
-              onClick={() => setCurrentPage(page)}>
-              {page}
-            </Button>
+              onClick={() => {
+                setCurrentPage(page + 1);
+              }}>
+              {page + 1}
+            </button>
           ))}
         </div>
       </div>
@@ -439,13 +431,16 @@ const ContactForm = ({ sheetdata }) => {
                       <input
                         className="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                         type="checkbox"
-                        id={`page-${item[28]}`}
-                        checked={isChecked[item[28]]}
-                        onChange={() => handleCheckbox(item[28])}
+                        checked={isChecked[currentPage] || false}
+                        // id={`page-${item[28]}`}
+                        // nilai cek (ischecked) pada nomor sekian tru/false
+                        // checked={isChecked[item[28]]}
+                        onChange={() => handleCheckbox(currentPage)}
                       />
                       <label
                         htmlFor={`page-${item[28]}`}
                         className="text-xs pl-10 pr-10 text-center">
+                        {/* Page {item[28]} */}
                         Tandai jika kamu masih ragu-ragu dengan jawabanmu atau
                         soal mau dilewati dulu
                       </label>
