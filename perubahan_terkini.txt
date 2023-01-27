@@ -1,0 +1,2 @@
+1. mengubah file googlesheet kembali ke group1, group2 dst
+2. membuat if condisional

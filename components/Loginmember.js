@@ -97,7 +97,11 @@ const Loginmember = () => {
 
         // e.target.reset();
 
-        router.push(`/form/${link}`);
+        // router.push(`/form/snbt`);
+        router.push({
+          pathname: `/form/snbt`,
+          query: { link },
+        });
 
         Swal.fire({
           title: 'Kamu Berhasil Masuk',

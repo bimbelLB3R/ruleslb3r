@@ -88,7 +88,7 @@ export default function NavSoal({ sumSoal, tipeSoal, pages }) {
               />
             </svg>
           </a> */}
-          <div className="bg-gray-800 p-2 rounded text-xs hover:cursor-pointer">
+          {/* <div className="bg-gray-800 p-2 rounded text-xs hover:cursor-pointer">
             <Link href={`/form/output${link}`}>
               <span onClick={handleLocal}>
                 <svg
@@ -105,7 +105,7 @@ export default function NavSoal({ sumSoal, tipeSoal, pages }) {
                 </svg>
               </span>
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* <Button.Group>
