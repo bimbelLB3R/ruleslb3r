@@ -197,7 +197,10 @@ const ContactForm = ({ sheetdata }) => {
       setForm({ nisn: '', name: '' });
       setSelectedValues({});
       localStorage.setItem('tipeSoal', tipeSoal);
-      router.push(`/form/output${link}`);
+      router.push({
+        pathname: `/form/outputsnbt`,
+        query: { link },
+      });
     } else {
       Swal.fire({
         title: 'Error',

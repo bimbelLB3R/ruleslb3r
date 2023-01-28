@@ -60,7 +60,7 @@ const CardHasil = ({ filteredNisn, storedName, storedNisn, tipeSoal }) => {
             alt="Bonnie image"
           /> */}
           <div className="hover:cursor-pointer">
-            <a href={`/form/output${link}`}>
+            <a href={`/form/outputsnbt?link=${link}`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="36"

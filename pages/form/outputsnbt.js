@@ -4,25 +4,11 @@ import Swal from 'sweetalert2';
 import Loader from '../../components/Loader';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import NavSoal from '../../components/NavSoal';
-import { Radio } from 'antd';
-import Timer from '../../components/Timer';
 import CardHasil from '../../components/CardHasil';
 import { runFireworks } from '../../libs/utils';
 
-// Config variables
-const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
-// sheet jawaban
-const SHEET_ID3 = process.env.NEXT_PUBLIC_SHEET_ID3;
-// sheet database siswa
-const SHEET_ID2 = process.env.NEXT_PUBLIC_SHEET_ID2;
-const GOOGLE_CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
-const GOOGLE_SERVICE_PRIVATE_KEY =
-  process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
-// console.log(SHEET_ID3);
-// const [storedNisn, setStorageNisn] = useState('');
 const ContactForm = ({ sheetdata }) => {
-  // console.log(sheetdata);
+  // console.log(query.link);
 
   // console.log(sheetdata[0][1]);
 
@@ -40,6 +26,7 @@ const ContactForm = ({ sheetdata }) => {
     const storedName = localStorage.getItem('name');
     const storedNisn = localStorage.getItem('nisn');
     const tipeSoal = localStorage.getItem('tipeSoal');
+    const link = localStorage.getItem('link');
 
     if (!storedName) {
       router.push('/form/login');
@@ -48,36 +35,8 @@ const ContactForm = ({ sheetdata }) => {
       setStorageNisn(storedNisn);
       setTipeSoal(tipeSoal);
     }
-    // sheetdata.forEach((index) => {
-    //   // cek apakah sudah ada nisn dan nama di local storage
-    //   const storedNisn = localStorage.getItem('nisn');
-
-    //   if (storedNisn) {
-    //     setForm({ ...form, nisn: storedNisn });
-    //   }
-    //   const savedValue = localStorage.getItem(`group${index[0]}`);
-
-    //   // console.log(index[0]);
-    //   // console.log(localStorage.key(index));
-    //   if (savedValue) {
-    //     setSelectedValues((selectedValues) => ({
-    //       ...selectedValues,
-    //       [`group${index[0]}`]: savedValue,
-    //     }));
-    //   }
-    //   // berisi jawaban tersimpan
-    //   // console.log(savedValue);
-    // });
   }, []);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [selectedValues, setSelectedValues] = useState({});
   const router = useRouter();
-  const [form, setForm] = useState({
-    nisn: '',
-  });
-
-  // cek nisn
 
   return (
     <div>
@@ -109,8 +68,9 @@ const ContactForm = ({ sheetdata }) => {
 export default ContactForm;
 
 // ambil data soal
-export async function getServerSideProps() {
-  const req = await fetch('https://ruleslb3r.vercel.app/api/analisis');
+export async function getServerSideProps({ query }) {
+  const link = query.link;
+  const req = await fetch(`https://ruleslb3r.vercel.app/api/analisis${link}`);
   const res = await req.json();
 
   return {
