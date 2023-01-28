@@ -91,6 +91,7 @@ const Loginmember = () => {
         // await appendSpreadsheet(newRow);
         localStorage.setItem('name', form.nama);
         localStorage.setItem('nisn', form.nisn);
+        localStorage.setItem('timeLeft', 1800);
         const link = localStorage.getItem('link');
         // localStorage.setItem('remainingTime', 15);
         // cookie.set('timer', '10');

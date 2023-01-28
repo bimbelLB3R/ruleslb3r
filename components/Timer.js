@@ -1,32 +1,41 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import dayjs from 'dayjs';
+import duration from 'dayjs/plugin/duration';
 
-function Timer() {
-  const [elapsedTime, setElapsedTime] = useState(0);
-  let intervalId;
+dayjs.extend(duration);
 
-  function startTimer() {
-    intervalId = setInterval(() => {
-      setElapsedTime(elapsedTime + 1);
+export default function Timer() {
+  const [timeLeft, setTimeLeft] = useState(dayjs.duration(30, 'minute'));
+  const [timeStorage, setTimeStorage] = useState(null);
+
+  useEffect(() => {
+    const timeStorage = localStorage.getItem('timeLeft');
+    console.log(timeStorage);
+    if (timeStorage) {
+      setTimeStorage(dayjs.duration(parseInt(timeStorage), 'second'));
+      setTimeLeft(dayjs.duration(parseInt(timeStorage), 'second'));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('timeLeft', timeLeft.asSeconds());
+  }, [timeLeft]);
+
+  useEffect(() => {
+    if (!timeLeft) {
+      return;
+    }
+    const interval = setInterval(() => {
+      if (timeLeft.asSeconds() <= 0) {
+        clearInterval(interval);
+        alert("Time's up!");
+      } else {
+        setTimeLeft(timeLeft.subtract(1, 'second'));
+      }
     }, 1000);
-  }
 
-  function stopTimer() {
-    clearInterval(intervalId);
-  }
+    return () => clearInterval(interval);
+  }, [timeLeft]);
 
-  function resetTimer() {
-    clearInterval(intervalId);
-    setElapsedTime(0);
-  }
-
-  return (
-    <div>
-      <p>Elapsed Time: {elapsedTime} seconds</p>
-      <button onClick={startTimer}>Start</button>
-      <button onClick={stopTimer}>Stop</button>
-      <button onClick={resetTimer}>Reset</button>
-    </div>
-  );
+  return <div>{timeLeft ? timeLeft.format('mm:ss') : 'Loading...'}</div>;
 }
-
-export default Timer;

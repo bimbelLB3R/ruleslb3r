@@ -8,6 +8,7 @@ import NavSoal from '../../components/NavSoal';
 import { Radio } from 'antd';
 import { Button } from 'flowbite-react';
 import Latex from 'react-latex';
+import Timer from '../../components/Timer';
 
 const ContactForm = ({ sheetdata }) => {
   const onLoad = () => {
@@ -295,8 +296,12 @@ const ContactForm = ({ sheetdata }) => {
         </div>
       </div>
       {/* Selamat datang peserta */}
-      <div className="md:flex justify-center fixed top-0 z-50 overflow-auto left-0 right-0 bg-gray-900 text-gray-100">
-        <p className="text-center  p-2 text-xs">
+      <div className="flex justify-center items-center fixed top-0 z-50 overflow-auto left-0 right-0 bg-gray-900 text-gray-100 text-[8px] md:text-sm">
+        <div className="bg-red-800 p-1 rounded-full">
+          <Timer />
+        </div>
+
+        <p className="text-center  p-2 ">
           {storedName} is doing {tipeSoal} now...
         </p>
       </div>
