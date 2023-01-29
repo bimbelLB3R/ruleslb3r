@@ -148,6 +148,30 @@ const Faq = () => {
               </p>
             </Accordion.Content>
           </Accordion.Panel>
+          <Accordion.Panel>
+            <Accordion.Title>
+              <p className="text-gray-900">LOGIN TENTOR</p>
+            </Accordion.Title>
+            <Accordion.Content>
+              <p className="mb-2 text-gray-900 dark:text-gray-400 text-left">
+                Bapak/Ibu tentor LB3R dapat melakukan log in dengan dua cara,
+              </p>
+              <p className="text-gray-900 dark:text-gray-400 text-left">
+                pertama{' '}
+                <a
+                  href="http://192.168.100.93/aplikasibimbel2/public/data_tentor/"
+                  className="text-blue-600 hover:underline dark:text-blue-500">
+                  Login Dengan Wifi Di Kantor
+                </a>{' '}
+                dan kedua{' '}
+                <a
+                  href="http://a474-2001-448a-6021-1a1b-8855-826f-91b4-cd59.ngrok.io/aplikasibimbel2/public/data_tentor/"
+                  className="text-blue-600 hover:underline dark:text-blue-500">
+                  Login Saat Di Rumah
+                </a>{' '}
+              </p>
+            </Accordion.Content>
+          </Accordion.Panel>
         </Accordion>
       </div>
     </div>

@@ -39,10 +39,10 @@ const Navbar = ({ logoUrl, logoAlt, menuItems }) => {
           className={`${
             isMenuOpen ? 'block' : 'hidden'
           } w-full block flex-grow lg:flex lg:items-center lg:w-auto `}>
-          <div className="text-sm lg:flex-grow ">
+          <div className="text-sm lg:flex-grow">
             {menuItems.map((item) => (
               <Link href={item.url} key={item.label}>
-                <a className="block mt-4 lg:inline-block lg:mt-0 text-gray-900 md:text-gray-400  hover:text-white mr-4 underline underline-offset-4">
+                <a className="block mt-4 lg:inline-block lg:mt-0 text-gray-900 md:text-gray-400  hover:text-white mr-4 underline underline-offset-4 text-xs">
                   {item.label}
                 </a>
               </Link>
