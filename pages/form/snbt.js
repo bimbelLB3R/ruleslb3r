@@ -28,6 +28,10 @@ const ContactForm = ({ sheetdata }) => {
   const SHEET_ID7 = process.env.NEXT_PUBLIC_SHEET_ID7;
   // sheet analisis
   const SHEET_ID8 = process.env.NEXT_PUBLIC_SHEET_ID8;
+  // sheet jawaban
+  const SHEET_ID9 = process.env.NEXT_PUBLIC_SHEET_ID9;
+  // sheet analisis
+  const SHEET_ID10 = process.env.NEXT_PUBLIC_SHEET_ID10;
   const GOOGLE_CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
   const GOOGLE_SERVICE_PRIVATE_KEY =
     process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
@@ -48,6 +52,9 @@ const ContactForm = ({ sheetdata }) => {
     } else if (linkValue === 'matematika') {
       setSheetIdJwb(SHEET_ID7);
       setSheetIdAna(SHEET_ID8);
+    } else if (linkValue === 'english') {
+      setSheetIdJwb(SHEET_ID9);
+      setSheetIdAna(SHEET_ID10);
     } else {
       console.log('linkValue undetect');
     }
