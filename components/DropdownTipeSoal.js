@@ -21,7 +21,7 @@ export default function Dropdown() {
         <option className="text-lg p-2 " value="snbt">
           Literasi BI
         </option>
-        <option className="text-lg p-2 " value="#">
+        <option className="text-lg p-2 " value="english">
           Literasi English
         </option>
         <option className="text-lg p-2 " value="#">

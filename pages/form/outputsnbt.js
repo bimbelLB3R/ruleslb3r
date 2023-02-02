@@ -41,7 +41,7 @@ const ContactForm = ({ sheetdata }) => {
   return (
     <div>
       <Head>
-        <title>ANALISIS</title>
+        <title>ANALISIS HASIL</title>
         <meta name="description" content="Hasil SNBT" />
       </Head>
 

@@ -252,7 +252,7 @@ const ContactForm = ({ sheetdata }) => {
   return (
     <div>
       <Head>
-        <title>SNBT</title>
+        <title>SNBT|LB3R</title>
         <meta name="description" content="Seleksi Masuk PTN Jalur Tes" />
       </Head>
       <link
