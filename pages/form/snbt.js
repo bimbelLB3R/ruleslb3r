@@ -313,7 +313,7 @@ const ContactForm = ({ sheetdata }) => {
       </div>
       <main>
         <form onSubmit={submitForm} ref={formRef}>
-          <div className="max-w-xl  flex items-center justify-center m-auto p-4 bg-gray-300 text-gray-900">
+          <div className="max-w-xl select-none flex items-center justify-center m-auto p-4 bg-gray-300 text-gray-900">
             <div className="mb-4">
               <div>
                 {/* <label htmlFor="nisn">NISN:</label> */}
