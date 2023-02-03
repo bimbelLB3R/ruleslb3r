@@ -9,8 +9,51 @@ import { Radio } from 'antd';
 import { Button } from 'flowbite-react';
 import Latex from 'react-latex';
 import Timer from '../../components/Timer';
+// from timer
+import dayjs from 'dayjs';
+import duration from 'dayjs/plugin/duration';
+
+dayjs.extend(duration);
+// from timer end
 
 const ContactForm = ({ sheetdata }) => {
+  // from timer
+  const [isRadioButtonDisabled, setIsRadioButtonDisabled] = useState(false);
+  // console.log(isRadioButtonDisabled);true
+  const [timeLeft, setTimeLeft] = useState(dayjs.duration(30, 'minute'));
+  const [timeStorage, setTimeStorage] = useState(null);
+
+  useEffect(() => {
+    const timeStorage = localStorage.getItem('timeLeft');
+    // console.log(timeStorage);
+    if (timeStorage) {
+      setTimeStorage(dayjs.duration(parseInt(timeStorage), 'second'));
+      setTimeLeft(dayjs.duration(parseInt(timeStorage), 'second'));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('timeLeft', timeLeft.asSeconds());
+  }, [timeLeft]);
+
+  useEffect(() => {
+    if (!timeLeft) {
+      return;
+    }
+    const interval = setInterval(() => {
+      if (timeLeft.asSeconds() <= 0) {
+        clearInterval(interval);
+        alert("Time's up!");
+        setIsRadioButtonDisabled(true);
+      } else {
+        setTimeLeft(timeLeft.subtract(1, 'second'));
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [timeLeft]);
+  // from timer end
+
   const onLoad = () => {
     renderMathInElement(document.body);
   };
@@ -238,7 +281,7 @@ const ContactForm = ({ sheetdata }) => {
     (currentPage - 1) * postsPerPage,
     currentPage * postsPerPage
   );
-  // console.log(paginatedPosts);
+  // console.log(jawab);
   const totalPages = Math.ceil(sheetdata.length / postsPerPage);
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
   // console.log(pages);
@@ -249,13 +292,13 @@ const ContactForm = ({ sheetdata }) => {
     setCurrentPage(currentPage + 1);
   };
 
-  // console.log(isChecked);
+  // console.log(currentPage);
   // page dalam handle checkbox mendeteksi perubahan page pada input dan mengirimnya ke local storage. page disini hanay sbg argumen yg menerima currentpage dari input checkbox yg dipilih
   const handleCheckbox = (page) => {
     setSelectedPage(page);
     setIsChecked({ ...isChecked, [page]: !isChecked[page] });
   };
-
+  // const isRadioButtonDisabled = <Timer />;
   return (
     <div>
       <Head>
@@ -296,7 +339,14 @@ const ContactForm = ({ sheetdata }) => {
               onClick={() => {
                 setCurrentPage(page + 1);
               }}>
-              {page + 1}
+              <p
+                className={`${
+                  currentPage === page + 1 ? 'text-red-900' : 'text-gray-50'
+                }`}>
+                {page + 1}
+                {/* {jawab} */}
+                {selectedValues[`group${page}`]}
+              </p>
             </button>
           ))}
         </div>
@@ -304,7 +354,10 @@ const ContactForm = ({ sheetdata }) => {
       {/* Selamat datang peserta */}
       <div className="flex justify-center items-center fixed top-0 z-50 overflow-auto left-0 right-0 bg-gray-900 text-gray-100 text-[8px] md:text-sm">
         <div className="bg-red-800 p-1 rounded-full">
-          <Timer />
+          {/* <Timer /> */}
+          {/* from timer */}
+          <div>{timeLeft ? timeLeft.format('mm:ss') : 'Loading...'}</div>
+          {/* from timer end */}
         </div>
 
         <p className="text-center  p-2 ">
@@ -385,6 +438,9 @@ const ContactForm = ({ sheetdata }) => {
                   <p className="text-justify mb-4 indent-8 hover:bg-green-200">
                     {item[23]}
                   </p>
+                  <p className="text-left mb-4 text-xs font-semibold italic">
+                    {item[26]}
+                  </p>
                   <div className=" border-dashed border-l-2 border-yellow-900">
                     {/* Pertanyaan */}
                     <div className="flex space-x-2 ">
@@ -400,6 +456,7 @@ const ContactForm = ({ sheetdata }) => {
                     {/* Opsi Jawaban */}
                     <div className="pr-4 pl-4">
                       <Radio.Group
+                        disabled={isRadioButtonDisabled}
                         onChange={handleChange}
                         value={selectedValues[`group${item[0]}`]}
                         name={`group${item[0]}`}>

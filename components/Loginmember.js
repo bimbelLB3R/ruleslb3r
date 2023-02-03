@@ -88,13 +88,25 @@ const Loginmember = () => {
           nama: form.nama,
         };
 
+        const link = localStorage.getItem('link');
         // await appendSpreadsheet(newRow);
         localStorage.setItem('name', form.nama);
         localStorage.setItem('nisn', form.nisn);
-        localStorage.setItem('timeLeft', 1800);
-        const link = localStorage.getItem('link');
+        if (link === 'snbt') {
+          localStorage.setItem('timeLeft', 1800);
+        } else if (link === 'kuantitatif') {
+          localStorage.setItem('timeLeft', 1800);
+        } else if (link === 'matematika') {
+          localStorage.setItem('timeLeft', 1800);
+        } else if (link === 'english') {
+          localStorage.setItem('timeLeft', 15);
+        } else {
+          console.log('link undetect');
+        }
+        // localStorage.setItem('timeLeft', 1800);
         // localStorage.setItem('remainingTime', 15);
         // cookie.set('timer', '10');
+        // localStorage.setItem('waktuhabis', false);
 
         // e.target.reset();
 
