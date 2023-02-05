@@ -118,7 +118,7 @@ const Loginmember = () => {
 
         Swal.fire({
           title: 'Kamu Berhasil Masuk',
-          text: 'Tunggu sebentar....',
+          text: 'Tunggu sebentar soal sedang disiapkan....',
           icon: 'success',
           confirmButtonText: 'Ok',
         });

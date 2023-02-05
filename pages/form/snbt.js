@@ -75,6 +75,11 @@ const ContactForm = ({ sheetdata }) => {
   const SHEET_ID9 = process.env.NEXT_PUBLIC_SHEET_ID9;
   // sheet analisis
   const SHEET_ID10 = process.env.NEXT_PUBLIC_SHEET_ID10;
+  // soal
+  const SHEET_ID11 = process.env.NEXT_PUBLIC_SHEET_ID11;
+  // sheet analisis
+  const SHEET_ID12 = process.env.NEXT_PUBLIC_SHEET_ID12;
+
   const GOOGLE_CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
   const GOOGLE_SERVICE_PRIVATE_KEY =
     process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
@@ -98,6 +103,9 @@ const ContactForm = ({ sheetdata }) => {
     } else if (linkValue === 'english') {
       setSheetIdJwb(SHEET_ID9);
       setSheetIdAna(SHEET_ID10);
+    } else if (linkValue === 'bacaan') {
+      setSheetIdJwb(SHEET_ID11);
+      setSheetIdAna(SHEET_ID12);
     } else {
       console.log('linkValue undetect');
     }
