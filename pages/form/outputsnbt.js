@@ -43,6 +43,12 @@ const ContactForm = ({ sheetdata }) => {
       <Head>
         <title>ANALISIS HASIL</title>
         <meta name="description" content="Hasil SNBT" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="4x16"
+          href="image/logolb3r.png"
+        />
       </Head>
 
       <main>

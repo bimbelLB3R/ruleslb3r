@@ -349,7 +349,9 @@ const ContactForm = ({ sheetdata }) => {
               }}>
               <p
                 className={`${
-                  currentPage === page + 1 ? 'text-red-900' : 'text-gray-50'
+                  currentPage === page + 1
+                    ? 'font-bold underline'
+                    : 'text-gray-50'
                 }`}>
                 {page + 1}
                 {/* {jawab} */}

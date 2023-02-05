@@ -101,7 +101,7 @@ const Loginmember = () => {
         } else if (link === 'english') {
           localStorage.setItem('timeLeft', 15);
         } else if (link === 'bacaan') {
-          localStorage.setItem('timeLeft', 20);
+          localStorage.setItem('timeLeft', 120);
         } else {
           console.log('link undetect');
         }
