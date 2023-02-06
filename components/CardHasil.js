@@ -88,6 +88,10 @@ const CardHasil = ({ filteredNisn, storedName, storedNisn, tipeSoal }) => {
             {filteredNisn.map((item, index) => (
               <div key={index} className="border-b-2">
                 <p>
+                  Ranking subtes :{' '}
+                  <span className="font-bold text-red-900">{item[0]}</span>
+                </p>
+                <p>
                   Skor Kamu :{' '}
                   <span className="font-bold text-red-900">{item[8]}/1000</span>
                 </p>
