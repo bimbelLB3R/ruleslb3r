@@ -93,15 +93,15 @@ const Loginmember = () => {
         localStorage.setItem('name', form.nama);
         localStorage.setItem('nisn', form.nisn);
         if (link === 'snbt') {
-          localStorage.setItem('timeLeft', 1800);
+          localStorage.setItem('timeLeft', 1500);
         } else if (link === 'kuantitatif') {
           localStorage.setItem('timeLeft', 1800);
         } else if (link === 'matematika') {
           localStorage.setItem('timeLeft', 1800);
         } else if (link === 'english') {
-          localStorage.setItem('timeLeft', 15);
+          localStorage.setItem('timeLeft', 1500);
         } else if (link === 'bacaan') {
-          localStorage.setItem('timeLeft', 120);
+          localStorage.setItem('timeLeft', 1500);
         } else {
           console.log('link undetect');
         }
