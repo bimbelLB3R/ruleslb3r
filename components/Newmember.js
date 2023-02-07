@@ -19,6 +19,10 @@ const Newmember = () => {
     nisn: '',
     asalsekolah: '',
     wa: '',
+    prodi1: '',
+    kampus1: '',
+    prodi2: '',
+    kampus2: '',
   });
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
@@ -70,7 +74,11 @@ const Newmember = () => {
       form.nama !== '' &&
       form.nisn !== '' &&
       form.asalsekolah !== '' &&
-      form.wa !== ''
+      form.wa !== '' &&
+      form.prodi1 !== '' &&
+      form.kampus1 !== '' &&
+      form.prodi2 !== '' &&
+      form.kampus2 !== ''
     ) {
       const canSubmit = await checkNisn(form.nisn, sheet);
 
@@ -80,6 +88,10 @@ const Newmember = () => {
           nisn: form.nisn,
           asalsekolah: form.asalsekolah,
           wa: form.wa,
+          prodi1: form.prodi1,
+          kampus1: form.kampus1,
+          prodi2: form.prodi2,
+          kampus2: form.kampus2,
         };
         // setIsLoading(true); // set status loading menjadi true
         await appendSpreadsheet(newRow);
@@ -112,7 +124,7 @@ const Newmember = () => {
   };
   return (
     <div className="bg-gray-50 dark:bg-gray-900">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-full lg:py-0">
         <a
           href="/"
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
@@ -136,7 +148,7 @@ const Newmember = () => {
                 <label
                   htmlFor="nama"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Nama Kamu
+                  Nama Kamu*
                 </label>
                 <input
                   type="text"
@@ -153,7 +165,7 @@ const Newmember = () => {
                 <label
                   htmlFor="nisn"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  NISN
+                  NISN*
                 </label>
                 <input
                   type="text"
@@ -174,7 +186,7 @@ const Newmember = () => {
                 <label
                   htmlFor="asalsekolah"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Asal Sekolah
+                  Asal Sekolah*
                 </label>
                 <input
                   type="text"
@@ -191,7 +203,7 @@ const Newmember = () => {
                 <label
                   htmlFor="wa"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Nomor WA Aktif
+                  Nomor WA Aktif*
                 </label>
                 <input
                   type="number"
@@ -204,6 +216,76 @@ const Newmember = () => {
                   autoComplete="off"
                 />
               </div>
+              {/* Penjurusan */}
+              <div>
+                <label
+                  htmlFor="prodi1"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Pilihan Jurusan 1*
+                </label>
+                <input
+                  type="text"
+                  name="prodi1"
+                  id="prodi1"
+                  placeholder="Tulis Jurusan Pilihan Pertama"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required=""
+                  onChange={handleChange}
+                  autoComplete="off"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="kampus1"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Kampus Pilihan Jurusan 1*
+                </label>
+                <input
+                  type="text"
+                  name="kampus1"
+                  id="kampus1"
+                  placeholder="Tulis Kampus Pilihan Pertama"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required=""
+                  onChange={handleChange}
+                  autoComplete="off"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="prodi2"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Pilihan Jurusan 2*
+                </label>
+                <input
+                  type="text"
+                  name="prodi2"
+                  id="prodi2"
+                  placeholder="Tulis Jurusan Pilihan Kedua"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required=""
+                  onChange={handleChange}
+                  autoComplete="off"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="kampus2"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Kampus Pilihan Jurusan 2*
+                </label>
+                <input
+                  type="text"
+                  name="kampus2"
+                  id="kampus2"
+                  placeholder="Tulis Kampus Pilihan Kedua"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required=""
+                  onChange={handleChange}
+                  autoComplete="off"
+                />
+              </div>
+              {/* Penjurusan end */}
               <div className="flex items-start">
                 <div className="flex items-center h-5">
                   <input
@@ -222,7 +304,7 @@ const Newmember = () => {
                     <a
                       className="font-medium text-blue-600 hover:underline dark:text-blue-500"
                       href="#">
-                      Terms and Conditions
+                      Terms and Conditions (* wajib diisi)
                     </a>
                   </label>
                 </div>
