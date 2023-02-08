@@ -24,7 +24,7 @@ export default function Dropdown() {
         <option className="text-lg p-2 " value="english">
           Literasi English
         </option>
-        <option className="text-lg p-2 " value="#">
+        <option className="text-lg p-2 " value="penalaran">
           Penalaran Umum
         </option>
         <option className="text-lg p-2 " value="bacaan">

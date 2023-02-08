@@ -93,7 +93,7 @@ const CardHasil = ({ filteredNisn, storedName, storedNisn, tipeSoal }) => {
                 </p>
                 <p>
                   Skor Kamu :{' '}
-                  <span className="font-bold text-red-900">{item[8]}/1000</span>
+                  <span className="font-bold text-red-900">{item[8]}</span>
                 </p>
                 <p>
                   Jumlah jawaban benar :{' '}
