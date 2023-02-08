@@ -384,7 +384,7 @@ const ContactForm = ({ sheetdata }) => {
       </div>
       <main>
         <form onSubmit={submitForm} ref={formRef}>
-          <div className="max-w-xl select-none flex items-center justify-center m-auto p-4 bg-gray-300 text-gray-900">
+          <div className="max-w-xl lg:max-w-full  select-none flex items-center justify-center m-auto p-4 bg-gray-300 text-gray-900">
             <div className="mb-4">
               <div>
                 {/* <label htmlFor="nisn">NISN:</label> */}
@@ -401,159 +401,174 @@ const ContactForm = ({ sheetdata }) => {
               {/* Timer */}
 
               {paginatedPosts.map((item) => (
-                <div key={item[0]} className="bg-gray-300">
+                <div
+                  key={item[0]}
+                  className="bg-gray-300 lg:drop-shadow-2xl lg:m-10">
                   {/* {console.log(item[0])} */}
                   {/* Bacaan */}
-                  <p className="text-center mb-2 indent-8 font-semibold mt-12">
-                    {item[2]}
-                  </p>
-                  <div className="flex items-center justify-center hover:w-full hover:absolute hover:z-50 hover:right-0 hover:left-0] ">
-                    <img src={item[27]} className="w-full " />
-                  </div>
-                  <p className="text-justify mb-2 indent-8 hover:bg-green-200">
-                    {item[3]}
-                  </p>
-                  <p className="text-justify mb-2 indent-8 hover:bg-green-200">
-                    <Latex>{item[4]}</Latex>
-                  </p>
-                  <p className="text-justify mb-2 indent-8 hover:bg-green-200">
-                    {item[5]}
-                  </p>
-                  <p className="text-justify mb-2 indent-8 hover:bg-green-200">
-                    {item[6]}
-                  </p>
-                  <p className="text-justify mb-4 indent-8 hover:bg-green-200">
-                    {item[7]}
-                  </p>
-                  {/* Tambahan bacaan kolom orange */}
-                  <p className="text-justify mb-4 indent-8 hover:bg-green-200">
-                    {item[14]}
-                  </p>
-                  <p className="text-justify mb-4 indent-8 hover:bg-green-200">
-                    {item[15]}
-                  </p>
-                  <p className="text-justify mb-4 indent-8 hover:bg-green-200">
-                    {item[16]}
-                  </p>
-                  <p className="text-justify mb-4 indent-8 hover:bg-green-200">
-                    {item[17]}
-                  </p>
-                  <p className="text-center mb-4 indent-8 hover:bg-green-200 font-semibold">
-                    {item[18]}
-                  </p>
-                  <p className="text-justify mb-4 indent-8 hover:bg-green-200">
-                    {item[19]}
-                  </p>
-                  <p className="text-justify mb-4 indent-8 hover:bg-green-200">
-                    {item[20]}
-                  </p>
-                  <p className="text-justify mb-4 indent-8 hover:bg-green-200">
-                    {item[21]}
-                  </p>
-                  <p className="text-justify mb-4 indent-8 hover:bg-green-200">
-                    {item[22]}
-                  </p>
-                  <p className="text-justify mb-4 indent-8 hover:bg-green-200">
-                    {item[23]}
-                  </p>
-                  <p className="text-left mb-4 text-xs font-semibold italic">
-                    {item[26]}
-                  </p>
-                  <div className=" border-dashed border-l-2 border-yellow-900">
-                    {/* Pertanyaan */}
-                    <div className="flex space-x-2 ">
-                      <p
-                        className="text-justify mb-2 bg-yellow-300 flex items-center p-1"
-                        id={item[28]}>
-                        {item[28]}
+                  <div className="lg:flex  lg:p-10 lg:space-x-4 ">
+                    <div
+                      className={`${
+                        link === 'kuantitatif' || link === 'matematika'
+                          ? 'lg:max-w-1/2'
+                          : 'lg:w-1/2'
+                      }`}>
+                      <p className="text-center mb-2 indent-8 font-semibold mt-12 lg:mt-0">
+                        {item[2]}
                       </p>
-                      <p className="text-justify mb-2 bg-gray-300 p-1 border-b-2 border-t-2 border-yellow-200">
-                        <Latex>{item[8]}</Latex>
+                      <div className="flex items-center justify-center hover:w-full hover:absolute hover:z-50 hover:right-0 hover:left-0 ">
+                        <img src={item[27]} className="w-full " />
+                      </div>
+                      <p className="text-justify mb-2 indent-8 hover:bg-green-200">
+                        {item[3]}
+                      </p>
+                      <p className="text-justify mb-2 hover:bg-green-200">
+                        <Latex>{item[4]}</Latex>
+                      </p>
+                      <p className="text-justify mb-2 indent-8 hover:bg-green-200">
+                        {item[5]}
+                      </p>
+                      <p className="text-justify mb-2 indent-8 hover:bg-green-200">
+                        {item[6]}
+                      </p>
+                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                        {item[7]}
+                      </p>
+                      {/* Tambahan bacaan kolom orange */}
+                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                        {item[14]}
+                      </p>
+                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                        {item[15]}
+                      </p>
+                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                        {item[16]}
+                      </p>
+                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                        {item[17]}
+                      </p>
+                      <p className="text-center mb-4 indent-8 hover:bg-green-200 font-semibold">
+                        {item[18]}
+                      </p>
+                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                        {item[19]}
+                      </p>
+                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                        {item[20]}
+                      </p>
+                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                        {item[21]}
+                      </p>
+                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                        {item[22]}
+                      </p>
+                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                        {item[23]}
+                      </p>
+                      <p className="text-left mb-4 text-xs font-semibold italic">
+                        {item[26]}
                       </p>
                     </div>
-                    {/* Opsi Jawaban */}
-                    <div className="pr-4 pl-4">
-                      <Radio.Group
-                        disabled={isRadioButtonDisabled}
-                        onChange={handleChange}
-                        value={selectedValues[`group${item[0]}`]}
-                        name={`group${item[0]}`}>
-                        <div className="flex space-x-1">
-                          <Radio value="A" className="text-justify">
-                            <div className="flex items-center space-x-2 mb-2">
-                              <p className="font-semibold">A</p>
-                              <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
-                                {item[9]}
-                              </p>
-                            </div>
-                          </Radio>
-                        </div>
-                        <div className="flex space-x-1">
-                          <Radio value="B" className="text-justify ">
-                            <div className="flex items-center space-x-2 mb-2">
-                              <p className="font-semibold">B</p>
-                              <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
-                                {item[10]}
-                              </p>
-                            </div>
-                          </Radio>
-                        </div>
-                        <div className="flex space-x-1">
-                          <Radio value="C" className="text-justify ">
-                            <div className="flex items-center space-x-2 mb-2">
-                              <p className="font-semibold">C</p>
-                              <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
-                                {item[11]}
-                              </p>
-                            </div>
-                          </Radio>
-                        </div>
-                        <div className="flex space-x-1">
-                          <Radio value="D" className="text-justify ">
-                            <div className="flex items-center space-x-2 mb-2">
-                              <p className="font-semibold">D</p>
-                              <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
-                                {item[12]}
-                              </p>
-                            </div>
-                          </Radio>
-                        </div>
-                        <div className="flex space-x-1">
-                          <Radio value="E" className=" flex items-start">
-                            <div className="flex items-center space-x-2">
-                              <p className="font-semibold">E</p>
-                              <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
-                                {item[13]}
-                              </p>
-                            </div>
-                          </Radio>
-                        </div>
-                      </Radio.Group>
-                    </div>
+                    <div
+                      className={`${
+                        link === 'kuantitatif' || link === 'matematika'
+                          ? 'lg:max-w-1/2 border-dashed border-l-2 border-yellow-900'
+                          : 'lg:w-1/2 border-dashed border-l-2 border-yellow-900'
+                      }`}>
+                      {/* Pertanyaan */}
+                      <div className="flex space-x-2 ">
+                        <p
+                          className="text-justify mb-2 bg-yellow-300 flex items-center p-1"
+                          id={item[28]}>
+                          {item[28]}
+                        </p>
+                        <p className="text-left mb-2  bg-gray-300 p-1 border-b-2 border-t-2 border-yellow-200">
+                          <Latex>{item[8]}</Latex>
+                        </p>
+                      </div>
+                      {/* Opsi Jawaban */}
+                      <div className="pr-4 pl-4">
+                        <Radio.Group
+                          disabled={isRadioButtonDisabled}
+                          onChange={handleChange}
+                          value={selectedValues[`group${item[0]}`]}
+                          name={`group${item[0]}`}>
+                          <div className="flex space-x-1">
+                            <Radio value="A" className="text-justify">
+                              <div className="flex items-center space-x-2 mb-2">
+                                <p className="font-semibold">A</p>
+                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
+                                  {item[9]}
+                                </p>
+                              </div>
+                            </Radio>
+                          </div>
+                          <div className="flex space-x-1">
+                            <Radio value="B" className="text-justify ">
+                              <div className="flex items-center space-x-2 mb-2">
+                                <p className="font-semibold">B</p>
+                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
+                                  {item[10]}
+                                </p>
+                              </div>
+                            </Radio>
+                          </div>
+                          <div className="flex space-x-1">
+                            <Radio value="C" className="text-justify ">
+                              <div className="flex items-center space-x-2 mb-2">
+                                <p className="font-semibold">C</p>
+                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
+                                  {item[11]}
+                                </p>
+                              </div>
+                            </Radio>
+                          </div>
+                          <div className="flex space-x-1">
+                            <Radio value="D" className="text-justify ">
+                              <div className="flex items-center space-x-2 mb-2">
+                                <p className="font-semibold">D</p>
+                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
+                                  {item[12]}
+                                </p>
+                              </div>
+                            </Radio>
+                          </div>
+                          <div className="flex space-x-1">
+                            <Radio value="E" className=" flex items-start">
+                              <div className="flex items-center space-x-2">
+                                <p className="font-semibold">E</p>
+                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
+                                  {item[13]}
+                                </p>
+                              </div>
+                            </Radio>
+                          </div>
+                        </Radio.Group>
+                      </div>
 
-                    <div className="checklist flex flex-col items-center mt-10">
-                      <input
-                        className="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                        type="checkbox"
-                        checked={isChecked[currentPage] || false}
-                        // id={`page-${item[28]}`}
-                        // nilai cek (ischecked) pada nomor sekian tru/false
-                        // checked={isChecked[item[28]]}
-                        onChange={() => handleCheckbox(currentPage)}
-                      />
-                      <label
-                        htmlFor={`page-${item[28]}`}
-                        className="text-xs pl-10 pr-10 text-center">
-                        {/* Page {item[28]} */}
-                        Tandai jika kamu masih ragu-ragu dengan jawabanmu atau
-                        soal mau dilewati dulu
-                      </label>
-                      <p className="border-b-2 border-gray-400 p-2 text-gray-800 text-xs">
-                        Page-{item[28]}
-                      </p>
-                    </div>
+                      <div className="checklist flex flex-col items-center mt-10">
+                        <input
+                          className="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                          type="checkbox"
+                          checked={isChecked[currentPage] || false}
+                          // id={`page-${item[28]}`}
+                          // nilai cek (ischecked) pada nomor sekian tru/false
+                          // checked={isChecked[item[28]]}
+                          onChange={() => handleCheckbox(currentPage)}
+                        />
+                        <label
+                          htmlFor={`page-${item[28]}`}
+                          className="text-xs pl-10 pr-10 text-center">
+                          {/* Page {item[28]} */}
+                          Tandai jika kamu masih ragu-ragu dengan jawabanmu atau
+                          soal mau dilewati dulu
+                        </label>
+                        <p className="border-b-2 border-gray-400 p-2 text-gray-800 text-xs">
+                          Soal Nomor-{item[28]}
+                        </p>
+                      </div>
 
-                    {/* <div>
+                      {/* <div>
                       <Button
                         className={`page-button ${
                           isChecked[item[28]]
@@ -564,6 +579,7 @@ const ContactForm = ({ sheetdata }) => {
                         {item[28]}
                       </Button>
                     </div> */}
+                    </div>
                   </div>
                 </div>
                 // tombol ragu2
