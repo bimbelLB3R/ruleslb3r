@@ -411,7 +411,7 @@ const ContactForm = ({ sheetdata }) => {
               {paginatedPosts.map((item) => (
                 <div
                   key={item[0]}
-                  className="bg-gray-300 lg:drop-shadow-2xl lg:m-10">
+                  className="bg-gray-50 lg:drop-shadow-2xl lg:m-10 p-2">
                   {/* {console.log(item[0])} */}
                   {/* Bacaan */}
                   <div className="lg:flex  lg:p-10 lg:space-x-4 ">
@@ -427,50 +427,50 @@ const ContactForm = ({ sheetdata }) => {
                       <div className="flex items-center justify-center hover:w-full hover:absolute hover:z-50 hover:right-0 hover:left-0 ">
                         <img src={item[27]} className="w-full " />
                       </div>
-                      <p className="text-justify mb-2 indent-8 hover:bg-green-200">
+                      <p className="text-justify mb-2 indent-8 hover:bg-gray-100">
                         {item[3]}
                       </p>
-                      <p className="text-justify mb-2 hover:bg-green-200">
+                      <p className="text-justify mb-2 hover:bg-gray-100">
                         <Latex>{item[4]}</Latex>
                       </p>
-                      <p className="text-justify mb-2 indent-8 hover:bg-green-200">
+                      <p className="text-justify mb-2 indent-8 hover:bg-gray-100">
                         {item[5]}
                       </p>
-                      <p className="text-justify mb-2 indent-8 hover:bg-green-200">
+                      <p className="text-justify mb-2 indent-8 hover:bg-gray-100">
                         {item[6]}
                       </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
                         {item[7]}
                       </p>
                       {/* Tambahan bacaan kolom orange */}
-                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
                         {item[14]}
                       </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
                         {item[15]}
                       </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
                         {item[16]}
                       </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
                         {item[17]}
                       </p>
-                      <p className="text-center mb-4 indent-8 hover:bg-green-200 font-semibold">
+                      <p className="text-center mb-4 indent-8 hover:bg-gray-100 font-semibold">
                         {item[18]}
                       </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
                         {item[19]}
                       </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
                         {item[20]}
                       </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
                         {item[21]}
                       </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
                         {item[22]}
                       </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-green-200">
+                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
                         {item[23]}
                       </p>
                       <p className="text-left mb-4 text-xs font-semibold italic">
@@ -486,11 +486,11 @@ const ContactForm = ({ sheetdata }) => {
                       {/* Pertanyaan */}
                       <div className="flex space-x-2 ">
                         <p
-                          className="text-justify mb-2 bg-yellow-300 flex items-center p-1"
+                          className="text-justify mb-2 bg-gray-100 flex items-center p-1"
                           id={item[28]}>
                           {item[28]}
                         </p>
-                        <p className="text-left mb-2  bg-gray-300 p-1 border-b-2 border-t-2 border-yellow-200">
+                        <p className="text-left mb-2  bg-gray-50 p-1 border-b-2 border-t-2 border-gray-100">
                           <Latex>{item[8]}</Latex>
                         </p>
                       </div>
@@ -505,7 +505,7 @@ const ContactForm = ({ sheetdata }) => {
                             <Radio value="A" className="text-justify">
                               <div className="flex items-center space-x-2 mb-2">
                                 <p className="font-semibold">A</p>
-                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
+                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
                                   {item[9]}
                                 </p>
                               </div>
@@ -515,7 +515,7 @@ const ContactForm = ({ sheetdata }) => {
                             <Radio value="B" className="text-justify ">
                               <div className="flex items-center space-x-2 mb-2">
                                 <p className="font-semibold">B</p>
-                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
+                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
                                   {item[10]}
                                 </p>
                               </div>
@@ -525,7 +525,7 @@ const ContactForm = ({ sheetdata }) => {
                             <Radio value="C" className="text-justify ">
                               <div className="flex items-center space-x-2 mb-2">
                                 <p className="font-semibold">C</p>
-                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
+                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
                                   {item[11]}
                                 </p>
                               </div>
@@ -535,7 +535,7 @@ const ContactForm = ({ sheetdata }) => {
                             <Radio value="D" className="text-justify ">
                               <div className="flex items-center space-x-2 mb-2">
                                 <p className="font-semibold">D</p>
-                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
+                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
                                   {item[12]}
                                 </p>
                               </div>
@@ -545,7 +545,7 @@ const ContactForm = ({ sheetdata }) => {
                             <Radio value="E" className=" flex items-start">
                               <div className="flex items-center space-x-2">
                                 <p className="font-semibold">E</p>
-                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-yellow-400">
+                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
                                   {item[13]}
                                 </p>
                               </div>
@@ -623,7 +623,7 @@ const ContactForm = ({ sheetdata }) => {
           <button
             onClick={handlePrevious}
             disabled={currentPage <= 1}
-            className="bg-green-400 p-2 text-gray-50">
+            className="bg-gray-900 p-2 text-gray-50">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -636,7 +636,7 @@ const ContactForm = ({ sheetdata }) => {
           </button>
 
           <button
-            className="bg-green-400 p-2 text-gray-50"
+            className="bg-gray-900 p-2 text-gray-50"
             onClick={handleNext}
             disabled={
               currentPage >= Math.ceil(sheetdata.length / postsPerPage)
