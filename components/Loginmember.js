@@ -104,6 +104,8 @@ const Loginmember = () => {
           localStorage.setItem('timeLeft', 1600);
         } else if (link === 'penalaran') {
           localStorage.setItem('timeLeft', 1600);
+        } else if (link === 'pengetahuan') {
+          localStorage.setItem('timeLeft', 1500);
         } else {
           console.log('link undetect');
         }

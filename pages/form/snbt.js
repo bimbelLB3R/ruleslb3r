@@ -85,6 +85,11 @@ const ContactForm = ({ sheetdata }) => {
   // sheet analisis
   const SHEET_ID14 = process.env.NEXT_PUBLIC_SHEET_ID14;
 
+  // jwb
+  const SHEET_ID15 = process.env.NEXT_PUBLIC_SHEET_ID15;
+  // sheet analisis
+  const SHEET_ID16 = process.env.NEXT_PUBLIC_SHEET_ID16;
+
   const GOOGLE_CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
   const GOOGLE_SERVICE_PRIVATE_KEY =
     process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
@@ -114,6 +119,9 @@ const ContactForm = ({ sheetdata }) => {
     } else if (linkValue === 'penalaran') {
       setSheetIdJwb(SHEET_ID13);
       setSheetIdAna(SHEET_ID14);
+    } else if (linkValue === 'pengetahuan') {
+      setSheetIdJwb(SHEET_ID15);
+      setSheetIdAna(SHEET_ID16);
     } else {
       console.log('linkValue undetect');
     }

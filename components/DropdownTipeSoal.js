@@ -33,7 +33,7 @@ export default function Dropdown() {
         <option className="text-lg p-2 " value="matematika">
           Penalaran Matematika
         </option>
-        <option className="text-lg p-2 " value="#">
+        <option className="text-lg p-2 " value="pengetahuan">
           Pengetahuan & Pemahaman Umum
         </option>
         <option className="text-lg p-2 " value="kuantitatif">
