@@ -495,7 +495,7 @@ const ContactForm = ({ sheetdata }) => {
                           id={item[28]}>
                           {item[28]}
                         </p>
-                        <p className="text-left mb-2  bg-gray-50 p-1 border-b-2 border-t-2 border-gray-100">
+                        <p className="text-left mb-2  bg-gray-50 p-1 border-b-2 border-t-2 border-gray-200">
                           <Latex>{item[8]}</Latex>
                         </p>
                       </div>
@@ -559,7 +559,7 @@ const ContactForm = ({ sheetdata }) => {
                         </Radio.Group>
                       </div>
 
-                      <div className="checklist flex flex-col items-center mt-10">
+                      <div className="checklist flex flex-col items-center mt-10 mb-10">
                         <input
                           className="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                           type="checkbox"
@@ -576,7 +576,7 @@ const ContactForm = ({ sheetdata }) => {
                           Tandai jika kamu masih ragu-ragu dengan jawabanmu atau
                           soal mau dilewati dulu
                         </label>
-                        <p className="border-b-2 border-gray-400 p-2 text-gray-800 text-xs">
+                        <p className="border-b-2 border-gray-400 p-2 text-gray-800 text-xs font-bold">
                           Soal Nomor-{item[28]}
                         </p>
                       </div>
@@ -628,7 +628,7 @@ const ContactForm = ({ sheetdata }) => {
           <button
             onClick={handlePrevious}
             disabled={currentPage <= 1}
-            className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 left-0 z-50 flex items-center space-x-2 rounded-tr-full lg:rounded-none">
+            className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 sm:hidden left-0 z-50 flex items-center space-x-2 rounded-tr-full lg:rounded-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -642,7 +642,7 @@ const ContactForm = ({ sheetdata }) => {
           </button>
 
           <button
-            className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 right-0 z-50 flex items-center space-x-2 rounded-tl-full lg:rounded-none"
+            className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 sm:hidden right-0 z-50 flex items-center space-x-2 rounded-tl-full lg:rounded-none"
             onClick={handleNext}
             disabled={
               currentPage >= Math.ceil(sheetdata.length / postsPerPage)
