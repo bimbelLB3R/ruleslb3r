@@ -4,7 +4,7 @@ const Meta = () => (
   <Head>
     <meta
       property="og:image"
-      itemprop="image"
+      itemProp="image"
       content="https://raw.githubusercontent.com/bimbelLB3R/bimbellb3r.github.io/main/img/slider/og.jpg"
     />
     <meta

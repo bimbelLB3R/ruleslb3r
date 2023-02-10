@@ -623,12 +623,12 @@ const ContactForm = ({ sheetdata }) => {
             </div>
           </div>
         </form>
-        <div className="max-w-xl mb-20 flex items-center justify-center m-auto p-4 bg-gray-300 text-gray-900 space-x-8">
+        <div className="">
           {/* tombol next n before */}
           <button
             onClick={handlePrevious}
             disabled={currentPage <= 1}
-            className="bg-gray-900 p-2 text-gray-50">
+            className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 left-0 z-50 flex items-center space-x-2 rounded-tr-full lg:rounded-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -638,14 +638,16 @@ const ContactForm = ({ sheetdata }) => {
               viewBox="0 0 16 16">
               <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
             </svg>
+            <span className="text-xs">Soal Sebelumnya</span>
           </button>
 
           <button
-            className="bg-gray-900 p-2 text-gray-50"
+            className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 right-0 z-50 flex items-center space-x-2 rounded-tl-full lg:rounded-none"
             onClick={handleNext}
             disabled={
               currentPage >= Math.ceil(sheetdata.length / postsPerPage)
             }>
+            <span className="text-xs">Soal Berikutnya</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
