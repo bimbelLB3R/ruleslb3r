@@ -397,6 +397,9 @@ const ContactForm = ({ sheetdata }) => {
         <form onSubmit={submitForm} ref={formRef}>
           <div className="max-w-xl lg:max-w-full  select-none flex items-center justify-center m-auto p-4 bg-gray-300 text-gray-900">
             <div className="mb-4">
+              <p className="fixed left-0 top-0  z-50  text-[8px] md:text-sm text-gray-50 p-2 md:p-3">
+                {currentPage} dari {totalPages} soal
+              </p>
               <div>
                 {/* <label htmlFor="nisn">NISN:</label> */}
                 <input
@@ -426,7 +429,7 @@ const ContactForm = ({ sheetdata }) => {
                           ? 'lg:max-w-1/2'
                           : 'lg:max-w-1/2 max-h-[500px] overflow-auto'
                       }`}>
-                      <p className="text-center mb-2 indent-8 font-semibold mt-12 lg:mt-0">
+                      <p className="text-center mb-2 indent-8 font-semibold mt-4 lg:mt-0">
                         {item[2]}
                       </p>
                       <div className="flex items-center justify-center hover:w-full hover:absolute hover:z-50 hover:right-0 hover:left-0 ">
