@@ -93,19 +93,19 @@ const Loginmember = () => {
         localStorage.setItem('name', form.nama);
         localStorage.setItem('nisn', form.nisn);
         if (link === 'snbt') {
-          localStorage.setItem('timeLeft', 1600);
+          localStorage.setItem('timeLeft', 2700); //30 soal
         } else if (link === 'kuantitatif') {
-          localStorage.setItem('timeLeft', 1800);
+          localStorage.setItem('timeLeft', 1200); //15 soal
         } else if (link === 'matematika') {
-          localStorage.setItem('timeLeft', 1800);
+          localStorage.setItem('timeLeft', 1800); //20 soal
         } else if (link === 'english') {
-          localStorage.setItem('timeLeft', 1600);
+          localStorage.setItem('timeLeft', 1800); //20 soal
         } else if (link === 'bacaan') {
-          localStorage.setItem('timeLeft', 1600);
+          localStorage.setItem('timeLeft', 1500); //20 soal
         } else if (link === 'penalaran') {
-          localStorage.setItem('timeLeft', 1600);
+          localStorage.setItem('timeLeft', 1800); //30 soal
         } else if (link === 'pengetahuan') {
-          localStorage.setItem('timeLeft', 1500);
+          localStorage.setItem('timeLeft', 900); //20 soal
         } else {
           console.log('link undetect');
         }
