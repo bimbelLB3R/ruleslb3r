@@ -352,7 +352,7 @@ const ContactForm = ({ sheetdata }) => {
       <div className="sm:flex justify-center fixed bottom-0 z-50 overflow-auto left-0 right-0 ">
         <NavSoal sumSoal={sheetdata} tipeSoal={tipeSoal} pages={pages} />
 
-        <div className=" flex flex-row">
+        <div className=" flex flex-row overflow-auto">
           {Array.from(
             Array(Math.ceil(sheetdata.length / postsPerPage)).keys()
           ).map((page) => (
@@ -424,7 +424,7 @@ const ContactForm = ({ sheetdata }) => {
                       className={`${
                         link === 'kuantitatif' || link === 'matematika'
                           ? 'lg:max-w-1/2'
-                          : 'lg:w-1/2 h-[500px] overflow-auto'
+                          : 'lg:max-w-1/2 max-h-[500px] overflow-auto'
                       }`}>
                       <p className="text-center mb-2 indent-8 font-semibold mt-12 lg:mt-0">
                         {item[2]}
@@ -485,8 +485,8 @@ const ContactForm = ({ sheetdata }) => {
                     <div
                       className={`${
                         link === 'kuantitatif' || link === 'matematika'
-                          ? 'lg:max-w-1/2 border-dashed border-l-2 border-yellow-900'
-                          : 'lg:w-1/2  border-l-2 border-gray-400 border-dashed'
+                          ? 'lg:max-w-full border-dashed border-l-2 border-yellow-900'
+                          : 'lg:max-w-1/2  border-l-2 border-gray-400 border-dashed'
                       }`}>
                       {/* Pertanyaan */}
                       <div className="flex space-x-2 p-2">
