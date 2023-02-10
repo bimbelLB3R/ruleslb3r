@@ -323,6 +323,9 @@ const ContactForm = ({ sheetdata }) => {
     setIsChecked({ ...isChecked, [page]: !isChecked[page] });
   };
   // const isRadioButtonDisabled = <Timer />;
+  // const text = document.getElementById('textBacaan').innerText;
+  // console.log(text);
+
   return (
     <div>
       <Head>
@@ -416,10 +419,12 @@ const ContactForm = ({ sheetdata }) => {
                   {/* Bacaan */}
                   <div className="lg:flex  lg:p-10 lg:space-x-4 ">
                     <div
+                      key={item[0]}
+                      id="textBacaan"
                       className={`${
                         link === 'kuantitatif' || link === 'matematika'
                           ? 'lg:max-w-1/2'
-                          : 'lg:w-1/2'
+                          : 'lg:w-1/2 h-[300px] overflow-auto'
                       }`}>
                       <p className="text-center mb-2 indent-8 font-semibold mt-12 lg:mt-0">
                         {item[2]}
@@ -481,12 +486,12 @@ const ContactForm = ({ sheetdata }) => {
                       className={`${
                         link === 'kuantitatif' || link === 'matematika'
                           ? 'lg:max-w-1/2 border-dashed border-l-2 border-yellow-900'
-                          : 'lg:w-1/2 border-dashed border-l-2 border-yellow-900'
+                          : 'lg:w-1/2  border-l-2 border-gray-400 border-dashed'
                       }`}>
                       {/* Pertanyaan */}
-                      <div className="flex space-x-2 ">
+                      <div className="flex space-x-2 p-2">
                         <p
-                          className="text-justify mb-2 bg-gray-100 flex items-center p-1"
+                          className="text-justify mb-2 bg-gray-200 flex items-center p-1 "
                           id={item[28]}>
                           {item[28]}
                         </p>
