@@ -424,7 +424,7 @@ const ContactForm = ({ sheetdata }) => {
                       className={`${
                         link === 'kuantitatif' || link === 'matematika'
                           ? 'lg:max-w-1/2'
-                          : 'lg:w-1/2 h-[300px] overflow-auto'
+                          : 'lg:w-1/2 h-[500px] overflow-auto'
                       }`}>
                       <p className="text-center mb-2 indent-8 font-semibold mt-12 lg:mt-0">
                         {item[2]}
