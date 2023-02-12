@@ -1,6 +1,7 @@
 import { Card, Dropdown } from 'flowbite-react';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 const CardHasil = ({ filteredNisn, storedName, storedNisn, tipeSoal }) => {
   const [link, setLink] = useState('');
@@ -17,6 +18,13 @@ const CardHasil = ({ filteredNisn, storedName, storedNisn, tipeSoal }) => {
   };
   const handleLocal = () => {
     localStorage.removeItem('tipeSoal');
+  };
+  const router = useRouter();
+  const handlePembahasan = () => {
+    router.push({
+      pathname: `/form/pembahasan`,
+      query: { link },
+    });
   };
 
   return (
@@ -37,11 +45,11 @@ const CardHasil = ({ filteredNisn, storedName, storedNisn, tipeSoal }) => {
                 </a>
               </Dropdown.Item>
               <Dropdown.Item>
-                <a
-                  href="#"
+                <button
+                  onClick={handlePembahasan}
                   className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
-                  Download Pembahasan
-                </a>
+                  Lihat Pembahasan
+                </button>
               </Dropdown.Item>
               <Dropdown.Item>
                 <a
