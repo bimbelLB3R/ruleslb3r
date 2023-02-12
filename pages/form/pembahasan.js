@@ -386,12 +386,12 @@ const ContactForm = ({ sheetdata }) => {
         <div className="bg-red-800 p-1 rounded-full">
           {/* <Timer /> */}
           {/* from timer */}
-          <div>{timeLeft ? timeLeft.format('mm:ss') : 'Loading...'}</div>
+          {/* <div>{timeLeft ? timeLeft.format('mm:ss') : 'Loading...'}</div> */}
           {/* from timer end */}
         </div>
 
         <p className="text-center  p-2 ">
-          {storedName} is doing {tipeSoal} now...
+          {/* {storedName} is doing {tipeSoal} now... */}
         </p>
       </div>
       <main>

@@ -9,7 +9,7 @@ const Meta = () => (
     />
     <meta
       property="og:description"
-      content="Yuk..gabung LB3R, bimbingan belajar mulai SD,SMP,SMA, dan Alumni."
+      content="Pilihan Belajar Tepat, Budget Hemat !!!"
     />
     <meta name="keywords" content="bimbel LB3R SNBT " />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
