@@ -5,6 +5,8 @@ import Head from 'next/head';
 import NavSoal from '../../components/NavSoal';
 import { Radio } from 'antd';
 import Latex from 'react-latex';
+import Checklist from '../../components/Checklist';
+import Cross from '../../components/Cross';
 
 const ContactForm = ({ sheetdata }) => {
   const onLoad = () => {
@@ -72,6 +74,13 @@ const ContactForm = ({ sheetdata }) => {
   const handleNext = () => {
     setCurrentPage(currentPage + 1);
   };
+  const [selectedValue, setSelectedValue] = useState('');
+
+  //   const handleChange = (event) => {
+  //     setSelectedValue(event.target.value);
+  //   };
+
+  //   console.log(selectedValue);
 
   return (
     <div>
@@ -248,6 +257,7 @@ const ContactForm = ({ sheetdata }) => {
                       {/* Opsi Jawaban */}
                       <div className="pr-4 pl-4">
                         <Radio.Group
+                          //   onChange={handleChange}
                           disabled
                           value={selectedValues[`group${item[0]}`]}
                           name={`group${item[0]}`}>
@@ -258,6 +268,7 @@ const ContactForm = ({ sheetdata }) => {
                                 <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
                                   {item[9]}
                                 </p>
+                                {item[29] === 'A' ? <Checklist /> : <Cross />}
                               </div>
                             </Radio>
                           </div>
@@ -268,6 +279,7 @@ const ContactForm = ({ sheetdata }) => {
                                 <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
                                   {item[10]}
                                 </p>
+                                {item[29] === 'B' ? <Checklist /> : <Cross />}
                               </div>
                             </Radio>
                           </div>
@@ -278,6 +290,7 @@ const ContactForm = ({ sheetdata }) => {
                                 <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
                                   {item[11]}
                                 </p>
+                                {item[29] === 'C' ? <Checklist /> : <Cross />}
                               </div>
                             </Radio>
                           </div>
@@ -288,6 +301,7 @@ const ContactForm = ({ sheetdata }) => {
                                 <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
                                   {item[12]}
                                 </p>
+                                {item[29] === 'D' ? <Checklist /> : <Cross />}
                               </div>
                             </Radio>
                           </div>
@@ -298,6 +312,7 @@ const ContactForm = ({ sheetdata }) => {
                                 <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
                                   {item[13]}
                                 </p>
+                                {item[29] === 'E' ? <Checklist /> : <Cross />}
                               </div>
                             </Radio>
                           </div>
@@ -307,10 +322,7 @@ const ContactForm = ({ sheetdata }) => {
                             Kunci Jawaban : {item[29]}
                           </p>
                           <p className="font-bold">Pembahasan :</p>
-                          <p>
-                            ini adalah contoh pembahasan. Pembahasan sebenarnya
-                            masih dalam proses
-                          </p>
+                          <p>{item[30]}</p>
                         </div>
                       </div>
                     </div>
