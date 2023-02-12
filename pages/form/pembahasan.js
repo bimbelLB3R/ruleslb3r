@@ -304,7 +304,7 @@ const ContactForm = ({ sheetdata }) => {
                         </Radio.Group>
                         <div className="mt-6 max-w-full">
                           <p className="font-bold text-gray-900">
-                            Kunci Jawaban : {console.log(item[29])}
+                            Kunci Jawaban : {item[29]}
                           </p>
                           <p className="font-bold">Pembahasan :</p>
                           <p>
