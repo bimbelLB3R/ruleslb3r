@@ -165,7 +165,7 @@ const Faq = () => {
                 </a>{' '}
                 dan kedua{' '}
                 <a
-                  href="http://50b4-2001-448a-6021-28a4-1d4a-6d8d-16ae-6698.ngrok.io/aplikasibimbel2/public/data_tentor/"
+                  href="http://2520-2001-448a-6021-28a4-8cb-3f8b-13ba-d6f9.ngrok.io/aplikasibimbel2/public/data_tentor/"
                   className="text-blue-600 hover:underline dark:text-blue-500">
                   Login Saat Di Rumah
                 </a>{' '}

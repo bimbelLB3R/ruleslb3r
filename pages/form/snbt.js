@@ -17,6 +17,9 @@ dayjs.extend(duration);
 // from timer end
 
 const ContactForm = ({ sheetdata }) => {
+  const mydata = JSON.stringify(sheetdata);
+  console.log(mydata);
+
   // from timer
   const [isRadioButtonDisabled, setIsRadioButtonDisabled] = useState(false);
   // console.log(isRadioButtonDisabled);true
