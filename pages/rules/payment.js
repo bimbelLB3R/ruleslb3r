@@ -1,8 +1,9 @@
 import Navbar from '../../components/Navbar';
-
+import Meta from '../../components/Meta';
 const Payment = () => {
   return (
     <>
+      <Meta />
       <Navbar
         logoUrl="../../image/logolb3r.png"
         logoAlt="Logo"

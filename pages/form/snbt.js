@@ -335,6 +335,12 @@ const ContactForm = ({ sheetdata }) => {
       <Head>
         <title>SNBT|LB3R</title>
         <meta name="description" content="Seleksi Masuk PTN Jalur Tes" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="4x16"
+          href="image/logolb3r.png"
+        />
       </Head>
       <link
         rel="stylesheet"

@@ -1,8 +1,9 @@
 import Navbar from '../../components/Navbar';
-
+import Meta from '../../components/Meta';
 const Odb = () => {
   return (
     <>
+      <Meta />
       <Navbar
         logoUrl="../../image/logolb3r.png"
         logoAlt="Logo"
@@ -25,8 +26,10 @@ const Odb = () => {
               <tr>
                 <td className="align-top">1.</td>
                 <td className="text-justify">
-                  Setiap kelas aktif otomatis akan mendapatkan ODB, kecuali jika
-                  mengajukan off sementara pada kelas tersebut
+                  Setiap kelas reguler aktif otomatis akan mendapatkan ODB,
+                  kecuali jika mengajukan off sementara pada kelas tersebut.
+                  (Kelas selain reguler tidak mendapatkan ODB dan bisa bergabung
+                  ke kelas reguler jika menginginkan ODB)
                 </td>
               </tr>
               <tr>

@@ -3,6 +3,7 @@ import { GoogleSpreadsheet } from 'google-spreadsheet';
 import Swal from 'sweetalert2';
 import Loader from '../../components/Loader';
 import { useRouter } from 'next/router';
+import Meta from '../../components/Meta';
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;

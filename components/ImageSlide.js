@@ -12,15 +12,15 @@ export default class ImageSlide extends Component {
           <Carousel>
             <div>
               <img src="image/image1.png" alt="image1" />
-              <p className="legend">SEMINAR BAKAT SMA N 1 TANJUNG</p>
+              <p className="legend">SEMINAR BAKAT DAN PEMILIHAN JURUSAN</p>
             </div>
             <div>
               <img src="image/image2.png" alt="image2" />
-              <p className="legend">KELAS PEMROGRAMAN WEBSITE</p>
+              <p className="legend">KELAS PEMROGRAMAN WEB</p>
             </div>
             <div>
               <img src="image/image3.png" alt="image3" />
-              <p className="legend">TRY OUT UJIAN MASUK KAMPUS</p>
+              <p className="legend">KELAS INTENSIF UTBK SNBT</p>
             </div>
             <div>
               <img src="image/image4.png" alt="image4" />
@@ -28,7 +28,7 @@ export default class ImageSlide extends Component {
             </div>
             <div>
               <img src="image/image5.png" alt="image4" />
-              <p className="legend">PENERAPAN TEKNOLOGI TERKINI </p>
+              <p className="legend">PRESENSI DENGAN QRQODE </p>
             </div>
             <div>
               <img src="image/image6.png" alt="image5" />
