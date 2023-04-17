@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
-const Navbar = ({ logoUrl, logoAlt, menuItems }) => {
+const Navbar = ({ logoUrl, logoAlt }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <div className="">
-      <nav className="fixed bottom-0 md:relative z-40 w-full flex items-center justify-center md:justify-between flex-wrap bg-gray-400 md:bg-gray-900 p-6">
+      <nav className="relative  w-full md:flex md:items-center md:justify-between flex-wrap bg-orange-900 md:bg-gray-900 p-2">
         <div className="hidden md:visible md:flex items-center flex-shrink-0 text-white mr-6">
           <a href="/">
             <img
@@ -40,13 +40,36 @@ const Navbar = ({ logoUrl, logoAlt, menuItems }) => {
             isMenuOpen ? 'block' : 'hidden'
           } w-full block flex-grow lg:flex lg:items-center lg:w-auto `}>
           <div className="text-sm lg:flex-grow">
-            {menuItems.map((item) => (
-              <Link href={item.url} key={item.label}>
-                <a className="block mt-4 lg:inline-block lg:mt-0 text-gray-900 md:text-gray-400  hover:text-white mr-4 underline underline-offset-4 text-xs">
-                  {item.label}
-                </a>
-              </Link>
-            ))}
+            <Link href="/">
+              <a className="block mt-4 lg:inline-block lg:mt-0 text-gray-900 md:text-gray-400  hover:text-white mr-4 hover:underline underline-offset-4 text-xs md:text-sm">
+                Home
+              </a>
+            </Link>
+            <Link href="/rules/payment">
+              <a className="block mt-4 lg:inline-block lg:mt-0 text-gray-900 md:text-gray-400  hover:text-white mr-4 hover:underline underline-offset-4 text-xs md:text-sm">
+                Sistem Pembayaran
+              </a>
+            </Link>
+            <Link href="/rules/newclass">
+              <a className="block mt-4 lg:inline-block lg:mt-0 text-gray-900 md:text-gray-400  hover:text-white mr-4 hover:underline underline-offset-4 text-xs md:text-sm">
+                Buat Kelas Baru
+              </a>
+            </Link>
+            <Link href="/rules/odb">
+              <a className="block mt-4 lg:inline-block lg:mt-0 text-gray-900 md:text-gray-400  hover:text-white mr-4 hover:underline underline-offset-4 text-xs md:text-sm">
+                Aturan ODB
+              </a>
+            </Link>
+            <Link href="/rules/kbm">
+              <a className="block mt-4 lg:inline-block lg:mt-0 text-gray-900 md:text-gray-400  hover:text-white mr-4 hover:underline underline-offset-4 text-xs md:text-sm">
+                Aturan KBM
+              </a>
+            </Link>
+            <Link href="/rules/off">
+              <a className="block mt-4 lg:inline-block lg:mt-0 text-gray-900 md:text-gray-400  hover:text-white mr-4 hover:underline underline-offset-4 text-xs md:text-sm">
+                Aturan Berhenti
+              </a>
+            </Link>
           </div>
         </div>
       </nav>

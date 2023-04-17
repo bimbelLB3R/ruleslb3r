@@ -1,23 +1,14 @@
 import Navbar from '../../components/Navbar';
 import Meta from '../../components/Meta';
+import Layout from '../../components/Layout';
 const Odb = () => {
   return (
-    <>
+    <Layout>
       <Meta />
-      <Navbar
-        logoUrl="../../image/logolb3r.png"
-        logoAlt="Logo"
-        menuItems={[
-          { label: 'Kembali ke Home', url: '/' },
-          { label: 'Cara Membuat Kelas Baru', url: '/rules/newclass' },
-          { label: 'Sistem Pembayaran & Biaya', url: '/rules/payment' },
-          { label: 'Ketentuan Kegiatan Belajar', url: '/rules/kbm' },
-          { label: 'Ketentuan Berhenti Belajar', url: '/rules/off' },
-        ]}
-      />
-      <div className="flex justify-center items-center m-auto overflow-scroll mb-20 md:max-w-2xl">
+      <Navbar logoUrl="../../image/logolb3r.png" logoAlt="Logo" />
+      <div className="flex justify-center items-center m-auto overflow-scroll mb-10 md:max-w-2xl">
         <div className="bg-gray-400 text-gray-900 p-4 overflow-scroll">
-          <h1 className=" text-lg font-semibold p-4 fixed z-50 md:relative top-0 left-0 bg-gray-900 w-full text-gray-100">
+          <h1 className=" text-lg font-semibold p-4 relative top-0 left-0 bg-gray-900 w-full text-gray-100">
             Ketentuan Kelas ODB
           </h1>
           <table className="mt-12 md:mt-0">
@@ -92,7 +83,7 @@ const Odb = () => {
           </table>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 

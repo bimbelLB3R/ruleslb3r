@@ -2,11 +2,11 @@ import { Accordion } from 'flowbite-react';
 const Faq = () => {
   return (
     <div className="flex items-center justify-center">
-      <div className="md:max-w-2xl mb-36 overflow-hidden">
+      <div className="md:max-w-2xl mb-10 overflow-hidden">
         <Accordion alwaysOpen={true}>
           <Accordion.Panel>
             <Accordion.Title>
-              <p className="text-gray-900">BERAPA BIAYA LES DI LB3R</p>
+              <p className="text-orange-900">BERAPA BIAYA LES DI LB3R</p>
             </Accordion.Title>
             <Accordion.Content>
               <p className="mb-2 text-gray-900 dark:text-gray-400 text-left">
@@ -27,7 +27,7 @@ const Faq = () => {
           </Accordion.Panel>
           <Accordion.Panel>
             <Accordion.Title>
-              <p className="text-gray-900">MAPEL APA SAJA YANG ADA?</p>
+              <p className="text-orange-900">MAPEL APA SAJA YANG ADA?</p>
             </Accordion.Title>
             <Accordion.Content>
               <p className="mb-2 text-gray-900 dark:text-gray-400">
@@ -52,7 +52,7 @@ const Faq = () => {
           </Accordion.Panel>
           <Accordion.Panel>
             <Accordion.Title>
-              <p className="text-gray-900">SEMINGGU MASUK BERAPA KALI?</p>
+              <p className="text-orange-900">SEMINGGU MASUK BERAPA KALI?</p>
             </Accordion.Title>
             <Accordion.Content>
               <p className="mb-2 text-gray-900 dark:text-gray-400">
@@ -85,7 +85,7 @@ const Faq = () => {
           </Accordion.Panel>
           <Accordion.Panel>
             <Accordion.Title>
-              <p className="text-gray-900">
+              <p className="text-orange-900">
                 APA KELEBIHAN LB3R DIBANDING BIMBEL LAIN?
               </p>
             </Accordion.Title>
@@ -128,7 +128,7 @@ const Faq = () => {
           </Accordion.Panel>
           <Accordion.Panel>
             <Accordion.Title>
-              <p className="text-gray-900">KONTAK DAN LOKASI</p>
+              <p className="text-orange-900">KONTAK DAN LOKASI</p>
             </Accordion.Title>
             <Accordion.Content>
               <p className="mb-2 text-gray-900 dark:text-gray-400 text-left">
@@ -150,7 +150,7 @@ const Faq = () => {
           </Accordion.Panel>
           <Accordion.Panel>
             <Accordion.Title>
-              <p className="text-gray-900">LOGIN TENTOR</p>
+              <p className="text-orange-900">LOGIN TENTOR</p>
             </Accordion.Title>
             <Accordion.Content>
               <p className="mb-2 text-gray-900 dark:text-gray-400 text-left">
