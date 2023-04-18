@@ -11,7 +11,7 @@ const Footer = () => {
                   className="h-8 mr-3"
                   alt="LB3R Logo"
                 />
-                <span className="self-center text-xl font-semibold whitespace-nowrap">
+                <span className="self-center text-sm italic font-semibold whitespace-nowrap mr-3">
                   Pilihan Tepat & Budget Hemat
                 </span>
               </a>
@@ -36,21 +36,54 @@ const Footer = () => {
               </div>
               <div>
                 <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
-                  Follow us
+                  About Us
                 </h2>
                 <ul className="text-gray-600  font-medium">
                   <li className="mb-4">
-                    <a
-                      href="https://instagram.com/bimbel_lb3r"
-                      className="hover:underline ">
-                      Instagram
+                    <a href="#" className="hover:underline ">
+                      Founder
+                    </a>
+                  </li>
+                  <li className="mb-4">
+                    <a href="#" className="hover:underline">
+                      Pengajar
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="https://facebook.com/bimbellb3r"
-                      className="hover:underline">
-                      Facebook
+                    <a href="#" className="hover:underline">
+                      Lowongan
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
+                  Rules
+                </h2>
+                <ul className="text-gray-600  font-medium">
+                  <li className="mb-4">
+                    <a href="/rules/payment" className="hover:underline ">
+                      Sistem Pembayaran
+                    </a>
+                  </li>
+                  <li className="mb-4">
+                    <a href="/rules/newclass" className="hover:underline">
+                      Buat Kelasmu
+                    </a>
+                  </li>
+                  <li className="mb-4">
+                    <a href="/rules/odb" className="hover:underline">
+                      Aturan ODB
+                    </a>
+                  </li>
+                  <li className="mb-4">
+                    <a href="/rules/kbm" className="hover:underline">
+                      Aturan KBM
+                    </a>
+                  </li>
+                  <li className="mb-4">
+                    <a href="/rules/off" className="hover:underline">
+                      Berhenti Les
                     </a>
                   </li>
                 </ul>
@@ -86,7 +119,9 @@ const Footer = () => {
               . All Rights Reserved.
             </span>
             <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-              <a href="#" className="text-orange-900 hover:text-gray-900 ">
+              <a
+                href="https://www.facebook.com/bimbel.lb3r"
+                className="text-orange-900 hover:text-gray-900 ">
                 <svg
                   className="w-5 h-5"
                   fill="currentColor"
@@ -100,7 +135,9 @@ const Footer = () => {
                 </svg>
                 <span className="sr-only">Facebook page</span>
               </a>
-              <a href="#" className="text-orange-900 hover:text-gray-900 ">
+              <a
+                href="https://www.instagram.com/bimbel_lb3r"
+                className="text-orange-900 hover:text-gray-900 ">
                 <svg
                   className="w-5 h-5"
                   fill="currentColor"
@@ -114,7 +151,9 @@ const Footer = () => {
                 </svg>
                 <span className="sr-only">Instagram page</span>
               </a>
-              <a href="#" className="text-orange-900 hover:text-gray-900 ">
+              <a
+                href="https://www.twitter.com/bimbel_lb3r"
+                className="text-orange-900 hover:text-gray-900 ">
                 <svg
                   className="w-5 h-5"
                   fill="currentColor"
