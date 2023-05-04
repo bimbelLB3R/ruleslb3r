@@ -18,22 +18,47 @@ const Navbar = ({ logoUrl, logoAlt }) => {
           <span className=" text-[8px] "></span>
         </div>
         <div className="block lg:hidden">
-          <button
-            className="flex items-center px-3 py-2  rounded text-white  hover:text-gray-200 md:hover:text-gray-100"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="36"
-              height="36"
-              fill="currentColor"
-              className="bi bi-list"
-              viewBox="0 0 16 16">
-              <path
-                fillRule="evenodd"
-                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-              />
-            </svg>
-          </button>
+          <div className="flex justify-between items-center">
+            <button
+              className="flex items-center px-3 py-2  rounded text-white  hover:text-gray-200 "
+              onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                fill="currentColor"
+                className="bi bi-list"
+                viewBox="0 0 16 16">
+                <path
+                  fillRule="evenodd"
+                  d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                />
+              </svg>
+            </button>
+            <div className="flex items-center space-x-1">
+              <p className="text-gray-900 text-sm bg-orange-200 rounded-xl font-medium px-2 py-1">
+                Paket Belajar
+              </p>
+              <p className="text-gray-900 text-sm bg-orange-200 rounded-xl font-medium px-2 py-1">
+                Masuk/Daftar
+              </p>
+              <div className="text-gray-900 text-sm bg-orange-200 rounded-xl font-medium p-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="w-6 h-6">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
         <div
           className={`${
