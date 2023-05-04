@@ -7,7 +7,7 @@ import Wa from '../components/Wa';
 
 export default function Home() {
   return (
-    <div className="bg-gray-400 overflow-hidden">
+    <div className="overflow-hidden">
       <Meta />
       <Wa />
       <Navbar

@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <>
-      <footer className="bg-gray-400 ">
+      <footer className="bg-gray-900 ">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
@@ -11,17 +11,17 @@ const Footer = () => {
                   className="h-8 mr-3"
                   alt="LB3R Logo"
                 />
-                <span className="self-center text-sm italic font-semibold whitespace-nowrap mr-3">
+                <span className="self-center text-sm italic font-semibold whitespace-nowrap mr-3 text-gray-100">
                   Pilihan Tepat & Budget Hemat
                 </span>
               </a>
             </div>
             <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
+                <h2 className="mb-6 text-sm font-semibold text-gray-100 uppercase ">
                   Program Unggulan
                 </h2>
-                <ul className="text-gray-600  font-medium">
+                <ul className="text-gray-100  font-medium">
                   <li className="mb-4">
                     <a href="/form/newmember" className="hover:underline">
                       Kelas Intensif UTBK SNBT
@@ -35,10 +35,10 @@ const Footer = () => {
                 </ul>
               </div>
               <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
+                <h2 className="mb-6 text-sm font-semibold text-gray-100 uppercase ">
                   About Us
                 </h2>
-                <ul className="text-gray-600  font-medium">
+                <ul className="text-gray-100  font-medium">
                   <li className="mb-4">
                     <a href="#" className="hover:underline ">
                       Founder
@@ -57,10 +57,10 @@ const Footer = () => {
                 </ul>
               </div>
               <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
+                <h2 className="mb-6 text-sm font-semibold text-gray-100 uppercase ">
                   Rules
                 </h2>
-                <ul className="text-gray-600  font-medium">
+                <ul className="text-gray-100  font-medium">
                   <li className="mb-4">
                     <a href="/rules/payment" className="hover:underline ">
                       Sistem Pembayaran
@@ -89,10 +89,10 @@ const Footer = () => {
                 </ul>
               </div>
               <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
+                <h2 className="mb-6 text-sm font-semibold text-gray-100 uppercase ">
                   blogs
                 </h2>
-                <ul className="text-gray-600  font-medium">
+                <ul className="text-gray-100  font-medium">
                   <li className="mb-4">
                     <a href="#" className="hover:underline">
                       Artikel
@@ -121,7 +121,7 @@ const Footer = () => {
             <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
               <a
                 href="https://www.facebook.com/bimbel.lb3r"
-                className="text-orange-900 hover:text-gray-900 ">
+                className="text-orange-900 hover:text-gray-100 ">
                 <svg
                   className="w-5 h-5"
                   fill="currentColor"
@@ -137,7 +137,7 @@ const Footer = () => {
               </a>
               <a
                 href="https://www.instagram.com/bimbel_lb3r"
-                className="text-orange-900 hover:text-gray-900 ">
+                className="text-orange-900 hover:text-gray-100 ">
                 <svg
                   className="w-5 h-5"
                   fill="currentColor"
@@ -153,7 +153,7 @@ const Footer = () => {
               </a>
               <a
                 href="https://www.twitter.com/bimbel_lb3r"
-                className="text-orange-900 hover:text-gray-900 ">
+                className="text-orange-900 hover:text-gray-100 ">
                 <svg
                   className="w-5 h-5"
                   fill="currentColor"
@@ -163,7 +163,7 @@ const Footer = () => {
                 </svg>
                 <span className="sr-only">Twitter page</span>
               </a>
-              <a href="#" className="text-orange-900 hover:text-gray-900 ">
+              <a href="#" className="text-orange-900 hover:text-gray-100 ">
                 <svg
                   className="w-5 h-5"
                   fill="currentColor"
@@ -177,7 +177,7 @@ const Footer = () => {
                 </svg>
                 <span className="sr-only">GitHub account</span>
               </a>
-              <a href="#" className="text-orange-900 hover:text-gray-900 ">
+              <a href="#" className="text-orange-900 hover:text-gray-100 ">
                 <svg
                   className="w-5 h-5"
                   fill="currentColor"
