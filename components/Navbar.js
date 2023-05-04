@@ -19,7 +19,7 @@ const Navbar = ({ logoUrl, logoAlt }) => {
         </div>
         <div className="block lg:hidden">
           <button
-            className="flex items-center px-3 py-2  rounded text-white  hover:text-gray-900 md:hover:text-gray-100"
+            className="flex items-center px-3 py-2  rounded text-white  hover:text-gray-200 md:hover:text-gray-100"
             onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
