@@ -30,11 +30,12 @@ const Navbar = ({ logoUrl, logoAlt }) => {
           </a>
           <span className=" text-[8px] "></span>
         </div>
-        <div className="block lg:hidden" ref={menuRef}>
+        <div className="block lg:hidden">
           <div className="flex justify-between items-center">
             <button
               className="flex items-center px-3 py-2  rounded text-orange-200  hover:text-orange-300 "
-              onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              ref={menuRef}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="36"
@@ -76,8 +77,7 @@ const Navbar = ({ logoUrl, logoAlt }) => {
         <div
           className={`${
             isMenuOpen ? 'block' : 'hidden'
-          } w-full block flex-grow lg:flex lg:items-center lg:w-auto justify-end`}
-          ref={menuRef}>
+          } w-full block flex-grow lg:flex lg:items-center lg:w-auto justify-end`}>
           <div className="flex ">
             <div className="text-sm lg:flex-grow">
               <div className="flex justify-between">
