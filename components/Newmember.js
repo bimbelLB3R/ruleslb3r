@@ -132,7 +132,7 @@ const Newmember = () => {
           rel="icon"
           type="image/png"
           sizes="4x16"
-          href="../public/image/logolb3r.png"
+          href="/image/logolb3r.png"
         />
       </Head>
 

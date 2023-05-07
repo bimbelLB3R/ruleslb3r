@@ -6,13 +6,19 @@ const Off = () => {
     <Layout>
       <Head>
         <title>Tata Cara Berhenti Les DI Bimbel LB3R | Bimbel LB3R</title>
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="4x16"
+          href="/image/logolb3r.png"
+        />
         <meta
           name="description"
           content="Siswa Bimbel LB3R tidak perlu khawatir jika ingin berhenti atau off sementara dan kemudian nanti lanjut les bulan berikutnya."
           key="desc"
         />
       </Head>
-      <Navbar logoUrl="../../image/logolb3r.png" logoAlt="Logo" />
+      <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
       <div className="flex justify-center items-center m-auto overflow-scroll md:overflow-hidden mb-10 md:max-w-2xl">
         <div className=" text-gray-900 p-4 overflow-scroll md:overflow-hidden">
           <h1 className="rounded-2xl text-lg font-semibold p-4 relative top-0 left-0 bg-gray-900 w-full text-gray-100 mt-20">

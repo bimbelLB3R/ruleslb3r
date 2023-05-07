@@ -11,7 +11,7 @@ export default function Home() {
       <Meta />
       <Wa />
       <Navbar
-        logoUrl="image/logolb3r.png"
+        logoUrl="/image/logolb3r.png"
         logoAlt="Logo"
         // menuItems={[
         //   { label: 'Sistem Pembayaran & Biaya', url: '/rules/payment' },

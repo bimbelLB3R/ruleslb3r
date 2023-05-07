@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const Footer = () => {
   return (
     <>
@@ -6,9 +8,11 @@ const Footer = () => {
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
               <a href="/" className="flex items-center">
-                <img
-                  src="../image/logolb3r.png"
-                  className="h-8 mr-3"
+                <Image
+                  src="/image/logolb3r.png"
+                  className=" mr-3"
+                  width={100}
+                  height={40}
                   alt="LB3R Logo"
                 />
                 <span className="self-center text-sm italic font-semibold whitespace-nowrap mr-3 text-gray-100">

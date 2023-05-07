@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 
 const Navbar = ({ logoUrl, logoAlt }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,7 +26,9 @@ const Navbar = ({ logoUrl, logoAlt }) => {
             <img
               src={logoUrl}
               alt={logoAlt}
-              className="fill-current h-10 w-24 mr-2 cursor-pointer"
+              className=" mr-2 cursor-pointer"
+              width={100}
+              height={40}
             />
           </Link>
         </div>
@@ -34,7 +37,9 @@ const Navbar = ({ logoUrl, logoAlt }) => {
             <button
               className="cursor-pointer flex items-center px-3 py-2  rounded text-orange-200  hover:text-orange-300 "
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              ref={menuRef}>
+              ref={menuRef}
+              type="button"
+              name="hamburgerMenu">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="36"
