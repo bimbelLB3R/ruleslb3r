@@ -126,10 +126,6 @@ const ContactForm = () => {
           sizes="4x16"
           href="image/logolb3r.png"
         />
-        <meta
-          http-equiv="Content-Security-Policy"
-          content="script-src 'none'"
-        />
       </Head>
       <div className="flex justify-center items-center min-h-screen bg-gray-400 text-gray-900">
         <form

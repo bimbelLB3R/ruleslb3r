@@ -11,10 +11,6 @@ const Payment = () => {
           content="Pembayaran Les di Bimbel LB3R Tabalong sangat fleksibel."
           key="desc"
         />
-        <meta
-          http-equiv="Content-Security-Policy"
-          content="script-src 'none'"
-        />
       </Head>
       <Navbar logoUrl="../../image/logolb3r.png" logoAlt="Logo" />
       <div className="flex justify-center items-center m-auto overflow-scroll md:overflow-hidden mb-10 md:max-w-2xl">

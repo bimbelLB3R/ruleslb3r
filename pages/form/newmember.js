@@ -17,10 +17,6 @@ const newmember = () => {
           sizes="4x16"
           href="image/logolb3r.png"
         />
-        <meta
-          http-equiv="Content-Security-Policy"
-          content="script-src 'none'"
-        />
       </Head>
       <Newmember />
     </div>

@@ -14,10 +14,6 @@ const Kbm = () => {
           content="Pembelajaran di Bimbel LB3R sangat fleksibel sesuai kebutuhan siswa."
           key="desc"
         />
-        <meta
-          http-equiv="Content-Security-Policy"
-          content="script-src 'none'"
-        />
       </Head>
       <Navbar logoUrl="../../image/logolb3r.png" logoAlt="Logo" />
       <Layout>

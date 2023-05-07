@@ -14,10 +14,6 @@ const Odb = () => {
           content="Siswa Bimbel LB3R khususnya kelas reguler dapat mengikuti program ini guna mempersiapkan diri dalam menghadapi ujian. Disebut One Day Before karena les ini diselenggarakan satu hari sebelum ujian"
           key="desc"
         />
-        <meta
-          http-equiv="Content-Security-Policy"
-          content="script-src 'none'"
-        />
       </Head>
       <Navbar logoUrl="../../image/logolb3r.png" logoAlt="Logo" />
       <div className="flex justify-center items-center m-auto overflow-scroll md:overflow-hidden mb-10 md:max-w-2xl">

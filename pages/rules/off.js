@@ -11,10 +11,6 @@ const Off = () => {
           content="Siswa Bimbel LB3R tidak perlu khawatir jika ingin berhenti atau off sementara dan kemudian nanti lanjut les bulan berikutnya."
           key="desc"
         />
-        <meta
-          http-equiv="Content-Security-Policy"
-          content="script-src 'none'"
-        />
       </Head>
       <Navbar logoUrl="../../image/logolb3r.png" logoAlt="Logo" />
       <div className="flex justify-center items-center m-auto overflow-scroll md:overflow-hidden mb-10 md:max-w-2xl">
