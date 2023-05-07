@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import Welcome from './Welcome';
+import Image from 'next/image';
 
 export default class ImageSlide extends Component {
   render() {
@@ -11,6 +12,11 @@ export default class ImageSlide extends Component {
           {/* <h2>NextJs Carousel - GeeksforGeeks</h2> */}
           <Carousel>
             <div>
+              {/* <Image
+                src="/image/image1.png"
+                alt="Foto Seminar Bakat"
+                layout="fill"
+              /> */}
               <img src="image/image1.png" alt="image1" />
               <p className="legend">SEMINAR BAKAT DAN PEMILIHAN JURUSAN</p>
             </div>

@@ -1,11 +1,24 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const Navbar = ({ logoUrl, logoAlt }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    }
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [menuRef]);
 
   return (
-    <div className="">
+    <div>
       <nav className="relative  w-full md:flex md:items-center md:justify-between flex-wrap bg-gray-900 p-1">
         <div className="hidden md:visible md:flex items-center flex-shrink-0 text-white mr-6">
           <a href="/">
@@ -17,10 +30,10 @@ const Navbar = ({ logoUrl, logoAlt }) => {
           </a>
           <span className=" text-[8px] "></span>
         </div>
-        <div className="block lg:hidden">
+        <div className="block lg:hidden" ref={menuRef}>
           <div className="flex justify-between items-center">
             <button
-              className="flex items-center px-3 py-2  rounded text-white  hover:text-gray-200 "
+              className="flex items-center px-3 py-2  rounded text-orange-200  hover:text-orange-300 "
               onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -35,14 +48,14 @@ const Navbar = ({ logoUrl, logoAlt }) => {
                 />
               </svg>
             </button>
-            <div className="flex items-center space-x-1">
-              <p className="text-gray-900 text-sm bg-orange-200 rounded-xl font-medium px-2 py-1">
+            <div className="flex items-center space-x-1 md:hidden">
+              <p className="text-gray-900 text-sm bg-orange-200 hover:bg-orange-300 rounded-xl font-medium px-2 py-1">
                 Paket Belajar
               </p>
-              <p className="text-gray-900 text-sm bg-orange-200 rounded-xl font-medium px-2 py-1">
+              <p className="text-gray-900 text-sm bg-orange-200 hover:bg-orange-300 rounded-xl font-medium px-2 py-1">
                 Masuk/Daftar
               </p>
-              <div className="text-gray-900 text-sm bg-orange-200 rounded-xl font-medium p-1">
+              <div className="text-gray-900 text-sm bg-orange-200 hover:bg-orange-300 rounded-xl font-medium p-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -63,39 +76,52 @@ const Navbar = ({ logoUrl, logoAlt }) => {
         <div
           className={`${
             isMenuOpen ? 'block' : 'hidden'
-          } w-full block flex-grow lg:flex lg:items-center lg:w-auto `}>
-          <div className="flex">
+          } w-full block flex-grow lg:flex lg:items-center lg:w-auto justify-end`}
+          ref={menuRef}>
+          <div className="flex ">
             <div className="text-sm lg:flex-grow">
-              <Link href="/">
-                <a className="hover:bg-gray-300 md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
-                  Home
-                </a>
-              </Link>
-              <Link href="/rules/payment">
-                <a className="hover:bg-gray-300 md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
-                  Sistem Pembayaran
-                </a>
-              </Link>
-              <Link href="/rules/newclass">
-                <a className="hover:bg-gray-300 md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
-                  Buat Kelas Baru
-                </a>
-              </Link>
-              <Link href="/rules/odb">
-                <a className="hover:bg-gray-300 md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
-                  Aturan ODB
-                </a>
-              </Link>
-              <Link href="/rules/kbm">
-                <a className="hover:bg-gray-300 md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
-                  Aturan KBM
-                </a>
-              </Link>
-              <Link href="/rules/off">
-                <a className="hover:bg-gray-300 md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
-                  Aturan Berhenti
-                </a>
-              </Link>
+              <div className="flex justify-between">
+                <div className="text-sm lg:flex-grow">
+                  <Link href="/">
+                    <a className="hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
+                      Home
+                    </a>
+                  </Link>
+                  <Link href="/rules/payment">
+                    <a className="hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
+                      Sistem Pembayaran
+                    </a>
+                  </Link>
+                  <Link href="/rules/newclass">
+                    <a className="hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
+                      Buat Kelas Baru
+                    </a>
+                  </Link>
+                  <Link href="/rules/odb">
+                    <a className="hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
+                      Aturan ODB
+                    </a>
+                  </Link>
+                  <Link href="/rules/kbm">
+                    <a className="hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
+                      Aturan KBM
+                    </a>
+                  </Link>
+                  <Link href="/rules/off">
+                    <a className="hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
+                      Aturan Berhenti
+                    </a>
+                  </Link>
+                </div>
+                <div className="hidden md:visible md:flex items-center space-x-1">
+                  <p className="text-gray-900 text-sm bg-orange-200 hover:bg-orange-300 rounded-xl font-medium px-2 py-1">
+                    Paket Belajar
+                  </p>
+                  <p className="text-gray-900 text-sm bg-orange-200 hover:bg-orange-300 rounded-xl font-medium px-2 py-1">
+                    Masuk/Daftar
+                  </p>
+                </div>
+              </div>
             </div>
             {/* <div className="flex items-center justify-center space-x-4">
               <p className="bg-blue-600 px-2 py-1 rounded">Daftar</p>
