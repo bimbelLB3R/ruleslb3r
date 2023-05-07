@@ -1,11 +1,24 @@
 import Navbar from '../../components/Navbar';
-import Meta from '../../components/Meta';
+import Head from 'next/head';
 import Layout from '../../components/Layout';
 
 const Kbm = () => {
   return (
     <>
-      <Meta />
+      <Head>
+        <title>
+          Ketahui bagaimana proses pembelajaran di Bimbel LB3R | Bimbel LB3R
+        </title>
+        <meta
+          name="description"
+          content="Pembelajaran di Bimbel LB3R sangat fleksibel sesuai kebutuhan siswa."
+          key="desc"
+        />
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="script-src 'none'"
+        />
+      </Head>
       <Navbar logoUrl="../../image/logolb3r.png" logoAlt="Logo" />
       <Layout>
         <div className="flex justify-center items-center m-auto overflow-scroll md:overflow-hidden mb-10 md:max-w-2xl">

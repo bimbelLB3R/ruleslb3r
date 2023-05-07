@@ -25,12 +25,12 @@ const Footer = () => {
                   <li className="mb-4">
                     <a
                       href="/form/newmember"
-                      className="hover:underline text-xs">
+                      className="hover:underline text-sm">
                       Kelas Intensif UTBK SNBT
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:underline text-xs">
+                    <a href="#" className="hover:underline text-sm">
                       One Day Before
                     </a>
                   </li>
@@ -42,17 +42,17 @@ const Footer = () => {
                 </h2>
                 <ul className="text-gray-100  ">
                   <li className="mb-4">
-                    <a href="#" className="hover:underline text-xs">
+                    <a href="#" className="hover:underline text-sm">
                       Founder
                     </a>
                   </li>
                   <li className="mb-4">
-                    <a href="#" className="hover:underline text-xs">
+                    <a href="#" className="hover:underline text-sm">
                       Pengajar
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:underline text-xs">
+                    <a href="#" className="hover:underline text-sm">
                       Lowongan
                     </a>
                   </li>
@@ -66,29 +66,29 @@ const Footer = () => {
                   <li className="mb-4">
                     <a
                       href="/rules/payment"
-                      className="hover:underline text-xs">
+                      className="hover:underline text-sm">
                       Sistem Pembayaran
                     </a>
                   </li>
                   <li className="mb-4">
                     <a
                       href="/rules/newclass"
-                      className="hover:underline text-xs">
+                      className="hover:underline text-sm">
                       Buat Kelasmu
                     </a>
                   </li>
                   <li className="mb-4">
-                    <a href="/rules/odb" className="hover:underline text-xs">
+                    <a href="/rules/odb" className="hover:underline text-sm">
                       Aturan ODB
                     </a>
                   </li>
                   <li className="mb-4">
-                    <a href="/rules/kbm" className="hover:underline text-xs">
+                    <a href="/rules/kbm" className="hover:underline text-sm">
                       Aturan KBM
                     </a>
                   </li>
                   <li className="mb-4">
-                    <a href="/rules/off" className="hover:underline text-xs">
+                    <a href="/rules/off" className="hover:underline text-sm">
                       Berhenti Les
                     </a>
                   </li>
@@ -100,14 +100,14 @@ const Footer = () => {
                 </h2>
                 <ul className="text-gray-100  ">
                   <li className="mb-4">
-                    <a href="#" className="hover:underline text-xs">
+                    <a href="#" className="hover:underline text-sm">
                       Artikel
                     </a>
                   </li>
                   <li>
                     <a
                       href="https://www.tokopedia.com/kaosuwais"
-                      className="hover:underline text-xs">
+                      className="hover:underline text-sm">
                       Toko On Line
                     </a>
                   </li>

@@ -41,13 +41,21 @@ const ContactForm = ({ sheetdata }) => {
   return (
     <div>
       <Head>
-        <title>ANALISIS HASIL</title>
-        <meta name="description" content="Hasil SNBT" />
+        <title>Analisis Hasil UTBK SNBT | Bimbel LB3R</title>
+        <meta
+          name="description"
+          content="Bimbel LB3R menyelenggarakan bimbingan UTBK SNBT dan memberikan latihan soal dengan metode Item Response Theory (IRT)"
+          key="desc"
+        />
         <link
           rel="icon"
           type="image/png"
           sizes="4x16"
           href="image/logolb3r.png"
+        />
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="script-src 'none'"
         />
       </Head>
 

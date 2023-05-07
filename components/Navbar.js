@@ -48,15 +48,15 @@ const Navbar = ({ logoUrl, logoAlt }) => {
                 />
               </svg>
             </button>
-            <div className="flex items-center space-x-1 md:hidden">
-              <p className="cursor-pointer text-gray-900 text-sm bg-orange-200 hover:bg-orange-300 rounded-xl font-medium px-2 py-1">
+            <div className="flex items-center space-x-3 md:hidden">
+              <p className="cursor-pointer text-gray-900 text-sm bg-orange-200 hover:bg-orange-300 rounded-xl font-medium p-2">
                 Paket Belajar
               </p>
-              <p className="cursor-pointer text-gray-900 text-sm bg-orange-200 hover:bg-orange-300 rounded-xl font-medium px-2 py-1">
+              <p className="cursor-pointer text-gray-900 text-sm bg-orange-200 hover:bg-orange-300 rounded-xl font-medium p-2">
                 Masuk/Daftar
               </p>
               <Link href="/">
-                <div className="cursor-pointer text-gray-900 text-sm bg-orange-200 hover:bg-orange-300 rounded-xl font-medium p-1">
+                <div className="cursor-pointer text-gray-900 text-sm bg-orange-200 hover:bg-orange-300 rounded-xl font-medium p-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -81,44 +81,44 @@ const Navbar = ({ logoUrl, logoAlt }) => {
           } w-full block flex-grow lg:flex lg:items-center lg:w-auto justify-end`}>
           <div className="flex ">
             <div className="text-sm lg:flex-grow">
-              <div className="flex justify-between">
+              <div className="flex justify-between place-items-end">
                 <div className="text-sm lg:flex-grow">
                   <Link href="/">
-                    <div className="cursor-pointer hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
+                    <div className="cursor-pointer hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-sm">
                       Home
                     </div>
                   </Link>
                   <Link href="/rules/payment">
-                    <div className="cursor-pointer hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
+                    <div className="cursor-pointer hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-sm">
                       Sistem Pembayaran
                     </div>
                   </Link>
                   <Link href="/rules/newclass">
-                    <div className="cursor-pointer hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
+                    <div className="cursor-pointer hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-sm">
                       Buat Kelas Baru
                     </div>
                   </Link>
                   <Link href="/rules/odb">
-                    <div className="cursor-pointer hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
+                    <div className="cursor-pointer hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-sm">
                       Aturan ODB
                     </div>
                   </Link>
                   <Link href="/rules/kbm">
-                    <div className="cursor-pointer hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
+                    <div className="cursor-pointer hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-sm">
                       Aturan KBM
                     </div>
                   </Link>
                   <Link href="/rules/off">
-                    <div className="cursor-pointer hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-xs md:text-sm">
+                    <div className="cursor-pointer hover:bg-orange-300 hover:text-gray-900  md:hover:bg-opacity-0 p-2 block lg:inline-block lg:mt-0 text-gray-100 md:text-gray-400  md:hover:text-white mr-4 md:hover:underline underline-offset-4 text-sm">
                       Aturan Berhenti
                     </div>
                   </Link>
                 </div>
-                <div className="hidden md:visible md:flex items-center space-x-1">
-                  <p className="cursor-pointer text-gray-900 text-sm bg-orange-200 hover:bg-orange-300 rounded-xl font-medium px-2 py-1">
+                <div className="hidden md:visible md:flex items-center space-x-3">
+                  <p className="cursor-pointer text-gray-900 text-sm bg-orange-200 hover:bg-orange-300 rounded-xl font-medium p-2">
                     Paket Belajar
                   </p>
-                  <p className="cursor-pointer text-gray-900 text-sm bg-orange-200 hover:bg-orange-300 rounded-xl font-medium px-2 py-1">
+                  <p className="cursor-pointer text-gray-900 text-sm bg-orange-200 hover:bg-orange-300 rounded-xl font-medium p-2">
                     Masuk/Daftar
                   </p>
                 </div>

@@ -3,7 +3,7 @@ import { GoogleSpreadsheet } from 'google-spreadsheet';
 import Swal from 'sweetalert2';
 import Loader from '../../components/Loader';
 import { useRouter } from 'next/router';
-import Meta from '../../components/Meta';
+import Head from 'next/head';
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -112,58 +112,78 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-400 text-gray-900">
-      <form
-        className="space-y-3 w-full max-w-lg mx-auto p-5"
-        onSubmit={submitForm}>
-        <p className="font-semibold text-2xl text-center">Kotak Saran</p>
-        <div>
-          <input
-            name="name"
-            type="text"
-            className=" w-full"
-            placeholder="Nama Lengkap"
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <input
-            name="email"
-            type="email"
-            className=" w-full"
-            placeholder="Email"
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <input
-            name="topic"
-            type="text"
-            className=" w-full"
-            placeholder="Instagram Kamu"
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <textarea
-            name="description"
-            className="form-textarea form-field-contact w-full"
-            rows="3"
-            placeholder="Ketik Saran"
-            onChange={handleChange}
-          />
-        </div>
-        <button
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center"
-          type="submit">
-          {isLoading ? (
-            <Loader /> // tampilkan komponen loader jika proses append sedang berlangsung
-          ) : (
-            'Kirim Saran' // tampilkan teks 'Submit' jika proses append selesai
-          )}
-        </button>
-      </form>
-    </div>
+    <>
+      <Head>
+        <title>Kotak Saran | Bimbel LB3R</title>
+        <meta
+          name="description"
+          content="Kotak saran, silahkan beri masukan untuk perbaikan bimbel LB3R"
+          key="desc"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="4x16"
+          href="image/logolb3r.png"
+        />
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="script-src 'none'"
+        />
+      </Head>
+      <div className="flex justify-center items-center min-h-screen bg-gray-400 text-gray-900">
+        <form
+          className="space-y-3 w-full max-w-lg mx-auto p-5"
+          onSubmit={submitForm}>
+          <p className="font-semibold text-2xl text-center">Kotak Saran</p>
+          <div>
+            <input
+              name="name"
+              type="text"
+              className=" w-full"
+              placeholder="Nama Lengkap"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <input
+              name="email"
+              type="email"
+              className=" w-full"
+              placeholder="Email"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <input
+              name="topic"
+              type="text"
+              className=" w-full"
+              placeholder="Instagram Kamu"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <textarea
+              name="description"
+              className="form-textarea form-field-contact w-full"
+              rows="3"
+              placeholder="Ketik Saran"
+              onChange={handleChange}
+            />
+          </div>
+          <button
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center"
+            type="submit">
+            {isLoading ? (
+              <Loader /> // tampilkan komponen loader jika proses append sedang berlangsung
+            ) : (
+              'Kirim Saran' // tampilkan teks 'Submit' jika proses append selesai
+            )}
+          </button>
+        </form>
+      </div>
+    </>
   );
 };
 
