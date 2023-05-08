@@ -1,32 +1,16 @@
-// import Faq from '../components/Faq';
-// import Layout from '../components/Layout';
-// import ImageSlide from '../components/ImageSlide';
-// import Meta from '../components/Meta';
-// import Navbar from '../components/Navbar';
+import Faq from '../components/Faq';
+import Layout from '../components/Layout';
+import ImageSlide from '../components/ImageSlide';
+import Meta from '../components/Meta';
+import Navbar from '../components/Navbar';
 // import Wa from '../components/Wa';
-import dynamic from 'next/dynamic';
 
 export default function Home() {
-  const DynamicFaq = dynamic(() => import('../components/Faq'), {
-    loading: () => <p>Loading...</p>,
-  });
-  const DynamicMeta = dynamic(() => import('../components/Meta'), {
-    loading: () => <p>Loading...</p>,
-  });
-  const DynamicNavbar = dynamic(() => import('../components/Navbar'), {
-    loading: () => <p>Loading...</p>,
-  });
-  const DynamicImageSlide = dynamic(() => import('../components/ImageSlide'), {
-    loading: () => <p>Loading...</p>,
-  });
-  const DynamicLayout = dynamic(() => import('../components/Layout'), {
-    loading: () => <p>Loading...</p>,
-  });
   return (
     <div className="overflow-hidden">
-      <DynamicMeta />
+      <Meta />
       {/* <Wa /> */}
-      <DynamicNavbar
+      <Navbar
         logoUrl="/image/logolb3r.png"
         logoAlt="Logo"
         // menuItems={[
@@ -41,10 +25,10 @@ export default function Home() {
         //   },
         // ]}
       />
-      <DynamicLayout>
-        <DynamicImageSlide />
-        <DynamicFaq />
-      </DynamicLayout>
+      <Layout>
+        <ImageSlide />
+        <Faq />
+      </Layout>
     </div>
   );
 }
