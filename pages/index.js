@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       <Meta />
-      <Wa />
+      {/* <Wa /> */}
       <Navbar
         logoUrl="/image/logolb3r.png"
         logoAlt="Logo"

@@ -108,11 +108,16 @@ const Footer = () => {
                       Artikel
                     </a>
                   </li>
-                  <li>
+                  <li className="mb-4">
                     <a
                       href="https://www.tokopedia.com/kaosuwais"
                       className="hover:underline text-sm">
                       Toko On Line
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/form" className="hover:underline text-sm">
+                      Kritik dan Saran
                     </a>
                   </li>
                 </ul>
@@ -121,9 +126,9 @@ const Footer = () => {
           </div>
           <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
           <div className="sm:flex sm:items-center sm:justify-between">
-            <span className=" text-gray-500 sm:text-center text-xs">
+            <span className=" text-gray-200 sm:text-center text-xs">
               © 2023{' '}
-              <a href="https://flowbite.com/" className="hover:underline">
+              <a href="/" className="hover:underline">
                 LB3R™
               </a>
               . All Rights Reserved.
@@ -131,7 +136,7 @@ const Footer = () => {
             <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
               <a
                 href="https://www.facebook.com/bimbel.lb3r"
-                className="text-orange-900 hover:text-gray-100 ">
+                className="text-orange-300 hover:text-gray-100 ">
                 <svg
                   className="w-5 h-5"
                   fill="currentColor"
@@ -147,7 +152,7 @@ const Footer = () => {
               </a>
               <a
                 href="https://www.instagram.com/bimbel_lb3r"
-                className="text-orange-900 hover:text-gray-100 ">
+                className="text-orange-300 hover:text-gray-100 ">
                 <svg
                   className="w-5 h-5"
                   fill="currentColor"
@@ -163,7 +168,7 @@ const Footer = () => {
               </a>
               <a
                 href="https://www.twitter.com/bimbel_lb3r"
-                className="text-orange-900 hover:text-gray-100 ">
+                className="text-orange-300 hover:text-gray-100 ">
                 <svg
                   className="w-5 h-5"
                   fill="currentColor"
@@ -173,7 +178,7 @@ const Footer = () => {
                 </svg>
                 <span className="sr-only">Twitter page</span>
               </a>
-              <a href="#" className="text-orange-900 hover:text-gray-100 ">
+              <a href="#" className="text-orange-300 hover:text-gray-100 ">
                 <svg
                   className="w-5 h-5"
                   fill="currentColor"
@@ -187,7 +192,7 @@ const Footer = () => {
                 </svg>
                 <span className="sr-only">GitHub account</span>
               </a>
-              <a href="#" className="text-orange-900 hover:text-gray-100 ">
+              <a href="#" className="text-orange-300 hover:text-gray-100 ">
                 <svg
                   className="w-5 h-5"
                   fill="currentColor"
