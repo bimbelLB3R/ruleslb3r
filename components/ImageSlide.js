@@ -35,7 +35,7 @@ export default class ImageSlide extends Component {
                 alt="Foto Kelas UTBK"
                 layout="fill"
               /> */}
-              <img src="image/image3.png" alt="Foto Kelas UTBK" />
+              <img src="image/image3.webp" alt="Foto Kelas UTBK" />
               <p className="legend">KELAS INTENSIF UTBK SNBT</p>
             </div>
             <div>
