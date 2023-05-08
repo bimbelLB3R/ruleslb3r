@@ -38,8 +38,8 @@ const Navbar = ({ logoUrl, logoAlt }) => {
               className="cursor-pointer flex items-center px-3 py-2  rounded text-orange-200  hover:text-orange-300 "
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               ref={menuRef}
-              type="button"
-              name="hamburgerMenu">
+              id="Menu"
+              aria-label="Tombol Menu">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="36"
