@@ -12,7 +12,6 @@
   "dependencies": {
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.13",
-    "@next/font": "^13.3.0",
     "antd": "^5.1.4",
     "bcryptjs": "^2.4.3",
     "canvas-confetti": "^1.5.1",
@@ -38,7 +37,6 @@
     "next": "^13.4.1",
     "next-auth": "^4.18.7",
     "next-cookies": "^2.0.3",
-    "next-fonts": "^1.5.1",
     "react": "^18.2.0",
     "react-countdown-circle-timer": "^3.1.0",
     "react-dom": "^18.2.0",
