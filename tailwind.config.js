@@ -10,9 +10,9 @@ module.exports = {
       maxWidth: {
         '1/2': '50%',
       },
-      fontFamily: {
-        montserrat: ['var(--font-montserrat)', 'sans-serif'],
-      },
+      // fontFamily: {
+      //   montserrat: ['var(--font-montserrat)', 'sans-serif'],
+      // },
     },
   },
   plugins: [require('flowbite/plugin')],
