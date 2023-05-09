@@ -14,7 +14,7 @@ export default class ImageSlide extends Component {
             <div>
               <Image
                 src="/image/image1.webp"
-                alt="Foto Seminar Bakat"
+                alt="Foto Pilih jurusan"
                 width={500}
                 height={500}
               />
