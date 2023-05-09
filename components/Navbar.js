@@ -60,7 +60,7 @@ const Navbar = ({ logoUrl, logoAlt }) => {
               <p className="cursor-pointer text-gray-900 text-sm bg-orange-200 hover:bg-orange-300 rounded-xl font-medium p-2">
                 Masuk/Daftar
               </p>
-              <Link href="/">
+              <Link href="/" aria-label="go to home">
                 <div className="cursor-pointer text-gray-900 text-sm bg-orange-200 hover:bg-orange-300 rounded-xl font-medium p-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

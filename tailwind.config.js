@@ -11,8 +11,7 @@ module.exports = {
         '1/2': '50%',
       },
       fontFamily: {
-        sans: ['var(--font-inter)'],
-        mono: ['var(--font-roboto-mono)'],
+        montserrat: ['var(--font-montserrat)', 'sans-serif'],
       },
     },
   },

@@ -1,16 +1,16 @@
 import '../styles/globals.css';
-import { Inter } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 
-const inter = Inter({
+const montserrat = Montserrat({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-montserrat',
 });
 function MyApp({ Component, pageProps }) {
   return (
     // <main>
     //   <Component {...pageProps} />
     // </main>
-    <main className={`${inter.variable} font-sans`}>
+    <main className={`${montserrat.variable} font-montserrat`}>
       <Component {...pageProps} />
     </main>
   );
