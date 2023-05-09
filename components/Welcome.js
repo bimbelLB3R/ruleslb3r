@@ -2,7 +2,7 @@ const Welcome = () => {
   return (
     <div className="leading-tight p-4 text-gray-900 text-center">
       <h2 className="font-bold mb-4 text-xl font-sans">
-        SELAMAT DATANG DI LB3R
+        Bimbingan Belajar SD,SMP dan SMA
       </h2>
       <p>
         Bimbingan belajar (Bimbel)/tempat les ternama di Kabupaten Tabalong yang
