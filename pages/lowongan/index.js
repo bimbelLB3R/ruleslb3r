@@ -22,13 +22,28 @@ export default function Lowongan() {
       </Head>
       <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
       <Layout>
-        <Image
-          src="/image/lowongan.jpg"
-          width={540}
-          height={960}
-          alt="lowongan"
-          className="mt-10"
-        />
+        <div className=" md:justify-center md:flex md:space-x-4">
+          <Image
+            src="/image/lowongan.jpg"
+            width={540}
+            height={960}
+            alt="lowongan"
+            className="mt-10 shadow-xl shadow-gray-500 mb-2"
+          />
+          <div className="mt-10 md:mt-20 p-4">
+            <h1 className="font-semibold">Ketentuan</h1>
+            <ul>
+              <li>
+                1. Bersedia bekerjasama minimal satu tahun ajaran sampai selesai
+              </li>
+              <li>
+                2. Mengirimkan berkas berupa Surat Lamaran Kerja, Biodata Diri,
+                Ijazah dan transkrip Nilai ke bimbellb3r@gmail.com
+              </li>
+              <li>3. Hal lain dibicarakan saat wawancara</li>
+            </ul>
+          </div>
+        </div>
       </Layout>
     </>
   );
