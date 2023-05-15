@@ -56,7 +56,7 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:underline text-sm">
+                    <a href="/lowongan" className="hover:underline text-sm">
                       Lowongan
                     </a>
                   </li>
