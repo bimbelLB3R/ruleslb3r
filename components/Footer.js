@@ -104,7 +104,7 @@ const Footer = () => {
                 </h2>
                 <ul className="text-gray-100  ">
                   <li className="mb-4">
-                    <a href="#" className="hover:underline text-sm">
+                    <a href="/blogs" className="hover:underline text-sm">
                       Artikel
                     </a>
                   </li>

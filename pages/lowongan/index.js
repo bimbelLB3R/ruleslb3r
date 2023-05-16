@@ -22,14 +22,16 @@ export default function Lowongan() {
       </Head>
       <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
       <Layout>
-        <div className=" md:justify-center md:flex md:space-x-4">
-          <Image
-            src="/image/lowongan.jpg"
-            width={540}
-            height={960}
-            alt="lowongan"
-            className="mt-10 shadow-xl shadow-gray-500 mb-2"
-          />
+        <div className=" md:justify-center md:flex md:space-x-4 md:bg-orange-200">
+          <div className="flex justify-center">
+            <Image
+              src="/image/lowongan.jpg"
+              width={540}
+              height={960}
+              alt="lowongan"
+              className="mt-10 shadow-xl md:shadow-none shadow-gray-500 mb-2"
+            />
+          </div>
           <div className="mt-10 md:mt-20 p-4">
             <h1 className="font-semibold">Ketentuan</h1>
             <ul>
