@@ -43,6 +43,7 @@ import Link from 'next/link';
 
 import { formatDistanceToNow } from 'date-fns';
 import { id } from 'date-fns/locale';
+import Head from 'next/head';
 
 // async function getData() {
 //   const res = await fetch(`http://localhost:3000/api/blogs`);
@@ -63,6 +64,16 @@ export default function PostDetail({ detailPost }) {
   // console.log(detailPost);
   return (
     <>
+      <Head>
+        <title>{detailPost.title} | Blogs</title>
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="4x16"
+          href="/image/logolb3r.png"
+        />
+        <meta name="description" content={detailPost.title} key="desc" />
+      </Head>
       <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
       <Layout>
         <div className="p-4 h-screen mt-20 md:max-w-xl md:flex md:justify-center md:m-auto md:mt-20">

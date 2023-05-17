@@ -96,6 +96,7 @@ import Layout from '../../components/Layout';
 import { getBlogsData } from '../../utils/blogsApi';
 import Link from 'next/link';
 import Navbar from '../../components/Navbar';
+import Head from 'next/head';
 
 export async function getStaticProps() {
   const data = getBlogsData();
@@ -113,6 +114,20 @@ export default function BlogsPage({ allPost }) {
   // Render your page content here
   return (
     <div>
+      <Head>
+        <title>Blogs | Bimbel LB3R</title>
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="4x16"
+          href="/image/logolb3r.png"
+        />
+        <meta
+          name="description"
+          content="Berisi berbagai informasi"
+          key="desc"
+        />
+      </Head>
       <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
       <Layout>
         <div className="h-screen flex justify-center items-center">
