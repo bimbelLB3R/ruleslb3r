@@ -80,22 +80,30 @@ export default function PostDetail({ detailPost }) {
         <div className="p-4 h-screen mt-20 md:max-w-xl md:flex md:justify-center md:m-auto md:mt-20">
           <div>
             <div>
-              <div className="flex mb-10">
+              <div className="flex mb-10 font-bold">
                 <Link href="/blogs">
-                  <p className="text-blue-600">Blogs</p>
+                  <p className="text-orange-600">Blogs </p>
                 </Link>
-                <p>|{detailPost.title}</p>
+                <p>
+                  {' > '}
+                  {detailPost.tags}
+                </p>
               </div>
             </div>
             <h1 className="font-semibold text-xl">{detailPost.title}</h1>
             <p className="text-xs text-gray-600">
               {timeAgo}{' '}
               <Link href="/blogs">
-                <span className="underline">by {detailPost.writer}</span>
+                <span className="underline">oleh {detailPost.writer}</span>
               </Link>
             </p>
 
-            <p className="mt-4">{detailPost.body}</p>
+            <p className="mt-4">
+              <span className="font-bold text-lg text-orange-600">
+                LB3R Info -{' '}
+              </span>
+              {detailPost.body}
+            </p>
           </div>
         </div>
       </Layout>
