@@ -61,11 +61,12 @@ export default function PostDetail({ detailPost }) {
     addSuffix: true,
     locale: id,
   });
+  const pageTitle = detailPost.title;
   // console.log(detailPost);
   return (
     <>
       <Head>
-        <title>{detailPost.title} | Blogs</title>
+        <title>{pageTitle}</title>
         <link
           rel="icon"
           type="image/png"

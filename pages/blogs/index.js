@@ -115,7 +115,7 @@ export default function BlogsPage({ allPost }) {
   return (
     <div>
       <Head>
-        <title>Blogs | Bimbel LB3R</title>
+        <title>Blogs</title>
         <link
           rel="icon"
           type="image/png"
@@ -124,7 +124,7 @@ export default function BlogsPage({ allPost }) {
         />
         <meta
           name="description"
-          content="Berisi berbagai informasi"
+          content="Berisi informasi penting"
           key="desc"
         />
       </Head>
