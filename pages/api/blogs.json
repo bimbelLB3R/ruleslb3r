@@ -4,25 +4,25 @@
       "id": 1,
       "title": "Believe in Yourself",
       "slug": "Believe-in-Yourself",
-      "body": "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.",
-      "writer": "Unknown",
-      "date": "2023-05-16"
+      "body": "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.",
+      "writer": "Wahyudi",
+      "createdAt": "2023-05-16T12:34:56"
     },
     {
       "id": 2,
       "title": "Embrace Change",
       "slug": "Embrace-Change",
       "body": "Change can be scary, but it can also be the start of something wonderful. Embrace the unknown and let it lead you to new opportunities.",
-      "writer": "Unknown",
-      "date": "2023-05-17"
+      "writer": "Wahyudi",
+      "createdAt": "2023-05-17T12:34:56"
     },
     {
       "id": 3,
       "title": "Dream Big",
       "slug": "Dream-Big",
       "body": "Don't be afraid to dream big. Your dreams have the power to shape your reality. Set audacious goals and work towards making them a reality.",
-      "writer": "Unknown",
-      "date": "2023-05-18"
+      "writer": "Wahyudi",
+      "createdAt": "2023-05-16T12:34:56"
     }
   ]
 }

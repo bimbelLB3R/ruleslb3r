@@ -92,8 +92,11 @@
 //   };
 // }
 
+import Layout from '../../components/Layout';
 import { getBlogsData } from '../../utils/blogsApi';
 import Link from 'next/link';
+import Navbar from '../../components/Navbar';
+
 export async function getStaticProps() {
   const data = getBlogsData();
 
@@ -110,18 +113,30 @@ export default function BlogsPage({ allPost }) {
   // Render your page content here
   return (
     <div>
-      {' '}
-      {allPost.map((post) => (
-        <div key={post.id} className="max-w-lg flex justify-center m-auto">
-          <div className="p-1 ">
-            <Link href={`/blogs/${post.slug}`}>
-              <h1 className="font-semibold hover:bg-gray-300 p-1">
-                {post.title}
-              </h1>
-            </Link>
+      <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
+      <Layout>
+        <div className="h-screen flex justify-center items-center">
+          <div>
+            <div className="max-w-lg flex justify-center m-auto">
+              <h1 className="text-xl font-black ">LB3R BLOGS</h1>
+            </div>
+
+            {allPost.map((post) => (
+              <div
+                key={post.id}
+                className="max-w-lg flex justify-center m-auto">
+                <div className="p-1 ">
+                  <Link href={`/blogs/${post.slug}`}>
+                    <h1 className="font-semibold hover:bg-gray-300 p-1">
+                      {post.title}
+                    </h1>
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
+      </Layout>
     </div>
   );
 }
