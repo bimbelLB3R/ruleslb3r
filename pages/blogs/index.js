@@ -1,48 +1,127 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
+// import Link from 'next/link';
+
+// async function getData() {
+//   const res = await fetch('https://dummyjson.com/posts');
+
+//   if (!res.ok) {
+//     throw new Error('Failed to fetch data');
+//   }
+
+//   return res.json();
+// }
+
+// export default function Page() {
+//   const [allPost, setAllPost] = useState([]);
+
+//   useEffect(() => {
+//     async function fetchData() {
+//       try {
+//         const data = await getData();
+//         setAllPost(data.posts);
+//       } catch (error) {
+//         console.error(error);
+//       }
+//     }
+
+//     fetchData();
+//   }, []);
+
+//   return (
+//     <main>
+//       <div className="flex items-center justify-center m-auto text-xl font-black">
+//         <h1>All Post</h1>
+//       </div>
+//       <div>
+//         {allPost.map((post) => (
+//           <div key={post.id} className="max-w-lg flex justify-center m-auto">
+//             <div className="p-1 ">
+//               <Link href={`/blogs/${post.id}`}>
+//                 <h1 className="font-semibold hover:bg-gray-300 p-1">
+//                   {post.title}
+//                 </h1>
+//               </Link>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </main>
+//   );
+// }
+
+// import Link from 'next/link';
+
+// export default function Page({ allPost, posts }) {
+//   console.log(posts);
+//   return (
+//     <main>
+//       <div className="flex items-center justify-center m-auto text-xl font-black">
+//         <h1>All Post</h1>
+//       </div>
+//       <div>
+//         {allPost.map((post) => (
+//           <div key={post.id} className="max-w-lg flex justify-center m-auto">
+//             <div className="p-1 ">
+//               <Link href={`/blogs/${post.id}`}>
+//                 <h1 className="font-semibold hover:bg-gray-300 p-1">
+//                   {post.title}
+//                 </h1>
+//               </Link>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </main>
+//   );
+// }
+
+// export async function getStaticProps() {
+//   const res = await fetch(`https://localhost:3000/api/blogs`);
+
+//   if (!res.ok) {
+//     throw new Error('Failed to fetch data');
+//   }
+
+//   const data = await res.json();
+//   const allPost = data.posts;
+
+//   return {
+//     props: {
+//       allPost,
+//     },
+//   };
+// }
+
+import { getBlogsData } from '../../utils/blogsApi';
 import Link from 'next/link';
+export async function getStaticProps() {
+  const data = getBlogsData();
 
-async function getData() {
-  const res = await fetch('https://dummyjson.com/posts');
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
+  return {
+    props: {
+      allPost: data.posts,
+    },
+  };
 }
 
-export default function Page() {
-  const [allPost, setAllPost] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const data = await getData();
-        setAllPost(data.posts);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    fetchData();
-  }, []);
-
+export default function BlogsPage({ allPost }) {
+  // console.log(allPost);
+  // Use the `allPost` data in your component
+  // Render your page content here
   return (
-    <main>
-      <div>
-        <h1>All Post</h1>
-      </div>
-      <div>
-        {allPost.map((post) => (
-          <div key={post.id} className="max-w-lg flex justify-center m-auto">
-            <div className="p-1">
-              <Link href={`/blogs/${post.id}`}>
-                <h1 className="font-semibold">{post.title}</h1>
-              </Link>
-            </div>
+    <div>
+      {' '}
+      {allPost.map((post) => (
+        <div key={post.id} className="max-w-lg flex justify-center m-auto">
+          <div className="p-1 ">
+            <Link href={`/blogs/${post.slug}`}>
+              <h1 className="font-semibold hover:bg-gray-300 p-1">
+                {post.title}
+              </h1>
+            </Link>
           </div>
-        ))}
-      </div>
-    </main>
+        </div>
+      ))}
+    </div>
   );
 }
