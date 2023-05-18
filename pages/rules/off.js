@@ -19,7 +19,7 @@ const Off = () => {
         />
       </Head>
       <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
-      <div className="flex justify-center items-center m-auto overflow-scroll md:overflow-hidden mb-10 md:max-w-2xl">
+      <div className="flex justify-center items-center m-auto overflow-scroll md:overflow-hidden mb-5 md:max-w-2xl">
         <div className=" text-gray-900 p-4 overflow-scroll md:overflow-hidden">
           <h1 className="rounded-2xl text-lg font-semibold p-4 relative top-0 left-0 bg-gray-900 w-full text-gray-100 mt-20">
             Ketentuan Berhenti Les LB3R

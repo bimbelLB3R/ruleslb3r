@@ -77,20 +77,20 @@ export default function PostDetail({ detailPost }) {
       </Head>
       <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
       <Layout>
-        <div className="p-4 h-screen mt-20 md:max-w-xl md:flex md:justify-center md:m-auto md:mt-20">
+        <div className="p-4 h-screen mt-5 md:max-w-xl md:flex md:justify-center md:m-auto md:mt-20">
           <div>
             <div>
-              <div className="flex mb-10 font-bold">
+              <div className="flex mb-10 font-bold mt-10">
                 <Link href="/blogs">
-                  <p className="text-orange-600">Blogs </p>
+                  <p className="text-orange-600 hover:underline">Blogs </p>
                 </Link>
-                <p>
-                  {' > '}
-                  {detailPost.tags}
-                </p>
+                {' > '}
+                <Link href={`/tag/${detailPost.tags}`}>
+                  <p>{detailPost.tags}</p>
+                </Link>
               </div>
             </div>
-            <h1 className="font-semibold text-xl">{detailPost.title}</h1>
+            <h1 className="font-bold text-2xl">{detailPost.title}</h1>
             <p className="text-xs text-gray-600">
               {timeAgo}{' '}
               <Link href="/blogs">
@@ -99,11 +99,18 @@ export default function PostDetail({ detailPost }) {
             </p>
 
             <p className="mt-4">
-              <span className="font-bold text-lg text-orange-600">
+              <span className="font-semibold text-lg text-orange-600">
                 LB3R Info -{' '}
               </span>
               {detailPost.body}
             </p>
+            <div className="flex">
+              <Link href={`/tag/${detailPost.tags}`}>
+                <p className="mt-4 bg-blue-400 hover:bg-blue-600 text-gray-100 font-semibold rounded p-1 text-xs">
+                  {detailPost.tags}
+                </p>
+              </Link>
+            </div>
           </div>
         </div>
       </Layout>

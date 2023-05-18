@@ -1,6 +1,15 @@
 {
   "posts": [
     {
+      "id": 4,
+      "title": "Don't Judge By It's Cover",
+      "slug": "Don't-Judge-By-It's-Cover",
+      "body": "Sometime we judge people by it's cover, never know what is inner beautiful.",
+      "writer": "Wahyudi",
+      "createdAt": "2023-05-18T07:05:56",
+      "tags": "Education"
+    },
+    {
       "id": 1,
       "title": "Believe in Yourself",
       "slug": "Believe-in-Yourself",

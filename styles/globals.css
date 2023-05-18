@@ -3,3 +3,6 @@
 @tailwind utilities;
 
 /* @import url('https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css'); */
+body {
+  background: #f1f5f9;
+}
