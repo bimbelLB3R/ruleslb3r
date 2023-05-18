@@ -36,6 +36,7 @@
 // }
 
 // import { useEffect, useState } from 'react';
+
 import Layout from '../../../components/Layout';
 import { getBlogsData } from '../../../utils/blogsApi';
 import Navbar from '../../../components/Navbar';
@@ -79,10 +80,10 @@ export default function PostDetail({ detailPost }) {
       </Head>
       <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
       <Layout>
-        <div className="p-4 h-screen mt-5 md:max-w-xl md:flex md:justify-center md:m-auto md:mt-20">
+        <div className="p-4  mt-5 md:max-w-4xl md:flex md:justify-center md:m-auto md:mt-0">
           <div>
             <div>
-              <div className="flex mb-10 font-bold mt-10">
+              <div className="flex mb-10 font-bold mt-10 md:mt-10">
                 <Link href="/blogs">
                   <p className="text-orange-600 hover:underline">Blogs </p>
                 </Link>
@@ -91,9 +92,11 @@ export default function PostDetail({ detailPost }) {
                   <p>{detailPost.tags}</p>
                 </Link>
               </div>
-              <Sharebutton
-                link={`https://www.bimbellb3r.com/blogs/${detailPost.slug}`}
-              />
+              <div className="flex ">
+                <Sharebutton
+                  link={`https://www.bimbellb3r.com/blogs/${detailPost.slug}`}
+                />
+              </div>
             </div>
             <h1 className="font-bold text-2xl">{detailPost.title}</h1>
             <p className="text-xs text-gray-600">
@@ -107,7 +110,7 @@ export default function PostDetail({ detailPost }) {
                 src="/image/assets/tes.webp"
                 width={600}
                 height={300}
-                alt="ImageBlogDetail"
+                alt={detailPost.slug}
               />
             </div>
             <p className="mt-4">

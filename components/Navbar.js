@@ -155,6 +155,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRef, useState, useEffect } from 'react';
 import Footer from './Footer';
+import DropdownMenu from './DropdownMenu';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -172,11 +173,39 @@ export default function Navbar() {
   }, [menuRef]);
   return (
     <>
-      <nav className="md:justify-between shadow shadow-slate-400 fixed top-0 z-50 w-full md:hidden">
-        <div className="flex justify-between bg-slate-100 p-3 md:hidden">
+      <nav>
+        <div className="hidden md:visible md:bg-slate-100 shadow shadow-slate-400 md:flex justify-between items-center p-4 fixed top-0 w-full z-50">
+          <div className="flex space-x-4">
+            <Link href="/">
+              <p className="text-slate-600 hover:text-slate-900">HOME</p>
+            </Link>
+            <Link href="/blogs">
+              <p className="text-slate-600 hover:text-slate-900">BLOGS</p>
+            </Link>
+            <DropdownMenu />
+          </div>
+          <div className="flex space-x-4">
+            <Link href="/form/newmember">
+              <p className="bg-orange-600 text-slate-50 py-2 px-4 text-center rounded">
+                DAFTAR
+              </p>
+            </Link>
+            <Link href="/form/login">
+              <p className="text-center border border-orange-600 text-orange-600 py-2 px-4 rounded">
+                LOGIN
+              </p>
+            </Link>
+          </div>
+        </div>
+        <div className="flex justify-between bg-slate-100 p-3 md:hidden fixed  top-0 z-40 w-full shadow shadow-slate-400">
           <div className="flex items-center">
             <Link href="/">
-              <Image src="/image/logolb3r.png" width={100} height={40} />
+              <Image
+                src="/image/logolb3r.png"
+                width={100}
+                height={40}
+                alt="logo LB3r"
+              />
               {/* <div className="hidden md:visible md:flex">hello</div> */}
             </Link>
           </div>
@@ -203,7 +232,7 @@ export default function Navbar() {
           <div
             className={`${
               isMenuOpen
-                ? 'block absolute z-40 md:relative w-full bg-slate-100 md:flex h-screen shadow shadow-slate-300"'
+                ? 'block absolute z-30 mt-10 md:relative w-full bg-slate-100 md:hidden h-screen shadow shadow-slate-300"'
                 : 'hidden  bg-slate-100  uppercase font-semibold text-slate-600'
             }`}>
             {/* button */}
