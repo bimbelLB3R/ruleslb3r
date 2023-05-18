@@ -232,7 +232,7 @@ export default function Navbar() {
           <div
             className={`${
               isMenuOpen
-                ? 'block absolute z-30 mt-10 md:relative w-full bg-slate-100 md:hidden h-screen shadow shadow-slate-300"'
+                ? 'block fixed top-5 z-30 mt-10 md:relative w-full bg-slate-100 md:hidden h-screen shadow shadow-slate-300"'
                 : 'hidden  bg-slate-100  uppercase font-semibold text-slate-600'
             }`}>
             {/* button */}
