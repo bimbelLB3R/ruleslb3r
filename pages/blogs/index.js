@@ -97,6 +97,7 @@ import { getBlogsData } from '../../utils/blogsApi';
 import Link from 'next/link';
 import Navbar from '../../components/Navbar';
 import Head from 'next/head';
+import Image from 'next/image';
 
 export async function getStaticProps() {
   const data = getBlogsData();
@@ -130,22 +131,31 @@ export default function BlogsPage({ allPost }) {
       </Head>
       <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
       <Layout>
-        <div className="h-screen flex justify-center items-center">
+        <div className=" flex justify-center items-center">
           <div>
-            <div className="max-w-lg flex justify-center m-auto">
+            <div className="max-w-lg flex justify-center mt-20">
               <h1 className="text-xl font-black ">LB3R BLOGS</h1>
             </div>
 
             {allPost.map((post) => (
-              <div
-                key={post.id}
-                className="max-w-lg flex justify-center m-auto">
-                <div className="p-1 ">
-                  <Link href={`/blogs/${post.slug}`}>
-                    <h1 className="font-semibold hover:bg-gray-300 p-1">
-                      {post.title}
-                    </h1>
-                  </Link>
+              <div key={post.id} className="w-full flex justify-center m-auto">
+                <div className="p-2 mt-5 mb-5 mr-5 ml-5 shadow shadow-gray-400 rounded">
+                  <div>
+                    <Image
+                      src="/image/assets/tes.webp"
+                      width={600}
+                      height={300}
+                      alt={post.id}
+                    />
+                  </div>
+                  <div>
+                    <Link href={`/blogs/${post.slug}`}>
+                      <h1 className="font-semibold hover:bg-gray-300 p-1">
+                        {post.title}
+                      </h1>
+                    </Link>
+                  </div>
+                  <div>Penulis : {post.writer}</div>
                 </div>
               </div>
             ))}

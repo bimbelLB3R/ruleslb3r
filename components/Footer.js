@@ -125,7 +125,7 @@ const Footer = () => {
             </div>
           </div> */}
           <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
-          <div className="flex justify-center">
+          <div className="flex justify-center text-center">
             <div>
               <div className=" text-slate-600 sm:text-center text-xs">
                 © 2023{' '}
@@ -139,7 +139,7 @@ const Footer = () => {
                   href="https://www.facebook.com/bimbel.lb3r"
                   className="text-orange-600 hover:text-slate-600 ">
                   <svg
-                    className="w-5 h-5"
+                    className="w-8 h-8"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true">
@@ -155,7 +155,7 @@ const Footer = () => {
                   href="https://www.instagram.com/bimbel_lb3r"
                   className="text-orange-600 hover:text-slate-600 ">
                   <svg
-                    className="w-5 h-5"
+                    className="w-8 h-8"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true">
@@ -171,7 +171,7 @@ const Footer = () => {
                   href="https://www.twitter.com/bimbel_lb3r"
                   className="text-orange-600 hover:text-slate-600 ">
                   <svg
-                    className="w-5 h-5"
+                    className="w-8 h-8"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true">
@@ -181,7 +181,7 @@ const Footer = () => {
                 </a>
                 <a href="#" className="text-orange-600 hover:text-slate-600 ">
                   <svg
-                    className="w-5 h-5"
+                    className="w-8 h-8"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true">
@@ -195,7 +195,7 @@ const Footer = () => {
                 </a>
                 <a href="#" className="text-orange-600 hover:text-slate-600 ">
                   <svg
-                    className="w-5 h-5"
+                    className="w-8 h-8"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true">

@@ -40,6 +40,7 @@ import Layout from '../../../components/Layout';
 import { getBlogsData } from '../../../utils/blogsApi';
 import Navbar from '../../../components/Navbar';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { formatDistanceToNow } from 'date-fns';
 import { id } from 'date-fns/locale';
@@ -97,7 +98,14 @@ export default function PostDetail({ detailPost }) {
                 <span className="underline">oleh {detailPost.writer}</span>
               </Link>
             </p>
-
+            <div className="mt-5">
+              <Image
+                src="/image/assets/tes.webp"
+                width={600}
+                height={300}
+                alt={detailPost.id}
+              />
+            </div>
             <p className="mt-4">
               <span className="font-semibold text-lg text-orange-600">
                 LB3R Info -{' '}

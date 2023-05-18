@@ -172,12 +172,14 @@ export default function Navbar() {
   }, [menuRef]);
   return (
     <>
-      <nav className="md:flex md:justify-between shadow shadow-slate-200 fixed top-0 z-50 w-full">
-        <div className="flex justify-center bg-slate-100 p-3 md:hidden">
-          {/* <div className="flex items-center  bg-red-400">
-            <Image src="/image/logolb3r.png" width={100} height={40} />
-            <div className="hidden md:visible md:flex">hello</div>
-          </div> */}
+      <nav className="md:justify-between shadow shadow-slate-400 fixed top-0 z-50 w-full md:hidden">
+        <div className="flex justify-between bg-slate-100 p-3 md:hidden">
+          <div className="flex items-center">
+            <Link href="/">
+              <Image src="/image/logolb3r.png" width={100} height={40} />
+              {/* <div className="hidden md:visible md:flex">hello</div> */}
+            </Link>
+          </div>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -188,11 +190,11 @@ export default function Navbar() {
               width="36"
               height="36"
               fill="currentColor"
-              className="bi bi-list"
+              className="bi bi-text-left"
               viewBox="0 0 16 16">
               <path
                 fillRule="evenodd"
-                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
               />
             </svg>
           </button>
