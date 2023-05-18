@@ -45,6 +45,7 @@ import Image from 'next/image';
 import { formatDistanceToNow } from 'date-fns';
 import { id } from 'date-fns/locale';
 import Head from 'next/head';
+import Sharebutton from '../../../components/Sharebutton';
 
 // async function getData() {
 //   const res = await fetch(`http://localhost:3000/api/blogs`);
@@ -90,6 +91,9 @@ export default function PostDetail({ detailPost }) {
                   <p>{detailPost.tags}</p>
                 </Link>
               </div>
+              <Sharebutton
+                link={`https://www.bimbellb3r.com/blogs/${detailPost.slug}`}
+              />
             </div>
             <h1 className="font-bold text-2xl">{detailPost.title}</h1>
             <p className="text-xs text-gray-600">
@@ -103,7 +107,7 @@ export default function PostDetail({ detailPost }) {
                 src="/image/assets/tes.webp"
                 width={600}
                 height={300}
-                alt={detailPost.id}
+                alt="ImageBlogDetail"
               />
             </div>
             <p className="mt-4">
