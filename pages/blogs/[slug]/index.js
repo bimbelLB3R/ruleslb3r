@@ -61,6 +61,23 @@ import IklanKonten from '../../../components/IklanKonten';
 // }
 
 export default function PostDetail({ detailPost }) {
+  // agar tanggal publikasi konten terindeks google
+  const schema = {
+    '@context': 'http://schema.org',
+    '@type': 'BlogPosting',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://bimbellb3r.com/${detailPost.slug}`,
+    },
+    headline: detailPost.title,
+    datePublished: detailPost.createdAt,
+    dateModified: detailPost.updatedAt,
+    author: {
+      '@type': 'Person',
+      name: 'Wahyudi',
+    },
+  };
+
   const createdDate = new Date(detailPost.createdAt);
   const timeAgo = formatDistanceToNow(createdDate, {
     addSuffix: true,
@@ -103,6 +120,10 @@ export default function PostDetail({ detailPost }) {
           href="/image/logolb3r.png"
         />
         <meta name="description" content={detailPost.title} key="desc" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
       </Head>
       <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
       <Layout>
@@ -169,7 +190,7 @@ export default function PostDetail({ detailPost }) {
                 <div>
                   <div>
                     {paragraphs.map((paragraph, index) => (
-                      <div key={index} className="mb-2">
+                      <div key={index} className="mb-2 text-[17px]">
                         {paragraph}
                         {paragraph.includes('///') && <IklanKonten />}
                       </div>
