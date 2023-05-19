@@ -4,7 +4,18 @@
       "id": 4,
       "title": "Don't Judge By It's Cover",
       "slug": "Don't-Judge-By-It's-Cover",
-      "body": "Sometime we judge people by it's cover, never know what is inner beautiful.",
+      "body": [
+        "<p ><span style='color: #ea580c; font-weight: bold;'>Tanjung </span>- Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.</p>",
+
+        {
+          "type": "IklanKonten",
+          "props": {
+            "someProp": "nilai properti"
+          }
+        },
+        "<p style='margin-bottom:10px;'>Konten lain setelah komponen.</p>",
+        "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle."
+      ],
       "writer": "Wahyudi",
       "createdAt": "2023-05-18T07:05:56",
       "updatedAt": "2023-05-18T07:05:56",
@@ -14,7 +25,15 @@
       "id": 1,
       "title": "Believe in Yourself",
       "slug": "Believe-in-Yourself",
-      "body": "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.| Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner./// | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner |.Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.",
+      "body": [
+        "<p style='margin-bottom:10px;'><span style='color: #ea580c; font-weight: bold;'>Tanjung </span>-Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. </p>",
+
+        "<code style='margin-bottom:10px;'>Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.| </code>",
+
+        "<p style='margin-bottom:10px;'>Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner |.Believe in yourself and all that you are. </p>",
+
+        "<p style='margin-bottom:10px;'>Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.</p>"
+      ],
       "writer": "Wahyudi",
       "createdAt": "2023-05-16T12:34:56",
       "updatedAt": "2023-05-16T12:34:56",
@@ -24,7 +43,9 @@
       "id": 2,
       "title": "Embrace Change",
       "slug": "Embrace-Change",
-      "body": "Change can be scary, but it can also be the start of something wonderful. Embrace the unknown and let it lead you to new opportunities.",
+      "body": [
+        "Change can be scary, but it can also be the start of something wonderful. Embrace the unknown and let it lead you to new opportunities."
+      ],
       "writer": "Wahyudi",
       "createdAt": "2023-05-17T12:34:56",
       "UpdatedAt": "2023-05-17T12:34:56",
@@ -34,7 +55,9 @@
       "id": 3,
       "title": "Dream Big",
       "slug": "Dream-Big",
-      "body": "Don't be afraid to dream big. Your dreams have the power to shape your reality. Set audacious goals and work towards making them a reality.",
+      "body": [
+        "Don't be afraid to dream big. Your dreams have the power to shape your reality. Set audacious goals and work towards making them a reality."
+      ],
       "writer": "Wahyudi",
       "createdAt": "2023-05-16T12:34:56",
       "updatedAt": "2023-05-16T12:34:56",

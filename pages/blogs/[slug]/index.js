@@ -1,42 +1,3 @@
-// import { useEffect, useState } from 'react';
-
-// async function getData() {
-//   const res = await fetch(`https://dummyjson.com/posts/`);
-
-//   if (!res.ok) {
-//     throw new Error('Failed to fetch data');
-//   }
-
-//   return res.json();
-// }
-
-// export default function PostDetail({ detailPost }) {
-//   //   console.log(detailPost);
-//   return (
-//     <>
-//       <h1>{detailPost.title}</h1>
-//       <p>{detailPost.body}</p>
-//     </>
-//   );
-// }
-
-// export async function getServerSideProps({ params }) {
-//   const data = await getData();
-//   const allPost = data.posts;
-//   const postId = params.id;
-
-//   // Find the post with a matching id
-//   const detailPost = allPost.find((post) => post.id == postId);
-
-//   return {
-//     props: {
-//       detailPost,
-//     },
-//   };
-// }
-
-// import { useEffect, useState } from 'react';
-
 import Layout from '../../../components/Layout';
 import { getBlogsData } from '../../../utils/blogsApi';
 import Navbar from '../../../components/Navbar';
@@ -49,7 +10,7 @@ import Head from 'next/head';
 import Sharebutton from '../../../components/Sharebutton';
 import { useEffect, useState } from 'react';
 import IklanKonten from '../../../components/IklanKonten';
-
+import React from 'react';
 // async function getData() {
 //   const res = await fetch(`http://localhost:3000/api/blogs`);
 
@@ -77,7 +38,7 @@ export default function PostDetail({ detailPost }) {
       name: 'Wahyudi',
     },
   };
-
+  // membuat waktu
   const createdDate = new Date(detailPost.createdAt);
   const timeAgo = formatDistanceToNow(createdDate, {
     addSuffix: true,
@@ -85,29 +46,6 @@ export default function PostDetail({ detailPost }) {
   });
   const pageTitle = detailPost.title;
   // console.log(detailPost);
-
-  // membuat load more
-  const [content, setContent] = useState('');
-  const [displayContent, setDisplayContent] = useState('');
-  const wordsPerLoad = 500;
-  const [isFullContentDisplayed, setIsFullContentDisplayed] = useState(false);
-
-  useEffect(() => {
-    const body = detailPost.body;
-    setContent(body);
-    setDisplayContent(body.slice(0, wordsPerLoad));
-  }, []);
-  const handleLoadMore = () => {
-    setDisplayContent(content);
-    setIsFullContentDisplayed(true);
-  };
-
-  // memisahkan isi blog mjd per paragraf berdasar tanda | pada konten blog
-  const [paragraphs, setParagraphs] = useState([]);
-  useEffect(() => {
-    const paragraphsArray = content.split('|');
-    setParagraphs(paragraphsArray);
-  }, [content]);
 
   return (
     <>
@@ -127,7 +65,7 @@ export default function PostDetail({ detailPost }) {
       </Head>
       <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
       <Layout>
-        <div className="p-4  mt-5 md:max-w-4xl md:flex md:justify-center md:m-auto md:mt-0">
+        <div className="p-4  mt-5 md:max-w-2xl md:flex md:justify-center md:m-auto md:mt-0">
           <div>
             <div>
               <div className="flex mb-10 font-bold mt-10 md:mt-10">
@@ -158,7 +96,7 @@ export default function PostDetail({ detailPost }) {
                 </p>
               </div>
             </div>
-            <div className="mt-5 flex justify-center">
+            <div className="mt-5 flex justify-center mb-5">
               <Image
                 src="/image/assets/tes.webp"
                 width={600}
@@ -167,37 +105,26 @@ export default function PostDetail({ detailPost }) {
                 priority={true}
               />
             </div>
-            <div className="mt-4 block">
-              {/* {detailPost.body} */}
-
-              {!isFullContentDisplayed ? (
-                <>
-                  <p className="text-[17px] text-slate-900">
-                    <span className="font-semibold text-lg text-orange-600">
-                      LB3R Info -{' '}
-                    </span>
-                    {displayContent}
-                  </p>
-                  <div className="flex justify-end">
-                    <button
-                      onClick={handleLoadMore}
-                      className="font-semibold text-slate-400">
-                      Load More {'>>>>'}
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <div>
-                  <div>
-                    {paragraphs.map((paragraph, index) => (
-                      <div key={index} className="mb-2 text-[17px]">
-                        {paragraph}
-                        {paragraph.includes('///') && <IklanKonten />}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
+            <div>
+              <div>
+                {detailPost.body.map((element, index) => {
+                  if (typeof element === 'string') {
+                    return (
+                      <div
+                        key={index}
+                        dangerouslySetInnerHTML={{ __html: element }}
+                      />
+                    );
+                  } else if (
+                    typeof element === 'object' &&
+                    element.type === 'IklanKonten'
+                  ) {
+                    return <IklanKonten key={index} />;
+                  } else {
+                    return null;
+                  }
+                })}
+              </div>
             </div>
             <div className="flex">
               <Link href={`/tag/${detailPost.tags}`}>
