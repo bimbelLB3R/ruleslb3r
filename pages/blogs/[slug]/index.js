@@ -48,6 +48,7 @@ import { id } from 'date-fns/locale';
 import Head from 'next/head';
 import Sharebutton from '../../../components/Sharebutton';
 import { useEffect, useState } from 'react';
+import IklanKonten from '../../../components/IklanKonten';
 
 // async function getData() {
 //   const res = await fetch(`http://localhost:3000/api/blogs`);
@@ -73,6 +74,7 @@ export default function PostDetail({ detailPost }) {
   const [displayContent, setDisplayContent] = useState('');
   const wordsPerLoad = 500;
   const [isFullContentDisplayed, setIsFullContentDisplayed] = useState(false);
+
   useEffect(() => {
     const body = detailPost.body;
     setContent(body);
@@ -82,6 +84,13 @@ export default function PostDetail({ detailPost }) {
     setDisplayContent(content);
     setIsFullContentDisplayed(true);
   };
+
+  // memisahkan isi blog mjd per paragraf berdasar tanda | pada konten blog
+  const [paragraphs, setParagraphs] = useState([]);
+  useEffect(() => {
+    const paragraphsArray = content.split('|');
+    setParagraphs(paragraphsArray);
+  }, [content]);
 
   return (
     <>
@@ -139,19 +148,33 @@ export default function PostDetail({ detailPost }) {
             </div>
             <div className="mt-4 block">
               {/* {detailPost.body} */}
-              <p className="text-[17px] text-slate-900">
-                <span className="font-semibold text-lg text-orange-600">
-                  LB3R Info -{' '}
-                </span>
-                {displayContent}
-              </p>
-              {!isFullContentDisplayed && (
-                <div className="flex justify-end">
-                  <button
-                    onClick={handleLoadMore}
-                    className="font-semibold text-slate-400">
-                    Load More {'>>>>'}
-                  </button>
+
+              {!isFullContentDisplayed ? (
+                <>
+                  <p className="text-[17px] text-slate-900">
+                    <span className="font-semibold text-lg text-orange-600">
+                      LB3R Info -{' '}
+                    </span>
+                    {displayContent}
+                  </p>
+                  <div className="flex justify-end">
+                    <button
+                      onClick={handleLoadMore}
+                      className="font-semibold text-slate-400">
+                      Load More {'>>>>'}
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <div>
+                  <div>
+                    {paragraphs.map((paragraph, index) => (
+                      <div key={index} className="mb-2">
+                        {paragraph}
+                        {paragraph.includes('///') && <IklanKonten />}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
