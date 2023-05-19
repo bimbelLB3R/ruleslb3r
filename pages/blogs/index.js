@@ -146,6 +146,7 @@ export default function BlogsPage({ allPost }) {
                       width={600}
                       height={300}
                       alt={post.id}
+                      priority={true}
                     />
                   </div>
                   <div>

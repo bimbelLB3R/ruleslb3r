@@ -74,8 +74,9 @@ export default function PostDetail({ detailPost }) {
   const wordsPerLoad = 500;
   const [isFullContentDisplayed, setIsFullContentDisplayed] = useState(false);
   useEffect(() => {
-    setContent(detailPost.body);
-    setDisplayContent(detailPost.body.slice(0, wordsPerLoad));
+    const body = detailPost.body;
+    setContent(body);
+    setDisplayContent(body.slice(0, wordsPerLoad));
   }, []);
   const handleLoadMore = () => {
     setDisplayContent(content);
@@ -108,39 +109,48 @@ export default function PostDetail({ detailPost }) {
                   <p>{detailPost.tags}</p>
                 </Link>
               </div>
-              <div className="flex ">
+              <div className="flex justify-center">
                 <Sharebutton
                   link={`https://www.bimbellb3r.com/blogs/${detailPost.slug}`}
                 />
               </div>
             </div>
-            <h1 className="font-bold text-2xl">{detailPost.title}</h1>
-            <p className="text-xs text-gray-600">
-              {timeAgo}{' '}
-              <Link href="/blogs">
-                <span className="underline">oleh {detailPost.writer}</span>
-              </Link>
-            </p>
-            <div className="mt-5">
+            <div className="flex justify-center">
+              <div>
+                <h1 className="font-bold text-[36px] text-blue-900">
+                  {detailPost.title}
+                </h1>
+                <p className="text-xs text-gray-600 text-center">
+                  {timeAgo}{' '}
+                  <Link href="/blogs">
+                    <span className="underline">oleh {detailPost.writer}</span>
+                  </Link>
+                </p>
+              </div>
+            </div>
+            <div className="mt-5 flex justify-center">
               <Image
                 src="/image/assets/tes.webp"
                 width={600}
                 height={300}
                 alt={detailPost.slug}
+                priority={true}
               />
             </div>
             <div className="mt-4 block">
-              <span className="font-semibold text-lg text-orange-600">
-                LB3R Info -{' '}
-              </span>
               {/* {detailPost.body} */}
-              {displayContent}
+              <p className="text-[17px] text-slate-900">
+                <span className="font-semibold text-lg text-orange-600">
+                  LB3R Info -{' '}
+                </span>
+                {displayContent}
+              </p>
               {!isFullContentDisplayed && (
-                <div className="flex justify-center">
+                <div className="flex justify-end">
                   <button
                     onClick={handleLoadMore}
-                    className="bg-slate-400 hover:bg-slate-600 p-1 w-full bg-opacity-30">
-                    Load More ...
+                    className="font-semibold text-slate-400">
+                    Load More {'>>>>'}
                   </button>
                 </div>
               )}

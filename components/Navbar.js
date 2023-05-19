@@ -205,6 +205,7 @@ export default function Navbar() {
                 width={100}
                 height={40}
                 alt="logo LB3r"
+                priority={true}
               />
               {/* <div className="hidden md:visible md:flex">hello</div> */}
             </Link>

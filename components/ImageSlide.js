@@ -17,6 +17,7 @@ export default class ImageSlide extends Component {
                 alt="Foto Pilih jurusan"
                 width={500}
                 height={500}
+                priority={true}
               />
               {/* <img src="image/image1.webp" alt="Foto Seminar Bakat" /> */}
               <p className="legend">SEMINAR BAKAT DAN PEMILIHAN JURUSAN</p>
