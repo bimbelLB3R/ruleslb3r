@@ -47,6 +47,7 @@ import { formatDistanceToNow } from 'date-fns';
 import { id } from 'date-fns/locale';
 import Head from 'next/head';
 import Sharebutton from '../../../components/Sharebutton';
+import { useEffect, useState } from 'react';
 
 // async function getData() {
 //   const res = await fetch(`http://localhost:3000/api/blogs`);
@@ -66,6 +67,21 @@ export default function PostDetail({ detailPost }) {
   });
   const pageTitle = detailPost.title;
   // console.log(detailPost);
+
+  // membuat load more
+  const [content, setContent] = useState('');
+  const [displayContent, setDisplayContent] = useState('');
+  const wordsPerLoad = 500;
+  const [isFullContentDisplayed, setIsFullContentDisplayed] = useState(false);
+  useEffect(() => {
+    setContent(detailPost.body);
+    setDisplayContent(detailPost.body.slice(0, wordsPerLoad));
+  }, []);
+  const handleLoadMore = () => {
+    setDisplayContent(content);
+    setIsFullContentDisplayed(true);
+  };
+
   return (
     <>
       <Head>
@@ -113,12 +129,22 @@ export default function PostDetail({ detailPost }) {
                 alt={detailPost.slug}
               />
             </div>
-            <p className="mt-4">
+            <div className="mt-4 block">
               <span className="font-semibold text-lg text-orange-600">
                 LB3R Info -{' '}
               </span>
-              {detailPost.body}
-            </p>
+              {/* {detailPost.body} */}
+              {displayContent}
+              {!isFullContentDisplayed && (
+                <div className="flex justify-center">
+                  <button
+                    onClick={handleLoadMore}
+                    className="bg-slate-400 hover:bg-slate-600 p-1 w-full bg-opacity-30">
+                    Load More ...
+                  </button>
+                </div>
+              )}
+            </div>
             <div className="flex">
               <Link href={`/tag/${detailPost.tags}`}>
                 <p className="mt-4 bg-blue-400 hover:bg-blue-600 text-gray-100 font-semibold rounded p-1 text-xs">
