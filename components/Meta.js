@@ -20,6 +20,10 @@ const Meta = () => (
       content="Pembelajaran di Bimbel LB3R sangat fleksibel sesuai kebutuhan siswa. Siswa dapat membuat kelas sendiri dan mengatur jadwalnya. Pembayaran les di bimbel LB3R juga sangat fleksibel, yaitu sistem bulanan. Siswa dapat berhenti sementara dan kemudian lanjut bulan berikutnya. Dari segi pelayanan dan tempat belajar, kami mengutamakan kenyamanan."
       key="desc"
     />
+    <meta
+      name="google-site-verification"
+      content="E5IKh82N4mjraBEM96ptZIJd2VU22yfjOqiKWuE6RHU"
+    />
   </Head>
 );
 
