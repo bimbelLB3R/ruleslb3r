@@ -26,7 +26,7 @@ export default function ArtikelTerkait({ allPost, detailPost }) {
               {item.id !== detailPost.id && (
                 <div className="m-2">
                   <Link href={`/blogs/${item.slug}`}>
-                    <p>{item.title}</p>
+                    <p className="text-blue-900">{item.title}</p>
                     <p className="text-xs">Dibuat {timeAgo}</p>
                     <p className="text-xs">Oleh {item.writer}-Penulis LB3R</p>
                   </Link>

@@ -90,7 +90,7 @@ export default function PostDetail({ detailPost, allPost }) {
                   {detailPost.title}
                 </h1>
                 <p className="text-xs text-gray-600 text-center">
-                  {timeAgo}{' '}
+                  {detailPost.createdAt}{' '}
                   <Link href="/blogs">
                     <span className="underline">oleh {detailPost.writer}</span>
                   </Link>
