@@ -11,6 +11,7 @@ import Sharebutton from '../../../components/Sharebutton';
 import { useEffect, useState } from 'react';
 import IklanKonten from '../../../components/IklanKonten';
 import React from 'react';
+import ArtikelTerkait from '../../../components/ArtikelTerkait';
 // async function getData() {
 //   const res = await fetch(`http://localhost:3000/api/blogs`);
 
@@ -21,7 +22,7 @@ import React from 'react';
 //   return res.json();
 // }
 
-export default function PostDetail({ detailPost }) {
+export default function PostDetail({ detailPost, allPost }) {
   // agar tanggal publikasi konten terindeks google
   const schema = {
     '@context': 'http://schema.org',
@@ -133,6 +134,9 @@ export default function PostDetail({ detailPost }) {
                 </p>
               </Link>
             </div>
+            <div className="mt-5">
+              <ArtikelTerkait allPost={allPost} detailPost={detailPost} />
+            </div>
           </div>
         </div>
       </Layout>
@@ -164,6 +168,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       detailPost,
+      allPost,
     },
   };
 }
