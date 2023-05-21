@@ -21,6 +21,9 @@ export default function Navbar() {
   }, [menuRef]);
   return (
     <>
+      <div className="md:absolute md:hidden">
+        <TombolInOut />
+      </div>
       <nav>
         <div className="hidden md:visible md:bg-slate-100 shadow shadow-slate-400 md:flex justify-between items-center p-4 fixed top-0 w-full z-50">
           <div className="flex space-x-4">
@@ -99,12 +102,12 @@ export default function Navbar() {
                 <div>
                   <Link href="/form/newmember">
                     <p className="bg-orange-600 text-slate-50 px-2 py-4 text-center mb-2 rounded">
-                      DAFTAR
+                      DAFTAR SNBT
                     </p>
                   </Link>
                   <Link href="/form/login">
                     <p className="text-center border border-orange-600 text-orange-600 px-2 py-4 rounded">
-                      MASUK
+                      LOG IN TO SNBT
                     </p>
                   </Link>
                   <div className="m-4 text-center">
@@ -136,7 +139,6 @@ export default function Navbar() {
                         Off Sementara, Tentu Bisa
                       </p>
                     </Link>
-                    <TombolInOut />
                   </div>
                 </div>
               </div>

@@ -7,7 +7,7 @@ export default function TombolInOut() {
   if (session) {
     return (
       <>
-        <div className="flex space-x-2 items-center">
+        <div className="flexspace-x-2 items-center">
           <p>Signed in as {session.user.name}</p>
           <Image
             src={session.user.image}
@@ -24,9 +24,9 @@ export default function TombolInOut() {
     );
   }
   return (
-    <>
-      Not signed in <br />
+    <div className="flex bg-orange-900 w-full space-x-2 items-center text-slate-100 p-2 top-0 z-50 fixed md:hidden">
+      <p>Not signed in</p>
       <button onClick={() => signIn()}>Sign in</button>
-    </>
+    </div>
   );
 }
