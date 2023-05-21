@@ -136,6 +136,7 @@ export default function Navbar() {
                         Off Sementara, Tentu Bisa
                       </p>
                     </Link>
+                    <TombolInOut />
                   </div>
                 </div>
               </div>
