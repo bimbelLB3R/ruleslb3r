@@ -8,7 +8,12 @@ export default function TombolInOut() {
     return (
       <>
         <div className="flex space-x-2 items-center">
-          <p className="text-xs">Hai,{session.user.name}</p>
+          <div className="">
+            <p className="text-xs">Hai,{session.user.name}</p>
+            <button onClick={() => signOut()}>
+              <p className="text-xs underline">Sign out</p>
+            </button>
+          </div>
           <Image
             src={session.user.image}
             width={36}
@@ -16,19 +21,16 @@ export default function TombolInOut() {
             alt="userImage"
             className="rounded-full"
           />
-          <div className="underline">
-            <button onClick={() => signOut()}>
-              <p className="text-xs">Sign out</p>
-            </button>
-          </div>
         </div>
       </>
     );
   }
   return (
-    <div className="flex bg-orange-900 w-full space-x-2 items-center text-slate-100 p-2 text-xs">
-      <p>Not signed in</p>
-      <button onClick={() => signIn()}>Sign in</button>
+    <div className="flex  w-full space-x-2 items-center text-orange-900 p-2 text-xs">
+      <p>Not signed in,</p>
+      <button onClick={() => signIn()}>
+        <p className="underline">Sign in</p>
+      </button>
     </div>
   );
 }
