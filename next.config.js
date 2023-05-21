@@ -11,6 +11,10 @@
 // next.config.js
 require('dotenv').config();
 module.exports = {
+  // konfigurasi images untuk mengambil foto user google
+  images: {
+    domains: ['lh3.googleusercontent.com'],
+  },
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback.fs = false;
