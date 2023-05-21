@@ -21,9 +21,6 @@ export default function Navbar() {
   }, [menuRef]);
   return (
     <>
-      <div className="md:absolute md:hidden">
-        <TombolInOut />
-      </div>
       <nav>
         <div className="hidden md:visible md:bg-slate-100 shadow shadow-slate-400 md:flex justify-between items-center p-4 fixed top-0 w-full z-50">
           <div className="flex space-x-4">
@@ -50,7 +47,7 @@ export default function Navbar() {
           </div>
         </div>
         <div className="flex justify-between bg-slate-100 p-3 md:hidden fixed  top-0 z-40 w-full shadow shadow-slate-400">
-          <div className="flex items-center">
+          <div className="flex items-center space-x-2">
             <Link href="/">
               <Image
                 src="/image/logolb3r.png"
@@ -59,8 +56,12 @@ export default function Navbar() {
                 alt="logo LB3r"
                 priority={true}
               />
+
               {/* <div className="hidden md:visible md:flex">hello</div> */}
             </Link>
+            <div className="md:hidden">
+              <TombolInOut />
+            </div>
           </div>
 
           <button
