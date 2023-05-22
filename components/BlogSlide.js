@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 import Welcome from './Welcome';
 import Image from 'next/image';
 
-export default class ImageSlide extends Component {
+export default class BlogSlide extends Component {
   render() {
     return (
       <div className="flex items-center justify-center">
@@ -76,7 +76,7 @@ export default class ImageSlide extends Component {
               {/* <img src="image/image6.webp" alt="Foto Pengajar LB3R" /> */}
               <p className="legend">BEBERAPA PENGAJAR PEREMPUAN DI LB3R</p>
             </div>
-            <div>
+            <div className="flex items-center justify-center p-4">
               <Image
                 src="/image/image7.webp"
                 alt="Foto Siswa Ultah"
@@ -87,7 +87,6 @@ export default class ImageSlide extends Component {
               <p className="legend">SALAH SATU SISWA MERAYAKAN ULANG TAHUN</p>
             </div>
           </Carousel>
-          <Welcome />
         </div>
       </div>
     );
