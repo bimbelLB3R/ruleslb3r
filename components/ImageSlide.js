@@ -10,7 +10,7 @@ export default class ImageSlide extends Component {
       <div className="flex items-center justify-center">
         <div className="md:max-w-2xl  overflow-hidden">
           {/* <h2>NextJs Carousel - GeeksforGeeks</h2> */}
-          <Carousel showArrows={true} showThumbs={false}>
+          <Carousel showArrows={true} showThumbs={false} autoPlay={true}>
             <div>
               <Image
                 src="/image/image1.webp"

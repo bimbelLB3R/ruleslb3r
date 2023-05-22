@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { formatDistanceToNow } from 'date-fns';
 import { id } from 'date-fns/locale';
 import { useEffect } from 'react';
+import AutoImageSlide from '../../components/AutoImageSlide';
 
 export async function getStaticProps() {
   const data = getBlogsData();
@@ -43,7 +44,10 @@ export default function BlogsPage({ allPost }) {
         <div className=" flex justify-center items-center">
           <div>
             <div className="max-w-lg flex justify-center mt-20">
-              <h1 className="text-xl font-black ">LB3R BLOGS</h1>
+              <div>
+                <h1 className="text-xl font-black ">LB3R BLOGS</h1>
+                {/* <AutoImageSlide /> */}
+              </div>
             </div>
 
             {allPost.map((post) => (
