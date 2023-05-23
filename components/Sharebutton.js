@@ -10,27 +10,28 @@ import {
   WhatsappIcon,
   LinkedinShareButton,
   LinkedinIcon,
+  TelegramShareButton,
+  TelegramIcon,
+  TwitterShareButton,
+  TwitterIcon,
 } from 'next-share';
 
 export default function Sharebutton({ link }) {
   //   console.log(link);
   return (
-    <div>
+    <div className="flex space-x-1">
       <FacebookShareButton url={link}>
         <FacebookIcon size={32} round />
       </FacebookShareButton>
-      <PinterestShareButton url={link}>
-        <PinterestIcon size={32} round />
-      </PinterestShareButton>
-      <RedditShareButton url={link}>
-        <RedditIcon size={32} round />
-      </RedditShareButton>
+      <TelegramShareButton url={link}>
+        <TelegramIcon size={32} round />
+      </TelegramShareButton>
+      <TwitterShareButton url={link}>
+        <TwitterIcon size={32} round />
+      </TwitterShareButton>
       <WhatsappShareButton url={link}>
         <WhatsappIcon size={32} round />
       </WhatsappShareButton>
-      <LinkedinShareButton url={link}>
-        <LinkedinIcon size={32} round />
-      </LinkedinShareButton>
     </div>
   );
 }
