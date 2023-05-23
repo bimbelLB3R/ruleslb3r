@@ -44,7 +44,7 @@ export default function PostDetail({ detailPost, allPost }) {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      console.log(scrollPosition);
+      // console.log(scrollPosition);
       if (scrollPosition > 120) {
         setShowComponent(true);
       } else {
@@ -86,7 +86,7 @@ export default function PostDetail({ detailPost, allPost }) {
         <div
           className={
             showComponent
-              ? 'visible top-[60px] md:top-10 bg-slate-200 bg-opacity-50 p-5 md:p-0 md:bg-none fixed z-50 flex w-full justify-center m-auto'
+              ? 'visible  md:top-10 p-5 md:p-0 md:bg-inherit z-20 md:z-50  fixed top-[90px] left-1/2 transform -translate-x-1/2 -translate-y-1/2'
               : 'hidden'
           }>
           <Sharebutton />
@@ -111,7 +111,7 @@ export default function PostDetail({ detailPost, allPost }) {
             </div>
             <div className="flex justify-center">
               <div>
-                <h1 className="font-bold text-[36px] text-blue-900">
+                <h1 className="font-bold text-[36px] text-blue-900 leading-none">
                   {detailPost.title}
                 </h1>
                 <p className="text-xs text-gray-600 text-center">

@@ -6,6 +6,24 @@ import DropdownMenu from './DropdownMenu';
 import TombolInOut from './TombolInOut';
 
 export default function Navbar() {
+  // Controling scroll efect
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const navChange = document.getElementById('nav');
+      // console.log(scrollPosition);
+      if (scrollPosition > 120) {
+        navChange.style.backgroundColor = '#020617';
+      } else {
+        navChange.style.backgroundColor = '#f1f5f9';
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
   useEffect(() => {
@@ -46,7 +64,9 @@ export default function Navbar() {
             <TombolInOut />
           </div>
         </div>
-        <div className="flex justify-between bg-slate-100 p-3 md:hidden fixed  top-0 z-40 w-full shadow shadow-slate-400">
+        <div
+          id="nav"
+          className="flex justify-between bg-slate-100 p-3 md:hidden fixed  top-0 z-40 w-full shadow shadow-slate-400">
           <div className="flex items-center space-x-2">
             <Link href="/">
               <Image
