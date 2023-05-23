@@ -20,7 +20,12 @@ export default function ArtikelTerkait({ allPost, detailPost }) {
     <>
       <section>
         <p className="font-bold">Artikel Terkait</p>
-        <div className=" border-l-8 border-slate-300 p-1 m-2">
+        <div
+          className={
+            filteredPost.length < 2
+              ? ''
+              : ' border-l-8 border-slate-300 p-1 m-2'
+          }>
           {filteredPost.map((item) => (
             <div key={item.id}>
               {item.id !== detailPost.id && (

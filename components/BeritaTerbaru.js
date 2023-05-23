@@ -8,7 +8,8 @@ export default function BeritaTerbaru({ allPost }) {
         <div>
           {allPost.map((post, index) => (
             <div key={post.id} className="w-full flex justify-center m-auto">
-              <div
+              <Link
+                href={`/blogs/${post.slug}`}
                 className={
                   index !== 0
                     ? 'flex p-2 mt-1 mb-2 mr-5 ml-5 border border-b-slate-300 rounded w-full space-x-1'
@@ -28,16 +29,14 @@ export default function BeritaTerbaru({ allPost }) {
                 </div>
                 <div>
                   <div>
-                    <Link href={`/blogs/${post.slug}`}>
-                      <h1 className="font-semibold hover:bg-gray-300 p-1">
-                        {post.title}
-                      </h1>
-                    </Link>
+                    <h1 className="font-semibold hover:bg-gray-300 p-1">
+                      {post.title}
+                    </h1>
                   </div>
                   <div>Penulis : {post.writer}</div>
                   <p>{post.createdAt}</p>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>
