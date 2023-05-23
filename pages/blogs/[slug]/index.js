@@ -23,6 +23,7 @@ import ArtikelTerkait from '../../../components/ArtikelTerkait';
 // }
 
 export default function PostDetail({ detailPost, allPost }) {
+  const [showComponent, setShowComponent] = useState(false);
   // agar tanggal publikasi konten terindeks google
   const schema = {
     '@context': 'http://schema.org',
@@ -39,6 +40,22 @@ export default function PostDetail({ detailPost, allPost }) {
       name: 'Wahyudi',
     },
   };
+  // Controling scroll efect
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      console.log(scrollPosition);
+      if (scrollPosition > 120) {
+        setShowComponent(true);
+      } else {
+        setShowComponent(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   // membuat waktu
   const createdDate = new Date(detailPost.createdAt);
   const timeAgo = formatDistanceToNow(createdDate, {
@@ -66,6 +83,14 @@ export default function PostDetail({ detailPost, allPost }) {
       </Head>
       <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
       <Layout>
+        <div
+          className={
+            showComponent
+              ? 'visible top-[60px] md:top-10 bg-slate-200 bg-opacity-50 p-5 md:p-0 md:bg-none fixed z-50 flex w-full justify-center m-auto'
+              : 'hidden'
+          }>
+          <Sharebutton />
+        </div>
         <div className="p-4  mt-5 md:max-w-2xl md:flex md:justify-center md:m-auto md:mt-0">
           <div>
             <div>
