@@ -26,10 +26,14 @@ export default function TombolInOut() {
     );
   }
   return (
-    <div className="flex  w-full space-x-2 items-center text-orange-900 p-2 text-xs">
-      <p>Not signed in,</p>
+    <div className="flex  w-full space-x-2 items-center text-orange-900 p-2 text-xs ">
+      <p className="md:uppercase md:border md:border-orange-900 md:p-2 md:rounded">
+        Not signed in,
+      </p>
       <button onClick={() => signIn()}>
-        <p className="underline">Sign in</p>
+        <p className="underline md:uppercase md:bg-orange-900 md:text-slate-100 md:p-2 md:rounded">
+          Sign in
+        </p>
       </button>
     </div>
   );

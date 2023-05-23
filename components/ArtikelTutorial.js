@@ -1,16 +1,14 @@
 export default function ArtikelTutorial({ allTutorial }) {
   return (
     <>
-      <div className="mt-20">
-        <p>ARTIKEL TUTORIAL</p>
-        <div>
-          <p>
+      <div className="mt-10 flex justify-center">
+        <div className="">
+          <p className="font-bold">ARTIKEL TUTORIAL</p>
+          <div>
             {allTutorial.slice(0, 2).map((tutorial) => (
-              <div>
-                <p>{tutorial.title}</p>
-              </div>
+              <p key={tutorial.id}>{tutorial.title}</p>
             ))}
-          </p>
+          </div>
         </div>
       </div>
     </>
