@@ -4,7 +4,8 @@ export default function MetaForBlog({ detailPost }) {
   const ogTitle = detailPost.title;
   //   console.log(ogTitle);
   const ogDesc = detailPost.description;
-  const ogImage = `${process.env.PUBLIC_URL}/og-images/${detailPost.ogImageName}`;
+  const ogImage = `https://bimbellb3r.com/og-images/${detailPost.ogImageName}`;
+  console.log(ogImage);
   return (
     <Head>
       <meta property="og:image" itemProp="image" content={ogImage} />
