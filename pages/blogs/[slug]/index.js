@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react';
 import IklanKonten from '../../../components/IklanKonten';
 import React from 'react';
 import ArtikelTerkait from '../../../components/ArtikelTerkait';
+import MetaForBlog from '../../../components/MetaForBlog';
 // async function getData() {
 //   const res = await fetch(`http://localhost:3000/api/blogs`);
 
@@ -67,20 +68,7 @@ export default function PostDetail({ detailPost, allPost }) {
 
   return (
     <>
-      <Head>
-        <title>{pageTitle}</title>
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="4x16"
-          href="/image/logolb3r.png"
-        />
-        <meta name="description" content={detailPost.title} key="desc" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-      </Head>
+      <MetaForBlog detailPost={detailPost} />
       <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
       <Layout>
         <div

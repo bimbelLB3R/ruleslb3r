@@ -3,6 +3,7 @@
     {
       "id": 5,
       "title": "Menangani Eror Google Client ID dan Google Secre",
+      "description": "Ini adalah deskripsi",
       "slug": "Don't-Judge-By-It's-Cover",
       "body": [
         "<p ><span style='color: #ea580c; font-weight: bold;'>Tanjung </span>- Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.</p>",
@@ -16,6 +17,7 @@
         "<p style='margin-bottom:10px;'>Konten lain setelah komponen.</p>",
         "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle."
       ],
+      "ogImageName": "testOg.png",
       "writer": "Wahyudi",
       "createdAt": "2023-05-18T07:05:56",
       "updatedAt": "2023-05-18T07:05:56",
@@ -24,6 +26,7 @@
     {
       "id": 4,
       "title": "Dinamic Routes Pada Next Js Terbaru",
+      "description": "Ini adalah deskripsi",
       "slug": "Don't-Judge-By-It's-Cover",
       "body": [
         "<p ><span style='color: #ea580c; font-weight: bold;'>Tanjung </span>- Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.</p>",
@@ -37,6 +40,7 @@
         "<p style='margin-bottom:10px;'>Konten lain setelah komponen.</p>",
         "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle."
       ],
+      "ogImageName": "testOg.png",
       "writer": "Wahyudi",
       "createdAt": "2023-05-18T07:05:56",
       "updatedAt": "2023-05-18T07:05:56",
@@ -45,6 +49,7 @@
     {
       "id": 1,
       "title": "Believe in Yourself",
+      "description": "Ini adalah deskripsi",
       "slug": "Believe-in-Yourself",
       "body": [
         "<p style='margin-bottom:10px;'><span style='color: #ea580c; font-weight: bold;'>Tanjung </span>-Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. </p>",
@@ -55,6 +60,7 @@
 
         "<p style='margin-bottom:10px;'>Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.</p>"
       ],
+      "ogImageName": "testOg.png",
       "writer": "Wahyudi",
       "createdAt": "2023-05-16T12:34:56",
       "updatedAt": "2023-05-16T12:34:56",
@@ -63,10 +69,12 @@
     {
       "id": 2,
       "title": "Embrace Change",
+      "description": "Ini adalah deskripsi",
       "slug": "Embrace-Change",
       "body": [
         "Change can be scary, but it can also be the start of something wonderful. Embrace the unknown and let it lead you to new opportunities."
       ],
+      "ogImageName": "testOg.png",
       "writer": "Wahyudi",
       "createdAt": "2023-05-17T12:34:56",
       "UpdatedAt": "2023-05-17T12:34:56",
@@ -75,10 +83,12 @@
     {
       "id": 3,
       "title": "Dream Big",
+      "description": "Ini adalah deskripsi",
       "slug": "Dream-Big",
       "body": [
         "Don't be afraid to dream big. Your dreams have the power to shape your reality. Set audacious goals and work towards making them a reality."
       ],
+      "ogImageName": "testOg.png",
       "writer": "Wahyudi",
       "createdAt": "2023-05-16T12:34:56",
       "updatedAt": "2023-05-16T12:34:56",
