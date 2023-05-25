@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import ImageSlide from '../components/ImageSlide';
 import Meta from '../components/Meta';
 import Navbar from '../components/Navbar';
+import BluryBg from '../components/BluryBg';
 // import Wa from '../components/Wa';
 
 export default function Home() {
@@ -27,6 +28,7 @@ export default function Home() {
       />
       <Layout>
         <ImageSlide />
+        <BluryBg />
         <Faq />
       </Layout>
     </div>
