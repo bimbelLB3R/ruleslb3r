@@ -5,7 +5,7 @@ export default function CommentForm() {
   const { data: session } = useSession();
   return (
     <>
-      <h1 className="font-bold">Komentar</h1>
+      <h1 className="font-bold mt-5">Komentar</h1>
       {session ? (
         <div className="flex items-center space-x-2">
           <Image
@@ -24,7 +24,7 @@ export default function CommentForm() {
               className="w-full"
             />
             <button onClick={() => signOut()}>
-              <p className="underline text-xs">Sign In</p>
+              <p className="underline text-xs">Sign Out</p>
             </button>
           </div>
         </div>
