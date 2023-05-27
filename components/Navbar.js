@@ -167,6 +167,7 @@ export default function Navbar() {
                     </Link>
                   </div>
                 </div>
+                <Footer />
               </div>
             </div>
           </div>

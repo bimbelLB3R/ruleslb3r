@@ -15,7 +15,7 @@ export default function Layanan() {
         <div className="flex items-center justify-center">
           <div className="lg:flex overflow-scroll">
             {/* card 1 */}
-            <div className="card m-4 p-5 border border-slate-300 md:w-[400px] w-[340px] h-[500px]">
+            <div className="card m-4 p-5 border border-slate-300 md:w-[400px] w-[320px] h-[500px]">
               <p className="font-semibold text-slate-800 tracking-wider">
                 Program Reguler
               </p>
@@ -124,7 +124,7 @@ export default function Layanan() {
               </Link>
             </div>
             {/* card 2 */}
-            <div className="card m-4 p-5 border border-slate-300 md:w-[400px] w-[340px] h-[500px] bg-fuchsia-900">
+            <div className="card m-4 p-5 border border-slate-300 md:w-[400px] w-[320px] h-[500px] bg-fuchsia-900">
               <p className="font-semibold text-slate-800 tracking-wider">
                 Program UTBK SNBT
               </p>
@@ -233,7 +233,7 @@ export default function Layanan() {
               </Link>
             </div>
             {/* Card 3 */}
-            <div className="card m-4 p-5 border border-slate-300 md:w-[400px] w-[340px] h-[500px]">
+            <div className="card m-4 p-5 border border-slate-300 md:w-[400px] w-[320px] h-[500px]">
               <p className="font-semibold text-slate-800 tracking-wider">
                 Program Privat
               </p>
