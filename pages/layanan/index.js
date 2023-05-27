@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import Layout from '../../components/Layout';
 import Navbar from '../../components/Navbar';
+import Wa from '../../components/Wa';
 export default function Layanan() {
   return (
     <>
+      <Wa />
       <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
       <Layout>
         <div className="flex items-center justify-center">
