@@ -23,9 +23,14 @@ export default function CommentForm() {
               placeholder={`sign in as ${session.user.name}`}
               className="w-full"
             />
-            <button onClick={() => signOut()}>
-              <p className="underline text-xs">Sign Out</p>
-            </button>
+            <div className="flex items-center justify-between">
+              <button onClick={() => signOut()}>
+                <p className="underline text-xs">Sign Out</p>
+              </button>
+              <button>
+                <p>Kirim</p>
+              </button>
+            </div>
           </div>
         </div>
       ) : (
