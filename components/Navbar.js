@@ -116,6 +116,11 @@ export default function Navbar() {
                   <Link href="/">
                     <p className="text-slate-600 hover:text-slate-900">HOME</p>
                   </Link>
+                  <Link href="/layanan">
+                    <p className="text-slate-600 hover:text-slate-900">
+                      LAYANAN
+                    </p>
+                  </Link>
                   <Link href="/blogs">
                     <p className="text-slate-600 hover:text-slate-900">BLOGS</p>
                   </Link>

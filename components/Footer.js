@@ -1,138 +1,21 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
     <>
       <footer className="bg-slate-100 ">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-          {/* <div className="md:flex md:justify-evenly">
-            <div className="mb-6 md:mb-0">
-              <a href="/" className="flex items-center">
-                <Image
-                  src="/image/logolb3r.png"
-                  className=" mr-3"
-                  width={100}
-                  height={40}
-                  alt="LB3R Logo"
-                />
-                <span className="self-center text-sm italic font-semibold whitespace-nowrap mr-3 text-slate-600">
-                  Pilihan Tepat & Budget Hemat
-                </span>
-              </a>
-            </div>
-            <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-              <div>
-                <h2 className="mb-6 text-sm font-semibold text-slate-600 uppercase ">
-                  Program Unggulan
-                </h2>
-                <ul className="text-slate-600  ">
-                  <li className="mb-4">
-                    <a
-                      href="/form/newmember"
-                      className="hover:underline text-sm">
-                      Kelas Intensif UTBK SNBT
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:underline text-sm">
-                      One Day Before
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h2 className="mb-6 text-sm font-semibold text-slate-600 uppercase ">
-                  About Us
-                </h2>
-                <ul className="text-slate-600  ">
-                  <li className="mb-4">
-                    <a href="#" className="hover:underline text-sm">
-                      Founder
-                    </a>
-                  </li>
-                  <li className="mb-4">
-                    <a href="#" className="hover:underline text-sm">
-                      Pengajar
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/lowongan" className="hover:underline text-sm">
-                      Lowongan
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h2 className="mb-6 text-sm font-semibold text-slate-600 uppercase ">
-                  Rules
-                </h2>
-                <ul className="text-slate-600  ">
-                  <li className="mb-4">
-                    <a
-                      href="/rules/payment"
-                      className="hover:underline text-sm">
-                      Sistem Pembayaran
-                    </a>
-                  </li>
-                  <li className="mb-4">
-                    <a
-                      href="/rules/newclass"
-                      className="hover:underline text-sm">
-                      Buat Kelasmu
-                    </a>
-                  </li>
-                  <li className="mb-4">
-                    <a href="/rules/odb" className="hover:underline text-sm">
-                      Aturan ODB
-                    </a>
-                  </li>
-                  <li className="mb-4">
-                    <a href="/rules/kbm" className="hover:underline text-sm">
-                      Aturan KBM
-                    </a>
-                  </li>
-                  <li className="mb-4">
-                    <a href="/rules/off" className="hover:underline text-sm">
-                      Berhenti Les
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h2 className="mb-6 text-sm font-semibold text-slate-600 uppercase ">
-                  blogs
-                </h2>
-                <ul className="text-slate-600  ">
-                  <li className="mb-4">
-                    <a href="/blogs" className="hover:underline text-sm">
-                      Artikel
-                    </a>
-                  </li>
-                  <li className="mb-4">
-                    <a
-                      href="https://www.tokopedia.com/kaosuwais"
-                      className="hover:underline text-sm">
-                      Toko On Line
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/form" className="hover:underline text-sm">
-                      Kritik dan Saran
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div> */}
           <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
           <div className="flex justify-center text-center">
             <div>
-              <div className=" text-slate-600 sm:text-center text-xs">
-                © 2023{' '}
-                <a href="/" className="hover:underline">
-                  LB3R™
-                </a>
-                . All Rights Reserved.
+              <div className="flex space-x-2 items-center justify-center">
+                <Link href="/user/term">
+                  <p className="text-xs text-slate-600">Term Of Service</p>
+                </Link>
+                <Link href="/user/privacy">
+                  <p className="text-xs text-slate-600">Privacy Policy</p>
+                </Link>
               </div>
               <div className="flex mt-4 space-x-6 sm:justify-center ">
                 <a
@@ -207,6 +90,13 @@ const Footer = () => {
                   </svg>
                   <span className="sr-only">Dribbble account</span>
                 </a>
+              </div>
+              <div className=" text-slate-600 sm:text-center text-xs mt-5">
+                © 2023{' '}
+                <a href="/" className="hover:underline">
+                  LB3R™
+                </a>
+                . All Rights Reserved.
               </div>
             </div>
           </div>
