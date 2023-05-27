@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 import Footer from './Footer';
 import DropdownMenu from './DropdownMenu';
 import TombolInOut from './TombolInOut';
+import TombolCari from './TombolCari';
 
 export default function Navbar() {
   // Controling scroll efect
@@ -40,7 +41,7 @@ export default function Navbar() {
   return (
     <>
       <nav>
-        <div className="hidden md:visible md:bg-slate-100 shadow shadow-slate-400 md:flex justify-between items-center p-4 fixed top-0 w-full z-50">
+        <div className="hidden md:visible md:bg-slate-100 shadow shadow-slate-400 md:flex justify-between items-center p-8 fixed top-0 w-full z-50">
           <div className="flex space-x-4">
             <Link href="/">
               <p className="text-slate-600 hover:text-slate-900">HOME</p>
@@ -64,7 +65,8 @@ export default function Navbar() {
                 LOGIN
               </p>
             </Link> */}
-            <TombolInOut />
+            {/* <TombolInOut /> */}
+            <TombolCari />
           </div>
         </div>
         <div
@@ -82,28 +84,28 @@ export default function Navbar() {
 
               {/* <div className="hidden md:visible md:flex">hello</div> */}
             </Link>
-            <div className="md:hidden">
-              <TombolInOut />
-            </div>
           </div>
 
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            ref={menuRef}
-            className="text-orange-400 ">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="36"
-              height="36"
-              fill="currentColor"
-              className="bi bi-text-left"
-              viewBox="0 0 16 16">
-              <path
-                fillRule="evenodd"
-                d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
-              />
-            </svg>
-          </button>
+          <div className="flex items-center space-x-2">
+            <TombolCari />
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              ref={menuRef}
+              className="text-orange-400 ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                fill="currentColor"
+                className="bi bi-text-left"
+                viewBox="0 0 16 16">
+                <path
+                  fillRule="evenodd"
+                  d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
         <div className="md:flex md:items-center md:p-4">
           <div

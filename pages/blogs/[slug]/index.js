@@ -15,6 +15,7 @@ import React from 'react';
 import ArtikelTerkait from '../../../components/ArtikelTerkait';
 import MetaForBlog from '../../../components/MetaForBlog';
 import TombolInOut from '../../../components/TombolInOut';
+import CommentForm from '../../../components/CommentForm';
 // async function getData() {
 //   const res = await fetch(`http://localhost:3000/api/blogs`);
 
@@ -151,6 +152,9 @@ export default function PostDetail({ detailPost, allPost }) {
             </div>
             <div className="mt-5">
               <ArtikelTerkait allPost={allPost} detailPost={detailPost} />
+            </div>
+            <div>
+              <CommentForm />
             </div>
           </div>
         </div>
