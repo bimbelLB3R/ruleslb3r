@@ -15,11 +15,18 @@ export default function CommentForm() {
             alt="userImage"
             className="rounded-full"
           />
-          <input
-            type="text"
-            name="komentar"
-            placeholder={`sign in as ${session.user.name}`}
-          />
+
+          <div>
+            <input
+              type="text"
+              name="komentar"
+              placeholder={`sign in as ${session.user.name}`}
+              className="w-full"
+            />
+            <button onClick={() => signOut()}>
+              <p className="underline text-xs">Sign In</p>
+            </button>
+          </div>
         </div>
       ) : (
         <div className="flex space-x-1 items-center">
