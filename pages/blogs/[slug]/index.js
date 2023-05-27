@@ -3,6 +3,7 @@ import { getBlogsData } from '../../../utils/blogsApi';
 import Navbar from '../../../components/Navbar';
 import Link from 'next/link';
 import Image from 'next/image';
+// import TombolInOut from '../../../components/TombolInOut';
 
 import { formatDistanceToNow } from 'date-fns';
 import { id } from 'date-fns/locale';
@@ -13,6 +14,7 @@ import IklanKonten from '../../../components/IklanKonten';
 import React from 'react';
 import ArtikelTerkait from '../../../components/ArtikelTerkait';
 import MetaForBlog from '../../../components/MetaForBlog';
+import TombolInOut from '../../../components/TombolInOut';
 // async function getData() {
 //   const res = await fetch(`http://localhost:3000/api/blogs`);
 

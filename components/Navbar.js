@@ -45,6 +45,9 @@ export default function Navbar() {
             <Link href="/">
               <p className="text-slate-600 hover:text-slate-900">HOME</p>
             </Link>
+            <Link href="/layanan">
+              <p className="text-slate-600 hover:text-slate-900">LAYANAN</p>
+            </Link>
             <Link href="/blogs">
               <p className="text-slate-600 hover:text-slate-900">BLOGS</p>
             </Link>
@@ -133,7 +136,7 @@ export default function Navbar() {
                   </Link>
                   <Link href="/form/login">
                     <p className="text-center border border-orange-600 text-orange-600 px-2 py-4 rounded">
-                      LOG IN TO SNBT
+                      MULAI TRY OUT SNBT
                     </p>
                   </Link>
                   <div className="m-4 text-center">

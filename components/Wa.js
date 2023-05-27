@@ -8,7 +8,7 @@ const Wa = () => {
         <Link
           href="https://wa.me/6281392552459"
           target="_blank"
-          className="flex items-center space-x-1 bg-gray-900 p-2 text-emerald-700 rounded-full shadow-inner shadow-slate-100/50">
+          className="flex items-center space-x-1 bg-slate-100 bg-opacity-50 p-2 text-emerald-700 rounded-full shadow-inner shadow-orange-500/50">
           {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             width="36"
