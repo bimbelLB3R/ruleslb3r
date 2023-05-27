@@ -7,7 +7,7 @@ export default function CommentForm() {
     <>
       <h1 className="font-bold">Komentar</h1>
       {session ? (
-        <div>
+        <div className="flex items-center space-x-2">
           <Image
             src={session.user.image}
             width={36}
@@ -18,7 +18,7 @@ export default function CommentForm() {
           <input
             type="text"
             name="komentar"
-            placeholder="sign in untuk komen"
+            placeholder={`sign in as ${session.user.name}`}
           />
         </div>
       ) : (
