@@ -34,7 +34,7 @@ export default function CommentForm() {
     <>
       <h1 className="font-bold mt-5">Komentar</h1>
       {session ? (
-        <div className="flex space-x-2">
+        <div className="flex space-x-2 items-center">
           <div className="flex w-[36px] h-[36px] p-1">
             <Image
               src={session.user.image}
@@ -55,8 +55,8 @@ export default function CommentForm() {
               <input
                 type="text"
                 name="komentar"
-                placeholder={`sign in as ${session.user.name}`}
-                className="w-full"
+                placeholder={`comment as ${session.user.name}`}
+                className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
                 value={text}
                 onChange={handleChange}
                 readOnly={text.length > maxLength}
