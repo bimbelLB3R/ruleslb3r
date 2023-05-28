@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import appendDataToSheet from '../libs/Formsiswa/insert';
+import appendDataToSheet from '../libs/Formsiswa/postForm';
 
 const AddDataForm = () => {
   // Buat state untuk menyimpan input dari form
