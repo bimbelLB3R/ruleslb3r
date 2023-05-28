@@ -27,7 +27,7 @@ export default function CommentForm() {
     }
   };
   const buttonKirim = () => {
-    return <button>kirim</button>;
+    return <button className="text-xs">kirim</button>;
   };
 
   return (
@@ -35,16 +35,22 @@ export default function CommentForm() {
       <h1 className="font-bold mt-5">Komentar</h1>
       {session ? (
         <div className="flex space-x-2">
-          <Image
-            src={session.user.image}
-            width={18}
-            height={18}
-            alt="userImage"
-            className="rounded-full"
-          />
-
+          <div className="flex w-[18px] h-[18px] p-1">
+            <Image
+              src={session.user.image}
+              width={18}
+              height={18}
+              alt="userImage"
+              className="rounded-full"
+            />
+          </div>
           <div>
-            <p className="text-xs text-red-900">{warn}</p>
+            <div className="flex justify-between items-center">
+              <p className="text-xs text-red-900">{warn}</p>
+              <button onClick={() => signOut()}>
+                <p className="underline text-xs">Sign Out</p>
+              </button>
+            </div>
             <div className="flex items-center space-x-2">
               <input
                 type="text"
@@ -55,9 +61,6 @@ export default function CommentForm() {
                 onChange={handleChange}
                 readOnly={text.length > maxLength}
               />
-              <button onClick={() => signOut()}>
-                <p className="underline text-xs">Sign Out</p>
-              </button>
             </div>
 
             <div className="flex items-center justify-between">
