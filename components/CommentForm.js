@@ -1,13 +1,38 @@
 import Image from 'next/image';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import { useState } from 'react';
 
 export default function CommentForm() {
   const { data: session } = useSession();
+  // control input text
+  const [text, setText] = useState('');
+  const [warn, setWarn] = useState('');
+  const maxLength = 15;
+  const minLength = 10;
+  const handleChange = (event) => {
+    const inputText = event.target.value;
+
+    if (inputText.length < minLength) {
+      setWarn('Jumlah karakter minimal 10');
+      setText(inputText);
+    } else if (inputText.length <= maxLength) {
+      setWarn('');
+      setText(inputText);
+    } else {
+      // Batasi teks hanya hingga maxLength karakter
+      const truncatedText = inputText.slice(0, maxLength);
+      setText(truncatedText);
+    }
+  };
+  const buttonKirim = () => {
+    return <button>kirim</button>;
+  };
+
   return (
     <>
       <h1 className="font-bold mt-5">Komentar</h1>
       {session ? (
-        <div className="flex items-center space-x-2">
+        <div className="flex space-x-2">
           <Image
             src={session.user.image}
             width={36}
@@ -17,19 +42,27 @@ export default function CommentForm() {
           />
 
           <div>
-            <input
-              type="text"
-              name="komentar"
-              placeholder={`sign in as ${session.user.name}`}
-              className="w-full"
-            />
-            <div className="flex items-center justify-between">
+            <p className="text-xs text-red-900">{warn}</p>
+            <div className="flex items-center space-x-2">
+              <input
+                type="text"
+                name="komentar"
+                placeholder={`sign in as ${session.user.name}`}
+                className="w-full"
+                value={text}
+                onChange={handleChange}
+                readOnly={text.length > maxLength}
+              />
               <button onClick={() => signOut()}>
                 <p className="underline text-xs">Sign Out</p>
               </button>
-              <button>
-                <p>Kirim</p>
-              </button>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <p className="text-xs text-slate-400">
+                {1000 - text.length} karakter tersisa
+              </p>
+              <div>{text.length >= 10 && buttonKirim()}</div>
             </div>
           </div>
         </div>
@@ -49,6 +82,17 @@ export default function CommentForm() {
           </div>
         </div>
       )}
+      {/* <div>
+        <p>{warn}</p>
+        <input
+          type="text"
+          value={text}
+          onChange={handleChange}
+          readOnly={text.length > maxLength}
+        />
+        <p>{1000 - text.length} karakter tersisa</p>
+        {text.length >= 10 && buttonKirim()}
+      </div> */}
     </>
   );
 }
