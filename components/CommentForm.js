@@ -35,11 +35,11 @@ export default function CommentForm() {
       <h1 className="font-bold mt-5">Komentar</h1>
       {session ? (
         <div className="flex space-x-2">
-          <div className="flex w-[18px] h-[18px] p-1">
+          <div className="flex w-[36px] h-[36px] p-1">
             <Image
               src={session.user.image}
-              width={18}
-              height={18}
+              width={36}
+              height={36}
               alt="userImage"
               className="rounded-full"
             />
