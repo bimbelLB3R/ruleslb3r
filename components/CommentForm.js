@@ -18,6 +18,8 @@ export default function CommentForm() {
     } else if (inputText.length <= maxLength) {
       setWarn('');
       setText(inputText);
+    } else if (inputText > maxLength) {
+      setWarn('Jumlah karakter maksimal 1000');
     } else {
       // Batasi teks hanya hingga maxLength karakter
       const truncatedText = inputText.slice(0, maxLength);
@@ -35,8 +37,8 @@ export default function CommentForm() {
         <div className="flex space-x-2">
           <Image
             src={session.user.image}
-            width={36}
-            height={36}
+            width={18}
+            height={18}
             alt="userImage"
             className="rounded-full"
           />
