@@ -3,6 +3,15 @@ import Layout from '../../components/Layout';
 import Navbar from '../../components/Navbar';
 import Wa from '../../components/Wa';
 export default function Layanan() {
+  const regulerArray = [
+    'Program Reguler',
+    'Rp 335.000,-',
+    'Biaya Pendaftaran',
+    'Biaya Les Bulan Pertama',
+  ];
+  const regulerString = JSON.stringify(
+    regulerArray.map((value) => encodeURIComponent(value))
+  );
   return (
     <>
       <Wa />
@@ -103,7 +112,10 @@ export default function Layanan() {
                   <p>Laporan Perkembangan Materi dan Review </p>
                 </li>
               </ul>
-              <Link href="/form/newmember">
+              <Link
+                href={`/form/daftar?datareg=${encodeURIComponent(
+                  regulerString
+                )}`}>
                 <div className="bg-blue-500 hover:bg-blue-600 mt-5 flex items-center space-x-3 justify-center">
                   <p className="text-center font-semibold p-2 text-slate-50">
                     DAFTAR SEKARANG
@@ -117,7 +129,7 @@ export default function Layanan() {
                       className="bi bi-arrow-right"
                       viewBox="0 0 16 16">
                       <path
-                        fillRrule="evenodd"
+                        fillRule="evenodd"
                         d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
                       />
                     </svg>
@@ -226,7 +238,7 @@ export default function Layanan() {
                       className="bi bi-arrow-right"
                       viewBox="0 0 16 16">
                       <path
-                        fillRrule="evenodd"
+                        fillRule="evenodd"
                         d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
                       />
                     </svg>
@@ -335,7 +347,7 @@ export default function Layanan() {
                       className="bi bi-arrow-right"
                       viewBox="0 0 16 16">
                       <path
-                        fillRrule="evenodd"
+                        fillRule="evenodd"
                         d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
                       />
                     </svg>

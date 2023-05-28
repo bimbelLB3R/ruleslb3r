@@ -8,22 +8,22 @@ import TombolCari from './TombolCari';
 
 export default function Navbar() {
   // Controling scroll efect
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const navChange = document.getElementById('nav');
-      // console.log(scrollPosition);
-      if (scrollPosition > 120) {
-        navChange.style.backgroundColor = '#020617';
-      } else {
-        navChange.style.backgroundColor = '#f1f5f9';
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollPosition = window.scrollY;
+  //     const navChange = document.getElementById('nav');
+  //     // console.log(scrollPosition);
+  //     if (scrollPosition > 120) {
+  //       navChange.style.backgroundColor = '#020617';
+  //     } else {
+  //       navChange.style.backgroundColor = '#f1f5f9';
+  //     }
+  //   };
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
