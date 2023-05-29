@@ -5,6 +5,7 @@ import Footer from './Footer';
 import DropdownMenu from './DropdownMenu';
 import TombolInOut from './TombolInOut';
 import TombolCari from './TombolCari';
+import DropdownMenuSNBT from './DropdownMenuSNBT';
 
 export default function Navbar() {
   // Controling scroll efect
@@ -53,6 +54,7 @@ export default function Navbar() {
               <p className="text-slate-600 hover:text-slate-900">BLOGS</p>
             </Link>
             <DropdownMenu />
+            <DropdownMenuSNBT />
           </div>
           <div className="flex space-x-4">
             {/* <Link href="/form/newmember">

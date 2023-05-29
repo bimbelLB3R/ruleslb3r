@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 
-export default function DropdownMenu() {
+export default function DropdownMenuSNBT() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function DropdownMenu() {
             id="menu-button"
             aria-expanded="true"
             aria-haspopup="true">
-            RULES
+            SNBT
             <svg
               className="-mr-1 h-5 w-5 text-gray-400"
               viewBox="0 0 20 20"
@@ -65,45 +65,21 @@ export default function DropdownMenu() {
           <div className="py-1" role="none">
             {/* <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --> */}
             <Link
-              href="/rules/newclass"
+              href="/form/newmember"
               className="text-gray-700 block px-4 py-2 text-sm hover:bg-slate-200"
               role="menuitem"
               tabIndex="-1"
               id="menu-item-0">
-              Cara Membuat Kelas Baru
+              Daftar
             </Link>
             <Link
-              href="/rules/payment"
+              href="/form/login"
               className="text-gray-700 block px-4 py-2 text-sm hover:bg-slate-200"
               role="menuitem"
               tabIndex="-1"
               id="menu-item-1">
-              Cara Melakukan Pembayaran
+              Mulai Try Out
             </Link>
-            <Link
-              href="/rules/kbm"
-              className="text-gray-700 block px-4 py-2 text-sm hover:bg-slate-200"
-              role="menuitem"
-              tabIndex="-1"
-              id="menu-item-2">
-              Tata Tertib KBM
-            </Link>
-            <Link
-              href="/rules/odb"
-              className="text-gray-700 block px-4 py-2 text-sm hover:bg-slate-200"
-              role="menuitem"
-              tabIndex="-1"
-              id="menu-item-2">
-              Apa itu One Day Before
-            </Link>
-            <a
-              href="/rules/off"
-              className="text-gray-700 block px-4 py-2 text-sm hover:bg-slate-200"
-              role="menuitem"
-              tabIndex="-1"
-              id="menu-item-2">
-              Off Sementara, Tentu Bisa
-            </a>
           </div>
         </div>
       </div>

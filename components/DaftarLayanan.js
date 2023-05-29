@@ -13,6 +13,12 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 const DaftarLayanan = ({ detailProgram }) => {
+  const [isNamaEmpty, setIsNamaEmpty] = useState(false);
+  const [isKelasEmpty, setIsKelasEmpty] = useState(false);
+  const [isAsalSekolahEmpty, setIsAsalSekolahEmpty] = useState(false);
+  const [isWaEmpty, setIsWaEmpty] = useState(false);
+  const [isEmailEmpty, setIsEmailEmpty] = useState(false);
+
   const namaProgram = detailProgram.nama;
   const biayaProgram = detailProgram.total;
   const [inputValueProgramName, setInputValueProgramName] =
@@ -117,6 +123,12 @@ const DaftarLayanan = ({ detailProgram }) => {
           confirmButtonText: 'Ok',
         });
       }
+    } else {
+      setIsNamaEmpty(form.nama === '');
+      setIsKelasEmpty(form.nama === '');
+      setIsAsalSekolahEmpty(form.nama === '');
+      setIsWaEmpty(form.nama === '');
+      setIsEmailEmpty(form.nama === '');
     }
   };
 
@@ -148,47 +160,94 @@ const DaftarLayanan = ({ detailProgram }) => {
             <input
               name="nama"
               type="text"
-              className=" w-full"
+              className={`w-full ${isNamaEmpty ? 'border-red-500' : ''}`}
               placeholder="Nama Lengkap"
               onChange={handleChange}
+              onBlur={() => {
+                if (form.nama === '') {
+                  setIsNamaEmpty(true);
+                } else {
+                  setIsNamaEmpty(false);
+                }
+              }}
             />
+            {isNamaEmpty && <p className="text-red-500 text-xs">Wajib diisi</p>}
           </div>
           <div>
             <input
               name="kelas"
               type="text"
-              className=" w-full"
+              className={`w-full ${isKelasEmpty ? 'border-red-500' : ''}`}
               placeholder="Kelas"
               onChange={handleChange}
+              onBlur={() => {
+                if (form.kelas === '') {
+                  setIsKelasEmpty(true);
+                } else {
+                  setIsKelasEmpty(false);
+                }
+              }}
             />
+            {isKelasEmpty && (
+              <p className="text-red-500 text-xs">Wajib diisi</p>
+            )}
           </div>
           <div>
             <input
               name="asalsekolah"
               type="text"
-              className=" w-full"
+              className={`w-full ${isAsalSekolahEmpty ? 'border-red-500' : ''}`}
               placeholder="Asal Sekolah"
               onChange={handleChange}
+              onBlur={() => {
+                if (form.asalsekolah === '') {
+                  setIsAsalSekolahEmpty(true);
+                } else {
+                  setIsAsalSekolahEmpty(false);
+                }
+              }}
             />
+            {isAsalSekolahEmpty && (
+              <p className="text-red-500 text-xs">Wajib diisi</p>
+            )}
           </div>
           <div>
             <input
               name="wa"
               type="text"
-              className=" w-full"
+              className={`w-full ${isWaEmpty ? 'border-red-500' : ''}`}
               placeholder="wa"
               onChange={handleChange}
+              onBlur={() => {
+                if (form.wa === '') {
+                  setIsWaEmpty(true);
+                } else {
+                  setIsWaEmpty(false);
+                }
+              }}
             />
+            {isWaEmpty && <p className="text-red-500 text-xs">Wajib diisi</p>}
           </div>
           <div>
             <input
               name="email"
               type="email"
-              className=" w-full"
+              className={`w-full ${isEmailEmpty ? 'border-red-500' : ''}`}
               placeholder="email"
               onChange={handleChange}
+              onBlur={() => {
+                if (form.email === '') {
+                  setIsEmailEmpty(true);
+                } else {
+                  setIsEmailEmpty(false);
+                }
+              }}
             />
+            {isEmailEmpty && (
+              <p className="text-red-500 text-xs">Wajib diisi</p>
+            )}
           </div>
+          <p>CENTANG PILIHAN PROGRAM DAN BIAYA</p>
           <div className="flex items-center space-x-2">
             <input
               name="program"
