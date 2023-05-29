@@ -117,7 +117,7 @@ const DaftarLayanan = ({ detailProgram }) => {
         router.push('/layanan/checkout');
       } else {
         Swal.fire({
-          title: `${form.name} pernah terdaftar,hubungi admin.`,
+          title: `${form.nama} pernah terdaftar,hubungi admin.`,
           text: 'Data gagal dikirim',
           icon: 'warning',
           confirmButtonText: 'Ok',
