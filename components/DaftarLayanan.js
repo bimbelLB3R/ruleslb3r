@@ -13,6 +13,8 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 const DaftarLayanan = ({ detailProgram }) => {
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
   const [isNamaEmpty, setIsNamaEmpty] = useState(false);
   const [isKelasEmpty, setIsKelasEmpty] = useState(false);
   const [isAsalSekolahEmpty, setIsAsalSekolahEmpty] = useState(false);
@@ -26,7 +28,7 @@ const DaftarLayanan = ({ detailProgram }) => {
   const [inputValueProgramPrice, setInputValueProgramPrice] =
     useState(biayaProgram);
 
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const [form, setForm] = useState({
     nama: '',
@@ -80,6 +82,7 @@ const DaftarLayanan = ({ detailProgram }) => {
   // cek apakah nama sudah ada end
 
   const submitForm = async (e, sheet) => {
+    setIsButtonDisabled(true);
     e.preventDefault();
 
     if (
@@ -103,9 +106,9 @@ const DaftarLayanan = ({ detailProgram }) => {
           program: form.program,
           biaya: form.biaya,
         };
-        setIsLoading(true); // set status loading menjadi true
+        // setIsLoading(true); // set status loading menjadi true
         await appendSpreadsheet(newRow);
-        setIsLoading(false); // set status loading menjadi false setelah proses selesai
+        // setIsLoading(false); // set status loading menjadi false setelah proses selesai
         e.target.reset();
 
         Swal.fire({
@@ -275,7 +278,7 @@ const DaftarLayanan = ({ detailProgram }) => {
             </p>
           </div>
 
-          <button
+          {/* <button
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center"
             type="submit">
             {isLoading ? (
@@ -283,7 +286,17 @@ const DaftarLayanan = ({ detailProgram }) => {
             ) : (
               'Daftar dan Bayar' // tampilkan teks 'Submit' jika proses append selesai
             )}
-          </button>
+          </button> */}
+          {isButtonDisabled ? (
+            <Loader /> // tampilkan komponen loader jika proses append sedang berlangsung
+          ) : (
+            <button
+              disabled={isButtonDisabled}
+              type="submit"
+              className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Daftar dan Bayar Sekarang
+            </button>
+          )}
         </form>
       </div>
     </>
