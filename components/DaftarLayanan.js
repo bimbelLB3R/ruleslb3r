@@ -12,7 +12,14 @@ const GOOGLE_CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
 const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
-const DaftarLayanan = () => {
+const DaftarLayanan = ({ detailProgram }) => {
+  const namaProgram = detailProgram.nama;
+  const biayaProgram = detailProgram.total;
+  const [inputValueProgramName, setInputValueProgramName] =
+    useState(namaProgram);
+  const [inputValueProgramPrice, setInputValueProgramPrice] =
+    useState(biayaProgram);
+
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const [form, setForm] = useState({
@@ -182,23 +189,31 @@ const DaftarLayanan = () => {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="flex items-center space-x-2">
             <input
               name="program"
-              type="text"
-              className=" w-full"
+              type="checkbox"
+              className=""
               placeholder="program"
               onChange={handleChange}
+              readOnly
+              value={inputValueProgramName}
             />
+            <p>{inputValueProgramName}</p>
           </div>
-          <div>
+          <div className="flex items-center space-x-2">
             <input
               name="biaya"
-              type="text"
-              className=" w-full"
+              type="checkbox"
+              className=""
               placeholder="biaya"
               onChange={handleChange}
+              readOnly
+              value={inputValueProgramPrice}
             />
+            <p>
+              {inputValueProgramPrice} {detailProgram.rincian}
+            </p>
           </div>
 
           <button

@@ -4,8 +4,15 @@ import { useRouter } from 'next/router';
 
 const SiswaBaru = () => {
   const router = useRouter();
+  // program reguler
   const regulerString = router.query.datareg || '[]'; // Menggunakan "[]" sebagai default jika data tidak tersedia
   const regulerArray = JSON.parse(regulerString).map((value) =>
+    decodeURIComponent(value)
+  );
+
+  // program snbt
+  const snbtString = router.query.datasnbt || '[]'; // Menggunakan "[]" sebagai default jika data tidak tersedia
+  const snbtArray = JSON.parse(snbtString).map((value) =>
     decodeURIComponent(value)
   );
   return (
@@ -24,7 +31,7 @@ const SiswaBaru = () => {
           href="image/logolb3r.png"
         />
       </Head>
-      <DaftarLayanan regulerArray={regulerArray} />
+      <DaftarLayanan regulerArray={regulerArray} snbtArray={snbtArray} />
     </div>
   );
 };

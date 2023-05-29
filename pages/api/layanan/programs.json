@@ -1,0 +1,52 @@
+{
+  "programs": [
+    {
+      "nama": "Program Reguler",
+      "slug": "program-reguler",
+      "biaya": "Rp 185.000,-",
+      "total": "Rp 335.000,-",
+      "rincian": "Biaya Pendaftaran dan Les Bulan Pertama",
+      "frekuensi": "per bulan",
+      "fasilitas": [
+        "Masuk 2-3 kali dalam seminggu",
+        "Biaya Pendaftaran 150.000",
+        "Mendapatkan Layanan ODB",
+        "Free Konsultasi dengan tentor favorit",
+        "Laporan Kehadiran dan Pembayaran",
+        "Laporan Perkembangan Materi dan Review"
+      ]
+    },
+    {
+      "nama": "Program UTBK SNBT",
+      "slug": "program-utbk-snbt",
+      "biaya": "Rp 1.000.000,-",
+      "total": "Rp 1.000.000,-",
+      "rincian": "Biaya Pendaftaran, Les dan FC Soal",
+      "frekuensi": "sekali bayar",
+      "fasilitas": [
+        "Masuk tiap hari selama satu bulan",
+        "Durasi waktu 2 jam per hari",
+        "Mendapatkan FC Soal sesuai aturan SNBT",
+        "Pembahasan langsung di kelas",
+        "Konsultasi Pemilihan Jurusan",
+        "Free T-Shirt senilai 100.000 bagi yang lolos SNBT"
+      ]
+    },
+    {
+      "nama": "Program Kelas Khusus",
+      "slug": "program-kelas-khusus",
+      "biaya": "Rp 200.000,-",
+      "total": "Rp 350.000,-",
+      "rincian": "Biaya Pendaftaran dan deposit awal",
+      "frekuensi": "deposit awal",
+      "fasilitas": [
+        "Biaya pendaftaran 150.000",
+        "Waktu, jumlah pertemuan dan mapel sesuai kesepakatan",
+        "Biaya per pertemuan mulai 35.000",
+        "Lebih fokus dalam belajar",
+        "Free Konsultasi langsung ke pengajar",
+        "Kelas nyaman dan kondusif"
+      ]
+    }
+  ]
+}
