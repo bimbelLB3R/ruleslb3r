@@ -82,7 +82,6 @@ const DaftarLayanan = ({ detailProgram }) => {
   // cek apakah nama sudah ada end
 
   const submitForm = async (e, sheet) => {
-    setIsButtonDisabled(true);
     e.preventDefault();
 
     if (
@@ -94,6 +93,7 @@ const DaftarLayanan = ({ detailProgram }) => {
       form.program !== '' &&
       form.biaya !== ''
     ) {
+      setIsButtonDisabled(true);
       const canSubmit = await checkName(form.nama, sheet);
 
       if (canSubmit) {
