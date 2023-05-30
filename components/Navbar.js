@@ -6,6 +6,7 @@ import DropdownMenu from './DropdownMenu';
 import TombolInOut from './TombolInOut';
 import TombolCari from './TombolCari';
 import DropdownMenuSNBT from './DropdownMenuSNBT';
+import DropdownMenuLayanan from './DropdownMenuLayanan';
 
 export default function Navbar() {
   // Controling scroll efect
@@ -47,9 +48,10 @@ export default function Navbar() {
             <Link href="/">
               <p className="text-slate-600 hover:text-slate-900">HOME</p>
             </Link>
-            <Link href="/layanan">
+            {/* <Link href="/layanan">
               <p className="text-slate-600 hover:text-slate-900">LAYANAN</p>
-            </Link>
+            </Link> */}
+            <DropdownMenuLayanan />
             <Link href="/blogs">
               <p className="text-slate-600 hover:text-slate-900">BLOGS</p>
             </Link>
@@ -128,6 +130,7 @@ export default function Navbar() {
                       LAYANAN
                     </p>
                   </Link>
+                  {/* <DropdownMenuLayanan /> */}
                   <Link href="/blogs">
                     <p className="text-slate-600 hover:text-slate-900">BLOGS</p>
                   </Link>
