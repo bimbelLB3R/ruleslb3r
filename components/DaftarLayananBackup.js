@@ -107,44 +107,49 @@ const DaftarLayanan = ({ detailProgram }) => {
           program: form.program,
           biaya: form.biaya,
         };
-        // 1.mengirim permintaan ke api/create-transaction dan mengirim data newrow sekalian
-        // 2.Request token ke end poin mid trans
-        // 3.Handle submit ke sheet dan membuat tombol bayar
+        // kirim ke api
+        try {
+          await axios.post('/api/create-transaction', newRow);
+          // kirim ke api end
 
-        const createTransaction = async (newRow) => {
-          try {
-            const response = await axios.post(
-              '/api/create-transaction',
-              newRow
-            );
-            const transactionToken = response.data.transactionToken;
-            const transactionRedirectUrl = response.data.transactionRedirectUrl;
-            // console.log('transactionToken:', transactionToken);
-            // console.log('redirectUrl:', transactionRedirectUrl);
+          // setIsLoading(true); // set status loading menjadi true, kirim ke drive
+          await appendSpreadsheet(newRow);
+          // setIsLoading(false); // set status loading menjadi false setelah proses selesai
+          e.target.reset();
 
-            return transactionToken, transactionRedirectUrl;
-          } catch (error) {
-            console.error('Failed to create transaction:', error);
-            return null;
-          }
-        };
-        const transactionToken = await createTransaction(newRow);
-        const transactionRedirectUrl = await createTransaction(newRow);
-        // console.log(transactionToken); //token berhasil
-        // console.log(transactionRedirectUrl); //token berhasil
-
-        // setIsLoading(true); // set status loading menjadi true, kirim ke drive
-        await appendSpreadsheet(newRow);
-        e.target.reset();
-        setIsButtonDisabled(false);
-
-        Swal.fire({
-          title: 'Pendaftaran Berhasil',
-          text: 'Biodatamu Sudah Terkirim, Lanjut Pembayaran Ya',
-          icon: 'success',
-          confirmButtonText: 'Ok',
-        });
-        router.push(transactionRedirectUrl);
+          Swal.fire({
+            title: 'Pendaftaran Berhasil',
+            text: 'Biodatamu Sudah Terkirim, Lanjut Pembayaran Ya',
+            icon: 'success',
+            confirmButtonText: 'Ok',
+          });
+          // Redirect to checkout page with data as query parameters
+          router.push({
+            pathname: '/layanan/checkout',
+            query: {
+              nama: form.nama,
+              kelas: form.kelas,
+              asalsekolah: form.asalsekolah,
+              wa: form.wa,
+              email: form.email,
+              program: form.program,
+              biaya: form.biaya,
+            },
+          });
+          // tangkap error pengiriman ke api
+        } catch (error) {
+          console.error('Error:', error);
+          Swal.fire({
+            title: 'Pendaftaran Gagal',
+            text: 'Terjadi kesalahan saat mengirim data ke api',
+            icon: 'error',
+            confirmButtonText: 'Ok',
+          });
+          console.error('Error:', error);
+        } finally {
+          setIsButtonDisabled(false);
+        }
+        // tangkap error pengiriman ke api end
       } else {
         Swal.fire({
           title: `${form.nama} pernah terdaftar,hubungi admin.`,
@@ -152,7 +157,6 @@ const DaftarLayanan = ({ detailProgram }) => {
           icon: 'warning',
           confirmButtonText: 'Ok',
         });
-        setIsButtonDisabled(false);
       }
     } else {
       setIsNamaEmpty(form.nama === '');

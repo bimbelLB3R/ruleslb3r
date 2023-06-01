@@ -3,8 +3,8 @@
     {
       "nama": "Program Reguler",
       "slug": "program-reguler",
-      "biaya": "Rp 185.000,-",
-      "total": "Rp 335.000,-",
+      "biaya": 185000,
+      "total": 335000,
       "rincian": "Biaya Pendaftaran dan Les Bulan Pertama",
       "frekuensi": "per bulan",
       "fasilitas": [
