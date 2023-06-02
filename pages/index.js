@@ -4,6 +4,7 @@ import ImageSlide from '../components/ImageSlide';
 import Meta from '../components/Meta';
 import Navbar from '../components/Navbar';
 import BluryBg from '../components/BluryBg';
+import BayarLes from '../components/BayarLes';
 // import Wa from '../components/Wa';
 
 export default function Home() {
@@ -27,6 +28,7 @@ export default function Home() {
         // ]}
       />
       <Layout>
+        <BayarLes />
         <ImageSlide />
         <BluryBg />
         <Faq />

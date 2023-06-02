@@ -4,6 +4,17 @@ import Navbar from '../../components/Navbar';
 import Wa from '../../components/Wa';
 import { getProgramsData } from '../../utils/layananApi';
 
+// mengubah mata uang
+function formatCurrency(amount) {
+  const formatter = new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 2,
+  });
+
+  return formatter.format(amount);
+}
+
 export async function getStaticProps() {
   const data = getProgramsData();
   // console.log(data);
@@ -39,7 +50,7 @@ export default function Layanan({ allProgram }) {
                 <div className="flex items-center justify-center">
                   <div>
                     <p className="text-[40px] md:text-[30px] font-bold mt-10">
-                      {program.biaya}
+                      {formatCurrency(program.biaya)}
                     </p>
                     <p className="text-center">{program.frekuensi}</p>
                   </div>

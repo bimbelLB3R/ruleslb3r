@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import Swal from 'sweetalert2';
-import Loader from './Loader';
+import Loader from '../../components/Loader';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import axios from 'axios';
-import Layout from './Layout';
-import Navbar from './Navbar';
+import Layout from '../../components/Layout';
+import Navbar from '../../components/Navbar';
 
 // mengubah mata uang
 function formatCurrency(amount) {
@@ -21,38 +21,45 @@ function formatCurrency(amount) {
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_IDRULESLB3R;
-const SHEET_ID = process.env.NEXT_PUBLIC_SHEET_ID;
+const SHEET_ID = process.env.NEXT_PUBLIC_SHEET_ID3RULESLB3R; //cek token
+const SHEET_ID2 = process.env.NEXT_PUBLIC_SHEET_ID2RULESLB3R; //pos nama dan data
 const GOOGLE_CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
 const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
-const DaftarLayanan = ({ detailProgram }) => {
+const BayarLes = () => {
+  //   const timestamp = new Date().toISOString();
+  const getFormattedTimestamp = () => {
+    const options = {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: false,
+    };
+
+    const timestamp = new Date().toLocaleString('id-ID', options);
+    return timestamp;
+  };
+
+  // Contoh penggunaan
+  const timestamp = getFormattedTimestamp();
+  //   console.log(timestamp);
+
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-
-  const [isNamaEmpty, setIsNamaEmpty] = useState(false);
-  const [isKelasEmpty, setIsKelasEmpty] = useState(false);
-  const [isAsalSekolahEmpty, setIsAsalSekolahEmpty] = useState(false);
-  const [isWaEmpty, setIsWaEmpty] = useState(false);
-  const [isEmailEmpty, setIsEmailEmpty] = useState(false);
-
-  const namaProgram = detailProgram.nama;
-  const biayaProgram = detailProgram.total;
-
-  const [inputValueProgramName, setInputValueProgramName] =
-    useState(namaProgram);
-  const [inputValueProgramPrice, setInputValueProgramPrice] =
-    useState(biayaProgram);
+  const [isTokenEmpty, setIsTokenEmpty] = useState(false);
 
   // const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const [form, setForm] = useState({
-    nama: '',
-    kelas: '',
-    asalsekolah: '',
+    token: '',
+    namalengkap: '',
     wa: '',
-    email: '',
-    program: '',
-    biaya: '',
+    bulan: '',
+    jumlah: '',
+    timestamp: '',
   });
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
@@ -67,15 +74,15 @@ const DaftarLayanan = ({ detailProgram }) => {
       // loads document properties and worksheets
       await doc.loadInfo();
 
-      const sheet = doc.sheetsById[SHEET_ID];
+      const sheet = doc.sheetsById[SHEET_ID2]; //pos data
       await sheet.addRow(row);
     } catch (e) {
       console.error('Error: ', e);
     }
   };
 
-  // cek apakah nama sudah ada
-  const checkName = async (nama) => {
+  // cek apakah token sudah ada
+  const checkToken = async (token) => {
     await doc.useServiceAccountAuth({
       client_email: GOOGLE_CLIENT_EMAIL,
       private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
@@ -85,15 +92,20 @@ const DaftarLayanan = ({ detailProgram }) => {
     const rows = await sheet.getRows();
 
     // console.log(rows);
-    const nameExists = rows.find((row) => row.nama === nama); //penulisan row.name , name nya harus sama dengan di google sheet name
-    // const kelas = nameExists ? nameExists.kelas : null;
-    // console.log(kelas);
-    if (!nameExists) {
+    const tokenExists = rows.find((row) => row.token === token); //penulisan row.name , name nya harus sama dengan di google sheet name
+    // const AmbilToken = tokenExists ? [tokenExists].map((row) => row.token) : [];
+    // const token = AmbilToken[0];
+    const namalengkap = tokenExists ? tokenExists.namalengkap : null;
+
+    if (tokenExists) {
       // Name does not exist, form can be submitted
-      return true;
+      const inputNamaLengkap = document.getElementById('inputNamaLengkap');
+      inputNamaLengkap.value = namalengkap;
+
+      return tokenExists;
     } else {
       // Name already exists, form cannot be submitted
-      return false;
+      return null;
     }
   };
   // cek apakah nama sudah ada end
@@ -101,27 +113,18 @@ const DaftarLayanan = ({ detailProgram }) => {
   const submitForm = async (e, sheet) => {
     e.preventDefault();
 
-    if (
-      form.nama !== '' &&
-      form.kelas !== '' &&
-      form.asalsekolah !== '' &&
-      form.wa !== '' &&
-      form.email !== '' &&
-      form.program !== '' &&
-      form.biaya !== ''
-    ) {
+    if (form.token !== '' && form.namalengkap !== '') {
       setIsButtonDisabled(true);
-      const canSubmit = await checkName(form.nama, sheet);
+      const canSubmit = await checkToken(form.token, sheet);
 
       if (canSubmit) {
         const newRow = {
-          nama: form.nama,
-          kelas: form.kelas,
-          asalsekolah: form.asalsekolah,
+          token: form.token,
+          namalengkap: form.namalengkap,
           wa: form.wa,
-          email: form.email,
-          program: form.program,
-          biaya: form.biaya,
+          bulan: form.bulan,
+          jumlah: form.jumlah,
+          timestamp: form.timestamp,
         };
         // 1.mengirim permintaan ke api/create-transaction dan mengirim data newrow sekalian
         // 2.Request token ke end poin mid trans
@@ -130,7 +133,7 @@ const DaftarLayanan = ({ detailProgram }) => {
         const createTransaction = async (newRow) => {
           try {
             const response = await axios.post(
-              '/api/create-transaction',
+              '/api/create-transaction-bayarles',
               newRow
             );
             const transactionToken = response.data.transactionToken;
@@ -155,7 +158,7 @@ const DaftarLayanan = ({ detailProgram }) => {
         setIsButtonDisabled(false);
 
         Swal.fire({
-          title: 'Pendaftaran Berhasil',
+          title: 'Pembayaran Berhasil',
           text: 'Datamu Sudah Terkirim, Lanjut Pembayaran Ya',
           icon: 'success',
           confirmButtonText: 'ok',
@@ -163,7 +166,7 @@ const DaftarLayanan = ({ detailProgram }) => {
         router.push(transactionRedirectUrl);
       } else {
         Swal.fire({
-          title: `${form.nama} pernah terdaftar,hubungi admin.`,
+          title: `kode ${form.token} tidak valid,hubungi admin.`,
           text: 'Data gagal dikirim',
           icon: 'warning',
           confirmButtonText: 'Ok',
@@ -171,19 +174,37 @@ const DaftarLayanan = ({ detailProgram }) => {
         setIsButtonDisabled(false);
       }
     } else {
-      setIsNamaEmpty(form.nama === '');
-      setIsKelasEmpty(form.nama === '');
-      setIsAsalSekolahEmpty(form.nama === '');
-      setIsWaEmpty(form.nama === '');
-      setIsEmailEmpty(form.nama === '');
+      setIsTokenEmpty(form.token === '');
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
+    const { name, value } = e.target;
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+
+    if (name === 'token' && value.length > 6) {
+      const tokenData = await checkToken(value);
+      // console.log(tokenData);
+      if (tokenData) {
+        const { namalengkap } = tokenData;
+        const inputNamaLengkap = document.getElementById('inputNamaLengkap');
+        const AmbilNama = tokenData
+          ? [tokenData].map((row) => row.namalengkap)
+          : [];
+        const namaMu = AmbilNama[0];
+        // console.log(namaMu);
+        inputNamaLengkap.value = namaMu;
+        const tampilkanNamaLengkap = document.getElementById('namaKamu');
+        {
+          namaMu
+            ? (tampilkanNamaLengkap.innerText = namaMu)
+            : (tampilkanNamaLengkap.innerText = 'Loading ...');
+        }
+      }
+    }
   };
 
   return (
@@ -207,130 +228,69 @@ const DaftarLayanan = ({ detailProgram }) => {
             <p className="font-semibold text-2xl text-center">Lengkapi Data</p>
             <div>
               <input
-                name="nama"
+                name="token"
                 type="text"
-                className={`w-full ${isNamaEmpty ? 'border-red-500' : ''}`}
-                placeholder="Nama Lengkap"
-                autoComplete="off"
-                onChange={handleChange}
-                onBlur={() => {
-                  if (form.nama === '') {
-                    setIsNamaEmpty(true);
-                  } else {
-                    setIsNamaEmpty(false);
-                  }
-                }}
-              />
-              {isNamaEmpty && (
-                <p className="text-red-500 text-xs">Wajib diisi</p>
-              )}
-            </div>
-            <div>
-              <input
-                name="kelas"
-                type="text"
-                className={`w-full ${isKelasEmpty ? 'border-red-500' : ''}`}
-                placeholder="Kelas"
-                autoComplete="off"
-                onChange={handleChange}
-                onBlur={() => {
-                  if (form.kelas === '') {
-                    setIsKelasEmpty(true);
-                  } else {
-                    setIsKelasEmpty(false);
-                  }
-                }}
-              />
-              {isKelasEmpty && (
-                <p className="text-red-500 text-xs">Wajib diisi</p>
-              )}
-            </div>
-            <div>
-              <input
-                name="asalsekolah"
-                type="text"
-                className={`w-full ${
-                  isAsalSekolahEmpty ? 'border-red-500' : ''
+                className={`w-full mb-2 ${
+                  isTokenEmpty ? 'border-red-500' : ''
                 }`}
-                placeholder="Asal Sekolah"
+                placeholder="Masukkan Kodemu"
                 autoComplete="off"
                 onChange={handleChange}
                 onBlur={() => {
-                  if (form.asalsekolah === '') {
-                    setIsAsalSekolahEmpty(true);
+                  if (form.token === '') {
+                    setIsTokenEmpty(true);
                   } else {
-                    setIsAsalSekolahEmpty(false);
+                    setIsTokenEmpty(false);
                   }
                 }}
               />
-              {isAsalSekolahEmpty && (
+              {isTokenEmpty && (
                 <p className="text-red-500 text-xs">Wajib diisi</p>
               )}
-            </div>
-            <div>
+              <div className="flex items-center space-x-2">
+                <input
+                  name="namalengkap"
+                  id="inputNamaLengkap"
+                  type="Checkbox"
+                  onChange={handleChange}
+                />
+
+                <p id="namaKamu"></p>
+              </div>
+              <p className="text-xs text-red-900 mb-2">
+                Centang jika itu namamu
+              </p>
               <input
                 name="wa"
                 type="text"
-                className={`w-full ${isWaEmpty ? 'border-red-500' : ''}`}
-                placeholder="wa"
-                autoComplete="off"
+                className="w-full mb-2"
                 onChange={handleChange}
-                onBlur={() => {
-                  if (form.wa === '') {
-                    setIsWaEmpty(true);
-                  } else {
-                    setIsWaEmpty(false);
-                  }
-                }}
+                placeholder="isi nomor wa yang aktif"
               />
-              {isWaEmpty && <p className="text-red-500 text-xs">Wajib diisi</p>}
-            </div>
-            <div>
               <input
-                name="email"
-                type="email"
-                className={`w-full ${isEmailEmpty ? 'border-red-500' : ''}`}
-                placeholder="email"
-                autoComplete="off"
+                name="bulan"
+                type="text"
+                className="w-full mb-2"
                 onChange={handleChange}
-                onBlur={() => {
-                  if (form.email === '') {
-                    setIsEmailEmpty(true);
-                  } else {
-                    setIsEmailEmpty(false);
-                  }
-                }}
+                placeholder="pilih bulan"
               />
-              {isEmailEmpty && (
-                <p className="text-red-500 text-xs">Wajib diisi</p>
-              )}
-            </div>
-            <p>CENTANG PILIHAN PROGRAM DAN BIAYA</p>
-            <div className="flex items-center space-x-2">
               <input
-                name="program"
-                type="checkbox"
-                className=""
-                placeholder="program"
+                name="jumlah"
+                type="number"
+                className="w-full mb-2"
                 onChange={handleChange}
-                readOnly
-                value={inputValueProgramName}
+                placeholder="jumlah pembayaran"
               />
-              <p>{inputValueProgramName}</p>
-            </div>
-            <div className="flex items-center space-x-2">
-              <input
-                name="biaya"
-                type="checkbox"
-                className=""
-                placeholder="biaya"
-                onChange={handleChange}
-                readOnly
-                value={inputValueProgramPrice}
-              />
-              <p>
-                {formatCurrency(inputValueProgramPrice)} {detailProgram.rincian}
-              </p>
+              <div className="flex items-center space-x-2 mb-2">
+                <input
+                  name="timestamp"
+                  type="checkbox"
+                  onChange={handleChange}
+                  placeholder="pilih tanggal hari ini"
+                  value={timestamp}
+                />
+                <p className="text-xs text-red-900">Centang jika sudah yakin</p>
+              </div>
             </div>
 
             {/* <button
@@ -349,7 +309,7 @@ const DaftarLayanan = ({ detailProgram }) => {
                 disabled={isButtonDisabled}
                 type="submit"
                 className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Daftar dan Bayar Sekarang
+                Bayar Sekarang
               </button>
             )}
           </form>
@@ -359,4 +319,4 @@ const DaftarLayanan = ({ detailProgram }) => {
   );
 };
 
-export default DaftarLayanan;
+export default BayarLes;

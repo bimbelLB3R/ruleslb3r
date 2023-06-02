@@ -1,6 +1,7 @@
 {
   "programs": [
     {
+      "idProgram": "RegLB3R",
       "nama": "Program Reguler",
       "slug": "program-reguler",
       "biaya": 185000,
@@ -9,7 +10,7 @@
       "frekuensi": "per bulan",
       "fasilitas": [
         "Masuk 2-3 kali dalam seminggu",
-        "Biaya Pendaftaran 150.000",
+        "Biaya Pendaftaran 150.000 (Sekali bayar)",
         "Mendapatkan Layanan ODB",
         "Free Konsultasi dengan tentor favorit",
         "Laporan Kehadiran dan Pembayaran",
@@ -17,10 +18,11 @@
       ]
     },
     {
+      "idProgram": "SnbtLB3R",
       "nama": "Program UTBK SNBT",
       "slug": "program-utbk-snbt",
-      "biaya": "Rp 1.000.000,-",
-      "total": "Rp 1.000.000,-",
+      "biaya": 1000000,
+      "total": 1000000,
       "rincian": "Biaya Pendaftaran, Les dan FC Soal",
       "frekuensi": "sekali bayar",
       "fasilitas": [
@@ -33,16 +35,17 @@
       ]
     },
     {
+      "idProgram": "PrivLB3R",
       "nama": "Program Kelas Khusus",
       "slug": "program-kelas-khusus",
-      "biaya": "Rp 200.000,-",
-      "total": "Rp 350.000,-",
+      "biaya": 200000,
+      "total": 350000,
       "rincian": "Biaya Pendaftaran dan deposit awal",
       "frekuensi": "deposit awal",
       "fasilitas": [
-        "Biaya pendaftaran 150.000",
+        "Biaya pendaftaran 150.000 (sekali bayar)",
         "Waktu, jumlah pertemuan dan mapel sesuai kesepakatan",
-        "Biaya per pertemuan mulai 35.000",
+        "Biaya per pertemuan mulai 35.000 (dipotong dari deposit)",
         "Lebih fokus dalam belajar",
         "Free Konsultasi langsung ke pengajar",
         "Kelas nyaman dan kondusif"

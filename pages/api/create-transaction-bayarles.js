@@ -3,7 +3,7 @@ import axios from 'axios';
 export default async function handler(req, res) {
   const newRow = req.body;
   console.log(newRow);
-  const biayaInt = parseInt(newRow.biaya);
+  const biayaInt = parseInt(newRow.jumlah);
   // const first_name = dataFromDaftarLayanan.nama;
   // menyimpan data dataFromDaftarLayanan ke local storage
 
@@ -33,29 +33,29 @@ export default async function handler(req, res) {
         id: newRow.idProgram,
         price: biayaInt,
         quantity: 1,
-        name: newRow.program,
+        name: `Pembayaran Les ${newRow.bulan}`,
       },
     ],
     customer_details: {
-      first_name: newRow.nama,
-      email: newRow.email,
+      first_name: newRow.namalengkap,
+
       phone: newRow.wa,
       billing_address: {
-        first_name: newRow.nama,
+        first_name: newRow.namalengkap,
         last_name: 'LB3R',
-        email: newRow.email,
+
         phone: newRow.wa,
-        address: newRow.asalsekolah,
+        address: 'Tabalong',
         city: 'Tabalong',
         postal_code: '71571',
         country_code: 'IDN',
       },
       shipping_address: {
-        first_name: newRow.nama,
+        first_name: newRow.namalengkap,
         last_name: 'LB3R',
-        email: newRow.email,
+
         phone: newRow.wa,
-        address: newRow.asalsekolah,
+        address: 'Tabalong',
         city: 'Tabalong',
         postal_code: '71571',
         country_code: 'IDN',
