@@ -43,7 +43,7 @@ export default async function handler(req, res) {
         id: newRow.idProgram,
         price: totalDibayar,
         quantity: 1,
-        name: `Pembayaran Les ${newRow.bulan}`,
+        name: `Pembayaran  ${newRow.bulan}`,
       },
     ],
     customer_details: {

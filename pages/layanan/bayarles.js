@@ -347,7 +347,7 @@ const BayarLes = () => {
                 onChange={handleChange}>
                 <option value="">Pilih Bulan</option>
                 <option value={bulanSekarang}>{bulanSekarang}</option>
-                <option value="100000">Biaya Pendaftaran</option>
+                <option value="Biaya Pendaftaran">Biaya Pendaftaran</option>
               </select>
               {isbulanEmpty && (
                 <p className="text-red-500 text-xs mb-2">Wajib diisi</p>
