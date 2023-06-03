@@ -6,12 +6,17 @@ export default async function handler(req, res) {
   const biayaInt = parseInt(newRow.jumlah);
   const kalipembayaran = newRow.kalipembayaran;
   console.log(kalipembayaran);
+  // const kuantitas = parseInt(newRow.kalipembayaran);
+  // console.log(kuantitas);
 
   let totalDibayar;
-  if (kalipembayaran && kalipembayaran !== 0) {
+  let kuantitas;
+  if (kalipembayaran && kalipembayaran > 1) {
     totalDibayar = biayaInt * kalipembayaran;
+    kuantitas = kalipembayaran;
   } else {
     totalDibayar = biayaInt;
+    kuantitas = 1;
   }
   console.log(totalDibayar);
   // const first_name = dataFromDaftarLayanan.nama;
@@ -33,7 +38,7 @@ export default async function handler(req, res) {
   const requestBody = {
     transaction_details: {
       order_id: `LB3R_${timestamp}`,
-      gross_amount: totalDibayar,
+      gross_amount: totalDibayar, //quantity x price
     },
     credit_card: {
       secure: true,
@@ -41,8 +46,8 @@ export default async function handler(req, res) {
     item_details: [
       {
         id: newRow.idProgram,
-        price: totalDibayar,
-        quantity: 1,
+        price: newRow.jumlah,
+        quantity: kuantitas,
         name: `Pembayaran  ${newRow.bulan}`,
       },
     ],
