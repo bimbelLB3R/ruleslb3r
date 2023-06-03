@@ -28,6 +28,14 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 const BayarLes = () => {
+  const [isReadOnly, setIsReadOnly] = useState(false);
+
+  const tanggalSekarang = new Date();
+  const bulanSekarang = tanggalSekarang.toLocaleString('default', {
+    month: 'long',
+  });
+
+  const [namaKamu, setNamaKamu] = useState(false);
   //   const timestamp = new Date().toISOString();
   const getFormattedTimestamp = () => {
     const options = {
@@ -50,6 +58,12 @@ const BayarLes = () => {
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [isTokenEmpty, setIsTokenEmpty] = useState(false);
+  const [isnamalengkapEmpty, setIsnamalengkapEmpty] = useState(false);
+  const [iswaEmpty, setIswaEmpty] = useState(false);
+  const [isbulanEmpty, setIsbulanEmpty] = useState(false);
+  const [isjumlahEmpty, setIsjumlahEmpty] = useState(false);
+  const [istimestampEmpty, setIstimestampEmpty] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   // const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
@@ -60,6 +74,8 @@ const BayarLes = () => {
     bulan: '',
     jumlah: '',
     timestamp: '',
+    kalipembayaran: '',
+    pesan: '',
   });
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
@@ -125,6 +141,8 @@ const BayarLes = () => {
           bulan: form.bulan,
           jumlah: form.jumlah,
           timestamp: form.timestamp,
+          kalipembayaran: form.kalipembayaran,
+          pesan: form.pesan,
         };
         // 1.mengirim permintaan ke api/create-transaction dan mengirim data newrow sekalian
         // 2.Request token ke end poin mid trans
@@ -175,20 +193,29 @@ const BayarLes = () => {
       }
     } else {
       setIsTokenEmpty(form.token === '');
+      setIsnamalengkapEmpty(form.namalengkap === '');
+      setIswaEmpty(form.wa === '');
+      setIsjumlahEmpty(form.jumlah === '');
+      setIsbulanEmpty(form.bulan === '');
+      setIstimestampEmpty(form.timestamp === '');
     }
   };
 
   const handleChange = async (e) => {
     const { name, value } = e.target;
+
     setForm({
       ...form,
       [name]: value,
     });
 
     if (name === 'token' && value.length > 6) {
+      setNamaKamu(true);
       const tokenData = await checkToken(value);
       // console.log(tokenData);
       if (tokenData) {
+        // setIsButtonDisabled(true);
+
         const { namalengkap } = tokenData;
         const inputNamaLengkap = document.getElementById('inputNamaLengkap');
         const AmbilNama = tokenData
@@ -198,11 +225,11 @@ const BayarLes = () => {
         // console.log(namaMu);
         inputNamaLengkap.value = namaMu;
         const tampilkanNamaLengkap = document.getElementById('namaKamu');
-        {
-          namaMu
-            ? (tampilkanNamaLengkap.innerText = namaMu)
-            : (tampilkanNamaLengkap.innerText = 'Loading ...');
-        }
+        tampilkanNamaLengkap.innerText = namaMu;
+
+        const tampilkanTombol = document.getElementById('tombolKirim');
+        tampilkanTombol.style.display = 'block';
+        setIsReadOnly(true);
       }
     }
   };
@@ -230,9 +257,10 @@ const BayarLes = () => {
               <input
                 name="token"
                 type="text"
+                readOnly={isReadOnly}
                 className={`w-full mb-2 ${
-                  isTokenEmpty ? 'border-red-500' : ''
-                }`}
+                  isTokenEmpty ? 'border-red-500' : 'mb-2'
+                } ${isReadOnly ? 'bg-slate-200' : ''}`}
                 placeholder="Masukkan Kodemu"
                 autoComplete="off"
                 onChange={handleChange}
@@ -252,45 +280,161 @@ const BayarLes = () => {
                   name="namalengkap"
                   id="inputNamaLengkap"
                   type="Checkbox"
+                  // checked={false}
                   onChange={handleChange}
+                  className={`${isnamalengkapEmpty ? 'border-red-500' : ''}`}
+                  onBlur={() => {
+                    if (form.namalengkap === '') {
+                      setIsnamalengkapEmpty(true);
+                    } else {
+                      setIsnamalengkapEmpty(false);
+                    }
+                  }}
                 />
 
-                <p id="namaKamu"></p>
+                <div id="namaKamu">
+                  {!namaKamu ? (
+                    <p className="text-slate-900">Namamu akan tampil disini</p>
+                  ) : (
+                    <p className="text-red-900">Your Name Invalid</p>
+                  )}
+                </div>
               </div>
+              {isnamalengkapEmpty && (
+                <p className="text-red-500 text-xs">Wajib dicentang</p>
+              )}
               <p className="text-xs text-red-900 mb-2">
                 Centang jika itu namamu
               </p>
               <input
                 name="wa"
                 type="text"
-                className="w-full mb-2"
+                className={`w-full ${iswaEmpty ? 'border-red-500' : 'mb-2'}`}
                 onChange={handleChange}
                 placeholder="isi nomor wa yang aktif"
+                onBlur={() => {
+                  if (form.wa === '') {
+                    setIswaEmpty(true);
+                  } else {
+                    setIswaEmpty(false);
+                  }
+                }}
               />
-              <input
+              {iswaEmpty && (
+                <p className="text-red-500 text-xs mb-2">Wajib diisi</p>
+              )}
+              {/* <input
                 name="bulan"
                 type="text"
-                className="w-full mb-2"
+                className="w-full mb-2 bg-slate-200"
                 onChange={handleChange}
-                placeholder="pilih bulan"
-              />
-              <input
+                // placeholder="pilih bulan"
+                value={bulanSekarang}
+                readOnly
+              /> */}
+              <select
+                className={`w-full  ${
+                  isbulanEmpty ? 'border-red-500' : 'mb-2'
+                }`}
+                name="bulan"
+                onBlur={() => {
+                  if (form.bulan === '') {
+                    setIsbulanEmpty(true);
+                  } else {
+                    setIsbulanEmpty(false);
+                  }
+                }}
+                onChange={handleChange}>
+                <option value="">Pilih Bulan</option>
+                <option value={bulanSekarang}>{bulanSekarang}</option>
+                <option value="100000">Biaya Pendaftaran</option>
+              </select>
+              {isbulanEmpty && (
+                <p className="text-red-500 text-xs mb-2">Wajib diisi</p>
+              )}
+
+              <select
+                className={`w-full  ${
+                  isjumlahEmpty ? 'border-red-500' : 'mb-2'
+                }`}
+                name="jumlah"
+                onBlur={() => {
+                  if (form.jumlah === '') {
+                    setIsjumlahEmpty(true);
+                  } else {
+                    setIsjumlahEmpty(false);
+                  }
+                }}
+                onChange={handleChange}>
+                <option value="">Pilih Nominal</option>
+                <option value="175000">Rp 175.000,-</option>
+                <option value="185000">Rp 185.000,-</option>
+                <option value="195000">Rp 195.000,-</option>
+                <option value="35000">Rp 35.000,-</option>
+                <option value="40000">Rp 40.000,-</option>
+                <option value="45000">Rp 45.000,-</option>
+                <option value="50000">Rp 50.000,-</option>
+                <option value="100000">Rp 100.000,-</option>
+                <option value="150000">Rp 150.000,-</option>
+              </select>
+              {isjumlahEmpty && (
+                <p className="text-red-500 text-xs mb-2">Wajib diisi</p>
+              )}
+              {/* <input
                 name="jumlah"
                 type="number"
                 className="w-full mb-2"
                 onChange={handleChange}
                 placeholder="jumlah pembayaran"
-              />
-              <div className="flex items-center space-x-2 mb-2">
+              /> */}
+              <div className="flex items-center space-x-2">
                 <input
                   name="timestamp"
                   type="checkbox"
                   onChange={handleChange}
+                  onBlur={() => {
+                    if (form.timestamp === '') {
+                      setIstimestampEmpty(true);
+                    } else {
+                      setIstimestampEmpty(false);
+                    }
+                  }}
                   placeholder="pilih tanggal hari ini"
                   value={timestamp}
+                  className={` ${istimestampEmpty ? 'border-red-500' : ''}`}
                 />
-                <p className="text-xs text-red-900">Centang jika sudah yakin</p>
+
+                <p className="text-xs text-red-900 mb-2">
+                  Centang jika nominal sudah benar
+                </p>
               </div>
+              {istimestampEmpty && (
+                <p className="text-red-500 text-xs mb-2">Wajib dicentang</p>
+              )}
+              <select
+                className="w-full mb-2"
+                name="kalipembayaran"
+                onChange={handleChange}>
+                <option value="">Pilih Jumlah Pembayaran</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+              </select>
+
+              <textarea
+                className="w-full"
+                placeholder="Tulis Jika Ada Pesan ke Admin"
+                name="pesan"
+                onChange={handleChange}></textarea>
             </div>
 
             {/* <button
@@ -306,9 +450,10 @@ const BayarLes = () => {
               <Loader /> // tampilkan komponen loader jika proses append sedang berlangsung
             ) : (
               <button
+                id="tombolKirim"
                 disabled={isButtonDisabled}
                 type="submit"
-                className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                className="hidden w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Bayar Sekarang
               </button>
             )}

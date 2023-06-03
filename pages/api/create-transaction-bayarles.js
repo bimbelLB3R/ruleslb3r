@@ -4,6 +4,16 @@ export default async function handler(req, res) {
   const newRow = req.body;
   console.log(newRow);
   const biayaInt = parseInt(newRow.jumlah);
+  const kalipembayaran = newRow.kalipembayaran;
+  console.log(kalipembayaran);
+
+  let totalDibayar;
+  if (kalipembayaran && kalipembayaran !== 0) {
+    totalDibayar = biayaInt * kalipembayaran;
+  } else {
+    totalDibayar = biayaInt;
+  }
+  console.log(totalDibayar);
   // const first_name = dataFromDaftarLayanan.nama;
   // menyimpan data dataFromDaftarLayanan ke local storage
 
@@ -23,7 +33,7 @@ export default async function handler(req, res) {
   const requestBody = {
     transaction_details: {
       order_id: `LB3R_${timestamp}`,
-      gross_amount: biayaInt,
+      gross_amount: totalDibayar,
     },
     credit_card: {
       secure: true,
@@ -31,19 +41,20 @@ export default async function handler(req, res) {
     item_details: [
       {
         id: newRow.idProgram,
-        price: biayaInt,
+        price: totalDibayar,
         quantity: 1,
         name: `Pembayaran Les ${newRow.bulan}`,
       },
     ],
     customer_details: {
       first_name: newRow.namalengkap,
-
+      last_name: 'LB3R',
+      email: 'bimbellb3r@gmail.com',
       phone: newRow.wa,
       billing_address: {
         first_name: newRow.namalengkap,
         last_name: 'LB3R',
-
+        email: 'bimbellb3r@gmail.com',
         phone: newRow.wa,
         address: 'Tabalong',
         city: 'Tabalong',
@@ -53,7 +64,7 @@ export default async function handler(req, res) {
       shipping_address: {
         first_name: newRow.namalengkap,
         last_name: 'LB3R',
-
+        email: 'bimbellb3r@gmail.com',
         phone: newRow.wa,
         address: 'Tabalong',
         city: 'Tabalong',
