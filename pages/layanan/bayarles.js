@@ -175,12 +175,12 @@ const BayarLes = () => {
         e.target.reset();
         setIsButtonDisabled(false);
 
-        Swal.fire({
-          title: 'Pembayaran Berhasil',
-          text: 'Datamu Sudah Terkirim, Lanjut Pembayaran Ya',
-          icon: 'success',
-          confirmButtonText: 'ok',
-        });
+        // Swal.fire({
+        //   title: 'Pembayaran Berhasil',
+        //   text: 'Datamu Sudah Terkirim, Lanjut Pembayaran Ya',
+        //   icon: 'success',
+        //   confirmButtonText: 'ok',
+        // });
         router.push(transactionRedirectUrl);
       } else {
         Swal.fire({
