@@ -129,7 +129,15 @@ const BayarLes = () => {
   const submitForm = async (e, sheet) => {
     e.preventDefault();
 
-    if (form.token !== '' && form.namalengkap !== '') {
+    if (
+      form.token !== '' &&
+      form.namalengkap !== '' &&
+      form.wa !== '' &&
+      form.bulan !== '' &&
+      form.jumlah !== '' &&
+      form.timestamp !== '' &&
+      form.kalipembayaran !== ''
+    ) {
       setIsButtonDisabled(true);
       const canSubmit = await checkToken(form.token, sheet);
 
