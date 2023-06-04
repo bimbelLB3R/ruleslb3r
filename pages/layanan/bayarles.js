@@ -7,6 +7,8 @@ import Head from 'next/head';
 import axios from 'axios';
 import Layout from '../../components/Layout';
 import Navbar from '../../components/Navbar';
+import { format } from 'date-fns';
+import { id } from 'date-fns/locale';
 
 // mengubah mata uang
 function formatCurrency(amount) {
@@ -31,9 +33,7 @@ const BayarLes = () => {
   const [isReadOnly, setIsReadOnly] = useState(false);
 
   const tanggalSekarang = new Date();
-  const bulanSekarang = tanggalSekarang.toLocaleString('default', {
-    month: 'long',
-  });
+  const bulanSekarang = format(tanggalSekarang, 'MMMM', { locale: id });
 
   const [namaKamu, setNamaKamu] = useState(false);
   //   const timestamp = new Date().toISOString();
@@ -248,11 +248,13 @@ const BayarLes = () => {
         />
       </Head>
       <Layout>
-        <div className="flex justify-center items-center min-h-screen bg-slate-100 text-gray-900">
+        <div className="flex justify-center items-center  bg-slate-100 text-gray-900">
           <form
-            className="space-y-3 w-full max-w-lg mx-auto p-5"
+            className="space-y-3 w-full max-w-lg mx-auto p-5 mt-20"
             onSubmit={submitForm}>
-            <p className="font-semibold text-2xl text-center">Lengkapi Data</p>
+            <p className="font-semibold text-2xl text-center w-full bg-slate-500 p-2 text-slate-100">
+              Lengkapi Data
+            </p>
             <div>
               <input
                 name="token"
@@ -454,7 +456,7 @@ const BayarLes = () => {
                 disabled={isButtonDisabled}
                 type="submit"
                 className="hidden w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Bayar Sekarang
+                <p className="text-lg">Lanjutkan</p>
               </button>
             )}
           </form>

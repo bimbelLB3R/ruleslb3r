@@ -200,11 +200,13 @@ const DaftarLayanan = ({ detailProgram }) => {
         />
       </Head>
       <Layout>
-        <div className="flex justify-center items-center min-h-screen bg-slate-100 text-gray-900">
+        <div className="flex justify-center items-center bg-slate-100 text-gray-900 mt-20">
           <form
             className="space-y-3 w-full max-w-lg mx-auto p-5"
             onSubmit={submitForm}>
-            <p className="font-semibold text-2xl text-center">Lengkapi Data</p>
+            <p className="font-semibold text-2xl text-center w-full bg-slate-500 p-2 text-slate-100">
+              Lengkapi Data
+            </p>
             <div>
               <input
                 name="nama"
@@ -270,7 +272,7 @@ const DaftarLayanan = ({ detailProgram }) => {
             <div>
               <input
                 name="wa"
-                type="text"
+                type="number"
                 className={`w-full ${isWaEmpty ? 'border-red-500' : ''}`}
                 placeholder="wa"
                 autoComplete="off"
@@ -305,7 +307,9 @@ const DaftarLayanan = ({ detailProgram }) => {
                 <p className="text-red-500 text-xs">Wajib diisi</p>
               )}
             </div>
-            <p>CENTANG PILIHAN PROGRAM DAN BIAYA</p>
+            <p className="w-full bg-slate-500 p-2 text-slate-100">
+              CENTANG PILIHAN PROGRAM DAN BIAYA
+            </p>
             <div className="flex items-center space-x-2">
               <input
                 name="program"
@@ -349,7 +353,7 @@ const DaftarLayanan = ({ detailProgram }) => {
                 disabled={isButtonDisabled}
                 type="submit"
                 className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Daftar dan Bayar Sekarang
+                <p className="text-lg">Lanjutkan</p>
               </button>
             )}
           </form>
