@@ -63,6 +63,7 @@ const BayarLes = () => {
   const [isbulanEmpty, setIsbulanEmpty] = useState(false);
   const [isjumlahEmpty, setIsjumlahEmpty] = useState(false);
   const [istimestampEmpty, setIstimestampEmpty] = useState(false);
+  const [iskalipembayaranEmpty, setIskalipembayaranEmpty] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
 
   // const [isLoading, setIsLoading] = useState(false);
@@ -206,6 +207,7 @@ const BayarLes = () => {
       setIsjumlahEmpty(form.jumlah === '');
       setIsbulanEmpty(form.bulan === '');
       setIstimestampEmpty(form.timestamp === '');
+      setIskalipembayaranEmpty(form.timestamp === '');
     }
   };
 
@@ -424,7 +426,14 @@ const BayarLes = () => {
               <select
                 className="w-full mb-2"
                 name="kalipembayaran"
-                onChange={handleChange}>
+                onChange={handleChange}
+                onBlur={() => {
+                  if (form.kalipembayaran === '') {
+                    setIskalipembayaranEmpty(true);
+                  } else {
+                    setIskalipembayaranEmpty(false);
+                  }
+                }}>
                 <option value="">Pilih Jumlah Pembayaran</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -439,6 +448,9 @@ const BayarLes = () => {
                 <option value="15">15</option>
                 <option value="20">20</option>
               </select>
+              {iskalipembayaranEmpty && (
+                <p className="text-red-500 text-xs mb-2">Wajib dipilih</p>
+              )}
 
               <textarea
                 className="w-full"

@@ -27,6 +27,7 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 const DaftarLayanan = ({ detailProgram }) => {
+  const [showButton, setShowButton] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   const [isNamaEmpty, setIsNamaEmpty] = useState(false);
@@ -111,6 +112,7 @@ const DaftarLayanan = ({ detailProgram }) => {
       form.biaya !== ''
     ) {
       setIsButtonDisabled(true);
+
       const canSubmit = await checkName(form.nama, sheet);
 
       if (canSubmit) {
@@ -154,12 +156,12 @@ const DaftarLayanan = ({ detailProgram }) => {
         e.target.reset();
         setIsButtonDisabled(false);
 
-        Swal.fire({
-          title: 'Pendaftaran Berhasil',
-          text: 'Datamu Sudah Terkirim, Lanjut Pembayaran Ya',
-          icon: 'success',
-          confirmButtonText: 'ok',
-        });
+        // Swal.fire({
+        //   title: 'Pendaftaran Berhasil',
+        //   text: 'Datamu Sudah Terkirim, Lanjut Pembayaran Ya',
+        //   icon: 'success',
+        //   confirmButtonText: 'ok',
+        // });
         router.push(transactionRedirectUrl);
       } else {
         Swal.fire({
@@ -184,6 +186,17 @@ const DaftarLayanan = ({ detailProgram }) => {
       ...form,
       [e.target.name]: e.target.value,
     });
+
+    // memeriksa apakah semua form telah terisi
+    if (
+      form.nama !== '' &&
+      form.kelas !== '' &&
+      form.asalsekolah !== '' &&
+      form.wa !== '' &&
+      form.email !== ''
+    ) {
+      setShowButton(true); // menampilkan tombol
+    }
   };
 
   return (
@@ -285,7 +298,9 @@ const DaftarLayanan = ({ detailProgram }) => {
                   }
                 }}
               />
-              {isWaEmpty && <p className="text-red-500 text-xs">Wajib diisi</p>}
+              {isWaEmpty && (
+                <p className="text-red-500 text-xs">Wajib diisi angka</p>
+              )}
             </div>
             <div>
               <input
@@ -317,7 +332,7 @@ const DaftarLayanan = ({ detailProgram }) => {
                 className=""
                 placeholder="program"
                 onChange={handleChange}
-                readOnly
+                // readOnly
                 value={inputValueProgramName}
               />
               <p>{inputValueProgramName}</p>
@@ -329,7 +344,7 @@ const DaftarLayanan = ({ detailProgram }) => {
                 className=""
                 placeholder="biaya"
                 onChange={handleChange}
-                readOnly
+                // readOnly
                 value={inputValueProgramPrice}
               />
               <p>
@@ -349,12 +364,15 @@ const DaftarLayanan = ({ detailProgram }) => {
             {isButtonDisabled ? (
               <Loader /> // tampilkan komponen loader jika proses append sedang berlangsung
             ) : (
-              <button
-                disabled={isButtonDisabled}
-                type="submit"
-                className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                <p className="text-lg">Lanjutkan</p>
-              </button>
+              showButton && (
+                <button
+                  disabled={isButtonDisabled}
+                  id="tombolKirim"
+                  type="submit"
+                  className=" w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  <p className="text-lg">Lanjutkan</p>
+                </button>
+              )
             )}
           </form>
         </div>
