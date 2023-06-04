@@ -168,7 +168,8 @@ const BayarLes = () => {
             // console.log('transactionToken:', transactionToken);
             // console.log('redirectUrl:', transactionRedirectUrl);
 
-            return transactionToken, transactionRedirectUrl;
+            return transactionToken;
+            //jangan return directUrl krn token: transactionToken bisa terisi url tsb. solusinya kembalikan token, ubah router push linknya
           } catch (error) {
             console.error('Failed to create transaction:', error);
             return null;
@@ -178,6 +179,27 @@ const BayarLes = () => {
         const transactionRedirectUrl = await createTransaction(newRow);
         console.log(transactionToken); //token berhasil
         console.log(transactionRedirectUrl); //token berhasil
+
+        // Get Info dari token yang diperoleh
+        const token = { token: transactionToken }; //bener
+        const getInfoTransaksi = async (token) => {
+          try {
+            const response = await axios.post('/api/verify-payment', token);
+            const transactionQris = response.data;
+            // const fraudStatus = response.data.fraud_status;
+            // return transactionStatus, fraudStatus;
+
+            console.log(transactionQris);
+          } catch (error) {
+            console.error('Failed to get info:', error);
+            return null;
+          }
+        };
+        getInfoTransaksi(token);
+        // const transactionQris = await getInfoTransaksi(token);
+        // const fraudStatus = await getInfoTransaksi(token);
+        // // console.log(fraudStatus);
+        // console.log(transactionQris);
 
         // setIsLoading(true); // set status loading menjadi true, kirim ke drive
         await appendSpreadsheet(newRow);
@@ -190,7 +212,9 @@ const BayarLes = () => {
         //   icon: 'success',
         //   confirmButtonText: 'ok',
         // });
-        router.push(transactionRedirectUrl);
+        router.push(
+          `https://app.midtrans.com/snap/v3/redirection/${transactionToken}`
+        );
       } else {
         Swal.fire({
           title: `kode ${form.token} tidak valid,hubungi admin.`,

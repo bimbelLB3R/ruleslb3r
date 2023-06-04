@@ -1,30 +1,32 @@
-// pages/api/verify-payment.js
-import { Midtrans } from 'midtrans-client';
+import axios from 'axios';
 
 export default async function handler(req, res) {
-  // Inisialisasi klien Midtrans
-  const midtransClient = new Midtrans({
-    serverKey: 'Mid-server-zzOiNRXtsXKskJUV-kAyWdD1',
-    clientKey: 'Mid-client-NnLlPtWqf2pNNl9s',
-    isProduction: false, // Ganti dengan true jika sudah di production
-  });
+  const tokenKiriman = req.body;
+  const token = tokenKiriman.token;
+  console.log(token); //bener
 
-  // Mendapatkan informasi status pembayaran dari Midtrans
-  const transactionId = req.body.transaction_id;
+  const snapApiUrl = 'https://app.midtrans.com/snap/v1/transactions';
+  const snapServerKey = 'Mid-server-zzOiNRXtsXKskJUV-kAyWdD1';
+  const transactionInfoUrl = `https://app.midtrans.com/snap/v1/transactions/${token}`;
+  console.log(transactionInfoUrl); //bener
+
+  // Set request headers
+  const headers = {
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+    Authorization: `Basic ${Buffer.from(snapServerKey).toString('base64')}`,
+  };
 
   try {
-    const statusResponse = await midtransClient.transaction.status(
-      transactionId
-    );
-    const { transaction_status, fraud_status } = statusResponse;
+    const response = await axios.get(transactionInfoUrl, { headers });
+    const transactionQris = response.data;
+    console.log('transactionQris:', transactionQris);
 
-    // Mengupdate status pembayaran di sisi server Anda sesuai kebutuhan
-    // ...
-
-    // Memberikan respon sukses ke Midtrans
-    res.status(200).json({ status: 'OK' });
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).json({ transactionQris });
   } catch (error) {
-    console.error('Failed to verify payment:', error);
-    res.status(500).json({ error: 'Failed to verify payment' });
+    console.log('Error occurred:', error.message);
+    res.setHeader('Content-Type', 'application/json');
+    res.status(500).json({ error: 'Failed to create transaction' });
   }
 }

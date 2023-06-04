@@ -36,6 +36,7 @@ export default async function handler(req, res) {
   // Prepare request body
   // satu order_id hanya untuk satu kali request
   const requestBody = {
+    payment_type: 'qris', //sy tambahkan ini, moga dapat url qris
     transaction_details: {
       order_id: `LB3R_${timestamp}`,
       gross_amount: totalDibayar, //quantity x price
@@ -43,6 +44,23 @@ export default async function handler(req, res) {
     credit_card: {
       secure: true,
     },
+    // menambahkan metode qris gopay
+    // qris: {
+    //   acquirer: 'gopay',
+    // },
+
+    // shopeepay tdk bisa hrs unggah dokumen dl
+    // enabled_payments: ['shopeepay'],
+    // shopeepay: {
+    //   callback_url: `http://shopeepay.com?order_id=LB3R_${timestamp}`,
+    // },
+
+    // gopay, berhasil
+    enabled_payments: ['gopay'],
+    gopay: {
+      callback_url: 'http://gopay.com',
+    },
+
     item_details: [
       {
         id: newRow.idProgram,
@@ -94,6 +112,9 @@ export default async function handler(req, res) {
     // transaction redirect url
     const transactionRedirectUrl = response.data.redirect_url;
     console.log('transactionRedirectUrl:', transactionRedirectUrl);
+
+    // const qrisUrl = response.data.qris_url;
+    // console.log('qrisUrl:', qrisUrl);
 
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json({ transactionToken, transactionRedirectUrl });
