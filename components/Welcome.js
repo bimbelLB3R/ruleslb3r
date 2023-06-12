@@ -9,8 +9,8 @@ const Welcome = () => {
         didirikan sejak tahun 2012. Bimbel LB3R berpengalaman dalam mendampingi
         kebutuhan belajar anak mulai jenjang SD/MI, SMP/Mts, SMA/MA/SMK hingga
         Alumni. Keunggulan Bimbel LB3R diantaranya sistem pembayaran yang mudah
-        dan fleksibilitas pembuatan kelas. Selain itu, sistem pembelajaran di
-        Bimbel LB3R menyesuaikan dengan kebutuhan anak.
+        dan fleksibilitas pembuatan kelas kelas. Selain itu, sistem pembelajaran
+        di Bimbel LB3R menyesuaikan dengan kebutuhan anak.
       </p>
     </div>
   );
