@@ -1,14 +1,14 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRef, useState, useEffect } from 'react';
-import Footer from './Footer';
-import DropdownMenu from './DropdownMenu';
-import TombolInOut from './TombolInOut';
-import TombolCari from './TombolCari';
-import DropdownMenuSNBT from './DropdownMenuSNBT';
-import DropdownMenuLayanan from './DropdownMenuLayanan';
+import Image from "next/image";
+import Link from "next/link";
+import { useRef, useState, useEffect, forwardRef } from "react";
+import Footer from "./Footer";
+import DropdownMenu from "./DropdownMenu";
+import TombolInOut from "./TombolInOut";
+import TombolCari from "./TombolCari";
+import DropdownMenuSNBT from "./DropdownMenuSNBT";
+import DropdownMenuLayanan from "./DropdownMenuLayanan";
 
-export default function Navbar() {
+const Navbar = forwardRef((props, ref) => {
   // Controling scroll efect
   // useEffect(() => {
   //   const handleScroll = () => {
@@ -35,9 +35,9 @@ export default function Navbar() {
         setIsMenuOpen(false);
       }
     }
-    document.addEventListener('click', handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, [menuRef]);
   return (
@@ -75,7 +75,8 @@ export default function Navbar() {
         </div>
         <div
           id="nav"
-          className="flex justify-between bg-slate-100 p-3 md:hidden fixed  top-0 z-40 w-full shadow shadow-slate-400">
+          className="flex justify-between bg-slate-100 p-3 md:hidden fixed  top-0 z-40 w-full shadow shadow-slate-400"
+        >
           <div className="flex items-center space-x-2">
             <Link href="/">
               <Image
@@ -95,14 +96,16 @@ export default function Navbar() {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               ref={menuRef}
-              className="text-orange-400 ">
+              className="text-orange-400 "
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="36"
                 height="36"
                 fill="currentColor"
                 className="bi bi-text-left"
-                viewBox="0 0 16 16">
+                viewBox="0 0 16 16"
+              >
                 <path
                   fillRule="evenodd"
                   d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
@@ -116,8 +119,9 @@ export default function Navbar() {
             className={`${
               isMenuOpen
                 ? 'block fixed top-5 z-30 mt-10 md:relative w-full bg-slate-100 md:hidden h-screen shadow shadow-slate-300"'
-                : 'hidden  bg-slate-100  uppercase font-semibold text-slate-600'
-            }`}>
+                : "hidden  bg-slate-100  uppercase font-semibold text-slate-600"
+            }`}
+          >
             {/* button */}
             <div className="flex justify-center md:hidden ">
               <div className="w-full p-6">
@@ -185,4 +189,5 @@ export default function Navbar() {
       </nav>
     </>
   );
-}
+});
+export default Navbar;
