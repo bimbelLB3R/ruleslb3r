@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import Swal from 'sweetalert2';
 import Loader from '../../components/Loader';
@@ -85,7 +85,7 @@ const BayarLes = () => {
   const [isjumlahEmpty, setIsjumlahEmpty] = useState(false);
   const [istimestampEmpty, setIstimestampEmpty] = useState(false);
   const [iskalipembayaranEmpty, setIskalipembayaranEmpty] = useState(false);
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(true);
 
   // const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
@@ -178,37 +178,28 @@ const BayarLes = () => {
         // 2.Request token ke end poin mid trans
         // 3.Handle submit ke sheet dan membuat tombol bayar
 
-        // const createTransaction = async (newRow) => {
-        //   try {
-        //     const response = await axios.post(
-        //       '/api/create-transaction-bayarles',
-        //       newRow
-        //     );
-        //     const transactionToken = response.data.transactionToken;
-        //     const transactionRedirectUrl = response.data.transactionRedirectUrl;
-        //     // console.log('transactionToken:', transactionToken);
-        //     // console.log('redirectUrl:', transactionRedirectUrl);
+        const createTransaction = async (newRow) => {
+          try {
+            const response = await axios.post(
+              '/api/create-transaction-bayarles',
+              newRow
+            );
+            const transactionToken = response.data.transactionToken;
+            const transactionRedirectUrl = response.data.transactionRedirectUrl;
+            // console.log('transactionToken:', transactionToken);
+            // console.log('redirectUrl:', transactionRedirectUrl);
 
-        //     return transactionToken;
-        //     //jangan return directUrl krn token: transactionToken bisa terisi url tsb. solusinya kembalikan token, ubah router push linknya
-        //   } catch (error) {
-        //     console.error('Failed to create transaction:', error);
-        //     return null;
-        //   }
-        // };
-        // const transactionToken = await createTransaction(newRow);
-        // const transactionRedirectUrl = await createTransaction(newRow);
-        // console.log(transactionToken); //token berhasil
-        // console.log(transactionRedirectUrl); //token berhasil
-
-        // Get Info dari token yang diperoleh diganti menggunakan newRow
-        // const token = { token: transactionToken }; //bener
-        // const getInfoTransaksi = async (token) => {
-        //   try {
-        //     const response = await axios.post('/api/verify-payment', token);
-        //     const transactionQris = response.data.result;
-        //     // const fraudStatus = response.data.fraud_status;
-        //     // return transactionStatus, fraudStatus;
+            return transactionToken;
+            //jangan return directUrl krn token: transactionToken bisa terisi url tsb. solusinya kembalikan token, ubah router push linknya
+          } catch (error) {
+            console.error('Failed to create transaction:', error);
+            return null;
+          }
+        };
+        const transactionToken = await createTransaction(newRow);
+        const transactionRedirectUrl = await createTransaction(newRow);
+        console.log(transactionToken); //token berhasil
+        console.log(transactionRedirectUrl); //token berhasil
 
         //     console.log(transactionQris);
         //   } catch (error) {
@@ -219,12 +210,14 @@ const BayarLes = () => {
         // getInfoTransaksi(token);
         const gopayTransaction = async (newRow) => {
           try {
-            const response = await axios.post('/api/verify-payment', newRow);
-            const transactionQrisUrl = response.data.transactionQrisUrl;
+            const response = await axios.post('/api/verify-payment', token);
+            const transactionQris = response.data;
+            // const fraudStatus = response.data.fraud_status;
+            // return transactionStatus, fraudStatus;
 
             return transactionQrisUrl;
           } catch (error) {
-            console.error('Failed to getqris_url:', error);
+            console.error('Failed to get info:', error);
             return null;
           }
         };
@@ -306,6 +299,7 @@ const BayarLes = () => {
         const tampilkanTombol = document.getElementById('tombolKirim');
         tampilkanTombol.style.display = 'block';
         setIsReadOnly(true);
+        setIsChecked(false);
       }
     }
   };
@@ -336,6 +330,7 @@ const BayarLes = () => {
                 name="token"
                 type="text"
                 readOnly={isReadOnly}
+                autoFocus
                 className={`w-full mb-2 ${
                   isTokenEmpty ? 'border-red-500' : 'mb-2'
                 } ${isReadOnly ? 'bg-slate-200' : ''}`}
@@ -358,9 +353,12 @@ const BayarLes = () => {
                   name="namalengkap"
                   id="inputNamaLengkap"
                   type="Checkbox"
+                  disabled={isChecked}
                   // checked={false}
                   onChange={handleChange}
-                  className={`${isnamalengkapEmpty ? 'border-red-500' : ''}`}
+                  className={`${
+                    isnamalengkapEmpty ? 'border-red-500' : 'animate-pulse'
+                  }`}
                   onBlur={() => {
                     if (form.namalengkap === '') {
                       setIsnamalengkapEmpty(true);
@@ -470,6 +468,7 @@ const BayarLes = () => {
                   name="timestamp"
                   type="checkbox"
                   onChange={handleChange}
+                  disabled={isChecked}
                   onBlur={() => {
                     if (form.timestamp === '') {
                       setIstimestampEmpty(true);
