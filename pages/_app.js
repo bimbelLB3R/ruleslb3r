@@ -1,8 +1,6 @@
-import "../styles/globals.css";
-import "../styles/prism.css";
-// import "../styles/prism";
+import '../styles/globals.css';
 // import { Montserrat } from 'next/font/google';
-import { SessionProvider } from "next-auth/react";
+import { SessionProvider } from 'next-auth/react';
 
 // const montserrat = Montserrat({
 //   subsets: ['latin'],

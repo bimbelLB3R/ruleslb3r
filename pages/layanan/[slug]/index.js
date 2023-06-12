@@ -1,5 +1,5 @@
-import DaftarLayanan from "../../../components/DaftarLayanan";
-import { getProgramsData } from "../../../utils/layananApi";
+import DaftarLayanan from '../../../components/DaftarLayanan';
+import { getProgramsData } from '../../../utils/layananApi';
 
 export default function detailProgramDiambil({ detailProgram }) {
   return (

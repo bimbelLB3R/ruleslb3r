@@ -1,25 +1,21 @@
-import Layout from "../../../components/Layout";
-import { getBlogsData } from "../../../utils/blogsApi";
-import Navbar from "../../../components/Navbar";
-import Link from "next/link";
-import Image from "next/image";
+import Layout from '../../../components/Layout';
+import { getBlogsData } from '../../../utils/blogsApi';
+import Navbar from '../../../components/Navbar';
+import Link from 'next/link';
+import Image from 'next/image';
 // import TombolInOut from '../../../components/TombolInOut';
 
-import { formatDistanceToNow } from "date-fns";
-import { id } from "date-fns/locale";
-import Head from "next/head";
-import Sharebutton from "../../../components/Sharebutton";
-import { useEffect, useState } from "react";
-import IklanKonten from "../../../components/IklanKonten";
-import React from "react";
-import ArtikelTerkait from "../../../components/ArtikelTerkait";
-import MetaForBlog from "../../../components/MetaForBlog";
-import TombolInOut from "../../../components/TombolInOut";
-import CommentForm from "../../../components/CommentForm";
-// import "../prism";
-import Prism from "prismjs";
-import "prismjs/components/prism-javascript";
-
+import { formatDistanceToNow } from 'date-fns';
+import { id } from 'date-fns/locale';
+import Head from 'next/head';
+import Sharebutton from '../../../components/Sharebutton';
+import { useEffect, useState } from 'react';
+import IklanKonten from '../../../components/IklanKonten';
+import React from 'react';
+import ArtikelTerkait from '../../../components/ArtikelTerkait';
+import MetaForBlog from '../../../components/MetaForBlog';
+import TombolInOut from '../../../components/TombolInOut';
+import CommentForm from '../../../components/CommentForm';
 // async function getData() {
 //   const res = await fetch(`http://localhost:3000/api/blogs`);
 
@@ -31,25 +27,21 @@ import "prismjs/components/prism-javascript";
 // }
 
 export default function PostDetail({ detailPost, allPost }) {
-  useEffect(() => {
-    Prism.highlightAll();
-  }, []);
-
   const [showComponent, setShowComponent] = useState(false);
   // agar tanggal publikasi konten terindeks google
   const schema = {
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
+    '@context': 'http://schema.org',
+    '@type': 'BlogPosting',
     mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://bimbellb3r.com/${detailPost.slug}`,
+      '@type': 'WebPage',
+      '@id': `https://bimbellb3r.com/${detailPost.slug}`,
     },
     headline: detailPost.title,
     datePublished: detailPost.createdAt,
     dateModified: detailPost.updatedAt,
     author: {
-      "@type": "Person",
-      name: "Wahyudi",
+      '@type': 'Person',
+      name: 'Wahyudi',
     },
   };
   // Controling scroll efect
@@ -63,9 +55,9 @@ export default function PostDetail({ detailPost, allPost }) {
         setShowComponent(false);
       }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
   // membuat waktu
@@ -85,20 +77,19 @@ export default function PostDetail({ detailPost, allPost }) {
         <div
           className={
             showComponent
-              ? "visible  md:top-10 p-5 md:p-0 md:bg-inherit z-20 md:z-50  fixed top-[60px] justify-center bg-slate-200 w-full m-auto flex"
-              : "hidden"
-          }
-        >
+              ? 'visible  md:top-10 p-5 md:p-0 md:bg-inherit z-20 md:z-50  fixed top-[60px] justify-center bg-slate-200 w-full m-auto flex'
+              : 'hidden'
+          }>
           <Sharebutton />
         </div>
-        <div className="p-1 md:p-4  mt-5 md:max-w-2xl md:flex md:justify-center md:m-auto md:mt-0">
+        <div className="p-4  mt-5 md:max-w-2xl md:flex md:justify-center md:m-auto md:mt-0">
           <div>
             <div>
-              <div className="flex mb-10 font-bold mt-10 md:mt-20">
+              <div className="flex mb-10 font-bold mt-10 md:mt-10">
                 <Link href="/blogs">
                   <p className="text-orange-600 hover:underline">Blogs </p>
                 </Link>
-                {" > "}
+                {' > '}
                 <Link href={`/tag/${detailPost.tags}`}>
                   <p>{detailPost.tags}</p>
                 </Link>
@@ -111,11 +102,11 @@ export default function PostDetail({ detailPost, allPost }) {
             </div>
             <div className="flex justify-center">
               <div>
-                <h1 className="font-bold text-[36px] text-blue-900 leading-none font-roboto text-center">
+                <h1 className="font-bold text-[36px] text-blue-900 leading-none">
                   {detailPost.title}
                 </h1>
                 <p className="text-xs text-gray-600 text-center">
-                  {detailPost.createdAt}{" "}
+                  {detailPost.createdAt}{' '}
                   <Link href="/blogs">
                     <span className="underline">oleh {detailPost.writer}</span>
                   </Link>
@@ -132,9 +123,9 @@ export default function PostDetail({ detailPost, allPost }) {
               />
             </div>
             <div>
-              <div className={`font-roboto text-lg ${detailPost.bahasa}`}>
+              <div>
                 {detailPost.body.map((element, index) => {
-                  if (typeof element === "string") {
+                  if (typeof element === 'string') {
                     return (
                       <div
                         key={index}
@@ -142,8 +133,8 @@ export default function PostDetail({ detailPost, allPost }) {
                       />
                     );
                   } else if (
-                    typeof element === "object" &&
-                    element.type === "IklanKonten"
+                    typeof element === 'object' &&
+                    element.type === 'IklanKonten'
                   ) {
                     return <IklanKonten key={index} />;
                   } else {

@@ -11,13 +11,9 @@
 // next.config.js
 require('dotenv').config();
 module.exports = {
-  // konfigurasi images untuk mengambil foto user google dan foto lain dr domain diluar
+  // konfigurasi images untuk mengambil foto user google
   images: {
-    domains: [
-      'lh3.googleusercontent.com',
-      'https://api.midtrans.com',
-      'api.sandbox.midtrans.com',
-    ],
+    domains: ['lh3.googleusercontent.com'],
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {

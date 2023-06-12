@@ -5,7 +5,6 @@
       "title": "Don't Judge By It's Cover Don't Judge By It's Cover",
       "description": "Ini adalah deskripsi",
       "slug": "Don't-Judge-By-It's-Cover",
-      "bahasa": "language-js",
       "body": [
         "<p ><span style='color: #ea580c; font-weight: bold; text-indent:32px'>Tanjung </span>- Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.</p>",
 
@@ -29,7 +28,6 @@
       "title": "Don't Judge By It's Cover",
       "description": "Ini adalah deskripsi",
       "slug": "Don't-Judge-By-It's-Cover",
-      "bahasa": "language-js",
       "body": [
         "<p ><span style='color: #ea580c; font-weight: bold; text-indent:32px'>Tanjung </span>- Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.</p>",
 
@@ -50,24 +48,17 @@
     },
     {
       "id": 1,
-      "title": "Highlight Code Using Prismjs - Nextjs Series",
-      "description": "Exlain how to apply prismjs to nextjs project",
-      "slug": "Highlight-Code-Using-Prismjs",
-      "bahasa": "language-js",
+      "title": "Believe in Yourself",
+      "description": "Ini adalah deskripsi",
+      "slug": "Believe-in-Yourself",
       "body": [
-        "<p style='margin-bottom:10px; text-indent:32px'><span style='color: #ea580c; font-weight: bold;'>Tanjung </span>-If you are a beginner, don't worry , me to. So let's learn together. First, install primsjs via npm below </p>",
+        "<p style='margin-bottom:10px; text-indent:32px'><span style='color: #ea580c; font-weight: bold;'>Tanjung </span>-Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. </p>",
 
-        "<pre ><code>npm install prismjs</code></pre>",
+        "<code style='margin-bottom:10px; text-indent:32px'>Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.| </code>",
 
-        "<p style='margin-bottom:10px; text-indent:32px'>Second, we download prism.css from the web. You can customize language and the display of theme. Because my roject is nextjs, i store prism.css in public-styles. Then we import it to _app.js </p>",
+        "<p style='margin-bottom:10px; text-indent:32px'>Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner |.Believe in yourself and all that you are. </p>",
 
-        "<pre ><code>import '../styles/prism.css';</code></pre>",
-
-        "<p style='margin-bottom:10px; text-indent:32px'>And the next step, we import prismjs in your page</p>",
-        "<pre ><code>import Prism from 'prismjs';\nimport 'prismjs/components/prism-javascript';</code></pre>",
-        "<p style='margin-bottom:10px; text-indent:32px'>then put useeffect inside your component</p>",
-        "<pre ><code>useEffect(() => {\n Prism.highlightAll();\n}, []);</code></pre>",
-        "<p style='margin-bottom:10px; text-indent:32px'>the last step, put className='languange-js' inside your div contain text you will highlight</p>"
+        "<p style='margin-bottom:10px; text-indent:32px'>Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner. | Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless. Sometime, people under estimate you, but they don't know what you want. You have a power to grow up, become the winner.</p>"
       ],
       "ogImageName": "testOg.png",
       "writer": "Wahyudi",
@@ -80,7 +71,6 @@
       "title": "Embrace Change",
       "description": "Ini adalah deskripsi",
       "slug": "Embrace-Change",
-      "bahasa": "language-js",
       "body": [
         "Change can be scary, but it can also be the start of something wonderful. Embrace the unknown and let it lead you to new opportunities."
       ],
@@ -95,7 +85,6 @@
       "title": "Dream Big",
       "description": "Ini adalah deskripsi",
       "slug": "Dream-Big",
-      "bahasa": "language-js",
       "body": [
         "Don't be afraid to dream big. Your dreams have the power to shape your reality. Set audacious goals and work towards making them a reality."
       ],

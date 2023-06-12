@@ -30,27 +30,6 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 const BayarLes = () => {
-  // const [qrisUrl, setQrisUrl] = useState('');
-  // console.log(qrisUrl);
-  // // mencoba akses endpoin midtrans dengn useeffect, blm berhasil dan not recomended krn hrs req body
-  // useEffect(() => {
-  //   // Panggil API atau sumber data lainnya untuk mendapatkan JSON
-  //   const fetchQrisUrl = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         `https://app.midtrans.com/snap/v1/transactions/${transactionToken}`
-  //       ); // Ganti 'API_ENDPOINT' dengan URL endpoint yang sesuai
-  //       const data = await response.json();
-  //       const qrisUrl = data.result.qris_url;
-  //       setQrisUrl(qrisUrl);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-
-  //   fetchQrisUrl();
-  // }, []);
-
   const [isReadOnly, setIsReadOnly] = useState(false);
 
   const tanggalSekarang = new Date();
@@ -85,7 +64,7 @@ const BayarLes = () => {
   const [isjumlahEmpty, setIsjumlahEmpty] = useState(false);
   const [istimestampEmpty, setIstimestampEmpty] = useState(false);
   const [iskalipembayaranEmpty, setIskalipembayaranEmpty] = useState(false);
-  const [isChecked, setIsChecked] = useState(true);
+  const [isChecked, setIsChecked] = useState(false);
 
   // const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
@@ -201,54 +180,40 @@ const BayarLes = () => {
         console.log(transactionToken); //token berhasil
         console.log(transactionRedirectUrl); //token berhasil
 
-        //     console.log(transactionQris);
-        //   } catch (error) {
-        //     console.error('Failed to get info:', error);
-        //     return null;
-        //   }
-        // };
-        // getInfoTransaksi(token);
-        const gopayTransaction = async (newRow) => {
+        // Get Info dari token yang diperoleh
+        const token = { token: transactionToken }; //bener
+        const getInfoTransaksi = async (token) => {
           try {
             const response = await axios.post('/api/verify-payment', token);
             const transactionQris = response.data;
             // const fraudStatus = response.data.fraud_status;
             // return transactionStatus, fraudStatus;
 
-            return transactionQrisUrl;
+            console.log(transactionQris);
           } catch (error) {
             console.error('Failed to get info:', error);
             return null;
           }
         };
-        // gopayTransaction(newRow);
-        const transactionQrisUrl = await gopayTransaction(newRow);
-        console.log(transactionQrisUrl);
-
-        const qris_url = transactionQrisUrl.actions.find(
-          (action) => action.name === 'generate-qr-code'
-        ).url;
-        console.log(qris_url); //berhasil
+        getInfoTransaksi(token);
+        // const transactionQris = await getInfoTransaksi(token);
+        // const fraudStatus = await getInfoTransaksi(token);
+        // // console.log(fraudStatus);
+        // console.log(transactionQris);
 
         // setIsLoading(true); // set status loading menjadi true, kirim ke drive
         await appendSpreadsheet(newRow);
         e.target.reset();
         setIsButtonDisabled(false);
 
+        // Swal.fire({
+        //   title: 'Pembayaran Berhasil',
+        //   text: 'Datamu Sudah Terkirim, Lanjut Pembayaran Ya',
+        //   icon: 'success',
+        //   confirmButtonText: 'ok',
+        // });
         router.push(
-          // `https://app.sandbox.midtrans.com/snap/v3/redirection/${transactionToken}`
-          {
-            pathname: './checkout',
-            query: {
-              qris_url: qris_url,
-              namalengkap: newRow.namalengkap,
-              wa: newRow.wa,
-              jumlah: newRow.jumlah,
-              kalipembayaran: newRow.kalipembayaran,
-              bulan: newRow.bulan,
-              pesan: newRow.pesan,
-            }, //berhasil
-          }
+          `https://app.midtrans.com/snap/v3/redirection/${transactionToken}`
         );
       } else {
         Swal.fire({
@@ -299,7 +264,6 @@ const BayarLes = () => {
         const tampilkanTombol = document.getElementById('tombolKirim');
         tampilkanTombol.style.display = 'block';
         setIsReadOnly(true);
-        setIsChecked(false);
       }
     }
   };
@@ -330,7 +294,6 @@ const BayarLes = () => {
                 name="token"
                 type="text"
                 readOnly={isReadOnly}
-                autoFocus
                 className={`w-full mb-2 ${
                   isTokenEmpty ? 'border-red-500' : 'mb-2'
                 } ${isReadOnly ? 'bg-slate-200' : ''}`}
@@ -353,12 +316,9 @@ const BayarLes = () => {
                   name="namalengkap"
                   id="inputNamaLengkap"
                   type="Checkbox"
-                  disabled={isChecked}
                   // checked={false}
                   onChange={handleChange}
-                  className={`${
-                    isnamalengkapEmpty ? 'border-red-500' : 'animate-pulse'
-                  }`}
+                  className={`${isnamalengkapEmpty ? 'border-red-500' : ''}`}
                   onBlur={() => {
                     if (form.namalengkap === '') {
                       setIsnamalengkapEmpty(true);
@@ -468,7 +428,6 @@ const BayarLes = () => {
                   name="timestamp"
                   type="checkbox"
                   onChange={handleChange}
-                  disabled={isChecked}
                   onBlur={() => {
                     if (form.timestamp === '') {
                       setIstimestampEmpty(true);
