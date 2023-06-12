@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { GoogleSpreadsheet } from 'google-spreadsheet';
-import Swal from 'sweetalert2';
-import Loader from '../../components/Loader';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
-import axios from 'axios';
-import Layout from '../../components/Layout';
-import Navbar from '../../components/Navbar';
-import { format } from 'date-fns';
-import { id } from 'date-fns/locale';
+import React, { useState } from "react";
+import { GoogleSpreadsheet } from "google-spreadsheet";
+import Swal from "sweetalert2";
+import Loader from "../../components/Loader";
+import { useRouter } from "next/router";
+import Head from "next/head";
+import axios from "axios";
+import Layout from "../../components/Layout";
+import Navbar from "../../components/Navbar";
+import { format } from "date-fns";
+import { id } from "date-fns/locale";
 
 // mengubah mata uang
 function formatCurrency(amount) {
-  const formatter = new Intl.NumberFormat('id-ID', {
-    style: 'currency',
-    currency: 'IDR',
+  const formatter = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
     minimumFractionDigits: 2,
   });
 
@@ -33,22 +33,22 @@ const BayarLes = () => {
   const [isReadOnly, setIsReadOnly] = useState(false);
 
   const tanggalSekarang = new Date();
-  const bulanSekarang = format(tanggalSekarang, 'MMMM', { locale: id });
+  const bulanSekarang = format(tanggalSekarang, "MMMM", { locale: id });
 
   const [namaKamu, setNamaKamu] = useState(false);
   //   const timestamp = new Date().toISOString();
   const getFormattedTimestamp = () => {
     const options = {
-      year: 'numeric',
-      month: 'numeric',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric',
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
       hour12: false,
     };
 
-    const timestamp = new Date().toLocaleString('id-ID', options);
+    const timestamp = new Date().toLocaleString("id-ID", options);
     return timestamp;
   };
 
@@ -64,19 +64,19 @@ const BayarLes = () => {
   const [isjumlahEmpty, setIsjumlahEmpty] = useState(false);
   const [istimestampEmpty, setIstimestampEmpty] = useState(false);
   const [iskalipembayaranEmpty, setIskalipembayaranEmpty] = useState(false);
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(true);
 
   // const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const [form, setForm] = useState({
-    token: '',
-    namalengkap: '',
-    wa: '',
-    bulan: '',
-    jumlah: '',
-    timestamp: '',
-    kalipembayaran: '',
-    pesan: '',
+    token: "",
+    namalengkap: "",
+    wa: "",
+    bulan: "",
+    jumlah: "",
+    timestamp: "",
+    kalipembayaran: "",
+    pesan: "",
   });
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
@@ -86,7 +86,7 @@ const BayarLes = () => {
       await doc.useServiceAccountAuth({
         client_email: GOOGLE_CLIENT_EMAIL,
         // private_key: GOOGLE_SERVICE_PRIVATE_KEY,
-        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
       });
       // loads document properties and worksheets
       await doc.loadInfo();
@@ -94,7 +94,7 @@ const BayarLes = () => {
       const sheet = doc.sheetsById[SHEET_ID2]; //pos data
       await sheet.addRow(row);
     } catch (e) {
-      console.error('Error: ', e);
+      console.error("Error: ", e);
     }
   };
 
@@ -102,7 +102,7 @@ const BayarLes = () => {
   const checkToken = async (token) => {
     await doc.useServiceAccountAuth({
       client_email: GOOGLE_CLIENT_EMAIL,
-      private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+      private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
     });
     await doc.loadInfo(); // tambahkan baris ini untuk memastikan sheet telah terdefinisi
     const sheet = doc.sheetsById[SHEET_ID]; // tambahkan baris ini untuk mendefinisikan sheet
@@ -116,7 +116,7 @@ const BayarLes = () => {
 
     if (tokenExists) {
       // Name does not exist, form can be submitted
-      const inputNamaLengkap = document.getElementById('inputNamaLengkap');
+      const inputNamaLengkap = document.getElementById("inputNamaLengkap");
       inputNamaLengkap.value = namalengkap;
 
       return tokenExists;
@@ -131,13 +131,13 @@ const BayarLes = () => {
     e.preventDefault();
 
     if (
-      form.token !== '' &&
-      form.namalengkap !== '' &&
-      form.wa !== '' &&
-      form.bulan !== '' &&
-      form.jumlah !== '' &&
-      form.timestamp !== '' &&
-      form.kalipembayaran !== ''
+      form.token !== "" &&
+      form.namalengkap !== "" &&
+      form.wa !== "" &&
+      form.bulan !== "" &&
+      form.jumlah !== "" &&
+      form.timestamp !== "" &&
+      form.kalipembayaran !== ""
     ) {
       setIsButtonDisabled(true);
       const canSubmit = await checkToken(form.token, sheet);
@@ -160,7 +160,7 @@ const BayarLes = () => {
         const createTransaction = async (newRow) => {
           try {
             const response = await axios.post(
-              '/api/create-transaction-bayarles',
+              "/api/create-transaction-bayarles",
               newRow
             );
             const transactionToken = response.data.transactionToken;
@@ -171,7 +171,7 @@ const BayarLes = () => {
             return transactionToken;
             //jangan return directUrl krn token: transactionToken bisa terisi url tsb. solusinya kembalikan token, ubah router push linknya
           } catch (error) {
-            console.error('Failed to create transaction:', error);
+            console.error("Failed to create transaction:", error);
             return null;
           }
         };
@@ -184,14 +184,14 @@ const BayarLes = () => {
         const token = { token: transactionToken }; //bener
         const getInfoTransaksi = async (token) => {
           try {
-            const response = await axios.post('/api/verify-payment', token);
+            const response = await axios.post("/api/verify-payment", token);
             const transactionQris = response.data;
             // const fraudStatus = response.data.fraud_status;
             // return transactionStatus, fraudStatus;
 
             console.log(transactionQris);
           } catch (error) {
-            console.error('Failed to get info:', error);
+            console.error("Failed to get info:", error);
             return null;
           }
         };
@@ -218,20 +218,20 @@ const BayarLes = () => {
       } else {
         Swal.fire({
           title: `kode ${form.token} tidak valid,hubungi admin.`,
-          text: 'Data gagal dikirim',
-          icon: 'warning',
-          confirmButtonText: 'Ok',
+          text: "Data gagal dikirim",
+          icon: "warning",
+          confirmButtonText: "Ok",
         });
         setIsButtonDisabled(false);
       }
     } else {
-      setIsTokenEmpty(form.token === '');
-      setIsnamalengkapEmpty(form.namalengkap === '');
-      setIswaEmpty(form.wa === '');
-      setIsjumlahEmpty(form.jumlah === '');
-      setIsbulanEmpty(form.bulan === '');
-      setIstimestampEmpty(form.timestamp === '');
-      setIskalipembayaranEmpty(form.timestamp === '');
+      setIsTokenEmpty(form.token === "");
+      setIsnamalengkapEmpty(form.namalengkap === "");
+      setIswaEmpty(form.wa === "");
+      setIsjumlahEmpty(form.jumlah === "");
+      setIsbulanEmpty(form.bulan === "");
+      setIstimestampEmpty(form.timestamp === "");
+      setIskalipembayaranEmpty(form.timestamp === "");
     }
   };
 
@@ -243,7 +243,7 @@ const BayarLes = () => {
       [name]: value,
     });
 
-    if (name === 'token' && value.length > 6) {
+    if (name === "token" && value.length > 6) {
       setNamaKamu(true);
       const tokenData = await checkToken(value);
       // console.log(tokenData);
@@ -251,19 +251,20 @@ const BayarLes = () => {
         // setIsButtonDisabled(true);
 
         const { namalengkap } = tokenData;
-        const inputNamaLengkap = document.getElementById('inputNamaLengkap');
+        const inputNamaLengkap = document.getElementById("inputNamaLengkap");
         const AmbilNama = tokenData
           ? [tokenData].map((row) => row.namalengkap)
           : [];
         const namaMu = AmbilNama[0];
         // console.log(namaMu);
         inputNamaLengkap.value = namaMu;
-        const tampilkanNamaLengkap = document.getElementById('namaKamu');
+        const tampilkanNamaLengkap = document.getElementById("namaKamu");
         tampilkanNamaLengkap.innerText = namaMu;
 
-        const tampilkanTombol = document.getElementById('tombolKirim');
-        tampilkanTombol.style.display = 'block';
+        const tampilkanTombol = document.getElementById("tombolKirim");
+        tampilkanTombol.style.display = "block";
         setIsReadOnly(true);
+        setIsChecked(false);
       }
     }
   };
@@ -285,7 +286,8 @@ const BayarLes = () => {
         <div className="flex justify-center items-center  bg-slate-100 text-gray-900">
           <form
             className="space-y-3 w-full max-w-lg mx-auto p-5 mt-20"
-            onSubmit={submitForm}>
+            onSubmit={submitForm}
+          >
             <p className="font-semibold text-2xl text-center w-full bg-slate-500 p-2 text-slate-100">
               Lengkapi Data
             </p>
@@ -294,14 +296,15 @@ const BayarLes = () => {
                 name="token"
                 type="text"
                 readOnly={isReadOnly}
+                autoFocus
                 className={`w-full mb-2 ${
-                  isTokenEmpty ? 'border-red-500' : 'mb-2'
-                } ${isReadOnly ? 'bg-slate-200' : ''}`}
+                  isTokenEmpty ? "border-red-500" : "mb-2"
+                } ${isReadOnly ? "bg-slate-200" : ""}`}
                 placeholder="Masukkan Kodemu"
                 autoComplete="off"
                 onChange={handleChange}
                 onBlur={() => {
-                  if (form.token === '') {
+                  if (form.token === "") {
                     setIsTokenEmpty(true);
                   } else {
                     setIsTokenEmpty(false);
@@ -316,11 +319,14 @@ const BayarLes = () => {
                   name="namalengkap"
                   id="inputNamaLengkap"
                   type="Checkbox"
+                  disabled={isChecked}
                   // checked={false}
                   onChange={handleChange}
-                  className={`${isnamalengkapEmpty ? 'border-red-500' : ''}`}
+                  className={`${
+                    isnamalengkapEmpty ? "border-red-500" : "animate-pulse"
+                  }`}
                   onBlur={() => {
-                    if (form.namalengkap === '') {
+                    if (form.namalengkap === "") {
                       setIsnamalengkapEmpty(true);
                     } else {
                       setIsnamalengkapEmpty(false);
@@ -345,11 +351,11 @@ const BayarLes = () => {
               <input
                 name="wa"
                 type="text"
-                className={`w-full ${iswaEmpty ? 'border-red-500' : 'mb-2'}`}
+                className={`w-full ${iswaEmpty ? "border-red-500" : "mb-2"}`}
                 onChange={handleChange}
                 placeholder="isi nomor wa yang aktif"
                 onBlur={() => {
-                  if (form.wa === '') {
+                  if (form.wa === "") {
                     setIswaEmpty(true);
                   } else {
                     setIswaEmpty(false);
@@ -370,17 +376,18 @@ const BayarLes = () => {
               /> */}
               <select
                 className={`w-full  ${
-                  isbulanEmpty ? 'border-red-500' : 'mb-2'
+                  isbulanEmpty ? "border-red-500" : "mb-2"
                 }`}
                 name="bulan"
                 onBlur={() => {
-                  if (form.bulan === '') {
+                  if (form.bulan === "") {
                     setIsbulanEmpty(true);
                   } else {
                     setIsbulanEmpty(false);
                   }
                 }}
-                onChange={handleChange}>
+                onChange={handleChange}
+              >
                 <option value="">Pilih Bulan</option>
                 <option value={bulanSekarang}>{bulanSekarang}</option>
                 <option value="Biaya Pendaftaran">Biaya Pendaftaran</option>
@@ -391,17 +398,18 @@ const BayarLes = () => {
 
               <select
                 className={`w-full  ${
-                  isjumlahEmpty ? 'border-red-500' : 'mb-2'
+                  isjumlahEmpty ? "border-red-500" : "mb-2"
                 }`}
                 name="jumlah"
                 onBlur={() => {
-                  if (form.jumlah === '') {
+                  if (form.jumlah === "") {
                     setIsjumlahEmpty(true);
                   } else {
                     setIsjumlahEmpty(false);
                   }
                 }}
-                onChange={handleChange}>
+                onChange={handleChange}
+              >
                 <option value="">Pilih Nominal</option>
                 <option value="175000">Rp 175.000,-</option>
                 <option value="185000">Rp 185.000,-</option>
@@ -428,8 +436,9 @@ const BayarLes = () => {
                   name="timestamp"
                   type="checkbox"
                   onChange={handleChange}
+                  disabled={isChecked}
                   onBlur={() => {
-                    if (form.timestamp === '') {
+                    if (form.timestamp === "") {
                       setIstimestampEmpty(true);
                     } else {
                       setIstimestampEmpty(false);
@@ -437,7 +446,7 @@ const BayarLes = () => {
                   }}
                   placeholder="pilih tanggal hari ini"
                   value={timestamp}
-                  className={` ${istimestampEmpty ? 'border-red-500' : ''}`}
+                  className={` ${istimestampEmpty ? "border-red-500" : ""}`}
                 />
 
                 <p className="text-xs text-red-900 mb-2">
@@ -452,12 +461,13 @@ const BayarLes = () => {
                 name="kalipembayaran"
                 onChange={handleChange}
                 onBlur={() => {
-                  if (form.kalipembayaran === '') {
+                  if (form.kalipembayaran === "") {
                     setIskalipembayaranEmpty(true);
                   } else {
                     setIskalipembayaranEmpty(false);
                   }
-                }}>
+                }}
+              >
                 <option value="">Pilih Jumlah Pembayaran</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -480,7 +490,8 @@ const BayarLes = () => {
                 className="w-full"
                 placeholder="Tulis Jika Ada Pesan ke Admin"
                 name="pesan"
-                onChange={handleChange}></textarea>
+                onChange={handleChange}
+              ></textarea>
             </div>
 
             {/* <button
@@ -499,7 +510,8 @@ const BayarLes = () => {
                 id="tombolKirim"
                 disabled={isButtonDisabled}
                 type="submit"
-                className="hidden w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                className="hidden w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
                 <p className="text-lg">Lanjutkan</p>
               </button>
             )}
