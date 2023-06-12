@@ -10,7 +10,7 @@ const Welcome = () => {
         kebutuhan belajar anak mulai jenjang SD/MI, SMP/Mts, SMA/MA/SMK hingga
         Alumni. Keunggulan Bimbel LB3R diantaranya sistem pembayaran yang mudah
         dan fleksibilitas kelas. Selain itu, sistem pembelajaran di Bimbel LB3R
-        menyesuaikan dengan kebutuhan anak.
+        menyesuaikan dengan kebutuhan anak.Yuk segera bergabung....
       </p>
     </div>
   );
