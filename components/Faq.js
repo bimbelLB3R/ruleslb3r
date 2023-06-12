@@ -1,4 +1,4 @@
-import { Accordion } from 'flowbite-react';
+import { Accordion } from "flowbite-react";
 const Faq = () => {
   return (
     <div className="flex items-center justify-center">
@@ -14,12 +14,13 @@ const Faq = () => {
                 Rp 100.000,- dan biaya bulanannya Rp 185.000,-.
               </p>
               <p className="text-gray-900 dark:text-gray-400 text-left">
-                Simak{' '}
+                Simak{" "}
                 <a
                   href="/rules/payment"
-                  className="text-blue-600 hover:underline dark:text-blue-500">
+                  className="text-blue-600 hover:underline dark:text-blue-500"
+                >
                   sistem pembayaran
-                </a>{' '}
+                </a>{" "}
                 untuk mengetahui secara detail bagaimana melakukan pembayaran di
                 LB3R.
               </p>
@@ -40,12 +41,13 @@ const Faq = () => {
               </p>
               <p className="text-gray-900 dark:text-gray-400">
                 Selain itu, ada materi persiapan ujian yang dikemas dalam
-                program{' '}
+                program{" "}
                 <a
                   href="/rules/odb"
-                  className="text-blue-600 hover:underline dark:text-blue-500">
+                  className="text-blue-600 hover:underline dark:text-blue-500"
+                >
                   ODB (One Day Before)
-                </a>{' '}
+                </a>{" "}
                 menyesuaikan jadwal ujian di sekolah.
               </p>
             </Accordion.Content>
@@ -68,7 +70,8 @@ const Faq = () => {
                 <li>
                   <a
                     href="/rules/kbm"
-                    className="text-blue-600 hover:underline dark:text-blue-500">
+                    className="text-blue-600 hover:underline dark:text-blue-500"
+                  >
                     Ketentuan kegiatan belajar
                   </a>
                 </li>
@@ -76,7 +79,8 @@ const Faq = () => {
                   <a
                     href="/rules/newclass"
                     rel="nofollow"
-                    className="text-blue-600 hover:underline dark:text-blue-500">
+                    className="text-blue-600 hover:underline dark:text-blue-500"
+                  >
                     Cara membuat kelas baru
                   </a>
                 </li>
@@ -110,7 +114,8 @@ const Faq = () => {
                     href="https://instagram.com/bimbel_lb3r/"
                     rel="nofollow"
                     target="_blank"
-                    className="text-blue-600 hover:underline dark:text-blue-500">
+                    className="text-blue-600 hover:underline dark:text-blue-500"
+                  >
                     IG bimbel_LB3R
                   </a>
                 </li>
@@ -119,7 +124,8 @@ const Faq = () => {
                     href="https://facebook.com/bimbel.lb3r"
                     rel="nofollow"
                     target="_blank"
-                    className="text-blue-600 hover:underline dark:text-blue-500">
+                    className="text-blue-600 hover:underline dark:text-blue-500"
+                  >
                     Halaman FB Bimbel LB3R Tabalong
                   </a>
                 </li>
@@ -137,12 +143,13 @@ const Faq = () => {
                 meter. Alamat email : bimbellb3r@gmail.com
               </p>
               <p className="text-gray-900 dark:text-gray-400 text-left">
-                Silahkan kontak{' '}
+                Silahkan kontak{" "}
                 <a
                   href="https://wa.me/6285654179908"
-                  className="text-blue-600 hover:underline dark:text-blue-500">
+                  className="text-blue-600 hover:underline dark:text-blue-500"
+                >
                   admin
-                </a>{' '}
+                </a>{" "}
                 untuk melakukan pendaftaran. Jangan lupa siapkan foto bebas
                 sebagai lampiran saat melakukan pendaftaran ya...
               </p>
@@ -157,18 +164,20 @@ const Faq = () => {
                 Bapak/Ibu tentor LB3R dapat melakukan log in dengan dua cara,
               </p>
               <p className="text-gray-900 dark:text-gray-400 text-left">
-                pertama{' '}
+                pertama{" "}
                 <a
-                  href="http://192.168.100.193/aplikasibimbel2/public/data_tentor/"
-                  className="text-blue-600 hover:underline dark:text-blue-500">
+                  href="http://192.168.100.124/aplikasibimbel2/public/data_tentor/"
+                  className="text-blue-600 hover:underline dark:text-blue-500"
+                >
                   Login Dengan Wifi Di Kantor
-                </a>{' '}
-                dan kedua{' '}
+                </a>{" "}
+                dan kedua{" "}
                 <a
                   href="http://2520-2001-448a-6021-28a4-8cb-3f8b-13ba-d6f9.ngrok.io/aplikasibimbel2/public/data_tentor/"
-                  className="text-blue-600 hover:underline dark:text-blue-500">
+                  className="text-blue-600 hover:underline dark:text-blue-500"
+                >
                   Login Saat Di Rumah
-                </a>{' '}
+                </a>{" "}
               </p>
             </Accordion.Content>
           </Accordion.Panel>
