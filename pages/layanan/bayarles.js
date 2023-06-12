@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import Swal from 'sweetalert2';
 import Loader from '../../components/Loader';
@@ -30,6 +30,27 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 const BayarLes = () => {
+  // const [qrisUrl, setQrisUrl] = useState('');
+  // console.log(qrisUrl);
+  // // mencoba akses endpoin midtrans dengn useeffect, blm berhasil dan not recomended krn hrs req body
+  // useEffect(() => {
+  //   // Panggil API atau sumber data lainnya untuk mendapatkan JSON
+  //   const fetchQrisUrl = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         `https://app.midtrans.com/snap/v1/transactions/${transactionToken}`
+  //       ); // Ganti 'API_ENDPOINT' dengan URL endpoint yang sesuai
+  //       const data = await response.json();
+  //       const qrisUrl = data.result.qris_url;
+  //       setQrisUrl(qrisUrl);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+
+  //   fetchQrisUrl();
+  // }, []);
+
   const [isReadOnly, setIsReadOnly] = useState(false);
 
   const tanggalSekarang = new Date();
@@ -157,63 +178,84 @@ const BayarLes = () => {
         // 2.Request token ke end poin mid trans
         // 3.Handle submit ke sheet dan membuat tombol bayar
 
-        const createTransaction = async (newRow) => {
-          try {
-            const response = await axios.post(
-              '/api/create-transaction-bayarles',
-              newRow
-            );
-            const transactionToken = response.data.transactionToken;
-            const transactionRedirectUrl = response.data.transactionRedirectUrl;
-            // console.log('transactionToken:', transactionToken);
-            // console.log('redirectUrl:', transactionRedirectUrl);
+        // const createTransaction = async (newRow) => {
+        //   try {
+        //     const response = await axios.post(
+        //       '/api/create-transaction-bayarles',
+        //       newRow
+        //     );
+        //     const transactionToken = response.data.transactionToken;
+        //     const transactionRedirectUrl = response.data.transactionRedirectUrl;
+        //     // console.log('transactionToken:', transactionToken);
+        //     // console.log('redirectUrl:', transactionRedirectUrl);
 
-            return transactionToken;
-            //jangan return directUrl krn token: transactionToken bisa terisi url tsb. solusinya kembalikan token, ubah router push linknya
+        //     return transactionToken;
+        //     //jangan return directUrl krn token: transactionToken bisa terisi url tsb. solusinya kembalikan token, ubah router push linknya
+        //   } catch (error) {
+        //     console.error('Failed to create transaction:', error);
+        //     return null;
+        //   }
+        // };
+        // const transactionToken = await createTransaction(newRow);
+        // const transactionRedirectUrl = await createTransaction(newRow);
+        // console.log(transactionToken); //token berhasil
+        // console.log(transactionRedirectUrl); //token berhasil
+
+        // Get Info dari token yang diperoleh diganti menggunakan newRow
+        // const token = { token: transactionToken }; //bener
+        // const getInfoTransaksi = async (token) => {
+        //   try {
+        //     const response = await axios.post('/api/verify-payment', token);
+        //     const transactionQris = response.data.result;
+        //     // const fraudStatus = response.data.fraud_status;
+        //     // return transactionStatus, fraudStatus;
+
+        //     console.log(transactionQris);
+        //   } catch (error) {
+        //     console.error('Failed to get info:', error);
+        //     return null;
+        //   }
+        // };
+        // getInfoTransaksi(token);
+        const gopayTransaction = async (newRow) => {
+          try {
+            const response = await axios.post('/api/verify-payment', newRow);
+            const transactionQrisUrl = response.data.transactionQrisUrl;
+
+            return transactionQrisUrl;
           } catch (error) {
-            console.error('Failed to create transaction:', error);
+            console.error('Failed to getqris_url:', error);
             return null;
           }
         };
-        const transactionToken = await createTransaction(newRow);
-        const transactionRedirectUrl = await createTransaction(newRow);
-        console.log(transactionToken); //token berhasil
-        console.log(transactionRedirectUrl); //token berhasil
+        // gopayTransaction(newRow);
+        const transactionQrisUrl = await gopayTransaction(newRow);
+        console.log(transactionQrisUrl);
 
-        // Get Info dari token yang diperoleh
-        const token = { token: transactionToken }; //bener
-        const getInfoTransaksi = async (token) => {
-          try {
-            const response = await axios.post('/api/verify-payment', token);
-            const transactionQris = response.data;
-            // const fraudStatus = response.data.fraud_status;
-            // return transactionStatus, fraudStatus;
-
-            console.log(transactionQris);
-          } catch (error) {
-            console.error('Failed to get info:', error);
-            return null;
-          }
-        };
-        getInfoTransaksi(token);
-        // const transactionQris = await getInfoTransaksi(token);
-        // const fraudStatus = await getInfoTransaksi(token);
-        // // console.log(fraudStatus);
-        // console.log(transactionQris);
+        const qris_url = transactionQrisUrl.actions.find(
+          (action) => action.name === 'generate-qr-code'
+        ).url;
+        console.log(qris_url); //berhasil
 
         // setIsLoading(true); // set status loading menjadi true, kirim ke drive
         await appendSpreadsheet(newRow);
         e.target.reset();
         setIsButtonDisabled(false);
 
-        // Swal.fire({
-        //   title: 'Pembayaran Berhasil',
-        //   text: 'Datamu Sudah Terkirim, Lanjut Pembayaran Ya',
-        //   icon: 'success',
-        //   confirmButtonText: 'ok',
-        // });
         router.push(
-          `https://app.midtrans.com/snap/v3/redirection/${transactionToken}`
+          // `https://app.sandbox.midtrans.com/snap/v3/redirection/${transactionToken}`
+          {
+            pathname: './checkout',
+            query: {
+              qris_url: qris_url,
+              namalengkap: newRow.namalengkap,
+              wa: newRow.wa,
+              jumlah: newRow.jumlah,
+              kalipembayaran: newRow.kalipembayaran,
+              bulan: newRow.bulan,
+              pesan: newRow.pesan,
+            }, //berhasil
+          }
         );
       } else {
         Swal.fire({
