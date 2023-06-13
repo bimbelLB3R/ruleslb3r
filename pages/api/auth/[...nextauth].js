@@ -17,11 +17,8 @@ export const authOptions = {
   },
   callbacks: {
     async redirect(url, baseUrl) {
-      const previousPage = localStorage.getItem("previousPage");
-      // Menghapus previousPage dari cookie atau localStorage setelah digunakan
-      localStorage.removeItem("previousPage");
       // Callback untuk mengarahkan pengguna setelah login
-      return previousPage;
+      return baseUrl;
     },
   },
 };

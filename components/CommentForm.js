@@ -1,18 +1,8 @@
 import Image from "next/image";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { useState, useRouter } from "react";
+import { useState } from "react";
 
 export default function CommentForm() {
-  const router = useRouter();
-  const [previousPage, setPreviousPage] = useState("");
-  const handleSignIn = async () => {
-    // Simpan URL halaman sebelumnya sebelum sign in
-    setPreviousPage(router.asPath);
-    localStorage.setItem("previousPage", previousPage);
-    // Redirect pengguna ke halaman sign in
-    await signIn();
-  };
-
   const { data: session } = useSession();
   // control input text
   const [text, setText] = useState("");
