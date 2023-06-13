@@ -16,15 +16,12 @@ export const authOptions = {
     signIn: "/auth/signin", //etika user signin diarahkan ke /auth/signin. untuk referensi googling authOption nextauth
   },
   callbacks: {
-    async signIn(user, account, profile) {
-      // Callback setelah pengguna berhasil masuk
-      // Lakukan penanganan setelah login di sini
-      alert(`Hello ${user.name}`);
-      return true;
-    },
     async redirect(url, baseUrl) {
+      const previousPage = localStorage.getItem("previousPage");
+      // Menghapus previousPage dari cookie atau localStorage setelah digunakan
+      localStorage.removeItem("previousPage");
       // Callback untuk mengarahkan pengguna setelah login
-      return baseUrl; //baseUrl adalah url sebelumnya atau root saat sebelum login
+      return previousPage;
     },
   },
 };

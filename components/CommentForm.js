@@ -1,25 +1,35 @@
-import Image from 'next/image';
-import { useSession, signIn, signOut } from 'next-auth/react';
-import { useState } from 'react';
+import Image from "next/image";
+import { useSession, signIn, signOut } from "next-auth/react";
+import { useState, useRouter } from "react";
 
 export default function CommentForm() {
+  const router = useRouter();
+  const [previousPage, setPreviousPage] = useState("");
+  const handleSignIn = async () => {
+    // Simpan URL halaman sebelumnya sebelum sign in
+    setPreviousPage(router.asPath);
+    localStorage.setItem("previousPage", previousPage);
+    // Redirect pengguna ke halaman sign in
+    await signIn();
+  };
+
   const { data: session } = useSession();
   // control input text
-  const [text, setText] = useState('');
-  const [warn, setWarn] = useState('');
+  const [text, setText] = useState("");
+  const [warn, setWarn] = useState("");
   const maxLength = 15;
   const minLength = 10;
   const handleChange = (event) => {
     const inputText = event.target.value;
 
     if (inputText.length < minLength) {
-      setWarn('Jumlah karakter minimal 10');
+      setWarn("Jumlah karakter minimal 10");
       setText(inputText);
     } else if (inputText.length <= maxLength) {
-      setWarn('');
+      setWarn("");
       setText(inputText);
     } else if (inputText > maxLength) {
-      setWarn('Jumlah karakter maksimal 1000');
+      setWarn("Jumlah karakter maksimal 1000");
     } else {
       // Batasi teks hanya hingga maxLength karakter
       const truncatedText = inputText.slice(0, maxLength);
