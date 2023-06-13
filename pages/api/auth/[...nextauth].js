@@ -24,7 +24,7 @@ export const authOptions = {
     },
     async redirect(url, baseUrl) {
       // Callback untuk mengarahkan pengguna setelah login
-      return Promise.resolve(url || baseUrl); //baseUrl adalah url sebelumnya atau root saat sebelum login
+      return Promise.resolve(baseUrl); //baseUrl adalah url sebelumnya atau root saat sebelum login
     },
   },
 };
