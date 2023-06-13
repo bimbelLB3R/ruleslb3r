@@ -19,12 +19,12 @@ export const authOptions = {
     async signIn(user, account, profile) {
       // Callback setelah pengguna berhasil masuk
       // Lakukan penanganan setelah login di sini
-      console.log(user, profile, account);
-      return Promise.resolve(true);
+      alert(`Hello ${user.name}`);
+      return true;
     },
     async redirect(url, baseUrl) {
       // Callback untuk mengarahkan pengguna setelah login
-      return Promise.resolve(baseUrl); //baseUrl adalah url sebelumnya atau root saat sebelum login
+      return baseUrl; //baseUrl adalah url sebelumnya atau root saat sebelum login
     },
   },
 };
