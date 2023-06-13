@@ -1,5 +1,5 @@
-import NextAuth from 'next-auth';
-import GoogleProvider from 'next-auth/providers/google';
+import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
 // import { Providers } from 'next-auth/providers';
 
 export const authOptions = {
@@ -12,6 +12,9 @@ export const authOptions = {
     }),
     // ...add more providers here
   ],
+  pages: {
+    signIn: "/auth/signin", //etika user signin diarahkan ke /auth/signin. untuk referensi googling authOption nextauth
+  },
 };
 
 export default NextAuth(authOptions);
