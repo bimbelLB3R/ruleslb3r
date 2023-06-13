@@ -15,6 +15,18 @@ export const authOptions = {
   pages: {
     signIn: "/auth/signin", //etika user signin diarahkan ke /auth/signin. untuk referensi googling authOption nextauth
   },
+  callbacks: {
+    async signIn(user, account, profile) {
+      // Callback setelah pengguna berhasil masuk
+      // Lakukan penanganan setelah login di sini
+      console.log(user, profile, account);
+      return Promise.resolve(true);
+    },
+    async redirect(url, baseUrl) {
+      // Callback untuk mengarahkan pengguna setelah login
+      return Promise.resolve(url || baseUrl); //baseUrl adalah url sebelumnya atau root saat sebelum login
+    },
+  },
 };
 
 export default NextAuth(authOptions);
