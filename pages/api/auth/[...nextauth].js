@@ -18,7 +18,7 @@ export const authOptions = {
   callbacks: {
     async redirect(url, baseUrl) {
       // Callback untuk mengarahkan pengguna setelah login
-      return baseUrl;
+      return "https://bimbellb3r";
     },
   },
 };
