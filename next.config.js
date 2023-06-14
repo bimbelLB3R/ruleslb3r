@@ -16,6 +16,7 @@ module.exports = {
     domains: [
       "lh3.googleusercontent.com",
       "https://www.bimbellb3r.com/favicon.ico",
+      "drive.google.com",
     ],
   },
   webpack: (config, { isServer }) => {

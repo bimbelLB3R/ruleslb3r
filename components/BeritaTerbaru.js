@@ -16,18 +16,22 @@ export default function BeritaTerbaru({ allPost }) {
                     : "p-1 md:p-2 mt-5 mb-5 md:mr-5 md:ml-5 border-b-1 bg-slate-50 text-center leading-none border-b-slate-300 "
                 }
               >
-                <div className={index !== 0 ? "w-[150px]" : ""}>
+                <div>
                   <div className="absolute text-slate-100 bg-orange-600 rounded p-1 text-xs">
                     {post.tags}
                   </div>
-                  <Image
-                    src="/image/assets/tes.webp"
-                    width={index === 0 ? 600 : 150}
-                    height={index === 0 ? 300 : 150}
-                    alt={post.id}
-                    priority={true}
-                    className={index === 0 ? "" : "w-[100px] h-[100px] "}
-                  />
+                  <div className={index !== 0 ? "w-[100px]  bg-blue-400" : ""}>
+                    <Image
+                      src={post.imageUrl}
+                      width={index === 0 ? 600 : 150}
+                      height={index === 0 ? 300 : 150}
+                      alt={post.id}
+                      priority={true}
+                      className={
+                        index === 0 ? "" : "w-[100px] h-[100px] overflow-hidden"
+                      }
+                    />
+                  </div>
                 </div>
                 <div className={index !== 0 ? "leading-none  w-full" : ""}>
                   <div>

@@ -124,7 +124,7 @@ export default function PostDetail({ detailPost, allPost }) {
             </div>
             <div className="mt-5 flex justify-center mb-5">
               <Image
-                src="/image/assets/tes.webp"
+                src={detailPost.imageUrl}
                 width={600}
                 height={300}
                 alt={detailPost.slug}
