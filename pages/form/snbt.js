@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { GoogleSpreadsheet } from 'google-spreadsheet';
-import Swal from 'sweetalert2';
-import Loader from '../../components/Loader';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
-import NavSoal from '../../components/NavSoal';
-import { Radio } from 'antd';
-import { Button } from 'flowbite-react';
-import Latex from 'react-latex';
-import Timer from '../../components/Timer';
+import React, { useState, useEffect, useRef } from "react";
+import { GoogleSpreadsheet } from "google-spreadsheet";
+import Swal from "sweetalert2";
+import Loader from "../../components/Loader";
+import { useRouter } from "next/router";
+import Head from "next/head";
+import NavSoal from "../../components/NavSoal";
+import { Radio } from "antd";
+import { Button } from "flowbite-react";
+import Latex from "react-latex";
+import Timer from "../../components/Timer";
 // from timer
-import dayjs from 'dayjs';
-import duration from 'dayjs/plugin/duration';
+import dayjs from "dayjs";
+import duration from "dayjs/plugin/duration";
 
 dayjs.extend(duration);
 // from timer end
@@ -23,20 +23,20 @@ const ContactForm = ({ sheetdata }) => {
   // from timer
   const [isRadioButtonDisabled, setIsRadioButtonDisabled] = useState(false);
   // console.log(isRadioButtonDisabled);true
-  const [timeLeft, setTimeLeft] = useState(dayjs.duration(30, 'minute'));
+  const [timeLeft, setTimeLeft] = useState(dayjs.duration(30, "minute"));
   const [timeStorage, setTimeStorage] = useState(null);
 
   useEffect(() => {
-    const timeStorage = localStorage.getItem('timeLeft');
+    const timeStorage = localStorage.getItem("timeLeft");
     // console.log(timeStorage);
     if (timeStorage) {
-      setTimeStorage(dayjs.duration(parseInt(timeStorage), 'second'));
-      setTimeLeft(dayjs.duration(parseInt(timeStorage), 'second'));
+      setTimeStorage(dayjs.duration(parseInt(timeStorage), "second"));
+      setTimeLeft(dayjs.duration(parseInt(timeStorage), "second"));
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('timeLeft', timeLeft.asSeconds());
+    localStorage.setItem("timeLeft", timeLeft.asSeconds());
   }, [timeLeft]);
 
   useEffect(() => {
@@ -49,7 +49,7 @@ const ContactForm = ({ sheetdata }) => {
         alert("Time's up!");
         setIsRadioButtonDisabled(true);
       } else {
-        setTimeLeft(timeLeft.subtract(1, 'second'));
+        setTimeLeft(timeLeft.subtract(1, "second"));
       }
     }, 1000);
 
@@ -102,31 +102,31 @@ const ContactForm = ({ sheetdata }) => {
   const [link, setLink] = useState();
 
   useEffect(() => {
-    const linkValue = localStorage.getItem('link');
+    const linkValue = localStorage.getItem("link");
     setLink(linkValue);
-    if (linkValue === 'snbt') {
+    if (linkValue === "snbt") {
       setSheetIdJwb(SHEET_ID3);
       setSheetIdAna(SHEET_ID4);
-    } else if (linkValue === 'kuantitatif') {
+    } else if (linkValue === "kuantitatif") {
       setSheetIdJwb(SHEET_ID5);
       setSheetIdAna(SHEET_ID6);
-    } else if (linkValue === 'matematika') {
+    } else if (linkValue === "matematika") {
       setSheetIdJwb(SHEET_ID7);
       setSheetIdAna(SHEET_ID8);
-    } else if (linkValue === 'english') {
+    } else if (linkValue === "english") {
       setSheetIdJwb(SHEET_ID9);
       setSheetIdAna(SHEET_ID10);
-    } else if (linkValue === 'bacaan') {
+    } else if (linkValue === "bacaan") {
       setSheetIdJwb(SHEET_ID11);
       setSheetIdAna(SHEET_ID12);
-    } else if (linkValue === 'penalaran') {
+    } else if (linkValue === "penalaran") {
       setSheetIdJwb(SHEET_ID13);
       setSheetIdAna(SHEET_ID14);
-    } else if (linkValue === 'pengetahuan') {
+    } else if (linkValue === "pengetahuan") {
       setSheetIdJwb(SHEET_ID15);
       setSheetIdAna(SHEET_ID16);
     } else {
-      console.log('linkValue undetect');
+      console.log("linkValue undetect");
     }
   }, []);
 
@@ -135,18 +135,18 @@ const ContactForm = ({ sheetdata }) => {
   const formRef = useRef(null);
 
   // console.log(sheetdata);
-  const [storedName, setStorageName] = useState('Student');
+  const [storedName, setStorageName] = useState("Student");
   useEffect(() => {
     // cek apakah ada name di local storage
-    const storedName = localStorage.getItem('name');
+    const storedName = localStorage.getItem("name");
     if (!storedName) {
-      router.push('/form/login');
+      router.push("/form/login");
     } else {
       setStorageName(storedName);
     }
     sheetdata.forEach((index) => {
       // cek apakah sudah ada nisn dan nama di local storage
-      const storedNisn = localStorage.getItem('nisn');
+      const storedNisn = localStorage.getItem("nisn");
       // console.log(index[0]);
       if (storedNisn) {
         setForm({ ...form, nisn: storedNisn });
@@ -166,12 +166,12 @@ const ContactForm = ({ sheetdata }) => {
     });
   }, []);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [selectedValues, setSelectedValues] = useState({});
   const router = useRouter();
   const [form, setForm] = useState({
-    nisn: '',
+    nisn: "",
   });
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
@@ -181,7 +181,7 @@ const ContactForm = ({ sheetdata }) => {
       await doc.useServiceAccountAuth({
         client_email: GOOGLE_CLIENT_EMAIL,
         // private_key: GOOGLE_SERVICE_PRIVATE_KEY,
-        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
       });
       // loads document properties and worksheets
       await doc.loadInfo();
@@ -190,14 +190,14 @@ const ContactForm = ({ sheetdata }) => {
       // console.log(sheet);
       await sheet.addRow(newRow);
     } catch (e) {
-      console.error('Error: ', e);
+      console.error("Error: ", e);
     }
   };
 
   const checkNisn = async (nisn) => {
     await doc.useServiceAccountAuth({
       client_email: GOOGLE_CLIENT_EMAIL,
-      private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+      private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
     });
     await doc.loadInfo();
     const sheet3 = doc.sheetsById[sheetIdJwb];
@@ -230,12 +230,12 @@ const ContactForm = ({ sheetdata }) => {
     if (!form.nisn) {
       isValid = false;
       // errorMessage = 'NISN is required';
-      setErrorMessage('NISN is required');
+      setErrorMessage("NISN is required");
     }
     if (isValid && !isNumber(form.nisn)) {
       isValid = false;
       // errorMessage = 'NISN is must be number';
-      setErrorMessage('NISN must be a number');
+      setErrorMessage("NISN must be a number");
     }
 
     // Check if all radiobuttons have been selected
@@ -244,14 +244,14 @@ const ContactForm = ({ sheetdata }) => {
       !Object.values(selectedValues).every((value) => value !== null)
     ) {
       isValid = false;
-      errorMessage = 'All question must be answered';
+      errorMessage = "All question must be answered";
     }
     // cek ricek end
 
     if (isValid) {
       const nisnAda = await checkNisn(form.nisn, sheet3);
       if (nisnAda) {
-        setErrorMessage('Jawabanmu sudah di update');
+        setErrorMessage("Jawabanmu sudah di update");
       }
       const newRow = {
         nisn: form.nisn,
@@ -265,25 +265,25 @@ const ContactForm = ({ sheetdata }) => {
       setIsLoading(false); // set status loading menjadi false setelah proses selesai
       // Show a message to indicate that the data has been sent
       Swal.fire({
-        title: 'Jawabanmu Berhasil Terkirim',
-        text: 'Lanjutkan Soal Berikutnya',
-        icon: 'success',
+        title: "Jawabanmu Berhasil Terkirim",
+        text: "Lanjutkan Soal Berikutnya",
+        icon: "success",
       });
       // clear localstorage
       // localStorage.clear();
       // Reset the form
-      setForm({ nisn: '', name: '' });
+      setForm({ nisn: "", name: "" });
       setSelectedValues({});
-      localStorage.setItem('tipeSoal', tipeSoal);
+      localStorage.setItem("tipeSoal", tipeSoal);
       router.push({
         pathname: `/form/outputsnbt`,
         query: { link },
       });
     } else {
       Swal.fire({
-        title: 'Error',
+        title: "Error",
         text: errorMessage,
-        icon: 'error',
+        icon: "error",
       });
     }
   };
@@ -350,18 +350,21 @@ const ContactForm = ({ sheetdata }) => {
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
         integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
-        crossOrigin="anonymous"></link>
+        crossOrigin="anonymous"
+      ></link>
       <script
         defer
         src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
         integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
-        crossOrigin="anonymous"></script>
+        crossOrigin="anonymous"
+      ></script>
       <script
         defer
         src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
         integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
         crossOrigin="anonymous"
-        onLoad={onLoad}></script>
+        onLoad={onLoad}
+      ></script>
       {/* navigasi soal */}
       <div className="sm:flex justify-center fixed bottom-0 z-50 overflow-auto left-0 right-0 ">
         <NavSoal sumSoal={sheetdata} tipeSoal={tipeSoal} pages={pages} />
@@ -374,18 +377,20 @@ const ContactForm = ({ sheetdata }) => {
               key={page}
               className={` ${
                 isChecked[page + 1]
-                  ? ' bg-yellow-400 pl-4 pr-4 pt-2 pb-2'
-                  : 'bg-gray-800 rounded-none  pl-4 pr-4 pt-2 pb-2 text-gray-50'
+                  ? " bg-yellow-400 pl-4 pr-4 pt-2 pb-2"
+                  : "bg-gray-800 rounded-none  pl-4 pr-4 pt-2 pb-2 text-gray-50"
               }`}
               onClick={() => {
                 setCurrentPage(page + 1);
-              }}>
+              }}
+            >
               <p
                 className={`${
                   currentPage === page + 1
-                    ? 'font-bold underline'
-                    : 'text-gray-50'
-                }`}>
+                    ? "font-bold underline"
+                    : "text-gray-50"
+                }`}
+              >
                 {page + 1}
                 {/* {jawab} */}
                 {selectedValues[`group${page}`]}
@@ -399,7 +404,7 @@ const ContactForm = ({ sheetdata }) => {
         <div className="bg-red-800 p-1 rounded-full">
           {/* <Timer /> */}
           {/* from timer */}
-          <div>{timeLeft ? timeLeft.format('mm:ss') : 'Loading...'}</div>
+          <div>{timeLeft ? timeLeft.format("mm:ss") : "Loading..."}</div>
           {/* from timer end */}
         </div>
 
@@ -431,7 +436,8 @@ const ContactForm = ({ sheetdata }) => {
               {paginatedPosts.map((item) => (
                 <div
                   key={item[0]}
-                  className="bg-gray-50 lg:drop-shadow-2xl lg:m-10 p-2">
+                  className="bg-gray-50 lg:drop-shadow-2xl lg:m-10 p-2"
+                >
                   {/* {console.log(item[0])} */}
                   {/* Bacaan */}
                   <div className="lg:flex  lg:p-10 lg:space-x-4 ">
@@ -439,10 +445,11 @@ const ContactForm = ({ sheetdata }) => {
                       key={item[0]}
                       id="textBacaan"
                       className={`${
-                        link === 'kuantitatif' || link === 'matematika'
-                          ? 'lg:max-w-1/2'
-                          : 'lg:max-w-1/2 max-h-[500px] overflow-auto'
-                      }`}>
+                        link === "kuantitatif" || link === "matematika"
+                          ? "lg:max-w-1/2"
+                          : "lg:max-w-1/2 max-h-[500px] overflow-auto"
+                      }`}
+                    >
                       <p className="text-center mb-2 indent-8 font-semibold mt-4 lg:mt-0">
                         {item[2]}
                       </p>
@@ -501,15 +508,17 @@ const ContactForm = ({ sheetdata }) => {
                     </div>
                     <div
                       className={`${
-                        link === 'kuantitatif' || link === 'matematika'
-                          ? 'lg:max-w-full border-dashed border-l-2 border-yellow-900'
-                          : 'lg:max-w-1/2  border-l-2 border-gray-400 border-dashed'
-                      }`}>
+                        link === "kuantitatif" || link === "matematika"
+                          ? "lg:max-w-full border-dashed border-l-2 border-yellow-900"
+                          : "lg:max-w-1/2  border-l-2 border-gray-400 border-dashed"
+                      }`}
+                    >
                       {/* Pertanyaan */}
                       <div className="flex space-x-2 p-2">
                         <p
                           className="text-justify mb-2 bg-gray-200 flex items-center p-1 "
-                          id={item[28]}>
+                          id={item[28]}
+                        >
                           {item[28]}
                         </p>
                         <p className="text-left mb-2  bg-gray-50 p-1 border-b-2 border-t-2 border-gray-200">
@@ -522,7 +531,8 @@ const ContactForm = ({ sheetdata }) => {
                           disabled={isRadioButtonDisabled}
                           onChange={handleChange}
                           value={selectedValues[`group${item[0]}`]}
-                          name={`group${item[0]}`}>
+                          name={`group${item[0]}`}
+                        >
                           <div className="flex space-x-1">
                             <Radio value="A" className="text-justify">
                               <div className="flex items-center space-x-2 mb-2">
@@ -588,7 +598,8 @@ const ContactForm = ({ sheetdata }) => {
                         />
                         <label
                           htmlFor={`page-${item[28]}`}
-                          className="text-xs pl-10 pr-10 text-center">
+                          className="text-xs pl-10 pr-10 text-center"
+                        >
                           {/* Page {item[28]} */}
                           Tandai jika kamu masih ragu-ragu dengan jawabanmu atau
                           soal mau dilewati dulu
@@ -623,7 +634,8 @@ const ContactForm = ({ sheetdata }) => {
                   <button
                     disabled={isButtonDisabled}
                     type="submit"
-                    className="flex space-x-2 items-center justify-end fixed top-2 z-50 overflow-auto  text-gray-100 right-2">
+                    className="flex space-x-2 items-center justify-end fixed top-2 z-50 overflow-auto  text-gray-100 right-2"
+                  >
                     <p className="text-xs">Kirim</p>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -631,7 +643,8 @@ const ContactForm = ({ sheetdata }) => {
                       height="18"
                       fill="currentColor"
                       className="bi bi-send"
-                      viewBox="0 0 16 16">
+                      viewBox="0 0 16 16"
+                    >
                       <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
                     </svg>
                   </button>
@@ -645,14 +658,16 @@ const ContactForm = ({ sheetdata }) => {
           <button
             onClick={handlePrevious}
             disabled={currentPage <= 1}
-            className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 sm:hidden left-0 z-50 flex items-center space-x-2 rounded-tr-full lg:rounded-none">
+            className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 sm:hidden left-0 z-50 flex items-center space-x-2 rounded-tr-full lg:rounded-none"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
               fill="currentColor"
               className="bi bi-arrow-left-square-fill"
-              viewBox="0 0 16 16">
+              viewBox="0 0 16 16"
+            >
               <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
             </svg>
             <span className="text-xs">Soal Sebelumnya</span>
@@ -661,9 +676,8 @@ const ContactForm = ({ sheetdata }) => {
           <button
             className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 sm:hidden right-0 z-50 flex items-center space-x-2 rounded-tl-full lg:rounded-none"
             onClick={handleNext}
-            disabled={
-              currentPage >= Math.ceil(sheetdata.length / postsPerPage)
-            }>
+            disabled={currentPage >= Math.ceil(sheetdata.length / postsPerPage)}
+          >
             <span className="text-xs">Soal Berikutnya</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -671,7 +685,8 @@ const ContactForm = ({ sheetdata }) => {
               height="16"
               fill="currentColor"
               className="bi bi-arrow-right-square-fill"
-              viewBox="0 0 16 16">
+              viewBox="0 0 16 16"
+            >
               <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z" />
             </svg>
           </button>
@@ -686,7 +701,7 @@ export default ContactForm;
 // ambil data soal
 export async function getServerSideProps({ query }) {
   const link = query.link;
-  const req = await fetch(`https://ruleslb3r.vercel.app/api/soal${link}`);
+  const req = await fetch(`https://bimbellb3r.com/api/soal${link}`);
   const res = await req.json();
 
   return {
