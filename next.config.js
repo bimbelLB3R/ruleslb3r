@@ -9,11 +9,14 @@
 // custom font
 
 // next.config.js
-require('dotenv').config();
+require("dotenv").config();
 module.exports = {
   // konfigurasi images untuk mengambil foto user google
   images: {
-    domains: ['lh3.googleusercontent.com'],
+    domains: [
+      "lh3.googleusercontent.com",
+      "https://www.bimbellb3r.com/favicon.ico",
+    ],
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {
