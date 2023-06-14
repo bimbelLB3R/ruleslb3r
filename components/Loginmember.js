@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { GoogleSpreadsheet } from 'google-spreadsheet';
-import Swal from 'sweetalert2';
-import Loader from './Loader';
-import { useRouter } from 'next/router';
+import React, { useEffect, useState } from "react";
+import { GoogleSpreadsheet } from "google-spreadsheet";
+import Swal from "sweetalert2";
+import Loader from "./Loader";
+import { useRouter } from "next/router";
 // import session from 'express-session';
-import cookie from 'js-cookie';
-import Dropdown from './DropdownTipeSoal';
-import Head from 'next/head';
+import cookie from "js-cookie";
+import Dropdown from "./DropdownTipeSoal";
+import Head from "next/head";
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -20,12 +20,12 @@ const Loginmember = () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const router = useRouter();
   const [form, setForm] = useState({
-    nisn: '',
-    nama: '',
+    nisn: "",
+    nama: "",
   });
   // cek apakah sudah ada nisn dan nama di local storage
   useEffect(() => {
-    const storedNisn = localStorage.getItem('nisn');
+    const storedNisn = localStorage.getItem("nisn");
 
     if (storedNisn) {
       // router.push('/form/snbt');
@@ -39,7 +39,7 @@ const Loginmember = () => {
       await doc.useServiceAccountAuth({
         client_email: GOOGLE_CLIENT_EMAIL,
         // private_key: GOOGLE_SERVICE_PRIVATE_KEY,
-        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
       });
       // loads document properties and worksheets
       await doc.loadInfo();
@@ -47,7 +47,7 @@ const Loginmember = () => {
       const sheet3 = doc.sheetsById[SHEET_ID3];
       await sheet3.addRow(row);
     } catch (e) {
-      console.error('Error: ', e);
+      console.error("Error: ", e);
     }
   };
 
@@ -55,7 +55,7 @@ const Loginmember = () => {
   const checkNisn = async (nisn) => {
     await doc.useServiceAccountAuth({
       client_email: GOOGLE_CLIENT_EMAIL,
-      private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+      private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
     });
     await doc.loadInfo(); // tambahkan baris ini untuk memastikan sheet telah terdefinisi
     const sheet2 = doc.sheetsById[SHEET_ID2]; // tambahkan baris ini untuk mendefinisikan sheet
@@ -80,7 +80,7 @@ const Loginmember = () => {
     setIsButtonDisabled(true);
     e.preventDefault();
 
-    if (form.nisn !== '' && form.nama !== '') {
+    if (form.nisn !== "" && form.nama !== "") {
       const canSubmit = await checkNisn(form.nisn, sheet3);
 
       if (canSubmit) {
@@ -89,26 +89,26 @@ const Loginmember = () => {
           nama: form.nama,
         };
 
-        const link = localStorage.getItem('link');
+        const link = localStorage.getItem("link");
         // await appendSpreadsheet(newRow);
-        localStorage.setItem('name', form.nama);
-        localStorage.setItem('nisn', form.nisn);
-        if (link === 'snbt') {
-          localStorage.setItem('timeLeft', 2700); //30 soal
-        } else if (link === 'kuantitatif') {
-          localStorage.setItem('timeLeft', 1200); //15 soal
-        } else if (link === 'matematika') {
-          localStorage.setItem('timeLeft', 1800); //20 soal
-        } else if (link === 'english') {
-          localStorage.setItem('timeLeft', 1800); //20 soal
-        } else if (link === 'bacaan') {
-          localStorage.setItem('timeLeft', 1500); //20 soal
-        } else if (link === 'penalaran') {
-          localStorage.setItem('timeLeft', 1800); //30 soal
-        } else if (link === 'pengetahuan') {
-          localStorage.setItem('timeLeft', 900); //20 soal
+        localStorage.setItem("name", form.nama);
+        localStorage.setItem("nisn", form.nisn);
+        if (link === "snbt") {
+          localStorage.setItem("timeLeft", 2700); //30 soal
+        } else if (link === "kuantitatif") {
+          localStorage.setItem("timeLeft", 1200); //15 soal
+        } else if (link === "matematika") {
+          localStorage.setItem("timeLeft", 1800); //20 soal
+        } else if (link === "english") {
+          localStorage.setItem("timeLeft", 1800); //20 soal
+        } else if (link === "bacaan") {
+          localStorage.setItem("timeLeft", 1500); //20 soal
+        } else if (link === "penalaran") {
+          localStorage.setItem("timeLeft", 1800); //30 soal
+        } else if (link === "pengetahuan") {
+          localStorage.setItem("timeLeft", 900); //20 soal
         } else {
-          console.log('link undetect');
+          console.log("link undetect");
         }
         // localStorage.setItem('timeLeft', 1800);
         // localStorage.setItem('remainingTime', 15);
@@ -124,19 +124,19 @@ const Loginmember = () => {
         });
 
         Swal.fire({
-          title: 'Kamu Berhasil Masuk',
-          text: 'Tunggu sebentar soal sedang disiapkan....',
-          icon: 'success',
-          confirmButtonText: 'Ok',
+          title: "Kamu Berhasil Masuk",
+          text: "Tunggu sebentar soal sedang disiapkan....",
+          icon: "success",
+          confirmButtonText: "Ok",
         });
       } else {
         Swal.fire({
           title: `${form.nisn} belum terdaftar`,
-          text: 'Data gagal dikirim karena NISN kamu belum terdaftar atau nama dan NISN tidak cocok',
-          icon: 'warning',
-          confirmButtonText: 'Daftar',
+          text: "Data gagal dikirim karena NISN kamu belum terdaftar atau nama dan NISN tidak cocok",
+          icon: "warning",
+          confirmButtonText: "Daftar",
         });
-        router.push('/form/newmember');
+        router.push("/form/newmember");
       }
     }
   };
@@ -164,7 +164,8 @@ const Loginmember = () => {
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-full lg:py-0">
           <a
             href="/"
-            className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+            className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
+          >
             <img
               className="w-18 h-12 mr-2"
               src="/image/logolb3r.png"
@@ -180,11 +181,13 @@ const Loginmember = () => {
               <form
                 className="space-y-4 md:space-y-6"
                 action="#"
-                onSubmit={submitForm}>
+                onSubmit={submitForm}
+              >
                 <div>
                   <label
                     htmlFor="nisn"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
                     NISN
                   </label>
                   <input
@@ -196,6 +199,7 @@ const Loginmember = () => {
                     required=""
                     onChange={handleChange}
                     autoComplete="off"
+                    disabled={isButtonDisabled}
                   />
                   <p className="text-[10px] text-red-600">
                     Jika NISN kamu dimulai angka 0, misal 012345, maka tambahkan
@@ -205,7 +209,8 @@ const Loginmember = () => {
                 <div>
                   <label
                     htmlFor="nama"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
                     Nama Kamu
                   </label>
                   <input
@@ -217,12 +222,14 @@ const Loginmember = () => {
                     required=""
                     onChange={handleChange}
                     autoComplete="off"
+                    disabled={isButtonDisabled}
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="tipesoal"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
                     Pilih Soal
                   </label>
                   <Dropdown />
@@ -241,14 +248,16 @@ const Loginmember = () => {
                     <div className="ml-3 text-sm">
                       <label
                         htmlFor="remember"
-                        className="text-gray-500 dark:text-gray-300">
+                        className="text-gray-500 dark:text-gray-300"
+                      >
                         Remember me
                       </label>
                     </div>
                   </div>
                   <a
                     href="#"
-                    className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+                    className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
+                  >
                     Forgot NISN & Name?
                   </a>
                 </div>
@@ -258,15 +267,17 @@ const Loginmember = () => {
                   <button
                     disabled={isButtonDisabled}
                     type="submit"
-                    className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  >
                     Sign in
                   </button>
                 )}
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Don’t have an account yet?{' '}
+                  Don’t have an account yet?{" "}
                   <a
                     href="/form/newmember"
-                    className="font-medium text-blue-600 hover:underline dark:text-blue-500">
+                    className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+                  >
                     Sign up
                   </a>
                 </p>
