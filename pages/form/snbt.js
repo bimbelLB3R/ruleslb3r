@@ -324,8 +324,20 @@ const ContactForm = ({ sheetdata }) => {
   // page dalam handle checkbox mendeteksi perubahan page pada input dan mengirimnya ke local storage. page disini hanay sbg argumen yg menerima currentpage dari input checkbox yg dipilih
   const handleCheckbox = (page) => {
     setSelectedPage(page);
-    setIsChecked({ ...isChecked, [page]: !isChecked[page] });
+    const updatedIsChecked = { ...isChecked, [page]: !isChecked[page] };
+    setIsChecked(updatedIsChecked);
+    localStorage.setItem("isChecked", JSON.stringify(updatedIsChecked));
   };
+
+  useEffect(() => {
+    // Mengambil data dari Local Storage
+    const savedData = localStorage.getItem("isChecked");
+
+    // Jika ada data yang tersimpan di Local Storage
+    if (savedData) {
+      setIsChecked(JSON.parse(savedData));
+    }
+  }, []);
   // const isRadioButtonDisabled = <Timer />;
   // const text = document.getElementById('textBacaan').innerText;
   // console.log(text);
