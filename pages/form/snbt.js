@@ -310,13 +310,27 @@ const ContactForm = ({ sheetdata }) => {
   );
   // console.log(jawab);
   const totalPages = Math.ceil(sheetdata.length / postsPerPage);
+  // useEffect(() => {
+  //   // Simpan nilai currentPage ke localStorage setiap kali berubah
+  //   localStorage.setItem("currentPage", currentPage);
+  // }, [currentPage]);
+  useEffect(() => {
+    // Saat komponen dimuat, cek apakah ada nilai currentPage yang disimpan di localStorage
+    const savedCurrentPage = localStorage.getItem("currentPage");
+    if (savedCurrentPage) {
+      setCurrentPage(Number(savedCurrentPage));
+    }
+  }, []);
+
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
   // console.log(pages);
   const handlePrevious = () => {
     setCurrentPage(currentPage - 1);
+    localStorage.setItem("currentPage", currentPage - 1);
   };
   const handleNext = () => {
     setCurrentPage(currentPage + 1);
+    localStorage.setItem("currentPage", currentPage + 1);
   };
 
   // console.log(selectedValues);
@@ -394,6 +408,7 @@ const ContactForm = ({ sheetdata }) => {
               }`}
               onClick={() => {
                 setCurrentPage(page + 1);
+                localStorage.setItem("currentPage", page + 1);
               }}
             >
               <p
