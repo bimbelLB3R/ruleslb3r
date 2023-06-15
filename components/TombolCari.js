@@ -76,13 +76,32 @@ export default function TombolCari({ allPost }) {
           <ul className="absolute h-[300px] overflow-y-scroll">
             {searchResults.map((post) => (
               <Link href={`/blogs/${post.slug}`} key={post.id} className="">
-                <div className="p-2 bg-slate-50 hover:bg-slate-300">
-                  <p className="font-semibold">
-                    {highlightText(post.title, searchQuery)}
-                  </p>
+                <div className="p-4 bg-slate-900 text-slate-100 hover:bg-slate-400 hover:text-slate-900 ">
+                  <div className="flex space-x-2 items-center">
+                    <div className="border-2 rounded-full p-1">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="w-6 h-6"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+                        />
+                      </svg>
+                    </div>
+
+                    <p className="font-semibold">
+                      {highlightText(post.title, searchQuery)}
+                    </p>
+                  </div>
                   {highlightText(post.description, searchQuery).map(
                     (part, index) => (
-                      <p key={index} className="font-roboto">
+                      <p key={index} className="font-roboto pl-10">
                         {part}
                       </p>
                     )
