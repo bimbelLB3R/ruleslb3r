@@ -1,17 +1,20 @@
-import DaftarLayanan from '../../../components/DaftarLayanan';
-import { getProgramsData } from '../../../utils/layananApi';
+import DaftarLayanan from "../../../components/DaftarLayanan";
+import { getProgramsData } from "../../../utils/layananApi";
+import { getBlogsData } from "../../../utils/blogsApi";
 
-export default function detailProgramDiambil({ detailProgram }) {
+export default function detailProgramDiambil({ detailProgram, allPost }) {
   return (
     <>
-      <DaftarLayanan detailProgram={detailProgram} />
+      <DaftarLayanan detailProgram={detailProgram} allPost={allPost} />
     </>
   );
 }
 
 export async function getStaticPaths() {
   const data = await getProgramsData();
+  const data2 = await getBlogsData();
   const allProgram = data.programs;
+  const allPost = data2.posts;
 
   const paths = allProgram.map((program) => ({
     params: { slug: program.slug },
@@ -25,8 +28,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const data = await getProgramsData();
+  const data2 = await getBlogsData();
   const allProgram = data.programs;
   const programSlug = params.slug;
+  const allPost = data2.posts;
   // Find the post with a matching id
   const detailProgram = allProgram.find(
     (program) => program.slug == programSlug
@@ -35,6 +40,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       detailProgram,
+      allPost,
     },
   };
 }

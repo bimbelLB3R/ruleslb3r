@@ -8,7 +8,9 @@ import TombolCari from "./TombolCari";
 import DropdownMenuSNBT from "./DropdownMenuSNBT";
 import DropdownMenuLayanan from "./DropdownMenuLayanan";
 
-const Navbar = forwardRef((props, ref) => {
+const Navbar = forwardRef(({ allPost, ...props }, ref) => {
+  // console.log(allPost);
+  // const mapPost = allPost.allPost.map((post) => console.log(post.title));
   // Controling scroll efect
   // useEffect(() => {
   //   const handleScroll = () => {
@@ -70,7 +72,7 @@ const Navbar = forwardRef((props, ref) => {
               </p>
             </Link> */}
             {/* <TombolInOut /> */}
-            <TombolCari />
+            <TombolCari allPost={allPost} />
           </div>
         </div>
         <div
@@ -92,7 +94,7 @@ const Navbar = forwardRef((props, ref) => {
           </div>
 
           <div className="flex items-center space-x-2">
-            <TombolCari />
+            <TombolCari allPost={allPost} />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               ref={menuRef}

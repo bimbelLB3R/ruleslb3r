@@ -9,6 +9,19 @@ import Layout from "../../components/Layout";
 import Navbar from "../../components/Navbar";
 import { format } from "date-fns";
 import { id } from "date-fns/locale";
+import { getBlogsData } from "../../utils/blogsApi";
+import { getTutorialData } from "../../utils/TutorialApi";
+export async function getStaticProps() {
+  const data = getBlogsData();
+  const dataTutorial = getTutorialData();
+  // console.log(dataTutorial);
+  return {
+    props: {
+      allPost: data.posts,
+      allTutorial: dataTutorial.tutorials,
+    },
+  };
+}
 
 // mengubah mata uang
 function formatCurrency(amount) {
@@ -271,7 +284,7 @@ const BayarLes = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar allPost={allPost} />
       <Head>
         <title>Lengkapi Data</title>
         <meta name="description" content="Formulir Pendaftaran" key="desc" />

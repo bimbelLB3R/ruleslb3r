@@ -1,11 +1,24 @@
-import Layout from '../../../components/Layout';
-import { getBlogsData } from '../../../utils/blogsApi';
-import Navbar from '../../../components/Navbar';
-import Link from 'next/link';
+import Layout from "../../../components/Layout";
+import { getBlogsData } from "../../../utils/blogsApi";
+import Navbar from "../../../components/Navbar";
+import Link from "next/link";
 
-import { formatDistanceToNow } from 'date-fns';
-import { id } from 'date-fns/locale';
-import Head from 'next/head';
+import { formatDistanceToNow } from "date-fns";
+import { id } from "date-fns/locale";
+import Head from "next/head";
+import { getBlogsData } from "../../utils/blogsApi";
+import { getTutorialData } from "../../utils/TutorialApi";
+export async function getStaticProps() {
+  const data = getBlogsData();
+  const dataTutorial = getTutorialData();
+  // console.log(dataTutorial);
+  return {
+    props: {
+      allPost: data.posts,
+      allTutorial: dataTutorial.tutorials,
+    },
+  };
+}
 
 // async function getData() {
 //   const res = await fetch(`http://localhost:3000/api/blogs`);
@@ -17,7 +30,7 @@ import Head from 'next/head';
 //   return res.json();
 // }
 
-export default function PostDetail({ tagPost }) {
+export default function PostDetail({ tagPost, allPost }) {
   return (
     <>
       <Head>
@@ -30,7 +43,7 @@ export default function PostDetail({ tagPost }) {
         />
         <meta name="description" content="tag" key="desc" />
       </Head>
-      <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
+      <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" allPost={allPost} />
       <Layout>
         <div className="p-4 h-screen mt-20 md:max-w-xl md:flex md:justify-center md:m-auto md:mt-20">
           <div>

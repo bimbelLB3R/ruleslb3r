@@ -1,14 +1,16 @@
-import Link from 'next/link';
-import Layout from '../../components/Layout';
-import Navbar from '../../components/Navbar';
-import Wa from '../../components/Wa';
-import { getProgramsData } from '../../utils/layananApi';
+import Link from "next/link";
+import Layout from "../../components/Layout";
+import Navbar from "../../components/Navbar";
+import Wa from "../../components/Wa";
+import { getProgramsData } from "../../utils/layananApi";
 
+import { getBlogsData } from "../../utils/blogsApi";
+import { getTutorialData } from "../../utils/TutorialApi";
 // mengubah mata uang
 function formatCurrency(amount) {
-  const formatter = new Intl.NumberFormat('id-ID', {
-    style: 'currency',
-    currency: 'IDR',
+  const formatter = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
     minimumFractionDigits: 2,
   });
 
@@ -17,20 +19,25 @@ function formatCurrency(amount) {
 
 export async function getStaticProps() {
   const data = getProgramsData();
+  const data2 = getBlogsData();
+  const dataTutorial = getTutorialData();
+
   // console.log(data);
   return {
     props: {
       allProgram: data.programs,
+      allPost: data2.posts,
+      allTutorial: dataTutorial.tutorials,
     },
   };
 }
 
-export default function Layanan({ allProgram }) {
-  // console.log(allProgram);
+export default function Layanan({ allProgram, allPost, allTutorial }) {
+  // console.log(allPost);
   return (
     <>
       <Wa />
-      <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
+      <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" allPost={allPost} />
       <Layout>
         <div className="flex items-center justify-center">
           <p className="mt-20 font-bold text-[20px] text-blue-600 uppercase mb-10">
@@ -43,7 +50,8 @@ export default function Layanan({ allProgram }) {
             {allProgram.map((program, index) => (
               <div
                 key={index}
-                className="card m-4 p-5 border border-slate-300 md:w-[400px] w-[320px] h-[500px]">
+                className="card m-4 p-5 border border-slate-300 md:w-[400px] w-[320px] h-[500px]"
+              >
                 <p className="font-semibold text-slate-800 tracking-wider">
                   {program.nama}
                 </p>
@@ -64,7 +72,8 @@ export default function Layanan({ allProgram }) {
                         height="16"
                         fill="currentColor"
                         className="bi bi-check-lg"
-                        viewBox="0 0 16 16">
+                        viewBox="0 0 16 16"
+                      >
                         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
                       </svg>
                       <p>{elemen}</p>
@@ -83,7 +92,8 @@ export default function Layanan({ allProgram }) {
                         height="24"
                         fill="currentColor"
                         className="bi bi-arrow-right"
-                        viewBox="0 0 16 16">
+                        viewBox="0 0 16 16"
+                      >
                         <path
                           fillRule="evenodd"
                           d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"

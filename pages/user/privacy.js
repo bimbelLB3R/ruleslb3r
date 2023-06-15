@@ -1,10 +1,23 @@
-import Layout from '../../components/Layout';
-import Navbar from '../../components/Navbar';
+import Layout from "../../components/Layout";
+import Navbar from "../../components/Navbar";
+import { getBlogsData } from "../../utils/blogsApi";
+import { getTutorialData } from "../../utils/TutorialApi";
+export async function getStaticProps() {
+  const data = getBlogsData();
+  const dataTutorial = getTutorialData();
+  // console.log(dataTutorial);
+  return {
+    props: {
+      allPost: data.posts,
+      allTutorial: dataTutorial.tutorials,
+    },
+  };
+}
 
-export default function Privacy() {
+export default function Privacy({ allPost }) {
   return (
     <>
-      <Navbar />
+      <Navbar allPost={allPost} />
       <Layout>
         <div className="flex  justify-center m-auto mt-20 p-4 max-h-screen md:max-w-2xl">
           <div>

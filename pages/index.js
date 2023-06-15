@@ -9,8 +9,10 @@ import BayarLes from "../components/BayarLes";
 import { Transition } from "@headlessui/react";
 import { useEffect, useState, useRef } from "react";
 // import CodeBlog from "../components/CodeBlog";
+import { getBlogsData } from "../utils/blogsApi";
 
-const Home = () => {
+const Home = ({ allPost }) => {
+  // console.log(allPost);
   const [showNavbar, setShowNavbar] = useState(false);
   const navbarRef = useRef(null);
 
@@ -50,6 +52,7 @@ const Home = () => {
           ref={navbarRef}
           logoUrl="/image/logolb3r.png"
           logoAlt="Logo"
+          allPost={allPost}
           // menuItems={[
           //   { label: 'Sistem Pembayaran & Biaya', url: '/rules/payment' },
           //   { label: 'Cara Membuat Kelas Baru', url: '/rules/newclass' },
@@ -74,3 +77,15 @@ const Home = () => {
   );
 };
 export default Home;
+
+export async function getStaticProps() {
+  const data = getBlogsData();
+  // const dataTutorial = getTutorialData();
+  // console.log(dataTutorial);
+  return {
+    props: {
+      allPost: data.posts,
+      // allTutorial: dataTutorial.tutorials,
+    },
+  };
+}

@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { GoogleSpreadsheet } from 'google-spreadsheet';
-import Swal from 'sweetalert2';
-import Loader from './Loader';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
-import axios from 'axios';
-import Layout from './Layout';
-import Navbar from './Navbar';
+import React, { useState } from "react";
+import { GoogleSpreadsheet } from "google-spreadsheet";
+import Swal from "sweetalert2";
+import Loader from "./Loader";
+import { useRouter } from "next/router";
+import Head from "next/head";
+import axios from "axios";
+import Layout from "./Layout";
+import Navbar from "./Navbar";
 
 // mengubah mata uang
 function formatCurrency(amount) {
-  const formatter = new Intl.NumberFormat('id-ID', {
-    style: 'currency',
-    currency: 'IDR',
+  const formatter = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
     minimumFractionDigits: 2,
   });
 
@@ -26,7 +26,7 @@ const GOOGLE_CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
 const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
-const DaftarLayanan = ({ detailProgram }) => {
+const DaftarLayanan = ({ detailProgram, allPost }) => {
   const [showButton, setShowButton] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
@@ -47,13 +47,13 @@ const DaftarLayanan = ({ detailProgram }) => {
   // const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const [form, setForm] = useState({
-    nama: '',
-    kelas: '',
-    asalsekolah: '',
-    wa: '',
-    email: '',
-    program: '',
-    biaya: '',
+    nama: "",
+    kelas: "",
+    asalsekolah: "",
+    wa: "",
+    email: "",
+    program: "",
+    biaya: "",
   });
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
@@ -63,7 +63,7 @@ const DaftarLayanan = ({ detailProgram }) => {
       await doc.useServiceAccountAuth({
         client_email: GOOGLE_CLIENT_EMAIL,
         // private_key: GOOGLE_SERVICE_PRIVATE_KEY,
-        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
       });
       // loads document properties and worksheets
       await doc.loadInfo();
@@ -71,7 +71,7 @@ const DaftarLayanan = ({ detailProgram }) => {
       const sheet = doc.sheetsById[SHEET_ID];
       await sheet.addRow(row);
     } catch (e) {
-      console.error('Error: ', e);
+      console.error("Error: ", e);
     }
   };
 
@@ -79,7 +79,7 @@ const DaftarLayanan = ({ detailProgram }) => {
   const checkName = async (nama) => {
     await doc.useServiceAccountAuth({
       client_email: GOOGLE_CLIENT_EMAIL,
-      private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+      private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
     });
     await doc.loadInfo(); // tambahkan baris ini untuk memastikan sheet telah terdefinisi
     const sheet = doc.sheetsById[SHEET_ID]; // tambahkan baris ini untuk mendefinisikan sheet
@@ -103,13 +103,13 @@ const DaftarLayanan = ({ detailProgram }) => {
     e.preventDefault();
 
     if (
-      form.nama !== '' &&
-      form.kelas !== '' &&
-      form.asalsekolah !== '' &&
-      form.wa !== '' &&
-      form.email !== '' &&
-      form.program !== '' &&
-      form.biaya !== ''
+      form.nama !== "" &&
+      form.kelas !== "" &&
+      form.asalsekolah !== "" &&
+      form.wa !== "" &&
+      form.email !== "" &&
+      form.program !== "" &&
+      form.biaya !== ""
     ) {
       setIsButtonDisabled(true);
 
@@ -132,7 +132,7 @@ const DaftarLayanan = ({ detailProgram }) => {
         const createTransaction = async (newRow) => {
           try {
             const response = await axios.post(
-              '/api/create-transaction',
+              "/api/create-transaction",
               newRow
             );
             const transactionToken = response.data.transactionToken;
@@ -142,7 +142,7 @@ const DaftarLayanan = ({ detailProgram }) => {
 
             return transactionToken, transactionRedirectUrl;
           } catch (error) {
-            console.error('Failed to create transaction:', error);
+            console.error("Failed to create transaction:", error);
             return null;
           }
         };
@@ -166,18 +166,18 @@ const DaftarLayanan = ({ detailProgram }) => {
       } else {
         Swal.fire({
           title: `${form.nama} pernah terdaftar,hubungi admin.`,
-          text: 'Data gagal dikirim',
-          icon: 'warning',
-          confirmButtonText: 'Ok',
+          text: "Data gagal dikirim",
+          icon: "warning",
+          confirmButtonText: "Ok",
         });
         setIsButtonDisabled(false);
       }
     } else {
-      setIsNamaEmpty(form.nama === '');
-      setIsKelasEmpty(form.nama === '');
-      setIsAsalSekolahEmpty(form.nama === '');
-      setIsWaEmpty(form.nama === '');
-      setIsEmailEmpty(form.nama === '');
+      setIsNamaEmpty(form.nama === "");
+      setIsKelasEmpty(form.nama === "");
+      setIsAsalSekolahEmpty(form.nama === "");
+      setIsWaEmpty(form.nama === "");
+      setIsEmailEmpty(form.nama === "");
     }
   };
 
@@ -189,11 +189,11 @@ const DaftarLayanan = ({ detailProgram }) => {
 
     // memeriksa apakah semua form telah terisi
     if (
-      form.nama !== '' &&
-      form.kelas !== '' &&
-      form.asalsekolah !== '' &&
-      form.wa !== '' &&
-      form.email !== ''
+      form.nama !== "" &&
+      form.kelas !== "" &&
+      form.asalsekolah !== "" &&
+      form.wa !== "" &&
+      form.email !== ""
     ) {
       setShowButton(true); // menampilkan tombol
     }
@@ -201,7 +201,7 @@ const DaftarLayanan = ({ detailProgram }) => {
 
   return (
     <>
-      <Navbar />
+      <Navbar allPost={allPost} />
       <Head>
         <title>Lengkapi Data</title>
         <meta name="description" content="Formulir Pendaftaran" key="desc" />
@@ -216,7 +216,8 @@ const DaftarLayanan = ({ detailProgram }) => {
         <div className="flex justify-center items-center bg-slate-100 text-gray-900 mt-20">
           <form
             className="space-y-3 w-full max-w-lg mx-auto p-5"
-            onSubmit={submitForm}>
+            onSubmit={submitForm}
+          >
             <p className="font-semibold text-2xl text-center w-full bg-slate-500 p-2 text-slate-100">
               Lengkapi Data
             </p>
@@ -224,12 +225,12 @@ const DaftarLayanan = ({ detailProgram }) => {
               <input
                 name="nama"
                 type="text"
-                className={`w-full ${isNamaEmpty ? 'border-red-500' : ''}`}
+                className={`w-full ${isNamaEmpty ? "border-red-500" : ""}`}
                 placeholder="Nama Lengkap"
                 autoComplete="off"
                 onChange={handleChange}
                 onBlur={() => {
-                  if (form.nama === '') {
+                  if (form.nama === "") {
                     setIsNamaEmpty(true);
                   } else {
                     setIsNamaEmpty(false);
@@ -244,12 +245,12 @@ const DaftarLayanan = ({ detailProgram }) => {
               <input
                 name="kelas"
                 type="text"
-                className={`w-full ${isKelasEmpty ? 'border-red-500' : ''}`}
+                className={`w-full ${isKelasEmpty ? "border-red-500" : ""}`}
                 placeholder="Kelas"
                 autoComplete="off"
                 onChange={handleChange}
                 onBlur={() => {
-                  if (form.kelas === '') {
+                  if (form.kelas === "") {
                     setIsKelasEmpty(true);
                   } else {
                     setIsKelasEmpty(false);
@@ -265,13 +266,13 @@ const DaftarLayanan = ({ detailProgram }) => {
                 name="asalsekolah"
                 type="text"
                 className={`w-full ${
-                  isAsalSekolahEmpty ? 'border-red-500' : ''
+                  isAsalSekolahEmpty ? "border-red-500" : ""
                 }`}
                 placeholder="Asal Sekolah"
                 autoComplete="off"
                 onChange={handleChange}
                 onBlur={() => {
-                  if (form.asalsekolah === '') {
+                  if (form.asalsekolah === "") {
                     setIsAsalSekolahEmpty(true);
                   } else {
                     setIsAsalSekolahEmpty(false);
@@ -286,12 +287,12 @@ const DaftarLayanan = ({ detailProgram }) => {
               <input
                 name="wa"
                 type="number"
-                className={`w-full ${isWaEmpty ? 'border-red-500' : ''}`}
+                className={`w-full ${isWaEmpty ? "border-red-500" : ""}`}
                 placeholder="wa"
                 autoComplete="off"
                 onChange={handleChange}
                 onBlur={() => {
-                  if (form.wa === '') {
+                  if (form.wa === "") {
                     setIsWaEmpty(true);
                   } else {
                     setIsWaEmpty(false);
@@ -306,12 +307,12 @@ const DaftarLayanan = ({ detailProgram }) => {
               <input
                 name="email"
                 type="email"
-                className={`w-full ${isEmailEmpty ? 'border-red-500' : ''}`}
+                className={`w-full ${isEmailEmpty ? "border-red-500" : ""}`}
                 placeholder="email"
                 autoComplete="off"
                 onChange={handleChange}
                 onBlur={() => {
-                  if (form.email === '') {
+                  if (form.email === "") {
                     setIsEmailEmpty(true);
                   } else {
                     setIsEmailEmpty(false);
@@ -369,7 +370,8 @@ const DaftarLayanan = ({ detailProgram }) => {
                   disabled={isButtonDisabled}
                   id="tombolKirim"
                   type="submit"
-                  className=" w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  className=" w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
                   <p className="text-lg">Lanjutkan</p>
                 </button>
               )

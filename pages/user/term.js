@@ -1,10 +1,23 @@
-import Link from 'next/link';
-import Layout from '../../components/Layout';
-import Navbar from '../../components/Navbar';
-export default function Term() {
+import Link from "next/link";
+import Layout from "../../components/Layout";
+import Navbar from "../../components/Navbar";
+import { getBlogsData } from "../../utils/blogsApi";
+import { getTutorialData } from "../../utils/TutorialApi";
+export async function getStaticProps() {
+  const data = getBlogsData();
+  const dataTutorial = getTutorialData();
+  // console.log(dataTutorial);
+  return {
+    props: {
+      allPost: data.posts,
+      allTutorial: dataTutorial.tutorials,
+    },
+  };
+}
+export default function Term({ allPost }) {
   return (
     <>
-      <Navbar />
+      <Navbar allPost={allPost} />
       <Layout>
         <div className="flex items-center justify-center md:max-w-2xl m-auto h-screen">
           <div className="m-4 text-center">

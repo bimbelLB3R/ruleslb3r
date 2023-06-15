@@ -1,8 +1,8 @@
-import Head from 'next/head';
-import Navbar from '../../components/Navbar';
-import Layout from '../../components/Layout';
-import Link from 'next/link';
-import Image from 'next/image';
+import Head from "next/head";
+import Navbar from "../../components/Navbar";
+import Layout from "../../components/Layout";
+import Link from "next/link";
+import Image from "next/image";
 export default function Lowongan() {
   return (
     <>

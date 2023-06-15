@@ -1,8 +1,21 @@
-import Navbar from '../../components/Navbar';
-import Head from 'next/head';
-import Layout from '../../components/Layout';
+import Navbar from "../../components/Navbar";
+import Head from "next/head";
+import Layout from "../../components/Layout";
+import { getBlogsData } from "../../utils/blogsApi";
+import { getTutorialData } from "../../utils/TutorialApi";
+export async function getStaticProps() {
+  const data = getBlogsData();
+  const dataTutorial = getTutorialData();
+  // console.log(dataTutorial);
+  return {
+    props: {
+      allPost: data.posts,
+      allTutorial: dataTutorial.tutorials,
+    },
+  };
+}
 
-const Kbm = () => {
+const Kbm = ({ allPost }) => {
   return (
     <>
       <Head>
@@ -21,7 +34,7 @@ const Kbm = () => {
           key="desc"
         />
       </Head>
-      <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
+      <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" allPost={allPost} />
       <Layout>
         <div className="flex justify-center items-center m-auto overflow-scroll md:overflow-hidden mb-5 md:max-w-2xl">
           <div className=" text-gray-900 p-4 overflow-scroll md:overflow-hidden">

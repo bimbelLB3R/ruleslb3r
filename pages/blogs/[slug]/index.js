@@ -80,7 +80,7 @@ export default function PostDetail({ detailPost, allPost }) {
   return (
     <>
       <MetaForBlog detailPost={detailPost} />
-      <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
+      <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" allPost={allPost} />
       <Layout>
         <div
           className={
