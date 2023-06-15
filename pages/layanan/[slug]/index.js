@@ -12,9 +12,7 @@ export default function detailProgramDiambil({ detailProgram, allPost }) {
 
 export async function getStaticPaths() {
   const data = await getProgramsData();
-  const data2 = await getBlogsData();
   const allProgram = data.programs;
-  const allPost = data2.posts;
 
   const paths = allProgram.map((program) => ({
     params: { slug: program.slug },
