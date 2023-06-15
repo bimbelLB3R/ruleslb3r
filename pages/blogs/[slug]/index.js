@@ -6,6 +6,7 @@ import Image from "next/image";
 // import TombolInOut from '../../../components/TombolInOut';
 
 import { formatDistanceToNow } from "date-fns";
+import { format, parseISO } from "date-fns";
 import { id } from "date-fns/locale";
 import Head from "next/head";
 import Sharebutton from "../../../components/Sharebutton";
@@ -70,6 +71,13 @@ export default function PostDetail({ detailPost, allPost }) {
     };
   }, []);
   // membuat waktu
+  const dateCreated = detailPost.createdAt;
+  const formattedDate = format(
+    parseISO(dateCreated),
+    "EEEE, dd MMMM yyyy HH:mm:ss",
+    { locale: id }
+  );
+
   const createdDate = new Date(detailPost.createdAt);
   const timeAgo = formatDistanceToNow(createdDate, {
     addSuffix: true,
@@ -92,7 +100,7 @@ export default function PostDetail({ detailPost, allPost }) {
         >
           <Sharebutton />
         </div>
-        <div className="p-1 md:p-4  mt-5 md:max-w-2xl md:flex md:justify-center md:m-auto md:mt-0">
+        <div className="p-2 md:p-4  mt-10 md:max-w-2xl md:flex md:justify-center md:m-auto md:mt-0">
           <div>
             <div>
               <div className="flex mb-10 font-bold mt-10 md:mt-20">
@@ -101,7 +109,9 @@ export default function PostDetail({ detailPost, allPost }) {
                 </Link>
                 {" > "}
                 <Link href={`/tag/${detailPost.tags}`}>
-                  <p>{detailPost.tags}</p>
+                  <p className="underline underline-offset-4 decoration-4 decoration-orange-600">
+                    {detailPost.tags}
+                  </p>
                 </Link>
               </div>
               <div className="flex justify-center">
@@ -116,7 +126,7 @@ export default function PostDetail({ detailPost, allPost }) {
                   {detailPost.title}
                 </h1>
                 <p className="text-xs text-gray-600 text-center">
-                  {detailPost.createdAt}{" "}
+                  {formattedDate}{" "}
                   <Link href="/blogs">
                     <span className="underline">oleh {detailPost.writer}</span>
                   </Link>

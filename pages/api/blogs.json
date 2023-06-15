@@ -3,7 +3,7 @@
     {
       "id": 5,
       "title": "Don't Judge By It's Cover Don't Judge By It's Cover",
-      "description": "Ini adalah deskripsi",
+      "description": "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one. Everything you do never useless....",
       "slug": "Don't-Judge-By-It's-Cover",
       "bahasa": "language-js",
       "body": [
@@ -28,7 +28,7 @@
     {
       "id": 4,
       "title": "Don't Judge By It's Cover",
-      "description": "Ini adalah deskripsi",
+      "description": "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. You are the best one....",
       "slug": "Don't-Judge-By-It's-Cover",
       "bahasa": "language-js",
       "body": [
@@ -51,15 +51,15 @@
       "tags": "Education"
     },
     {
-      "id": 1,
+      "id": 3,
       "title": "Highlight Code Using Prismjs - Nextjs Series",
-      "description": "Exlain how to apply prismjs to nextjs project",
+      "description": "Explain how to apply prismjs into nextjs project - highlihting code....",
       "slug": "Highlight-Code-Using-Prismjs",
       "bahasa": "language-js",
       "body": [
         "<p style='margin-bottom:10px; text-indent:32px'><span style='color: #ea580c; font-weight: bold;'>Tanjung </span>-If you are a beginner, don't worry , me to. So let's learn together. First, install primsjs via npm below </p>",
 
-        "<pre ><code>npm install prismjs</code></pre>",
+        "<pre><code>npm install prismjs</code></pre>",
 
         "<p style='margin-bottom:10px; text-indent:32px'>Second, we download prism.css from the web. You can customize language and the display of theme. Because my roject is nextjs, i store prism.css in public-styles. Then we import it to _app.js </p>",
 
@@ -81,7 +81,7 @@
     {
       "id": 2,
       "title": "Embrace Change",
-      "description": "Ini adalah deskripsi",
+      "description": "Change can be scary, but it can also be the start of something wonderful. Embrace the unknown and let it lead you to new opportunities....",
       "slug": "Embrace-Change",
       "bahasa": "language-js",
       "body": [
@@ -95,9 +95,9 @@
       "tags": "IT"
     },
     {
-      "id": 3,
+      "id": 1,
       "title": "Dream Big",
-      "description": "Ini adalah deskripsi",
+      "description": "Don't be afraid to dream big. Your dreams have the power to shape your reality. Set audacious goals and work towards making them a reality....",
       "slug": "Dream-Big",
       "bahasa": "language-js",
       "body": [

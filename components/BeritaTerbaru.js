@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { formatDistanceToNow } from "date-fns";
+import { id } from "date-fns/locale";
+import { format, parseISO } from "date-fns";
 
 export default function BeritaTerbaru({ allPost }) {
   return (
@@ -20,7 +23,11 @@ export default function BeritaTerbaru({ allPost }) {
                   <div className="absolute text-slate-100 bg-orange-600 rounded p-1 text-xs">
                     {post.tags}
                   </div>
-                  <div className={index !== 0 ? "w-[100px]  bg-blue-400" : ""}>
+                  <div
+                    className={
+                      index !== 0 ? "w-[100px]  bg-blue-400" : "md:mt-10"
+                    }
+                  >
                     <Image
                       src={post.imageUrl}
                       width={index === 0 ? 600 : 150}
@@ -45,9 +52,28 @@ export default function BeritaTerbaru({ allPost }) {
                       {post.title}
                     </h1>
                   </div>
-                  <div className={index !== 0 ? "text-xs" : ""}>
-                    <div>Penulis : {post.writer}</div>
-                    <p>{post.createdAt}</p>
+                  <div>
+                    <div className={index !== 0 ? "text-xs" : "text-sm"}>
+                      {post.description}
+                    </div>
+                    <p
+                      className={
+                        index !== 0
+                          ? "text-[10px] text-slate-400 mt-4"
+                          : "text-[12px] text-slate-400 mt-4 "
+                      }
+                    >
+                      {index !== 0
+                        ? formatDistanceToNow(new Date(post.createdAt), {
+                            addSuffix: true,
+                            locale: id,
+                          })
+                        : format(
+                            parseISO(post.createdAt),
+                            "EEEE, dd MMMM yyyy HH:mm:ss",
+                            { locale: id }
+                          )}
+                    </p>
                   </div>
                 </div>
               </Link>

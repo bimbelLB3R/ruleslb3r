@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { formatDistanceToNow } from 'date-fns';
-import { id } from 'date-fns/locale';
+import Link from "next/link";
+import { formatDistanceToNow } from "date-fns";
+import { id } from "date-fns/locale";
 
 export default function ArtikelTerkait({ allPost, detailPost }) {
   // membuat waktu
@@ -23,9 +23,10 @@ export default function ArtikelTerkait({ allPost, detailPost }) {
         <div
           className={
             filteredPost.length < 2
-              ? ''
-              : ' border-l-8 border-slate-300 p-1 m-2'
-          }>
+              ? ""
+              : " border-l-8 border-slate-300 p-1 m-2"
+          }
+        >
           {filteredPost.map((item) => (
             <div key={item.id}>
               {item.id !== detailPost.id && (
