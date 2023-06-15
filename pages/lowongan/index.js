@@ -20,7 +20,7 @@ export default function Lowongan() {
           key="desc"
         />
       </Head>
-      <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" />
+      {/* <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" /> */}
       <Layout>
         <div className=" md:justify-center md:flex md:space-x-4 md:bg-orange-200">
           <div className="flex justify-center">
