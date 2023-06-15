@@ -6,19 +6,19 @@ import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 import { id } from "date-fns/locale";
 import Head from "next/head";
-import { getBlogsData } from "../../utils/blogsApi";
-import { getTutorialData } from "../../utils/TutorialApi";
-export async function getStaticProps() {
-  const data = getBlogsData();
-  const dataTutorial = getTutorialData();
-  // console.log(dataTutorial);
-  return {
-    props: {
-      allPost: data.posts,
-      allTutorial: dataTutorial.tutorials,
-    },
-  };
-}
+// import { getBlogsData } from "../../utils/blogsApi";
+// import { getTutorialData } from "../../utils/TutorialApi";
+// export async function getStaticProps() {
+//   const data = getBlogsData();
+//   const dataTutorial = getTutorialData();
+//   // console.log(dataTutorial);
+//   return {
+//     props: {
+//       allPost: data.posts,
+//       allTutorial: dataTutorial.tutorials,
+//     },
+//   };
+// }
 
 // async function getData() {
 //   const res = await fetch(`http://localhost:3000/api/blogs`);
@@ -87,6 +87,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       tagPost,
+      allPost,
     },
   };
 }

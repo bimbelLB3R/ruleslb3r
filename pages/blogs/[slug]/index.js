@@ -31,6 +31,7 @@ import "prismjs/components/prism-javascript";
 // }
 
 export default function PostDetail({ detailPost, allPost }) {
+  // console.log(allPost); clear
   useEffect(() => {
     Prism.highlightAll();
   }, []);

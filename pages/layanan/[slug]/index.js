@@ -1,8 +1,10 @@
 import DaftarLayanan from "../../../components/DaftarLayanan";
 import { getProgramsData } from "../../../utils/layananApi";
 import { getBlogsData } from "../../../utils/blogsApi";
+import { all } from "axios";
 
 export default function detailProgramDiambil({ detailProgram, allPost }) {
+  // console.log(allPost);
   return (
     <>
       <DaftarLayanan detailProgram={detailProgram} allPost={allPost} />
