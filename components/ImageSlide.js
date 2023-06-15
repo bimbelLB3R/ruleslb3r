@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
-import Welcome from './Welcome';
-import Image from 'next/image';
+import React, { Component } from "react";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+
+import Image from "next/image";
 
 export default class ImageSlide extends Component {
   render() {
@@ -14,7 +14,8 @@ export default class ImageSlide extends Component {
             showArrows={true}
             showThumbs={false}
             autoPlay={true}
-            infiniteLoop={true}>
+            infiniteLoop={true}
+          >
             <div>
               <Image
                 src="/image/image1.webp"
@@ -87,7 +88,6 @@ export default class ImageSlide extends Component {
               <p className="legend">SALAH SATU SISWA MERAYAKAN ULANG TAHUN</p>
             </div>
           </Carousel>
-          <Welcome />
         </div>
       </div>
     );

@@ -1,6 +1,8 @@
 import Faq from "../components/Faq";
 import Layout from "../components/Layout";
 import ImageSlide from "../components/ImageSlide";
+import Welcome from "../components/Welcome";
+import ButtonUmum from "../components/ButtonUmum";
 import Meta from "../components/Meta";
 import Navbar from "../components/Navbar";
 import BluryBg from "../components/BluryBg";
@@ -69,6 +71,8 @@ const Home = ({ allPost }) => {
       <Layout>
         <BayarLes />
         <ImageSlide />
+        <ButtonUmum />
+        <Welcome />
         <BluryBg />
         <Faq />
         {/* <CodeBlog /> */}
