@@ -1,10 +1,8 @@
 const Welcome = () => {
   return (
     <div className="flex justify-center md:max-w-xl m-auto">
-      <div className="leading-tight p-4 text-gray-900 text-center">
-        <h2 className="font-bold mb-4 text-xl font-sans">
-          Bimbingan Belajar SD,SMP dan SMA
-        </h2>
+      <div className="leading-tight p-4 text-orange-900/80 text-center">
+        {/* <h2 className="mb-4 text-[52px] font-gasok font-bold">LB3R</h2> */}
         <p>
           Bimbingan belajar (Bimbel)/tempat les ternama di Kabupaten Tabalong
           yang didirikan sejak tahun 2012. Bimbel LB3R berpengalaman dalam

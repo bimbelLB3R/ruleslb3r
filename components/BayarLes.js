@@ -1,14 +1,15 @@
-import { useSession, signIn, signOut } from 'next-auth/react';
-import Link from 'next/link';
+import { useSession, signIn, signOut } from "next-auth/react";
+import Link from "next/link";
 
 const BayarLes = () => {
   return (
     <div>
-      <div className="fixed bottom-12 right-8 md:bottom-12 md:right-12 z-50">
+      <div className="fixed bottom-12 right-8 md:bottom-12 md:right-12 z-20">
         <Link
           href="/layanan/bayarles"
           target="_blank"
-          className="flex items-center space-x-1 bg-slate-100  p-2 text-emerald-700 rounded-full shadow-inner shadow-gray-900/50">
+          className="flex items-center space-x-1 bg-slate-100  p-2 text-emerald-700 rounded-full shadow-inner shadow-gray-900/50"
+        >
           {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             width="36"
@@ -25,7 +26,8 @@ const BayarLes = () => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="w-8 h-8">
+            className="w-8 h-8"
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"

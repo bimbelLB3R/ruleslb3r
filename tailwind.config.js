@@ -7,7 +7,11 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: { roboto: ["Roboto", " sans-serif"] },
+      fontFamily: {
+        roboto: ["Roboto", " sans-serif"],
+        cinzel: ["Cinzel Decorative", "cursive"],
+        gasok: ["Gasoek One", "sans-serif"],
+      },
       maxWidth: {
         "1/2": "50%",
       },

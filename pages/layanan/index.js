@@ -39,20 +39,20 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
       <Wa />
       <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" allPost={allPost} />
       <Layout>
-        <div className="flex items-center justify-center">
+        {/* <div className="flex items-center justify-center">
           <p className="mt-20 font-bold text-[20px] text-blue-600 uppercase mb-10">
             Program Bimbel LB3R
           </p>
-        </div>
+        </div> */}
 
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center mt-20 font-roboto">
           <div className="lg:flex overflow-scroll">
             {allProgram.map((program, index) => (
               <div
                 key={index}
-                className="card m-4 p-5 border border-slate-300 md:w-[400px] w-[320px] h-[500px]"
+                className="card bg-gradient-to-br from-rose-200/50 drop-shadow-lg m-4 p-5 border border-slate-300 md:w-[400px] w-[320px] "
               >
-                <p className="font-semibold text-slate-800 tracking-wider">
+                <p className="font-semibold text-slate-800 tracking-wider underline underline-offset-4 decoration-4 decoration-orange-600">
                   {program.nama}
                 </p>
                 <div className="flex items-center justify-center">
@@ -81,8 +81,8 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
                   ))}
                 </ul>
                 <Link href={`/layanan/${program.slug}`}>
-                  <div className="bg-blue-500 hover:bg-blue-600 mt-5 flex items-center space-x-3 justify-center">
-                    <p className="text-center font-semibold p-2 text-slate-50">
+                  <div className="bg-slate-600 hover:bg-slate-800 mt-5 flex items-center space-x-3 justify-center rounded-full mb-10">
+                    <p className="text-center font-semibold px-2 py-4 text-slate-50">
                       DAFTAR SEKARANG
                     </p>
                     <div className="text-slate-50">

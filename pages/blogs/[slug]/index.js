@@ -94,7 +94,7 @@ export default function PostDetail({ detailPost, allPost }) {
         <div
           className={
             showComponent
-              ? "visible  md:top-10 p-5 md:p-0 md:bg-inherit z-20 md:z-50  fixed top-[60px] justify-center bg-slate-200 w-full m-auto flex"
+              ? "visible  md:top-[120px] p-5 md:p-0 z-20 md:z-50  fixed top-[90px]  left-1/2 transform -translate-x-1/2 -translate-y-1/2 "
               : "hidden"
           }
         >

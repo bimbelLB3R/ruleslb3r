@@ -12,6 +12,7 @@ import { Transition } from "@headlessui/react";
 import { useEffect, useState, useRef } from "react";
 // import CodeBlog from "../components/CodeBlog";
 import { getBlogsData } from "../utils/blogsApi";
+import InfoTerbaru from "../components/InfoTerbaru";
 
 const Home = ({ allPost }) => {
   // console.log(allPost);
@@ -71,10 +72,11 @@ const Home = ({ allPost }) => {
       <Layout>
         <BayarLes />
         <ImageSlide />
-        <ButtonUmum />
         <Welcome />
+        <ButtonUmum />
         <BluryBg />
         <Faq />
+        <InfoTerbaru />
         {/* <CodeBlog /> */}
       </Layout>
     </div>
