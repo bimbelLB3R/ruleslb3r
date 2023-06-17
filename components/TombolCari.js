@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 export default function TombolCari({ allPost }) {
+  const searchRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -12,7 +13,7 @@ export default function TombolCari({ allPost }) {
   };
 
   const handleBlur = () => {
-    setIsFocused(false);
+    setIsFocused(true);
   };
 
   const handleSearch = (event) => {
@@ -49,17 +50,32 @@ export default function TombolCari({ allPost }) {
     );
   };
 
+  const handleClickOutside = (event) => {
+    if (searchRef.current && !searchRef.current.contains(event.target)) {
+      setIsFocused(false);
+      setSearchQuery("");
+      setSearchResults([]);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
     <>
       <div className="">
-        <form action="" className="relative w-max mx-auto">
+        <form action="" className="relative w-max mx-auto" ref={searchRef}>
           <input
             type="text"
             value={searchQuery}
             onFocus={handleFocus}
             onBlur={handleBlur}
             onChange={handleSearch}
-            className="relative peer z-10 bg-transparent w-12 h-8  border-none focus:border focus:w-full focus:border-lime-300 cursor-pointer focus:cursor-text pl-12 focus:pl-16 focus:pr-4"
+            className={`relative peer z-10 bg-transparent w-12 h-8  border-none focus:border focus:w-full focus:border-lime-300 cursor-pointer focus:cursor-text pl-12 focus:pl-16 focus:pr-4`}
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +89,7 @@ export default function TombolCari({ allPost }) {
           </svg>
         </form>
         {isFocused && (
-          <ul className="absolute h-[300px] overflow-y-scroll">
+          <ul className="absolute h-[300px] overflow-y-auto right-0 z-50">
             {searchResults.map((post) => (
               <Link href={`/blogs/${post.slug}`} key={post.id} className="">
                 <div className="p-4 bg-slate-900 text-slate-100 hover:bg-slate-400 hover:text-slate-900 ">
