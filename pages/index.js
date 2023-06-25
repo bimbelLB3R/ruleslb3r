@@ -76,7 +76,7 @@ const Home = ({ allPost }) => {
         <ButtonUmum />
         <BluryBg />
         <Faq />
-        <InfoTerbaru />
+        {/* <InfoTerbaru /> */}
         {/* <CodeBlog /> */}
       </Layout>
     </div>

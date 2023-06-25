@@ -56,7 +56,8 @@ const Payment = ({ allPost }) => {
                 <td className="align-top">3.</td>
                 <td className="text-justify">
                   Pembayaran dapat dilakukan secara cash maupun transfer. Untuk
-                  transfer kami hanya menyediakan satu rekening Bank BSI Mandiri
+                  transfer kami hanya menyediakan rekening Bank BSI Mandiri atau
+                  QRIS
                 </td>
               </tr>
               <tr>
@@ -78,8 +79,8 @@ const Payment = ({ allPost }) => {
               <tr>
                 <td className="align-top">6.</td>
                 <td className="text-justify">
-                  Besarnya biaya pendaftaran Rp 100.000,- per anak (sekali
-                  bayar), dan biaya bulanan Rp 185.000,- (Biaya bisa mengalami
+                  Besarnya biaya pendaftaran Rp 150.000,- per anak (sekali
+                  bayar), dan biaya bulanan Rp 195.000,- (Biaya bisa mengalami
                   kenaikan tanpa pemberitahuan).
                 </td>
               </tr>
