@@ -1,0 +1,64 @@
+{
+  "kampuses": [
+    {
+      "kode_kampus": 0,
+      "nama_kampus": "Universitas Lambung Mangkurat",
+      "prodi": [
+        {
+          "kode_prodi": "135",
+          "nama_prodi": "Pendidikan Matematika",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [88, 88, 89, 89, 89, 90],
+          "peminat": [100, 120, 130, 140, 150, 160]
+        },
+        {
+          "kode_prodi": "235",
+          "nama_prodi": "Pendidikan Kimia",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [99, 98, 90, 97, 98, 99],
+          "peminat": [100, 120, 130, 140, 150, 160]
+        }
+      ]
+    },
+    {
+      "kode_kampus": 1,
+      "nama_kampus": "Universitas Negeri Semarang",
+      "prodi": [
+        {
+          "kode_prodi": "567",
+          "nama_prodi": "Pendidikan Biologi",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [76, 67, 68, 78, 77, 70],
+          "peminat": [100, 120, 130, 140, 150, 160]
+        },
+        {
+          "kode_prodi": "535",
+          "nama_prodi": "Pendidikan Sejarah",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [67, 68, 66, 69, 68, 60],
+          "peminat": [100, 120, 130, 140, 150, 160]
+        }
+      ]
+    },
+    {
+      "kode_kampus": 2,
+      "nama_kampus": "Universitas Brawijaya",
+      "prodi": [
+        {
+          "kode_prodi": "567",
+          "nama_prodi": "Pendidikan Biologi",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [40, 50, 36, 45, 36, 21],
+          "peminat": [100, 120, 130, 140, 150, 160]
+        },
+        {
+          "kode_prodi": "535",
+          "nama_prodi": "Pendidikan Sejarah",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [38, 37, 36, 29, 30, 31],
+          "peminat": [100, 120, 130, 140, 150, 160]
+        }
+      ]
+    }
+  ]
+}

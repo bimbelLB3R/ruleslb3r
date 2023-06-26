@@ -10,6 +10,13 @@ const Footer = () => {
           <div className="flex justify-center text-center">
             <div>
               <div className="flex space-x-2 items-center justify-center mb-4">
+                <Link href="/kampusku">
+                  <p className="text-xs text-slate-600 underline underline-offset-2 decoration-2 decoration-orange-600">
+                    Cek Keketatan Prodi SNBT
+                  </p>
+                </Link>
+              </div>
+              <div className="flex space-x-2 items-center justify-center mb-4">
                 <Link href="/blogs">
                   <p className="text-xs text-slate-600 underline underline-offset-2 decoration-2 decoration-orange-600">
                     Berita

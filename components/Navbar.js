@@ -125,8 +125,8 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
             }`}
           >
             {/* button */}
-            <div className="flex justify-center md:hidden ">
-              <div className="w-full p-6">
+            <div className="flex justify-center md:hidden h-screen overflow-auto ">
+              <div className="w-full p-6 ">
                 <div className="flex space-x-2 justify-center mb-4 font-semibold">
                   <Link href="/">
                     <p className="text-slate-600 hover:text-slate-900">HOME</p>
@@ -148,8 +148,13 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                     </p>
                   </Link>
                   <Link href="/form/login">
-                    <p className="text-center border border-orange-600 text-orange-600 px-2 py-4 rounded">
+                    <p className="text-center border border-orange-600 text-orange-600 px-2 py-4 rounded mb-2">
                       MULAI TRY OUT SNBT
+                    </p>
+                  </Link>
+                  <Link href="/kampusku">
+                    <p className="bg-orange-600 text-slate-50 px-2 py-4 text-center mb-2 rounded">
+                      CEK KEKETATAN PRODI
                     </p>
                   </Link>
                   <div className="m-4 text-center">

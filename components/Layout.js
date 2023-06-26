@@ -1,6 +1,6 @@
-import React, { Children } from 'react';
+import React, { Children } from "react";
 // import Medsos from './medsos';
-import Footer from './Footer';
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   return (
