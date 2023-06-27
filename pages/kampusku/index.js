@@ -38,7 +38,7 @@ export default function Kampus({ allKampus, allPost }) {
   const dataDayaTampung = DataProdiYangDiKlik?.daya_tampung || [];
   const dataPeminat = DataProdiYangDiKlik?.peminat || [];
   const dataKeketatan = dataDayaTampung.map((item, index) =>
-    (dataPeminat[index] / item).toFixed(3)
+    ((item / dataPeminat[index]) * 100).toFixed(3)
   );
 
   const chartDataDayaTampung = {
