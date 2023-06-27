@@ -1242,6 +1242,166 @@
           "peminat": [0, 0, 0, 0, 0, 0]
         }
       ]
+    },
+    {
+      "kode_kampus": 542,
+      "nama_kampus": "INSTITUT TEKNOLOGI KALIMANTAN",
+      "prodi": [
+        {
+          "kode_prodi": "542001",
+          "nama_prodi": "FISIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [24, 68, 30, 35, 34, 18],
+          "peminat": [42, 46, 50, 8, 14, 0]
+        },
+        {
+          "kode_prodi": "542002",
+          "nama_prodi": "MATEMATIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [24, 55, 26, 22, 21, 16],
+          "peminat": [87, 40, 23, 23, 14, 0]
+        },
+        {
+          "kode_prodi": "542003",
+          "nama_prodi": "TEKNIK MESIN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [48, 62, 79, 77, 89, 70],
+          "peminat": [295, 175, 189, 194, 208, 0]
+        },
+        {
+          "kode_prodi": "542004",
+          "nama_prodi": "TEKNIK ELEKTRO",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [48, 54, 60, 60, 61, 55],
+          "peminat": [250, 126, 138, 115, 107, 0]
+        },
+        {
+          "kode_prodi": "542005",
+          "nama_prodi": "TEKNIK KIMIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [48, 47, 76, 62, 60, 45],
+          "peminat": [154, 161, 103, 89, 111, 0]
+        },
+        {
+          "kode_prodi": "542006",
+          "nama_prodi": "TEKNIK MATERIAL DAN METALURGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [48, 38, 62, 38, 46, 41],
+          "peminat": [146, 102, 65, 71, 77, 0]
+        },
+        {
+          "kode_prodi": "542007",
+          "nama_prodi": "TEKNIK SIPIL",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [48, 49, 77, 78, 76, 75],
+          "peminat": [408, 252, 221, 225, 249, 0]
+        },
+        {
+          "kode_prodi": "542008",
+          "nama_prodi": "PERENCANAAN WILAYAH DAN KOTA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [48, 49, 78, 63, 59, 32],
+          "peminat": [384, 199, 289, 177, 167, 0]
+        },
+        {
+          "kode_prodi": "542009",
+          "nama_prodi": "TEKNIK PERKAPALAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [48, 63, 71, 63, 54, 48],
+          "peminat": [127, 86, 55, 53, 42, 0]
+        },
+        {
+          "kode_prodi": "542010",
+          "nama_prodi": "SISTEM INFORMASI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [48, 54, 63, 62, 62, 55],
+          "peminat": [381, 191, 265, 200, 237, 0]
+        },
+        {
+          "kode_prodi": "542011",
+          "nama_prodi": "TEKNIK INDUSTRI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [48, 57, 70, 57, 63, 36],
+          "peminat": [357, 175, 132, 186, 232, 0]
+        },
+        {
+          "kode_prodi": "542012",
+          "nama_prodi": "INFORMATIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [48, 42, 70, 65, 62, 55],
+          "peminat": [558, 223, 281, 292, 320, 0]
+        },
+        {
+          "kode_prodi": "542013",
+          "nama_prodi": "TEKNIK LINGKUNGAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [48, 44, 70, 50, 46, 45],
+          "peminat": [307, 165, 124, 144, 121, 0]
+        },
+        {
+          "kode_prodi": "542014",
+          "nama_prodi": "TEKNIK KELAUTAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [24, 51, 45, 32, 48, 30],
+          "peminat": [68, 83, 39, 28, 45, 0]
+        },
+        {
+          "kode_prodi": "542015",
+          "nama_prodi": "ARSITEKTUR",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 36, 28, 30],
+          "peminat": [0, 0, 0, 97, 99, 0]
+        },
+        {
+          "kode_prodi": "542016",
+          "nama_prodi": "STATISTIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 22, 16, 24],
+          "peminat": [0, 0, 0, 34, 44, 0]
+        },
+        {
+          "kode_prodi": "542017",
+          "nama_prodi": "ILMU AKTUARIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 39, 33, 23],
+          "peminat": [0, 0, 0, 37, 30, 0]
+        },
+        {
+          "kode_prodi": "542018",
+          "nama_prodi": "BISNIS DIGITAL",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 61, 60],
+          "peminat": [0, 0, 0, 0, 139, 0]
+        },
+        {
+          "kode_prodi": "542019",
+          "nama_prodi": "REKAYASA KESELAMATAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 52, 36],
+          "peminat": [0, 0, 0, 0, 187, 0]
+        },
+        {
+          "kode_prodi": "542020",
+          "nama_prodi": "TEKNOLOGI PANGAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 43, 36],
+          "peminat": [0, 0, 0, 0, 48, 0]
+        },
+        {
+          "kode_prodi": "542021",
+          "nama_prodi": "TEKNIK LOGISTIK",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 31, 43],
+          "peminat": [0, 0, 0, 0, 41, 0]
+        },
+        {
+          "kode_prodi": "542022",
+          "nama_prodi": "DESAIN KOMUNIKASI VISUAL",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 55, 33],
+          "peminat": [0, 0, 0, 0, 40, 0]
+        }
+      ]
     }
   ]
 }
