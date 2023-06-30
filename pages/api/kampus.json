@@ -1919,6 +1919,593 @@
           "peminat": [0, 0, 0, 0, 0, 0]
         }
       ]
+    },
+    {
+      "kode_kampus": 372,
+      "nama_kampus": "UNIVERSITAS BRAWIJAYA",
+      "prodi": [
+        {
+          "kode_prodi": "372001",
+          "nama_prodi": "MANAJEMEN SUMBERDAYA PERAIRAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [63, 81, 68, 65, 63, 63],
+          "peminat": [786, 554, 329, 221, 333, 0]
+        },
+        {
+          "kode_prodi": "372002",
+          "nama_prodi": "BUDIDAYA PERAIRAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [60, 75, 72, 66, 63, 63],
+          "peminat": [924, 363, 502, 188, 304, 0]
+        },
+        {
+          "kode_prodi": "372003",
+          "nama_prodi": "TEKNIK SIPIL",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [54, 73, 68, 68, 60, 54],
+          "peminat": [2626, 1020, 1272, 1375, 1254, 0]
+        },
+        {
+          "kode_prodi": "372004",
+          "nama_prodi": "TEKNIK MESIN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [69, 80, 81, 80, 70, 63],
+          "peminat": [2034, 811, 1015, 858, 737, 0]
+        },
+        {
+          "kode_prodi": "372005",
+          "nama_prodi": "TEKNIK ELEKTRO",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [68, 81, 89, 81, 73, 66],
+          "peminat": [1325, 840, 887, 776, 635, 0]
+        },
+        {
+          "kode_prodi": "372006",
+          "nama_prodi": "ARSITEKTUR",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [54, 70, 68, 68, 63, 54],
+          "peminat": [2131, 1057, 1101, 1541, 1062, 0]
+        },
+        {
+          "kode_prodi": "372007",
+          "nama_prodi": "TEKNIK PENGAIRAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [54, 70, 68, 68, 60, 54],
+          "peminat": [1026, 666, 391, 406, 363, 0]
+        },
+        {
+          "kode_prodi": "372008",
+          "nama_prodi": "KEDOKTERAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [90, 100, 100, 100, 83, 83],
+          "peminat": [4085, 1468, 2847, 3525, 3321, 0]
+        },
+        {
+          "kode_prodi": "372009",
+          "nama_prodi": "TEKNOLOGI PANGAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [48, 68, 78, 76, 70, 75],
+          "peminat": [1735, 803, 870, 905, 1067, 0]
+        },
+        {
+          "kode_prodi": "372010",
+          "nama_prodi": "BIOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [61, 71, 71, 71, 58, 59],
+          "peminat": [901, 636, 323, 518, 389, 0]
+        },
+        {
+          "kode_prodi": "372011",
+          "nama_prodi": "FISIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [49, 48, 51, 40, 33, 33],
+          "peminat": [353, 419, 123, 184, 104, 0]
+        },
+        {
+          "kode_prodi": "372012",
+          "nama_prodi": "KIMIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [55, 80, 81, 80, 66, 66],
+          "peminat": [665, 883, 210, 467, 257, 0]
+        },
+        {
+          "kode_prodi": "372013",
+          "nama_prodi": "MATEMATIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [57, 81, 81, 80, 60, 60],
+          "peminat": [806, 666, 461, 644, 358, 0]
+        },
+        {
+          "kode_prodi": "372014",
+          "nama_prodi": "PEMANFAATAN SUMBERDAYA PERIKANAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [58, 76, 74, 65, 65, 63],
+          "peminat": [590, 463, 248, 180, 346, 0]
+        },
+        {
+          "kode_prodi": "372015",
+          "nama_prodi": "TEKNOLOGI HASIL PERIKANAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [57, 72, 66, 66, 63, 63],
+          "peminat": [528, 846, 248, 237, 264, 0]
+        },
+        {
+          "kode_prodi": "372016",
+          "nama_prodi": "AGROBISNIS PERIKANAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [652, 569, 284, 318, 216, 63],
+          "peminat": [652, 569, 284, 318, 216, 0]
+        },
+        {
+          "kode_prodi": "372017",
+          "nama_prodi": "TEKNIK PERTANIAN DAN BIOSISTEM",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [41, 53, 54, 53, 50, 50],
+          "peminat": [520, 431, 287, 243, 393, 0]
+        },
+        {
+          "kode_prodi": "372018",
+          "nama_prodi": "STATISTIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [58, 81, 83, 80, 66, 66],
+          "peminat": [1298, 807, 827, 1308, 787, 0]
+        },
+        {
+          "kode_prodi": "372019",
+          "nama_prodi": "PERENCANAAN WILAYAH & KOTA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [54, 71, 68, 68, 60, 54],
+          "peminat": [1829, 916, 1027, 984, 862, 0]
+        },
+        {
+          "kode_prodi": "372020",
+          "nama_prodi": "TEKNIK INDUSTRI PERTANIAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [81, 103, 18, 112, 103, 105],
+          "peminat": [1234, 783, 697, 625, 621, 0]
+        },
+        {
+          "kode_prodi": "372021",
+          "nama_prodi": "ILMU KEPERAWATAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [45, 57, 84, 80, 66, 66],
+          "peminat": [1126, 564, 1127, 1225, 1254, 0]
+        },
+        {
+          "kode_prodi": "372023",
+          "nama_prodi": "ILMU GIZI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [48, 48, 64, 66, 53, 54],
+          "peminat": [2683, 783, 1263, 1346, 1267, 0]
+        },
+        {
+          "kode_prodi": "372024",
+          "nama_prodi": "TEKNIK INDUSTRI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [69, 80, 91, 80, 73, 66],
+          "peminat": [2173, 917, 1485, 1370, 1331, 0]
+        },
+        {
+          "kode_prodi": "372025",
+          "nama_prodi": "TEKNIK INFORMATIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [94, 96, 99, 96, 80, 80],
+          "peminat": [3158, 1308, 1968, 2151, 2125, 0]
+        },
+        {
+          "kode_prodi": "372026",
+          "nama_prodi": "AGROEKOTEKNOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [296, 324, 367, 327, 268, 269],
+          "peminat": [3032, 2202, 1160, 1385, 953]
+        },
+        {
+          "kode_prodi": "372027",
+          "nama_prodi": "AGRIBISNIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [156, 173, 194, 188, 156, 156],
+          "peminat": [2623, 1283, 1229, 1218, 1210, 0]
+        },
+        {
+          "kode_prodi": "372028",
+          "nama_prodi": "PETERNAKAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [275, 295, 313, 310, 245, 245],
+          "peminat": [1856, 1734, 871, 1205, 955, 0]
+        },
+        {
+          "kode_prodi": "372029",
+          "nama_prodi": "PENDIDIKAN DOKTER HEWAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [80, 80, 86, 87, 72, 72],
+          "peminat": [1017, 618, 617, 813, 967, 0]
+        },
+        {
+          "kode_prodi": "372030",
+          "nama_prodi": "PENDIDIKAN DOKTER GIGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [49, 40, 46, 56, 50, 50],
+          "peminat": [2102, 709, 1087, 1136, 1251, 0]
+        },
+        {
+          "kode_prodi": "372031",
+          "nama_prodi": "ILMU KELAUTAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [61, 76, 65, 65, 64, 63],
+          "peminat": [845, 595, 347, 443, 318, 0]
+        },
+        {
+          "kode_prodi": "372032",
+          "nama_prodi": "KEBIDANAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [46, 45, 47, 44, 37, 45],
+          "peminat": [1042, 490, 449, 856, 774, 0]
+        },
+        {
+          "kode_prodi": "372033",
+          "nama_prodi": "FARMASI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [49, 48, 48, 49, 40, 45],
+          "peminat": [2861, 1159, 1222, 1504, 1656, 0]
+        },
+        {
+          "kode_prodi": "372035",
+          "nama_prodi": "TEKNIK KOMPUTER",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [66, 67, 82, 65, 53, 54],
+          "peminat": [1476, 533, 767, 620, 762, 0]
+        },
+        {
+          "kode_prodi": "372036",
+          "nama_prodi": "SISTEM INFORMASI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [63, 64, 89, 80, 66, 69],
+          "peminat": [1768, 927, 1538, 1429, 1348, 0]
+        },
+        {
+          "kode_prodi": "372037",
+          "nama_prodi": "TEKNIK KIMIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [41, 60, 58, 58, 48, 44],
+          "peminat": [784, 730, 426, 579, 507, 0]
+        },
+        {
+          "kode_prodi": "372038",
+          "nama_prodi": "INSTRUMENTASI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [31, 37, 44, 40, 33, 33],
+          "peminat": [296, 483, 88, 231, 85, 0]
+        },
+        {
+          "kode_prodi": "372039",
+          "nama_prodi": "TEKNIK GEOFISIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [36, 36, 38, 40, 33, 33],
+          "peminat": [727, 317, 250, 343, 227, 0]
+        },
+        {
+          "kode_prodi": "372040",
+          "nama_prodi": "BIOTEKNOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [37, 52, 62, 57, 53, 54],
+          "peminat": [1332, 546, 429, 572, 731, 0]
+        },
+        {
+          "kode_prodi": "372042",
+          "nama_prodi": "TEKNOLOGI BIOPROSES",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [22, 36, 42, 40, 37, 38],
+          "peminat": [467, 453, 136, 256, 117, 0]
+        },
+        {
+          "kode_prodi": "372043",
+          "nama_prodi": "TEKNIK LINGKUNGAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [38, 52, 56, 56, 53, 60],
+          "peminat": [1375, 814, 630, 819, 493, 0]
+        },
+        {
+          "kode_prodi": "372046",
+          "nama_prodi": "PENDIDIKAN TEKNOLOGI INFORMASI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [34, 36, 39, 33, 40, 41],
+          "peminat": [257, 291, 108, 230, 226, 0]
+        },
+        {
+          "kode_prodi": "372047",
+          "nama_prodi": "TEKNOLOGI INFORMASI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [32, 35, 57, 65, 53, 54],
+          "peminat": [947, 374, 725, 808, 738, 0]
+        },
+        {
+          "kode_prodi": "372048",
+          "nama_prodi": "AGROEKOTEKNOLOGI (PSDKU KEDIRI)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 52, 62, 56, 42, 42],
+          "peminat": [0, 258, 191, 194, 209, 0]
+        },
+        {
+          "kode_prodi": "372049",
+          "nama_prodi": "AGRIBISNIS (PSDKU KEDIRI)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 50, 50, 53, 42, 42],
+          "peminat": [0, 319, 188, 278, 261, 0]
+        },
+        {
+          "kode_prodi": "372050",
+          "nama_prodi": "PETERNAKAN (PSDKU KEDIRI)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 59, 55, 53, 42, 42],
+          "peminat": [0, 210, 119, 192, 201, 0]
+        },
+        {
+          "kode_prodi": "372051",
+          "nama_prodi": "AKUAKULTUR (PSDKU KEDIRI)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 61, 53, 53, 42, 42],
+          "peminat": [0, 231, 65, 251, 79, 0]
+        },
+        {
+          "kode_prodi": "372052",
+          "nama_prodi": "SOSIAL EKONOMI PERIKANAN (PSDKU KEDIRI)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 57, 65, 68, 42, 42],
+          "peminat": [0, 138, 139, 63, 141, 0]
+        },
+        {
+          "kode_prodi": "372053",
+          "nama_prodi": "KEHUTANAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 48, 37, 30, 30],
+          "peminat": [0, 0, 664, 456, 386, 0]
+        },
+        {
+          "kode_prodi": "372054",
+          "nama_prodi": "ILMU AKTUARIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 42, 41, 30, 30],
+          "peminat": [0, 0, 701, 578, 512, 0]
+        },
+        {
+          "kode_prodi": "372056",
+          "nama_prodi": "ILMU HUKUM",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [282, 267, 222, 221, 182, 182],
+          "peminat": [4994, 2584, 2992, 3623, 2814, 0]
+        },
+        {
+          "kode_prodi": "372057",
+          "nama_prodi": "EKONOMI PEMBANGUNAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [49, 52, 54, 52, 51, 51],
+          "peminat": [987, 666, 405, 849, 522, 0]
+        },
+        {
+          "kode_prodi": "372058",
+          "nama_prodi": "ADMINISTRASI PUBLIK",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [130, 136, 149, 148, 123, 123],
+          "peminat": [2234, 1320, 1380, 1562, 1243, 0]
+        },
+        {
+          "kode_prodi": "372059",
+          "nama_prodi": "ADMINISTRASI BISNIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [152, 157, 171, 168, 139, 140],
+          "peminat": [3245, 1598, 2364, 2065, 1838, 0]
+        },
+        {
+          "kode_prodi": "372060",
+          "nama_prodi": "MANAJEMEN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [94, 113, 128, 128, 109, 111],
+          "peminat": [3411, 1315, 2743, 2826, 2430, 0]
+        },
+        {
+          "kode_prodi": "372061",
+          "nama_prodi": "AKUNTANSI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [109, 113, 140, 140, 129, 129],
+          "peminat": [2591, 948, 1911, 1720, 1502, 0]
+        },
+        {
+          "kode_prodi": "372062",
+          "nama_prodi": "SOSIOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [53, 72, 66, 66, 55, 56],
+          "peminat": [797, 1062, 444, 1036, 548, 0]
+        },
+        {
+          "kode_prodi": "372063",
+          "nama_prodi": "ILMU KOMUNIKASI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [65, 84, 90, 100, 88, 89],
+          "peminat": [2673, 1134, 2190, 2743, 2538, 0]
+        },
+        {
+          "kode_prodi": "372064",
+          "nama_prodi": "PSIKOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [63, 88, 91, 105, 91, 92],
+          "peminat": [2714, 1068, 2160, 3004, 2502, 0]
+        },
+        {
+          "kode_prodi": "372065",
+          "nama_prodi": "HUBUNGAN INTERNASIONAL",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [64, 68, 64, 80, 76, 77],
+          "peminat": [2440, 839, 1134, 1641, 1222, 0]
+        },
+        {
+          "kode_prodi": "372066",
+          "nama_prodi": "SASTRA INGGRIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [41, 57, 66, 72, 66, 75],
+          "peminat": [1118, 516, 769, 1060, 802, 0]
+        },
+        {
+          "kode_prodi": "372067",
+          "nama_prodi": "SASTRA JEPANG",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [36, 48, 52, 53, 43, 48],
+          "peminat": [655, 511, 399, 576, 547, 0]
+        },
+        {
+          "kode_prodi": "372068",
+          "nama_prodi": "BAHASA DAN SASTRA PRANCIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [23, 29, 32, 32, 27, 30],
+          "peminat": [294, 324, 168, 181, 185, 0]
+        },
+        {
+          "kode_prodi": "372069",
+          "nama_prodi": "ILMU POLITIK",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [62, 68, 66, 66, 55, 56],
+          "peminat": [1246, 944, 533, 856, 556, 0]
+        },
+        {
+          "kode_prodi": "372070",
+          "nama_prodi": "ILMU PEMERINTAHAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [58, 72, 64, 64, 53, 54],
+          "peminat": [1385, 722, 895, 780, 859, 0]
+        },
+        {
+          "kode_prodi": "372072",
+          "nama_prodi": "PERPAJAKAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [36, 64, 69, 103, 83, 83],
+          "peminat": [2395, 829, 1147, 1578, 1055, 0]
+        },
+        {
+          "kode_prodi": "372075",
+          "nama_prodi": "EKONOMI ISLAM",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [36, 52, 51, 51, 47, 47],
+          "peminat": [972, 594, 391, 459, 377, 0]
+        },
+        {
+          "kode_prodi": "372076",
+          "nama_prodi": "EKONOMI, KEUANGAN DAN PERBANKAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [58, 67, 72, 73, 70, 71],
+          "peminat": [1650, 742, 1129, 646, 1137, 0]
+        },
+        {
+          "kode_prodi": "372077",
+          "nama_prodi": "ILMU PERPUSTAKAAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [21, 36, 43, 41, 33, 33],
+          "peminat": [719, 457, 550, 420, 433, 0]
+        },
+        {
+          "kode_prodi": "372078",
+          "nama_prodi": "PARIWISATA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [24, 56, 61, 60, 50, 50],
+          "peminat": [1428, 998, 1112, 1111, 809, 0]
+        },
+        {
+          "kode_prodi": "372080",
+          "nama_prodi": "PENDIDIKAN BAHASA INGGRIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [52, 60, 69, 68, 57, 57],
+          "peminat": [865, 408, 467, 368, 438, 0]
+        },
+        {
+          "kode_prodi": "372081",
+          "nama_prodi": "PENDIDIKAN BAHASA JEPANG",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [24, 28, 33, 32, 27, 27],
+          "peminat": [299, 219, 186, 157, 183, 0]
+        },
+        {
+          "kode_prodi": "372082",
+          "nama_prodi": "PENDIDIKAN BHS & SASTRA INDONESIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [36, 44, 46, 45, 37, 38],
+          "peminat": [552, 311, 488, 295, 315, 0]
+        },
+        {
+          "kode_prodi": "372085",
+          "nama_prodi": "ADMINISTRASI PENDIDIKAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [21, 37, 36, 38, 30, 33],
+          "peminat": [464, 372, 292, 291, 318, 0]
+        },
+        {
+          "kode_prodi": "372086",
+          "nama_prodi": "SENI RUPA MURNI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [20, 25, 24, 24, 20, 23],
+          "peminat": [184, 63, 94, 95, 75, 0]
+        },
+        {
+          "kode_prodi": "372087",
+          "nama_prodi": "SASTRA CINA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [24, 35, 36, 41, 33, 33],
+          "peminat": [242, 334, 215, 247, 279, 0]
+        },
+        {
+          "kode_prodi": "372088",
+          "nama_prodi": "ANTROPOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [24, 32, 32, 32, 27, 30],
+          "peminat": [570, 453, 390, 427, 307, 0]
+        },
+        {
+          "kode_prodi": "372089",
+          "nama_prodi": "KEWIRAUSAHAAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [24, 28, 34, 34, 30, 30],
+          "peminat": [1099, 553, 857, 618, 746, 0]
+        },
+        {
+          "kode_prodi": "372094",
+          "nama_prodi": "SAINS DATA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 18],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "372055",
+          "nama_prodi": "DESAIN GRAFIS D4",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 45, 43, 72],
+          "peminat": [0, 0, 0, 163, 196, 0]
+        },
+        {
+          "kode_prodi": "372090",
+          "nama_prodi": "MANAJEMEN PERHOTELAN D4",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 69, 40, 60],
+          "peminat": [0, 0, 0, 436, 277, 0]
+        },
+        {
+          "kode_prodi": "372091",
+          "nama_prodi": "KEUANGAN DAN PERBANKAN D3",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 81],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "372092",
+          "nama_prodi": "ADMINISTRASI BISNIS D3",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 90],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "372093",
+          "nama_prodi": "TEKNOLOGI INFORMASI D3",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 90],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        }
+      ]
     }
   ]
 }
