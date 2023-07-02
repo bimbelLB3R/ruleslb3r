@@ -3023,6 +3023,110 @@
           "peminat": [0, 0, 0, 0, 96, 0]
         }
       ]
+    },
+    {
+      "kode_kampus": 374,
+      "nama_kampus": "UNIVERSITAS ISLAM NEGERI MALANG",
+      "prodi": [
+        {
+          "kode_prodi": "374001",
+          "nama_prodi": "MATEMATIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [75, 66, 75, 78, 82, 66],
+          "peminat": [407, 388, 138, 167, 120, 0]
+        },
+        {
+          "kode_prodi": "374002",
+          "nama_prodi": "BIOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [70, 66, 100, 101, 105, 82],
+          "peminat": [664, 552, 256, 282, 226, 0]
+        },
+        {
+          "kode_prodi": "374003",
+          "nama_prodi": "KIMIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [75, 66, 75, 78, 83, 66],
+          "peminat": [385, 480, 121, 142, 81, 0]
+        },
+        {
+          "kode_prodi": "374004",
+          "nama_prodi": "FISIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [50, 50, 75, 78, 86, 66],
+          "peminat": [193, 372, 46, 86, 59, 0]
+        },
+        {
+          "kode_prodi": "374005",
+          "nama_prodi": "TEKNIK INFORMATIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [75, 90, 100, 103, 110, 85],
+          "peminat": [1050, 919, 475, 577, 558, 0]
+        },
+        {
+          "kode_prodi": "374006",
+          "nama_prodi": "TEKNIK ARSITEKTUR",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [75, 68, 75, 76, 82, 85],
+          "peminat": [736, 670, 316, 309, 247, 0]
+        },
+        {
+          "kode_prodi": "374007",
+          "nama_prodi": "FARMASI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [63, 66, 75, 76, 77, 73],
+          "peminat": [1291, 1144, 781, 1042, 1010, 0]
+        },
+        {
+          "kode_prodi": "374008",
+          "nama_prodi": "PENDIDIKAN DOKTER",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [30, 30, 30, 30, 25, 30],
+          "peminat": [1695, 1114, 810, 1107, 1004, 0]
+        },
+        {
+          "kode_prodi": "374010",
+          "nama_prodi": "PENDIDIKAN IPS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [100, 66, 75, 78, 87, 67],
+          "peminat": [637, 443, 213, 243, 215, 0]
+        },
+        {
+          "kode_prodi": "374015",
+          "nama_prodi": "BAHASA DAN SASTRA INGGRIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [155, 132, 150, 158, 168, 107],
+          "peminat": [925, 567, 313, 344, 262, 0]
+        },
+        {
+          "kode_prodi": "374017",
+          "nama_prodi": "PSIKOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [149, 134, 150, 154, 168, 127],
+          "peminat": [1428, 969, 696, 945, 679, 0]
+        },
+        {
+          "kode_prodi": "374018",
+          "nama_prodi": "MANAJEMEN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [149, 134, 150, 158, 162, 131],
+          "peminat": [1689, 1086, 615, 942, 691, 0]
+        },
+        {
+          "kode_prodi": "374019",
+          "nama_prodi": "AKUNTANSI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [75, 66, 75, 77, 83, 81],
+          "peminat": [758, 591, 316, 367, 260, 0]
+        },
+        {
+          "kode_prodi": "374021",
+          "nama_prodi": "PERPUSTAKAAN DAN ILMU INFORMASI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 44, 50, 54, 57, 56],
+          "peminat": [0, 462, 155, 201, 160, 0]
+        }
+      ]
     }
   ]
 }
