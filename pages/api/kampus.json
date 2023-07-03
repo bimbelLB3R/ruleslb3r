@@ -3127,6 +3127,446 @@
           "peminat": [0, 462, 155, 201, 160, 0]
         }
       ]
+    },
+    {
+      "kode_kampus": 381,
+      "nama_kampus": "UNIVERSITAS AIRLANGGA",
+      "prodi": [
+        {
+          "kode_prodi": "381001",
+          "nama_prodi": "KEDOKTERAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [100, 100, 75, 75, 75, 90],
+          "peminat": [3805, 1302, 2146, 2241, 3150, 0]
+        },
+        {
+          "kode_prodi": "381002",
+          "nama_prodi": "KEDOKTERAN GIGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [66, 72, 54, 60, 63, 75],
+          "peminat": [1956, 897, 1022, 1035, 1431, 0]
+        },
+        {
+          "kode_prodi": "381003",
+          "nama_prodi": "FARMASI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [96, 101, 89, 75, 75, 84],
+          "peminat": [2174, 1124, 1844, 1700, 1873, 0]
+        },
+        {
+          "kode_prodi": "381004",
+          "nama_prodi": "KEDOKTERAN HEWAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [100, 100, 75, 60, 60, 72],
+          "peminat": [1341, 785, 584, 645, 849, 0]
+        },
+        {
+          "kode_prodi": "381005",
+          "nama_prodi": "MATEMATIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [48, 40, 28, 24, 27, 27],
+          "peminat": [645, 290, 255, 230, 167, 0]
+        },
+        {
+          "kode_prodi": "381006",
+          "nama_prodi": "BIOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [40, 40, 30, 27, 27, 27],
+          "peminat": [794, 311, 324, 254, 280, 0]
+        },
+        {
+          "kode_prodi": "381007",
+          "nama_prodi": "FISIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [40, 40, 32, 24, 27, 24],
+          "peminat": [388, 347, 86, 147, 62, 0]
+        },
+        {
+          "kode_prodi": "381008",
+          "nama_prodi": "KIMIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [40, 40, 33, 30, 30, 27],
+          "peminat": [647, 293, 280, 193, 153, 0]
+        },
+        {
+          "kode_prodi": "381009",
+          "nama_prodi": "KESEHATAN MASYARAKAT",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [96, 112, 98, 72, 78, 72],
+          "peminat": [2309, 1033, 1623, 1243, 1556, 0]
+        },
+        {
+          "kode_prodi": "381010",
+          "nama_prodi": "KEPERAWATAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [60, 71, 74, 69, 69, 72],
+          "peminat": [997, 596, 1214, 1024, 1493, 0]
+        },
+        {
+          "kode_prodi": "381011",
+          "nama_prodi": "AKUAKULTUR",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [72, 73, 74, 48, 48, 48],
+          "peminat": [1086, 444, 401, 293, 263, 0]
+        },
+        {
+          "kode_prodi": "381012",
+          "nama_prodi": "KEBIDANAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [20, 31, 30, 24, 24, 30],
+          "peminat": [590, 486, 349, 489, 552, 0]
+        },
+        {
+          "kode_prodi": "381013",
+          "nama_prodi": "TEKNIK BIOMEDIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [24, 32, 24, 24, 27, 27],
+          "peminat": [1032, 679, 417, 505, 515, 0]
+        },
+        {
+          "kode_prodi": "381014",
+          "nama_prodi": "TEKNIK LINGKUNGAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [24, 33, 30, 30, 30, 33],
+          "peminat": [869, 360, 553, 384, 406, 0]
+        },
+        {
+          "kode_prodi": "381015",
+          "nama_prodi": "SISTEM INFORMASI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [24, 32, 30, 30, 30, 36],
+          "peminat": [1020, 490, 725, 618, 813, 0]
+        },
+        {
+          "kode_prodi": "381016",
+          "nama_prodi": "STATISTIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [24, 32, 30, 30, 30, 36],
+          "peminat": [624, 416, 540, 492, 537, 0]
+        },
+        {
+          "kode_prodi": "381017",
+          "nama_prodi": "GIZI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [36, 48, 36, 49, 43, 48],
+          "peminat": [1624, 618, 923, 936, 1103, 0]
+        },
+        {
+          "kode_prodi": "381018",
+          "nama_prodi": "KEDOKTERAN HEWAN (SIKIA BANYUWANGI)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [20, 20, 25, 15, 15, 30],
+          "peminat": [300, 161, 119, 130, 164, 0]
+        },
+        {
+          "kode_prodi": "381019",
+          "nama_prodi": "KESEHATAN MASYARAKAT (SIKIA BANYUWANGI)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [20, 20, 25, 15, 15, 30],
+          "peminat": [384, 190, 198, 150, 181, 0]
+        },
+        {
+          "kode_prodi": "381020",
+          "nama_prodi": "AKUAKULTUR (SIKIA BANYUWANGI)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [20, 20, 27, 15, 15, 18],
+          "peminat": [203, 142, 68, 75, 60, 0]
+        },
+        {
+          "kode_prodi": "381021",
+          "nama_prodi": "TEKNOLOGI HASIL PERIKANAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [36, 48, 48, 42, 42, 42],
+          "peminat": [529, 353, 341, 223, 235, 0]
+        },
+        {
+          "kode_prodi": "381022",
+          "nama_prodi": "TEKNIK INDUSTRI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 32, 36, 36, 36],
+          "peminat": [0, 0, 784, 438, 655, 0]
+        },
+        {
+          "kode_prodi": "381023",
+          "nama_prodi": "TEKNIK ELEKTRO",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 31, 30, 30, 30],
+          "peminat": [0, 0, 351, 215, 279, 0]
+        },
+        {
+          "kode_prodi": "381024",
+          "nama_prodi": "REKAYASA NANOTEKNOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 31, 30, 30, 30],
+          "peminat": [0, 0, 198, 248, 186, 0]
+        },
+        {
+          "kode_prodi": "381025",
+          "nama_prodi": "TEKNOLOGI SAINS DATA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 30, 36, 36, 36],
+          "peminat": [0, 0, 586, 445, 698, 0]
+        },
+        {
+          "kode_prodi": "381026",
+          "nama_prodi": "TEKNIK ROBOTIKA DAN KECERDASAN BUATAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 32, 30, 30, 30],
+          "peminat": [0, 0, 397, 312, 383, 0]
+        },
+        {
+          "kode_prodi": "381027",
+          "nama_prodi": "ILMU HUKUM",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [96, 106, 81, 90, 90, 105],
+          "peminat": [2429, 970, 1455, 1385, 1652, 0]
+        },
+        {
+          "kode_prodi": "381028",
+          "nama_prodi": "ADMINISTRASI PUBLIK",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [44, 49, 36, 36, 37, 39],
+          "peminat": [1137, 329, 919, 533, 566, 0]
+        },
+        {
+          "kode_prodi": "381029",
+          "nama_prodi": "PSIKOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [88, 89, 66, 72, 72, 75],
+          "peminat": [2821, 813, 1993, 2079, 1965, 0]
+        },
+        {
+          "kode_prodi": "381030",
+          "nama_prodi": "SOSIOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [40, 40, 39, 36, 36, 36],
+          "peminat": [806, 390, 416, 441, 390, 0]
+        },
+        {
+          "kode_prodi": "381031",
+          "nama_prodi": "ILMU POLITIK",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [40, 42, 38, 33, 33, 30],
+          "peminat": [857, 310, 701, 382, 424, 0]
+        },
+        {
+          "kode_prodi": "381032",
+          "nama_prodi": "ILMU HUBUNGAN INTERNASIONAL",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [44, 48, 36, 42, 42, 45],
+          "peminat": [1679, 493, 938, 927, 808, 0]
+        },
+        {
+          "kode_prodi": "381033",
+          "nama_prodi": "ANTROPOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [40, 40, 38, 31, 30, 30],
+          "peminat": [715, 371, 412, 274, 366, 0]
+        },
+        {
+          "kode_prodi": "381034",
+          "nama_prodi": "EKONOMI PEMBANGUNAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [80, 81, 88, 66, 66, 66],
+          "peminat": [1327, 570, 953, 465, 799, 0]
+        },
+        {
+          "kode_prodi": "381035",
+          "nama_prodi": "MANAJEMEN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [100, 100, 77, 75, 75, 90],
+          "peminat": [2677, 882, 1832, 1639, 1537, 0]
+        },
+        {
+          "kode_prodi": "381036",
+          "nama_prodi": "AKUNTANSI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [100, 100, 75, 75, 75, 75],
+          "peminat": [2074, 722, 1171, 1035, 936, 0]
+        },
+        {
+          "kode_prodi": "381037",
+          "nama_prodi": "ILMU KOMUNIKASI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [44, 48, 36, 45, 45, 45],
+          "peminat": [1748, 516, 1137, 1072, 1252, 0]
+        },
+        {
+          "kode_prodi": "381038",
+          "nama_prodi": "ILMU SEJARAH",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [40, 36, 32, 24, 24, 24],
+          "peminat": [460, 299, 269, 181, 219, 0]
+        },
+        {
+          "kode_prodi": "381039",
+          "nama_prodi": "ILMU INFORMASI DAN PERPUSTAKAAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [36, 40, 38, 36, 36, 39],
+          "peminat": [829, 346, 560, 322, 480, 0]
+        },
+        {
+          "kode_prodi": "381040",
+          "nama_prodi": "BAHASA DAN SASTRA INGGRIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [64, 80, 63, 73, 72, 75],
+          "peminat": [1286, 544, 828, 673, 762, 0]
+        },
+        {
+          "kode_prodi": "381041",
+          "nama_prodi": "BAHASA DAN SASTRA INDONESIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [64, 66, 48, 36, 36, 36],
+          "peminat": [686, 429, 394, 287, 275, 0]
+        },
+        {
+          "kode_prodi": "381042",
+          "nama_prodi": "STUDI KEJEPANGAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [24, 38, 28, 30, 30, 30],
+          "peminat": [464, 257, 263, 278, 230, 0]
+        },
+        {
+          "kode_prodi": "381043",
+          "nama_prodi": "EKONOMI ISLAM",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [80, 90, 90, 75, 75, 60],
+          "peminat": [1258, 793, 498, 583, 383, 0]
+        },
+        {
+          "kode_prodi": "381046",
+          "nama_prodi": "KESELAMATAN DAN KESEHATAN KERJA D4",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 53],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381049",
+          "nama_prodi": "MANAJEMEN PERHOTELAN D4",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 23],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381050",
+          "nama_prodi": "DESTINASI PARIWISATA D4",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 24],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381051",
+          "nama_prodi": "TEKNOLOGI LABORATORIUM MEDIK D4",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 45],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381054",
+          "nama_prodi": "PERBANKAN DAN KEUANGAN D4",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 36],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381055",
+          "nama_prodi": "TEKNOLOGI REKAYASA INSTRUMENTASI DAN KONTROL D4",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 23],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381056",
+          "nama_prodi": "MANAJEMEN PERKANTORAN DIGITAL D4",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 45],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381061",
+          "nama_prodi": "PENGOBAT TRADISIONAL D4",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 12],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381062",
+          "nama_prodi": "FISIOTERAPI D4 ",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 30],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381063",
+          "nama_prodi": "TEKNOLOGI RADIOLOGI PENCITRAAN D4",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 60],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381045",
+          "nama_prodi": "BAHASA INGGRIS D3",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 23],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381047",
+          "nama_prodi": "PERPAJAKAN D3",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 51],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381048",
+          "nama_prodi": "SISTEM INFORMASI D3",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 36],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381052",
+          "nama_prodi": "AKUNTANSI D3",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 39],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381053",
+          "nama_prodi": "MANAJEMEN PEMASARAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 30],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381057",
+          "nama_prodi": "PARAMEDIK VETERINER",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 15],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381058",
+          "nama_prodi": "TEKNIK GIGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 18],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381059",
+          "nama_prodi": "KEPERAWATAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 51],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "381060",
+          "nama_prodi": "PERPUSTAKAAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 18],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        }
+      ]
     }
   ]
 }
