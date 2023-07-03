@@ -27,6 +27,21 @@ export default function Kampus({ allKampus, allPost }) {
 
   const AllNamaKampus = allKampus.map((item, index) => item.nama_kampus);
 
+  let namaProdi = "";
+  const cariProdiDariKode = allKampus.forEach((item, index) =>
+    item.prodi.forEach((item2) => {
+      if (item2.kode_prodi === pilihanProdi) {
+        namaProdi = item2.nama_prodi;
+      }
+    })
+  );
+  const kampusPunyaPilihanProdi = allKampus.filter((kampus) => {
+    return kampus.prodi.some((prodi) => prodi.nama_prodi === namaProdi);
+  });
+  const filteredKampus = kampusPunyaPilihanProdi.filter(
+    (item) => item.nama_kampus !== pilihanKampus
+  );
+
   const dataKampus = allKampus.find(
     (item) => item.nama_kampus == pilihanKampus
   ); //identifikasi nama kampus
@@ -55,7 +70,7 @@ export default function Kampus({ allKampus, allPost }) {
     values: dataKeketatan,
   };
 
-  // console.log(dataKeketatan);
+  console.log(namaProdi);
 
   const handleKampus = (e) => {
     setPilihanKampus(e.target.value);
@@ -198,7 +213,7 @@ export default function Kampus({ allKampus, allPost }) {
                   </div>
                 )}
               </div>
-              <div className="shadow-md">
+              <div className="mb-4 shadow-md">
                 <p className="font-semibold text-orange-400">Keketatan</p>
                 {pilihanProdi.length === 0 ? (
                   <p className="text-xs text-red-900 italic">Tidak ada data</p>
@@ -212,6 +227,30 @@ export default function Kampus({ allKampus, allPost }) {
                       </div>
                     ))}
                   </div> */}
+                  </div>
+                )}
+              </div>
+              <div className="shadow-md">
+                <p className="font-semibold text-orange-400">Kampus Lain</p>
+
+                {pilihanProdi.length === 0 || filteredKampus.length === 0 ? (
+                  <p className="text-xs text-red-900 italic">Tidak ada data</p>
+                ) : (
+                  <div className="text-sm p-2">
+                    <p className="text-sm mb-1">
+                      Ternyata prodi pilihanmu ada juga di kampus di bawah ini
+                      loh ...
+                    </p>
+                    {filteredKampus.map((item, index) => (
+                      <div key={index}>
+                        <p className="lowercase">#{item.nama_kampus}</p>
+                      </div>
+                    ))}
+                    <p className="text-xs text-red-900 italic mt-4 mb-4">
+                      Catatan : Tiap kampus memiliki penamaan prodi yang
+                      berbeda-beda sehingga tidak semua kampus dengan prodi yang
+                      kamu pilih bisa muncul.
+                    </p>
                   </div>
                 )}
               </div>

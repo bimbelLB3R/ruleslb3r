@@ -488,7 +488,7 @@
       "prodi": [
         {
           "kode_prodi": "521001",
-          "nama_prodi": "ILMU SOSIAL EKONOMI PERTANIAN (AGRIBISNIS)",
+          "nama_prodi": "AGRIBISNIS",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [50, 49, 40, 50, 70, 48],
           "peminat": [298, 146, 174, 152, 173, 0]
@@ -523,42 +523,42 @@
         },
         {
           "kode_prodi": "521006",
-          "nama_prodi": "TEKNIK PERANGKAT LUNAK (TEK. INFORMATIKA)",
+          "nama_prodi": "TEKNIK INFORMATIKA",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [24, 34, 45, 45, 100, 40],
           "peminat": [969, 400, 358, 426, 511, 0]
         },
         {
           "kode_prodi": "521007",
-          "nama_prodi": "PEND. MATEMATIKA",
+          "nama_prodi": "PENDIDIKAN MATEMATIKA",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [32, 39, 40, 35, 48, 16],
           "peminat": [138, 124, 68, 89, 55, 0]
         },
         {
           "kode_prodi": "521008",
-          "nama_prodi": "PEND. FISIKA",
+          "nama_prodi": "PENDIDIKAN FISIKA",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [32, 58, 25, 20, 24, 16],
           "peminat": [48, 78, 20, 14, 18, 0]
         },
         {
           "kode_prodi": "521009",
-          "nama_prodi": "PEND. KIMIA",
+          "nama_prodi": "PENDIDIKAN KIMIA",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [27, 42, 35, 30, 44, 16],
           "peminat": [40, 59, 14, 29, 26, 0]
         },
         {
           "kode_prodi": "521010",
-          "nama_prodi": "PEND. BIOLOGI",
+          "nama_prodi": "PENDIDIKAN BIOLOGI",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [41, 45, 30, 20, 60, 32],
           "peminat": [160, 117, 62, 74, 67, 0]
         },
         {
           "kode_prodi": "521011",
-          "nama_prodi": "PEND. TEKNIK MESIN",
+          "nama_prodi": "PENDIDIKAN TEKNIK MESIN",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [32, 30, 20, 20, 3, 24],
           "peminat": [120, 41, 34, 51, 48, 0]
@@ -642,56 +642,56 @@
         },
         {
           "kode_prodi": "521023",
-          "nama_prodi": "PEND. PANCASILA & KEWARGANEGARAAN (PPKN)",
+          "nama_prodi": "PENDIDIKAN PANCASILA & KEWARGANEGARAAN (PPKN)",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [33, 41, 35, 20, 46, 28],
           "peminat": [85, 68, 50, 58, 78, 0]
         },
         {
           "kode_prodi": "521024",
-          "nama_prodi": "PEND. EKONOMI",
+          "nama_prodi": "PENDIDIKAN EKONOMI",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [34, 24, 20, 20, 25, 20],
           "peminat": [142, 81, 55, 67, 73, 0]
         },
         {
           "kode_prodi": "521025",
-          "nama_prodi": "PEND. BAHASA INGGRIS",
+          "nama_prodi": "PENDIDIKAN BAHASA INGGRIS",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [40, 55, 50, 50, 88, 40],
           "peminat": [395, 160, 188, 213, 161, 0]
         },
         {
           "kode_prodi": "521026",
-          "nama_prodi": "PEND. BAHASA, SASTRA INDONESIA & DAERAH",
+          "nama_prodi": "PENDIDIKAN BAHASA, SASTRA INDONESIA & DAERAH",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [25, 39, 30, 30, 65, 40],
           "peminat": [211, 78, 44, 139, 92, 0]
         },
         {
           "kode_prodi": "521027",
-          "nama_prodi": "PEND. GURU SEKOLAH DASAR (PGSD)",
+          "nama_prodi": "PENDIDIKAN GURU SEKOLAH DASAR (PGSD)",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [61, 69, 80, 80, 125, 64],
           "peminat": [480, 251, 431, 468, 390, 0]
         },
         {
           "kode_prodi": "521028",
-          "nama_prodi": "PEND. JASMANI, KESEHATAN DAN REKREASI",
+          "nama_prodi": "PENDIDIKAN JASMANI, KESEHATAN DAN REKREASI",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [35, 62, 53, 35, 63, 20],
           "peminat": [181, 12, 26, 35, 46, 0]
         },
         {
           "kode_prodi": "521029",
-          "nama_prodi": "PEND. GURU PEND ANAK USIA DINI (PG PAUD)",
+          "nama_prodi": "PENDIDIKAN GURU PAUD",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [35, 42, 40, 30, 46, 24],
           "peminat": [112, 40, 48, 54, 54, 0]
         },
         {
           "kode_prodi": "521030",
-          "nama_prodi": "PEND. LUAR SEKOLAH",
+          "nama_prodi": "PENDIDIKAN LUAR SEKOLAH",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [35, 32, 20, 15, 19, 10],
           "peminat": [28, 34, 3, 13, 5, 0]
@@ -1103,7 +1103,7 @@
         },
         {
           "kode_prodi": "541048",
-          "nama_prodi": "PEND. PANCASILA DAN KEWARGANEGARAAN",
+          "nama_prodi": "PENDIDIKAN PANCASILA DAN KEWARGANEGARAAN",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [29, 36, 35, 32, 32, 32],
           "peminat": [157, 146, 54, 110, 96, 0]
@@ -1117,7 +1117,7 @@
         },
         {
           "kode_prodi": "541050",
-          "nama_prodi": "PEND. BAHASA, SASTRA INDO. & DAERAH",
+          "nama_prodi": "PENDIDIKAN BAHASA, SASTRA INDO. & DAERAH",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [31, 35, 38, 32, 32, 32],
           "peminat": [382, 205, 107, 184, 154, 0]
@@ -1836,7 +1836,7 @@
         },
         {
           "kode_prodi": "371064",
-          "nama_prodi": "PEND. GURU SEKOLAH DASAR KAMPUS BONDOWOSO",
+          "nama_prodi": "PPENDIDIKAN GURU SEKOLAH DASAR KAMPUS BONDOWOSO",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [64, 55, 46, 48, 46, 43],
           "peminat": [236, 366, 169, 180, 232, 0]
