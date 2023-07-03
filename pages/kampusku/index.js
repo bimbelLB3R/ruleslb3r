@@ -7,20 +7,23 @@ import ChartDayaTampung from "../../components/ChartDayaTampung";
 import ChartPeminat from "../../components/ChartPeminat";
 import ChartKeketatan from "../../components/ChartKeketatan";
 import Head from "next/head";
+import { getDefinisiProdi } from "../../utils/kampusApaItuProdiApi";
 
 // meminta data ke server /api
 export async function getStaticProps() {
   const data = getKampusesData();
   const dataBlogs = getBlogsData();
+  const definisiProdi = getDefinisiProdi();
   return {
     props: {
       allPost: dataBlogs.posts,
       allKampus: data.kampuses,
+      definisiProdi: definisiProdi.data,
     },
   };
 }
 
-export default function Kampus({ allKampus, allPost }) {
+export default function Kampus({ allKampus, allPost, definisiProdi }) {
   const [pilihanKampus, setPilihanKampus] = useState([]);
   const [pilihanProdi, setPilihanProdi] = useState([]);
   const [disableprodi, setDisableProdi] = useState(false);
@@ -40,6 +43,10 @@ export default function Kampus({ allKampus, allPost }) {
   });
   const filteredKampus = kampusPunyaPilihanProdi.filter(
     (item) => item.nama_kampus !== pilihanKampus
+  );
+
+  const defProdi = definisiProdi.filter(
+    (item) => item.nama_prodi === namaProdi
   );
 
   const dataKampus = allKampus.find(
@@ -70,7 +77,7 @@ export default function Kampus({ allKampus, allPost }) {
     values: dataKeketatan,
   };
 
-  console.log(namaProdi);
+  console.log(defProdi);
 
   const handleKampus = (e) => {
     setPilihanKampus(e.target.value);
@@ -104,8 +111,8 @@ export default function Kampus({ allKampus, allPost }) {
           logoAlt="Logo"
           allPost={allPost}
         />
-        <div className="flex items-center justify-center mt-20">
-          <div>
+        <div className="flex items-center justify-center mt-10 p-6">
+          <div className="max-w-sm">
             <h1 className="mb-4 text-xl font-bold text-orange-900/50">
               Cek Keketatan Prodi
             </h1>
@@ -179,7 +186,8 @@ export default function Kampus({ allKampus, allPost }) {
                   ))}
                 </select>
               </div>
-              <div className="mb-4 shadow-md">
+
+              <div className="mb-4 shadow-md p-3 ">
                 <p className="font-semibold text-orange-400">Daya Tampung</p>
                 {pilihanProdi.length === 0 ? (
                   <p className="text-xs text-red-900 italic">Tidak ada data</p>
@@ -196,7 +204,7 @@ export default function Kampus({ allKampus, allPost }) {
                   </div>
                 )}
               </div>
-              <div className="mb-4 shadow-md">
+              <div className="mb-4 shadow-md p-3">
                 <p className="font-semibold text-orange-400">Peminat</p>
                 {pilihanProdi.length === 0 ? (
                   <p className="text-xs text-red-900 italic">Tidak ada data</p>
@@ -213,7 +221,7 @@ export default function Kampus({ allKampus, allPost }) {
                   </div>
                 )}
               </div>
-              <div className="mb-4 shadow-md">
+              <div className="mb-4 shadow-md p-3">
                 <p className="font-semibold text-orange-400">Keketatan</p>
                 {pilihanProdi.length === 0 ? (
                   <p className="text-xs text-red-900 italic">Tidak ada data</p>
@@ -230,7 +238,7 @@ export default function Kampus({ allKampus, allPost }) {
                   </div>
                 )}
               </div>
-              <div className="shadow-md">
+              <div className="shadow-md p-3 mb-10">
                 <p className="font-semibold text-orange-400">Kampus Lain</p>
 
                 {pilihanProdi.length === 0 || filteredKampus.length === 0 ? (
@@ -252,6 +260,28 @@ export default function Kampus({ allKampus, allPost }) {
                       kamu pilih bisa muncul.
                     </p>
                   </div>
+                )}
+              </div>
+              <div className="shadow-md p-3 text-sm  relative">
+                {defProdi.length === 0 ? (
+                  ""
+                ) : (
+                  <div className="absolute bg-orange-900/70  transform   -translate-y-1/2">
+                    <p className="text-slate-50 p-2">
+                      APA ITU PRODI {namaProdi}
+                    </p>
+                  </div>
+                )}
+                {pilihanProdi.length !== 0 ? (
+                  <div className="pt-6 ">
+                    {defProdi.map((item, index) => (
+                      <p key={index} className="bg-orange-400/20 p-2">
+                        {item.definisi}
+                      </p>
+                    ))}
+                  </div>
+                ) : (
+                  ""
                 )}
               </div>
             </form>

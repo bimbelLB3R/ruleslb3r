@@ -45,7 +45,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
   return (
     <>
       <nav>
-        <div className="hidden md:visible md:bg-slate-100 shadow shadow-slate-400 md:flex justify-between items-center p-8 fixed top-0 w-full z-50">
+        <div className="hidden md:visible md:bg-slate-100 shadow shadow-slate-400 md:flex justify-between items-center p-4 fixed top-0 w-full z-50">
           <div className="flex space-x-4">
             <Link href="/">
               <p className="text-slate-600 hover:text-slate-900">HOME</p>

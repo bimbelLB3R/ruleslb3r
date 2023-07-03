@@ -94,7 +94,7 @@ export default function PostDetail({ detailPost, allPost }) {
         <div
           className={
             showComponent
-              ? "visible  md:top-[120px] p-5 md:p-0 z-20 md:z-40  fixed top-[90px]  left-1/2 transform -translate-x-1/2 -translate-y-1/2 "
+              ? "visible  md:top-[90px] p-5 md:p-0 z-20 md:z-40  fixed top-[90px]  left-1/2 transform -translate-x-1/2 -translate-y-1/2 "
               : "hidden"
           }
         >
@@ -103,7 +103,7 @@ export default function PostDetail({ detailPost, allPost }) {
         <div className="p-2 md:p-4  mt-10 md:max-w-2xl md:flex md:justify-center md:m-auto md:mt-0">
           <div>
             <div>
-              <div className="flex mb-10 font-bold mt-10 md:mt-20">
+              <div className="flex mb-10 font-bold mt-10 ">
                 <Link href="/blogs">
                   <p className="text-orange-600 hover:underline">Blogs </p>
                 </Link>
