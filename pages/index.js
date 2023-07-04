@@ -18,7 +18,6 @@ const Home = ({ allPost }) => {
   // console.log(allPost);
   const [showNavbar, setShowNavbar] = useState(false);
   const navbarRef = useRef(null);
-
   useEffect(() => {
     // setShowNavbar(true);
     const handleScroll = () => {
@@ -56,17 +55,6 @@ const Home = ({ allPost }) => {
           logoUrl="/image/logolb3r.png"
           logoAlt="Logo"
           allPost={allPost}
-          // menuItems={[
-          //   { label: 'Sistem Pembayaran & Biaya', url: '/rules/payment' },
-          //   { label: 'Cara Membuat Kelas Baru', url: '/rules/newclass' },
-          //   { label: 'Aturan One Day Before', url: '/rules/odb' },
-          //   { label: 'Ketentuan Kegiatan Belajar', url: '/rules/kbm' },
-          //   { label: 'Ketentuan Berhenti Belajar', url: '/rules/off' },
-          //   {
-          //     label: 'MULAI SNBT',
-          //     url: '/form/newmember',
-          //   },
-          // ]}
         />
       </Transition>
       <Layout>
