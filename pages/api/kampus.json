@@ -495,7 +495,7 @@
         },
         {
           "kode_prodi": "521002",
-          "nama_prodi": "MANAJEMEN SUMBERDAYA PERAIRAN",
+          "nama_prodi": "MANAJEMEN SUMBER DAYA PERAIRAN",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [79, 117, 75, 37, 116, 30],
           "peminat": [131, 117, 47, 39, 78, 0]
@@ -607,7 +607,7 @@
         },
         {
           "kode_prodi": "521018",
-          "nama_prodi": "PENDIDIKAN DOKTER",
+          "nama_prodi": "KEDOKTERAN",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [20, 22, 50, 40, 35, 40],
           "peminat": [552, 414, 597, 590, 673, 0]
@@ -642,7 +642,7 @@
         },
         {
           "kode_prodi": "521023",
-          "nama_prodi": "PENDIDIKAN PANCASILA & KEWARGANEGARAAN (PPKN)",
+          "nama_prodi": "PENDIDIKAN PANCASILA DAN KEWARGANEGARAAN",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [33, 41, 35, 20, 46, 28],
           "peminat": [85, 68, 50, 58, 78, 0]
@@ -663,28 +663,28 @@
         },
         {
           "kode_prodi": "521026",
-          "nama_prodi": "PENDIDIKAN BAHASA, SASTRA INDONESIA & DAERAH",
+          "nama_prodi": "PENDIDIKAN BAHASA DAN SASTRA INDONESIA",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [25, 39, 30, 30, 65, 40],
           "peminat": [211, 78, 44, 139, 92, 0]
         },
         {
           "kode_prodi": "521027",
-          "nama_prodi": "PENDIDIKAN GURU SEKOLAH DASAR (PGSD)",
+          "nama_prodi": "PENDIDIKAN GURU SEKOLAH DASAR",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [61, 69, 80, 80, 125, 64],
           "peminat": [480, 251, 431, 468, 390, 0]
         },
         {
           "kode_prodi": "521028",
-          "nama_prodi": "PENDIDIKAN JASMANI, KESEHATAN DAN REKREASI",
+          "nama_prodi": "PENDIDIKAN JASMANI",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [35, 62, 53, 35, 63, 20],
           "peminat": [181, 12, 26, 35, 46, 0]
         },
         {
           "kode_prodi": "521029",
-          "nama_prodi": "PENDIDIKAN GURU PAUD",
+          "nama_prodi": "PENDIDIKAN PAUD",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [35, 42, 40, 30, 46, 24],
           "peminat": [112, 40, 48, 54, 54, 0]
@@ -921,7 +921,7 @@
         },
         {
           "kode_prodi": "541021",
-          "nama_prodi": "PENDIDIKAN DOKTER",
+          "nama_prodi": "KEDOKTERAN",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [50, 0, 40, 40, 40, 50],
           "peminat": [1339, 775, 957, 964, 1132, 0]
@@ -1117,7 +1117,7 @@
         },
         {
           "kode_prodi": "541050",
-          "nama_prodi": "PENDIDIKAN BAHASA, SASTRA INDO. & DAERAH",
+          "nama_prodi": "PENDIDIKAN BAHASA DAN SASTRA INDONESIA",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [31, 35, 38, 32, 32, 32],
           "peminat": [382, 205, 107, 184, 154, 0]
@@ -1152,7 +1152,7 @@
         },
         {
           "kode_prodi": "541055",
-          "nama_prodi": "PENDIDIKAN ANAK USIA DINI",
+          "nama_prodi": "PENDIDIKAN PAUD",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [35, 35, 38, 32, 32, 32],
           "peminat": [280, 114, 111, 118, 95, 0]
@@ -1347,7 +1347,7 @@
         },
         {
           "kode_prodi": "551015",
-          "nama_prodi": "PENDIDIKAN BAHASA INDONESIA",
+          "nama_prodi": "PENDIDIKAN BAHASA DAN SASTRA INDONESIA",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [26, 36, 32, 37, 32, 48],
           "peminat": [248, 123, 76, 118, 104, 0]
@@ -1416,7 +1416,7 @@
       "prodi": [
         {
           "kode_prodi": "371001",
-          "nama_prodi": "AGROTEKNOLOGI / AGROEKOTEKNOLOGI",
+          "nama_prodi": "AGROEKOTEKNOLOGI",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [95, 75, 59, 66, 65, 90],
           "peminat": [1136, 562, 428, 446, 375, 0]
@@ -1500,7 +1500,7 @@
         },
         {
           "kode_prodi": "371013",
-          "nama_prodi": "PENDIDIKAN DOKTER",
+          "nama_prodi": "KEDOKTERAN",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [80, 84, 80, 70, 75, 80],
           "peminat": [3334, 1716, 1835, 2467, 2363, 0]
@@ -1766,7 +1766,7 @@
         },
         {
           "kode_prodi": "371054",
-          "nama_prodi": "PENDIDIKAN BHS. & SASTRA INDO.",
+          "nama_prodi": "PENDIDIKAN BAHASA DAN SASTRA INDONESIA",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [69, 67, 71, 69, 69, 65],
           "peminat": [891, 560, 463, 506, 534, 0]
@@ -1808,7 +1808,7 @@
         },
         {
           "kode_prodi": "371060",
-          "nama_prodi": "PG PAUD",
+          "nama_prodi": "PENDIDIKAN GURU PAUD",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [65, 70, 80, 76, 78, 70],
           "peminat": [334, 304, 192, 207, 222, 0]
@@ -1926,7 +1926,7 @@
       "prodi": [
         {
           "kode_prodi": "372001",
-          "nama_prodi": "MANAJEMEN SUMBERDAYA PERAIRAN",
+          "nama_prodi": "MANAJEMEN SUMBER DAYA PERAIRAN",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [63, 81, 68, 65, 63, 63],
           "peminat": [786, 554, 329, 221, 333, 0]
@@ -2017,7 +2017,7 @@
         },
         {
           "kode_prodi": "372014",
-          "nama_prodi": "PEMANFAATAN SUMBERDAYA PERIKANAN",
+          "nama_prodi": "PENGELOLAAN SUMBERDAYA PERIKANAN",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [58, 76, 74, 65, 65, 63],
           "peminat": [590, 463, 248, 180, 346, 0]
@@ -2052,7 +2052,7 @@
         },
         {
           "kode_prodi": "372019",
-          "nama_prodi": "PERENCANAAN WILAYAH & KOTA",
+          "nama_prodi": "PERENCANAAN WILAYAH DAN KOTA",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [54, 71, 68, 68, 60, 54],
           "peminat": [1829, 916, 1027, 984, 862, 0]
@@ -2388,7 +2388,7 @@
         },
         {
           "kode_prodi": "372076",
-          "nama_prodi": "EKONOMI, KEUANGAN DAN PERBANKAN",
+          "nama_prodi": "EKONOMI KEUANGAN DAN PERBANKAN",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [58, 67, 72, 73, 70, 71],
           "peminat": [1650, 742, 1129, 646, 1137, 0]
@@ -2423,7 +2423,7 @@
         },
         {
           "kode_prodi": "372082",
-          "nama_prodi": "PENDIDIKAN BHS & SASTRA INDONESIA",
+          "nama_prodi": "PENDIDIKAN BAHASA DAN SASTRA INDONESIA",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [36, 44, 46, 45, 37, 38],
           "peminat": [552, 311, 488, 295, 315, 0]
@@ -2618,14 +2618,14 @@
         },
         {
           "kode_prodi": "373016",
-          "nama_prodi": "PENDIDIKAN ILMU PENGETAHUAN ALAM",
+          "nama_prodi": "PENDIDIKAN IPA",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [42, 53, 49, 50, 44, 36],
           "peminat": [795, 622, 296, 415, 361, 0]
         },
         {
           "kode_prodi": "373017",
-          "nama_prodi": "ILMU KESEHATAN MASYARAKAT",
+          "nama_prodi": "KESEHATAN MASYARAKAT",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [36, 84, 73, 72, 90, 72],
           "peminat": [1594, 1238, 1149, 1255, 1387, 0]
@@ -2674,7 +2674,7 @@
         },
         {
           "kode_prodi": "373029",
-          "nama_prodi": "PENDIDIKAN JASMANI, KESEHATAN, DAN REKREASI",
+          "nama_prodi": "PENDIDIKAN JASMANI",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [80, 100, 90, 90, 95, 72],
           "peminat": [1102, 378, 496, 470, 455, 0]
@@ -2709,7 +2709,7 @@
         },
         {
           "kode_prodi": "373034",
-          "nama_prodi": "PENDIDIKAN GURU PEND. ANAK USIA DINI",
+          "nama_prodi": "PENDIDIKAN GURU PAUD",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [48, 61, 61, 55, 44, 42],
           "peminat": [579, 383, 344, 343, 288, 0]
@@ -2723,7 +2723,7 @@
         },
         {
           "kode_prodi": "373036",
-          "nama_prodi": "PEND. BAHASA, SASTRA INDONESIA & DAERAH",
+          "nama_prodi": "PENDIDIKAN BAHASA DAN SASTRA INDONESIA",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [48, 50, 50, 45, 44, 42],
           "peminat": [1173, 510, 718, 541, 470, 0]
@@ -2891,7 +2891,7 @@
         },
         {
           "kode_prodi": "373060",
-          "nama_prodi": "PENDIDIKAN ILMU PENGETAHUAN SOSIAL",
+          "nama_prodi": "PENDIDIKAN IPS",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [32, 40, 32, 37, 29, 24],
           "peminat": [520, 672, 226, 377, 327, 0]
@@ -2933,7 +2933,7 @@
         },
         {
           "kode_prodi": "373083",
-          "nama_prodi": "GIZI",
+          "nama_prodi": "ILMU GIZI",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [0, 0, 0, 0, 0, 12],
           "peminat": [0, 0, 0, 0, 0, 0]
@@ -3065,7 +3065,7 @@
         },
         {
           "kode_prodi": "374006",
-          "nama_prodi": "TEKNIK ARSITEKTUR",
+          "nama_prodi": "ARSITEKTUR",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [75, 68, 75, 76, 82, 85],
           "peminat": [736, 670, 316, 309, 247, 0]
@@ -3079,7 +3079,7 @@
         },
         {
           "kode_prodi": "374008",
-          "nama_prodi": "PENDIDIKAN DOKTER",
+          "nama_prodi": "KEDOKTERAN",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [30, 30, 30, 30, 25, 30],
           "peminat": [1695, 1114, 810, 1107, 1004, 0]
@@ -3246,7 +3246,7 @@
         },
         {
           "kode_prodi": "381017",
-          "nama_prodi": "GIZI",
+          "nama_prodi": "ILMU GIZI",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [36, 48, 36, 49, 43, 48],
           "peminat": [1624, 618, 923, 936, 1103, 0]
@@ -3302,7 +3302,7 @@
         },
         {
           "kode_prodi": "381025",
-          "nama_prodi": "TEKNOLOGI SAINS DATA",
+          "nama_prodi": "SAINS DATA",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [0, 0, 30, 36, 36, 36],
           "peminat": [0, 0, 586, 445, 698, 0]
@@ -3400,7 +3400,7 @@
         },
         {
           "kode_prodi": "381039",
-          "nama_prodi": "ILMU INFORMASI DAN PERPUSTAKAAN",
+          "nama_prodi": "PERPUSTAKAAN DAN ILMU INFORMASI",
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [36, 40, 38, 36, 36, 39],
           "peminat": [829, 346, 560, 322, 480, 0]

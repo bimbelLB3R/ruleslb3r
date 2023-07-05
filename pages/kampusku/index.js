@@ -296,9 +296,16 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
 
                     {pilihanProdi.length === 0 ||
                     filteredKampus.length === 0 ? (
-                      <p className="text-xs text-red-900 italic">
-                        Tidak ada data
-                      </p>
+                      <div>
+                        <p className="text-xs text-red-900 italic">
+                          Tidak ada data
+                        </p>
+                        <p className="text-xs text-red-900 italic mt-4 mb-4">
+                          Catatan : Tiap kampus memiliki penamaan prodi yang
+                          berbeda-beda sehingga tidak semua kampus dengan prodi
+                          yang kamu pilih bisa muncul.
+                        </p>
+                      </div>
                     ) : (
                       <div className="text-sm p-2">
                         <p className="text-sm mb-1">
