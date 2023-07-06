@@ -3,62 +3,218 @@
     {
       "nama_prodi": "TEKNIK KIMIA",
       "definisi": "Teknik Kimia merupakan cabang ilmu teknik mempelajari bagaimana proses dan cara mengubah bahan baku/mentah dan bahan kimia menjadi sebuah produk yang lebih bernilai secara komersial dengan memanfaatkan proses-proses kimia, seperti reaksi kimia dan biokimia maupun perubahan sifat fisik dan kimia bahan mentah. Mahasiswa jurusan Teknik Kimia dididik untuk dapat merencanakan dan merancang alat-alat proses, mengoperasikan, mengendalikan dan memelihara pabrik / industri, mengkontruksi pendirian suatu pabrik (dalam batas batas tertentu), mengadakan penelitian dan pengembangan proses, bahkan merencanakan serta mengelola penjualan dan pelayanan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "KEDOKTERAN",
       "definisi": "Program studi Pendidikan Dokter (atau lebih dikenal dengan Kedokteran) adalah salah satu prodi yang tiap tahun selalu banyak peminatnya. Di prodi ini kamu akan mempelajari ilmu medis, bagaimana memelihara kesehatan, pencegahan, dan pengobatan penyakit. Untuk mempelajari ilmu kedokteran ini, kamu harus memahami anatomi, fungsi, dan interaksi yang terjadi pada tubuh manusia, mulai dari tulang, otot, saraf, dan indera. Selain anatomi, kamu juga akan belajar histologi, fisiologi, dan biokimia. Setelah memahami fungsi dasar bagian tubuh, kamu juga akan belajar tentang penyakit dan obat-obatan. Dan pastinya, di Pendidikan Dokter, kamu akan mempelajari tata cara pemeriksaan pasien dan menginterpretasi hasil pemeriksaan tersebut.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN MATEMATIKA",
       "definisi": "Pendidikan Matematika merupakan salah satu program studi yang berada di bawah Fakultas Keguruan dan Ilmu Pendidikan. Apa perbedaan prodi Pendidikan Matematika dengan prodi Matematika Murni yang ada di Fakultas MIPA? Tentunya perbedaannya terletak pada mata kuliah ilmu pendidikan yang hanya diperoleh di prodi Pendidikan Matematika. Pada prodi ini, selain mempelajari dasar-dasar ilmu matematika seperti aljabar, geometri, kalkulus, statistika, dan trigonometri, juga akan dipelajari dasar-dasar ilmu IPA lainnya seperti fisika, biologi, dan kimia. Sama halnya dengan prodi-prodi pada rumpun ilmu pendidikan lainnya, di prodi Pendidikan Matematika akan diajarkan teori-teori kependidikan yang mencakup metode pembelajaran matematika, perencanaan pengajaran, dan evaluasi pengajaran.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN BIOLOGI",
       "definisi": "Pendidikan Biologi adalah sebuah program studi yang bertujuan untuk menghasilkan tenaga pengajar biologi yang terampil untuk tingkat pendidikan dasar hingga menengah. Apa yang dipelajari pada program studi ini adalah ilmu biologi beserta turunan-turunannya, namun dengan tambahan perspektif pendidikan dan pengajaran di dalamnya. Mahasiswa program studi Pendidikan Biologi juga akan mempelajari bagaimana cara mengajar yang baik, membuat soal-soal, kurikulum, manajemen sekolah, dan hal-hal lain yang berhubungan dengan teknis maupun administrasi persekolahan. Ketika lulus nanti, gelar yang didapatkan adalah S.Pd atau Sarjana Pendidikan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN KIMIA",
       "definisi": "Program studi pendidikan kimia adalah sebuah prodi yang mempelajari tentang pengajaran dan pembelajaran dari kimia di semua sekolah, perguruan tinggi dan universitas. Apa yang dipelajari di program studi ini termasuk memahami bagaimana siswa belajar kimia, cara terbaik untuk mengajar kimia, dan bagaimana untuk meningkatkan hasil belajar dengan mengubah metode pengajaran dan pelatihan yang sesuai dalam mengajar kimia, dengan berbagai cara, termasuk kegiatan belajar mengajar, demonstrasi, dan kegiatan laboratorium.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "AGROEKOTEKNOLOGI",
       "definisi": "Agroekoteknologi merupakan salah satu program studi ilmu pertanian yang lebih kompleks. Program studi ini merupakan gabungan dari beberapa program studi di Fakultas Pertanian yaitu Prodi Agronomi, Ilmu Tanah dan Ilmu Hama dan Penyakit Tumbuhan. Di program studi ini akan mempelajari dasar-dasar ilmiah dalam menemukan, menganalisis dan memecahkan masalah melalui cara berfikir analitik, kreatif dan eksploratif dalam bidang agronomi. Program studi ini membekali mahasiswanya dengan kemampuan akademik dalam menerapkan, mengembangkan dan atau memperkaya khasanah ilmu pengetahuan dalam bidang, serta menyebarluaskan dan mengupayakan penggunaannya untuk meningkatkan taraf hidup masyarakat dan memperkaya kebudayaan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PETERNAKAN",
       "definisi": "Ilmu Peternakan mempelajari semua kegiatan terkait peternakan. Program studi ini membekali kita dengan ilmu dan teknologi pengembangan peternakan, industri peternakan, dan kegiatan agrobisnis yang ramah lingkungan, mampu berkarya secara mandiri, bekerja di lembaga swasta maupun instansi pemerintah baik dalam bidang ilmu, penelitian dan penerapannya. Mahasiswa pada program studi ini nantinya juga akan mempelajari tentang teknologi produksi, teknologi pakan, teknologi pengolahan, serta manajemen dan perencanaan usaha.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNOLOGI INDUSTRI PERTANIAN",
       "definisi": "Program studi Industri Pertanian atau Agroindustri mempelajari tentang teknologi industri pertanian dengan model pembelajaran berbasis riset. Mahasiswa akan mendalami bidang agroindustri dengan penguasaan kaidah-kaidah penelitian yang bersifat filosofis, aplikatif, dan mandiri. Pembelajaran dengan dasar penelitian akan menghasilkan mahasiswa yang mampu menciptakan temuan baru dalam agrikultur dengan mengedepankan value inovatif serta dapat membuat karya ilmiah menarik yang layak dipublikasikan. Mendengar kata pertanian yang terbayang pasti sawah, menanam, mencangkul. Namun pada program studi Teknologi Industri Pertanian menitikberatkan pada proses kegiatan pasca panen. Artinya pada program studi ini akan dipelajari cara mengolah hasil pertanian agar menghasilkan produk-produk yang berkualitas tinggi.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "AGROINDUSTRI",
       "definisi": "Program studi Industri Pertanian atau Agroindustri mempelajari tentang teknologi industri pertanian dengan model pembelajaran berbasis riset. Mahasiswa akan mendalami bidang agroindustri dengan penguasaan kaidah-kaidah penelitian yang bersifat filosofis, aplikatif, dan mandiri. Pembelajaran dengan dasar penelitian akan menghasilkan mahasiswa yang mampu menciptakan temuan baru dalam agrikultur dengan mengedepankan value inovatif serta dapat membuat karya ilmiah menarik yang layak dipublikasikan. Mendengar kata pertanian yang terbayang pasti sawah, menanam, mencangkul. Namun pada program studi Teknologi Industri Pertanian menitikberatkan pada proses kegiatan pasca panen. Artinya pada program studi ini akan dipelajari cara mengolah hasil pertanian agar menghasilkan produk-produk yang berkualitas tinggi.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNOLOGI HASIL PERIKANAN",
       "definisi": "Program studi Teknologi Hasil Perikanan mempelajari bagaimana mengolah hasil perikanan dari pasca panen hingga menghasilkan produk perikanan berkualitas tinggi yang zero waste dan ramah lingkungan, juga mempelajari manajemen industri dan bisnis perikanan. Program studi ini dikenal juga dengan nama Teknologi Industri Perikanan, mirip dengan program studi “kembarannya” yaitu Teknologi Industri Pertanian. Sama-sama mempelajari tentang proses pasca panen, hanya saja program studi ini lebih mengarah pada sektor perikanan. Disini akan dipelajari teknologi budidaya ikan, teknik fermentasi, pengelolaan limbah hasil perikanan, hingga bagaimana menyelesaikan permasalahan terkait perikanan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "AKUAKULTUR",
       "definisi": "Akuakultur merupakan program studi ilmu kelautan dan perikanan yang mempelajari tentang aktivitas pemeliharaan, penangkaran, dan pengembangbiakan aneka biota laut baik pada perairan air tawar, air asin, atau air payau. Jurusan akuakultur mencakup beberapa materi seperti macam-macam teknik menangkap ikan, budidaya ikan dan hasil laut lainnya seperti udang, lobster, kerang, mutiara, rumput laut, dan yang lainya, serta mempelajari mikroorganisme laut dan cara pelestarian lingkungan",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PERIKANAN TANGKAP",
       "definisi": "Jika kamu ingin mendalami seluk beluk tentang penangkapan ikan di laut, prodi ini bisa jadi pilihan.Definisi perikanan tangkap merupakan usaha penangkapan ikan dan organisme air lainnya di alam liar (laut, sungai, danau, dan badan air lainnya). Kehidupan organisme air di alam liar dan faktor-faktornya (biotik dan abiotik) tidak dikendalikan secara sengaja oleh manusia. Perikanan tangkap sebagian besar dilakukan di laut, terutama di sekitar pantai dan landasan kontinen. Perikanan tangkap juga ada di danau dan sungai. Masalah yang mengemuka di dalam perikanan tangkap adalah penangkapan ikan berlebih dan polusi laut. Sejumlah spesies mengalami penurunan populasi dalam jumlah yang signifikan dan berada dalam ancaman punah. Hal ini mengakibatkan jumlah tangkapan ikan di alam liar dapat mengalami penurunan secara umum",
-      "sumber": "kompas.com,wikipedia"
+      "sumber": "kompas.com,wikipedia",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "MANAJEMEN SUMBER DAYA PERAIRAN",
@@ -68,772 +224,2774 @@
     {
       "nama_prodi": "SOSIAL EKONOMI PERIKANAN",
       "definisi": "Bagaimana mengelola sektor perikanan sebagai salah satu penggerak perekonomian Indonesia dipelajari pada program studi Agrobisnis Perikanan atau nama lainnya Sosial Ekonomi Perikanan. Pada program studi ini dipelajari teknik mengelola bisnis perikanan, baik perikanan laut maupun air tawar, juga budidaya perikanan dan biota laut/ air tawar. Program studi ini juga membekali mahasiswanya dengan jiwa entrepreneurship agar dapat mandiri di tengah persaingan bisnis komoditas perikanan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "AGROBISNIS PERIKANAN",
       "definisi": "Bagaimana mengelola sektor perikanan sebagai salah satu penggerak perekonomian Indonesia dipelajari pada program studi Agrobisnis Perikanan atau nama lainnya Sosial Ekonomi Perikanan. Pada program studi ini dipelajari teknik mengelola bisnis perikanan, baik perikanan laut maupun air tawar, juga budidaya perikanan dan biota laut/ air tawar. Program studi ini juga membekali mahasiswanya dengan jiwa entrepreneurship agar dapat mandiri di tengah persaingan bisnis komoditas perikanan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU KELAUTAN",
       "definisi": "Ilmu Kelautan sangat luas cakupannya, mulai dari ekologi, meteorologi laut, konservasi sumberdaya lingkungan laut, sampai tentang pengelolaan amdal. Tidak sebatas mempelajari tentang lautan saja, tapi juga tentang area pesisir dan pemberdayaan masyarakat sekitar pesisir yang mayoritas merupakan nelayan. Ilmu Kelautan pastinya tak lepas kaitannya dari perikanan. Jadi, pada program studi ini kita akan turut mempelajari ilmu pengetahuan terkait perikanan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ARSITEKTUR",
       "definisi": "Arsitektur merupakan salah satu jurusan yang cukup populer di Indonesia. Para mahasiswa di program studi Arsitektur mempelajari desain dan rancangan konstruksi bangunan. Arsitektur lebih cenderung menuangkan ide, konsep, dan desain di atas kertas, sedangkan realisasi pembangunannya akan dikerjakan oleh Teknik Sipil. Dalam mendalami arsitektur, para mahasiswa harus mempelajari kekuatan bangunan (firmitas), estetika atau keindahan bangunan (venustas), dan fungsi bangunan (utilitas).",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "BUDIDAYA PERAIRAN",
       "definisi": "Pada program studi Budidaya Perairan (Akuakulture) kamu akan mempelajari ilmu tentang aktivitas pemeliharaan, penangkaran, dan pengembangbiakan biota perairan laut maupun air tawar, seperti ikan, udang, tiram, rumput laut, dan sebagainya. Dalam kegiatan budidaya organisme perairan tentunya aspek kualitas air dan wadah sangat diperhatikan. Mirip dengan yang dipelajari pada program studi Budidaya Perikanan, namun cakupan dari program studi Budidaya Perairan lebih luas, dan tidak terbatas hanya pada komoditas ikan saja. Jadi tidak hanya terbatas pada bagaimana pembibitan, pemeliharaan, kesehatan, dan teknologi pakan ikan saja, tapi juga tumbuhan air, serta menyangkut kelestarian lingkungan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNIK INFORMATIKA",
       "definisi": "Program studi Teknik Informatika mempelajari dan menerapkan prinsip-prinsip ilmu komputer dan analisa matematis untuk desain, pengembangan, pengujian, dan evaluasi perangkat lunak, sistem operasi dan kerja komputer. Pada prodi ini akan diajarkan mulai dari menghasilkan ide kreatif, kemudian merealisasikan ide tersebut, memecah fungsi-fungsi, dan menciptakan struktur instruksi yang sangat detil dalam bahasa pemrograman untuk mengajarkan komputer apa saja yang harus dilakukan. Mahasiswa Ilmu Komputer harus menjadi ahli dalam sistem operasi dan aplikasi untuk memastikan bahwa dasar sistem operasi bekerja dengan baik.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "INFORMATIKA",
       "definisi": "Program studi  Informatika (Teknik Informatika) mempelajari dan menerapkan prinsip-prinsip ilmu komputer dan analisa matematis untuk desain, pengembangan, pengujian, dan evaluasi perangkat lunak, sistem operasi dan kerja komputer. Pada prodi ini akan diajarkan mulai dari menghasilkan ide kreatif, kemudian merealisasikan ide tersebut, memecah fungsi-fungsi, dan menciptakan struktur instruksi yang sangat detil dalam bahasa pemrograman untuk mengajarkan komputer apa saja yang harus dilakukan. Mahasiswa Ilmu Komputer harus menjadi ahli dalam sistem operasi dan aplikasi untuk memastikan bahwa dasar sistem operasi bekerja dengan baik.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "SISTEM INFORMASI",
       "definisi": "Pada program studi Sistem Informasi (SI) akan dipelajari tentang bagaimana mendesain sistem yang tepat berdasarkan tujuan organisasi atau perusahaan sesuai dengan kebutuhan dan proses bisnis. Program studi Sistem Informasi juga dikenal dengan nama Manajemen Informatika (MI). Keduanya sama-sama mempelajari ilmu IT sebagai penjembatan dalam dunia bisnis. Sederhananya, mahasiswa SI dan MI dididik untuk memahami dan memenuhi keinginan dan kebutuhan klien atau user akan sistem IT untuk kepentingan bisnis atau organisasi. Mahasiswa di jurusan ini diarahkan agar dapat mengembangkan, memanfaatkan, dan mengelola software dan hardware yang ada dalam dunia bisnis maupun perseorangan. Pada prodi ini mahasiswa nggak cuma dibekali dengan ilmu pemrograman tapi juga manajemen dan bisnis.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PEMBANGUNAN SOSIAL",
       "definisi": "Program studi Pembangunan Sosial dan Kesejahteraan (PSdK) mempelajari strategi dalam pemecahan masalah-masalah sosial yang terjadi di masyarakat, serta penyejahteraan dan pembangunan masyarakat pasca penanganan masalah. Dulunya prodi ini bernama Sosiatri. Pokok-pokok bahasan dalam prodi ini yaitu tentang kebijakan sosial, pemberdayaan masyarakat, dan tanggung jawab sosial perusahaan. Untuk dapat menyelesaikan berbagai macam permasalahan sosial, kamu harus mempelajari dulu berbagai kebijakan sosial dan proses pembuatan kebijakan tersebut, mulai dari perencanaan, implementasi, hingga evaluasi. Kemudian kamu dapat menganalisa apakah kebijakan tersebut menguntungkan dan dapat menyelesaikan permasalahan sosial, atau sebaliknya. Lalu kamu juga dapat menganalisa berbagai pendekatan untuk menyelesaikannya.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "SASTRA INDONESIA",
       "definisi": "Program studi ini khusus mempelajari tren sastra di Indonesia. Para mahasiswa akan mempelajari beraneka ragam subyek sastra, puisi, drama, roman-novel, dan linguistik. Pada semester 4, mahasiswa akan diarahkan untuk memilih beberapa konsentrasi yaitu peminatan sastra, peminatan linguistik, dan peminatan filologi.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "SASTRA INGGRIS",
       "definisi": "Dengan memilih program studi Sastra Inggris, kamu bisa mempelajari tentang isi, ciri artistik, estetika, keaslian, serta keindahan isi dalam teks atau tulisan karya sastra Inggris. Kamu akan mempelajari berbagai karya tulis baik dalam bentuk novel, naskah drama, atau puisi yang pasti ditulis dalam bahasa Inggris. Selain itu kamu juga akan mempelajari linguistik bahasa Inggris secara lebih mendalam. Walaupun mempelajari Sastra Inggris bertujuan untuk mengasah kemampuan analisis dengan mencermati berbagai karya sastra, namun tidak menutup kemungkinan kamu bisa menciptakan karya sastra. Di jurusan ini kamu akan mempelajari karya-karya William Shakespeare, Jane Austen, Charlotte Bronte, Charles Dickens, Oscar Wilde, Edgar Allan Poe, dan lain sebagainya.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN MASYARAKAT",
       "definisi": "Pendidikan luar sekolah juga lebih dikenal sebagai pendidikan non formal atau pendidikan masyarakat. Tujuan dari program studi ini adalah mempersiapkan para lulusan yang bisa berkompetisi dalam bidang pengembangan dan pemberdayaan masyarakat. Program studi Pendidikan Luar Sekolah ini memberikan peluang yang lebih besar kepada para lulusan untuk berwirausaha sehingga dia bisa mengajak orang-orang di sekitarnya untuk belajar dan berdaya.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "EKONOMI SYARIAH",
       "definisi": "Sama halnya dengan program studi Ekonomi, di prodi Ekonomi Islam atau juga dikenal dengan nama Ekonomi Syariah, kamu juga akan mempelajari ilmu dan teori ekonomi mikro dan ekonomi makro, cara mengelola sumber daya (alam, manusia, modal, dan waktu) yang terbatas untuk memenuhi kebutuhan manusia yang tidak terbatas, dan mencapai kesejahteraan. Namun, di prodi ini, kamu akan mempelajarinya dari perspektif Islam/Syariah. Dalam hal ini, segala aspek dalam kegiatan perekonomian seperti jual-beli, sewa-menyewa, hutang-piutang, simpan-pinjam, dan bagi hasil, telah diatur dalam ajaran Islam. Kamu akan mempelajari kebijakan ekonomi, keuangan, dan bisnis dalam Islam, serta bagaimana pengelolaan lembaga keuangan syariah.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ETNOMUSIKOLOGI",
       "definisi": "Etnomusikologi atau disebut juga dengan Antropologi Musik, sesuai namanya, merupakan gabungan dari ilmu tentang musik dan kebudayaan. Sederhananya, Etnomusikologi mempelajari tentang hubungan aspek sosial budaya terhadap musik dan tari dalam lingkup global dan lokal. Di prodi ini kamu akan mempelajari musik berbagai daerah di Indonesia dan juga musik mancanegara. Kamu akan belajar tentang bagaimana kebudayaan dapat memengaruhi kesenian di suatu daerah, terkhusus seni musik dan tari, serta sebaliknya, bagaimana musik dan tari tersebut memengaruhi kebudayaan di suatu daerah. Selain mempelajari teori-teori Etnomusikologi, sebagai mahasiswa prodi Etnomusikologi pastinya kamu juga akan mempelajari bagaimana bermain musik khas dari berbagai daerah.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU LINGKUNGAN",
       "definisi": "Ilmu lingkungan merupakan program studi yang mempelajari hubungan antara organisme dengan lingkungannya, termasuk hubungan manusia dengan lingkungan. Mahasiswa jurusan Ilmu Lingkungan akan belajar tentang cara mengelola sumber daya alam secara bijaksana, menganalisis dampak lingkungan dari aktivitas manusia, dan mengembangkan solusi untuk masalah lingkungan yang dihadapi.",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU HUBUNGAN INTERNASIONAL",
       "definisi": "Program studi Hubungan Internasional (HI) mengetengahkan pembelajaran tentang interaksi, relasi, dan komunikasi yang terjalin secara internasional. Hubungan Internasional tidak hanya mempelajari hubungan diplomasi satu negara dengan negara yang lain, tapi juga tentang konflik, kesejahteraan, ekonomi dan perdamaian dunia. Beberapa kajian yang dipelajari dalam prodi ini adalah diplomasi dan negosiasi, politik luar negeri, perdagangan luar negeri, politik internasional, ekonomi internasional, hukum internasional, globalisasi dan banyak lagi. Disini kamu akan diasah untuk memahami berbagai isu-isu global, mengenal tokoh-tokoh dan organisasi internasional yang berpengaruh, dan kerjasama internasional. Kamu juga akan belajar dinamika kawasan berbagai negara di dunia. Hubungan Internasional merupakan salah satu prodi yang prestisius. Para mahasiswanya mempelajari segala sesuatu yang berhubungan dengan aktivitas interaksi yang melintasi batas antar negara.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "HUBUNGAN INTERNASIONAL",
       "definisi": "Program studi Hubungan Internasional (HI) mengetengahkan pembelajaran tentang interaksi, relasi, dan komunikasi yang terjalin secara internasional. Hubungan Internasional tidak hanya mempelajari hubungan diplomasi satu negara dengan negara yang lain, tapi juga tentang konflik, kesejahteraan, ekonomi dan perdamaian dunia. Beberapa kajian yang dipelajari dalam prodi ini adalah diplomasi dan negosiasi, politik luar negeri, perdagangan luar negeri, politik internasional, ekonomi internasional, hukum internasional, globalisasi dan banyak lagi. Disini kamu akan diasah untuk memahami berbagai isu-isu global, mengenal tokoh-tokoh dan organisasi internasional yang berpengaruh, dan kerjasama internasional. Kamu juga akan belajar dinamika kawasan berbagai negara di dunia. Hubungan Internasional merupakan salah satu prodi yang prestisius. Para mahasiswanya mempelajari segala sesuatu yang berhubungan dengan aktivitas interaksi yang melintasi batas antar negara.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU KESEJAHTERAAN SOSIAL",
       "definisi": "Program studi Ilmu Kesejahteraan Sosial mempelajari berbagai fenomena sosial dan permasalahan yang terjadi di masyarakat terutama menyangkut kesejahteraan sosial. Di sini kamu akan belajar mengidentifikasi permasalahan yang terjadi di masyarakat dan mencari solusinya. Di prodi ini kamu akan belajar untuk terjun langsung ke masyarakat melakukan pengamatan dan analisis terhadap permasalahan yang tengah terjadi juga melakukan eksperimen sosial, kemudian menerapkan teori-teori untuk menyelesaikan permasalahan tersebut.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU SEJARAH",
       "definisi": "Ilmu Sejarah pada dasarnya mempelajari tentang segala peristiwa yang terjadi di masa lalu, mulai dari sejarah zaman kuno seperti Mesir, Yunani, India, yang dimulai sebelum masehi, sampai zaman modern di atas abad dua puluh. Bahkan Ilmu Sejarah juga mempelajari konteks yang sangat luas, mencakup aspek politik, budaya, ekonomi, agama, dan sosial. Belajar Ilmu Sejarah berarti memahami bagaimana sesuatu berubah dari waktu ke waktu, mempelajari pola dan nilai yang terkandung di dalamnya. Kamu akan memahami bahwa sejarah mempunyai peran besar dalam membentuk kondisi saat ini. Banyak yang menganggap belajar sejarah itu membosankan, padahal di prodi Ilmu Sejarah kamu akan belajar hal-hal seru lebih dari sekedar menghafal nama-nama tokoh terkenal dan tanggal-tanggal penting. Disini kamu juga akan belajar bagaimana membuat tulisan kreatif dan visualisasi sejarah melalui film dokumenter.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TELEVISI & FILM",
       "definisi": "Program studi Televisi dan Film mempelajari teknik-teknik dan pengetahuan dalam pembuatan film dan program siaran televisi. Di prodi ini kamu akan belajar menulis skrip, membuat story board, tata kamera, penyuteradaraan, produksi film dan program televisi, editing, dan memahami teori dan sejarah dunia film dan televisi.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNIK PENGAIRAN",
       "definisi": "Program studi Teknik Sumberdaya Air atau yang juga dikenal dengan nama Teknik Pengairan adalah sebuah prodi yang mempelajari ilmu-ilmu teknik sipil dalam perencanaan, desain, pengoperasian, serta pemeliharaan bangunan air yang berkaitan dengan sumberdaya air. Contoh bangunan air yang dimaksud adalah pembangkit listrik tenaga air, bangunan irigasi dan drainasi pada persawahan, sistem drainase perkotaan dan bangunan, waduk, dan lainnya. Di prodi ini kita juga akan belajar tentang teknik pengelolaan dan pemanfaatan sumberdaya air yang benar, dan pengelolaan dampak lingkungan dan pencemaran sumberdaya air. Program studi ini bisa dibilang multidisiplin karena meliputi ilmu Teknik Sipil, Planologi, Penginderaan Jauh dan Sistem Informasi Geografis (SIG), termasuk Pertanian.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNOLOGI PANGAN",
       "definisi": "Program studi Teknologi Pangan mempelajari proses produksi makanan dan memastikan makanan yang diproduksi aman untuk dikonsumsi dan memenuhi kebutuhan gizi konsumen. Maka dari itu, di prodi ini kamu juga akan mempelejari komponen kimiawi dan biologis di dalam makanan yang dapat berefek pada tubuh manusia. Selain itu, prodi Teknologi Pangan turut mempelajari efek sosial dari makananan yang kita konsumsi,termasuk bagaimana makananan mempengaruhi aspek ekonomi, psikologi dan kebudayaan kita. Disini kamu akan belajar bagaimana teknologi pengawetan, pemrosesan, pengemasan, penyimpanan, hingga produk makanan tersebut sampai di tangan konsumen untuk di konsumsi.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": " INDUSTRI & BIOSISTEM",
       "definisi": "",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "GEOFISIKA",
       "definisi": "Program studi Geofisika mempelajari seluk beluk bumi dan lingkungannya dengan memanfaatkan kaidah-kaidah fisika dan metode matematika. Ilmu Geofisika berusaha mencari tahu dan menjelaskan fenomena fisika yang terjadi di bumi dan lingkungannya sekarang dan masa lalu untuk bisa memproyeksikan fenomena yang akan terjadi pada masa depan. Fenomena fisika tersebut dinyatakan dalam bentuk parameter fisis yang terukur.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "FARMASI KLINIS",
       "definisi": "Secara umum, farmasi klinis adalah cabang ilmu farmasi atau peracik obat-obatan yang mana apoteker sebagai ahli dalam pekerjaan ini akan memberikan pelayanan perawatan untuk pasien secara langsung. Kegiatan mereka bertujuan untuk melakukan optimalisasi penggunaan bahan obat-obatan dan saran peningkatan kesehatan, kebugaran, serta pencegahan terhadap penyakit tertentu.Seorang apoteker klinis akan melakukan perawatan terhadap pasien di semua lini perawatan. Namun, tempat utama mereka bekerja ada di rumah sakit dan juga klinik. Seorang ahli dalam bidang ini akan menuntutnya untuk dekat dengan pasien karena tidak hanya berorientasi pada drug oriented, tetapi juga patient oriented. Yang artinya kegiatan kefarmasiannya sangat mengedepankan pentingnya kondisi pasien, daripada obat sebagai objeknya.Munculnya farmasi klinis adalah akibat dari munculnya banyak kecelakaan obat yang terjadi di masa lalu. Penggunaan obat secara berlebihan dan sirkulasi obat yang bebas banyak menyebabkan kematian. Sehingga perlu orang-orang dalam bidang ini yang bisa mengatur agar pasien bisa menggunakan obat sesuai dengan ketentuan keselamatan jiwa dan standar pengobatan yang telah ada.",
-      "sumber": "vmedis.com"
+      "sumber": "vmedis.com",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN TEKNIK MESIN",
       "definisi": "Mempelajari prinsip fisika yang kemudian diimplementasikan pada analisis, desain, manufaktur, dan pemeliharaan mesin serta ilmu kependidikan sebagai calon guru,dosen,teknisi,industri dll.",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "AGROTEKNOLOGI",
       "definisi": "Agroteknologi merupakan salah satu program studi ilmu pertanian yang lebih kompleks. Program studi ini merupakan gabungan dari beberapa program studi di Fakultas Pertanian yaitu Prodi Agronomi, Ilmu Tanah dan Ilmu Hama dan Penyakit Tumbuhan. Di program studi ini akan mempelajari dasar-dasar ilmiah dalam menemukan, menganalisis dan memecahkan masalah melalui cara berfikir analitik, kreatif dan eksploratif dalam bidang agronomi. Program studi ini membekali mahasiswanya dengan kemampuan akademik dalam menerapkan, mengembangkan dan atau memperkaya khasanah ilmu pengetahuan dalam bidang, serta menyebarluaskan dan mengupayakan penggunaannya untuk meningkatkan taraf hidup masyarakat dan memperkaya kebudayaan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "KEBIDANAN",
       "definisi": "Di program studi Kebidanan kamu akan mempelajari bagaimana membantu proses persalinan seorang ibu. Tapi, Kebidanan tidak hanya sebatas proses persalinan, tapi juga merangkap proses mulai dari fase-fase dalam kehamilan, menyusui, merawat tumbuh kembang bayi, hingga program Keluarga Berencana (KB). Di sini kamu akan belajar lebih dalam tentang fungsi-fungsi reproduksi dan segala hal yang berkaitan dengan usaha meningkatkan kesejahteraan keluarga.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNIK KOMPUTER",
       "definisi": "Teknik Komputer dikenal juga dengan Sistem Komputer. Teknik Komputer adalah sebuah program studi yang mengintegrasikan teknik elektro dan ilmu komputer dalam mengembangkan sistem perangkat keras (hardware), perangkat lunak (software), dan jaringan komputer (network). Disini yang akan di pelajari adalah bagaimana merancang dan membangun “otak” dari komputer atau alat elektronik lainnya yang akan mengontrol jalannya sistem. Bentuk dari “otak” komputer tersebut adalah processor atau chip yang terdapat dalam motherboard. FYI, processor atau chip ini lah yang akan memroses instruksi atau aktivitas dari hardware (misalnya menekan tombol pada keyboard, atau mengeklik mouse), yang kemudian disimpan dalam memory, dan di operasikan dengan algoritma. Pada program studi ini juga akan mempelajari pemrograman, namun pemrograman disini lebih ditekankan pada bahasa pemrograman mesin.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU PERTANIAN",
       "definisi": "Mempelajari dasar-dasar ilmu keteknikan, pertanian, ekonomi, manajemen dan lingkungan. Ilmu pertanian membahas mengenai seluruh aspek agrikultur, cara memanfaatkan sumber daya alam biotik dan abiotik untuk memenuhi kebutuhan manusia. Nantinya, sobat pintar tidak hanya mempelajari tentang ilmu bertani, tetapi juga akan diperkenalkan dengan ilmu agronomi, agrobisnis, agroteknologi, ilmu kesehatan tanaman, ilmu tanah, genetika dan pemulihan tanaman, bioteknologi, serta produksi tanaman.",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENYULUHAN PERTANIAN",
       "definisi": "Pada program studi Penyuluhan dan Komunikasi Pertanian kita akan mempelajari bagaimana memberikan pemahaman dan pengetahuan pada masyarakat terutama di tingkat masyarakat desa untuk menyelesaikan permasalahan sosial dan ekonomi pertanian dengan menerapkan pendekatan tertentu. Penyuluhan dan komunikasi tersebut dilakukan demi pengembangan dan pemberdayaan sosial ekonomi pertanian masyarakat desa yang minim akses informasi dan ilmu pengetahuan terutama perkembangan teknologi modern. Untuk melakukan penyuluhan dan komunikasi kepada masyarakat pedesaan dibutuhkan strategi komunikasi yang tepat dengan memahami pengetahuan tentang sosiologi masyarakat pedesaan dan pertanian, tata niaga dan ekonomi pertanian, ilmu tentang tanah, tanaman dan ternak, juga ilmu gizi dan pangan. Semuanya akan dipelajari pada program studi ini. Di IPB, program studi ini bernama Sains Komunikasi dan Pengembangan Masyarakat (SKPM). Sesuai namanya, di program studi ini kita mempelajari mata kuliah yang sama dengan di program studi Ilmu Komunikasi, seperti komunikasi massa, komunikasi antar budaya, dan komunikasi penyuluhan. Namun pembahasannya akan berfokus untuk menyelesaikan permasalahan pertanian.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNIK KONSTRUKSI PERKAPALAN",
       "definisi": "Program studi Teknik Perkapalan mempelajari seluk beluk atau semua hal yang berkaitan dengan kapal. Lebih spesifiknya, pengetahuan tentang perancangan dan pembangunan kapal (naval architecture and shipbuilding), dimulai dari bentuk kapal, struktur, produksi, perbaikan, sampai pada pengoperasian kapal yang sudah siap menjadi alat transportasi, serta pengembangan sistem transportasi dan bisnis pengoperasian armada kapal. Lalu apa bedanya dengan prodi Teknik Sistem Perkapalan? Jika prodi Teknik Sistem Perkapalan lebih fokus mempelajari sistem pada instrumen-instrumen kapal seperti mesin, pipa, kelistrikan, dan sistem kontrol, maka Teknik Perkapalan mempelajari perancangan dan konstruksi kapal, sistem navigasi kapal, hingga ke aspek hukum laut.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN DOKTER HEWAN",
       "definisi": "Dokter hewan selalu jadi tujuan apabila hewan peliharaan kamu terkena penyakit atau cedera. Tapi dokter hewan bukan hanya menangani kesehatan hewan peliharaan saja, lho. Dokter hewan menangani berbagai permasalahan terkait kesehatan hewan mulai dari hewan peliharaan, hewan ternak, hingga hewan liar. Inilah yang akan kamu pelajari di program studi Kedokteran Hewan. Kamu akan mempelajari anatomi, fisiologi, dan siklus hidup hewan. Disini juga akan dipelajari bagaimana menganalisa kualitas hewan ternak, agar daging dan hasil ternak lainnya dipastikan aman bagi manusia. Selain itu kamu juga akan belajar Zoonosis, yaitu tentang penyakit hewan yang dapat menulari manusia.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "INSTRUMENTASI",
       "definisi": "Jurusan Instrumentasi berhubungan dengan ilmu teknologi, instrumentasi, fisika, dan juga informatika. Di samping itu, jurusan ini juga berkaitan dengan bidang pengembangan peralatan yang digunakan untuk keperluan industri.Terkait dengan hal ini, memang istilah instrumentasi sendiri berasal dari kata berbahasa Inggris “instrument” yang artinya adalah peralatan. Oleh sebab itu, dapat dikatakan bahwa jurusan ini akan menghasilkan lulusan yang mampu menciptakan berbagai peralatan baru dalam dunia industri agar semakin canggih dan sesuai kebutuhan yang ada.",
-      "sumber": "campus.quipper.com"
+      "sumber": "campus.quipper.com",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNIK GEOFISIKA",
       "definisi": "Sebagai sebuah jurusan teknik, Teknik Geofisika lebih mengedepankan aplikasi dari pengetahuan atas struktur di dasar permukaan bumi jika dibandingkan dengan Jurusan Geofisika. Bidang kajian Jurusan Teknik Geofisika meliputi seismologi, geodinamika, gravitasi, seismik eksplorasi, geoelektromagnetisme, eksplorasi sumber daya bumi, geomagnetisme, geoteknik dan lingkungan, serta mitigasi bencana kebumian. Teknik Geofisika ditawarkan pada Program S1, S2, dan S3.",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "BIOTEKNOLOGI",
       "definisi": "Bioteknologi merupakan cabang ilmu Biologi yang mempelajari teknologi pemanfaatan makhluk hidup dalam skala besar untuk menghasilkan produk yang memiliki nilai guna bagi manusia. Saat ini, penerapan ilmu bioteknologi sedang berkembang pesat. Hal yang dipelajari di jurusan ini meliputi teknik fermentasi, teknologi enzim, analisa mikroorganisme, analisa DNA, separasi dan pemurnian produk biologis, kultur jaringan tanaman dan rekayasa genetika. Ilmu bioteknologi bermanfaat untuk bidang kesehatan, di antaranya untuk mengobati berbagai penyakit. Sementara di bidang pangan, bioteknologi dapat menghasilkan produk tanaman dan makanan yang mengandung sifat unggul dan bernilai gizi yang lebih baik dibandingkan tanaman atau makanan produk biasa. Selama kurang lebih empat dasawarsa terakhir, kita melihat begitu pesat perkembangan Bioteknologi di berbagai bidang. Pesatnya perkembangan Bioteknologi ini sejalan dengan tingkat kebutuhan manusia dimuka bumi. Hal ini dapat dipahami mengingat Bioteknologi menjanjikan suatu revolusi pada hampir semua aspek kehidupan manusia, mulai dari bidang pertanian, peternakan dan perikanan hingga kesehatan dan pengobatan. Perkembangan ini masih sangat lambat di Indonesia sehingga jauh tertinggal dari Negara-negara Asia lainnya seperti India, Cina, Thailand dan Korea.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNOLOGI BIOPROSES",
       "definisi": "Program studi Teknologi Bioproses mempelajari tentang pemanfaatan biomassa berupa mikroorganisme beserta produk-produknya untuk proses yang menghasilkan keuntungan dalam skala industri. Bidang keilmuan dari Teknologi Bioproses sendiri merupakan gabungan dari 2 disiplin ilmu, yaitu Bioteknologi dan Teknik Kimia. Ilmu Bioteknologi pada program studi ini mempelajari secara umum sifat-sifat mikroorganisme (bakteri, alga, jamur, virus), sel-sel tumbuhan dan hewan, enzim, serta metode-metode pemanfaatan hayati atau proses pengolahannya. Sementara itu, dari sisi Teknik Kimia, program studi ini mempelajari bagaimana caranya memproduksi suatu produk dari skala laboratorium ke skala massal.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN TEKNOLOGI INFORMASI",
       "definisi": "Program studi Pendidikan Teknologi Informasi merupakan program studi yang bertujuan untuk mempersiapkan seorang inovator pendidikan yang tidak hanya berkompeten dalam merancang suatu inovasi pembelajaran, namun juga terampil dalam memanfaatkan perkembangan teknologi informasi untuk tercapainya tujuan pembelajaran atau kompetensi yang diharapkan dari peserta didik.",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU AKTUARIA",
       "definisi": "Jurusan Ilmu Aktuaria adalah jurusan yang mempelajari tentang actuarial science, yaitu ilmu yang merancang solusi dari permasalahan dan pengelolaan risiko pada industri asurasi, dana pensiun, jaminan sosial, investasi, perbankan, serta industri lainnya. Jurusan Ilmu Aktuaria kerap juga disebut sebagai “Matematika Asuransi”. Lho, kenapa? Aktuaria adalah ilmu tentang asuransi, atau ilmu tentang pengelolaan risiko keuangan di masa yang akan datang. Kamu akan mendapatkan mata kuliah yang merupakan kombinasi antara ilmu tentang peluang, matematika, statistika, keuangan, pemrograman komputer, hingga data science atau big data. Dengan belajar di jurusan ini kamu diharapkan dapat menjadi ahli madya asuransi yang punya keahlian praktis dalam bidang administrasi asuransi dan aktuaria, serta keahlian dalam profesi perencanaan keuangan personal. Keren kan?",
-      "sumber": "ruangguru.com"
+      "sumber": "ruangguru.com",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNIK PERMINYAKAN",
       "definisi": "Hampir sama dengan Teknik Pertambangan, program studi Teknik Perminyakan mempelajari ilmu tentang eksplorasi, eksploitasi sumber daya alam. Bedanya terletak pada objeknya. Jika Teknik Pertambangan mempelajari tantang penambangan mineral padat, maka Teknik Perminyakan mempelajari tentang penambangan fluida, yaitu berupa minyak bumi, gas alam, dan panas bumi. Aspek yang dipelajari antara lain adalah teknik reservoir, pengeboran, produksi, hingga manajemen perekonomian minyak dan gas (migas). Nggak cuma belajar tentang eksplorasi, eksploitasi, dan cara pengolahan minyaknya saja, mahasiswa program studi Teknik Perminyakan dituntut untuk inovatif dalam menemukan teknik yang lebih efisien dalam eksplorasi, eksploitasi dan pengolahannya, dan dalam menghasilkan energi dengan tingkat emisi rendah.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "SASTRA JEPANG",
       "definisi": "Sama halnya dengan program studi sastra yang lain, prodi Sastra Jepang mengajak kamu untuk memahami isi, ciri artistik, estetika, keaslian, serta keindahan isi dalam teks atau tulisan karya sastra jepang. Kamu akan mempelajari berbagai karya tulis baik dalam bentuk novel, naskah drama, atau puisi. Tantangan dari sastra Jepang adalah kamu harus mempelajari materi linguistik, tata tulisan surat, kebudayaan Jepang, dan tentu saja menulis menggunakan huruf kanji.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU POLITIK",
       "definisi": "Program studi Ilmu Politik membekali para mahasiswanya teori dan praktik politik. Karena prodi ini mengajarkan lebih banyak teori tentang berbagai macam sistem politik yang ada di dunia, maka para mahasiswa harus sering melakukan riset dan terus bersikap kritis. Mahasiswa juga harus memiliki daya analisa yang kuat dalam memahami peristiwa-peristiwa sejarah yang mempengaruhi pembentukan struktur politik suatu negara. Kajian yang paling dikenal dalam Ilmu Politik adalah demokrasi, sistem politik, birokrasi, hak asasi manusia, dan etika sosial politik",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PARIWISATA",
       "definisi": "Program studi Pariwisata adalah program studi yang mempelajari semua hal yang berkaitan dengan pariwisata. Biasanya meliputi manajemen destinasi, tour and travel, dan perhotelan. Para lulusan jurusan ini diharapkan mampu memberikan pelayanan hospitalitas yang berkualitas. Selain itu, mahasiswa diharapkan memiliki ketertarikan pada kebudayaan Indonesia sekaligus bisnis.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "KEWIRAUSAHAAN",
       "definisi": "Entrepreneurship adalah program studi yang mengajarkanmu untuk dapat mengidentifikasi ide, konsep, dan strategi baru dalam merencanakan dan mengembangkan sebuah usaha atau bisnis. Program studi ini juga kerap disebut dengan nama Kewirausahaan atau Bisnis. Di sini kamu akan ditantang untuk menemukan dan merespon peluang-peluang yang ada dalam berusaha. Prodi ini melatih kepekaan dan kemandirian kamu untuk menjadi seorang entrepreneur atau pengusahan handal. Selain itu, kamu akan diajarkan mulai dari mencari gagasan, melakukan perencanaan, hingga menjalankan usaha. Ilmu dasar kewirausahaan mencakup model bisnis, teori inovasi, perencanaan bisnis, penanganan risiko, investasi dan pendanaan, negosiasi dan legalitas bisnis, perintisan bisnis, dan pengembangan bisnis.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN TEKNIK INFORMATIKA",
       "definisi": "Mempelajari media pembelajaran kreatif, merancang program, merancang jaringan, dan cara menjadi pendidik.",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN TEKNIK ELEKTRO",
       "definisi": "Mempelajari aplikasi kelistrikan, elektronika, dan elektromagnet dan ilmu yang berhubungan dengan kependidikan.",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN BAHASA ARAB",
       "definisi": "Program studi Pendidikan Bahasa Arab mempelajari tata bahasa Arab, dari aspek liguistik, kesusasteraan, dan dari aspek kependidikan. Bahasa Arab kerap dikaitkan dengan Agama Islam, karena bahasa Arab adalah bahasa yang dipergunakan dalam Al Quran dan Hadist. Namun cakupan bahasa Arab nyatanya lebih luas dari yang diketahui oleh awam. Di prodi Pendidikan Bahasa Arab ini nantinya akan dipelajari ilmu kebahasaan Arab, serta ilmu kewirausahaan di bidang bahasa Arab. Mahasiswa prodi Pendidikan Bahasa Arab tak hanya dapat menerjemahkan bahasa Arab, tapi juga membuat kaligrafi bahasa Arab.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN SENI RUPA",
       "definisi": "Memepelajari teori-teori mengenai seni rupa, ketrampilan-ketrampilan (menggambar, membuat desain), dan teori yang berkaitan dengan kegiatan mengajar",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN BAHASA JERMAN",
       "definisi": "Mempelajari tata bahasa, ketrampilan berbahasa, peradaban, kebudayaan, dan sejarah Jerman serta ilmu kependidikan Guru, dosen, pemandu wisata, penerjemah, Kedubes, dll.",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN SENI TARI DAN MUSIK",
       "definisi": "Sesuai namanya, program studi ini mempersiapkan mahasiswanya untuk menjadi pendidik atau pengajar bidang seni yang terdiri dari seni drama, tari, dan musik (Sendratasik). Berbeda dengan mahasiswa Sendratasik yang memang dikhususkan untuk menjadi ahli seni atau seniman. Jadi selain mendapatkan pengetahuan tentang seni, mahasiswa prodi Pendidikan Sendratasik juga akan mendapatkan pengetahuan tentang kependidikan yang berkaitan dengan perencanaan pembelajaran, evaluasi pembelajaran, kurikulum pendidikan, dan sebagainya. Ilmu tentang seni drama, tari, dan musik yang peroleh di prodi ini juga bukan sekedar praktik, melainkan juga teori-teori seni tari seperti sejarah drama, tari, dan musik, antropologi tari, dan lain-lain. Mahasiswa nantinya akan dibebaskan memilih konsentrasi apakah Pendidikan Seni Drama, Pendidikan Seni Tari, atau Pendidikan Seni Musik.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN TATA NIAGA",
       "definisi": "Tata Niaga adalah jurusan yang mempelajari mengenai segala sesuatu yang memiliki kaitan erat dengan kegiatan operasional bisnis atau perusahaan, seperti mempelajari pengelolaan perusahaan dan pemasaran suatu produk. Di beberapa kampus, jurusan ini juga disebut dengan Administrasi Bisnis.  Di Jurusan Tata Niaga, kamu akan belajar menerapkan dan mengembangkan kemampuan dalam melakukan transaksi tata niaga. Dengan mempelajari segala kegiatan operasional bisnis, memungkinkan dirimu dalam menemukan peluang untuk menjadi seorang pebisnis. Selain itu, peluang karier lainnya juga terbuka untukmu.",
-      "sumber": "campus.quipper.com"
+      "sumber": "campus.quipper.com",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN ADMINISTRASI PERKANTORAN",
       "definisi": "Jurusan Pendidikan Administrasi Perkantoran adalah jurusan kuliah di perguruan tinggi pada Program Sarjana yang bertujuan menghasilkan tenaga kependidikan pada tingkat SMP, SMA, dan SMK. Gelar lulusan Pendidikan Administrasi Perkantoran adalah S.Pd (Sarjana Pendidikan) dengan kompetensi keahlian administrasi perkantoran.",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN AKUNTANSI",
       "definisi": "Prospek lulusan Program Studi Pendidikan Akuntansi adalah pengajar bidang akuntansi dan keuangan, asisten peneliti bidang pendidikan akuntansi dan keuangan, teknisi akuntansi dan keuangan, serta  wirausaha pada bidang pendidikan akuntansi dan keuangan",
-      "sumber": "dikakuntansi.upi.edu"
+      "sumber": "dikakuntansi.upi.edu",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN TATA BOGA",
       "definisi": "Jurusan Tata Boga pasti menjadi incaran Sobat Pintar yang punya passion di bidang kuliner. Memang, Tata Boga adalah jurusan yang tepat buat belajar segalanya tentang cara mengolah dan menyajikan makanan dan minuman dari berbagai belahan dunia. Namun sedikit berbeda dengan Pendidikan Tata Boga. Di jurusan ini Sobat Pintar tak hanya belajar tentang kuliner, tapi juga belajar bagaimana menjadi tenaga pendidik di bidang boga. Kelas boga yang membutuhkan tenaga pendidik dari S1 Pendidikan Tata Boga misalnya Jurusan Tata Boga di SMK.",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "BAHASA DAN SASTRA INGGRIS",
       "definisi": "Dengan memilih program studi Sastra Inggris, kamu bisa mempelajari tentang isi, ciri artistik, estetika, keaslian, serta keindahan isi dalam teks atau tulisan karya sastra Inggris. Kamu akan mempelajari berbagai karya tulis baik dalam bentuk novel, naskah drama, atau puisi yang pasti ditulis dalam bahasa Inggris. Selain itu kamu juga akan mempelajari linguistik bahasa Inggris secara lebih mendalam. Walaupun mempelajari Sastra Inggris bertujuan untuk mengasah kemampuan analisis dengan mencermati berbagai karya sastra, namun tidak menutup kemungkinan kamu bisa menciptakan karya sastra. Di jurusan ini kamu akan mempelajari karya-karya William Shakespeare, Jane Austen, Charlotte Bronte, Charles Dickens, Oscar Wilde, Edgar Allan Poe, dan lain sebagainya.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN TATA BUSANA",
       "definisi": "Jurusan Pendidikan Tata Busana adalah jurusan yang mempelajari ilmu merancang busana. Pada jurusan ini, kamu akan mempelajari teknik mendesain, seluk beluk produksi busana atau fashion, belajar membuat pola, dan menjahit. Tak hanya belajar soal produksi, kamu juga akan belajar tentang analisis trend, marketing, dan manajemen fashion bisnis.Kuliah di jurusan pendidikan tata busana itu seru banget, apalagi buat kamu yang punya passion memilih gaya penampilan dan sebagainya. Kamu bisa mengembangkan passion di jurusan ini. Jika mengambil jurusan ini, kamu akan belajar tentang pengenalan alat dan teknik yang digunakan, cara membuat pola pakaian, ilustrasi desain, teknik menjahit dalam membuat pakaian, cara memilih jenis kain dan bahan baku tekstil, konsep model dan lainnya.Biasanya orang yang memiliki tertarikan pada bidang ini, awalnya menyukai nilai fashion yang bagus, dengan memilih dan menilai penampilan yang sempurna.",
-      "sumber": "danacita.co.id"
+      "sumber": "danacita.co.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "DESAIN KOMUNIKASI VISUAL",
       "definisi": "Program studi Desain Komunikasi Visual (DKV) mempelajari ilmu tentang penyampaian pesan (komunikasi) dengan menggunakan elemen-elemen visual atau rupa. Disini kamu akan belajar untuk mengolah pesan secara informatif, komunikatif, dan efektif, serta se-kreatif mungkin agar pesan dapat mencapai sasaran dengan memperhatikan unsur bentuk, warna, tekstur, ruang, huruf, dan segala hal yang berkaitan dengan visual (pengelihatan). Di prodi ini kamu akan banyak kegiatan praktek untuk menciptakan karya desain di berbagai media, seperti poster, logo, ilustrasi, desain web, foto, video, animasi, dan sebagainya. Awalnya prodi ini dikenal dengan nama Desain Grafis. Namun seiring perkembangannya, Desain Grafis berkembang menjadi DKV. Perbedaan yang mendasar dari keduanya terletak pada medianya. Di awal perkembangannya Desain Grafis mengacu pada ruang lingkup grafis 2D (gambar) di media cetak. Namun DKV cakupannya lebih luas lagi, karna pesan visual kini tidak hanya dalam bentuk grafis 2D di media cetak, tapi juga grafis 3D dan grafis bergerak di media elektronik dan berbagai jenis media baru yang muncul seperti media interaktif web. Karena itu, banyak perguruan tinggi yang sudah mengganti nama prodi Desain Grafis menjadi DKV. Prodi DKV kini juga memiliki beragam peminatan di beberapa perguruan tinggi, seperti peminatan grafis, multimedia, dan periklanan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN BAHASA MANDARIN",
       "definisi": "Mahasiswa akan mempelajari tata bahasa china, bahasa china dasar, teori linguistik, sejarah china I & II, pengetahuan huruf Han modern, pengantar kesusastraan china, fonetik bahasa mandarin, pengolahan info bahasa mandarin, dasar pemikiran china, kajian puisi, kajian drama, bahasa china terpadu I-V, bahasa china media cetak, wisata china, china klasik dan lain sebagainya.",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN KEPELATIHAN OLAHRAGA",
       "definisi": "Program studi ini mempersiapkan mahasiswa untuk melaksanakan tugas dan fungsi dalam kegiatan pendidikan olahraga. Mahasiswa prodi Pendidikan Kepelatihan Olahraga dipersiapkan untuk menjadi guru dan pelatih profesional di tingkat nasional. Di program studi ini dipelajari konsep-konsep pendidikan, seperti mengenal karakter siswa, menyusun perencanaan pendidikan, menyusun strategi kepelatihan, menyelenggarakan kompetisi atau perlombaan dan memahami aturan dalam perlombaan bidang olahraga. Seperti halnya masuk ke program studi seni, untuk masuk program studi keolahragaan juga harus melewati tes keterampilan SNPMB yang terdiri dari tes kesehatan dan tes keterampilan motorik.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "EKONOMI DAN STUDI PEMBANGUNAN",
       "definisi": "program studi ini adalah pada pengembangan dan penerapan ilmu ekonomi yang relevan dengan pembangunan daerah serta berbasis sumberdaya. Lulusan Program Studi IESP berpeluang berkarir di lembaga keuangan dan perbankan, lembaga pemerintahan pusat dan daerah, dosen/pengajar, dan lembaga swasta",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU KEOLAHRAGAAN",
       "definisi": "Kalau mendengar kata “keolahragaan” pasti yang terlintas di pikiranmu adalah senam, renang, sepak bola dan berbagai kegiatan atletis lainnya, sehingga di program studi Ilmu Keolahragaan kamu akan mempelajari kegiatan-kegiatan tersebut. Tapi nyatanya prodi Ilmu Keolahragaan tidak cuma mempelajari olahraganya saja. Disini kamu akan dapat ilmu-ilmu kedokteran dasar seperti anatomi, fisiologi, biokimia, fisioterapi olahraga, obat dan doping, serta biofisika. Karena sejatinya tujuan olahraga adalah untuk kesehatan, pelajaran di prodi ini juga tidak akan jauh-jauh dari ilmu kesehatan. Disini kamu juga akan mempelajari teknik fisioterapi, massage (pijat), kesehatan mental, dan manajemen penanggulangan cedera saat olahraga. Kamu juga akan menganalisa jenis olahraga yang tepat untuk berbagai usia, kondisi fisik, dan olahraga yang tepat untuk program diet, dan tujuan kesehatan lainnya.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN TEKNIK OTOMOTIF",
       "definisi": "Jurusan Pendidikan Teknik Otomotif adalah bidang ilmu yang otomotif terkait segala cara maupun proses dalam pengoperasian dan pembuatan kendaraan yang beroperasi di darat seperti mobil, truk, motor, kereta, serta bus. Jurusan pendidikan teknik otomotif menyelenggarakan pendidikan bidang Teknik Otomotif untuk mengakomodasi kebutuhan guru teknik otomotif untuk Sekolah Menengah Kejuruan maupun instruktur di pusat-pusat latihan (training center) dan Entrepreneur.",
-      "sumber": "danacita.co.id"
+      "sumber": "danacita.co.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "SAINS DATA",
       "definisi": "Data Science adalah ilmu yang mempelajari tentang bagaimana mengolah dan menginterpretasi data menurut formula statistika serta menggunakan bahasa pemrograman dan tools yang tepat dalam pengolahannya. Saat ini, Data Science umumnya tersedia sebagai peminatan dalam program studi Teknik Informatika, Sistem Informasi, Matematika, atau Statistik.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ANTROPOLOGI",
       "definisi": "Antropologi adalah program studi yang mempelajari seluk-beluk, unsur-unsur kebudayaan yang dihasilkan dalam kehidupan manusia. Ilmu Antropologi dibagi menjadi antropologi fisik dan antropologi budaya. Antropologi fisik fokus mempelajari ciri-ciri fisik dan forensik. Sedangkan antropologi budaya fokus mempelajari interaksi dan hubungan antar manusia. Antropologi memang ilmu yang mempelajari tentang manusia, karenanya disini kamu akan memahami beraga bentuk fisik masyarakat serta kebudayaan yang dihasilkannya.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "SASTRA CINA",
       "definisi": "Mengambil program studi Sastra Cina tidak hanya belajar Bahasa Mandarin. Para mahasiswa jurusan ini mempelajari semua hal berkaitan dengan Cina, terutama budaya, bahasa, dan kajian Sastra Cina. Saat ini, hubungan Cina dengan Indonesia sangat erat, terutama dalam hal ekonomi dan bisnis. Oleh karena itu, penekanan pada keterampilan bahasa Cina dan kemampuan dalam mengoperasikan komputer dalam bahasa Cina.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "SENI RUPA MURNI",
       "definisi": "Seni Rupa (Creative Arts) mempelajari penciptaan dan pengkajian suatu seni rupa. Sedikit berbeda dari Seni Rupa Murni (Fine Arts), Creative Arts jauh lebih progresif karena tidak hanya berfokus di medium seni rupa tradisional, tapi juga medium seni rupa kontempoter seperti fotografi, perfilman, serta penggunaan media dan perkembangan teknologi baru yang mempengaruhi pembentukan dan konsumsi suatu produk seni oleh masyarakat modern dari aspek sosial, kultural, keagamaan, maupun politik. Di Telkom University, salah satu kampus yang menawarkan prodi ini, Creative Arts terbagi menjadi 3 peminatan: Painting & Illustration Studio, Film and Photography Studio, dan Intermedia Art Studio.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ADMINISTRASI PENDIDIKAN",
       "definisi": "Program studi Administrasi Pendidikan mempersiapkan tenaga profesional di bidang tata usaha lembaga-lembaga pendidikan, terutama sekolah. Di program studi ini, para mahasiswa juga mempelajari proses pengintegrasian segala aktivitas kelembagaan yang terkait untuk tercapainya tujuan pendidikan. Peran Administrasi Pendidikan sangat penting untuk mendukung manajemen sekolah dan lembaga pendidikan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN BAHASA JEPANG",
       "definisi": "Jurusan Pendidikan Bahasa Jepang adalah jurusan yang mempelajari ilmu pendidikan Jepang. Bahasa dalam pendidikan Jepang ini ditujukan sebagai alat komunikasi. Lulusan jurusan Pendidikan Bahasa Jepang ditujukan terjun di dalam sektor pengajaran. Komunikasi yang dimaksud adalah bagaimana mengajari orang lain berbahasa Jepang.",
-      "sumber": "danacita.co.id"
+      "sumber": "danacita.co.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU PERPUSTAKAAN",
       "definisi": "Ilmu perpustakaan melibatkan banyak keahlian di bidang Informasi teknologi, manajemen, dan pendidikan untuk mengumpulkan, merapikan dan menyimpan data. Pada program studi ini kamu akan mempelajari bagaimana memecahkan permasalahan ilmiah di bidang ilmu perpustakaan dan informasi. Juga melatih mahasiswanya dalam melakukan pengelolaan arsip dan rekod. Program studi ini bertujuan untuk menghasilkan lulusan pustakawan peneliti yang terampil dan memiliki daya saing dalam manajemen perpustakaan dan informasi, serta memiliki kompetensi khusus dalam pengelolaan sumber-sumber primer ilmu pengetahuan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "EKONOMI KEUANGAN DAN PERBANKAN",
       "definisi": "Pada program studi Keuangan dan Perbankan kamu akan mempelajari ilmu tentang keuangan, khususnya pengelolaan keuangan di sektor perbankan. Di prodi ini kamu juga akan mempelajari operasional perbankan baik bank konvensional maupun syariah, seperti tugas-tugas frontliner (teller dan customer services) dan tugas-tugas backoffice seperti administrasi, akuntansi, dan audit.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "EKONOMI ISLAM",
       "definisi": "Jurusan Ekonomi Syariah atau yang kerap disebut dengan Ekonomi Islam ini mempelajari tentang ilmu, teori, dan sumber daya ekonomi untuk memenuhi kebutuhan hidup manusia yang tak terbatas dari perspektif Islam. Sebab, dalam ajaran agama Islam, nilai dan hukum setiap kegiatan ekonomi (seperti jual-beli, utang-piutang, simpan-pinjam, bagi hasil, dan lain-lain) telah diatur. Secara garis besar, subjek-subjek yang akan kamu pelajari di jurusan ini sama dengan jurusan ekonomi lainnya. Hanya saja, prinsip ekonomi yang dipelajari di jurusan Ekonomi Syariah akan berdasar pada syariah Islam, yaitu Al-Quran, Hadits, dan kaidah fiqih lainnya. So, setelah masuk ke jurusan ini, kamu akan paham bagaimana pengelolaan keuangan dan bisnis dan Islam.",
-      "sumber": "ruangguru.com"
+      "sumber": "ruangguru.com",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "BAHASA DAN SASTRA PRANCIS",
       "definisi": "Sastra Prancis tak pernah sepi peminat. Daya tarik Prancis dengan ibu kotanya Paris dan Menara Eiffel selalu membuat banyak orang menaruh minat pada negeri yang juga kondang dengan industri fashion-nya ini. Program studi Sastra Prancis menawarkan pengetahuan tentang budaya Prancis, terutama bahasa dan literaturnya. Para mahasiswa di program studi ini akan mempelajari tata bahasa, Bahasa Prancis, komposisi, pemahaman teks, budaya, dan kesusastraan Prancis.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PERENCANAAN WILAYAH DAN KOTA",
       "definisi": "Teknik Teknik Perencanaan Wilayah dan Kota atau biasa dikenal dengan Planologi adalah sebuah program studi yang mempelajari dasar-dasar perencanaan, morfologi kota, perpetaan, struktur tanah, transportasi, serta desain. Selain ilmu-ilmu mengenai keteknikan, juga dipelajari ilmu sosial ekonomi perkotaan. Berbeda dengan jurusan Arsitektur Lanskap yang lebih mengutamakan sisi keindahan dan estetika lokasi, Teknik Perencanaan Wilayah dan Kota lebih mempertimbangkan aspek sosial, ekonomi, dan politik dalam pembangunan. Lulusan sarjana Teknik Planologi yang biasa disebut sebagai planner, nantinya akan memiliki kompetensi untuk melakukan perencanaan sebuah kota, menentukan tata guna lahan, sistem transportasi, serta mengatur aktivitas-aktivitas yang ada di dalamnya. Sebagai contoh, di sebuah kota terdapat berbagai macam komponen fisik seperti wilayah perkantoran, pemukiman, industri, sistem transportasi, dll. Serta disisi lain juga terdapat komponen non-fisik seperti kemacetan, kepadatan penduduk, dll. Seorang planner harus menguasai semua aspek tersebut untuk dapat melakukan perencanaan yang baik sesuai dengan karakteristik wilayah yang ada.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNIK INDUSTRI PERTANIAN",
       "definisi": "Program studi Industri Pertanian atau Agroindustri mempelajari tentang teknologi industri pertanian dengan model pembelajaran berbasis riset. Mahasiswa akan mendalami bidang agroindustri dengan penguasaan kaidah-kaidah penelitian yang bersifat filosofis, aplikatif, dan mandiri. Pembelajaran dengan dasar penelitian akan menghasilkan mahasiswa yang mampu menciptakan temuan baru dalam agrikultur dengan mengedepankan value inovatif serta dapat membuat karya ilmiah menarik yang layak dipublikasikan. Mendengar kata ‘pertanian’ yang terbayang pasti sawah, menanam, mencangkul. Namun pada program studi Teknologi Industri Pertanian menitikberatkan pada proses kegiatan pasca panen. Artinya pada program studi ini akan dipelajari cara mengolah hasil pertanian agar menghasilkan produk-produk yang berkualitas tinggi.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU GIZI",
       "definisi": "Seperti nama jurusannya, tentu kamu bakal banyak mempelajari masalah gizi. Kamu akan mengecek hubungan makanan dan minuman dengan kesehatan dan penyakit tubuh. Spesifiknya, sih, yang berkaitan langsung sama nutrisi atau kebutuhan dasar kita.  Di jurusan ini kamu akan belajar tentang hubungan antara pertumbuhan manusia, produktivitas, serta kualitas kesehatan tubuh. Selain itu, kamu juga akan dibekali ilmu tentang berbagai jenis penyakit, ilmu dasar patofisiologi serta anatomi tubuh manusia dan kaitannya dengan interaksi makanan, organ tubuh, obat-obatan, dan fitokimia. Saking luasnya pengetahuan yang akan kamu pelajari, ilmu gizi juga berkaitan dengan ilmu lainnya seperti psikologi, mikrobiologi, kimia pangan, biokimia, agronomi, peternakan, sosiologi, hingga ekonomi. See? Nggak hanya belajar bidang ilmu science aja, kamu juga akan belajar ilmu sosial. Luas banget ‘kan?",
-      "sumber": "ruangguru.com"
+      "sumber": "ruangguru.com",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN TEKNIK BANGUNAN",
       "definisi": "Jurusan pendidikan teknik bangunan merupakan sebuah program pendidikan yang mempelajari tentang ilmu teknik bangunan, mulai dari dasar-dasar teori, konsep, metode, teknik dan aplikasi dalam bidang konstruksi bangunan. Program ini mencakup beberapa topik. Pelajar jurusan pendidikan teknik bangunan akan dilatih untuk dapat membuat gambar teknik, menganalisa struktur bangunan, dan membuat rencana pembangunan banguunan yang sesuai dengan standar teknik dan lingkungan. Jadi, jika kamu ingin melanjutkan ke jenjang studi jurusan pendidikan teknik bangunan tetapi belum bisa menggambar, tenang saja, karena kamu akan diberikan pelajaran menggambar dan akan menguasai banyak ilmu.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN LUAR SEKOLAH",
       "definisi": "Pendidikan luar sekolah juga lebih dikenal sebagai pendidikan non formal atau pendidikan masyarakat. Tujuan dari program studi ini adalah mempersiapkan para lulusan yang bisa berkompetisi dalam bidang pengembangan dan pemberdayaan masyarakat. Program studi Pendidikan Luar Sekolah ini memberikan peluang yang lebih besar kepada para lulusan untuk berwirausaha sehingga dia bisa mengajak orang-orang di sekitarnya untuk belajar dan berdaya.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU ADMINISTRASI NEGARA",
       "definisi": "Pada jurusan Ilmu Administrasi Negara atau juga sering disebut Ilmu Administrasi Publik, kamu akan belajar mengenai seluk beluk pemerintahan mulai dari sistem pemerintahan, pembangunan, kebijakan publik, hingga Sumber Daya Manusia (SDM). Kamu yang memilih jurusan ini, akan paham tentang bagaimana cara memberikan pelayanan masyarakat yang benar, cara mengkaji birokrasi, serta seperti apa sih pembangunan negara yang baik itu.",
-      "sumber": "ruangguru.com"
+      "sumber": "ruangguru.com",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "MANAJEMEN PENDIDIKAN",
       "definisi": "Program studi Manajemen Pendidikan bertujuan mencetak para lulusan yang menguasai bidang perencanaan, pengelolaan, dan pengawasan aset, infrastruktur, dan jalannya proses pendidikan. Manajemen pendidikan relevan untuk lembaga pendidikan di bawah pemerintah atau swasta. Para mahasiswa program studi ini akan mendapatkan pembelajaran dan pelatihan di bidang manajemen pendidikan, dari teori, praktek, sampai penelitian. Para mahasiswa jurusan Manajemen Pendidikan mempelajari kebijakan pendidikan, manajemen dan pengembangan SDM, manajemen keuangan, teknologi informasi, dan pengembangan kurikulum. Mahasiswa program studi ini juga dituntut untuk terbiasa berpikir kritis dan taktis.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "",
       "definisi": "",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN SENDRATASIK",
       "definisi": "Sesuai namanya, program studi ini mempersiapkan mahasiswanya untuk menjadi pendidik atau pengajar bidang seni yang terdiri dari seni drama, tari, dan musik (Sendratasik). Berbeda dengan mahasiswa Sendratasik yang memang dikhususkan untuk menjadi ahli seni atau seniman. Jadi selain mendapatkan pengetahuan tentang seni, mahasiswa prodi Pendidikan Sendratasik juga akan mendapatkan pengetahuan tentang kependidikan yang berkaitan dengan perencanaan pembelajaran, evaluasi pembelajaran, kurikulum pendidikan, dan sebagainya. Ilmu tentang seni drama, tari, dan musik yang peroleh di prodi ini juga bukan sekedar praktik, melainkan juga teori-teori seni tari seperti sejarah drama, tari, dan musik, antropologi tari, dan lain-lain. Mahasiswa nantinya akan dibebaskan memilih konsentrasi apakah Pendidikan Seni Drama, Pendidikan Seni Tari, atau Pendidikan Seni Musik.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PERPUSTAKAAN DAN ILMU INFORMASI",
       "definisi": "mempelajari kegiatan teknisi perpustakaan, manajemen perpustakaan, bahkan aplikasi teknologi informasi di perpustakaan untuk menyebarluaskan informasi yang optimal.",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "KEDOKTERAN HEWAN",
       "definisi": "Untuk kamu yang menyukai hewan, jurusan ini akan menjadi surga tersendiri. Kamu berkesempatan untuk belajar tentang berbagai macam hewan, mulai dari hewan domestik (anjing, kucing, kuda), hewan eksotik (ular, iguana, kadal), hewan ternak (sapi, kambing, domba, unggas), bahkan hingga hewan liar. Jurusan Kedokteran Hewan juga akan banyak belajar tentang biologi secara mendalam, terutama biologi kesehatan. Selain itu, mata kuliah lain yang akan kamu pelajari seperti Anatomi Veteriner (struktur yang menopang tubuh hewan seperti tulang-tulang), Fisiologi Veteriner (ilmu fungsi dan sistem tubuh hewan secara normal), Farmakologi (ilmu tentang obat-obatan), Virologi, Bakteriologi, ilmu penyakit dalam, Bakteriologi, Virologi, Patologi, Endoparasit, dan lainnya.",
-      "sumber": "ruangguru.com"
+      "sumber": "ruangguru.com",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNIK BIOMEDIS",
       "definisi": "Teknik Biomedis adalah jurusan dengan bidang yang sama seperti jurusan Teknik lainnya,yakni berkaitan dengan rekayasa, sains dan teknologi. Faktor pembedanya adalah, teknologi tersebut ditujukan untuk menjadi solusi dalam bidang kesehatan atau medis. Jadi secara sederhana, bisa kita simpulkan Teknik Biomedis adalah ilmu yang bertujuan pada pengembangan instrumen atau alat kesehatan. Walaupun tidak banyak kampus atau universitas yang memiliki jurusan Teknik Biomedis, tapi lulusannya saat ini sangat dibutuhkan pada banyak industri, seperti bidang teknologi medis, farmasi, dan juga rumah sakit.Bidang pekerjaan bagi para teknisi Biomedis juga sangat dinamis mengikuti perkembangan zaman, dan sangat penting bagi kemajuan teknologi penyembuhan orang sakit.",
-      "sumber": "ruangguru.com"
+      "sumber": "ruangguru.com",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNOLOGI HASIL PERTANIAN",
       "definisi": "Jurusan Teknologi Hasil Pertanian merupakan jurusan yang mempelajari tentang penggunaan, pemeliharaan, dan juga pengembangan alat serta mesin untuk budidaya pertanian. Bidang yang satu ini sangat bertumpu pada bidang ilmu teknik untuk bisa memecahkan berbagai masalah di bidang pertanian. Secara umum, ruang lingkup Jurusan Teknologi Hasil Pertanian ini meliputi kegiatan penanganan, pengamanan, dan juga pengelolaan hasil pertanian.Selain itu, Jurusan Teknologi Hasil Pertanian juga mempelajari tentang bagaimana cara merancang sebuah mesin ataupun alat yang bisa digunakan untuk mengolah hasil pertanian. Jurusan yang satu ini juga biasa disebut dengan Teknik Pangan. Disini, kamu akan menerapkan berbagai prinsip matematika dan ilmu pengetahuan alam untuk pendayagunaan secara ekonomis sumber daya pertanian dan juga sumber daya alam.",
-      "sumber": "gramedia.com"
+      "sumber": "gramedia.com",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENGELOLAAN SUMBERDAYA PERIKANAN",
       "definisi": "Pada program studi Pemanfaatan Sumberdaya Perikanan (PSP) kita akan mempelajari tentang pengelolaan sumberdaya dan lingkungan perairan, menganalisis potensi sumber daya perikanan di suatu daerah serta masalah-masalah yang dihadapi berkaitan sumber daya perikanan dan cara mengatasinya. Mulai dari bagaimana mencari dan menemukan sumber daya perikanan tersebut, lalu mengeksploitasinya, juga melestarikan sumber daya perikanan tersebut agar tetap terjaga, semuanya akan di pelajari di program studi PSP.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNIK INDUSTRI",
       "definisi": "Teknik Industri merupakan ilmu yang mempelajari proses industri baik dari sisi manajemen ataupun teknik. Ilmu teknik industri sebenarnya adalah turunan dari teknik mesin. Walau demikian, para mahasiswa juga harus mempelajari disiplin lain seperti matematika, fisika, fisiologi, bahkan manajemen saintifik. Teknik industri berfokus kepada perancangan, peningkatan, dan pemasangan sistem terintegrasi yang membutuhkan peran manusia, material, peralatan dan energi. Teknik Industri sendiri dibagi menjadi tiga bidang besar. Pertama, sistem manufaktur yang mempelajari peningkatan kualitas, produktivitas, dan efisiensi sistem produksi. Kedua adalah manajemen industri, di mana para mahasiswa harus mempelajari manajemen keuangan, manajemen operasional, manajemen inovasi, perencanaan dan pengendalian produksi, dan ekonomi teknik. Ketiga adalah sistem industri dan tekno ekonomi, seperti logistik, statistik, penelitian operasional, dan sistem basis data.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "REKAYASA NANO TEKNOLOGI",
       "definisi": "Program studi Rekayasa Nanoteknologi termasuk salah satu program studi baru di UNAIR, pertama kali didirikan pada tahun 2020 dan masuk dalam Fakultas Teknologi Maju dan Multidisiplin (FTMM).  Dilansir dari laman nanowerk.com, Nanoteknologi adalah desain, karakterisasi, produksi, dan penerapan struktur, perangkat, dan sistem dengan manipulasi ukuran dan bentuk yang terkontrol pada skala nanometer (skala atom, molekuler, dan makromolekul). Hal ini bertujuan untuk menghasilkan struktur, perangkat, dan sistem dengan setidaknya satu karakteristik atau properti yang baru/unggul. ",
-      "sumber": "berbagai sumber"
+      "sumber": "berbagai sumber",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNIK ROBOTIKA DAN KECERDASAN BUATAN",
       "definisi": "Mempersiapkan lulusan yang mampu mengembangkan metode kecerdasan buatan pada sistem fisik-siber (cyber physical system) yang otonomi (autonomous) pada aplikasi industri secara luas.       Mengembangkan penelitian baik dalam pengembangan metode dan implementasi kecerdasan buatan pada sistem fisik-siber (cyber physical system) yang otonomi (autonomous) yang berorientasi pada aplikasi di dunia industri secara luas. Membantu memecahkan permasalahan yang terjadi di masyarakat terutama lembaga pemerintah dan industri pada bidang Robotika dan Otomasi serta bidang Kecerdasan Buatan.Membangun jejaring kerjasama dengan pemangku kepentingan baik pemerintah dan industri maupun institusi lain di tingkat nasional dan internasional dalam pendidikan, penelitian dan pengabdian masyarakat.",
-      "sumber": "ftmm.unair.ac.id"
+      "sumber": "ftmm.unair.ac.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "BAHASA DAN SASTRA INDONESIA",
       "definisi": "Program studi ini khusus mempelajari tren sastra di Indonesia. Para mahasiswa akan mempelajari beraneka ragam subyek sastra, puisi, drama, roman-novel, dan linguistik. Pada semester 4, mahasiswa akan diarahkan untuk memilih beberapa konsentrasi yaitu peminatan sastra, peminatan linguistik, dan peminatan filologi.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "STUDI KEJEPANGAN",
       "definisi": "Pesatnya pertumbuhan ekonomi dan modernisasi negara Jepang membawa dampak yang cukup signifikan pada perkembangan Studi Kejepangan saat ini. Studi Kejepangan tersebut tidak saja berfokus pada ilmu kemahiran berbahasa Jepang, melainkan juga pada berbagai bidang seperti budaya, masyarakat, sejarah maupun pemikiran Jepang. Selain itu, Jepang telah menjadi partner dagang Indonesia sejak tahun 1970-an dan hingga saat ini menjadi mitra yang penting dalam pembangunan Indonesia. Dengan latar belakang tersebut, lulusan Sastra Jepang yang mampu akan berbahasa Jepang yang baik disetai pemahanan akan budaya serta segala hal tentang yang tinggi semakin diperlukan. Hal ini disebabkan tuntutan masyarakat pada era globalisasi seperti saat ini tidak saja menekankan pada kemahiran berbahasa, melainkan juga pemahanan akan budaya serta pemikiran bangsa Jepang. Departemen Sastra Jepang menawarkan program pendidikan S-1 yang memberikan kesemapatan untuk memperoleh pengetahuan kejepangan yang berkualitas. Bidang kajian Studi Jepang tidak hanya dalam lingkup keilmuan bahasa dan sastra Jepang saja melainkan meliputi seluruh aspek kajian tentang Jepang, antara lain adalah: filsafat, politik, sosiologi, sejarah dan kebudayaan Jepang.",
-      "sumber": "passgrad.com"
+      "sumber": "passgrad.com",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "AKUNTASI",
       "definisi": "Akuntasi adalah sebuah program studi yang menyiapkan mahasiswanya untuk bisa mempraktekkan profesi akuntansi dan melakukan fungsi bisnis terkait, termasuk menerapkan instruksi dalam prinsip akuntansi dan teori, akuntansi keuangan, akuntansi manajerial, akuntansi biaya, pengendalian anggaran, akuntansi pajak, aspek hukum akuntansi, audit, prosedur pelaporan, analisis laporan, perencanaan dan konsultasi, sistem informasi bisnis, metode penelitian akuntansi, standar profesional dan etika. Ilmu Akuntansi lalu diaplikasikan di berbagai instansi bisnis, baik yang bersifat profit, non-profit, publik, maupun instansi pemerintahan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PERPAJAKAN",
       "definisi": "Program studi Administrasi Fiskal (Perpajakan) adalah sebuah program studi yang mempelajari perpajakan dari segala macam perspektif, dari sisi hukum, ekonomi, dan akuntansi. Kamu akan dibekali keterampilan untuk menyusun laporan pajak sesuai dengan peraturan dan ketentuan perpajakan. Kamu juga harus bisa menyelesaikan masalah administrasi perpajakan, dan membuat laporan keuangan sesuai dengan standar hukum yang berlaku. Program studi ini dikenal dengan nama Administrasi Fiskal (S1) atau Perpajakan (D3).",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "REKAYASA ELEKTRO",
       "definisi": "Teknik elektro merupakan ilmu teknik yang mempelajari sifat-sifat elektron yang kita kenal sebagai listrik. Mahasiswa Teknik Elektro mempelajari aplikasi dan pemanfaatan listrik dalam kehidupan sehari-hari, serta teknologi yang terkait. Cakupan teknik elektro sangat luas, mulai dari sumber pembangkit tenaga listrik, sistem jaringan distribusi, sampai pada pemanfaatannya oleh pengguna akhir. Teknik Elektro pun dipecah menjadi beberapa konsentrasi, seperti teknik elektronika, teknik listrik, teknik instrumentasi, sampai teknik komputer dan telekomunikasi.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNIK ELEKTRO",
       "definisi": "Teknik elektro merupakan ilmu teknik yang mempelajari sifat-sifat elektron yang kita kenal sebagai listrik. Mahasiswa Teknik Elektro mempelajari aplikasi dan pemanfaatan listrik dalam kehidupan sehari-hari, serta teknologi yang terkait. Cakupan teknik elektro sangat luas, mulai dari sumber pembangkit tenaga listrik, sistem jaringan distribusi, sampai pada pemanfaatannya oleh pengguna akhir. Teknik Elektro pun dipecah menjadi beberapa konsentrasi, seperti teknik elektronika, teknik listrik, teknik instrumentasi, sampai teknik komputer dan telekomunikasi.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "REKAYASA GEOLOGI",
       "definisi": "Teknik Geologi adalah ilmu yang mempelajari komposisi bumi, struktur, sifat-sifat fisik, sejarah, dan proses pembentukannya. Ketika para mahasiswa mempelajari Geologi, maka mereka juga belajar untuk bisa memberikan solusi terhadap permasalahan bumi. Pada program studi ini, mahasiswa akan mempelajari banyak hal tentang ilmu bumi yang meliputi perminyakan, pertambangan, geotermal, mitigasi bencana, dan lain sebagainya.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNIK GEOLOGI",
       "definisi": "Teknik Geologi adalah ilmu yang mempelajari komposisi bumi, struktur, sifat-sifat fisik, sejarah, dan proses pembentukannya. Ketika para mahasiswa mempelajari Geologi, maka mereka juga belajar untuk bisa memberikan solusi terhadap permasalahan bumi. Pada program studi ini, mahasiswa akan mempelajari banyak hal tentang ilmu bumi yang meliputi perminyakan, pertambangan, geotermal, mitigasi bencana, dan lain sebagainya.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "SOSIOLOGI",
       "definisi": "Mahasiswa program studi Sosiologi mempelajari interaksi yang terjadi antara satu orang dengan orang yang lain dan pengaruhnya terhadap terbentuknya struktur sosial masyarakat. Mereka mencari penyebab perubahan situasi masyarakat, mengkaji akibat yang dihasilkan, dan mencari solusinya. Dengan cakupannya yang sangat luas, Sosiologi bisa dikerucutkan menjadi beberapa sub program studi seperti Sosiologi Industri, Sosiologi Lingkungan, dan Sosiologi Pembangunan, Sosiologi Ekonomi, Sosiologi Gender, dan lain sebagainya.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PSIKOLOGI",
       "definisi": "Psikologi merupakan disiplin ilmu yang mempelajari mental, pikiran, dan perilaku manusia. Program studi ini juga meneliti alur pemikiran dan alasan di balik perilaku dan tindakan manusia. Ilmu psikologi ini seringkali digunakan untuk menyelesaikan masalah dalam serangkaian aktivitas manusia yang kompleks. Ilmu Psikologi sendiri terbagi menjadi beberapa bagian, diantaranya adalah Psikologi Klinis, Psikologi Perkembangan, Psikologi Industri dan Organisasi, Psikologi Pendidikan, dan Psikologi Sosial. Prodi Psikologi di beberapa perguruan tinggi tergolong dalam kategori saintek, dan di beberapa perguruan tinggi lainnya tergolong dalam kategori soshum.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN IPS",
       "definisi": "Jurusan Pendidikan IPS adalah program studi yang mempersiapkan lulusannya menjadi guru mata pelajaran Ilmu Pengetahuan Sosial (IPS) di sekolah.Jurusan ini mempelajari materi mengenai sejarah, geografi, sosiologi, ekonomi, dan antropologi, serta mengajarkan teknik dan metode pengajaran IPS di sekolah. Lulusan dari jurusan pendidikan IPS diharapkan dapat mengembangkan keterampilan dan kemampuan dalam mengajar serta memahami perkembangan sosial dan budaya masyarakat.lulusan jurusan Pendidikan IPS juga dapat bekerja di bidang non-pendidikan seperti peneliti, pengamat politik, atau pekerja di lembaga pemerintah atau swasta yang berhubungan dengan ilmu sosial.",
-      "sumber": "danacita.co.id"
+      "sumber": "danacita.co.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNOLOGI PENDIDIKAN",
       "definisi": "Program studi Kurikulum dan Teknologi Pendidikan berfokus pada pengembangan kurikulum pendidikan dan pemanfaatan teknologi bagi dunia pendidikan. Jurusan ini spesifik membekali para mahasiswanya pemahaman tentang kurikulum sehingga para lulusan mampu menyiapkan solusi dan mengembangkan kurikulum yang cocok bagi pendidikan di Indonesia. Tak hanya itu, para mahasiswa juga disiapkan supaya fasih dalam menggunakan teknologi dan komunikasi untuk dunia pendidikan dan proses belajar mengajar. Pemanfaatan teknologi secara tepat bisa membantu proses belajar mengajar lebih lancar dan efisien. Maka dari itu teknologi pendidikan punya peran yang cukup signifikan terhadap pengembangan kurikulum. Melibatkan teknologi dalam pengembangan kurikulum akan membuat kurikulum tersebut menjadi lebih relevan bagi para peserta didik untuk menyongsong dunia kerja.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN SENI PERTUNJUKAN",
       "definisi": "Pendidikan akademik yang menekankan pada pembelajaran seni secara terintegrasi agar menjadi guru seni budaya meliputi seni drama, tari dan musik.",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN GURU PAUD",
       "definisi": "Program studi Pendidikan Anak Usia Dini (PAUD) mempersiapkan mahasiswa untuk menjadi pendidik dan pembimbing anak-anak usia dini atau pra sekolah. Untuk menjadi guru PAUD, mahasiswa harus memahami dan menguasai profil perkembangan fisik dan psikologis anak usia dini, dan tentu saja harus menjadi pendidik profesional yang berwawasan luas.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN GURU SEKOLAH DASAR",
       "definisi": "Pendidikan Guru Sekolah Dasar (PGSD) mempersiapkan mahasiswa untuk menjadi guru Sekolah Dasar (SD). Program studi ini menjadi favorit bagi siswa SMA yang ingin terjun di dunia pendidikan. Di sini, para mahasiswa mempelajari semua materi pelajaran SD seperti Matematika, Bahasa Inggris, Bahasa Indonesia, Pkn, IPS, IPA, Kesenian, dan sebagainya. Tak hanya pemahaman akademis, para mahasiswa juga dituntut untuk memahami karakter dan pengembangan kepribadian seperti sikap santun, disiplin, pintar, dan berjiwa sosial. Mengapa? Guru SD bertanggung jawab membangun kepribadian siswa sejak dini. Guru SD memberikan pondasi ilmu yang berguna sehingga siswa siap untuk menapaki jenjang pendidikan selanjutnya.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN JASMANI",
       "definisi": "Program studi Pendidikan Jasmani, Kesehatan dan Rekreasi (PJKR) mempersiapkan mahasiswa untuk menjadi peneliti dan pengajar pendidikan jasmani. Hal-hal yang dipelajari di prodi PJKR ermacam-macam, diantaranya adalah pendidikan jasmani untuk memberikan pendidikan terkait kegiatan jasmani dengan melatih siswa dari aspek fisik, psikomotor, kognitif, afektif dan sosial secara bersamaan; kesehatan dan pembelajaran terkait gizi, fisiologi, anatomi, serta keamanan dan keselamatan; dan juga rekreasi di mana siswa diajarkan berbagai permainan dan kegiatan lapangan yang tujuannya untuk beristirahat dari kejenuhan rutinitas.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN JASMANI KESEHATAN DAN REKREASI",
       "definisi": "Program studi Pendidikan Jasmani, Kesehatan dan Rekreasi (PJKR) mempersiapkan mahasiswa untuk menjadi peneliti dan pengajar pendidikan jasmani. Hal-hal yang dipelajari di prodi PJKR ermacam-macam, diantaranya adalah pendidikan jasmani untuk memberikan pendidikan terkait kegiatan jasmani dengan melatih siswa dari aspek fisik, psikomotor, kognitif, afektif dan sosial secara bersamaan; kesehatan dan pembelajaran terkait gizi, fisiologi, anatomi, serta keamanan dan keselamatan; dan juga rekreasi di mana siswa diajarkan berbagai permainan dan kegiatan lapangan yang tujuannya untuk beristirahat dari kejenuhan rutinitas.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN KHUSUS",
       "definisi": "Mempelajari cara memahami masing-masing kategori anak berkebutuhan khusus dan cara melakukan metode pembelajaran kepada mereka.",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "BIMBINGAN DAN KONSELING",
       "definisi": "Program studi Administrasi Publik masih dikenal juga dengan nama Administrasi Negara di beberapa perguruan tinggi. Prodi ini mempelajari seluk beluk pemerintahan, masyarakat, dan kebijakan publik. Tentu saja Administrasi Publik juga mempelajari tentang bagaimana memberikan publik yang prima kepada masyarakat. Singkatnya, di prodi ini kamu akan mempelajari tentang sistem pemerintahan, pembuatan kebijakan hingga pengimplementasian dan evaluasi nya, dan pelayanan masyarakat, serta segala sesuatu yang berkaitan dengan kegiatan birokratis. Di prodi ini kamu juga bisa memilih konsentrasi ilmu administrasi, seperti konsentrasi pemerintahan daerah, konsentrasi administrasi pembangunan, dan kebijakan publik.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN BIMBINGAN DAN KONSELING",
       "definisi": "Program studi Administrasi Publik masih dikenal juga dengan nama Administrasi Negara di beberapa perguruan tinggi. Prodi ini mempelajari seluk beluk pemerintahan, masyarakat, dan kebijakan publik. Tentu saja Administrasi Publik juga mempelajari tentang bagaimana memberikan publik yang prima kepada masyarakat. Singkatnya, di prodi ini kamu akan mempelajari tentang sistem pemerintahan, pembuatan kebijakan hingga pengimplementasian dan evaluasi nya, dan pelayanan masyarakat, serta segala sesuatu yang berkaitan dengan kegiatan birokratis. Di prodi ini kamu juga bisa memilih konsentrasi ilmu administrasi, seperti konsentrasi pemerintahan daerah, konsentrasi administrasi pembangunan, dan kebijakan publik.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN SOSIOLOGI",
       "definisi": "Pendidikan Sosiologi merupakan program studi yang menggabungkan ilmu sosiologi murni dengan ilmu kependidikan. Mahasiswa jurusan ini akan belajar tentang berbagai materi teori sosiologi serta ilmu kependidikan termasuk teori-teori pembelajaran, strategi pembelajaran, kurikulum, evaluasi pembelajaran, dan isu-isu pendidikan yang sedang aktual.",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN GEOGRAFI",
       "definisi": "Program studi Pendidikan Geografi mempelajari ilmu bumi beserta kehidupan yang ada di dalamnya. Geografi meliputi keadaan dan segala gejala yang terjadi di fisik bumi yang terbagi dalam atmosfer, lithosfer, dan hidrosfer, serta hubungan timbal-balik manusia dengan alam. Yang menjadi pembeda di prodi Pendidikan Geografi adalah materi pendidikannya. Jadi, tidak hanya mempelajari ilmu Geografi, tapi juga teori kependidikan yang meliputi metode pembelajaran geografi, manajemen pendidikan, dan evaluasi pembelajaran geografi. Lebih jelasnya, di prodi ini akan dipelajari bagaimana mengolah data geosfer dalam bentuk peta manual dan dijital untuk pembelajaran di sekolah. Juga akan dipelajari tentang kaitan antara aspek fisik dan sosial untuk menentukan keunikan suatu lokasi/wilayah.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU KOMUNIKASI",
       "definisi": "Komunikasi adalah suatu kajian ilmu yang sangat luas dan intens, pasalnya dalam kehidupan sehari-hari kita tidak pernah lepas dari komunikasi. Tapi jangan kira kalau ilmu komunikasi itu cuma pelajaran ngomong doang! Tahu nggak, kalau komunikasi itu ada banyak macam nya, mulai dari komunikasi intrapersonal (dengan diri sendiri), komunikasi interpersonal (dengan orang lain), komunikasi kelompok, komunikasi organisasi, hingga komunikasi massa. Ilmu Komunikasi ini adalah induk dari ilmu turunannya yang lain seperti Jurnalistik, Penyiaran, Hubungan Masyarakat (Public Relation), Komunikasi Pemasaran, Desain Komunikasi Visual, Periklanan (Adveritising), Performing Arts Communication, dan lain-lain. Pada program studi Ilmu Komunikasi kita diajarkan tentang bagaimana proses penyampaian pesan agar menjadi efektif dan dapat mencapai sasaran yang dituju. Lulusan program studi Ilmu Komunikasi akan mendapatkan gelar Sarjana Ilmu Komunkasi (S.I.Kom)",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU PEMERINTAHAN",
       "definisi": "Program studi Ilmu Pemerintahan mempelajari tentang manajemen atau pengelolaan organisasi publik, diantaranya lembaga legislatif, eksekutif, yudikatif, dan lembaga lainnya yang berfungsi dalam menjalankan fungsi negara, yang diatur dalam undang-undang. Disini kamu akan memahami tugas-tugas administrasi, manajemen, dan organisasi pada badan-badan publik. Kamu juga akan dibekali dengan skill public speaking, negosiasi, dan pengetahuan politik.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ADMINISTRASI BISNIS",
       "definisi": "Program studi Administrasi Bisnis atau yang kerap disebut sebagai Administrasi Niaga akan mengajakmu untuk mempelajari segala sesuatu terkait kegiatan operasional bisnis dan perusahaan. Kegiatan-kegiatan tersebut seperti kegiatan pemasaran (marketing), pengelolaan keuangan, pengelolaan personalia (SDM), hingga kegiatan produksi. Tidak hanya belajar menjalankan bisnis, kamu juga akan belajar untuk menciptakan sebuah produk sendiri. Bisnis yang dimaksud bukan sekedar menjual kembali produk dan mengambil keuntungan, melainkan menciptakan value pada produk yang akan dipasarkan. Administrasi Bisnis pastinya juga mempelajari segala urusan klarikal kantor, mengelola sarana dan prasarana kantor, memproses data secara akurat, dan bahkan mengelola informasi yang berhubungan dengan pekerjaan kantor.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU ADMINISTRASI BISNIS",
       "definisi": "Program studi Administrasi Bisnis atau yang kerap disebut sebagai Administrasi Niaga akan mengajakmu untuk mempelajari segala sesuatu terkait kegiatan operasional bisnis dan perusahaan. Kegiatan-kegiatan tersebut seperti kegiatan pemasaran (marketing), pengelolaan keuangan, pengelolaan personalia (SDM), hingga kegiatan produksi. Tidak hanya belajar menjalankan bisnis, kamu juga akan belajar untuk menciptakan sebuah produk sendiri. Bisnis yang dimaksud bukan sekedar menjual kembali produk dan mengambil keuntungan, melainkan menciptakan value pada produk yang akan dipasarkan. Administrasi Bisnis pastinya juga mempelajari segala urusan klarikal kantor, mengelola sarana dan prasarana kantor, memproses data secara akurat, dan bahkan mengelola informasi yang berhubungan dengan pekerjaan kantor.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ADMINISTRASI PUBLIK",
       "definisi": "Program studi Administrasi Publik masih dikenal juga dengan nama Administrasi Negara di beberapa perguruan tinggi. Prodi ini mempelajari seluk beluk pemerintahan, masyarakat, dan kebijakan publik. Tentu saja Administrasi Publik juga mempelajari tentang bagaimana memberikan publik yang prima kepada masyarakat. Singkatnya, di prodi ini kamu akan mempelajari tentang sistem pemerintahan, pembuatan kebijakan hingga pengimplementasian dan evaluasi nya, dan pelayanan masyarakat, serta segala sesuatu yang berkaitan dengan kegiatan birokratis. Di prodi ini kamu juga bisa memilih konsentrasi ilmu administrasi, seperti konsentrasi pemerintahan daerah, konsentrasi administrasi pembangunan, dan kebijakan publik.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ADMINISTRASI NEGARA",
       "definisi": "Program studi Administrasi Publik masih dikenal juga dengan nama Administrasi Negara di beberapa perguruan tinggi. Prodi ini mempelajari seluk beluk pemerintahan, masyarakat, dan kebijakan publik. Tentu saja Administrasi Publik juga mempelajari tentang bagaimana memberikan publik yang prima kepada masyarakat. Singkatnya, di prodi ini kamu akan mempelajari tentang sistem pemerintahan, pembuatan kebijakan hingga pengimplementasian dan evaluasi nya, dan pelayanan masyarakat, serta segala sesuatu yang berkaitan dengan kegiatan birokratis. Di prodi ini kamu juga bisa memilih konsentrasi ilmu administrasi, seperti konsentrasi pemerintahan daerah, konsentrasi administrasi pembangunan, dan kebijakan publik.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "AKUNTANSI",
       "definisi": "Akuntasi adalah sebuah program studi yang menyiapkan mahasiswanya untuk bisa mempraktekkan profesi akuntansi dan melakukan fungsi bisnis terkait, termasuk menerapkan instruksi dalam prinsip akuntansi dan teori, akuntansi keuangan, akuntansi manajerial, akuntansi biaya, pengendalian anggaran, akuntansi pajak, aspek hukum akuntansi, audit, prosedur pelaporan, analisis laporan, perencanaan dan konsultasi, sistem informasi bisnis, metode penelitian akuntansi, standar profesional dan etika. Ilmu Akuntansi lalu diaplikasikan di berbagai instansi bisnis, baik yang bersifat profit, non-profit, publik, maupun instansi pemerintahan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "MANAJEMEN",
       "definisi": "Manajemen merupakan program studi yang mempelajari mengenai bagaimana mengelola suatu perusahaan atau organisasi. Manajemen juga termasuk dalam bidang bisnis dan ekonomi, tetapi lebih terfokus pada kegiatan mengelola, merencanakan, dan mengatur (manajemen) semua proses dalam perusahaan untuk mencapai tujuan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "EKONOMI PEMBANGUNAN",
       "definisi": "Ekonomi Pembangunan merupakan salah satu bagian dari ilmu Ekonomi yang secara spesifik mempelajari persoalan pembangunan yang sudah, sedang, dan akan terjadi di negara berkembang. Pembangunan tersebut mencakup industri, perbankan, keuangan, dan bisnis. Selain itu di program studi ini kamu akan menganalisis berbagai isu isu perekonomian untuk kemudian mencari dan menemukan solusi dari berbagai persoalan ekonomi secara kritis, kreatif, dan inovatif. Di program studi ini kamu dipersiapkan untuk menjadi perencana bidang pembangunan ekonomi sehingga bisa turut membantu terciptanya kesejahteraan bersama.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "HUKUM",
       "definisi": "Pada program studi Ilmu Hukum, para mahasiswa mempelajari segala sesuatu tentang hukum baik praktek ataupun teorinya. Hukum mengatur bagaimana manusia bertindak dan bertingkah laku supaya tidak merugikan orang lain. Belajar tentang hukum memang lebih banyak mendalami konsep dan teori, juga beberapa kasus hukum yang terjadi. Tetapi, pada akhir masa kuliah biasanya para mahasiswa jurusan Ilmu Hukum mendapatkan kesempatan untuk praktek di berbagai firma hukum, kejaksaan, atau pengadilan, sehingga teori yang telah dipelajari selama ini bisa dipahami relevansinya.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU HUKUM",
       "definisi": "Pada program studi Ilmu Hukum, para mahasiswa mempelajari segala sesuatu tentang hukum baik praktek ataupun teorinya. Hukum mengatur bagaimana manusia bertindak dan bertingkah laku supaya tidak merugikan orang lain. Belajar tentang hukum memang lebih banyak mendalami konsep dan teori, juga beberapa kasus hukum yang terjadi. Tetapi, pada akhir masa kuliah biasanya para mahasiswa jurusan Ilmu Hukum mendapatkan kesempatan untuk praktek di berbagai firma hukum, kejaksaan, atau pengadilan, sehingga teori yang telah dipelajari selama ini bisa dipahami relevansinya.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN BAHASA INGGRIS",
       "definisi": "Program studi Pendidikan Bahasa Inggris akan mempelajari kajian Bahasa Inggris, mulai dari aspek listening, reading, writing, dan speaking. Namun cukup berbeda dengan program studi Sastra Inggris yang fokus dalam mempelajari aspek linguistik dan sastra dalam Bahasa Inggris, di prodi Pendidikan Bahasa Inggris kita juga akan memeroleh ilmu keguruan dan kependidikan. Pastinya mahasiswa prodi Pendidikan Bahasa Inggris dipersiapkan untuk menjadi pengajar atau guru Bahasa Inggris di tingkat SD, SMP, dan SMA.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN BAHASA DAN SASTRA INDONESIA",
       "definisi": "Di program studi Pendidikan Bahasa dan Sastra Indonesia kita akan mempelajari Bahasa Indonesia. Mungkin banyak yang beranggapan “buat apa belajar Bahasa Indonesia? Kan udah lancar ngomong Bahasa Indonesia”. Pelajaran Bahasa Indonesia pun di sekolah sering kali dipandang sebelah mata, karena dianggap pelajaran yang gampang. Padahal nilai mata pelajaran Bahasa Indonesia di sekolah saja tidak bisa menjadi acuan kalau kamu mahir dan mengerti bahasa nasional kita ini. Karenanya di prodi Pendidikan Bahasa dan Sastra Indonesia (PBSI) ini kamu akan memeroleh pengetahuan Bahasa Indonesia mulai dari cara pelafalan bunyi yang benar dalam Bahasa Indonesia, struktur dan tata bahasa, dan lain sebagainya. Jadi belajar Bahsa Indonesia nggak sekedar “ini Budi” dan “ini ibu Budi”. Selain mempelajari kebahasaan dan kesusastraan, di PBSI juga akan mempelajari ilmu kependidikan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN EKONOMI",
       "definisi": "Pendidikan Ekonomi merupakan program studi yang mempersiapkan lulusannya untuk menjadi tenaga pengajar di bidang ekonomi. Umumnya, mahasiswa jurusan ini mempelajari berbagai ilmu ekonomi yang sama dengan mahasiswa jurusan ekonomi lainnya seperti micro dan macro ekonomi, keuangan, perdagangan internasional, akutansi, dan sebagainya. Selain itu, mereka juga akan belajar mengenai ilmu pedagogi yang mencakup komponen khusus untuk menjadi seorang guru, seperti metodologi pengajaran dan teknik evaluasi.",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN PANCASILA DAN KEWARGANEGARAAN",
       "definisi": "Program studi Pendidikan Pancasila dan Kewarganegaraan akan membuatmu menguasai bidang ilmu pokok: Pendidikan kewarganegaraan, Politik, Hukum, Pendidikan serta memiliki wawasan yang luas dalam bidang ilmu yang relevan. Selain itu, program studi ini juga akan membekali kamu dengan integritas moral, religiusitas yang tinggi, kepribadian yang mantap, keyakinan akan kebenaran Pancasila sebagai ideologi dan dasar negara. Kamu akan dilatih untuk mampu merencanakan, melaksanakan (strategi, metode,pengelolaan kelas, media, dll), mengevaluasi proses dan hasil pembelajaran Pendidikan kewarganegaraan dalam berbagai jenjang pendidikan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN SEJARAH",
       "definisi": "Bagaimana materi pelajaran sejarah di sekolah itu diformulasikan dan di tulis? Bagaimana pula metode yang diterapkan dalam pembelajaran sejarah tesebut? Kamu akan dapat jawaban dari pertanyaan-pertanyaan ini di program studi Pendidikan Sejarah. Selain pengetahuan tentang ilmu kependidikan, pastinya di prodi ini kamu akan belajar lebih dalam mengenai sejarah itu sendiri. Jika di sekolah dulu kamu dituntut untuk hafal tanggal-tanggal dan momen bersejarah di dunia, peran-peran yang terlibat dalam sejarah, serta benda-benda yang menjadi bagian dari sejarah, di perguruan tinggi kamu akan dapat ilmu sejarah yang lebih dalam lagi meliputi teknik riset sejarah.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "GEOGRAFI",
       "definisi": "Program studi Geografi mempelajari tata ruang penggunaan dan penempatan tanah dan permukaan bumi. Siswa yang berkonsentrasi pada geografi fisik misalnya akan fokus mempelajari dan menganalisa permukaan tanah, dan mempelajari topik seperti iklim, tanah, dan air. Melakui konteks budaya dan manusia, geografi mengeksplorasi hubungan antara manusia dan tempat. Program studi geografi ditujukan untuk memberikan bekal bagi mahasiswa agar memahami penerapan perspektif regional dalam berbagai pengembangan wilayah, dalam hal ini termasuk penguasaan teknologi Sistem Informasi Geografi (SIG). Jurusan ini menghasilkan siswa yang dapat memecahkan masalah, memberikan solusi pada penelitian, dapat memanfaatkan teknologi dan berpandangan luas. Jurusan geografi melibatkan berbagai kursus dalam disiplin untuk mengekspos siswa kepada aspek yang luas dan menarik.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "STATISTIKA",
       "definisi": "Statistika merupakan ilmu yang mempelajari proses pengolahan data, mulai dari merencanakan, mengumpulkan, menganalisis, menginterpretasikan, dan mempresentasikan data. Fungsi dari statistika sendiri adalah sebagai pijakan untuk pengambilan keputusan. Tanpa analisis data yang akurat, pengambilan keputusan yang tepat tidak akan pernah bisa terjadi. Statistika banyak diterapkan pada berbagai disiplin ilmu, baik ilmu sosial ataupun ilmu pasti.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNOLOGI INFORMASI",
       "definisi": "Teknologi Informasi merupakan program studi yang mempelajari solusi-solusi pada teknologi komputer. Jurusan ini lebih menekankan aspek teknologi. Jurusan ini lebih fokus kepada perancangan, pembuatan, dan pengembangan software (perangkat lunak) dan programming, dan teknologi jaringan komputer.",
-      "sumber": "indonesiacollage.co.id"
+      "sumber": "indonesiacollage.co.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN IPA",
       "definisi": "Pendidikan Ilmu Pengetahuan Alam (Pendidikan IPA) merupakan program studi yang mempelajari bagaimana menjadi seorang pendidik atau guru mata pelajaran IPA. Pada beberapa perguruan tinggi, program studi ini dipecah kedalam beberapa bagian ilmu pengetahuan alam, seperti Pendidikan Biologi, Pendidikan Fisika, dan Pendidikan Kimia. Pada program studi ini selain akan diajarkan materi tentang IPA, juga akan diajarkan teknik pengajaran, sesuai dengan ruang lingkupnya, baik ruang lingkup SD, SMP, hingga SMA.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN KOMPUTER",
       "definisi": "Pendidikan Ilmu Komputer adalah Program Studi/Jurusan/Departemen/Fakultas yang berkonsentrasi pada penerapan Ilmu Komputer dalam dunia pendidikan. Pendidikan Ilmu Komputer bertujuan menghasilkan sarjana pendidikan ilmu komputer (S.Pd) yang mampu mengaplikasikan dan mengintegrasikan ilmu komputer (perangkat lunak dan keras) dengan ilmu kependidikan (misalnya menghasilkan produk multimedia interaktif dan e-learning).Sarjana Pendidikan Ilmu Komputer berkompetensi menjadi seorang guru mata pelajaran Teknologi Informasi dan Komunikasi (TIK) untuk SD, SMP dan SMA serta menjadi guru TKJ, RPL, Multimedia di SMK.",
-      "sumber": "wikipedia"
+      "sumber": "wikipedia",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "KEDOKTERAN GIGI",
       "definisi": "Program studi Kedokteran Gigi mempelajari tentang kesehatan di daerah gigi dan mulut, bagaimana menangani berbagai permasalahan di dalam mulut dan cara mengobatinya. Di program studi Kedokteran Gigi ini nggak cuma melulu soal kesehatan gigi, tapi juga mencakup estetika gigi dan mulut. Kalau kamu ingin jadi dokter gigi, kamu harus menyelesaikan pendidikan akademis di program studi Kedokteran Gigi dan mendapatkan gelar Sarjana Kedokteran Gigi (S.Kg), lalu kamu akan lanjut ke tahap selanjutnya yaitu mengikuti kepaniteraan (coass) atau praktek di rumah sakit atau klinik gigi yang di tunjuk selama dua tahun untuk mendapat gelar dokter gigi (drg).",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN DOKTER GIGI",
       "definisi": "Program studi Kedokteran Gigi mempelajari tentang kesehatan di daerah gigi dan mulut, bagaimana menangani berbagai permasalahan di dalam mulut dan cara mengobatinya. Di program studi Kedokteran Gigi ini nggak cuma melulu soal kesehatan gigi, tapi juga mencakup estetika gigi dan mulut. Kalau kamu ingin jadi dokter gigi, kamu harus menyelesaikan pendidikan akademis di program studi Kedokteran Gigi dan mendapatkan gelar Sarjana Kedokteran Gigi (S.Kg), lalu kamu akan lanjut ke tahap selanjutnya yaitu mengikuti kepaniteraan (coass) atau praktek di rumah sakit atau klinik gigi yang di tunjuk selama dua tahun untuk mendapat gelar dokter gigi (drg).",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "AGRONOMI",
       "definisi": "Agronomi merupakan program studi yang mempelajari tentang cara menerapkan teknologi dan ilmu pengetahuan untuk meningkatkan hasil pertanian dan mengurangi dampak negatif terhadap lingkungan. Mahasiswa jurus ini akan mempelajari cara mengelola lahan, mengelola benih hingga tanaman, dan melakukan perawatan agar menghasilkan produk pertanian yang berkualitas",
-      "sumber": "akupintar.id"
+      "sumber": "akupintar.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PROTEKSI TANAMAN",
       "definisi": "Program studi Proteksi Tanaman juga disebut dengan Ilmu Hama dan Penyakit Tumbuhan di beberapa perguruan tinggi. Jadi jangan bingung dengan namanya, keduanya sama-sama mempelajari tentang pengamanan produksi pertanian melalui manajemen kesehatan tanaman. Program studi ini berfokus pada isu pengelolaan hama untuk mengkonservasi lingkungan dan memanajemen sumberdaya hayati dalam rangka untuk memelihara keseimbangan agroekosistem. Pada program studi ini kita dituntut untut memahami jenis-jenis hama tanaman, mengetahui nama latinnya, jenis dan gejala penyakit tanaman yang disebabkan oleh virus, lalu bagaimana cara pengendaliannya.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU HAMA DAN PENYAKIT TUMBUHAN",
       "definisi": "Program studi Proteksi Tanaman juga disebut dengan Ilmu Hama dan Penyakit Tumbuhan di beberapa perguruan tinggi. Jadi jangan bingung dengan namanya, keduanya sama-sama mempelajari tentang pengamanan produksi pertanian melalui manajemen kesehatan tanaman. Program studi ini berfokus pada isu pengelolaan hama untuk mengkonservasi lingkungan dan memanajemen sumberdaya hayati dalam rangka untuk memelihara keseimbangan agroekosistem. Pada program studi ini kita dituntut untut memahami jenis-jenis hama tanaman, mengetahui nama latinnya, jenis dan gejala penyakit tanaman yang disebabkan oleh virus, lalu bagaimana cara pengendaliannya.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU TANAH",
       "definisi": "Ilmu Tanah merupakan bagian dari ilmu kebumian (earth science). Program studi ini juga disebut dengan nama Manajemen Sumberdaya Lahan. Program studi ini memegang peranan yang sangat penting dalam perencanaan dan pelaksanaan pembangunan yang berkelanjutan (sustainable development), serta berbagai usaha di masa yang akan datang yang berkaitan dengan tanah. Beberapa contoh bidang yang memerlukan keahlian ilmu tanah adalah pertanian, perkebunan, kehutanan, tata guna lahan, perencanaaan dan pengembangan wilayah, konservasi tanah, rehabilitasi lahan perikanan, pertambangan, dan lain sebagainya. Oleh sebab itu, mahasiswa akan dididik menjadi sarjana yang handal, berkemampuan sebagai praktisi, peneliti dan pengambil kebijakan yang berkaitan dengan pertanian, khususnya sumberdaya lahan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "KEPERAWATAN",
       "definisi": "Di program studi Ilmu Keperawatan, kamu akan mendapatkan ilmu sains dipadu dengan sosial. Di prodi Ilmu Keperawatan kamu akan belajar bagaimana memberikan pelayanan kesehatan pada pasien. Ilmu Keperawatan tersedia dalam dua jenjang studi, yaitu D3 dan S1. Jenjang D3 menekankan pada praktek keperawatan, S1 menyeimbangkan antara pendalaman teori dan praktek. Mata kuliah yang bersifat teoritis selalu diiringi dengan praktikum, baik di laboratorium atau lapangan seperti rumah sakit, puskesmas, atau klinik.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU KEPERAWATAN",
       "definisi": "Di program studi Ilmu Keperawatan, kamu akan mendapatkan ilmu sains dipadu dengan sosial. Di prodi Ilmu Keperawatan kamu akan belajar bagaimana memberikan pelayanan kesehatan pada pasien. Ilmu Keperawatan tersedia dalam dua jenjang studi, yaitu D3 dan S1. Jenjang D3 menekankan pada praktek keperawatan, S1 menyeimbangkan antara pendalaman teori dan praktek. Mata kuliah yang bersifat teoritis selalu diiringi dengan praktikum, baik di laboratorium atau lapangan seperti rumah sakit, puskesmas, atau klinik.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "PENDIDIKAN FISIKA",
       "definisi": "Program studi Pendidikan Fisika akan mengajakmu untuk mempelajari mengenai ilmu fisika dan menerapkannya dalam konteks pendidikan dan pengajaran. Di sini kamu nggak hanya akan mengkaji fenomena-fenomena dan gejala alam tidak hidup seperti materi dan partikel, tapi juga diajak untuk memahami metode-metode pembelajaran fisika yang efektif pada siswa di berbagai jenjang pendidikan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "KEHUTANAN",
       "definisi": "Ilmu Kehutanan mempelajari segala sesuatu tentang hutan mulai dari ekologi hutan, fisiologi tumbuhan, satwa, ilmu tanah, sampai pengolahan dan manajemen hasil hutan itu sendiri. Namun tidak hanya bagaimana menghasilkan dan memeroleh hasil hutan saja, ilmu Kehutanan juga termasuk tentang pelestarian hutan tersebut melalui rehabilitasi dan perlindungan hutan yang erat kaitannya dengan berbagai permasalahan lingkungan. Kehutanan merupakan induk dari cabang program studi Konservasi Sumberdaya Hutan dan Ekowisata, Teknologi Hasil Hutan, Pengelolaan Hutan, dan Manajemen Hutan, yang termasuk dalam Fakultas Kehutanan. Namun di beberapa perguruan tinggi Kehutanan juga termasuk dari bagian Fakultas Pertanian.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "ILMU KOMPUTER",
       "definisi": "Ilmu Komputer adalah sebuah ilmu yang mempelajari baik tentang komputasi, perangkat keras (hardware) maupun perangkat lunak (software). Ilmu komputer mencakup beragam topik yang berkaitan dengan komputer, mulai dari analisis abstrak algoritma sampai subyek yang lebih konkret seperti bahasa pemrograman, perangkat lunak, termasuk perangkat keras. Berbeda dengan Teknik Informatika yang lebih menekankan pada sisi penerapannya, program studi Ilmu Komputer lebih fokus pada 'sains' dari bidang komputer itu sendiri.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "FARMASI",
       "definisi": "Farmasi adalah program studi yang mempelajari tentang obat-obatan. Disini kamu akan belajar untuk mengenali struktur senyawa obat dan cara sintesisnya, kemudian mengolahnya menjadi obat yang layak dikonsumsi. Pastinya disini kamu akan belajar, mencampur, meracik, melakukan formulasi, mengidentifikasi, mengombinasi, menganalisis, dan menciptakan obat yang memenuhi standar kualitas dan kelayakan. Tidak hanya meracik, kamu juga harus mengetahui bagaimana penggunaan obat-obatan tersebut secara aman.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "FISIKA",
       "definisi": "Program studi Fisika mengajak para mahasiswa untuk mempelajari gejala alam yang tidak hidup atau materi dalam lingkup ruang dan waktu. Para mahasiswa juga akan mempelajari perilaku dan sifat materi dalam bidang yang sangat beragam, mulai dari partikel submikroskopis yang membentuk segala materi hingga perilaku materi alam semesta sebagai satu kesatuan kosmos. Ilmu fisika mengambil peran penting sejak berabad-abad lalu, berkembang sejak zaman Galileo kemudian penemuan Newton mengenai gravitasi hingga Teori Relativitas Einstein. Saat ini ilmu fisika sangat mendukung perkembangan teknologi, industri, komunikasi, kerekayasaan, kimia, dan kedokteran. Fisika memiliki beberapa konsentransi peminatan, seperti Instrumentasi Elektronika, Geofisika, Fisika Medis, Fisika Nuklir dan Partikel, Fisika Material dan Terkondenisasi.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "KIMIA",
       "definisi": "Di program studi Kimia kamu akan mempelajari struktur, komposisi, dan sifat materi dari skala atom hingga molekul, dan bagaimana mereka saling berinteraksi membentuk materi yang bisa kita temukan dalam kehidupan sehari-hari. Para mahasiswa akan memperdalam kimia organik, kimia anorganik, biokimia, dan manajemen laboratorium.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "BIOLOGI",
       "definisi": "Program studi Biologi adalah sebuah program studi yang mendalami ilmu tentang makhluk hidup, manusia, hewan, tumbuhan, dan mikroba. Beberapa subyek yang dipelajari adalah struktur dan anatomi organisme, genetika, fisiologi, ekologi, perilaku, dan sel molekul yang terdapat pada setiap makhluk hidup.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "MATEMATIKA",
       "definisi": "Para mahasiswa di program studi Matematika mempelajari matematika murni seperti aljabar, geometri, dan analisis matematika. Selain itu para mahasiswa juga berpeluang untuk mempelajari statistika, komputasi, aktuaria, dan riset operasi. Meskipun pelajaran matematika sudah sangat dikenal oleh setiap orang, Program Studi Matematika malah kurang mendapatkan minat. Selain prospek kariernya yang masih sangat terbatas, mata kuliah ini pun kerap dianggap rumit. Namun sebenarnya, Jurusan Matematika mempelajari banyak hal yang tidak hanya sekadar perhitungan rumus-rumus.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNIK MESIN",
       "definisi": "Teknik mesin dikenal juga dengan sebutan teknik mekanika. Pada program studi Teknik Mesin, kamu akan mempelajari prinsip-prinsip fisika yang kemudian diimplementasikan pada analisis, desain, manufaktur, dan pemeliharaan mesin. Oleh karena itu, sebagai mahasiswa teknik mesin, kamu harus memperdalam kemampuan pada beberapa cabang ilmu teknik mesin, seperti mekanika, kinematika, teknik material, dan termodinamika. Pemahaman tentang mesin sangat dibutuhkan oleh banyak industri terutama otomotif dan manufaktur. Disini kamu diharapkan untuk dapat selalu update tentang mesin. Sebab, mesin selalu berkembang mengikuti pengetahuan teknologi. Semakin modern, mesin semakin canggih.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "KESEHATAN MASYARAKAT",
       "definisi": "Prodi Kesehatan Masyarakat mempelajari ilmu tentang peningkatan taraf hidup dan kesehatan masyarakat dengan cara melakukan pengorganisasian di masyarakat. Jadi, di prodi ini kamu akan mempelajari ilmu medis ditambah dengan ilmu sosial. Kamu akan belajar bagaimana menghitung besaran distribusi penyakit di suatu wilayah, menghitung kondisi kesehatan secara kuantitatif, menganalisa dampak lingkungan pada kesehatan masyarakat, dan faktor kesehatan dan keselamatan kerja. Disini juga akan dipelajari ilmu gizi, manajemen dan administrasi kebijakan kesehatan, serta melakukan penyuluhan kesehatan.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNIK LINGKUNGAN",
       "definisi": "Dahulu, program studi Teknik Lingkungan bernama Teknik Penyehatan. Ilmu yang dipelajari di program studi ini berkaitan erat dengan kesehatan. Para mahasiswa Teknik Lingkungan akan belajar tentang bagaimana menciptakan lingkungan yang sehat dan bebas penyakit dengan teknik dan teknologi. Ruang lingkup jurusan ini adalah konservasi sumber daya air, pengelolaan kesehatan lingkungan, upaya pengendalian pencemaran, pengolahan limbah, plumbing/perpipaan, sistem drainase, hingga pengendalian dan pencemaran udara.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNIK PERTAMBANGAN",
       "definisi": "Program studi Teknik Pertambangan merupakan salah satu cabang dari ilmu teknik yang berfokus pada ilmu tentang eksplorasi dan eksploitasi bahan galian/sumber daya mineral seperti emas, perak, alumunium, besi, dan sebagainya, serta batu bara. Pada program studi Teknik Pertambangan kita akan mempelajari proses pertambangan yang terdiri dari kegiatan penyelidikan umum (prospeksi), eksplorasi penambangan, pengolahan bahan tambang (eksploitasi), pengangkutan, sampai dengan pemasaran hasil tambang. Serupa dengan program studi “serumpun”nya, Teknik Perminyakan, program studi ini merupakan program studi yang sangat banyak peminatnya. Katanya, sih lulusan program studi ini duitnya banyak, lho!",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "TEKNIK SIPIL",
       "definisi": "Program studi Teknik Sipil mempelajari proses merancang, membangun, serta merenovasi, tidak hanya bangunan gedung, tapi juga infrastruktur jalan, jembatan, bendungan, dan infrastruktur lainnya. Mempelajari ilmu Teknik Sipil, kamu akan memahami unsur-unsur bangunan seperti beton, baja, aspal, dan lain-lain. Kamu juga akan memahami bagaimana perancangan struktur bangunan yang kuat, layak, dan efisien. Di jurusan Teknik Sipil kamu juga akan mempelajari dasar rancangan arsitektur. Teknik sipil punya peran yang sangat penting terhadap kehidupan manusia, ilmunya berkembang sejalan dengan kebutuhan dan pergerakan manusia. Kemajuan teknologi transportasi akan berpengaruh pada pembangunan infrastruktur, seperti perluasan jalan, pembangunan jalan toll, underpass, flyover, dan lain-lain. Perubahan lingkunganpun akan berpengaruh terhadap pembangunan. Unsur cuaca, iklim, struktur tanah, dan gempa bumi, menjadi pertimbangan penting dalam pembangunan gedung dan infrastruktur. Karena itu para profesional di bidang Teknik Sipil haruslah cermat dan teliti.",
-      "sumber": "rencanamu.id"
+      "sumber": "rencanamu.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     },
     {
       "nama_prodi": "AGRIBISNIS",
       "definisi": "Agribisnis adalah jurusan yang mempelajari bisnis berbasis bidang pertanian serta bidang pendukung lainnya, seperti perkebunan, peternakan, dan perhutanan. Nah, berdasarkan pengertiannya, maka jurusan ini akan mempelajari berbagai materi perkuliahan terkait ekonomi dan pertanian. Eits, meskipun belajar dua disiplin ilmu, bukan berarti materi kuliah yang kamu terima bakal setengah-setengah lho, ya.Ketika masuk Jurusan Agribisnis, kamu akan belajar banyak hal. Belajar mengolah hasil pertanian, manajemen usaha, hingga memasarkan produk. Artinya, setelah lulus, kamu akan memiliki banyak pengetahuan dan kemampuan.Apa saja itu? Kamu bisa tahu cara menanam dan mengembangkan pertanian yang menguntungkan. Selain itu, kamu juga mampu menciptakan dan memasarkan hasil produkmu sendiri. Gimana, produktif banget kan?",
-      "sumber": "brainacademy.id"
+      "sumber": "brainacademy.id",
+      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "st30": [
+        { "merah": ["Analist", "Interpreter"] },
+        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
+      ],
+      "prospek_kerja": [
+        "Guru",
+        "Dokter",
+        "Kepala Sekolah",
+        "Arsitek",
+        "Kepala Dinas Pendidikan"
+      ]
     }
   ]
 }

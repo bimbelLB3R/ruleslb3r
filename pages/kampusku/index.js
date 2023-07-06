@@ -100,7 +100,7 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
     values: dataKeketatan,
   };
 
-  console.log(defProdi);
+  // console.log(defProdi);
 
   const handleKampus = (e) => {
     setPilihanKampus(e.target.value);
@@ -214,15 +214,19 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
                       // disabled={disableprodi}
                     >
                       <option value="">Pilih Prodi</option>
-                      {prodi.map((item, index) => (
-                        <option
-                          key={index}
-                          value={item.kode_prodi}
-                          className="hover:bg-gray-600 p-2"
-                        >
-                          {item.nama_prodi}
-                        </option>
-                      ))}
+                      {prodi
+                        .sort((a, b) =>
+                          a.nama_prodi.localeCompare(b.nama_prodi)
+                        ) // Mengurutkan berdasarkan abjad
+                        .map((item, index) => (
+                          <option
+                            key={index}
+                            value={item.kode_prodi}
+                            className="hover:bg-gray-600 p-2"
+                          >
+                            {item.nama_prodi}
+                          </option>
+                        ))}
                     </select>
                   </div>
                 </div>
@@ -289,9 +293,7 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
                       </div>
                     )}
                   </div>
-                </div>
-                <div className="md:w-1/2">
-                  <div className="shadow-md p-3 mb-10">
+                  <div className="shadow-md p-3 mb-4">
                     <p className="font-semibold text-orange-400">Kampus Lain</p>
 
                     {pilihanProdi.length === 0 ||
@@ -325,29 +327,239 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
                       </div>
                     )}
                   </div>
+                </div>
+                <div className="md:w-1/2">
                   <div
                     className={`${
-                      defProdi.length === 0
+                      pilihanProdi.length === 0 || defProdi.length === 0
                         ? ""
                         : "shadow-md p-3 text-sm  relative"
                     }`}
                   >
-                    {defProdi.length === 0 ? (
-                      ""
-                    ) : (
-                      <div className="absolute bg-orange-900/70  transform   -translate-y-1/2">
-                        <p className="text-slate-50 p-2 ">
-                          APA ITU PRODI {namaProdi}
-                        </p>
-                      </div>
-                    )}
                     {pilihanProdi.length !== 0 ? (
                       <div className="pt-6 ">
                         {defProdi.map((item, index) => (
-                          <p key={index} className="bg-orange-400/20 p-2">
-                            {item.definisi}
-                            <span className="italic">({item.sumber})</span>
-                          </p>
+                          <div key={index} className=" p-2 relative">
+                            <div className="absolute  transform   -translate-y-1/2 bg-orange-400/20">
+                              <div className="p-2 flex items-center">
+                                <div className="">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="36"
+                                    height="36"
+                                    fill="currentColor"
+                                    className="bi bi-question-diamond-fill text-orange-900/70"
+                                    viewBox="0 0 16 16"
+                                  >
+                                    <path d="M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098L9.05.435zM5.495 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z" />
+                                  </svg>
+                                </div>
+                                <p className="text-slate-50 p-2 text-orange-900/70 font-bold">
+                                  APA ITU PRODI {namaProdi}{" "}
+                                </p>
+                              </div>
+                            </div>
+                            <div className="mt-10">
+                              <p>
+                                {item.definisi}
+                                <span className="italic">({item.sumber})</span>
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+
+                  <div
+                    className={`${
+                      pilihanProdi.length === 0 || defProdi.length === 0
+                        ? ""
+                        : "shadow-md p-3 text-sm  relative"
+                    }`}
+                  >
+                    {pilihanProdi.length !== 0 ? (
+                      <div className="pt-6 ">
+                        {defProdi.map((item, index) => (
+                          <div key={index} className=" p-2 relative">
+                            <div className="absolute  transform   -translate-y-1/2 bg-blue-400/20">
+                              <div className="p-2 flex items-center">
+                                <div className="">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="36"
+                                    height="36"
+                                    fill="currentColor"
+                                    className="bi bi-book-half text-blue-900/70"
+                                    viewBox="0 0 16 16"
+                                  >
+                                    <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+                                  </svg>
+                                </div>
+                                <p className="text-slate-50 p-2 text-blue-900/70 font-bold">
+                                  BELAJAR APA AJA DI PRODI {namaProdi}{" "}
+                                </p>
+                              </div>
+                            </div>
+
+                            <div className="mt-10">
+                              {item.mata_kuliah?.map((item2, index) => (
+                                <div
+                                  key={index}
+                                  className="flex items-center space-x-2"
+                                >
+                                  <div>
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="18"
+                                      height="18"
+                                      fill="currentColor"
+                                      className="bi bi-check2-square"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z" />
+                                      <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
+                                    </svg>
+                                  </div>
+                                  <p>{item2}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+
+                  <div
+                    className={`${
+                      pilihanProdi.length === 0 || defProdi.length === 0
+                        ? ""
+                        : "shadow-md p-3 text-sm  relative"
+                    }`}
+                  >
+                    {pilihanProdi.length !== 0 ? (
+                      <div className="pt-6 ">
+                        {defProdi.map((item, index) => (
+                          <div key={index} className=" p-2 relative">
+                            <div className="absolute  transform   -translate-y-1/2 bg-yellow-400/20">
+                              <div className="p-2 flex items-center">
+                                <div className="">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="36"
+                                    height="36"
+                                    fill="currentColor"
+                                    className="bi bi-person-workspace text-yellow-900/70"
+                                    viewBox="0 0 16 16"
+                                  >
+                                    <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                                    <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z" />
+                                  </svg>
+                                </div>
+                                <p className="text-slate-50 p-2 text-yellow-900/70 font-bold">
+                                  PELUANG KARIR PRODI {namaProdi}{" "}
+                                </p>
+                              </div>
+                            </div>
+
+                            <div className="mt-10">
+                              {item.prospek_kerja?.map((item2, index) => (
+                                <div
+                                  key={index}
+                                  className="flex items-center space-x-2"
+                                >
+                                  <div>
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="18"
+                                      height="18"
+                                      fill="currentColor"
+                                      className="bi bi-check2-square"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z" />
+                                      <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
+                                    </svg>
+                                  </div>
+                                  <p>{item2}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  <div
+                    className={`${
+                      pilihanProdi.length === 0 || defProdi.length === 0
+                        ? ""
+                        : "shadow-md p-3 text-sm  relative"
+                    }`}
+                  >
+                    {pilihanProdi.length !== 0 ? (
+                      <div className="pt-6 ">
+                        {defProdi.map((item, index) => (
+                          <div key={index} className=" p-2 relative">
+                            <div className="absolute  transform   -translate-y-1/2 bg-green-400/20">
+                              <div className="p-2 flex items-center">
+                                <div className="">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="36"
+                                    height="36"
+                                    fill="currentColor"
+                                    className="bi bi-universal-access-circle text-green-900/70"
+                                    viewBox="0 0 16 16"
+                                  >
+                                    <path d="M8 4.143A1.071 1.071 0 1 0 8 2a1.071 1.071 0 0 0 0 2.143Zm-4.668 1.47 3.24.316v2.5l-.323 4.585A.383.383 0 0 0 7 13.14l.826-4.017c.045-.18.301-.18.346 0L9 13.139a.383.383 0 0 0 .752-.125L9.43 8.43v-2.5l3.239-.316a.38.38 0 0 0-.047-.756H3.379a.38.38 0 0 0-.047.756Z" />
+                                    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8Z" />
+                                  </svg>
+                                </div>
+                                <p className="text-slate-50 p-2 text-green-900/70 font-bold">
+                                  STRENGTH TYPOLOGY PRODI {namaProdi}{" "}
+                                </p>
+                              </div>
+                            </div>
+
+                            <div className="mt-10">
+                              {item.st30?.map((item2, index) => (
+                                <div
+                                  key={index}
+                                  className="flex items-center space-x-2"
+                                >
+                                  {item2.merah?.map((item3, index) => (
+                                    <div key={index} className="mb-2 border-2">
+                                      <p className=" p-1 bg-red-600/50 font-roboto text-sm">
+                                        {item3}
+                                      </p>
+                                    </div>
+                                  ))}
+                                  {item2.kuning?.map((item3, index) => (
+                                    <div key={index} className="mb-2 border-2">
+                                      <p className=" p-1 bg-yellow-600/50 font-roboto text-sm">
+                                        {item3}
+                                      </p>
+                                    </div>
+                                  ))}
+                                  {item2.putih?.map((item3, index) => (
+                                    <div key={index} className="mb-2 border-2">
+                                      <p className=" p-1 bg-gray-100/50 font-roboto text-sm">
+                                        {item3}
+                                      </p>
+                                    </div>
+                                  ))}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
                         ))}
                       </div>
                     ) : (
