@@ -4,91 +4,202 @@
       "nama_prodi": "TEKNIK KIMIA",
       "definisi": "Teknik Kimia merupakan cabang ilmu teknik mempelajari bagaimana proses dan cara mengubah bahan baku/mentah dan bahan kimia menjadi sebuah produk yang lebih bernilai secara komersial dengan memanfaatkan proses-proses kimia, seperti reaksi kimia dan biokimia maupun perubahan sifat fisik dan kimia bahan mentah. Mahasiswa jurusan Teknik Kimia dididik untuk dapat merencanakan dan merancang alat-alat proses, mengoperasikan, mengendalikan dan memelihara pabrik / industri, mengkontruksi pendirian suatu pabrik (dalam batas batas tertentu), mengadakan penelitian dan pengembangan proses, bahkan merencanakan serta mengelola penjualan dan pelayanan.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Kimia Dasar",
+        "Mikrobiologi",
+        "Fisika Dasar",
+        "Kimia Analisa",
+        "Kalkulus",
+        "Kimia Organik",
+        "Kimia Fisika",
+        "Azas Teknik Kimia",
+        "Analisa & Pengolahan Data",
+        "Matematika Rekayasa",
+        "Transfer Momentum",
+        "Pengantar Ilmu Lingkungan",
+        "Tekno Ekonomi",
+        "Transfer Panas",
+        "Operasi Teknik Kimia",
+        "Thermodinamika Teknik Kimia",
+        "Manajemen Pabrik Kimia",
+        "Ekonomi Teknik",
+        "Desain Pabrik Kimia",
+        "Sistem Utilitas Pabrik",
+        "Matematika Teknik Kimia",
+        "Teknik Reaksi Kimia",
+        "Aplikasi Teknik Kimia",
+        "Komputasi Numerik Terapan",
+        "Desain Alat Industri Kimia",
+        "Pengendalian Proses",
+        "Sintesa dan Simulasi Proses",
+        "Teknologi Pengolahan Hasil Pertanian",
+        "Teknologi Material",
+        "Teknologi Energi dan Petrokimia",
+        "Teknologi Pemisahan dan Pemurnian",
+        "Bioteknologi"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "perminyakan dan gas alam",
+        "pertambangan batu bara",
+        "industri semen",
+        "industri pupuk",
+        "industri polimer",
+        "industri pulp dan kertas",
+        "industri petrokimia",
+        "industri plastik",
+        "industri farmasi",
+        "industri makanan dan minuman"
       ]
     },
     {
       "nama_prodi": "KEDOKTERAN",
       "definisi": "Program studi Pendidikan Dokter (atau lebih dikenal dengan Kedokteran) adalah salah satu prodi yang tiap tahun selalu banyak peminatnya. Di prodi ini kamu akan mempelajari ilmu medis, bagaimana memelihara kesehatan, pencegahan, dan pengobatan penyakit. Untuk mempelajari ilmu kedokteran ini, kamu harus memahami anatomi, fungsi, dan interaksi yang terjadi pada tubuh manusia, mulai dari tulang, otot, saraf, dan indera. Selain anatomi, kamu juga akan belajar histologi, fisiologi, dan biokimia. Setelah memahami fungsi dasar bagian tubuh, kamu juga akan belajar tentang penyakit dan obat-obatan. Dan pastinya, di Pendidikan Dokter, kamu akan mempelajari tata cara pemeriksaan pasien dan menginterpretasi hasil pemeriksaan tersebut.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Biologi Kedokteran",
+        "Fisika Kedokteran",
+        "Kimia Kedokteran",
+        "Anatomi",
+        "Fisiologi",
+        "Biokimia",
+        "Mikrobiologi",
+        "Parasitologi ",
+        "Patologi Anatomi",
+        "Patologi Klinik",
+        "Farmakologi dan Terapi",
+        "Gizi Kedokteran",
+        "Ilmu Penyakit Dalam",
+        "Ilmu Kesehatan Anak",
+        "Ilmu Bedah",
+        "Ilmu Kebidanan & Penyakit Kandungan",
+        "Ilmu Penyakit Syaraf",
+        "Ilmu Kesehatan THT",
+        "Ilmu Penyakit Mata",
+        "Ilmu Kesehatan Jiwa",
+        "Ilmu Penyakit Kulit & Kelamin",
+        "Ilmu Penyakit Gigi & Mulut",
+        "Ilmu Anestesi",
+        "Ilmu Kedokteran Forensik",
+        "Ilmu Kesehatan Masyarakat",
+        "Neuro-muskulo-skeletal",
+        "Respirasi & Kardiovaskular",
+        "Uropoetika & Reproduksi",
+        "Cerebro & Pancaindera",
+        "Hematologi",
+        "Sistem Limfatik dan Endokrin",
+        "Kepaniteraan klinik Terintegrasi",
+        "Infeksi dan Imunologi",
+        "Neoplasma dan Degeneratif",
+        "Obstetri dan Ginekologi",
+        "Radiologi"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
-      "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
-      ]
+      "prospek_kerja": ["Dokter"]
     },
     {
       "nama_prodi": "PENDIDIKAN MATEMATIKA",
       "definisi": "Pendidikan Matematika merupakan salah satu program studi yang berada di bawah Fakultas Keguruan dan Ilmu Pendidikan. Apa perbedaan prodi Pendidikan Matematika dengan prodi Matematika Murni yang ada di Fakultas MIPA? Tentunya perbedaannya terletak pada mata kuliah ilmu pendidikan yang hanya diperoleh di prodi Pendidikan Matematika. Pada prodi ini, selain mempelajari dasar-dasar ilmu matematika seperti aljabar, geometri, kalkulus, statistika, dan trigonometri, juga akan dipelajari dasar-dasar ilmu IPA lainnya seperti fisika, biologi, dan kimia. Sama halnya dengan prodi-prodi pada rumpun ilmu pendidikan lainnya, di prodi Pendidikan Matematika akan diajarkan teori-teori kependidikan yang mencakup metode pembelajaran matematika, perencanaan pengajaran, dan evaluasi pengajaran.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Aljabar Linear",
+        "Aljabar Matriks",
+        "Analisis Numerik",
+        "Analisis Real",
+        "Analisis Regresi",
+        "Analisis Vektor",
+        "Fungsi Variabel Kompleks",
+        "Geometri Analitik",
+        "Geometri Bidang",
+        "Geometri Ruang",
+        "Geometri Transformasi",
+        "Kalkulus",
+        "Analisis Kurikulum dan Perencanaan Pengajaran Matematika",
+        "Dasar-Dasar dan Proses Pembelajaran Matematika",
+        "Evaluasi Proses dan Hasil Pembelajaran Matematika",
+        "Kurikulum dan Pembelajaran",
+        "Landasan Pendidikan",
+        "Matematika Diskrit",
+        "Matematika Ekonomi",
+        "Microteaching",
+        "Model Pembelajaran Matematika",
+        "Pengelolaan Pendidikan",
+        "Perkembangan dan Bimbingan Peserta Didik",
+        "Persamaan Diferensial",
+        "Profesi Kependidikan",
+        "Program Komputer",
+        "Program Linear",
+        "Statistika Matematika",
+        "Strategi dan Media Pembelajaran Matematika",
+        "Struktur Aljabar",
+        "Teori Bilangan",
+        "Teori Graph",
+        "Trigonometri"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
-      "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
-      ]
+      "prospek_kerja": ["Guru", "Dosen", "Edupreneur"]
     },
     {
       "nama_prodi": "PENDIDIKAN BIOLOGI",
       "definisi": "Pendidikan Biologi adalah sebuah program studi yang bertujuan untuk menghasilkan tenaga pengajar biologi yang terampil untuk tingkat pendidikan dasar hingga menengah. Apa yang dipelajari pada program studi ini adalah ilmu biologi beserta turunan-turunannya, namun dengan tambahan perspektif pendidikan dan pengajaran di dalamnya. Mahasiswa program studi Pendidikan Biologi juga akan mempelajari bagaimana cara mengajar yang baik, membuat soal-soal, kurikulum, manajemen sekolah, dan hal-hal lain yang berhubungan dengan teknis maupun administrasi persekolahan. Ketika lulus nanti, gelar yang didapatkan adalah S.Pd atau Sarjana Pendidikan.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Pengantar Pendidikan",
+        "Biologi Dasar",
+        "Bioetika",
+        "Zoologi",
+        "Strategi Pembelajaran",
+        "Media dan Sumber Belajar",
+        "Pengetahuan Laboratorium",
+        "Botani",
+        "Evaluasi Pembelajaran",
+        "Biologi Sel Molekuler",
+        "Komputasi Analisis Data",
+        "Perencanaan dan Pembelajaran"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
-      "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
-      ]
+      "prospek_kerja": ["Guru", "Dosen", "Edupreneur"]
     },
     {
       "nama_prodi": "PENDIDIKAN KIMIA",
       "definisi": "Program studi pendidikan kimia adalah sebuah prodi yang mempelajari tentang pengajaran dan pembelajaran dari kimia di semua sekolah, perguruan tinggi dan universitas. Apa yang dipelajari di program studi ini termasuk memahami bagaimana siswa belajar kimia, cara terbaik untuk mengajar kimia, dan bagaimana untuk meningkatkan hasil belajar dengan mengubah metode pengajaran dan pelatihan yang sesuai dalam mengajar kimia, dengan berbagai cara, termasuk kegiatan belajar mengajar, demonstrasi, dan kegiatan laboratorium.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Kimia Dasar",
+        "Strategi Pembelajaran Kimia",
+        "Psikologi Perkembangan",
+        "Sejarah dan Kepustakaan Kimia",
+        "Kalkulus",
+        "Fisika Umum",
+        "Biologi Umum",
+        "Kimia Anorganik",
+        "Kimia Analisis",
+        "Manajemen Laboratorium Kimia",
+        "Pengajaran Mikro",
+        "Teori Belajar dan Pembelajaran"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
-      "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
-      ]
+      "prospek_kerja": ["Guru", "Dosen", "Edupreneur"]
     },
     {
       "nama_prodi": "AGROEKOTEKNOLOGI",
@@ -1643,24 +1754,7 @@
         "Kepala Dinas Pendidikan"
       ]
     },
-    {
-      "nama_prodi": "",
-      "definisi": "",
-      "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
-      "st30": [
-        { "merah": ["Analist", "Interpreter"] },
-        { "kuning": ["Designer", "Creator", "Administrator"] },
-        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
-      ],
-      "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
-      ]
-    },
+
     {
       "nama_prodi": "PENDIDIKAN SENDRATASIK",
       "definisi": "Sesuai namanya, program studi ini mempersiapkan mahasiswanya untuk menjadi pendidik atau pengajar bidang seni yang terdiri dari seni drama, tari, dan musik (Sendratasik). Berbeda dengan mahasiswa Sendratasik yang memang dikhususkan untuk menjadi ahli seni atau seniman. Jadi selain mendapatkan pengetahuan tentang seni, mahasiswa prodi Pendidikan Sendratasik juga akan mendapatkan pengetahuan tentang kependidikan yang berkaitan dengan perencanaan pembelajaran, evaluasi pembelajaran, kurikulum pendidikan, dan sebagainya. Ilmu tentang seni drama, tari, dan musik yang peroleh di prodi ini juga bukan sekedar praktik, melainkan juga teori-teori seni tari seperti sejarah drama, tari, dan musik, antropologi tari, dan lain-lain. Mahasiswa nantinya akan dibebaskan memilih konsentrasi apakah Pendidikan Seni Drama, Pendidikan Seni Tari, atau Pendidikan Seni Musik.",
