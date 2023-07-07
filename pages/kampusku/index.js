@@ -462,7 +462,7 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
                                 .map((item2, index) => (
                                   <div
                                     key={index}
-                                    className="flex items-center space-x-2"
+                                    className="flex items-start space-x-2"
                                   >
                                     <div>
                                       <svg
