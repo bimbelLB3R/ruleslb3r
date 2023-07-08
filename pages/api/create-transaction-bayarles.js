@@ -2,10 +2,10 @@ import axios from "axios";
 
 export default async function handler(req, res) {
   const newRow = req.body;
-  console.log(newRow);
+  // console.log(newRow);
   const biayaInt = parseInt(newRow.jumlah);
   const kalipembayaran = newRow.kalipembayaran;
-  console.log(kalipembayaran);
+  // console.log(kalipembayaran);
   // const kuantitas = parseInt(newRow.kalipembayaran);
   // console.log(kuantitas);
 
@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     totalDibayar = biayaInt;
     kuantitas = 1;
   }
-  console.log(totalDibayar);
+  // console.log(totalDibayar);
   // const first_name = dataFromDaftarLayanan.nama;
   // menyimpan data dataFromDaftarLayanan ke local storage
 
@@ -71,13 +71,13 @@ export default async function handler(req, res) {
     ],
     customer_details: {
       first_name: newRow.namalengkap,
-      last_name: "LB3R",
-      email: "bimbellb3r@gmail.com",
+      last_name: "(Siswa LB3R)",
+      email: "webbimbellb3r@gmail.com",
       phone: newRow.wa,
       billing_address: {
         first_name: newRow.namalengkap,
         last_name: "LB3R",
-        email: "bimbellb3r@gmail.com",
+        email: "webbimbellb3r@gmail.com",
         phone: newRow.wa,
         address: "Tabalong",
         city: "Tabalong",
@@ -86,8 +86,8 @@ export default async function handler(req, res) {
       },
       shipping_address: {
         first_name: newRow.namalengkap,
-        last_name: "LB3R",
-        email: "bimbellb3r@gmail.com",
+        last_name: "(Siswa LB3R)",
+        email: "webbimbellb3r@gmail.com",
         phone: newRow.wa,
         address: "Tabalong",
         city: "Tabalong",
