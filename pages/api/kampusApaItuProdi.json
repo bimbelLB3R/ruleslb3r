@@ -2122,18 +2122,37 @@
       "nama_prodi": "PARIWISATA",
       "definisi": "Program studi Pariwisata adalah program studi yang mempelajari semua hal yang berkaitan dengan pariwisata. Biasanya meliputi manajemen destinasi, tour and travel, dan perhotelan. Para lulusan jurusan ini diharapkan mampu memberikan pelayanan hospitalitas yang berkualitas. Selain itu, mahasiswa diharapkan memiliki ketertarikan pada kebudayaan Indonesia sekaligus bisnis.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Psikologi Jasa",
+        "Dasar-dasar Ilmu Budaya",
+        "Pengantar Ilmu Pariwisata",
+        "Kepurbakalaan Indonesia",
+        "Ekonomi Pariwisata",
+        "Sejarah Indonesia",
+        "Bahasa Korea",
+        "Bahasa Prancis",
+        "Bahasa Belanda",
+        "Hukum Pariwisata",
+        "Pengantar Hospitalitas",
+        "Globalisasi dan Dampak Terhadap Pariwisata",
+        "Sistem Informasi Pariwisata",
+        "Geografi Pariwisata Nasional",
+        "MICE",
+        "Manajemen Seni Pertunjukan",
+        "Manajemen Pengolahan Makanan & Minuman",
+        "Seni & Kebudayaan Indonesia",
+        "Geografi Pariwisata Internasional",
+        "Statistik Pariwisata",
+        "Pariwisata Berkelanjutan",
+        "Bisnis Pariwisata"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Saat ini sektor pariwisata Indonesia sedang bergairah. Pemerintah sedang gencar meningkatkan kualitas industri pariwisata. Oleh karena itu, peluang bekerja pun juga semakin lebar. Lulusan program studi Pariwisata dapat bekerja sebagai pemandu wisata, hotelier, pengusaha akomodasi pariwisata seperti hotel dan penginapan, manajer pusat rekreasi, event organizer, dan masih banyak lagi."
       ]
     },
     {
@@ -2454,37 +2473,108 @@
       "nama_prodi": "PENDIDIKAN AKUNTANSI",
       "definisi": "Prospek lulusan Program Studi Pendidikan Akuntansi adalah pengajar bidang akuntansi dan keuangan, asisten peneliti bidang pendidikan akuntansi dan keuangan, teknisi akuntansi dan keuangan, serta  wirausaha pada bidang pendidikan akuntansi dan keuangan",
       "sumber": "dikakuntansi.upi.edu",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Pengantar Ilmu Administrasi dan Manajemen",
+        "Pengantar Teori Ekonomi Mikro",
+        "Pengantar Bisnis",
+        "Pendidikan Pancasila",
+        "Dasar-Dasar Kependidikan",
+        "Bahasa Indonesia",
+        "Pengantar Akuntansi",
+        "Matematika Ekonomi",
+        "Pendidikan Kewarganegaraan",
+        "Ilmu Alam Dasar",
+        "Pendidikan Agama",
+        "Psikologi Pendidikan",
+        "Filsafat Ilmu",
+        "Hukum Bisnis",
+        "Bahasa Inggris TEP",
+        "Akuntansi Keu Menengah 1",
+        "Pengantar Teori Ekonomi Makro",
+        "Koperasi dan UMKM",
+        "Anggaran Perusahaan",
+        "Bahasa Inggris Bisnis",
+        "Pengembangan Kepribadian",
+        "Teori Belajar",
+        "Statistik 1",
+        "Akuntansi Keu Menengah 2",
+        "Akuntansi Biaya",
+        "Perpajakan",
+        "Media Pembelajaran Akuntansi",
+        "Analisis Laporan Keuangan",
+        "Telaah Kurikulum Akuntansi SMK/SMA",
+        "Pembelajaran Inovatif 1",
+        "Akuntansi Manajemen",
+        "Praktikum Akuntansi",
+        "Akuntansi Perpajakan",
+        "Statistik 2",
+        "Perencanaan Pajak",
+        "Ilmu Organisasi",
+        "Komputer Akuntansi 1",
+        "Assesmen Pembelajaran Akuntansi",
+        "Metode Penelitian Pendidikan Akuntansi",
+        "Pembelajaran Inovatif 2",
+        "Akuntansi Keuangan Lanjutan",
+        "Dasar-Dasar Perbankan",
+        "Manajemen Keuangan",
+        "Kewirausahaan",
+        "Akuntansi Syariah",
+        "Manajemen Investasi"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
-      "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
-      ]
+      "prospek_kerja": ["Guru", "Dosen", "Peneliti"]
     },
     {
       "nama_prodi": "PENDIDIKAN TATA BOGA",
       "definisi": "Jurusan Tata Boga pasti menjadi incaran Sobat Pintar yang punya passion di bidang kuliner. Memang, Tata Boga adalah jurusan yang tepat buat belajar segalanya tentang cara mengolah dan menyajikan makanan dan minuman dari berbagai belahan dunia. Namun sedikit berbeda dengan Pendidikan Tata Boga. Di jurusan ini Sobat Pintar tak hanya belajar tentang kuliner, tapi juga belajar bagaimana menjadi tenaga pendidik di bidang boga. Kelas boga yang membutuhkan tenaga pendidik dari S1 Pendidikan Tata Boga misalnya Jurusan Tata Boga di SMK.",
       "sumber": "akupintar.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Strategi Belajar Kuliner",
+        "Evaluasi Pembelajaran Kuliner",
+        "Literasi TIK dan Media Pembelajaran Kuliner",
+        "Rencana Kursus Kuliner",
+        "Bahasa Inggris untuk Tujuan Profesional",
+        "Metodologi Penelitian",
+        "Ekonomi Rumah",
+        "Manajemen Dapur",
+        "Ilmu Pangan",
+        "Etika dan Estetika Profesi",
+        "Entrepreneurship",
+        "Ilmu Terapan dalam Kuliner",
+        "Edukasi Konsumen",
+        "Ilmu Gizi",
+        "Kesehatan Kerja dan Keamanan Layanan Makanan",
+        "Keahlian Memasak Pariwisata",
+        "Statistik",
+        "Aplikasi Komputer",
+        "Kuliner Dasar",
+        "Makanan Pokok Indonesia",
+        "Lauk Indonesia",
+        "Kue dan Minuman Indonesia",
+        "Toko Roti",
+        "Kue",
+        "Hidangan Pembuka dan Sup",
+        "Makanan Asia",
+        "Manajemen Bisnis Katering",
+        "Layanan Makanan dan Minuman",
+        "Hidangan Utama",
+        "Pengawetan Makanan",
+        "Inovasi Kuliner",
+        "Konseling Kuliner",
+        "Diet Terapeutik",
+        "Seni Kuliner",
+        "Studi Komprehensif dalam Kuliner"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
-      "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
-      ]
+      "prospek_kerja": ["Chef", "Wirausaha", "Guru"]
     },
     {
       "nama_prodi": "BAHASA DAN SASTRA INGGRIS",
@@ -2533,18 +2623,34 @@
       "nama_prodi": "PENDIDIKAN TATA BUSANA",
       "definisi": "Jurusan Pendidikan Tata Busana adalah jurusan yang mempelajari ilmu merancang busana. Pada jurusan ini, kamu akan mempelajari teknik mendesain, seluk beluk produksi busana atau fashion, belajar membuat pola, dan menjahit. Tak hanya belajar soal produksi, kamu juga akan belajar tentang analisis trend, marketing, dan manajemen fashion bisnis.Kuliah di jurusan pendidikan tata busana itu seru banget, apalagi buat kamu yang punya passion memilih gaya penampilan dan sebagainya. Kamu bisa mengembangkan passion di jurusan ini. Jika mengambil jurusan ini, kamu akan belajar tentang pengenalan alat dan teknik yang digunakan, cara membuat pola pakaian, ilustrasi desain, teknik menjahit dalam membuat pakaian, cara memilih jenis kain dan bahan baku tekstil, konsep model dan lainnya.Biasanya orang yang memiliki tertarikan pada bidang ini, awalnya menyukai nilai fashion yang bagus, dengan memilih dan menilai penampilan yang sempurna.",
       "sumber": "danacita.co.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Dasar-dasar Kependidikan",
+        "Dasar Desain",
+        "Gambar Model",
+        "Konstruksi Pola Busana",
+        "Teknik Menjahit",
+        "Desain Tekstil",
+        "Kimia Terapan",
+        "Desain Mode I",
+        "Pendidikan Vokasi",
+        "Draping",
+        "Kriya Tekstil I",
+        "Busana Pria",
+        "Pelengkap Busana",
+        "Etnografi Busana Indonesia",
+        "Pemasaran Fesyen",
+        "Pengelolaan Lab Bidang Studi",
+        "Pendidikan Konsumen",
+        "Bordir",
+        "Perencanaan Pembelajaran"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Sebagai jurusan kependidikan, Pendidikan Tata Busana memang meluluskan para calon guru SMK. Namun kuliah di jurusan ini juga membekalimu dengan skills yang dibutuhkan untuk berkiprah di bidang industri tata busana. Dari sisi permintaan pasar dan kreativitas, industri tata busana menawarkan peluang yang tak ada habisnya. Jika tak mengajar di SMK, alumni Pendidikan Tata Busana dapat membuka kursus, menjadi desainer pakaian, berprofesi sebagai stylist, atau menjadi bagian dari tim wardrobe di stasiun televisi"
       ]
     },
     {
@@ -2597,18 +2703,38 @@
       "nama_prodi": "PENDIDIKAN BAHASA MANDARIN",
       "definisi": "Mahasiswa akan mempelajari tata bahasa china, bahasa china dasar, teori linguistik, sejarah china I & II, pengetahuan huruf Han modern, pengantar kesusastraan china, fonetik bahasa mandarin, pengolahan info bahasa mandarin, dasar pemikiran china, kajian puisi, kajian drama, bahasa china terpadu I-V, bahasa china media cetak, wisata china, china klasik dan lain sebagainya.",
       "sumber": "akupintar.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Bahasa Cina",
+        "Sejarah Cina Kuno",
+        "Pengantar Linguistik Cina",
+        "Fonetik & Fonologi Cina",
+        "Sejarah Cina Era Dinasti Ming",
+        "Sejarah Cina Era Pascadinasti",
+        "Morfologi & Sintaksis Cina",
+        "Pengantar Kesusastraan Cina",
+        "Sejarah Cina Kontemporer",
+        "Bahasa Cina Klasik Dasar",
+        "Terjemahan Cina-Indonesia",
+        "Semantik & Pragmatik Cina",
+        "Perkembangan Kesusastraan Cina",
+        "Historiografi Cina",
+        "Pengkajian Kesusastraan Cina",
+        "Telaah Teks Cina",
+        "Teori Kritik Sastra Cina",
+        "Bahasa Cina untuk Pers",
+        "Bahasa Cina untuk Pariwisata",
+        "Bahasa Cina untuk Bisnis dan Perkantoran"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Interpreter",
+        "Copy Writing",
+        "Diplomat",
+        "Content Writer"
       ]
     },
     {
@@ -2906,7 +3032,7 @@
     },
     {
       "nama_prodi": "TEKNIK INDUSTRI PERTANIAN",
-      "definisi": "Program studi Industri Pertanian atau Agroindustri mempelajari tentang teknologi industri pertanian dengan model pembelajaran berbasis riset. Mahasiswa akan mendalami bidang agroindustri dengan penguasaan kaidah-kaidah penelitian yang bersifat filosofis, aplikatif, dan mandiri. Pembelajaran dengan dasar penelitian akan menghasilkan mahasiswa yang mampu menciptakan temuan baru dalam agrikultur dengan mengedepankan value inovatif serta dapat membuat karya ilmiah menarik yang layak dipublikasikan. Mendengar kata ‘pertanian’ yang terbayang pasti sawah, menanam, mencangkul. Namun pada program studi Teknologi Industri Pertanian menitikberatkan pada proses kegiatan pasca panen. Artinya pada program studi ini akan dipelajari cara mengolah hasil pertanian agar menghasilkan produk-produk yang berkualitas tinggi.",
+      "definisi": "Program studi Industri Pertanian atau Agroindustri mempelajari tentang teknologi industri pertanian dengan model pembelajaran berbasis riset. Mahasiswa akan mendalami bidang agroindustri dengan penguasaan kaidah-kaidah penelitian yang bersifat filosofis, aplikatif, dan mandiri. Pembelajaran dengan dasar penelitian akan menghasilkan mahasiswa yang mampu menciptakan temuan baru dalam agrikultur dengan mengedepankan value inovatif serta dapat membuat karya ilmiah menarik yang layak dipublikasikan. Mendengar kata pertanian yang terbayang pasti sawah, menanam, mencangkul. Namun pada program studi Teknologi Industri Pertanian menitikberatkan pada proses kegiatan pasca panen. Artinya pada program studi ini akan dipelajari cara mengolah hasil pertanian agar menghasilkan produk-produk yang berkualitas tinggi.",
       "sumber": "rencanamu.id",
       "mata_kuliah": ["Matematika", "kimia", "Biologi"],
       "st30": [
@@ -3107,36 +3233,84 @@
       "nama_prodi": "PENGELOLAAN SUMBERDAYA PERIKANAN",
       "definisi": "Pada program studi Pemanfaatan Sumberdaya Perikanan (PSP) kita akan mempelajari tentang pengelolaan sumberdaya dan lingkungan perairan, menganalisis potensi sumber daya perikanan di suatu daerah serta masalah-masalah yang dihadapi berkaitan sumber daya perikanan dan cara mengatasinya. Mulai dari bagaimana mencari dan menemukan sumber daya perikanan tersebut, lalu mengeksploitasinya, juga melestarikan sumber daya perikanan tersebut agar tetap terjaga, semuanya akan di pelajari di program studi PSP.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Biologi Umum",
+        "Kimia Dasar",
+        "Fisika Dasar",
+        "Matematika",
+        "Statistika",
+        "Ikhtiologi",
+        "Ekologi Perairan",
+        "Limnologi",
+        "Meteorologi Laut",
+        "Avertebrata Air",
+        "Biologi Perikanan",
+        "Navigasi",
+        "Tingkah Laku Ikan",
+        "Teknologi Penangkapan Ikan",
+        "Rancang Bangun Kapal Perikanan",
+        "Manajemen Akuakultur Payau",
+        "Pengendalian Pencemaran Perairan",
+        "Teknologi Penanganan Hasil Perikanan",
+        "Manajemen Operasi Penangkapan Ikan",
+        "Kepelautan",
+        "Undang-undang dan Peraturan Perikanan",
+        "Sosiologi Masyarakat Perikanan",
+        "Tata Niaga Hasil Perikanan",
+        "Konservasi Sumberdaya Perairan",
+        "Manajemen Sumberdaya Pesisir dan Laut"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Lulusan prgram studi Pemanfaatan Sumberdaya Perikanan punya prospek yang bagus untuk kedepannya. Seluas 5,8 juta km2 laut Indonesia butuh dikelola oleh sumberdaya manusia yang kompeten pula. Lulusan PSP akan menjadi sarjana yang handal dalam bidang kemaritiman. Bidang kemaritiman luas cakupannya, mulai dari sektor ekonomi, wisata, hingga keamanan perairan yang senantiasa harus dibela. Lulusan prodi ini dapat bekerja di lembaga pemerintahan seperti Kementrian Kelautan dan Perikanan dan BPPT, maupun perusahaan-perusahaan yang bergerak di bidang kelautan dan perikanan"
       ]
     },
     {
       "nama_prodi": "TEKNIK INDUSTRI",
       "definisi": "Teknik Industri merupakan ilmu yang mempelajari proses industri baik dari sisi manajemen ataupun teknik. Ilmu teknik industri sebenarnya adalah turunan dari teknik mesin. Walau demikian, para mahasiswa juga harus mempelajari disiplin lain seperti matematika, fisika, fisiologi, bahkan manajemen saintifik. Teknik industri berfokus kepada perancangan, peningkatan, dan pemasangan sistem terintegrasi yang membutuhkan peran manusia, material, peralatan dan energi. Teknik Industri sendiri dibagi menjadi tiga bidang besar. Pertama, sistem manufaktur yang mempelajari peningkatan kualitas, produktivitas, dan efisiensi sistem produksi. Kedua adalah manajemen industri, di mana para mahasiswa harus mempelajari manajemen keuangan, manajemen operasional, manajemen inovasi, perencanaan dan pengendalian produksi, dan ekonomi teknik. Ketiga adalah sistem industri dan tekno ekonomi, seperti logistik, statistik, penelitian operasional, dan sistem basis data.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Matematika",
+        "Fisika Dasar",
+        "Kimia Dasar",
+        "Menggambar Teknik",
+        "Teori Probabilitas",
+        "Material Teknik",
+        "Mekanika Teknik Dasar",
+        "Matriks dan Ruang Vektor",
+        "Statistika Industri",
+        "Elektronika Industri",
+        "Pengantar Ergonomi",
+        "Psikologi Industri",
+        "Proses Manufaktur",
+        "Praktikum Perancangan Sistem Terintegrasi",
+        "Kalkulus",
+        "Analisis Biaya",
+        "Pemodelan Sistem",
+        "Perencanaan & Pengendalian Produksi",
+        "Pengendalian & Penjaminan Mutu",
+        "Rekayasa Sistem Kerja",
+        "Otomasi Sistem Produksi",
+        "Ekonomi Teknik",
+        "Sistem Produksi",
+        "Organisasi & Manajemen Perusahaan Industri",
+        "Keselamatan, Kesehatan, dan Lingkungan Kerja",
+        "Proyek Rekayasa Inter-Disiplin",
+        "Perancangan Tata Letak Pabrik",
+        "Sistem ERP",
+        "Pemodelan Stokastik"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Teknik Industri mempunyai prospek yang bagus. Ketersediaan lapangan kerja sangat luas, dari industri kecil sampai industri besar. Para lulusan teknik industri bisa mengambil peran beberapa fungsi seperti divisi spesialisasi teknik industri, divisi produksi, divisi engineering, divisi perencanaan biaya, bahkan divisi HRD."
       ]
     },
     {
@@ -3179,18 +3353,47 @@
       "nama_prodi": "BAHASA DAN SASTRA INDONESIA",
       "definisi": "Program studi ini khusus mempelajari tren sastra di Indonesia. Para mahasiswa akan mempelajari beraneka ragam subyek sastra, puisi, drama, roman-novel, dan linguistik. Pada semester 4, mahasiswa akan diarahkan untuk memilih beberapa konsentrasi yaitu peminatan sastra, peminatan linguistik, dan peminatan filologi.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Linguistik Umum",
+        "Fonologi",
+        "Sintaksis",
+        "Wacana Bahasa Indonesia",
+        "Perencanaan Bahasa",
+        "Sosiolinguistik",
+        "Apresiasi Sastra",
+        "Kajian Puisi",
+        "Kajian Prosa Fiksi",
+        "Apresiasi Drama",
+        "Keterampilan Menyimak",
+        "Keterampilan Membaca Teknik",
+        "Keterampilan Berbicara Interpersonal",
+        "Retorika Berbahasa",
+        "Keterampilan Menulis Kritis dan Ilmiah",
+        "Penulisan Kreatif",
+        "Teater",
+        "Estetika Bahasa dan Seni",
+        "Telaah Kurikulum dan Buku Teks",
+        "Bahasa Bantu",
+        "Morfologi",
+        "Semantik",
+        "Anakastik",
+        "Psikolinguistik",
+        "Teori Sastra",
+        "Sejarah Sastra",
+        "Kajian Drama",
+        "Pengantar Filologi",
+        "Kritik Sastra",
+        "Keterampilan Menulis Populer",
+        "Penyuntingan",
+        "Pragmatik Berbahasa"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Pemahaman tentang Bahasa Indonesia adalah sesuatu yang wajib. Saat ini Bahasa Indonesia mulai memudar ketika banyak orang cenderung lebih senang menggunakan Bahasa Inggris. Pembelajaran tentang Bahasa Indonesia harus mulai digalakkan lagi. Seorang lulusan Sastra Indonesia dapat bekerja sebagai editor, copywriter, content writer, penerjemah, penulis naskah, guru bahasa indonesia, dan bahkan blogger"
       ]
     },
     {
@@ -3215,144 +3418,383 @@
       "nama_prodi": "AKUNTASI",
       "definisi": "Akuntasi adalah sebuah program studi yang menyiapkan mahasiswanya untuk bisa mempraktekkan profesi akuntansi dan melakukan fungsi bisnis terkait, termasuk menerapkan instruksi dalam prinsip akuntansi dan teori, akuntansi keuangan, akuntansi manajerial, akuntansi biaya, pengendalian anggaran, akuntansi pajak, aspek hukum akuntansi, audit, prosedur pelaporan, analisis laporan, perencanaan dan konsultasi, sistem informasi bisnis, metode penelitian akuntansi, standar profesional dan etika. Ilmu Akuntansi lalu diaplikasikan di berbagai instansi bisnis, baik yang bersifat profit, non-profit, publik, maupun instansi pemerintahan.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Ekonomi Mikro",
+        "Ekonomi Makro",
+        "Matematika Ekonomi",
+        "Matematika Bisnis",
+        "Ekonomi Koperasi",
+        "Akuntansi Keuangan",
+        "Akuntansi Biaya",
+        "Akuntansi Manajemen",
+        "Akuntansi Sektor Publik",
+        "Auditing",
+        "Sistem Pengendalian Manajemen",
+        "Sistem Informasi Akuntansi",
+        "Teori Akuntansi",
+        "Komunikasi Bisnis",
+        "Perpajakan",
+        "Manajemen Pemasaran",
+        "Manajemen Keuangan",
+        "Manajemen Operasional",
+        "Manajemen Sumberdaya Manusia",
+        "Akuntansi Organisasi Nirlaba",
+        "Perpajakan Internasional",
+        "Manajemen Strategik",
+        "Statistika Ekonomi dan Bisnis",
+        "Permodelan Keuangan dan Simulasi Bisnis",
+        "Analitik Bisnis",
+        "Investasi dan Pasar Modal",
+        "Strategi dan Manajemen Kinerja Organisasi",
+        "Tata Kelola Perusahaan dan Manajemen Resiko"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Salah satu alasan mengapa Akuntansi menjadi program studi yang paling banyak peminatnya adalah karena prospek karier yang dijanjikan. Tiap-tiap perusahaan pasti membutuhkan tenaga profesional dalam mengatur keuangan perusahaan. Disinilah peran lulusan Akuntansi dibutuhkan. Selain itu, lulusan Akuntansi dapat melanjutkan Pendidikan Profesi Akuntansi untuk dapat membuka praktik akuntan sendiri."
       ]
     },
     {
       "nama_prodi": "PERPAJAKAN",
       "definisi": "Program studi Administrasi Fiskal (Perpajakan) adalah sebuah program studi yang mempelajari perpajakan dari segala macam perspektif, dari sisi hukum, ekonomi, dan akuntansi. Kamu akan dibekali keterampilan untuk menyusun laporan pajak sesuai dengan peraturan dan ketentuan perpajakan. Kamu juga harus bisa menyelesaikan masalah administrasi perpajakan, dan membuat laporan keuangan sesuai dengan standar hukum yang berlaku. Program studi ini dikenal dengan nama Administrasi Fiskal (S1) atau Perpajakan (D3).",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Pengantar Ilmu Hukum",
+        "Akuntansi Keuangan",
+        "Pengantar Pajak",
+        "Akuntansi Biaya",
+        "Pajak Penghasilan I & II",
+        "Pajak Pertambahan Nilai",
+        "Akuntansi Keuangan",
+        "Kepabeanan dan Ekspor Impor",
+        "Administrasi Keuangan Negara",
+        "Pajak Penghasilan",
+        "Akuntansi Perpajakan",
+        "Pajak Daerah dan Retribusi Daerah",
+        "Pajak Internasional",
+        "Peradilan Pajak",
+        "Sistem Informasi Akuntansi",
+        "Auditing",
+        "PPN dan PPN BM",
+        "Manajemen Keuangan",
+        "Hukum Bisnis",
+        "Akuntansi Sektor Publik",
+        "Pabean dan Cukai",
+        "Pemeriksaan Pajak",
+        "Perpajakan Internasional",
+        "Penilaian Properti",
+        "Praktikum Pemotongan dan Pemungutan PPH"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Lulusan Administrasi Fiskal punya peluang karier yang sangat besar. Hal ini disebabkan karena lulusan Administrasi Fiskal masih minim, sedangkan kebutuhan profesi ini masih sangat tinggi. Prodi ini tersedia dalam jenjang studi D3, D4 dan S1, lulusannya juga berpeluang untuk berkarir di Kementerian Keuangan dan Ditjen Pajak khususnya, namun tidak hanya di instansi pemerintahan, tapi juga berbagai instansi atau organisasi swasta. Setiap perusahaan wajib membayar pajak, maka dari itu perusahaan-perusahaa tersebut pastinya membutuhkan ahli di bidang perpajakan. Lulusan prodi ini juga bisa berwirausaha sebagai konsultan pajak dengan melewati ujian sertifikasi konsultan pajak terlebih dahulu."
       ]
     },
     {
       "nama_prodi": "REKAYASA ELEKTRO",
       "definisi": "Teknik elektro merupakan ilmu teknik yang mempelajari sifat-sifat elektron yang kita kenal sebagai listrik. Mahasiswa Teknik Elektro mempelajari aplikasi dan pemanfaatan listrik dalam kehidupan sehari-hari, serta teknologi yang terkait. Cakupan teknik elektro sangat luas, mulai dari sumber pembangkit tenaga listrik, sistem jaringan distribusi, sampai pada pemanfaatannya oleh pengguna akhir. Teknik Elektro pun dipecah menjadi beberapa konsentrasi, seperti teknik elektronika, teknik listrik, teknik instrumentasi, sampai teknik komputer dan telekomunikasi.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Matematika",
+        "Fisika Dasar",
+        "Kimia Dasar",
+        "Pengantar Desain Teknik",
+        "Rangkaian Elektrik",
+        "Sistem Digital",
+        "Matematika Teknik",
+        "Struktur Diskrit",
+        "Elektronika",
+        "Medan Elektromagnetik",
+        "Sinyal dan Sistem",
+        "Pemecahan Masalah dengan C",
+        "Pengolahan Sinyal Digital",
+        "Arsitektur Sistem Komputer",
+        "Material Teknik Elektro",
+        "Sistem Kendali",
+        "Sistem Tenaga Elektrik",
+        "Kalkulus",
+        "Mikroprosesor",
+        "Termodinamika dan Penggerak Awal",
+        "Iluminasi dan Instalasi Listrik",
+        "Distribusi Daya Listrik",
+        "Pembangkit Tenaga Listrik",
+        "Teknik Tegangan Tinggi",
+        "Proses Stokastik",
+        "Sistem Mikroprosesor",
+        "Desain dan Instalasi Tenaga Listrik",
+        "Pengaman Sistem Tenaga Listrik",
+        "Distribusi Tenaga Listrik",
+        "Pemeliharaan Peralatan Listrik",
+        "Sistem Energi Baru dan Terbarukan"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Seiring dengan pesatnya perkembangan teknologi, jurusan teknik elektro juga semakin relevan. Prospek kerja yang terkait dengan bidang Teknik Elektro pun bisa dibilang cukup mumpuni seperti: teknisi telekomunikasi, teknisi radar, sonar, dan navigasi; spesialis network system, hingga ahli robotik. Untuk industrinya sendiri, seorang lulusan Teknik Elektro dapat masuk ke dalam hampir semua industri seperti telekomunikasi, manufaktur, IT, pembangkit listrik, hingga perminyakan dan pertambangan."
       ]
     },
     {
       "nama_prodi": "TEKNIK ELEKTRO",
       "definisi": "Teknik elektro merupakan ilmu teknik yang mempelajari sifat-sifat elektron yang kita kenal sebagai listrik. Mahasiswa Teknik Elektro mempelajari aplikasi dan pemanfaatan listrik dalam kehidupan sehari-hari, serta teknologi yang terkait. Cakupan teknik elektro sangat luas, mulai dari sumber pembangkit tenaga listrik, sistem jaringan distribusi, sampai pada pemanfaatannya oleh pengguna akhir. Teknik Elektro pun dipecah menjadi beberapa konsentrasi, seperti teknik elektronika, teknik listrik, teknik instrumentasi, sampai teknik komputer dan telekomunikasi.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Matematika",
+        "Fisika Dasar",
+        "Kimia Dasar",
+        "Pengantar Desain Teknik",
+        "Rangkaian Elektrik",
+        "Sistem Digital",
+        "Matematika Teknik",
+        "Struktur Diskrit",
+        "Elektronika",
+        "Medan Elektromagnetik",
+        "Sinyal dan Sistem",
+        "Pemecahan Masalah dengan C",
+        "Pengolahan Sinyal Digital",
+        "Arsitektur Sistem Komputer",
+        "Material Teknik Elektro",
+        "Sistem Kendali",
+        "Sistem Tenaga Elektrik",
+        "Kalkulus",
+        "Mikroprosesor",
+        "Termodinamika dan Penggerak Awal",
+        "Iluminasi dan Instalasi Listrik",
+        "Distribusi Daya Listrik",
+        "Pembangkit Tenaga Listrik",
+        "Teknik Tegangan Tinggi",
+        "Proses Stokastik",
+        "Sistem Mikroprosesor",
+        "Desain dan Instalasi Tenaga Listrik",
+        "Pengaman Sistem Tenaga Listrik",
+        "Distribusi Tenaga Listrik",
+        "Pemeliharaan Peralatan Listrik",
+        "Sistem Energi Baru dan Terbarukan"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Seiring dengan pesatnya perkembangan teknologi, jurusan teknik elektro juga semakin relevan. Prospek kerja yang terkait dengan bidang Teknik Elektro pun bisa dibilang cukup mumpuni seperti: teknisi telekomunikasi, teknisi radar, sonar, dan navigasi; spesialis network system, hingga ahli robotik. Untuk industrinya sendiri, seorang lulusan Teknik Elektro dapat masuk ke dalam hampir semua industri seperti telekomunikasi, manufaktur, IT, pembangkit listrik, hingga perminyakan dan pertambangan."
       ]
     },
     {
       "nama_prodi": "REKAYASA GEOLOGI",
       "definisi": "Teknik Geologi adalah ilmu yang mempelajari komposisi bumi, struktur, sifat-sifat fisik, sejarah, dan proses pembentukannya. Ketika para mahasiswa mempelajari Geologi, maka mereka juga belajar untuk bisa memberikan solusi terhadap permasalahan bumi. Pada program studi ini, mahasiswa akan mempelajari banyak hal tentang ilmu bumi yang meliputi perminyakan, pertambangan, geotermal, mitigasi bencana, dan lain sebagainya.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Geologi Dasar",
+        "Mineralogi",
+        "Ilmu Ukur Tanah",
+        "Fisika",
+        "Paleontologi",
+        "Geokimia Umum",
+        "Geologi Struktur",
+        "Mikro Paleontologi",
+        "Sedimentologi",
+        "Geologi Kelautan",
+        "Geofisika",
+        "Tektonika",
+        "Mineral Optik dan Petrografi",
+        "Geologi Sejarah",
+        "Geologi Lapangan",
+        "Geokomputasi",
+        "Statistika",
+        "Hidrogeologi",
+        "Sistem Informasi Geografis",
+        "Geologi Batubara",
+        "Geologi Migas",
+        "Geologi Indonesia",
+        "Geomorfologi dan Penginderaan Jauh",
+        "Petrologi",
+        "Kartografi dan Ilmu Ukur Tanah",
+        "Metode Pemetaan Geologi",
+        "Analisis Stratigrafi",
+        "Analisis Batuan",
+        "Geologi Panas Bumi",
+        "Vulkanologi",
+        "Thermodinamika",
+        "Petrologi Batuan Metamorf",
+        "Mitigasi Bencana Geologi",
+        "Mikrofosil Foram",
+        "Eksplorasi Panas Bumi dan Suksesi Vulkanik",
+        "Geologi Isotop",
+        "Manajemen Air Tanah",
+        "Geomekanika",
+        "Analisis Kestabilan Lereng",
+        "Geologi Struktur Indonesia"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Prospek kerja seorang lulusan Teknik Geologi cukup mumpuni, lho, gaes. Gimana nggak, lulusan Teknik Geologi biasanya bekerja di perusahaan-perusahaan tambang besar seperti Adaro, Antam, Kideco, dan masih banyak lagi. Selain itu, mereka juga bisa masuk ke perusahaan perminyakan seperti Pertamina, Exxon, Chevron, British Petroleum, dan lain-lain. Nggak lupa, instansi-instansi pemerintahan seperti Kementrian Lingkungan Hidup, Energi dan Sumber Daya Mineral, hingga BPPT dan LIPI juga membutuhkan tenaga lulusan Teknik Geologi."
       ]
     },
     {
       "nama_prodi": "TEKNIK GEOLOGI",
       "definisi": "Teknik Geologi adalah ilmu yang mempelajari komposisi bumi, struktur, sifat-sifat fisik, sejarah, dan proses pembentukannya. Ketika para mahasiswa mempelajari Geologi, maka mereka juga belajar untuk bisa memberikan solusi terhadap permasalahan bumi. Pada program studi ini, mahasiswa akan mempelajari banyak hal tentang ilmu bumi yang meliputi perminyakan, pertambangan, geotermal, mitigasi bencana, dan lain sebagainya.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Geologi Dasar",
+        "Mineralogi",
+        "Ilmu Ukur Tanah",
+        "Fisika",
+        "Paleontologi",
+        "Geokimia Umum",
+        "Geologi Struktur",
+        "Mikro Paleontologi",
+        "Sedimentologi",
+        "Geologi Kelautan",
+        "Geofisika",
+        "Tektonika",
+        "Mineral Optik dan Petrografi",
+        "Geologi Sejarah",
+        "Geologi Lapangan",
+        "Geokomputasi",
+        "Statistika",
+        "Hidrogeologi",
+        "Sistem Informasi Geografis",
+        "Geologi Batubara",
+        "Geologi Migas",
+        "Geologi Indonesia",
+        "Geomorfologi dan Penginderaan Jauh",
+        "Petrologi",
+        "Kartografi dan Ilmu Ukur Tanah",
+        "Metode Pemetaan Geologi",
+        "Analisis Stratigrafi",
+        "Analisis Batuan",
+        "Geologi Panas Bumi",
+        "Vulkanologi",
+        "Thermodinamika",
+        "Petrologi Batuan Metamorf",
+        "Mitigasi Bencana Geologi",
+        "Mikrofosil Foram",
+        "Eksplorasi Panas Bumi dan Suksesi Vulkanik",
+        "Geologi Isotop",
+        "Manajemen Air Tanah",
+        "Geomekanika",
+        "Analisis Kestabilan Lereng",
+        "Geologi Struktur Indonesia"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Prospek kerja seorang lulusan Teknik Geologi cukup mumpuni, lho, gaes. Gimana nggak, lulusan Teknik Geologi biasanya bekerja di perusahaan-perusahaan tambang besar seperti Adaro, Antam, Kideco, dan masih banyak lagi. Selain itu, mereka juga bisa masuk ke perusahaan perminyakan seperti Pertamina, Exxon, Chevron, British Petroleum, dan lain-lain. Nggak lupa, instansi-instansi pemerintahan seperti Kementrian Lingkungan Hidup, Energi dan Sumber Daya Mineral, hingga BPPT dan LIPI juga membutuhkan tenaga lulusan Teknik Geologi."
       ]
     },
     {
       "nama_prodi": "SOSIOLOGI",
       "definisi": "Mahasiswa program studi Sosiologi mempelajari interaksi yang terjadi antara satu orang dengan orang yang lain dan pengaruhnya terhadap terbentuknya struktur sosial masyarakat. Mereka mencari penyebab perubahan situasi masyarakat, mengkaji akibat yang dihasilkan, dan mencari solusinya. Dengan cakupannya yang sangat luas, Sosiologi bisa dikerucutkan menjadi beberapa sub program studi seperti Sosiologi Industri, Sosiologi Lingkungan, dan Sosiologi Pembangunan, Sosiologi Ekonomi, Sosiologi Gender, dan lain sebagainya.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Pengantar Sosiologi",
+        "Sosiologi Pendidikan",
+        "Statistik",
+        "Sosiologi Agama",
+        "Berpikir Kritis dan Penulisan Ilmiah",
+        "Analisa Sosial",
+        "Analisa Demografi",
+        "Analisa Geografis dan Spasial",
+        "Teori Sosiologi Modern",
+        "Tipologi Sosial",
+        "Psikologi Sosial",
+        "Sosiologi Pedesaan",
+        "Sosiologi Kesehatan",
+        "Sosiologi Hukum",
+        "Sosiologi Gender",
+        "Sosiologi Ekonomi",
+        "Sosiologi Komunikasi",
+        "Sosiologi Organisasi",
+        "Pranata Sosial",
+        "Sosiologi Perkotaan",
+        "Ekologi Kota",
+        "Masalah Sosial",
+        "Sosiologi Keluarga",
+        "Sosiologi Industri",
+        "Sosiologi Politik",
+        "Sosiologi Budaya",
+        "Sosiologi Kependudukan",
+        "Sosiologi Korupsi",
+        "Teori Sosial Klasik",
+        "Stratifikasi Sosial",
+        "Masalah Kemiskinan dan Kesenjangan",
+        "Perilaku Menyimpang",
+        "Kesejahteraan Sosial",
+        "Teori Sosial Modern",
+        "Masalah Penduduk Lanjut Usia (Lansia)"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Lulus dari prodi Sosiologi, kamu akan memeroleh gelar Sarjana Sosial (S.Sos) dan memiliki peluang untuk berkarir di bidang pemberdayaan sosial dan sumber daya manusia. Kamu dapat berkarir di berbagai lembaga pemerintah terkait, misalnya Departemen Sosial, Departemen Dalam Negeri, Badan Perencanaan Pembangunan Nasional, dan lain-lain. Di instansi swasta kamu juga punya kesempatan untuk berkarir di berbagai lembaga survey dan perusahaan-perusahaan yang bergerak di berbagai sektor. Selain itu, lulusan Sosiologi juga bisa terjun ke ranah akademis menjadi pengajar dan peneliti."
       ]
     },
     {
       "nama_prodi": "PSIKOLOGI",
       "definisi": "Psikologi merupakan disiplin ilmu yang mempelajari mental, pikiran, dan perilaku manusia. Program studi ini juga meneliti alur pemikiran dan alasan di balik perilaku dan tindakan manusia. Ilmu psikologi ini seringkali digunakan untuk menyelesaikan masalah dalam serangkaian aktivitas manusia yang kompleks. Ilmu Psikologi sendiri terbagi menjadi beberapa bagian, diantaranya adalah Psikologi Klinis, Psikologi Perkembangan, Psikologi Industri dan Organisasi, Psikologi Pendidikan, dan Psikologi Sosial. Prodi Psikologi di beberapa perguruan tinggi tergolong dalam kategori saintek, dan di beberapa perguruan tinggi lainnya tergolong dalam kategori soshum.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Rentang Perkembangan Manusia",
+        "Biopsikologi",
+        "Teori-Teori Kepribadian",
+        "Psikologi Sosial",
+        "Psikologi Pendidikan",
+        "Psikologi Komunikasi",
+        "Asesmen Dasar",
+        "Teori dan Aplikasi Pengukuran Psikologi",
+        "Kesehatan Mental",
+        "Psikologi Industri",
+        "Intervensi Psikologi",
+        "Psikologi Pendidikan ARBK",
+        "Gangguan Mental",
+        "Psikologi Organisasi",
+        "Integrasi Psikologi",
+        "Psikologi Faal",
+        "Psikologi Perkembangan",
+        "Statistika",
+        "Psikometri",
+        "Psikodiagnostik",
+        "Kode Etik Psikologi",
+        "Psikologi Konseling",
+        "Patologi & Rehabilitasi Sosial",
+        "Psikologi Lintas Budaya",
+        "Psikologi Lingkungan",
+        "Masalah-masalah Psikologis Remaja",
+        "Psikogeriatri",
+        "Psikologi Perkembangan Anak Usia Dini",
+        "Psikogerontologi",
+        "Andragogi",
+        "Pengelolaan Sumber Daya Manusia",
+        "Psikologi sekolah",
+        "Bimbingan & Konseling"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Psikologi salah satu prodi yang banyak dicari di dunia kerja. Kemampuan lulusannya untuk menganalisis perilaku dan kepribadian manusia sangat bermanfaat untuk berbagai industri. Seorang Sarjana Psikologi dapat berkarir sebagai konsultan psikologi/psikolog, ahli psikometri yang tugasnya membuat pengukuran psikologis, pengajar psikologi, dan recruiter atau talent acquisition di berbagai perusahaan. Di instansi pemerintahan, lulusan Psikologi juga dibutuhkan sebagai ahli intervensi sosial yang tugasnya membantu pemerintah menangani konflik-konflik dalam kelompok atau komunitas tertentu di masyarakat."
       ]
     },
     {
@@ -3377,18 +3819,23 @@
       "nama_prodi": "TEKNOLOGI PENDIDIKAN",
       "definisi": "Program studi Kurikulum dan Teknologi Pendidikan berfokus pada pengembangan kurikulum pendidikan dan pemanfaatan teknologi bagi dunia pendidikan. Jurusan ini spesifik membekali para mahasiswanya pemahaman tentang kurikulum sehingga para lulusan mampu menyiapkan solusi dan mengembangkan kurikulum yang cocok bagi pendidikan di Indonesia. Tak hanya itu, para mahasiswa juga disiapkan supaya fasih dalam menggunakan teknologi dan komunikasi untuk dunia pendidikan dan proses belajar mengajar. Pemanfaatan teknologi secara tepat bisa membantu proses belajar mengajar lebih lancar dan efisien. Maka dari itu teknologi pendidikan punya peran yang cukup signifikan terhadap pengembangan kurikulum. Melibatkan teknologi dalam pengembangan kurikulum akan membuat kurikulum tersebut menjadi lebih relevan bagi para peserta didik untuk menyongsong dunia kerja.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Teknologi Pendidikan",
+        "Media Pembelajar",
+        "Strategi Pembelajaran",
+        "Pengantar Kurikulum",
+        "Profesi Teknologi Pendidikan",
+        "Desain Pembelajaran",
+        "Statistik Pendidikan",
+        "Pengembangan Belajar Online atau e-learning"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Peluang untuk profesi ini cukup menjanjikan. Perkembangan teknologi mau tidak mau menuntut dunia pendidikan berubah dan beradaptasi. Bahkan, teknologi juga mempengaruhi proses belajar, cara berkomunikasi, dan perancangan kurikulum. Oleh karena itu, sekolah dan lembaga pendidikan membutuhkan orang yang menguasai bidang kurikulum dan teknologi pendidikan."
       ]
     },
     {
@@ -3413,72 +3860,125 @@
       "nama_prodi": "PENDIDIKAN GURU PAUD",
       "definisi": "Program studi Pendidikan Anak Usia Dini (PAUD) mempersiapkan mahasiswa untuk menjadi pendidik dan pembimbing anak-anak usia dini atau pra sekolah. Untuk menjadi guru PAUD, mahasiswa harus memahami dan menguasai profil perkembangan fisik dan psikologis anak usia dini, dan tentu saja harus menjadi pendidik profesional yang berwawasan luas.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Pendidikan Kewarganegaraan",
+        "Ilmu Sosial Budaya Dasar",
+        "Ilmu Alamiah Dasar",
+        "Pendidikan Bahasa Indonesia",
+        "Pengantar Pendidikan",
+        "Psikologi Perkembangan Anak Usia 0-3 tahun",
+        "Psikologi Perkembangan Anak Usia 4-6 tahun",
+        "Psikologi Perkembangan Anak Usia 7-8 tahun",
+        "Belajar Pembelajaran",
+        "Filsafat PAUD",
+        "Deteksi Dini Tumbuh Kembang Anak",
+        "Bermain dan Permainan",
+        "Strategi Pengembangan Kognitif",
+        "Strategi Pengembangan Moral dan Afeksi"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Dengan pertumbuhan penduduk yang cukup cepat, populasi anak di bawah umur pun meningkat. Seperti yang sudah diketahui, pendidikan usia dini merupakan jenjang pendidikan yang sangat penting bagi pertumbuhan anak. Pembelajaran model PAUD sangat dibutuhkan, terutama tenaga pengajar yang berkualitas."
       ]
     },
     {
       "nama_prodi": "PENDIDIKAN GURU SEKOLAH DASAR",
       "definisi": "Pendidikan Guru Sekolah Dasar (PGSD) mempersiapkan mahasiswa untuk menjadi guru Sekolah Dasar (SD). Program studi ini menjadi favorit bagi siswa SMA yang ingin terjun di dunia pendidikan. Di sini, para mahasiswa mempelajari semua materi pelajaran SD seperti Matematika, Bahasa Inggris, Bahasa Indonesia, Pkn, IPS, IPA, Kesenian, dan sebagainya. Tak hanya pemahaman akademis, para mahasiswa juga dituntut untuk memahami karakter dan pengembangan kepribadian seperti sikap santun, disiplin, pintar, dan berjiwa sosial. Mengapa? Guru SD bertanggung jawab membangun kepribadian siswa sejak dini. Guru SD memberikan pondasi ilmu yang berguna sehingga siswa siap untuk menapaki jenjang pendidikan selanjutnya.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Pengantar Pendidikan",
+        "Ilmu Sosial Budaya Dasar",
+        "Pendidikan Kewarganegaraan",
+        "Bahasa Inggris",
+        "Pengembangan Kurikulum SD",
+        "Psikologi Pendidikan",
+        "Strategi Belajar Mengajar SD",
+        "Ilmu Alamiah Dasar",
+        "Profesi Keguruan",
+        "Pendidikan Nilai Budi Pekerti",
+        "Kajian PPKn SD",
+        "Kajian Matematika SD",
+        "Pendidikan Multikultural"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Para lulusan program studi ini mempunyai prospek bekerja yang jelas, utamanya adalah menjadi guru sekolah dasar. Saat ini, ketersediaan guru SD masih sedikit dan belum memenuhi kebutuhan, terutama di daerah-daerah pedalaman, Jika kamu memilih kuliah di jurusan ini, kamu bisa berkarya di daerah pedalaman yang membutuhkan tenagamu sebagai guru."
       ]
     },
     {
       "nama_prodi": "PENDIDIKAN JASMANI",
       "definisi": "Program studi Pendidikan Jasmani, Kesehatan dan Rekreasi (PJKR) mempersiapkan mahasiswa untuk menjadi peneliti dan pengajar pendidikan jasmani. Hal-hal yang dipelajari di prodi PJKR ermacam-macam, diantaranya adalah pendidikan jasmani untuk memberikan pendidikan terkait kegiatan jasmani dengan melatih siswa dari aspek fisik, psikomotor, kognitif, afektif dan sosial secara bersamaan; kesehatan dan pembelajaran terkait gizi, fisiologi, anatomi, serta keamanan dan keselamatan; dan juga rekreasi di mana siswa diajarkan berbagai permainan dan kegiatan lapangan yang tujuannya untuk beristirahat dari kejenuhan rutinitas.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Profesi Pendidikan",
+        "Landasan Pendidikan",
+        "Kurikulum dan Pembelajaran",
+        "Teori dan Praktik Atletik Dasar",
+        "Teori dan Praktik Senam Dasar",
+        "Pendidikan Kesehatan Sekolah",
+        "Teori dan Praktik Sepakbola",
+        "Teori dan Praktik Renang",
+        "Teori dan Praktik Pencak Silat",
+        "Statistik dalam Penjas",
+        "Belajar Motorik",
+        "Perencanaan Pengajaran Penjas",
+        "Pengajaran Mikro Penjas",
+        "Evaluasi Pendidikan Jasmani",
+        "Anatomi",
+        "Manajemen Penjas dan Olahraga",
+        "Falsafah Penjas dan Olahraga",
+        "Teori Bermain",
+        "Olahraga Usia Dini"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Lulusan PJKR akan memeroleh gelar Sarjana Pendidikan (S.Pd). banyak yang salah kaprah akan prospek lulusan PJKR. Mayoritas akan mengira lulusan PJKR akan menjadi guru olahraga, padahal cakupan PJKR lebih luas daripada sekedar olahraga. Lulusan program studi Pendidikan Jasmani, Kesehatan, dan Rekreasi juga bisa menjadi instruktur olahraga, pelatih pribadi, pelatih atlet, dan bahkan pengusaha yang membangun pusat kebugaran sendiri."
       ]
     },
     {
       "nama_prodi": "PENDIDIKAN JASMANI KESEHATAN DAN REKREASI",
       "definisi": "Program studi Pendidikan Jasmani, Kesehatan dan Rekreasi (PJKR) mempersiapkan mahasiswa untuk menjadi peneliti dan pengajar pendidikan jasmani. Hal-hal yang dipelajari di prodi PJKR ermacam-macam, diantaranya adalah pendidikan jasmani untuk memberikan pendidikan terkait kegiatan jasmani dengan melatih siswa dari aspek fisik, psikomotor, kognitif, afektif dan sosial secara bersamaan; kesehatan dan pembelajaran terkait gizi, fisiologi, anatomi, serta keamanan dan keselamatan; dan juga rekreasi di mana siswa diajarkan berbagai permainan dan kegiatan lapangan yang tujuannya untuk beristirahat dari kejenuhan rutinitas.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Profesi Pendidikan",
+        "Landasan Pendidikan",
+        "Kurikulum dan Pembelajaran",
+        "Teori dan Praktik Atletik Dasar",
+        "Teori dan Praktik Senam Dasar",
+        "Pendidikan Kesehatan Sekolah",
+        "Teori dan Praktik Sepakbola",
+        "Teori dan Praktik Renang",
+        "Teori dan Praktik Pencak Silat",
+        "Statistik dalam Penjas",
+        "Belajar Motorik",
+        "Perencanaan Pengajaran Penjas",
+        "Pengajaran Mikro Penjas",
+        "Evaluasi Pendidikan Jasmani",
+        "Anatomi",
+        "Manajemen Penjas dan Olahraga",
+        "Falsafah Penjas dan Olahraga",
+        "Teori Bermain",
+        "Olahraga Usia Dini"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Lulusan PJKR akan memeroleh gelar Sarjana Pendidikan (S.Pd). banyak yang salah kaprah akan prospek lulusan PJKR. Mayoritas akan mengira lulusan PJKR akan menjadi guru olahraga, padahal cakupan PJKR lebih luas daripada sekedar olahraga. Lulusan program studi Pendidikan Jasmani, Kesehatan, dan Rekreasi juga bisa menjadi instruktur olahraga, pelatih pribadi, pelatih atlet, dan bahkan pengusaha yang membangun pusat kebugaran sendiri."
       ]
     },
     {
@@ -3499,40 +3999,47 @@
         "Kepala Dinas Pendidikan"
       ]
     },
-    {
-      "nama_prodi": "BIMBINGAN DAN KONSELING",
-      "definisi": "Program studi Administrasi Publik masih dikenal juga dengan nama Administrasi Negara di beberapa perguruan tinggi. Prodi ini mempelajari seluk beluk pemerintahan, masyarakat, dan kebijakan publik. Tentu saja Administrasi Publik juga mempelajari tentang bagaimana memberikan publik yang prima kepada masyarakat. Singkatnya, di prodi ini kamu akan mempelajari tentang sistem pemerintahan, pembuatan kebijakan hingga pengimplementasian dan evaluasi nya, dan pelayanan masyarakat, serta segala sesuatu yang berkaitan dengan kegiatan birokratis. Di prodi ini kamu juga bisa memilih konsentrasi ilmu administrasi, seperti konsentrasi pemerintahan daerah, konsentrasi administrasi pembangunan, dan kebijakan publik.",
-      "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
-      "st30": [
-        { "merah": ["Analist", "Interpreter"] },
-        { "kuning": ["Designer", "Creator", "Administrator"] },
-        { "putih": ["Producer", "Evaluator", "Safekeeper"] }
-      ],
-      "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
-      ]
-    },
+
     {
       "nama_prodi": "PENDIDIKAN BIMBINGAN DAN KONSELING",
       "definisi": "Program studi Administrasi Publik masih dikenal juga dengan nama Administrasi Negara di beberapa perguruan tinggi. Prodi ini mempelajari seluk beluk pemerintahan, masyarakat, dan kebijakan publik. Tentu saja Administrasi Publik juga mempelajari tentang bagaimana memberikan publik yang prima kepada masyarakat. Singkatnya, di prodi ini kamu akan mempelajari tentang sistem pemerintahan, pembuatan kebijakan hingga pengimplementasian dan evaluasi nya, dan pelayanan masyarakat, serta segala sesuatu yang berkaitan dengan kegiatan birokratis. Di prodi ini kamu juga bisa memilih konsentrasi ilmu administrasi, seperti konsentrasi pemerintahan daerah, konsentrasi administrasi pembangunan, dan kebijakan publik.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Pengantar Pendidikan",
+        "Antropologi",
+        "Sosiologi",
+        "Psikologi Pendidikan",
+        "Dasar Bimbingan Konseling",
+        "Bimbingan dan Konseling Perkembangan",
+        "Dasar Pemahaman Perilaku",
+        "Landasan Psikologis Pendidikan",
+        "Landasan Sosial BK",
+        "Pengantar Konseling",
+        "Kesehatan Mental",
+        "Bimbingan dan Konseling Belajar",
+        "Pribadi-sosial",
+        "dan Karir",
+        "Konseling Individual",
+        "Kelompok",
+        "dan Multibudaya",
+        "Analisis dan Perubahan Tingkah Laku",
+        "Asesmen Psikologis: Teknik nontes",
+        "Testing",
+        "Media Bimbingan dan Konseling",
+        "Teknologi Informasi dan Bimbingan Konseling",
+        "Keterampilan Dasar Komunikasi",
+        "Praktikum Asesmen Psikologis",
+        "Statistika Deskriptis",
+        "Statistika Inferensial",
+        "Problematika Bimbingan dan Konseling"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Lulusan dari program studi ini dipersiapkan menjadi profesional dalam bidang bimbingan dan konseling, diharapkan dapat bekerja sebagai guru BK pada setting pendidikan dasar, maupun menengah, serta pengembang pelatihan bidang akademik, pribadi, sosial dan karir pada setting pendidikan non-formal. Lulusan Bimbingan dan Konseling banyak yang diterima sebagai konselor di dunia pendidikan, PAUD, TK, SD,SMP, SMA, dan Universitas. Selain itu mereka juga dibutuhkan sebagai Tenaga Konselor di Pusat Rehabilitasi, Lembaga Pemasyarakatan, Perkumpulan Keluarga berencana Indonesia (PKBI), Konsultan pengembangan SDM, Badan Penasehat Pembinaan Pelestarian Perkawinan (BP4), Kementerian Agama, Konselor dan Konsultan Pendidikan di Lembaga-Lembaga Bimbingan Belajar (LBB). Lulusan dari jurusan ini juga bisa membuka praktek sendiri sebagai konseling untuk masyarakat umum. Tapi untuk mendapatkan ijin melakukan sebuah tes psikologi kamu harus memiliki gelar S2."
       ]
     },
     {
@@ -3557,36 +4064,91 @@
       "nama_prodi": "PENDIDIKAN GEOGRAFI",
       "definisi": "Program studi Pendidikan Geografi mempelajari ilmu bumi beserta kehidupan yang ada di dalamnya. Geografi meliputi keadaan dan segala gejala yang terjadi di fisik bumi yang terbagi dalam atmosfer, lithosfer, dan hidrosfer, serta hubungan timbal-balik manusia dengan alam. Yang menjadi pembeda di prodi Pendidikan Geografi adalah materi pendidikannya. Jadi, tidak hanya mempelajari ilmu Geografi, tapi juga teori kependidikan yang meliputi metode pembelajaran geografi, manajemen pendidikan, dan evaluasi pembelajaran geografi. Lebih jelasnya, di prodi ini akan dipelajari bagaimana mengolah data geosfer dalam bentuk peta manual dan dijital untuk pembelajaran di sekolah. Juga akan dipelajari tentang kaitan antara aspek fisik dan sosial untuk menentukan keunikan suatu lokasi/wilayah.",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Landasan Pendidikan",
+        "Perkembangan Peserta Didik",
+        "Teori Belajar dan Pembelajaran",
+        "Sistem Pendidikan",
+        "Geologi",
+        "Geomorfologi",
+        "Oceanografi",
+        "Meteorologi",
+        "Hidrologi",
+        "Geografi Tanah",
+        "Geografi Sosial",
+        "Geografi Penduduk dan Demografi",
+        "Geografi Pertanian",
+        "Geografi Industri",
+        "Geografi Ekonomi",
+        "Geografi Budaya",
+        "Geografi Politik",
+        "Geografi Desa Kota",
+        "Geografi Pengembangan Wilayah",
+        "Kartografi Dasar",
+        "Kartografi Tematik",
+        "Penginderaan Jauh dan Fotogrametri",
+        "Sistem Informasi Geografi",
+        "Biogeografi",
+        "Kosmografi",
+        "Mineralogi Petrografi",
+        "Geografi Lingkungan",
+        "Perencanaan Pengajaran Geografi",
+        "Strategi Belajar Mengajar Geografi",
+        "Evaluasi Pengajaran Geografi"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Lulusan prodi Pendidikan Geografi akan memeroleh gelar Sarjana Pendidikan (S.Pd) dan dapat menjadi guru atau pengajar matapelajaran Geografi di SMP dan SMA. Dengan bekal kewirausahaan yang ditanamkan di bangku kuliah juga memungkinkan lulusan Pendidikan Geografi mendirikan wirausaha yang bergerak di bidang pendidikan, seperti bimbel atau les privat untuk mata pelajaran ini."
       ]
     },
     {
       "nama_prodi": "ILMU KOMUNIKASI",
       "definisi": "Komunikasi adalah suatu kajian ilmu yang sangat luas dan intens, pasalnya dalam kehidupan sehari-hari kita tidak pernah lepas dari komunikasi. Tapi jangan kira kalau ilmu komunikasi itu cuma pelajaran ngomong doang! Tahu nggak, kalau komunikasi itu ada banyak macam nya, mulai dari komunikasi intrapersonal (dengan diri sendiri), komunikasi interpersonal (dengan orang lain), komunikasi kelompok, komunikasi organisasi, hingga komunikasi massa. Ilmu Komunikasi ini adalah induk dari ilmu turunannya yang lain seperti Jurnalistik, Penyiaran, Hubungan Masyarakat (Public Relation), Komunikasi Pemasaran, Desain Komunikasi Visual, Periklanan (Adveritising), Performing Arts Communication, dan lain-lain. Pada program studi Ilmu Komunikasi kita diajarkan tentang bagaimana proses penyampaian pesan agar menjadi efektif dan dapat mencapai sasaran yang dituju. Lulusan program studi Ilmu Komunikasi akan mendapatkan gelar Sarjana Ilmu Komunkasi (S.I.Kom)",
       "sumber": "rencanamu.id",
-      "mata_kuliah": ["Matematika", "kimia", "Biologi"],
+      "mata_kuliah": [
+        "Pengantar Ilmu Komunikasi",
+        "Teori Ilmu Komunikasi",
+        "Sosiologi Komunikasi",
+        "Komunikasi Massa",
+        "Psikologi Komunitas",
+        "Komunikasi Keorganisasian",
+        "Komunikasi Antar Pribadi",
+        "Teknologi Komunikasi",
+        "Metode Penelitian Komunikasi",
+        "Pengantar Ilmu Jurnalistik",
+        "Filsafat Komunikasi",
+        "Komunikasi Politik",
+        "Hukum Etika Pers",
+        "Public Relations",
+        "Media Relations",
+        "Manajemen Media Massa",
+        "Komunikasi Lintas Budaya",
+        "Komunikasi Internasional",
+        "Public Speaking",
+        "Teknik Wawancara Cetak dan Elektronik",
+        "Penulisan Naskah Film dan TV",
+        "Ekonomi Politik Media",
+        "Jurnalistik Online",
+        "Penulisan Feature",
+        "Komunikasi Grafis",
+        "Komunikasi Pemasaran",
+        "Fotografi",
+        "Jurnalistik Radio",
+        "Kajian Iklan",
+        "Teknik Presentasi dan Negosiasi",
+        "Perkembangan Teknologi Komunikasi"
+      ],
       "st30": [
         { "merah": ["Analist", "Interpreter"] },
         { "kuning": ["Designer", "Creator", "Administrator"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "Guru",
-        "Dokter",
-        "Kepala Sekolah",
-        "Arsitek",
-        "Kepala Dinas Pendidikan"
+        "Komunikasi dibutuhkan dalam segala hal yang kita lakukan. Karena pada dasarnya ilmu komunikasi itu lahir dari berbagai disiplin ilmu sosial seperti sosiologi, ilmu politik, antropologi, dan hubungan internasional, nggak heran kalau prospek lulusan Ilmu Komunikasi juga sangat luas. Lulusan Ilmu Komunikasi nggak hanya bisa berkecimpung di industri media, tapi di berbagai macam organisasi. Sebagai humas atau PR di perusahaan atau di pemerintahan, pengamat komuikasi politik, pengamat media, masih banyak, deh pokoknya!"
       ]
     },
     {
