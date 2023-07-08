@@ -46,13 +46,13 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
         </div> */}
 
         <div className="flex items-center justify-center mt-20 font-roboto">
-          <div className="lg:flex overflow-scroll">
+          <div className="md:flex md:flex-wrap md:justify-center">
             {allProgram.map((program, index) => (
               <div
                 key={index}
                 className="card bg-gradient-to-br from-rose-200/50 drop-shadow-lg m-4 p-5 border border-slate-300 md:w-[400px] w-[320px] "
               >
-                <p className="font-semibold text-slate-800 tracking-wider underline underline-offset-4 decoration-4 decoration-orange-600">
+                <p className="font-semibold text-slate-800 tracking-wider underline underline-offset-4 decoration-4 decoration-orange-600 ">
                   {program.nama}
                 </p>
                 <div className="flex items-center justify-center">
@@ -65,13 +65,13 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
                 </div>
                 <ul className="leading-normal  p-3 text-slate-600">
                   {program.fasilitas.map((elemen, index) => (
-                    <li className="flex items-center space-x-3" key={index}>
+                    <li className="flex items-start space-x-3" key={index}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
                         fill="currentColor"
-                        className="bi bi-check-lg"
+                        className="bi bi-check-lg w-[20px]"
                         viewBox="0 0 16 16"
                       >
                         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />

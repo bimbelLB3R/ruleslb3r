@@ -50,6 +50,23 @@
         "Free Konsultasi langsung ke pengajar",
         "Kelas nyaman dan kondusif"
       ]
+    },
+    {
+      "idProgram": "MathLB3R",
+      "nama": "Program Akselerasi Matematika",
+      "slug": "program-akselerasi-matematika",
+      "biaya": 500000,
+      "total": 650000,
+      "rincian": "Biaya Pendaftaran dan biaya les",
+      "frekuensi": "per jenjang",
+      "fasilitas": [
+        "Biaya pendaftaran 150.000 (sekali bayar)",
+        "Disediakan Modul per Bab /per pokok bahasan",
+        "Pola pembelajaran bertahap dan soal bervariasi",
+        "Tersedia untuk jenjang SD, SMP dan SMA",
+        "Fokus pemahaman konsep disertai tips dan trik",
+        "Biaya mulai 500.000 dan bisa berubah sesuai jenjang dan jumlah siswa"
+      ]
     }
   ]
 }
