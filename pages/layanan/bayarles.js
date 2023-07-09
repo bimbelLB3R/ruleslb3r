@@ -214,7 +214,7 @@ const BayarLes = ({ allPost }) => {
         // console.log(transactionQris);
 
         // setIsLoading(true); // set status loading menjadi true, kirim ke drive
-        // await appendSpreadsheet(newRow);
+        await appendSpreadsheet(newRow);
         e.target.reset();
         setIsButtonDisabled(false);
 
