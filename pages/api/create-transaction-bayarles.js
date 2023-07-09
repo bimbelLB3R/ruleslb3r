@@ -59,7 +59,8 @@ export default async function handler(req, res) {
     enabled_payments: ["gopay"],
     gopay: {
       // callback_url: "http://gopay.com",
-      callback_url: "http://bimbellb3r.com/layanan/notification",
+      enable_callback: true,
+      callback_url: "http://bimbellb3r.com/layanan/berhasil",
     },
 
     item_details: [

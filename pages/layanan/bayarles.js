@@ -427,7 +427,7 @@ const BayarLes = ({ allPost }) => {
                 <option value="175000">Rp 175.000,-</option>
                 <option value="185000">Rp 185.000,-</option>
                 <option value="195000">Rp 195.000,-</option>
-                <option value="5000">Rp 5.000,-</option>
+                <option value="1000">Rp 1.000,-</option>
                 <option value="35000">Rp 35.000,-</option>
                 <option value="40000">Rp 40.000,-</option>
                 <option value="45000">Rp 45.000,-</option>
