@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function NotificationPage() {
   const [notificationData, setNotificationData] = useState(null);
-
+  console.log(notificationData);
   useEffect(() => {
     fetch("/api/layanan/notification") // Ganti dengan URL endpoint notifikasi yang sesuai
       .then((response) => response.json())
@@ -11,12 +11,6 @@ export default function NotificationPage() {
   }, []);
 
   return (
-    <div>
-      {notificationData ? (
-        <pre>{JSON.stringify(notificationData, null, 2)}</pre>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </div>
+    <div>{notificationData ? <div>ada data</div> : <p>Loading...</p>}</div>
   );
 }
