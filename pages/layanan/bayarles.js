@@ -192,7 +192,6 @@ const BayarLes = ({ allPost }) => {
         const transactionRedirectUrl = await createTransaction(newRow);
         console.log(transactionToken); //token berhasil
         console.log(transactionRedirectUrl); //token berhasil
-
         // Get Info dari token yang diperoleh
         const token = { token: transactionToken }; //bener
         const getInfoTransaksi = async (token) => {
@@ -215,7 +214,7 @@ const BayarLes = ({ allPost }) => {
         // console.log(transactionQris);
 
         // setIsLoading(true); // set status loading menjadi true, kirim ke drive
-        await appendSpreadsheet(newRow);
+        // await appendSpreadsheet(newRow);
         e.target.reset();
         setIsButtonDisabled(false);
 
@@ -225,6 +224,7 @@ const BayarLes = ({ allPost }) => {
         //   icon: 'success',
         //   confirmButtonText: 'ok',
         // });
+
         router.push(
           `https://app.midtrans.com/snap/v3/redirection/${transactionToken}`
         );
@@ -351,7 +351,7 @@ const BayarLes = ({ allPost }) => {
                   {!namaKamu ? (
                     <p className="text-slate-900">Namamu akan tampil disini</p>
                   ) : (
-                    <p className="text-red-900">Your Name Invalid</p>
+                    <p className="text-red-900">Wait a moment . . .</p>
                   )}
                 </div>
               </div>

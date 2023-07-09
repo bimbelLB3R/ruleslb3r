@@ -60,7 +60,7 @@ export default async function handler(req, res) {
     gopay: {
       // callback_url: "http://gopay.com",
       enable_callback: true,
-      callback_url: "http://bimbellb3r.com/layanan/berhasil",
+      callback_url: "http://bimbellb3r.com",
     },
 
     item_details: [
