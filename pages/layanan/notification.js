@@ -7,7 +7,7 @@ export default function NotificationPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("/api/layanan/notification"); // Ganti dengan URL endpoint notifikasi yang sesuai
+        const response = await axios.post("/api/layanan/notification"); // Ganti dengan URL endpoint notifikasi yang sesuai
         setNotificationData(response.data);
       } catch (error) {
         console.error(error);
