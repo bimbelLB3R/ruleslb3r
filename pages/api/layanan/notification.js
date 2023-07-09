@@ -6,7 +6,7 @@ export default function handler(req, res) {
     console.log(data);
 
     // Mengirimkan respons dengan status HTTP 200
-    res.status(200).end();
+    res.status(200).json({ data: data });
   } else {
     res.status(405).end(); // Mengirimkan respons dengan status HTTP 405 jika metode selain POST diakses
   }
