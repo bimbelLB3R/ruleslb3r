@@ -1,7 +1,11 @@
-import Head from 'next/head';
+import Head from "next/head";
 
 const Meta = () => (
   <Head>
+    <meta
+      name="facebook-domain-verification"
+      content="ek06py9lhpjjkgfpxcvpomnqywkbn7"
+    />
     <meta
       property="og:image"
       itemProp="image"
