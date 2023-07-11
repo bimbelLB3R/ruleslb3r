@@ -25,6 +25,7 @@
     "flowbite": "^1.5.5",
     "flowbite-react": "^0.3.7",
     "fs": "^0.0.1-security",
+    "fs-extra": "^11.1.1",
     "gcp-metadata": "^5.1.0",
     "google-auth-library": "^8.7.0",
     "google-spreadsheet": "^3.3.0",
