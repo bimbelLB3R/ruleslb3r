@@ -1,6 +1,8 @@
 import axios from "axios";
 
 const commitProgramsJSON = async (commitMessage, newData) => {
+  console.log(newData);
+  console.log(commitMessage);
   try {
     // Ganti dengan token akses GitHub Anda
     const token = process.env.GITHUB_TOKEN;
@@ -36,7 +38,7 @@ const commitProgramsJSON = async (commitMessage, newData) => {
     // Ganti {owner} dan {repo} dengan pemilik dan nama repositori Anda
 
     // Melakukan permintaan PUT ke API GitHub untuk memperbarui programs.json
-    const commitResponse = await axios.put(apiEndpoint, data, { headers });
+    const commitResponse = await axios.post(apiEndpoint, data, { headers });
 
     console.log("Commit berhasil:", commitResponse.data);
   } catch (error) {

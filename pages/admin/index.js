@@ -42,14 +42,14 @@ export default function index({ allProgram }) {
       .catch((error) => {
         console.error(error);
       });
-    e.target.reset();
     const commitMessage = "add json programs";
     commitProgramsJSON(commitMessage, newData);
+    e.target.reset();
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "fasilitas") {
-      // Untuk properti fasilitas, kita perlu memisahkan input berdasarkan koma dan menghapus spasi di sekitarnya
+      // Untuk properti fasilitas, kita perlu memisahkan input berdasarkan koma dan menghapus spasi di sekitarnya. Faslitas minimal 2 data dibatasi koma supaya formatnya sesuai
       const fasilitasArray = value.split(",").map((item) => item.trim());
       setNewData((prevData) => ({
         ...prevData,
