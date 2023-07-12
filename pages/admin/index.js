@@ -12,6 +12,7 @@ export async function getStaticProps() {
   };
 }
 export default function index({ allProgram }) {
+  const [commitMessage, setCommitMessage] = useState("Tambah program baru ey");
   const [newData, setNewData] = useState({
     idProgram: "",
     nama: "",
@@ -22,6 +23,9 @@ export default function index({ allProgram }) {
     frekuensi: "",
     fasilitas: ["", ""],
   });
+  const newData2 = {
+    programs: [...allProgram, newData],
+  };
 
   //   console.log(newData);
 
@@ -42,8 +46,8 @@ export default function index({ allProgram }) {
       .catch((error) => {
         console.error(error);
       });
-    const commitMessage = "add json programs";
-    commitProgramsJSON(commitMessage, newData);
+
+    commitProgramsJSON(commitMessage, newData2);
     e.target.reset();
   };
   const handleChange = (e) => {

@@ -67,19 +67,6 @@
         "Fokus pemahaman konsep disertai tips dan trik",
         "Biaya mulai 500.000 dan bisa berubah sesuai jenjang dan jumlah siswa"
       ]
-    },
-    {
-      "idProgram": "desainGrafis",
-      "nama": "Desain Grafis",
-      "slug": "desain-grafis",
-      "biaya": "20",
-      "total": "222",
-      "rincian": "Biaya Pendaftaran dan Les",
-      "frekuensi": "sekali Bayar",
-      "fasilitas": [
-        "Zoom Class",
-        "Modul"
-      ]
     }
   ]
 }
