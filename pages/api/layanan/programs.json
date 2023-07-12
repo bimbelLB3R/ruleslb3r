@@ -1,72 +1,12 @@
 {
-  "programs": [
-    {
-      "idProgram": "RegLB3R",
-      "nama": "Program Reguler",
-      "slug": "program-reguler",
-      "biaya": 195000,
-      "total": 345000,
-      "rincian": "Biaya Pendaftaran dan Les Bulan Pertama",
-      "frekuensi": "per bulan",
+      "idProgram": "desainGrafis",
+      "nama": "Desain Grafis",
+      "slug": "desain-grafis",
+      "biaya": "500000",
+      "total": "650000",
+      "rincian": "Biaya Pendaftaran dan Les",
+      "frekuensi": "sekali Bayar",
       "fasilitas": [
-        "Masuk 2-3 kali dalam seminggu",
-        "Biaya Pendaftaran 150.000 (Sekali bayar)",
-        "Mendapatkan Layanan ODB",
-        "Free Konsultasi dengan tentor favorit",
-        "Laporan Kehadiran dan Pembayaran",
-        "Laporan Perkembangan Materi dan Review"
-      ]
-    },
-    {
-      "idProgram": "SnbtLB3R",
-      "nama": "Program UTBK SNBT",
-      "slug": "program-utbk-snbt",
-      "biaya": 1000000,
-      "total": 1000000,
-      "rincian": "Biaya Pendaftaran, Les dan FC Soal",
-      "frekuensi": "sekali bayar",
-      "fasilitas": [
-        "Masuk tiap hari selama satu bulan",
-        "Durasi waktu 2 jam per hari",
-        "Mendapatkan FC Soal sesuai aturan SNBT",
-        "Pembahasan langsung di kelas",
-        "Konsultasi Pemilihan Jurusan",
-        "Free T-Shirt senilai 100.000 bagi yang lolos SNBT"
-      ]
-    },
-    {
-      "idProgram": "PrivLB3R",
-      "nama": "Program Kelas Khusus",
-      "slug": "program-kelas-khusus",
-      "biaya": 200000,
-      "total": 350000,
-      "rincian": "Biaya Pendaftaran dan deposit awal",
-      "frekuensi": "deposit awal",
-      "fasilitas": [
-        "Biaya pendaftaran 150.000 (sekali bayar)",
-        "Waktu, jumlah pertemuan dan mapel sesuai kesepakatan",
-        "Biaya per pertemuan mulai 35.000 (dipotong dari deposit)",
-        "Lebih fokus dalam belajar",
-        "Free Konsultasi langsung ke pengajar",
-        "Kelas nyaman dan kondusif"
-      ]
-    },
-    {
-      "idProgram": "MathLB3R",
-      "nama": "Program Akselerasi Matematika",
-      "slug": "program-akselerasi-matematika",
-      "biaya": 500000,
-      "total": 1000,
-      "rincian": "Biaya Pendaftaran dan biaya les",
-      "frekuensi": "per jenjang",
-      "fasilitas": [
-        "Biaya pendaftaran 150.000 (sekali bayar)",
-        "Disediakan Modul per Bab /per pokok bahasan",
-        "Pola pembelajaran bertahap dan soal bervariasi",
-        "Tersedia untuk jenjang SD, SMP dan SMA",
-        "Fokus pemahaman konsep disertai tips dan trik",
-        "Biaya mulai 500.000 dan bisa berubah sesuai jenjang dan jumlah siswa"
+        "Zoom Class"
       ]
     }
-  ]
-}
