@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getProgramsData } from "../../utils/layananApi";
+import commitProgramsJSON from "../../utils/commitJson";
 
 export async function getStaticProps() {
   const data = getProgramsData();
@@ -42,6 +43,8 @@ export default function index({ allProgram }) {
         console.error(error);
       });
     e.target.reset();
+    const commitMessage = "add json programs";
+    commitProgramsJSON(commitMessage, newData);
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
