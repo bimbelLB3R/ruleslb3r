@@ -76,7 +76,7 @@
       "writer": "Wahyudi",
       "createdAt": "2023-05-16T12:34:56",
       "updatedAt": "2023-05-16T12:34:56",
-      "tags": "Education"
+      "tags": "Web Programming"
     },
     {
       "id": 2,
@@ -96,19 +96,24 @@
     },
     {
       "id": 1,
-      "title": "Dream Big",
-      "description": "Don't be afraid to dream big. Your dreams have the power to shape your reality. Set audacious goals and work towards making them a reality....",
-      "slug": "Dream-Big",
+      "title": "GET AND PUT To Github API using Postman ",
+      "description": "You will know how to get information from your github file and up date data , testing using postman....",
+      "slug": "github-postman",
       "bahasa": "language-js",
       "body": [
-        "Don't be afraid to dream big. Your dreams have the power to shape your reality. Set audacious goals and work towards making them a reality."
+        "In this case, actually i have an idea to CRUD data into JSON file. I use nextjs framework hosting on vercel and push data via github. For http request, i use postman",
+        "The first before all, we need a token from github. You can get it by your github account, setting, and click developer setting. Then go to Personal Acces Token-Token(clasic)-Generate New Token. Personal access tokens (classic) function like ordinary OAuth access tokens. They can be used instead of a password for Git over HTTPS, or can be used to authenticate to the API over Basic Authentication. ",
+        "Then, file the Note (What s your token for), set expiration, and select scope. In this case, i select all scope. Finally, Generate Token and copy the token carefully because it appear once.",
+        "I hope you had installed postman in your divice, and create new collection. We need two method to up date data in our github via postman, GET and PUT. We use Endpoints available for GitHub App user access tokens, GET /repos/{owner}/{repo}/contents/{path}. In this case i want to up date https://api.github.com/repos/{owner}/{repo}/contents/pages/api/layanan/programs.json. Replace {owner} with your account name, {repo} with your repository name, {path} with path your file exist.",
+        "First, we want to request by using GET method. In this method set the Authorization to basic auth, and no need body. Use your github token for Authorize and then send the request. We will use data sha to PUT request",
+        "Next, we use PUT method to update all data contents in your file. Remember when using PUT method, it mean we replace all data with new data. Use same authorize like GET and set the body to json contain object message, content and sha. Message is information to our commit, while content is our data will be inserted. Remember to change or encode the content to base64. This link will help you to do it https://www.base64encode.org/. While sha is last condition of our commit must updated continuesly. Finaly, by send the request , our data in github will automaticly up dated, in vercel to."
       ],
       "ogImageName": "testOg.png",
       "imageUrl": "/image/assets/tes.webp",
       "writer": "Wahyudi",
-      "createdAt": "2023-05-16T12:34:56",
-      "updatedAt": "2023-05-16T12:34:56",
-      "tags": "Opini"
+      "createdAt": "2023-07-12T19:34:56",
+      "updatedAt": "2023-07-12T19:34:56",
+      "tags": "Web Programming"
     }
   ]
 }
