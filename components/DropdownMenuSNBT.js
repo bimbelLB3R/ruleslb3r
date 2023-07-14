@@ -1,5 +1,5 @@
-import { useRef, useState, useEffect } from 'react';
-import Link from 'next/link';
+import { useRef, useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function DropdownMenuSNBT() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,9 +10,9 @@ export default function DropdownMenuSNBT() {
         setIsMenuOpen(false);
       }
     }
-    document.addEventListener('click', handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, [menuRef]);
   return (
@@ -24,15 +24,17 @@ export default function DropdownMenuSNBT() {
             ref={menuRef}
             type="button"
             className="flex w-full justify-center items-center gap-x-1.5 text-slate-600  hover:text-slate-900"
-            id="menu-button"
+            id="menu-button3"
             aria-expanded="true"
-            aria-haspopup="true">
+            aria-haspopup="true"
+          >
             SNBT
             <svg
               className="-mr-1 h-5 w-5 text-gray-400"
               viewBox="0 0 20 20"
               fill="currentColor"
-              aria-hidden="true">
+              aria-hidden="true"
+            >
               <path
                 fillRule="evenodd"
                 d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
@@ -55,13 +57,14 @@ export default function DropdownMenuSNBT() {
         <div
           className={`${
             isMenuOpen
-              ? 'absolute  z-50 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
-              : 'hidden'
+              ? "absolute  z-50 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+              : "hidden"
           }`}
           role="menu"
           aria-orientation="vertical"
-          aria-labelledby="menu-button"
-          tabIndex="-1">
+          aria-labelledby="menu-button3"
+          tabIndex="-1"
+        >
           <div className="py-1" role="none">
             {/* <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --> */}
             <Link
@@ -69,7 +72,8 @@ export default function DropdownMenuSNBT() {
               className="text-gray-700 block px-4 py-2 text-sm hover:bg-slate-200"
               role="menuitem"
               tabIndex="-1"
-              id="menu-item-0">
+              // id="menu-item-0"
+            >
               Daftar
             </Link>
             <Link
@@ -77,7 +81,8 @@ export default function DropdownMenuSNBT() {
               className="text-gray-700 block px-4 py-2 text-sm hover:bg-slate-200"
               role="menuitem"
               tabIndex="-1"
-              id="menu-item-1">
+              // id="menu-item-1"
+            >
               Mulai Try Out
             </Link>
           </div>

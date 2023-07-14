@@ -136,8 +136,8 @@ export default function PostDetail({ detailPost, allPost }) {
             <div className="mt-5 flex justify-center mb-5">
               <Image
                 src={detailPost.imageUrl}
-                width={600}
-                height={300}
+                width={640}
+                height={360}
                 alt={detailPost.slug}
                 priority={true}
               />
@@ -150,6 +150,7 @@ export default function PostDetail({ detailPost, allPost }) {
                       <div
                         key={index}
                         dangerouslySetInnerHTML={{ __html: element }}
+                        className="mb-3"
                       />
                     );
                   } else if (

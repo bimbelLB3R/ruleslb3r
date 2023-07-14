@@ -24,7 +24,7 @@ export default function DropdownMenuLayanan() {
             ref={menuRef}
             type="button"
             className="flex w-full justify-center items-center gap-x-1.5 text-slate-600  hover:text-slate-900"
-            id="menu-button"
+            id="menu-button2"
             aria-expanded="true"
             aria-haspopup="true"
           >
@@ -62,7 +62,7 @@ export default function DropdownMenuLayanan() {
           }`}
           role="menu"
           aria-orientation="vertical"
-          aria-labelledby="menu-button"
+          aria-labelledby="menu-button2"
           tabIndex="-1"
         >
           <div className="py-1" role="none">
@@ -72,7 +72,7 @@ export default function DropdownMenuLayanan() {
               className="text-gray-700 block px-4 py-2 text-sm hover:bg-slate-200"
               role="menuitem"
               tabIndex="-1"
-              id="menu-item-0"
+              // id="menu-item-0"
             >
               Bimbingan Belajar
             </Link>
@@ -81,7 +81,7 @@ export default function DropdownMenuLayanan() {
               className="text-gray-700 block px-4 py-2 text-sm hover:bg-slate-200"
               role="menuitem"
               tabIndex="-1"
-              id="menu-item-1"
+              // id="menu-item-1"
             >
               Cek Keketatan Prodi
             </Link>

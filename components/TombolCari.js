@@ -69,8 +69,11 @@ export default function TombolCari({ allPost }) {
     <>
       <div className="">
         <form action="" className="relative w-max mx-auto" ref={searchRef}>
+          <label className="hidden">Cari Blog</label>
           <input
             type="text"
+            title="cari blog"
+            placeholder="cari blog"
             value={searchQuery}
             onFocus={handleFocus}
             onBlur={handleBlur}

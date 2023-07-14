@@ -17,6 +17,7 @@ module.exports = {
       "lh3.googleusercontent.com",
       "https://www.bimbellb3r.com/favicon.ico",
       "drive.google.com",
+      "unsplash.com",
     ],
   },
   webpack: (config, { isServer }) => {

@@ -22,24 +22,27 @@ export default function BeritaTerbaru({ allPost }) {
                 <div>
                   <div className={index !== 0 ? "w-[100px]  bg-blue-400 " : ""}>
                     {index !== 0 ? (
-                      <div className="absolute text-slate-100 bg-orange-600 rounded p-1 text-xs">
+                      <div className="absolute text-slate-100 bg-orange-600 rounded p-1 text-[8px]">
                         {post.tags}
                       </div>
                     ) : (
                       ""
                     )}
-                    <div className="flex justify-center ">
+
+                    <div
+                      className={
+                        index === 0
+                          ? "flex justify-center"
+                          : "flex justify-center w-auto h-auto "
+                      }
+                    >
                       <Image
                         src={post.imageUrl}
                         width={index === 0 ? 600 : 150}
                         height={index === 0 ? 300 : 150}
                         alt={post.id}
                         priority={true}
-                        className={
-                          index === 0
-                            ? ""
-                            : "w-[100px] h-[100px] overflow-hidden"
-                        }
+                        className=""
                       />
                     </div>
                   </div>

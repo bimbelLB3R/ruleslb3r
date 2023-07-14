@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import Head from "next/head";
 
 export default function MetaForBlog({ detailPost }) {
   const ogTitle = detailPost.title;
@@ -8,6 +8,7 @@ export default function MetaForBlog({ detailPost }) {
   // console.log(ogImage);
   return (
     <Head>
+      <title>{ogTitle}</title>
       <meta property="og:image" itemProp="image" content={ogImage} />
       <meta property="og:title" content={ogTitle} />
       <meta property="og:description" content={ogDesc} />

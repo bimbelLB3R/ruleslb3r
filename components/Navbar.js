@@ -99,6 +99,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               ref={menuRef}
               className="text-orange-400 "
+              title="Toggle Menu"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
