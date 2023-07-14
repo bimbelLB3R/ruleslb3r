@@ -48,7 +48,7 @@ export default function BlogsPage({ allPost, allTutorial }) {
   return (
     <div>
       <Head>
-        <title>Blogs</title>
+        <title>Blog Bimbel LB3R</title>
         <link
           rel="icon"
           type="image/png"
@@ -57,8 +57,13 @@ export default function BlogsPage({ allPost, allTutorial }) {
         />
         <meta
           name="description"
-          content="Berisi informasi penting"
+          content="Berita atau informasi seputar SNPMB, Pemilihan dan Pengenalan Jurusan, dan lain-lain"
           key="desc"
+        />
+        <meta
+          property="og:image"
+          itemProp="image"
+          content="https://raw.githubusercontent.com/bimbelLB3R/ruleslb3r/main/public/image/image1.webp"
         />
       </Head>
       <Transition

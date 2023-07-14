@@ -43,7 +43,8 @@ const Newclass = ({ allPost }) => {
               <tr>
                 <td className="align-top">1.</td>
                 <td className="text-justify">
-                  Siswa yang baru mendaftar bisa membuat kelas sendiri.
+                  Siswa yang baru mendaftar bisa membuat kelas sendiri (Selama
+                  Kuota masih tersedia)
                 </td>
               </tr>
               <tr>
