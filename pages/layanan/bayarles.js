@@ -301,29 +301,53 @@ const BayarLes = ({ allPost }) => {
             className="space-y-3 w-full max-w-lg mx-auto p-5 mt-20"
             onSubmit={submitForm}
           >
-            <p className="font-semibold text-2xl text-center w-full bg-slate-500 p-2 text-slate-100">
+            <p className="font-semibold text-2xl text-center w-full bg-slate-500 p-2 text-slate-100 rounded-lg">
               Lengkapi Data
             </p>
             <div>
-              <input
-                name="token"
-                type="text"
-                readOnly={isReadOnly}
-                autoFocus
-                className={`w-full mb-2 ${
-                  isTokenEmpty ? "border-red-500" : "mb-2"
-                } ${isReadOnly ? "bg-slate-200" : ""}`}
-                placeholder="Masukkan Kodemu"
-                autoComplete="off"
-                onChange={handleChange}
-                onBlur={() => {
-                  if (form.token === "") {
-                    setIsTokenEmpty(true);
-                  } else {
-                    setIsTokenEmpty(false);
-                  }
-                }}
-              />
+              {/* <div className="relative">
+                <input
+                  type="text"
+                  id="floating_outlined"
+                  className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  placeholder=" "
+                />
+                <label
+                  for="floating_outlined"
+                  className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                >
+                  Kode Identitasmu
+                </label>
+              </div> */}
+
+              <div className="relative">
+                <input
+                  name="token"
+                  type="text"
+                  readOnly={isReadOnly}
+                  autoFocus
+                  id="floating_outlined"
+                  className={` mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                    isTokenEmpty ? "border-red-500" : "mb-2"
+                  } ${isReadOnly ? "bg-slate-200" : ""}`}
+                  placeholder=" "
+                  autoComplete="off"
+                  onChange={handleChange}
+                  onBlur={() => {
+                    if (form.token === "") {
+                      setIsTokenEmpty(true);
+                    } else {
+                      setIsTokenEmpty(false);
+                    }
+                  }}
+                />
+                <label
+                  for="floating_outlined"
+                  className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                >
+                  Kode Identitasmu
+                </label>
+              </div>
               {isTokenEmpty && (
                 <p className="text-red-500 text-xs">Wajib diisi</p>
               )}
@@ -361,20 +385,31 @@ const BayarLes = ({ allPost }) => {
               <p className="text-xs text-red-900 mb-2">
                 Centang jika itu namamu
               </p>
-              <input
-                name="wa"
-                type="text"
-                className={`w-full ${iswaEmpty ? "border-red-500" : "mb-2"}`}
-                onChange={handleChange}
-                placeholder="isi nomor wa yang aktif"
-                onBlur={() => {
-                  if (form.wa === "") {
-                    setIswaEmpty(true);
-                  } else {
-                    setIswaEmpty(false);
-                  }
-                }}
-              />
+              <div className="relative">
+                <input
+                  name="wa"
+                  type="text"
+                  id="floating_outlined2"
+                  className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                    iswaEmpty ? "border-red-500" : "mb-2"
+                  }`}
+                  onChange={handleChange}
+                  placeholder=" "
+                  onBlur={() => {
+                    if (form.wa === "") {
+                      setIswaEmpty(true);
+                    } else {
+                      setIswaEmpty(false);
+                    }
+                  }}
+                />
+                <label
+                  for="floating_outlined2"
+                  className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                >
+                  Nomor WA kamu
+                </label>
+              </div>
               {iswaEmpty && (
                 <p className="text-red-500 text-xs mb-2">Wajib diisi</p>
               )}
@@ -388,7 +423,7 @@ const BayarLes = ({ allPost }) => {
                 readOnly
               /> */}
               <select
-                className={`w-full  ${
+                className={`w-full px-2.5 pb-2.5 pt-4  text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 ${
                   isbulanEmpty ? "border-red-500" : "mb-2"
                 }`}
                 name="bulan"
@@ -410,7 +445,7 @@ const BayarLes = ({ allPost }) => {
               )}
 
               <select
-                className={`w-full  ${
+                className={`w-full px-2.5 pb-2.5 pt-4  text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600  ${
                   isjumlahEmpty ? "border-red-500" : "mb-2"
                 }`}
                 name="jumlah"
@@ -471,7 +506,7 @@ const BayarLes = ({ allPost }) => {
                 <p className="text-red-500 text-xs mb-2">Wajib dicentang</p>
               )}
               <select
-                className="w-full mb-2"
+                className="w-full px-2.5 pb-2.5 pt-4  text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 mb-2"
                 name="kalipembayaran"
                 onChange={handleChange}
                 onBlur={() => {
@@ -501,7 +536,7 @@ const BayarLes = ({ allPost }) => {
               )}
 
               <textarea
-                className="w-full"
+                className="w-full px-2.5 pb-2.5 pt-4  text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 mb-2"
                 placeholder="Tulis Jika Ada Pesan ke Admin"
                 name="pesan"
                 onChange={handleChange}

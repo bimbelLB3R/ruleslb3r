@@ -1,9 +1,9 @@
 import { Accordion } from "flowbite-react";
 const Faq = () => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center mt-20">
       <div className="md:max-w-2xl mb-10 overflow-hidden">
-        <Accordion alwaysOpen={true}>
+        <Accordion alwaysOpen={false}>
           <Accordion.Panel>
             <Accordion.Title>
               <p className="text-orange-900">BERAPA BIAYA LES DI LB3R</p>
