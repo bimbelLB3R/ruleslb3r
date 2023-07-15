@@ -218,15 +218,18 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
             className="space-y-3 w-full max-w-lg mx-auto p-5"
             onSubmit={submitForm}
           >
-            <p className="font-semibold text-2xl text-center w-full bg-slate-500 p-2 text-slate-100">
+            <p className="font-semibold text-2xl text-center w-full bg-slate-500 p-2 text-slate-100 rounded-lg">
               Lengkapi Data
             </p>
-            <div>
+            <div className="relative">
               <input
                 name="nama"
                 type="text"
-                className={`w-full ${isNamaEmpty ? "border-red-500" : ""}`}
-                placeholder="Nama Lengkap"
+                id="floating_outlined3"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isNamaEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
                 onBlur={() => {
@@ -237,16 +240,25 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                   }
                 }}
               />
+              <label
+                for="floating_outlined3"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Nama Lengkap
+              </label>
               {isNamaEmpty && (
                 <p className="text-red-500 text-xs">Wajib diisi</p>
               )}
             </div>
-            <div>
+            <div className="relative">
               <input
                 name="kelas"
                 type="text"
-                className={`w-full ${isKelasEmpty ? "border-red-500" : ""}`}
-                placeholder="Kelas"
+                id="floating_outlined4"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isKelasEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
                 onBlur={() => {
@@ -257,18 +269,25 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                   }
                 }}
               />
+              <label
+                for="floating_outlined4"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Kelas
+              </label>
               {isKelasEmpty && (
                 <p className="text-red-500 text-xs">Wajib diisi</p>
               )}
             </div>
-            <div>
+            <div className="relative">
               <input
                 name="asalsekolah"
                 type="text"
-                className={`w-full ${
-                  isAsalSekolahEmpty ? "border-red-500" : ""
+                id="floating_outlined5"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isAsalSekolahEmpty ? "border-red-500" : "mb-2"
                 }`}
-                placeholder="Asal Sekolah"
+                placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
                 onBlur={() => {
@@ -279,16 +298,25 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                   }
                 }}
               />
+              <label
+                for="floating_outlined5"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Asal Sekolah
+              </label>
               {isAsalSekolahEmpty && (
                 <p className="text-red-500 text-xs">Wajib diisi</p>
               )}
             </div>
-            <div>
+            <div className="relative">
               <input
                 name="wa"
                 type="number"
-                className={`w-full ${isWaEmpty ? "border-red-500" : ""}`}
-                placeholder="wa"
+                id="floating_outlined6"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isWaEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
                 onBlur={() => {
@@ -299,16 +327,25 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                   }
                 }}
               />
+              <label
+                for="floating_outlined6"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Nomor WA Aktif
+              </label>
               {isWaEmpty && (
                 <p className="text-red-500 text-xs">Wajib diisi angka</p>
               )}
             </div>
-            <div>
+            <div className="relative">
               <input
                 name="email"
                 type="email"
-                className={`w-full ${isEmailEmpty ? "border-red-500" : ""}`}
-                placeholder="email"
+                id="floating_outlined7"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isEmailEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
                 onBlur={() => {
@@ -319,6 +356,12 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                   }
                 }}
               />
+              <label
+                for="floating_outlined7"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Email
+              </label>
               {isEmailEmpty && (
                 <p className="text-red-500 text-xs">Wajib diisi</p>
               )}

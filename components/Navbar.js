@@ -130,16 +130,20 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
               <div className="w-full p-6 ">
                 <div className="flex space-x-2 justify-center mb-4 font-semibold">
                   <Link href="/">
-                    <p className="text-slate-600 hover:text-slate-900">HOME</p>
+                    <p className="bg-orange-600 text-slate-50 px-2 py-4 text-center mb-2 rounded">
+                      HOME
+                    </p>
                   </Link>
                   <Link href="/layanan">
-                    <p className="text-slate-600 hover:text-slate-900">
+                    <p className="bg-orange-600 text-slate-50 px-2 py-4 text-center mb-2 rounded">
                       LAYANAN
                     </p>
                   </Link>
                   {/* <DropdownMenuLayanan /> */}
                   <Link href="/blogs">
-                    <p className="text-slate-600 hover:text-slate-900">BLOGS</p>
+                    <p className="bg-orange-600 text-slate-50 px-2 py-4 text-center mb-2 rounded">
+                      BLOGS
+                    </p>
                   </Link>
                 </div>
                 <div>
