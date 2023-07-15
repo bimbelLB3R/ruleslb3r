@@ -20,7 +20,8 @@
       "writer": "Wahyudi",
       "createdAt": "2023-07-12T19:34:56",
       "updatedAt": "2023-07-12T19:34:56",
-      "tags": "Web Programming"
+      "tags": "Web Programming",
+      "keyword": "Github Api, Postman"
     },
     {
       "id": 1,
@@ -45,7 +46,8 @@
       "writer": "Wahyudi",
       "createdAt": "2023-05-18T07:05:56",
       "updatedAt": "2023-05-18T07:05:56",
-      "tags": "Education"
+      "tags": "Education",
+      "keyword": "Education"
     },
     {
       "id": 0,
@@ -73,7 +75,8 @@
       "writer": "Wahyudi",
       "createdAt": "2023-05-16T12:34:56",
       "updatedAt": "2023-05-16T12:34:56",
-      "tags": "Web Programming"
+      "tags": "Web Programming",
+      "keyword": "Nextjs, PrismJs, Highlight COde"
     }
   ]
 }
