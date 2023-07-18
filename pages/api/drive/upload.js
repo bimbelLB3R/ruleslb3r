@@ -2,13 +2,11 @@ import { google } from "googleapis";
 import path from "path";
 import fs from "fs";
 
-const CLIENT_ID =
-  "621018056476-iapr02uefbaddna0f26r2n5e6b9nus50.apps.googleusercontent.com";
-const CLIENT_SECRET = "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";
+const CLIENT_ID = process.env.DRIVE_CLIENT_ID;
+const CLIENT_SECRET = process.env.DRIVE_CLIENT_SECRET;
 const REDIRECT_URI = "https://developers.google.com/oauthplayground";
 
-const REFRESH_TOKEN =
-  "1//04x9Ip4VnFeFjCgYIARAAGAQSNwF-L9Irsm_DtBA3L9pK8DXyer8SYbUl8hDKUc7evQlpB_G9oVydoxYyl1CmhVHklo0tDiyJG3g";
+const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
 
 const oauth2Client = new google.auth.OAuth2(
   CLIENT_ID,
