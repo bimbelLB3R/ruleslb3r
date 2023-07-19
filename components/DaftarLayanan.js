@@ -27,6 +27,7 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 const DaftarLayanan = ({ detailProgram, allPost }) => {
+  const [isDisable, setIsDisable] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
@@ -130,6 +131,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         // 3.Handle submit ke sheet dan membuat tombol bayar
 
         const createTransaction = async (newRow) => {
+          console.log(isDisable);
           try {
             const response = await axios.post(
               "/api/create-transaction",
@@ -148,10 +150,11 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         };
         const transactionToken = await createTransaction(newRow);
         const transactionRedirectUrl = await createTransaction(newRow);
-        console.log(transactionToken); //token berhasil
-        console.log(transactionRedirectUrl); //token berhasil
+        // console.log(transactionToken); //token berhasil
+        // console.log(transactionRedirectUrl); //token berhasil
 
         // setIsLoading(true); // set status loading menjadi true, kirim ke drive
+
         await appendSpreadsheet(newRow);
         e.target.reset();
         setIsButtonDisabled(false);
@@ -232,6 +235,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
+                disabled={isDisable}
                 onBlur={() => {
                   if (form.nama === "") {
                     setIsNamaEmpty(true);
@@ -241,7 +245,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 }}
               />
               <label
-                for="floating_outlined3"
+                htmlFor="floating_outlined3"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
               >
                 Nama Lengkap
@@ -261,6 +265,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
+                disabled={isDisable}
                 onBlur={() => {
                   if (form.kelas === "") {
                     setIsKelasEmpty(true);
@@ -270,7 +275,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 }}
               />
               <label
-                for="floating_outlined4"
+                htmlFor="floating_outlined4"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
               >
                 Kelas
@@ -290,6 +295,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
+                disabled={isDisable}
                 onBlur={() => {
                   if (form.asalsekolah === "") {
                     setIsAsalSekolahEmpty(true);
@@ -299,7 +305,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 }}
               />
               <label
-                for="floating_outlined5"
+                htmlFor="floating_outlined5"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
               >
                 Asal Sekolah
@@ -319,6 +325,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
+                disabled={isDisable}
                 onBlur={() => {
                   if (form.wa === "") {
                     setIsWaEmpty(true);
@@ -328,7 +335,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 }}
               />
               <label
-                for="floating_outlined6"
+                htmlFor="floating_outlined6"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
               >
                 Nomor WA Aktif
@@ -348,6 +355,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
+                disabled={isDisable}
                 onBlur={() => {
                   if (form.email === "") {
                     setIsEmailEmpty(true);
@@ -357,7 +365,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 }}
               />
               <label
-                for="floating_outlined7"
+                htmlFor="floating_outlined7"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
               >
                 Email
@@ -367,7 +375,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               )}
             </div>
             <p className="w-full bg-slate-500 p-2 text-slate-100">
-              CENTANG PILIHAN PROGRAM DAN BIAYA
+              CENTANG SEMUA YA...
             </p>
             <div className="flex items-center space-x-2">
               <input
@@ -376,6 +384,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 className=""
                 placeholder="program"
                 onChange={handleChange}
+                disabled={isDisable}
                 // readOnly
                 value={inputValueProgramName}
               />
@@ -388,10 +397,11 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 className=""
                 placeholder="biaya"
                 onChange={handleChange}
+                disabled={isDisable}
                 // readOnly
                 value={inputValueProgramPrice}
               />
-              <p>
+              <p className="flex items-center">
                 {formatCurrency(inputValueProgramPrice)} {detailProgram.rincian}
               </p>
             </div>
