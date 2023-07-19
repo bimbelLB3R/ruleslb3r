@@ -128,7 +128,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
             {/* button */}
             <div className="flex justify-center md:hidden h-screen overflow-auto ">
               <div className="w-full p-6 ">
-                <Link href="/">
+                <Link href="/" title="Home">
                   <div className="border-b-2 border-orange-600 text-slate-900 px-2 py-4 flex justify-center mb-2  w-full ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
