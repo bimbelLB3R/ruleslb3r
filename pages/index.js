@@ -13,8 +13,70 @@ import { useEffect, useState, useRef } from "react";
 // import CodeBlog from "../components/CodeBlog";
 import { getBlogsData } from "../utils/blogsApi";
 import InfoTerbaru from "../components/InfoTerbaru";
+import { getDataAlumni } from "../utils/alumniApi";
+import Swal from "sweetalert2";
 
-const Home = ({ allPost }) => {
+const Home = ({ allPost, dataAlumni }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    // Memunculkan nama user secara bergantian
+    const showUserName = (index) => {
+      if (index >= dataAlumni.length) {
+        // Jika sudah mencapai akhir data, ulangi dari awal
+        setCurrentIndex(0);
+        return;
+      }
+
+      // Tampilkan alert SweetAlert dengan jeda waktu 1 detik
+      setTimeout(() => {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top",
+          padding: "0.1rem",
+          showConfirmButton: false,
+          customClass: {
+            // Atur kelas CSS untuk mengatur ukuran teks (contoh: 'custom-swal-text')
+            content: "custom-swal-text",
+          },
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+
+        Toast.fire({
+          icon: "success",
+          title: "Info SNBT",
+          text: dataAlumni[index].nama,
+        });
+        // Swal.fire({
+        //   showConfirmButton: false,
+        //   timer: 1500,
+        //   position: "bottom",
+        //   showClass: {
+        //     popup: "animate__animated animate__fadeInUp",
+        //   },
+        //   hideClass: {
+        //     popup: "animate__animated animate__fadeOutDown",
+        //   },
+        //   backdrop: false,
+        //   padding: "0.1rem",
+        //   allowOutsideClick: false,
+        //   text: dataAlumni[index].nama,
+        // });
+
+        // Lanjutkan ke nama user berikutnya
+        showUserName(index + 1);
+      }, 4000);
+    };
+
+    // Memulai rekursif untuk menampilkan nama user
+    showUserName(currentIndex);
+  }, [currentIndex]);
+
   // console.log(allPost);
   const [showNavbar, setShowNavbar] = useState(false);
   const navbarRef = useRef(null);
@@ -74,11 +136,13 @@ export default Home;
 
 export async function getStaticProps() {
   const data = getBlogsData();
+  const dataAlumni = getDataAlumni();
   // const dataTutorial = getTutorialData();
   // console.log(dataTutorial);
   return {
     props: {
       allPost: data.posts,
+      dataAlumni: dataAlumni.alumni,
       // allTutorial: dataTutorial.tutorials,
     },
   };

@@ -18,3 +18,8 @@ body {
     animation-delay: 4s;
   }
 }
+
+.custom-swal-text {
+  @apply text-xs; /* Atur ukuran teks sesuai keinginan Anda, misalnya gunakan text-sm atau text-lg */
+  /* Tambahkan properti CSS lain sesuai kebutuhan Anda */
+}
