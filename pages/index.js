@@ -32,7 +32,8 @@ const Home = ({ allPost, dataAlumni }) => {
       setTimeout(() => {
         const Toast = Swal.mixin({
           toast: true,
-          position: "top",
+          position: "bottom",
+          background: "#ecfccb",
           padding: "0.1rem",
           showConfirmButton: false,
           customClass: {

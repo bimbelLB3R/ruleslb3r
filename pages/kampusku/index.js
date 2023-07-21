@@ -9,6 +9,7 @@ import ChartKeketatan from "../../components/ChartKeketatan";
 import Head from "next/head";
 import { getDefinisiProdi } from "../../utils/kampusApaItuProdiApi";
 import { Transition } from "@headlessui/react";
+import Wa from "../../components/Wa";
 
 // meminta data ke server /api
 export async function getStaticProps() {
@@ -145,6 +146,7 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
             allPost={allPost}
           />
         </Transition>
+        <Wa />
         <div className="flex items-center justify-center  font-roboto">
           <div className="max-w-sm md:max-w-3xl ">
             <form className="text-gray-600">

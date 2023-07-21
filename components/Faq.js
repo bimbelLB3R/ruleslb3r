@@ -145,7 +145,7 @@ const Faq = () => {
               <p className="text-gray-900 dark:text-gray-400 text-left">
                 Silahkan kontak{" "}
                 <a
-                  href="https://wa.me/6285654179908"
+                  href="https://wa.me/6281392552459"
                   className="text-blue-600 hover:underline dark:text-blue-500"
                 >
                   admin
