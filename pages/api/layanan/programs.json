@@ -56,7 +56,7 @@
       "nama": "Program Akselerasi Matematika",
       "slug": "program-akselerasi-matematika",
       "biaya": 500000,
-      "total": 1000,
+      "total": 650000,
       "rincian": "Biaya Pendaftaran dan biaya les",
       "frekuensi": "per jenjang",
       "fasilitas": [
@@ -66,6 +66,23 @@
         "Tersedia untuk jenjang SD, SMP dan SMA",
         "Fokus pemahaman konsep disertai tips dan trik",
         "Biaya mulai 500.000 dan bisa berubah sesuai jenjang dan jumlah siswa"
+      ]
+    },
+    {
+      "idProgram": "EngLB3R",
+      "nama": "Program Khusus Bahasa Inggris",
+      "slug": "program-khusus-inggris",
+      "biaya": 200000,
+      "total": 350000,
+      "rincian": "Biaya Pendaftaran dan biaya les ",
+      "frekuensi": "per bulan",
+      "fasilitas": [
+        "Biaya pendaftaran 150.000 (sekali bayar)",
+        "Satu minggu 1 kali pertemuan @2 jam",
+        "Super Pronunciation",
+        "Super Vocabulary",
+        "Super Grammar",
+        "Easy Speaking"
       ]
     }
   ]
