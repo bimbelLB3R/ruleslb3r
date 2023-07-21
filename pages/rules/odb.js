@@ -3,6 +3,7 @@ import Head from "next/head";
 import Layout from "../../components/Layout";
 import { getBlogsData } from "../../utils/blogsApi";
 import { getTutorialData } from "../../utils/TutorialApi";
+import Link from "next/link";
 export async function getStaticProps() {
   const data = getBlogsData();
   const dataTutorial = getTutorialData();
@@ -110,6 +111,25 @@ const Odb = ({ allPost }) => {
             </tbody>
             <tfoot></tfoot>
           </table>
+          <Link className="flex items-center justify-end" href="/user/term">
+            <p className="text-blue-600">Lihat tata tertib lainnya</p>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-6 h-6 text-blue-600"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </div>
+          </Link>
         </div>
       </div>
     </Layout>

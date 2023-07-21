@@ -3,6 +3,7 @@ import Head from "next/head";
 import Layout from "../../components/Layout";
 import { getBlogsData } from "../../utils/blogsApi";
 import { getTutorialData } from "../../utils/TutorialApi";
+import Link from "next/link";
 export async function getStaticProps() {
   const data = getBlogsData();
   const dataTutorial = getTutorialData();
@@ -46,13 +47,20 @@ const Odb = ({ allPost }) => {
               <tr>
                 <td className="align-top">1.</td>
                 <td className="text-justify">
-                  Kamu boleh ajak teman buat ikut kelas ODB secara GRATIS
+                  Kamu boleh ajak teman buat ikut{" "}
+                  <Link href="/rules/odb">
+                    <span className=" text-blue-600">kelas ODB </span>
+                  </Link>
+                  secara GRATIS selama kuota tersedia.
                 </td>
               </tr>
               <tr>
                 <td className="align-top">2.</td>
                 <td className="text-justify">
-                  Off sementara dan lanjut les lagi bulan depan
+                  <Link href="/rules/odb">
+                    <span className=" text-blue-600">Off sementara </span>
+                  </Link>{" "}
+                  dan lanjut les lagi bulan depan
                 </td>
               </tr>
               <tr>

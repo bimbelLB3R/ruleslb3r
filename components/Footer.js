@@ -41,12 +41,12 @@ const Footer = () => {
               <div className="flex space-x-2 items-center justify-center">
                 <Link href="/user/term">
                   <p className="text-xs text-slate-600 underline underline-offset-2 decoration-2 decoration-orange-600">
-                    Term Of Service
+                    Tata Tertib
                   </p>
                 </Link>
                 <Link href="/user/privacy">
                   <p className="text-xs text-slate-600 underline underline-offset-2 decoration-2 decoration-orange-600">
-                    Privacy Policy
+                    Kerahasiaan Data
                   </p>
                 </Link>
               </div>

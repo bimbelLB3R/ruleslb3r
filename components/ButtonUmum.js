@@ -16,9 +16,9 @@ const ButtonUmum = () => {
     router.push("/layanan");
   };
   return (
-    <div className="flex justify-center md:max-w-xl m-auto bg-gradient-to-b from-cyan-100 to-orange-100 p-4">
+    <div className="flex justify-center md:max-w-xl m-auto  p-4 ">
       <button
-        className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-4 px-8  transition-colors duration-300 ease-in-out text-xl rounded-full"
+        className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-4 px-8  transition-colors duration-300 ease-in-out text-xl rounded-full shadow-lg hover:shadow-xl"
         onClick={handleClick}
       >
         <div className="flex items-center justify-center space-x-4">
