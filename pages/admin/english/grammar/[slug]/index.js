@@ -1,5 +1,5 @@
 import Youtube from "../../../../../components/Youtube";
-import { getGrammarData } from "../../../../../utils/englishApi";
+import { getGrammarData } from "../../../../../utils/grammarApi";
 
 export default function Detail({ detailGrammar, allGrammar }) {
   return (
