@@ -1,16 +1,16 @@
 import Youtube from "../../../../../components/Youtube";
 import { getEnglishData } from "../../../../../utils/englishApi";
 
-export default function Detail({ detailEnglish, allEnglish }) {
+export default function Detail({ detailGrammar, allGrammar }) {
   return (
     <div className="flex items-center justify-center m-auto">
       <div>
         <div className="">
-          <Youtube videoId={detailEnglish.videoId} />
+          <Youtube videoId={detailGrammar.videoId} />
         </div>
 
         <div>
-          <h1>{detailEnglish.title}</h1>
+          <h1>{detailGrammar.title}</h1>
         </div>
       </div>
     </div>
@@ -18,10 +18,10 @@ export default function Detail({ detailEnglish, allEnglish }) {
 }
 export async function getStaticPaths() {
   const data = await getEnglishData();
-  const allEnglish = data.grammar;
+  const allGrammar = data.grammar;
 
-  const paths = allEnglish.map((english) => ({
-    params: { slug: english.slug },
+  const paths = allGrammar.map((grammar) => ({
+    params: { slug: grammar.slug },
   }));
 
   return {
@@ -32,17 +32,17 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const data = await getEnglishData();
-  const allEnglish = data.grammar;
-  const englishSlug = params.slug;
+  const allGrammar = data.grammar;
+  const grammarSlug = params.slug;
   // Find the post with a matching id
-  const detailEnglish = allEnglish.find(
-    (english) => english.slug == englishSlug
+  const detailGrammar = allGrammar.find(
+    (grammar) => grammar.slug == grammarSlug
   );
 
   return {
     props: {
-      detailEnglish,
-      allEnglish,
+      detailGrammar,
+      allGrammar,
     },
   };
 }

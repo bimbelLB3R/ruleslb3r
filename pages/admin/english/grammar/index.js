@@ -5,19 +5,19 @@ export async function getStaticProps() {
   const data = getEnglishData();
   return {
     props: {
-      allEnglish: data.grammar,
+      allGrammar: data.grammar,
     },
   };
 }
 
-export default function index({ allEnglish }) {
-  //   console.log(allEnglish);
+export default function index({ allGrammar }) {
+  //   console.log(allGrammar);
   return (
     <div className="p-4 sm:p-0 w-full md:max-w-xl sm:flex sm:items-center sm:justify-center sm:m-auto">
       <div>
         <h1 className="font-bold text-center uppercase">Grammar</h1>
         <div className="">
-          {allEnglish.map((item, index) => (
+          {allGrammar.map((item, index) => (
             <div key={index}>
               <Link
                 href={`/admin/english/grammar/${item.slug}`}
