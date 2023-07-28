@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { getEnglishData } from "../../../../utils/englishApi";
+import { getGrammarData } from "../../../../utils/englishApi";
 
 export async function getStaticProps() {
-  const data = getEnglishData();
+  const data = getGrammarData();
   return {
     props: {
       allGrammar: data.grammar,

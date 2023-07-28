@@ -1,8 +1,5 @@
 import Youtube from "../../../../../components/Youtube";
-import {
-  getEnglishData,
-  getGrammarData,
-} from "../../../../../utils/englishApi";
+import { getGrammarData } from "../../../../../utils/englishApi";
 
 export default function Detail({ detailGrammar, allGrammar }) {
   return (
@@ -34,7 +31,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const data = await getEnglishData();
+  const data = await getGrammarData();
   const allGrammar = data.grammar;
   const grammarSlug = params.slug;
   // Find the post with a matching id
