@@ -1,5 +1,8 @@
 import Youtube from "../../../../../components/Youtube";
-import { getEnglishData } from "../../../../../utils/englishApi";
+import {
+  getEnglishData,
+  getGrammarData,
+} from "../../../../../utils/englishApi";
 
 export default function Detail({ detailGrammar, allGrammar }) {
   return (
@@ -17,7 +20,7 @@ export default function Detail({ detailGrammar, allGrammar }) {
   );
 }
 export async function getStaticPaths() {
-  const data = await getEnglishData();
+  const data = await getGrammarData();
   const allGrammar = data.grammar;
 
   const paths = allGrammar.map((grammar) => ({
