@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getGrammarData } from "../../../../utils/grammarApi";
+import { getGrammarData } from "../../../utils/grammarApi";
 
 export async function getStaticProps() {
   const data = getGrammarData();

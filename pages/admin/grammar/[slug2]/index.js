@@ -1,6 +1,5 @@
-import Youtube from "../../../../../components/Youtube";
-import { getGrammarData } from "../../../../../utils/grammarApi";
-
+import { getGrammarData } from "../../../../utils/grammarApi";
+import Youtube from "../../../../components/Youtube";
 export default function Detail({ detailGrammar, allGrammar }) {
   return (
     <div className="flex items-center justify-center m-auto">
