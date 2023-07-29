@@ -21,7 +21,7 @@ export async function getStaticPaths() {
   const allGrammar = data.grammar;
 
   const paths = allGrammar.map((grammar) => ({
-    params: { slug: grammar.slug },
+    params: { slug2: grammar.slug },
   }));
 
   return {
@@ -33,7 +33,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const data = await getGrammarData();
   const allGrammar = data.grammar;
-  const grammarSlug = params.slug;
+  const grammarSlug = params.slug2;
   // Find the post with a matching id
   const detailGrammar = allGrammar.find(
     (grammar) => grammar.slug == grammarSlug
