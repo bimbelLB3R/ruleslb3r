@@ -20,7 +20,7 @@ export async function getStaticPaths() {
   const data = await getEnglishData();
   const allEnglish2 = data.english;
 
-  const paths = allEnglish2.map((english2) => ({
+  const paths = allEnglish2.find((english2) => ({
     params: { slug: english2.slug },
   }));
 
