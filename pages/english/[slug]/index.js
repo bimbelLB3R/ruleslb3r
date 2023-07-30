@@ -1,16 +1,16 @@
 import Youtube from "../../../components/Youtube";
 import { getEnglishData } from "../../../utils/englishApi";
 
-export default function Detail({ detailEnglish, allEnglish }) {
+export default function Detail({ detailEnglish2, allEnglish2 }) {
   return (
     <div className="flex items-center justify-center m-auto">
       <div>
         <div className="">
-          <Youtube videoId={detailEnglish.videoId} />
+          <Youtube videoId={detailEnglish2.videoId} />
         </div>
 
         <div>
-          <h1>{detailEnglish.title}</h1>
+          <h1>{detailEnglish2.title}</h1>
         </div>
       </div>
     </div>
@@ -18,10 +18,10 @@ export default function Detail({ detailEnglish, allEnglish }) {
 }
 export async function getStaticPaths() {
   const data = await getEnglishData();
-  const allEnglish = data.english;
+  const allEnglish2 = data.english;
 
-  const paths = allEnglish.map((english) => ({
-    params: { slug: english.slug },
+  const paths = allEnglish2.map((english2) => ({
+    params: { slug: english2.slug },
   }));
 
   return {
@@ -32,17 +32,17 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const data = await getEnglishData();
-  const allEnglish = data.english;
+  const allEnglish2 = data.english;
   const englishSlug = params.slug;
   // Find the post with a matching id
-  const detailEnglish = allEnglish.find(
-    (english) => english.slug == englishSlug
+  const detailEnglish2 = allEnglish2.find(
+    (english2) => english2.slug == englishSlug
   );
 
   return {
     props: {
-      detailEnglish,
-      allEnglish,
+      detailEnglish2,
+      allEnglish2,
     },
   };
 }
