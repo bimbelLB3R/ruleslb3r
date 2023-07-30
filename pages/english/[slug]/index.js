@@ -1,5 +1,5 @@
-import Youtube from "../../../../../components/Youtube";
-import { getEnglishData } from "../../../../../utils/englishApi";
+import Youtube from "../../../components/Youtube";
+import { getEnglishData } from "../../../utils/englishApi";
 
 export default function Detail({ detailEnglish, allEnglish }) {
   return (
