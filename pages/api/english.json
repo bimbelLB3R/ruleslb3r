@@ -101,7 +101,7 @@
       "theme": "pronaunciation",
       "title": "Cara Pengucapan /iː/",
       "description": "Penjelasan Pengucapan Symbol /iː/",
-      "slug": "pengucapan-10",
+      "slug": "pengucapan-10-1",
       "videoId": "-NIY_gSKd3I"
     },
     {
@@ -125,7 +125,7 @@
       "theme": "pronaunciation",
       "title": "Cara Pengucapan /aɪ/",
       "description": "Penjelasan Pengucapan Symbol /aɪ/",
-      "slug": "pengucapan-12",
+      "slug": "pengucapan-12-1",
       "videoId": "8UlxkjDHWNE"
     },
     {
@@ -565,7 +565,7 @@
       "theme": "grammar",
       "title": "present prefect",
       "description": "Pembahasan tentang present prefect",
-      "slug": "present prefect",
+      "slug": "present-prefect",
       "videoId": "KUyjUHn-alY"
     },
     {
@@ -679,214 +679,6 @@
       "description": "Pembahasan tentang Passive voice",
       "slug": "passive-voice",
       "videoId": "Mpn9ihbODr0"
-    },
-    {
-      "id": 33,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 34,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 35,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 36,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 37,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 38,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 39,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 40,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 41,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 42,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 43,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 44,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 45,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 46,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 47,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 48,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 49,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 50,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 51,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 52,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 53,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 54,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 55,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 56,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 57,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
-    },
-    {
-      "id": 58,
-      "theme": "grammar",
-      "title": "",
-      "description": "",
-      "slug": "",
-      "videoId": ""
     }
   ]
 }

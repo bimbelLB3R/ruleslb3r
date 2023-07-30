@@ -27,7 +27,9 @@ export default function index({ allEnglish }) {
           />
         </div>
 
-        <div className="">{/* <AccordianEng allEnglish={allEnglish} /> */}</div>
+        <div className="">
+          <AccordianEng allEnglish={allEnglish} />
+        </div>
       </div>
     </div>
   );
