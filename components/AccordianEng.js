@@ -18,7 +18,7 @@ const AccordianEng = ({ allEnglish }) => {
                 {allPro.map((item, index) => (
                   <div key={index}>
                     <Link
-                      href={`/english/${item.slug}`}
+                      href={`/pare/${item.slug}`}
                       className="flex items-center space-x-2 border-b-2 m-3"
                     >
                       <div>
@@ -58,7 +58,7 @@ const AccordianEng = ({ allEnglish }) => {
                 {allGrammar.map((item, index) => (
                   <div key={index}>
                     <Link
-                      href={`/english/${item.slug}`}
+                      href={`/pare/${item.slug}`}
                       className="flex items-center space-x-2 border-b-2 m-3"
                     >
                       <div>
