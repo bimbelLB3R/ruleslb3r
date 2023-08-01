@@ -119,7 +119,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
               </button>
             </div>
           </div>
-          <div className="flex items-center space-x-6 ">
+          <div className="flex items-center space-x-6 border-l-2 border-gray-400 pl-1">
             <div>
               <p className="text-[10px] font-semibold">Kantor Pusat :</p>
               <p className="text-[10px]">
@@ -160,19 +160,24 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
               }`}
             >
               {/* button */}
-              <div className="flex justify-center md:hidden h-screen overflow-auto ">
-                <div className="w-full p-6 ">
+              <div className="flex justify-center md:hidden h-full overflow-auto ">
+                <div className="w-full p-6 pt-3 ">
                   <Link href="/" title="Home">
-                    <div className="border-b-2 border-orange-600 text-slate-900 px-2 py-4 flex justify-center mb-2  w-full ">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="w-10 h-10 text-orange-600"
-                      >
-                        <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
-                        <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
-                      </svg>
+                    <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded">
+                      <div className="flex items-center space-x-2">
+                        <div>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            className="w-6 h-6 "
+                          >
+                            <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
+                            <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
+                          </svg>
+                        </div>
+                        <p>HOME</p>
+                      </div>
                     </div>
                   </Link>
                   <Link href="/layanan">
@@ -285,36 +290,23 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                         </div>
                       </div>
                     </Link>
-                    <div className="m-4 text-center">
-                      <h1 className="font-semibold text-slate-600">
-                        TATA TERTIB & KETENTUAN
-                      </h1>
-                      <Link href="/rules/newclass">
-                        <p className="text-slate-600 hover:text-slate-900 border border-orange-600 rounded p-2 mb-2">
-                          Cara Membuat Kelas Baru
-                        </p>
-                      </Link>
-                      <Link href="/rules/payment">
-                        <p className="text-slate-600 hover:text-slate-900 border border-orange-600 rounded p-2 mb-2">
-                          Cara Melakukan Pembayaran
-                        </p>
-                      </Link>
-                      <Link href="/rules/kbm">
-                        <p className="text-slate-600 hover:text-slate-900 border border-orange-600 rounded p-2 mb-2">
-                          Tata Tertib KBM
-                        </p>
-                      </Link>
-                      <Link href="/rules/odb">
-                        <p className="text-slate-600 hover:text-slate-900 border border-orange-600 rounded p-2 mb-2">
-                          Apa itu One Day Before
-                        </p>
-                      </Link>
-                      <Link href="/rules/off">
-                        <p className="text-slate-600 hover:text-slate-900 border border-orange-600 rounded p-2 mb-2">
-                          Off Sementara, Tentu Bisa
-                        </p>
-                      </Link>
-                    </div>
+                    <Link href="/user/term">
+                      <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded">
+                        <div className="flex items-center space-x-2">
+                          <div>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              className="w-6 h-6"
+                            >
+                              <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z" />
+                            </svg>
+                          </div>
+                          <p>CEK TATA TERTIB & KETENTUAN</p>
+                        </div>
+                      </div>
+                    </Link>
                   </div>
                   <Footer />
                 </div>
