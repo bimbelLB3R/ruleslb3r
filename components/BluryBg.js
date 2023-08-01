@@ -29,7 +29,10 @@ export default function BluryBg() {
                 <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
               </svg>
             </div>
-            <div>Kamu boleh ajak teman buat ikut kelas ODB secara GRATIS</div>
+            <div>
+              Kamu boleh ajak teman buat ikut kelas ODB secara GRATIS, cek kuota
+              kelasmu ya..
+            </div>
           </div>
           <div className="p-2 md:p-5 bg-white/50 text-yellow-900/80 rounded-lg flex items-center  space-x-3">
             <div>
@@ -45,7 +48,9 @@ export default function BluryBg() {
                 <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
               </svg>
             </div>
-            <div>Off sementara dan lanjut les lagi bulan depan</div>
+            <div>
+              Off sementara dan lanjut les lagi bulan depan (cek tatibnya ya)
+            </div>
           </div>
           <div className="p-2 md:p-5 bg-white/50 text-yellow-900/80 rounded-lg flex items-center  space-x-3">
             <div>
@@ -98,13 +103,15 @@ export default function BluryBg() {
                 <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
               </svg>
             </div>
-            <div>Memilih jam belajar siang atau malam</div>
+            <div>
+              Memilih jam belajar siang atau malam (untuk mapel tertentu)
+            </div>
           </div>
           <Link
             href="/rules/ambak"
             className="p-2 md:p-5 bg-white/50 text-yellow-900/80 rounded-lg flex items-center justify-center space-x-3 border border-blue-600"
           >
-            <p className="text-center">LANJUTKAN....</p>
+            <p className="text-center">Cek Lainnya....</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"

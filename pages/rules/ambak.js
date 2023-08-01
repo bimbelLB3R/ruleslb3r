@@ -38,10 +38,10 @@ const Odb = ({ allPost }) => {
       <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" allPost={allPost} />
       <div className="flex justify-center items-center m-auto overflow-scroll md:overflow-hidden mb-5 md:max-w-2xl">
         <div className=" text-gray-900 p-4 overflow-scroll md:overflow-hidden">
-          <h1 className="rounded-2xl text-lg font-semibold p-4 relative top-0 left-0 bg-gray-900 w-full text-gray-100 mt-20">
+          <h1 className="rounded-2xl text-lg font-semibold p-4 relative top-0 left-0 bg-gray-900 w-full text-gray-100 mt-[100x]">
             Apa Manfaat Bagiku (AMBAK) ?
           </h1>
-          <table className="mt-12 md:mt-0">
+          <table className="mt-6 md:mt-0">
             <thead></thead>
             <tbody>
               <tr>
@@ -80,7 +80,7 @@ const Odb = ({ allPost }) => {
               <tr>
                 <td className="align-top">5.</td>
                 <td className="text-justify">
-                  Memilih jam belajar siang atau malam
+                  Memilih jam belajar siang atau malam (untuk mapel tertentu)
                 </td>
               </tr>
               <tr>
