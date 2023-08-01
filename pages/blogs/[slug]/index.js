@@ -103,7 +103,7 @@ export default function PostDetail({ detailPost, allPost }) {
         <div className="p-2 md:p-4  mt-10 md:max-w-2xl md:flex md:justify-center md:m-auto md:mt-0">
           <div>
             <div>
-              <div className="flex mb-10 font-bold mt-10 ">
+              <div className="flex mb-10 font-bold mt-20 ">
                 <Link href="/blogs">
                   <p className="text-orange-600 hover:underline">Blogs </p>
                 </Link>

@@ -19,7 +19,7 @@ export default function Privacy({ allPost }) {
     <>
       <Navbar allPost={allPost} />
       <Layout>
-        <div className="flex  justify-center m-auto mt-20 p-4 max-h-screen md:max-w-2xl">
+        <div className="flex  justify-center m-auto mt-[100px] p-4 max-h-screen md:max-w-2xl">
           <div>
             <div>
               <p className="text-center mb-5 font-extrabold">PRIVACY POLICY</p>

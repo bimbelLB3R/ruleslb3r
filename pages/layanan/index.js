@@ -45,7 +45,7 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
           </p>
         </div> */}
 
-        <div className="flex items-center justify-center mt-20 font-roboto">
+        <div className="flex items-center justify-center mt-[100px] font-roboto">
           <div className="md:flex md:flex-wrap md:justify-center">
             {allProgram.map((program, index) => (
               <div

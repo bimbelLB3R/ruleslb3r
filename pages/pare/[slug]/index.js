@@ -3,14 +3,10 @@ import { getEnglishData } from "../../../utils/englishApi";
 
 export default function Detail({ detailEnglish, allEnglish }) {
   return (
-    <div className="flex items-center justify-center m-auto">
+    <div className="flex items-center justify-center m-auto ">
       <div>
-        <div className="">
+        <div className="shadow-2xl">
           <Youtube videoId={detailEnglish.videoId} />
-        </div>
-
-        <div>
-          <h1>{detailEnglish.title}</h1>
         </div>
       </div>
     </div>

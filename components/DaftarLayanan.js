@@ -216,7 +216,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         />
       </Head>
       <Layout>
-        <div className="flex justify-center items-center bg-slate-100 text-gray-900 mt-20">
+        <div className="flex justify-center items-center bg-slate-100 text-gray-900 mt-[100px]">
           <form
             className="space-y-3 w-full max-w-lg mx-auto p-5"
             onSubmit={submitForm}
