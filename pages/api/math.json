@@ -1,0 +1,25 @@
+{
+  "math": [
+    {
+      "id": 1,
+      "kelas": "12",
+      "title": "Fungsi Kuadrat",
+      "slug": "fungsi-kuadrat-1",
+      "videoId": "1XGqei5Lfx6msqAylsD6cuGjyvp2ap2xl"
+    },
+    {
+      "id": 2,
+      "kelas": "12",
+      "title": "Grafik Fungsi Kuadrat",
+      "slug": "fungsi-kuadrat-2",
+      "videoId": "158BafsV21QyZ5r9BBSPpn2sVHCQAzN6P"
+    },
+    {
+      "id": 3,
+      "kelas": "12",
+      "title": "Diskriminan, Definit dan Cara Menentukan Persamaan Kuadrat",
+      "slug": "fungsi-kuadrat-2",
+      "videoId": "15UDjnOJnQ5FZXdt_ul2T35-sf4MYeAp7"
+    }
+  ]
+}
