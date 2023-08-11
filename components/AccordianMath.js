@@ -8,7 +8,7 @@ const AccordianMath = ({ allMath }) => {
         <Accordion alwaysOpen={true}>
           <Accordion.Panel>
             <Accordion.Title>
-              <p className="text-orange-900">Matematika 12 SMA</p>
+              <p className="text-orange-900">Matematika SMA Yohanes Surya</p>
             </Accordion.Title>
             <Accordion.Content>
               <div>
