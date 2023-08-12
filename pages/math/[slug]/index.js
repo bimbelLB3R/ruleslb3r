@@ -1,4 +1,4 @@
-import DriveVideo from "../../../components/driveVideo";
+import Youtube from "../../../components/Youtube";
 import { getMathData } from "../../../utils/mathApi";
 
 export default function Detail({ detailMath, allMath }) {
@@ -6,7 +6,7 @@ export default function Detail({ detailMath, allMath }) {
     <div className="flex items-center justify-center m-auto ">
       <div>
         <div className="shadow-2xl">
-          <DriveVideo videoId={detailMath.videoId} />
+          <Youtube videoId={detailMath.videoId} />
         </div>
       </div>
     </div>

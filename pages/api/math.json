@@ -3,86 +3,44 @@
     {
       "id": 1,
       "kelas": "12",
-      "title": "Fungsi Kuadrat",
-      "slug": "fungsi-kuadrat-1",
-      "videoId": "1XGqei5Lfx6msqAylsD6cuGjyvp2ap2xl"
+      "title": "Integral (Konsep Dasar Integral Fungsi Aljabar)",
+      "slug": "integral-1",
+      "videoId": "ze-mM33QcIY"
     },
     {
       "id": 2,
       "kelas": "12",
-      "title": "Grafik Fungsi Kuadrat",
-      "slug": "fungsi-kuadrat-2",
-      "videoId": "158BafsV21QyZ5r9BBSPpn2sVHCQAzN6P"
+      "title": "Integral (Teknik Subtitusi dan Parsial)",
+      "slug": "integral-2",
+      "videoId": "i1Zn82fy02I"
     },
     {
       "id": 3,
       "kelas": "12",
-      "title": "Diskriminan, Definit dan Cara Menentukan Persamaan Kuadrat",
-      "slug": "fungsi-kuadrat-2",
-      "videoId": "15UDjnOJnQ5FZXdt_ul2T35-sf4MYeAp7"
+      "title": "Integral (Tentu dan Sifatnya)",
+      "slug": "integral-3",
+      "videoId": "Q-DvJ_7DccE"
     },
     {
       "id": 4,
       "kelas": "12",
-      "title": "Analisis Bangun Ruang (Jarak titik ke titik)",
-      "slug": "analisis-bangun-ruang-1",
-      "videoId": "18OSBJnJ2nwxjtMS8dcbKgMhoF1JYer7D"
+      "title": "Integral (Menentukan Luas Daerah)",
+      "slug": "integral-4",
+      "videoId": "sWQlBk-ocQU"
     },
     {
       "id": 5,
       "kelas": "12",
-      "title": "Analisis Bangun Ruang (Jarak titik ke garis)",
-      "slug": "analisis-bangun-ruang-2",
-      "videoId": "1oTlKwLkeg_4WPBdDEH0tvHg48C1HG9Js"
+      "title": "Integral (Menentukan Volume Benda Putar)",
+      "slug": "integral-5",
+      "videoId": "warIAPzPYQA"
     },
     {
       "id": 6,
       "kelas": "12",
-      "title": "Analisis Bangun Ruang (Jarak titik ke bidang)",
-      "slug": "analisis-bangun-ruang-3",
-      "videoId": "1inWNZ9OhO4gRFs6BdIAFnkTCsLP46rM2"
-    },
-    {
-      "id": 7,
-      "kelas": "12",
-      "title": "Integral (Konsep Dasar Integral Fungsi Aljabar)",
-      "slug": "integral-1",
-      "videoId": "1FU7r7dLOQzbOQR1PHTSboeGLDU_eJLMv"
-    },
-    {
-      "id": 8,
-      "kelas": "12",
-      "title": "Integral (Teknik Subtitusi dan Parsial)",
-      "slug": "integral-2",
-      "videoId": "1wAcvQSfCsgwDs5I0UpRaz4xK6GgTWaIP"
-    },
-    {
-      "id": 9,
-      "kelas": "12",
-      "title": "Integral (Tentu dan Sifatnya)",
-      "slug": "integral-3",
-      "videoId": "1egnaMgSwQFD873HYbU7Rq4UUw2aVYQsZ"
-    },
-    {
-      "id": 10,
-      "kelas": "12",
-      "title": "Integral (Menentukan Luas Daerah)",
-      "slug": "integral-4",
-      "videoId": "171UoUbZGKZiBZ9x3yslCwHAMA0anuaxA"
-    },
-    {
-      "id": 11,
-      "kelas": "12",
-      "title": "Integral (Menentukan Volume Benda Putar)",
-      "slug": "integral-5",
-      "videoId": "1zU9VvWl3YFz76F1pWGVi0KvzusQqCG0j"
-    },
-    {
-      "id": 12,
-      "kelas": "12",
       "title": "Integral (Trigonometri)",
       "slug": "integral-6",
-      "videoId": "1kiZFivvzB_zcTWsQ0tX131-LGlqlNf1d"
+      "videoId": "PPXliEcND-o"
     }
   ]
 }
