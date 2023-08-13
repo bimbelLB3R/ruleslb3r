@@ -1,6 +1,9 @@
 import { Accordion } from "flowbite-react";
 import Link from "next/link";
+import { useRouter } from "next/router";
+
 const AccordianMath = ({ allMath }) => {
+  const router = useRouter();
   const allIntegral = allMath.filter((item) => item.bab === "Integral");
   const allLimit = allMath.filter((item) => item.bab === "Limit dan Turunan");
   const allBangunRuang = allMath.filter(
@@ -19,7 +22,11 @@ const AccordianMath = ({ allMath }) => {
                 {allIntegral.map((item, index) => (
                   <div key={index}>
                     <Link
-                      href={`/math/${item.slug}`}
+                      href={{
+                        pathname: `/math/${item.slug}`,
+                        query: { bab: "Integral", id: item.id },
+                      }}
+                      // href={`/math/${item.slug}`}
                       className="flex items-center space-x-2 border-b-2 m-3"
                     >
                       <div>
@@ -59,7 +66,11 @@ const AccordianMath = ({ allMath }) => {
                 {allLimit.map((item, index) => (
                   <div key={index}>
                     <Link
-                      href={`/math/${item.slug}`}
+                      href={{
+                        pathname: `/math/${item.slug}`,
+                        query: { bab: "Limit dan Turunan", id: item.id },
+                      }}
+                      // href={`/math/${item.slug}`}
                       className="flex items-center space-x-2 border-b-2 m-3"
                     >
                       <div>
@@ -99,7 +110,11 @@ const AccordianMath = ({ allMath }) => {
                 {allBangunRuang.map((item, index) => (
                   <div key={index}>
                     <Link
-                      href={`/math/${item.slug}`}
+                      href={{
+                        pathname: `/math/${item.slug}`,
+                        query: { bab: "Analisis Bangun Ruang", id: item.id },
+                      }}
+                      // href={`/math/${item.slug}`}
                       className="flex items-center space-x-2 border-b-2 m-3"
                     >
                       <div>

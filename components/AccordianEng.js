@@ -19,7 +19,11 @@ const AccordianEng = ({ allEnglish }) => {
                 {allPro.map((item, index) => (
                   <div key={index}>
                     <Link
-                      href={`/pare/${item.slug}`}
+                      href={{
+                        pathname: `/pare/${item.slug}`,
+                        query: { theme: "pronaunciation", id: item.id },
+                      }}
+                      // href={`/pare/${item.slug}`}
                       className="flex items-center space-x-2 border-b-2 m-3"
                     >
                       <div>
@@ -59,7 +63,11 @@ const AccordianEng = ({ allEnglish }) => {
                 {allGrammar.map((item, index) => (
                   <div key={index}>
                     <Link
-                      href={`/pare/${item.slug}`}
+                      href={{
+                        pathname: `/pare/${item.slug}`,
+                        query: { theme: "grammar", id: item.id },
+                      }}
+                      // href={`/pare/${item.slug}`}
                       className="flex items-center space-x-2 border-b-2 m-3"
                     >
                       <div>
@@ -111,7 +119,11 @@ const AccordianEng = ({ allEnglish }) => {
                 {allSpeak.map((item, index) => (
                   <div key={index}>
                     <Link
-                      href={`/pare/${item.slug}`}
+                      href={{
+                        pathname: `/pare/${item.slug}`,
+                        query: { theme: "speaking", id: item.id },
+                      }}
+                      // href={`/pare/${item.slug}`}
                       className="flex items-center space-x-2 border-b-2 m-3"
                     >
                       <div>

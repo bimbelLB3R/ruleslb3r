@@ -79,6 +79,22 @@
       "title": "Analisis Bangun Ruang Jarak Titik ke Titik",
       "slug": "bangun-ruang-1",
       "videoId": "spyeRNMXfc8"
+    },
+    {
+      "id": 11,
+      "kelas": "12",
+      "bab": "Analisis Bangun Ruang",
+      "title": "Analisis Bangun Ruang Jarak Titik ke Garis",
+      "slug": "bangun-ruang-2",
+      "videoId": "5XDEgDGsHhA"
+    },
+    {
+      "id": 12,
+      "kelas": "12",
+      "bab": "Analisis Bangun Ruang",
+      "title": "Analisis Bangun Ruang Jarak Titik ke Bidang",
+      "slug": "bangun-ruang-3",
+      "videoId": "3HY66TFi6GE"
     }
   ]
 }

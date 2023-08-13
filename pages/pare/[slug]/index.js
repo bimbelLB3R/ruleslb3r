@@ -1,12 +1,21 @@
 import Youtube from "../../../components/Youtube";
 import { getEnglishData } from "../../../utils/englishApi";
+import { useRouter } from "next/router";
 
 export default function Detail({ detailEnglish, allEnglish }) {
+  const router = useRouter();
+  const theme = router.query.theme;
+  const idEng = router.query.id;
   return (
     <div className="flex items-center justify-center m-auto ">
       <div>
-        <div className="shadow-2xl">
-          <Youtube videoId={detailEnglish.videoId} />
+        <div className="shadow-2xl p-4">
+          <Youtube
+            videoId={detailEnglish.videoId}
+            theme={theme}
+            allEnglish={allEnglish}
+            id={idEng}
+          />
         </div>
       </div>
     </div>
