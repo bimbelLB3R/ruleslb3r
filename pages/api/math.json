@@ -3,6 +3,7 @@
     {
       "id": 1,
       "kelas": "12",
+      "bab": "Integral",
       "title": "Integral (Konsep Dasar Integral Fungsi Aljabar)",
       "slug": "integral-1",
       "videoId": "ze-mM33QcIY"
@@ -10,6 +11,7 @@
     {
       "id": 2,
       "kelas": "12",
+      "bab": "Integral",
       "title": "Integral (Teknik Subtitusi dan Parsial)",
       "slug": "integral-2",
       "videoId": "i1Zn82fy02I"
@@ -17,6 +19,7 @@
     {
       "id": 3,
       "kelas": "12",
+      "bab": "Integral",
       "title": "Integral (Tentu dan Sifatnya)",
       "slug": "integral-3",
       "videoId": "Q-DvJ_7DccE"
@@ -24,6 +27,7 @@
     {
       "id": 4,
       "kelas": "12",
+      "bab": "Integral",
       "title": "Integral (Menentukan Luas Daerah)",
       "slug": "integral-4",
       "videoId": "sWQlBk-ocQU"
@@ -31,6 +35,7 @@
     {
       "id": 5,
       "kelas": "12",
+      "bab": "Integral",
       "title": "Integral (Menentukan Volume Benda Putar)",
       "slug": "integral-5",
       "videoId": "warIAPzPYQA"
@@ -38,9 +43,42 @@
     {
       "id": 6,
       "kelas": "12",
+      "bab": "Integral",
       "title": "Integral (Trigonometri)",
       "slug": "integral-6",
       "videoId": "PPXliEcND-o"
+    },
+    {
+      "id": 7,
+      "kelas": "12",
+      "bab": "Limit dan Turunan",
+      "title": "Konsep Dasar Limit Fungsi Aljabar",
+      "slug": "limit-turunan-1",
+      "videoId": "0P85-mcHbb0"
+    },
+    {
+      "id": 8,
+      "kelas": "12",
+      "bab": "Limit dan Turunan",
+      "title": "Konsep Dasar Turunan Fungsi Aljabar",
+      "slug": "limit-turunan-2",
+      "videoId": "4QCkD_WFMa4"
+    },
+    {
+      "id": 9,
+      "kelas": "12",
+      "bab": "Limit dan Turunan",
+      "title": "Aplikasi Turunan Gradien, Persamaan Garis Singgung dan Persamaan Garis Normal",
+      "slug": "limit-turunan-3",
+      "videoId": "1hs09m9GQtw"
+    },
+    {
+      "id": 10,
+      "kelas": "12",
+      "bab": "Analisis Bangun Ruang",
+      "title": "Analisis Bangun Ruang Jarak Titik ke Titik",
+      "slug": "bangun-ruang-1",
+      "videoId": "spyeRNMXfc8"
     }
   ]
 }
