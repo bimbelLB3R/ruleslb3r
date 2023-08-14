@@ -95,6 +95,182 @@
       "title": "Analisis Bangun Ruang Jarak Titik ke Bidang",
       "slug": "bangun-ruang-3",
       "videoId": "3HY66TFi6GE"
+    },
+    {
+      "id": 13,
+      "kelas": "12",
+      "bab": "Aturan Sinus dan Kosinus",
+      "title": "Aturan Sinus, Aturan Cosinus dan Luas Segitiga",
+      "slug": "sinus-cosinus-1",
+      "videoId": "QbrFtGemGrU"
+    },
+    {
+      "id": 14,
+      "kelas": "12",
+      "bab": "Aturan Sinus dan Kosinus",
+      "title": "Pembahasan Soal Mandiri Sinus Cosinus",
+      "slug": "sinus-cosinus-2",
+      "videoId": "QSR9Q1kI27A"
+    },
+    {
+      "id": 15,
+      "kelas": "12",
+      "bab": "Barisan dan Deret",
+      "title": "Barisan Aritmetika",
+      "slug": "barisan-deret-1",
+      "videoId": "kd08Xr7pn98"
+    },
+    {
+      "id": 16,
+      "kelas": "12",
+      "bab": "Barisan dan Deret",
+      "title": "Deret Aritmetika",
+      "slug": "barisan-deret-2",
+      "videoId": "C7maxjzdVP0"
+    },
+    {
+      "id": 17,
+      "kelas": "12",
+      "bab": "Barisan dan Deret",
+      "title": "Barisan Geometri",
+      "slug": "barisan-deret-3",
+      "videoId": "TRQ7zZWktSs"
+    },
+    {
+      "id": 18,
+      "kelas": "12",
+      "bab": "Barisan dan Deret",
+      "title": "Deret Geometri",
+      "slug": "barisan-deret-4",
+      "videoId": "tcZdE5vhwbc"
+    },
+    {
+      "id": 19,
+      "kelas": "12",
+      "bab": "Barisan dan Deret",
+      "title": "Deret Geometri Tak Hingga",
+      "slug": "barisan-deret-5",
+      "videoId": "fP-2ueFYa8g"
+    },
+    {
+      "id": 20,
+      "kelas": "12",
+      "bab": "Fungsi Kuadrat",
+      "title": "Fungsi Kuadrat",
+      "slug": "fungsi-kuadrat-1",
+      "videoId": "xZNa3ZWsOAQ"
+    },
+    {
+      "id": 21,
+      "kelas": "12",
+      "bab": "Fungsi Kuadrat",
+      "title": "Grafik Fungsi Kuadrat",
+      "slug": "fungsi-kuadrat-2",
+      "videoId": "sO85-GiMeBQ"
+    },
+    {
+      "id": 22,
+      "kelas": "12",
+      "bab": "Fungsi Kuadrat",
+      "title": "Deskriminan, Definit dan Cara Menentukan PK",
+      "slug": "fungsi-kuadrat-3",
+      "videoId": "GMtpneIJBMY"
+    },
+    {
+      "id": 23,
+      "kelas": "12",
+      "bab": "Komposisi Fungsi",
+      "title": "Operasi Aljabar Pada Fungsi",
+      "slug": "komposisi-fungsi-1",
+      "videoId": "3YhZkq4OSTU"
+    },
+    {
+      "id": 24,
+      "kelas": "12",
+      "bab": "Komposisi Fungsi",
+      "title": "Operasi Komposisi Fungsi dan Sifatnya",
+      "slug": "komposisi-fungsi-2",
+      "videoId": "wVMpVo_S19o"
+    },
+    {
+      "id": 25,
+      "kelas": "12",
+      "bab": "Komposisi Fungsi",
+      "title": "Fungsi Invers dan Sifatnya",
+      "slug": "komposisi-fungsi-3",
+      "videoId": "84r93ueLT20"
+    },
+    {
+      "id": 26,
+      "kelas": "12",
+      "bab": "Logaritma",
+      "title": "Logaritma bagian 1",
+      "slug": "logaritma-1",
+      "videoId": "tzAt1Lg8blM"
+    },
+    {
+      "id": 27,
+      "kelas": "12",
+      "bab": "Logaritma",
+      "title": "Logaritma bagian 2",
+      "slug": "logaritma-2",
+      "videoId": "DN4af1uiHH4"
+    },
+    {
+      "id": 28,
+      "kelas": "12",
+      "bab": "Logaritma",
+      "title": "Logaritma bagian 3",
+      "slug": "logaritma-3",
+      "videoId": "gqqxvhooOrg"
+    },
+    {
+      "id": 29,
+      "kelas": "12",
+      "bab": "Logaritma",
+      "title": "Sifat-sifat Logaritma",
+      "slug": "logaritma-4",
+      "videoId": "BUeq876w4rE"
+    },
+    {
+      "id": 30,
+      "kelas": "12",
+      "bab": "Matriks",
+      "title": "Pengenalan Matriks",
+      "slug": "matriks-1",
+      "videoId": "GjVz0XmbwEE"
+    },
+    {
+      "id": 31,
+      "kelas": "12",
+      "bab": "Matriks",
+      "title": "Operasi Matriks",
+      "slug": "matriks-2",
+      "videoId": "k8-I6z1MUQg"
+    },
+    {
+      "id": 32,
+      "kelas": "12",
+      "bab": "Matriks",
+      "title": "Determinan Matriks Ordo 2x2 dan 3x3 dengan cara Sarrus",
+      "slug": "matriks-3",
+      "videoId": "k7J_wG1DL3I"
+    },
+    {
+      "id": 33,
+      "kelas": "12",
+      "bab": "Matriks",
+      "title": "Minor, Kofaktor dan Adjoin Matriks Ordo 3x3",
+      "slug": "matriks-4",
+      "videoId": "1U_fl370KOk"
+    },
+    {
+      "id": 34,
+      "kelas": "12",
+      "bab": "Matriks",
+      "title": "Invers Matriks Ordo 2x2 dan Ordo 3x3 dan Sifat-sifatnya",
+      "slug": "matriks-5",
+      "videoId": "mPo1fa0xoJk"
     }
   ]
 }
