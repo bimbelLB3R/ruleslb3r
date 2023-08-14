@@ -16,13 +16,15 @@ export default function Youtube({ videoId, bab, allMath, theme, allEnglish }) {
   }, [bab, theme, allMath, allEnglish]);
   return (
     <div className="mt-10">
-      <iframe
-        className="w-full sm:w-[560px] h-full sm:h-[315px]"
-        src={`https://www.youtube.com/embed/${videoId}`}
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
+      <div className="flex justify-center">
+        <iframe
+          className="w-[300px] sm:w-[560px] h-[169px] sm:h-[315px] object-cover"
+          src={`https://www.youtube.com/embed/${videoId}`}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
       <div>
         <p className="font-bold flex justify-center">Materi Lainnya</p>
 

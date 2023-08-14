@@ -2,7 +2,7 @@
   "math": [
     {
       "id": 1,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Integral",
       "title": "Integral (Konsep Dasar Integral Fungsi Aljabar)",
       "slug": "integral-1",
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Integral",
       "title": "Integral (Teknik Subtitusi dan Parsial)",
       "slug": "integral-2",
@@ -18,7 +18,7 @@
     },
     {
       "id": 3,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Integral",
       "title": "Integral (Tentu dan Sifatnya)",
       "slug": "integral-3",
@@ -26,7 +26,7 @@
     },
     {
       "id": 4,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Integral",
       "title": "Integral (Menentukan Luas Daerah)",
       "slug": "integral-4",
@@ -34,7 +34,7 @@
     },
     {
       "id": 5,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Integral",
       "title": "Integral (Menentukan Volume Benda Putar)",
       "slug": "integral-5",
@@ -42,7 +42,7 @@
     },
     {
       "id": 6,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Integral",
       "title": "Integral (Trigonometri)",
       "slug": "integral-6",
@@ -50,7 +50,7 @@
     },
     {
       "id": 7,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Limit dan Turunan",
       "title": "Konsep Dasar Limit Fungsi Aljabar",
       "slug": "limit-turunan-1",
@@ -58,7 +58,7 @@
     },
     {
       "id": 8,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Limit dan Turunan",
       "title": "Konsep Dasar Turunan Fungsi Aljabar",
       "slug": "limit-turunan-2",
@@ -66,7 +66,7 @@
     },
     {
       "id": 9,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Limit dan Turunan",
       "title": "Aplikasi Turunan Gradien, Persamaan Garis Singgung dan Persamaan Garis Normal",
       "slug": "limit-turunan-3",
@@ -74,7 +74,7 @@
     },
     {
       "id": 10,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Analisis Bangun Ruang",
       "title": "Analisis Bangun Ruang Jarak Titik ke Titik",
       "slug": "bangun-ruang-1",
@@ -82,7 +82,7 @@
     },
     {
       "id": 11,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Analisis Bangun Ruang",
       "title": "Analisis Bangun Ruang Jarak Titik ke Garis",
       "slug": "bangun-ruang-2",
@@ -90,7 +90,7 @@
     },
     {
       "id": 12,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Analisis Bangun Ruang",
       "title": "Analisis Bangun Ruang Jarak Titik ke Bidang",
       "slug": "bangun-ruang-3",
@@ -98,7 +98,7 @@
     },
     {
       "id": 13,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Aturan Sinus dan Kosinus",
       "title": "Aturan Sinus, Aturan Cosinus dan Luas Segitiga",
       "slug": "sinus-cosinus-1",
@@ -106,7 +106,7 @@
     },
     {
       "id": 14,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Aturan Sinus dan Kosinus",
       "title": "Pembahasan Soal Mandiri Sinus Cosinus",
       "slug": "sinus-cosinus-2",
@@ -114,7 +114,7 @@
     },
     {
       "id": 15,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Barisan dan Deret",
       "title": "Barisan Aritmetika",
       "slug": "barisan-deret-1",
@@ -122,7 +122,7 @@
     },
     {
       "id": 16,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Barisan dan Deret",
       "title": "Deret Aritmetika",
       "slug": "barisan-deret-2",
@@ -130,7 +130,7 @@
     },
     {
       "id": 17,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Barisan dan Deret",
       "title": "Barisan Geometri",
       "slug": "barisan-deret-3",
@@ -138,7 +138,7 @@
     },
     {
       "id": 18,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Barisan dan Deret",
       "title": "Deret Geometri",
       "slug": "barisan-deret-4",
@@ -146,7 +146,7 @@
     },
     {
       "id": 19,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Barisan dan Deret",
       "title": "Deret Geometri Tak Hingga",
       "slug": "barisan-deret-5",
@@ -154,7 +154,7 @@
     },
     {
       "id": 20,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Fungsi Kuadrat",
       "title": "Fungsi Kuadrat",
       "slug": "fungsi-kuadrat-1",
@@ -162,7 +162,7 @@
     },
     {
       "id": 21,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Fungsi Kuadrat",
       "title": "Grafik Fungsi Kuadrat",
       "slug": "fungsi-kuadrat-2",
@@ -170,7 +170,7 @@
     },
     {
       "id": 22,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Fungsi Kuadrat",
       "title": "Deskriminan, Definit dan Cara Menentukan PK",
       "slug": "fungsi-kuadrat-3",
@@ -178,7 +178,7 @@
     },
     {
       "id": 23,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Komposisi Fungsi",
       "title": "Operasi Aljabar Pada Fungsi",
       "slug": "komposisi-fungsi-1",
@@ -186,7 +186,7 @@
     },
     {
       "id": 24,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Komposisi Fungsi",
       "title": "Operasi Komposisi Fungsi dan Sifatnya",
       "slug": "komposisi-fungsi-2",
@@ -194,7 +194,7 @@
     },
     {
       "id": 25,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Komposisi Fungsi",
       "title": "Fungsi Invers dan Sifatnya",
       "slug": "komposisi-fungsi-3",
@@ -202,7 +202,7 @@
     },
     {
       "id": 26,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Logaritma",
       "title": "Logaritma bagian 1",
       "slug": "logaritma-1",
@@ -210,7 +210,7 @@
     },
     {
       "id": 27,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Logaritma",
       "title": "Logaritma bagian 2",
       "slug": "logaritma-2",
@@ -218,7 +218,7 @@
     },
     {
       "id": 28,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Logaritma",
       "title": "Logaritma bagian 3",
       "slug": "logaritma-3",
@@ -226,7 +226,7 @@
     },
     {
       "id": 29,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Logaritma",
       "title": "Sifat-sifat Logaritma",
       "slug": "logaritma-4",
@@ -234,7 +234,7 @@
     },
     {
       "id": 30,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Matriks",
       "title": "Pengenalan Matriks",
       "slug": "matriks-1",
@@ -242,7 +242,7 @@
     },
     {
       "id": 31,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Matriks",
       "title": "Operasi Matriks",
       "slug": "matriks-2",
@@ -250,7 +250,7 @@
     },
     {
       "id": 32,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Matriks",
       "title": "Determinan Matriks Ordo 2x2 dan 3x3 dengan cara Sarrus",
       "slug": "matriks-3",
@@ -258,7 +258,7 @@
     },
     {
       "id": 33,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Matriks",
       "title": "Minor, Kofaktor dan Adjoin Matriks Ordo 3x3",
       "slug": "matriks-4",
@@ -266,11 +266,67 @@
     },
     {
       "id": 34,
-      "kelas": "12",
+      "level": "SMA",
       "bab": "Matriks",
       "title": "Invers Matriks Ordo 2x2 dan Ordo 3x3 dan Sifat-sifatnya",
       "slug": "matriks-5",
       "videoId": "mPo1fa0xoJk"
+    },
+    {
+      "id": 35,
+      "level": "SMP",
+      "bab": "Aljabar",
+      "title": "Penjumlahan dan Pengurangan Aljabar",
+      "slug": "aljabar-1",
+      "videoId": "kSQwbs_I9lE"
+    },
+    {
+      "id": 36,
+      "level": "SMP",
+      "bab": "Aljabar",
+      "title": "Perkalian Aljabar",
+      "slug": "aljabar-2",
+      "videoId": "0x7wSJUrzdE"
+    },
+    {
+      "id": 37,
+      "level": "SMP",
+      "bab": "Aljabar",
+      "title": "Pembagian Aljabar",
+      "slug": "aljabar-3",
+      "videoId": "2N7D0A3FBm0"
+    },
+    {
+      "id": 38,
+      "level": "SMP",
+      "bab": "Aritmetika Sosial",
+      "title": "Penjualan, Pembelian, Untung, Rugi, dan Persentasenya",
+      "slug": "aritmetika-sosial-1",
+      "videoId": "Q7cCIEJvtI8"
+    },
+    {
+      "id": 39,
+      "level": "SMP",
+      "bab": "Aritmetika Sosial",
+      "title": "Diskon, Bruto, Neto, Tara, dan soal AKM",
+      "slug": "aritmetika-sosial-2",
+      "videoId": "3bdoMpzokE4"
+    },
+    {
+      "id": 40,
+      "level": "SMP",
+      "bab": "Aritmetika Sosial",
+      "title": "Suku Bunga Tunggal dan Pajak",
+      "slug": "aritmetika-sosial-3",
+      "videoId": "57fgwxAQFlE"
+    },
+    {
+      "id": 41,
+      "level": "SMP",
+      "bab": "Bilangan Bulat",
+      "title": "Bilangan Bulat",
+      "slug": "bilangan-bulat-1",
+      "videoId": "Kj-TiPVQ0u0"
     }
   ]
 }
