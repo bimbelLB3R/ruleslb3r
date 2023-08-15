@@ -18,6 +18,7 @@ function formatCurrency(amount) {
 
   return formatter.format(amount);
 }
+// fungsi membatasi karakter
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_IDRULESLB3R;
@@ -105,10 +106,15 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
 
     if (
       form.nama !== "" &&
+      form.nama.length < 31 &&
       form.kelas !== "" &&
+      form.kelas.length < 3 &&
       form.asalsekolah !== "" &&
+      form.asalsekolah.length < 31 &&
       form.wa !== "" &&
+      form.wa.length < 14 &&
       form.email !== "" &&
+      form.email.length < 31 &&
       form.program !== "" &&
       form.biaya !== ""
     ) {
@@ -237,7 +243,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 onChange={handleChange}
                 disabled={isDisable}
                 onBlur={() => {
-                  if (form.nama === "") {
+                  if (form.nama === "" || form.nama.length > 30) {
                     setIsNamaEmpty(true);
                   } else {
                     setIsNamaEmpty(false);
@@ -251,13 +257,15 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 Nama Lengkap
               </label>
               {isNamaEmpty && (
-                <p className="text-red-500 text-xs">Wajib diisi</p>
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 30 karakter)
+                </p>
               )}
             </div>
             <div className="relative">
               <input
                 name="kelas"
-                type="text"
+                type="number"
                 id="floating_outlined4"
                 className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isKelasEmpty ? "border-red-500" : "mb-2"
@@ -267,7 +275,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 onChange={handleChange}
                 disabled={isDisable}
                 onBlur={() => {
-                  if (form.kelas === "") {
+                  if (form.kelas === "" || form.kelas.length > 2) {
                     setIsKelasEmpty(true);
                   } else {
                     setIsKelasEmpty(false);
@@ -281,7 +289,9 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 Kelas
               </label>
               {isKelasEmpty && (
-                <p className="text-red-500 text-xs">Wajib diisi</p>
+                <p className="text-red-500 text-xs">
+                  Wajib diisi angka (maks 2 digit)
+                </p>
               )}
             </div>
             <div className="relative">
@@ -297,7 +307,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 onChange={handleChange}
                 disabled={isDisable}
                 onBlur={() => {
-                  if (form.asalsekolah === "") {
+                  if (form.asalsekolah === "" || form.asalsekolah.length > 30) {
                     setIsAsalSekolahEmpty(true);
                   } else {
                     setIsAsalSekolahEmpty(false);
@@ -311,7 +321,9 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 Asal Sekolah
               </label>
               {isAsalSekolahEmpty && (
-                <p className="text-red-500 text-xs">Wajib diisi</p>
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 30 karakter)
+                </p>
               )}
             </div>
             <div className="relative">
@@ -327,7 +339,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 onChange={handleChange}
                 disabled={isDisable}
                 onBlur={() => {
-                  if (form.wa === "") {
+                  if (form.wa === "" || form.wa.length > 13) {
                     setIsWaEmpty(true);
                   } else {
                     setIsWaEmpty(false);
@@ -341,7 +353,9 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 Nomor WA Aktif
               </label>
               {isWaEmpty && (
-                <p className="text-red-500 text-xs">Wajib diisi angka</p>
+                <p className="text-red-500 text-xs">
+                  Wajib diisi angka (maks 13 digit)
+                </p>
               )}
             </div>
             <div className="relative">

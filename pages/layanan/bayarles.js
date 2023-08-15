@@ -298,7 +298,7 @@ const BayarLes = ({ allPost }) => {
       <Layout>
         <div className="flex justify-center items-center  bg-slate-100 text-gray-900">
           <form
-            className="space-y-3 w-full max-w-lg mx-auto p-5 mt-20"
+            className="space-y-3 w-full max-w-lg mx-auto p-5 mt-24"
             onSubmit={submitForm}
           >
             <p className="font-semibold text-2xl text-center w-full bg-slate-500 p-2 text-slate-100 rounded-lg">
