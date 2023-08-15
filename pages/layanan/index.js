@@ -34,6 +34,7 @@ export async function getStaticProps() {
 
 export default function Layanan({ allProgram, allPost, allTutorial }) {
   // console.log(allPost);
+
   return (
     <>
       <Wa />
@@ -52,6 +53,13 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
                 key={index}
                 className="card bg-gradient-to-br from-rose-200/50 drop-shadow-lg m-4 p-5 border border-slate-300 md:w-[400px] w-[320px] "
               >
+                {program.keterangan === "Best Seller" ? (
+                  <div className="absolute right-0 top-0 p-2 bg-amber-500 text-xl text-gray-900 font-bold">
+                    Best Seller
+                  </div>
+                ) : (
+                  ""
+                )}
                 <p className="font-semibold text-slate-800 tracking-wider underline underline-offset-4 decoration-4 decoration-orange-600 ">
                   {program.nama}
                 </p>

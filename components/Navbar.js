@@ -80,6 +80,16 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
           id="nav"
           className="bg-gradient-to-b from-red-500 to-white p-3 md:hidden fixed  top-0 z-40 w-full shadow shadow-slate-400"
         >
+          <div className="absolute right-0 -top-6 ">
+            <Image
+              src="/image/petaindo.png"
+              width={300}
+              height={80}
+              alt="indomap"
+              priority={true}
+              className="opacity-50"
+            />
+          </div>
           <div className="flex justify-between ">
             <div className="flex items-center space-x-2">
               <Link href="/">
@@ -95,12 +105,12 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
               </Link>
             </div>
 
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 absolute z-10 right-4">
               <TombolCari allPost={allPost} />
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 ref={menuRef}
-                className="text-orange-400 "
+                className="text-red-900 "
                 title="Toggle Menu"
               >
                 <svg

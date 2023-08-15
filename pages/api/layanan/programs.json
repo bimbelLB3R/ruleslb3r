@@ -2,6 +2,7 @@
   "programs": [
     {
       "idProgram": "RegLB3R",
+      "keterangan": "Best Seller",
       "nama": "Program Reguler",
       "slug": "program-reguler",
       "biaya": 195000,
@@ -19,6 +20,7 @@
     },
     {
       "idProgram": "SnbtLB3R",
+      "keterangan": "",
       "nama": "Program UTBK SNBT",
       "slug": "program-utbk-snbt",
       "biaya": 1000000,
@@ -36,6 +38,7 @@
     },
     {
       "idProgram": "PrivLB3R",
+      "keterangan": "",
       "nama": "Program Kelas Khusus",
       "slug": "program-kelas-khusus",
       "biaya": 200000,
@@ -53,6 +56,7 @@
     },
     {
       "idProgram": "MathLB3R",
+      "keterangan": "",
       "nama": "Program Akselerasi Matematika",
       "slug": "program-akselerasi-matematika",
       "biaya": 500000,
@@ -70,6 +74,7 @@
     },
     {
       "idProgram": "EngLB3R",
+      "keterangan": "",
       "nama": "Program Khusus Bahasa Inggris",
       "slug": "program-khusus-inggris",
       "biaya": 200000,
