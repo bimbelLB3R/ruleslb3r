@@ -18,7 +18,7 @@ const ButtonUmum = () => {
   return (
     <div className="flex justify-center md:max-w-xl m-auto  p-4 ">
       <button
-        className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-4 px-8  transition-colors duration-300 ease-in-out text-xl rounded-full shadow-lg hover:shadow-xl"
+        className="bg-gradient-to-b from-red-500 to-white  text-white font-bold py-4 px-8  transition-colors duration-300 ease-in-out text-xl rounded-full shadow-lg hover:shadow-xl"
         onClick={handleClick}
       >
         <div className="flex items-center justify-center space-x-4">

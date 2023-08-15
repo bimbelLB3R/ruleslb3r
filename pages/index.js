@@ -20,8 +20,11 @@ const Home = ({ allPost, dataAlumni }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    // Fungsi pembersihan
+    let isMounted = true;
     // Memunculkan nama user secara bergantian
     const showUserName = (index) => {
+      if (!isMounted) return;
       if (index >= dataAlumni.length) {
         // Jika sudah mencapai akhir data, ulangi dari awal
         setCurrentIndex(0);
@@ -33,7 +36,7 @@ const Home = ({ allPost, dataAlumni }) => {
         const Toast = Swal.mixin({
           toast: true,
           position: "bottom",
-          background: "#ecfccb",
+          background: "#fecaca",
           padding: "0.1rem",
           showConfirmButton: false,
           customClass: {
@@ -70,12 +73,19 @@ const Home = ({ allPost, dataAlumni }) => {
         // });
 
         // Lanjutkan ke nama user berikutnya
-        showUserName(index + 1);
+        if (isMounted) {
+          // Tambahkan ini
+          showUserName(index + 1);
+        }
       }, 4000);
     };
 
     // Memulai rekursif untuk menampilkan nama user
     showUserName(currentIndex);
+    // Fungsi pembersihan
+    return () => {
+      isMounted = false;
+    };
   }, [currentIndex]);
 
   // console.log(allPost);

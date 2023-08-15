@@ -78,7 +78,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
 
         <div
           id="nav"
-          className="bg-slate-200 p-3 md:hidden fixed  top-0 z-40 w-full shadow shadow-slate-400"
+          className="bg-gradient-to-b from-red-500 to-white p-3 md:hidden fixed  top-0 z-40 w-full shadow shadow-slate-400"
         >
           <div className="flex justify-between ">
             <div className="flex items-center space-x-2">
@@ -119,7 +119,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
               </button>
             </div>
           </div>
-          <div className="flex items-center space-x-6 border-l-2 border-gray-400 pl-1">
+          <div className="flex items-center space-x-6 border-l-2 border-gray-400 pl-1 ">
             <div>
               <p className="text-[10px] font-semibold">Kantor Pusat :</p>
               <p className="text-[10px]">

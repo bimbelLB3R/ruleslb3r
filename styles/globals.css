@@ -6,6 +6,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap");
+@import url("./sweatAlert.css");
 body {
   background: #f1f5f9;
 }
@@ -20,6 +21,7 @@ body {
 }
 
 .custom-swal-text {
-  @apply text-xs; /* Atur ukuran teks sesuai keinginan Anda, misalnya gunakan text-sm atau text-lg */
-  /* Tambahkan properti CSS lain sesuai kebutuhan Anda */
+  @apply text-xs;
+  @apply text-white /* Atur ukuran teks sesuai keinginan Anda, misalnya gunakan text-sm atau text-lg */
+  /* Tambahkan properti CSS lain sesuai kebutuhan Anda */;
 }
