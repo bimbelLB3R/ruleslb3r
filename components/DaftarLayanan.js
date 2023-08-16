@@ -32,17 +32,17 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
   const { data: session } = useSession();
   const isInputReadOnly = session ? true : false;
 
-  console.log(session);
+  // console.log(session);
 
   const [isDisable, setIsDisable] = useState(session ? false : true);
   const [showButton, setShowButton] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
-  const [isNamaEmpty, setIsNamaEmpty] = useState(false);
+  // const [isNamaEmpty, setIsNamaEmpty] = useState(false);
   const [isKelasEmpty, setIsKelasEmpty] = useState(false);
   const [isAsalSekolahEmpty, setIsAsalSekolahEmpty] = useState(false);
   const [isWaEmpty, setIsWaEmpty] = useState(false);
-  const [isEmailEmpty, setIsEmailEmpty] = useState(false);
+  // const [isEmailEmpty, setIsEmailEmpty] = useState(false);
 
   const namaProgram = detailProgram.nama;
   const biayaProgram = detailProgram.total;
@@ -180,20 +180,22 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         router.push(transactionRedirectUrl);
       } else {
         Swal.fire({
-          title: `${session.name} pernah terdaftar,hubungi admin.`,
+          title: `${session.user.name} pernah terdaftar,gunakan email lain.`,
           text: "Data gagal dikirim",
           icon: "warning",
           confirmButtonText: "Ok",
         });
         setIsButtonDisabled(false);
       }
-    } else {
-      setIsNamaEmpty(form.nama === "");
-      setIsKelasEmpty(form.nama === "");
-      setIsAsalSekolahEmpty(form.nama === "");
-      setIsWaEmpty(form.nama === "");
-      setIsEmailEmpty(form.nama === "");
     }
+    // } else {
+    //   // ketika masih ada form salah
+    //   // setIsNamaEmpty(form.nama === "");
+    //   setIsKelasEmpty(form.nama === "");
+    //   setIsAsalSekolahEmpty(form.nama === "");
+    //   setIsWaEmpty(form.nama === "");
+    //   // setIsEmailEmpty(form.nama === "");
+    // }
   };
 
   const handleChange = (e) => {
@@ -242,9 +244,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 name="email"
                 type="email"
                 id="floating_outlined7"
-                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
-                  isEmailEmpty ? "border-red-500" : "mb-2"
-                }`}
+                className="mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer "
                 placeholder=" "
                 autoComplete="off"
                 // onChange={handleChange}
@@ -252,13 +252,13 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 value={session ? session.user.email : ""}
                 readOnly
                 // disabled={isDisable}
-                onBlur={() => {
-                  if (!session.user.email) {
-                    setIsEmailEmpty(true);
-                  } else {
-                    setIsEmailEmpty(false);
-                  }
-                }}
+                // onBlur={() => {
+                //   if (!session.user.email) {
+                //     setIsEmailEmpty(true);
+                //   } else {
+                //     setIsEmailEmpty(false);
+                //   }
+                // }}
               />
               <label
                 htmlFor="floating_outlined7"
@@ -266,18 +266,16 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               >
                 Verifikasi Email dulu ya
               </label>
-              {isEmailEmpty && (
+              {/* {isEmailEmpty && (
                 <p className="text-red-500 text-xs">Wajib diisi</p>
-              )}
+              )} */}
             </div>
             <div className="relative">
               <input
                 name="nama"
                 type="text"
                 id="floating_outlined3"
-                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
-                  isNamaEmpty ? "border-red-500" : "mb-2"
-                }`}
+                className="mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
                 autoComplete="off"
                 // onChange={handleChange}
@@ -298,11 +296,11 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               >
                 Nama Lengkap
               </label>
-              {isNamaEmpty && (
+              {/* {isNamaEmpty && (
                 <p className="text-red-500 text-xs">
                   Wajib diisi (maks 30 karakter)
                 </p>
-              )}
+              )} */}
             </div>
             <div className="relative">
               <input
