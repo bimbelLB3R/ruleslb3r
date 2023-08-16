@@ -243,6 +243,17 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               Lengkapi Data
             </p>
             <div className="relative">
+              <div className="absolute translate-y-1/2 right-0">
+                {typeof session === "undefined" || session ? (
+                  <button onClick={() => signOut()}>
+                    <p className="rounded-xl p-2 bg-red-900 text-gray-100 text-xs">
+                      Ganti email
+                    </p>
+                  </button>
+                ) : (
+                  ""
+                )}
+              </div>
               <input
                 name="email"
                 type="email"
@@ -274,15 +285,6 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               )} */}
             </div>
             <div className="relative">
-              <div className="absolute translate-y-1/2">
-                {typeof session === "undefined" || session ? (
-                  <button onClick={() => signOut()}>
-                    <p className="underline text-xs">Ganti email</p>
-                  </button>
-                ) : (
-                  ""
-                )}
-              </div>
               <input
                 name="nama"
                 type="text"
