@@ -250,7 +250,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 onChange={handleChange}
                 onFocus={!session ? signIn : ""}
                 value={session ? session.user.email : ""}
-                readOnly={isInputReadOnly}
+                // readOnly={isInputReadOnly}
                 disabled={isDisable}
                 onBlur={() => {
                   if (form.email === "") {
