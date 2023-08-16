@@ -32,6 +32,8 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
   const { data: session } = useSession();
   const isInputReadOnly = session ? true : false;
 
+  console.log(session);
+
   const [isDisable, setIsDisable] = useState(session ? false : true);
   const [showButton, setShowButton] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
@@ -248,7 +250,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 // onChange={handleChange}
                 onFocus={!session ? signIn : ""}
                 value={session ? session.user.email : ""}
-                // readOnly={isInputReadOnly}
+                readOnly
                 // disabled={isDisable}
                 onBlur={() => {
                   if (!session.user.email) {
@@ -281,6 +283,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 // onChange={handleChange}
                 value={session ? session.user.name : ""}
                 disabled={isDisable}
+                readOnly
                 // onBlur={() => {
                 //   if (!session.name || form.nama.length > 30) {
                 //     setIsNamaEmpty(true);
