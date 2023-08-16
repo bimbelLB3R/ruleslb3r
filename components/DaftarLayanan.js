@@ -245,8 +245,8 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
-                onFocus={signIn}
-                value={session ? session.user.name : ""}
+                onFocus={!session ? signIn : ""}
+                value={session ? session.user.email : ""}
                 readOnly={isInputReadOnly}
                 disabled={isDisable}
                 onBlur={() => {
@@ -278,6 +278,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
+                value={session ? session.user.name : ""}
                 disabled={isDisable}
                 onBlur={() => {
                   if (form.nama === "" || form.nama.length > 30) {
