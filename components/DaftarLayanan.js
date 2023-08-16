@@ -196,8 +196,11 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
-      [name]: name === "nama" ? session.user.name : value,
-      [name]: name === "email" ? session.user.email : value,
+      [name]: name === "nama" && session.user.name,
+      [name]: name === "email" && session.user.email,
+      // [name]: name === "kelas" && e.target.value,
+      // [name]: name === "asalsekolah" && e.target.value,
+      // [name]: name === "wa" && e.target.value,
     });
 
     // memeriksa apakah semua form telah terisi
