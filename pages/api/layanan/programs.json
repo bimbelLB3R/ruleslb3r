@@ -89,6 +89,23 @@
         "Super Grammar",
         "Easy Speaking"
       ]
+    },
+    {
+      "idProgram": "FreeSNBT",
+      "keterangan": "Free/Gratis",
+      "nama": "Group SNBT 2024",
+      "slug": "group-snbt",
+      "biaya": 0,
+      "total": 0,
+      "rincian": "Gratis",
+      "frekuensi": "Selamanya",
+      "fasilitas": [
+        "Warming Up / Pemanasan 7 Subtes SNBT",
+        "Cek Keketatan Program Studi dan Peluang Karir",
+        "Pembahasan Soal-soal SNBT",
+        "Konsultasi Pemilihan Jurusan",
+        "Group Eksklusif"
+      ]
     }
   ]
 }

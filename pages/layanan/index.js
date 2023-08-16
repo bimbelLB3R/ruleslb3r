@@ -52,14 +52,22 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
               <div
                 key={index}
                 className={`card bg-gradient-to-br from-rose-200/50 drop-shadow-lg m-4 p-5 border border-slate-300 md:w-[400px] w-[320px] ${
-                  program.keterangan
-                    ? "bg-gradient-to-br from-amber-500/50"
-                    : "bg-gradient-to-br from-rose-200/50"
+                  (program.keterangan === "Best Seller" &&
+                    "bg-gradient-to-br from-amber-500/50") ||
+                  (program.keterangan === "Free/Gratis" &&
+                    "bg-gradient-to-br from-gray-500/50")
                 }`}
               >
                 {program.keterangan === "Best Seller" ? (
                   <div className="absolute rounded-b-2xl shadow-lg right-0 top-0 p-2 bg-amber-500 text-xl text-gray-900 font-bold">
                     Best Seller
+                  </div>
+                ) : (
+                  ""
+                )}
+                {program.keterangan === "Free/Gratis" ? (
+                  <div className="absolute rounded-b-2xl shadow-lg right-0 top-0 p-2 bg-gray-500 text-xl text-gray-900 font-bold">
+                    Free/Gratis
                   </div>
                 ) : (
                   ""
@@ -92,7 +100,13 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
                     </li>
                   ))}
                 </ul>
-                <Link href={`/layanan/${program.slug}`}>
+                <Link
+                  href={
+                    program.keterangan === "Free/Gratis"
+                      ? `/form/newmember`
+                      : `/layanan/${program.slug}`
+                  }
+                >
                   <div className="bg-slate-600 hover:bg-slate-800 mt-5 flex items-center space-x-3 justify-center rounded-full mb-10">
                     <p className="text-center font-semibold px-2 py-4 text-slate-50">
                       DAFTAR SEKARANG

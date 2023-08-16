@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import Loader from "./Loader";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import Link from "next/link";
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -138,7 +139,7 @@ const Newmember = () => {
 
       <div className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-full lg:py-0">
-          <a
+          <Link
             href="/"
             className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
           >
@@ -148,7 +149,7 @@ const Newmember = () => {
               alt="logo"
             />
             SNBT Program
-          </a>
+          </Link>
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
@@ -348,12 +349,12 @@ const Newmember = () => {
                 )}
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Already have an account?{" "}
-                  <a
+                  <Link
                     href="/form/login"
                     className="font-medium text-blue-600 hover:underline dark:text-blue-500"
                   >
                     Login here
-                  </a>
+                  </Link>
                 </p>
               </form>
             </div>
