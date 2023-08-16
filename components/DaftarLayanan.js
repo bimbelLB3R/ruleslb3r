@@ -32,7 +32,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
   const { data: session } = useSession();
   const isInputReadOnly = session ? true : false;
 
-  const [isDisable, setIsDisable] = useState(false);
+  const [isDisable, setIsDisable] = useState(session ? false : true);
   const [showButton, setShowButton] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
@@ -53,7 +53,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
   // const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const [form, setForm] = useState({
-    nama: "",
+    nama: "Paijo",
     kelas: "",
     asalsekolah: "",
     wa: "",
@@ -62,6 +62,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
     biaya: "",
   });
 
+  // console.log(nama);
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
   // console.log(SPREADSHEET_ID);
   const appendSpreadsheet = async (row) => {
@@ -109,28 +110,29 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
     e.preventDefault();
 
     if (
-      form.nama &&
+      // form.email !== "" &&
+      // form.nama !== "" &&
       form.kelas !== "" &&
       form.kelas.length < 3 &&
       form.asalsekolah !== "" &&
       form.asalsekolah.length < 31 &&
       form.wa !== "" &&
       form.wa.length < 14 &&
-      form.email &&
       form.program !== "" &&
       form.biaya !== ""
     ) {
       setIsButtonDisabled(true);
 
-      const canSubmit = await checkName(form.nama, sheet);
+      // const canSubmit = await checkName(form.nama, sheet);
+      const canSubmit = await checkName(session.name, sheet);
 
       if (canSubmit) {
         const newRow = {
-          nama: form.nama,
+          nama: session.name,
           kelas: form.kelas,
           asalsekolah: form.asalsekolah,
           wa: form.wa,
-          email: form.email,
+          email: session.email,
           program: form.program,
           biaya: form.biaya,
         };
@@ -139,7 +141,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         // 3.Handle submit ke sheet dan membuat tombol bayar
 
         const createTransaction = async (newRow) => {
-          console.log(isDisable);
+          // console.log(isDisable);
           try {
             const response = await axios.post(
               "/api/create-transaction",
@@ -176,7 +178,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         router.push(transactionRedirectUrl);
       } else {
         Swal.fire({
-          title: `${form.nama} pernah terdaftar,hubungi admin.`,
+          title: `${session.name} pernah terdaftar,hubungi admin.`,
           text: "Data gagal dikirim",
           icon: "warning",
           confirmButtonText: "Ok",
@@ -192,20 +194,16 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
     }
   };
 
-  const handleChange = (e, name) => {
+  const handleChange = (e) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
-      [name]: name === "nama" && session.user.name,
-      [name]: name === "email" && session.user.email,
-      // [name]: name === "kelas" && e.target.value,
-      // [name]: name === "asalsekolah" && e.target.value,
-      // [name]: name === "wa" && e.target.value,
     });
 
     // memeriksa apakah semua form telah terisi
     if (
       // form.nama &&
+      session &&
       form.kelas !== "" &&
       form.asalsekolah !== "" &&
       form.wa !== ""
@@ -247,13 +245,13 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 }`}
                 placeholder=" "
                 autoComplete="off"
-                onChange={handleChange}
+                // onChange={handleChange}
                 onFocus={!session ? signIn : ""}
                 value={session ? session.user.email : ""}
-                // readOnly={isInputReadOnly}
-                disabled={isDisable}
+                readOnly={isInputReadOnly}
+                // disabled={isDisable}
                 onBlur={() => {
-                  if (form.email === "") {
+                  if (!session.email) {
                     setIsEmailEmpty(true);
                   } else {
                     setIsEmailEmpty(false);
@@ -264,7 +262,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 htmlFor="floating_outlined7"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
               >
-                Verifikasi Email
+                Verifikasi Email dulu ya
               </label>
               {isEmailEmpty && (
                 <p className="text-red-500 text-xs">Wajib diisi</p>
@@ -280,16 +278,16 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 }`}
                 placeholder=" "
                 autoComplete="off"
-                onChange={handleChange}
+                // onChange={handleChange}
                 value={session ? session.user.name : ""}
-                disabled={isDisable}
-                onBlur={() => {
-                  if (form.nama === "" || form.nama.length > 30) {
-                    setIsNamaEmpty(true);
-                  } else {
-                    setIsNamaEmpty(false);
-                  }
-                }}
+                disabled={true}
+                // onBlur={() => {
+                //   if (!session.name || form.nama.length > 30) {
+                //     setIsNamaEmpty(true);
+                //   } else {
+                //     setIsNamaEmpty(false);
+                //   }
+                // }}
               />
               <label
                 htmlFor="floating_outlined3"
@@ -314,7 +312,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
-                disabled={isDisable}
+                // disabled={isDisable}
                 onBlur={() => {
                   if (form.kelas === "" || form.kelas.length > 2) {
                     setIsKelasEmpty(true);
@@ -346,7 +344,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
-                disabled={isDisable}
+                // disabled={isDisable}
                 onBlur={() => {
                   if (form.asalsekolah === "" || form.asalsekolah.length > 30) {
                     setIsAsalSekolahEmpty(true);
@@ -378,7 +376,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
-                disabled={isDisable}
+                // disabled={isDisable}
                 onBlur={() => {
                   if (form.wa === "" || form.wa.length > 13) {
                     setIsWaEmpty(true);
