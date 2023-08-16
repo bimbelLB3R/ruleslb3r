@@ -32,7 +32,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
   const { data: session } = useSession();
   const isInputReadOnly = session ? true : false;
 
-  console.log(session.user.name);
+  console.log(session);
 
   const [isDisable, setIsDisable] = useState(session ? false : true);
   const [showButton, setShowButton] = useState(false);
