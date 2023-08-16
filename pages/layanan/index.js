@@ -51,10 +51,14 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
             {allProgram.map((program, index) => (
               <div
                 key={index}
-                className="card bg-gradient-to-br from-rose-200/50 drop-shadow-lg m-4 p-5 border border-slate-300 md:w-[400px] w-[320px] "
+                className={`card bg-gradient-to-br from-rose-200/50 drop-shadow-lg m-4 p-5 border border-slate-300 md:w-[400px] w-[320px] ${
+                  program.keterangan
+                    ? "bg-gradient-to-br from-amber-500/50"
+                    : "bg-gradient-to-br from-rose-200/50"
+                }`}
               >
                 {program.keterangan === "Best Seller" ? (
-                  <div className="absolute right-0 top-0 p-2 bg-amber-500 text-xl text-gray-900 font-bold">
+                  <div className="absolute rounded-b-2xl shadow-lg right-0 top-0 p-2 bg-amber-500 text-xl text-gray-900 font-bold">
                     Best Seller
                   </div>
                 ) : (
