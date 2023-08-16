@@ -246,9 +246,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               <div className="absolute translate-y-1/2 right-0">
                 {typeof session === "undefined" || session ? (
                   <button onClick={() => signOut()}>
-                    <p className="rounded-xl p-2 bg-red-900 text-gray-100 text-xs">
-                      Ganti email
-                    </p>
+                    <p className="underline text-xs">Ganti email ?</p>
                   </button>
                 ) : (
                   ""
