@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { GoogleSpreadsheet } from 'google-spreadsheet';
-import Swal from 'sweetalert2';
-import Loader from './Loader';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
+import React, { useState } from "react";
+import { GoogleSpreadsheet } from "google-spreadsheet";
+import Swal from "sweetalert2";
+import Loader from "./Loader";
+import { useRouter } from "next/router";
+import Head from "next/head";
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -16,14 +16,14 @@ const Newmember = () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const router = useRouter();
   const [form, setForm] = useState({
-    nama: '',
-    nisn: '',
-    asalsekolah: '',
-    wa: '',
-    prodi1: '',
-    kampus1: '',
-    prodi2: '',
-    kampus2: '',
+    nama: "",
+    nisn: "",
+    asalsekolah: "",
+    wa: "",
+    prodi1: "",
+    kampus1: "",
+    prodi2: "",
+    kampus2: "",
   });
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
@@ -33,7 +33,7 @@ const Newmember = () => {
       await doc.useServiceAccountAuth({
         client_email: GOOGLE_CLIENT_EMAIL,
         // private_key: GOOGLE_SERVICE_PRIVATE_KEY,
-        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
       });
       // loads document properties and worksheets
       await doc.loadInfo();
@@ -41,7 +41,7 @@ const Newmember = () => {
       const sheet = doc.sheetsById[SHEET_ID];
       await sheet.addRow(row);
     } catch (e) {
-      console.error('Error: ', e);
+      console.error("Error: ", e);
     }
   };
 
@@ -49,7 +49,7 @@ const Newmember = () => {
   const checkNisn = async (nisn) => {
     await doc.useServiceAccountAuth({
       client_email: GOOGLE_CLIENT_EMAIL,
-      private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+      private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
     });
     await doc.loadInfo(); // tambahkan baris ini untuk memastikan sheet telah terdefinisi
     const sheet = doc.sheetsById[SHEET_ID]; // tambahkan baris ini untuk mendefinisikan sheet
@@ -72,14 +72,14 @@ const Newmember = () => {
     e.preventDefault();
 
     if (
-      form.nama !== '' &&
-      form.nisn !== '' &&
-      form.asalsekolah !== '' &&
-      form.wa !== '' &&
-      form.prodi1 !== '' &&
-      form.kampus1 !== '' &&
-      form.prodi2 !== '' &&
-      form.kampus2 !== ''
+      form.nama !== "" &&
+      form.nisn !== "" &&
+      form.asalsekolah !== "" &&
+      form.wa !== "" &&
+      form.prodi1 !== "" &&
+      form.kampus1 !== "" &&
+      form.prodi2 !== "" &&
+      form.kampus2 !== ""
     ) {
       const canSubmit = await checkNisn(form.nisn, sheet);
 
@@ -100,18 +100,18 @@ const Newmember = () => {
         e.target.reset();
 
         Swal.fire({
-          title: 'Kamu Berhasil Terdaftar',
-          text: 'Terima kasih telah bergabung program SNBT LB3R',
-          icon: 'success',
-          confirmButtonText: 'Ok',
+          title: "Kamu Berhasil Terdaftar",
+          text: "Terima kasih telah bergabung program SNBT LB3R",
+          icon: "success",
+          confirmButtonText: "Ok",
         });
-        router.push('/form/login');
+        router.push("/form/login");
       } else {
         Swal.fire({
           title: `${form.nisn} sudah terdaftar`,
-          text: 'Data gagal dikirim karena NISN kamu sudah terdaftar',
-          icon: 'warning',
-          confirmButtonText: 'Login',
+          text: "Data gagal dikirim karena NISN kamu sudah terdaftar",
+          icon: "warning",
+          confirmButtonText: "Login",
         });
       }
     }
@@ -140,7 +140,8 @@ const Newmember = () => {
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-full lg:py-0">
           <a
             href="/"
-            className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+            className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
+          >
             <img
               className="w-18 h-12 mr-2"
               src="/image/logolb3r.png"
@@ -156,11 +157,13 @@ const Newmember = () => {
               <form
                 className="space-y-4 md:space-y-6"
                 action="#"
-                onSubmit={submitForm}>
+                onSubmit={submitForm}
+              >
                 <div>
                   <label
                     htmlFor="nama"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
                     Nama Kamu*
                   </label>
                   <input
@@ -177,7 +180,8 @@ const Newmember = () => {
                 <div>
                   <label
                     htmlFor="nisn"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
                     NISN*
                   </label>
                   <input
@@ -198,7 +202,8 @@ const Newmember = () => {
                 <div>
                   <label
                     htmlFor="asalsekolah"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
                     Asal Sekolah*
                   </label>
                   <input
@@ -215,7 +220,8 @@ const Newmember = () => {
                 <div>
                   <label
                     htmlFor="wa"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
                     Nomor WA Aktif*
                   </label>
                   <input
@@ -233,7 +239,8 @@ const Newmember = () => {
                 <div>
                   <label
                     htmlFor="prodi1"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
                     Pilihan Jurusan 1*
                   </label>
                   <input
@@ -250,7 +257,8 @@ const Newmember = () => {
                 <div>
                   <label
                     htmlFor="kampus1"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
                     Kampus Pilihan Jurusan 1*
                   </label>
                   <input
@@ -267,7 +275,8 @@ const Newmember = () => {
                 <div>
                   <label
                     htmlFor="prodi2"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
                     Pilihan Jurusan 2*
                   </label>
                   <input
@@ -284,7 +293,8 @@ const Newmember = () => {
                 <div>
                   <label
                     htmlFor="kampus2"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
                     Kampus Pilihan Jurusan 2*
                   </label>
                   <input
@@ -312,13 +322,15 @@ const Newmember = () => {
                   <div className="ml-3 text-sm">
                     <label
                       htmlFor="terms"
-                      className="font-light text-gray-500 dark:text-gray-300">
-                      I accept the{' '}
-                      <a
+                      className="font-light text-gray-500 dark:text-gray-300"
+                    >
+                      I accept the{" "}
+                      <Link
                         className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-                        href="#">
+                        href="/user/term"
+                      >
                         Terms and Conditions (* wajib diisi)
-                      </a>
+                      </Link>
                     </label>
                   </div>
                 </div>
@@ -329,15 +341,17 @@ const Newmember = () => {
                   <button
                     disabled={isButtonDisabled}
                     type="submit"
-                    className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  >
                     Create an account
                   </button>
                 )}
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Already have an account?{' '}
+                  Already have an account?{" "}
                   <a
                     href="/form/login"
-                    className="font-medium text-blue-600 hover:underline dark:text-blue-500">
+                    className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+                  >
                     Login here
                   </a>
                 </p>
