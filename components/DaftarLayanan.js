@@ -53,7 +53,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
   // const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const [form, setForm] = useState({
-    nama: "Paijo",
+    nama: "",
     kelas: "",
     asalsekolah: "",
     wa: "",
@@ -124,15 +124,15 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
       setIsButtonDisabled(true);
 
       // const canSubmit = await checkName(form.nama, sheet);
-      const canSubmit = await checkName(session.name, sheet);
+      const canSubmit = await checkName(session.user.name, sheet);
 
       if (canSubmit) {
         const newRow = {
-          nama: session.name,
+          nama: session.user.name,
           kelas: form.kelas,
           asalsekolah: form.asalsekolah,
           wa: form.wa,
-          email: session.email,
+          email: session.user.email,
           program: form.program,
           biaya: form.biaya,
         };
