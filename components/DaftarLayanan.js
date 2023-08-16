@@ -53,11 +53,11 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
   // const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const [form, setForm] = useState({
-    nama: "",
+    nama: session ? session.name : "",
     kelas: "",
     asalsekolah: "",
     wa: "",
-    email: "",
+    email: session ? session.email : "",
     program: "",
     biaya: "",
   });
@@ -109,7 +109,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
     e.preventDefault();
 
     if (
-      form.nama !== "" &&
+      form.nama &&
       form.nama.length < 31 &&
       form.kelas !== "" &&
       form.kelas.length < 3 &&
@@ -117,7 +117,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
       form.asalsekolah.length < 31 &&
       form.wa !== "" &&
       form.wa.length < 14 &&
-      form.email !== "" &&
+      form.email &&
       form.email.length < 31 &&
       form.program !== "" &&
       form.biaya !== ""
@@ -202,11 +202,11 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
 
     // memeriksa apakah semua form telah terisi
     if (
-      form.nama &&
+      // form.nama &&
       form.kelas !== "" &&
       form.asalsekolah !== "" &&
-      form.wa !== "" &&
-      form.email
+      form.wa !== ""
+      // form.email
     ) {
       setShowButton(true); // menampilkan tombol
     }
