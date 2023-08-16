@@ -53,11 +53,11 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
   // const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const [form, setForm] = useState({
-    nama: session ? session.name : "",
+    nama: "",
     kelas: "",
     asalsekolah: "",
     wa: "",
-    email: session ? session.email : "",
+    email: "",
     program: "",
     biaya: "",
   });
@@ -110,7 +110,6 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
 
     if (
       form.nama &&
-      form.nama.length < 31 &&
       form.kelas !== "" &&
       form.kelas.length < 3 &&
       form.asalsekolah !== "" &&
@@ -118,7 +117,6 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
       form.wa !== "" &&
       form.wa.length < 14 &&
       form.email &&
-      form.email.length < 31 &&
       form.program !== "" &&
       form.biaya !== ""
     ) {
@@ -194,10 +192,12 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e, name) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
+      [name]: name === "nama" ? session.user.name : value,
+      [name]: name === "email" ? session.user.email : value,
     });
 
     // memeriksa apakah semua form telah terisi
