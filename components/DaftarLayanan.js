@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import Swal from "sweetalert2";
 import Loader from "./Loader";
@@ -32,7 +32,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
   const { data: session } = useSession();
   const isInputReadOnly = session ? true : false;
 
-  // console.log(session);
+  console.log(session.user.name);
 
   const [isDisable, setIsDisable] = useState(session ? false : true);
   const [showButton, setShowButton] = useState(false);
