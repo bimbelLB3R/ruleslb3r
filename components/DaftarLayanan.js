@@ -30,12 +30,13 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
 
 const DaftarLayanan = ({ detailProgram, allPost }) => {
   const { data: session } = useSession();
-  const isInputReadOnly = session === "undefined" || session ? true : false;
+  const isInputReadOnly =
+    typeof session === "undefined" || session ? true : false;
 
   console.log(session);
 
   const [isDisable, setIsDisable] = useState(
-    session === "undefined" || session ? false : true
+    typeof session === "undefined" || session ? false : true
   );
   const [showButton, setShowButton] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
