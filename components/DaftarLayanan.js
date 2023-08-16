@@ -194,21 +194,26 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
     }
   };
 
+  //
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
 
-    // memeriksa apakah semua form telah terisi
+    // Memeriksa apakah semua form telah terisi setelah mengubah state
     if (
-      form.nama !== "" &&
+      (name === "nama" || name === "email") &&
+      value !== "" &&
       form.kelas !== "" &&
       form.asalsekolah !== "" &&
-      form.wa !== "" &&
-      form.email !== ""
+      form.wa !== ""
     ) {
-      setShowButton(true); // menampilkan tombol
+      setShowButton(true); // Menampilkan tombol
+    } else if (name === "kelas" || name === "asalsekolah" || name === "wa") {
+      setShowButton(false); // Menyembunyikan tombol jika ada field lain yang belum terisi
     }
   };
 
