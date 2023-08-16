@@ -7,7 +7,7 @@ import Head from "next/head";
 import axios from "axios";
 import Layout from "./Layout";
 import Navbar from "./Navbar";
-import { signIn, useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 // mengubah mata uang
 function formatCurrency(amount) {
@@ -267,13 +267,22 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 htmlFor="floating_outlined7"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
               >
-                Verifikasi Email dulu ya
+                klik disini untuk Verifikasi Email dulu ya
               </label>
               {/* {isEmailEmpty && (
                 <p className="text-red-500 text-xs">Wajib diisi</p>
               )} */}
             </div>
             <div className="relative">
+              <div className="absolute translate-y-1/2">
+                {typeof session === "undefined" || session ? (
+                  <button onClick={() => signOut()}>
+                    <p className="underline text-xs">Ganti email</p>
+                  </button>
+                ) : (
+                  ""
+                )}
+              </div>
               <input
                 name="nama"
                 type="text"
@@ -403,7 +412,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
             </div>
 
             <p className="w-full bg-slate-500 p-2 text-slate-100">
-              CENTANG SEMUA YA...
+              PROGRAM YANG KAMU PILIH
             </p>
             <div className="flex items-center space-x-2">
               <input
