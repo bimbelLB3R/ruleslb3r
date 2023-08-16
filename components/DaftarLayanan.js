@@ -248,10 +248,10 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 // onChange={handleChange}
                 onFocus={!session ? signIn : ""}
                 value={session ? session.user.email : ""}
-                readOnly={isInputReadOnly}
+                // readOnly={isInputReadOnly}
                 // disabled={isDisable}
                 onBlur={() => {
-                  if (!session.email) {
+                  if (!session.user.email) {
                     setIsEmailEmpty(true);
                   } else {
                     setIsEmailEmpty(false);
@@ -280,7 +280,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 autoComplete="off"
                 // onChange={handleChange}
                 value={session ? session.user.name : ""}
-                disabled={true}
+                disabled={isDisable}
                 // onBlur={() => {
                 //   if (!session.name || form.nama.length > 30) {
                 //     setIsNamaEmpty(true);
@@ -312,7 +312,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
-                // disabled={isDisable}
+                disabled={isDisable}
                 onBlur={() => {
                   if (form.kelas === "" || form.kelas.length > 2) {
                     setIsKelasEmpty(true);
@@ -344,7 +344,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
-                // disabled={isDisable}
+                disabled={isDisable}
                 onBlur={() => {
                   if (form.asalsekolah === "" || form.asalsekolah.length > 30) {
                     setIsAsalSekolahEmpty(true);
@@ -376,7 +376,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 placeholder=" "
                 autoComplete="off"
                 onChange={handleChange}
-                // disabled={isDisable}
+                disabled={isDisable}
                 onBlur={() => {
                   if (form.wa === "" || form.wa.length > 13) {
                     setIsWaEmpty(true);
