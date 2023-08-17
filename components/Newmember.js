@@ -75,9 +75,9 @@ export default function Newmember() {
     // console.log(emailExists);
     rows.find((row) => {
       if (row.email === email) {
-        setEmailExist(row.email);
+        setEmailExist(email);
       } else if (row.nisn === nisn) {
-        setNisnExist(row.nisn);
+        setNisnExist(nisn);
       }
     });
     if (!nisnExists && !emailExists) {
@@ -134,12 +134,12 @@ export default function Newmember() {
         router.push("/form/login");
       } else {
         Swal.fire({
-          title: `${emailExists || nisnExists} sudah terdaftar `,
+          title: `Email:${emailExists} atau NISN:${nisnExists}  sudah terdaftar `,
           text: "Data gagal dikirim",
           icon: "warning",
           confirmButtonText: "Koreksi Datamu",
         });
-        setIsButtonDisabled(true);
+        setIsButtonDisabled(false);
         setShowButton(true);
       }
     }
