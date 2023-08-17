@@ -68,6 +68,7 @@ export default function Newmember() {
     // console.log(rows);
     const nisnExists = rows.find((row) => row.nisn === nisn); //penulisan row.name , name nya harus sama dengan di google sheet name
     const emailExists = rows.find((row) => row.email === email);
+    console.log(emailExists);
     if (!nisnExists && !emailExists) {
       // Name does not exist, form can be submitted
       return true;
