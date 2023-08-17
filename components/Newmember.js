@@ -17,6 +17,8 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
 export default function Newmember() {
   const [adaEmail, setAdaEmail] = useState(false);
   const [adaNisn, setAdaNisn] = useState(false);
+  console.log(adaEmail);
+  console.log(adaNisn);
   const { data: session } = useSession();
 
   const [isDisable, setIsDisable] = useState(
