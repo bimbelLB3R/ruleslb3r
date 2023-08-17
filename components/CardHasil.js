@@ -38,14 +38,12 @@ const CardHasil = ({
   };
 
   return (
-    <div className="max-w-sm ">
-      <Card>
-        <div>
-          <p className="w-full p-4 text-[16] font-bold">{tipeSoal}</p>
-          <div className="flex justify-end px-4 pt-4 ">
-            <p className="text-xs italic text-red-600">
-              Refresh Halaman Untuk Up date Skor!
-            </p>
+    <div className="max-w-md ">
+      <Card className="bg-blue-200">
+        <div className="">
+          <div className="flex justify-end  items-center  p-4 ">
+            {/* <p className="w-full text-[16] font-bold">{tipeSoal}</p> */}
+
             <Dropdown inline={true} label="">
               <Dropdown.Item>
                 <a
@@ -99,7 +97,7 @@ const CardHasil = ({
             </div>
           </div>
           <div>
-            <div className="border-b-2">
+            <div className="border-b-2 border-blue-400">
               {/* <div>
                 <Image
                   src={session.user.image}
@@ -114,9 +112,10 @@ const CardHasil = ({
                   className="flex items-center justify-center m-2"
                 >
                   <Image
-                    src={item.foto}
+                    src={item[9]}
                     alt="foto"
                     width={96}
+                    height={96}
                     className="rounded-full shadow-lg"
                   />
                 </div>
@@ -129,7 +128,11 @@ const CardHasil = ({
               </span>
             </div>
             {filteredNisn.map((item, index) => (
-              <div key={index} className="border-b-2">
+              <div key={index} className="border-b-2 border-blue-400">
+                <p>
+                  Materi Subtes :{" "}
+                  <span className="font-bold text-red-900">{tipeSoal}</span>
+                </p>
                 <p>
                   Ranking subtes :{" "}
                   <span className="font-bold text-red-900">{item[0]}</span>
@@ -153,7 +156,7 @@ const CardHasil = ({
               </div>
             ))}
             <div>
-              <p className="text-xs text-justify indent-6 border-l-2 border-gray-300 p-2 mt-2">
+              <p className="text-xs text-justify indent-6 border-l-2 border-gray-300 p-2 mt-4">
                 Perlu {storedName} ketahui bahwa dalam Try Out SNBT menggunakan
                 metode IRT, skor kamu bisa berubah-ubah disebabkan penambahan
                 jumlah peserta TO. Makin banyak peserta yang menjawab benar pada

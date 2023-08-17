@@ -9,10 +9,12 @@ import { runFireworks } from "../../libs/utils";
 
 const ContactForm = ({ sheetdata, biodata }) => {
   // console.log(query.link);
+  // console.log(biodata);
 
   // console.log(sheetdata[0][1]);
 
   const [storedNisn, setStorageNisn] = useState("");
+  // console.log(storedNisn);
   const [storedName, setStorageName] = useState("Student");
   const [tipeSoal, setTipeSoal] = useState("");
   // console.log(storedName);
@@ -21,8 +23,9 @@ const ContactForm = ({ sheetdata, biodata }) => {
   const filteredBiodata = biodata.map((item) => item);
   const filteredNisn = filteredData.filter((item) => item[1] === storedNisn);
   const choosenBiodata = filteredBiodata.filter(
-    (item) => item[0] === storedNisn
+    (item) => item[0] == storedNisn
   );
+  console.log(choosenBiodata);
   // console.log(filteredNisn);
   useEffect(() => {
     runFireworks();
