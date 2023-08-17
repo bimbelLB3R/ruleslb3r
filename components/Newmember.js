@@ -130,23 +130,23 @@ export default function Newmember() {
           confirmButtonText: "Ok",
         });
         router.push("/form/login");
-      } else if (adaEmail === true) {
-        Swal.fire({
-          title: `Email sudah pernah terdaftar `,
-          text: "Data gagal dikirim",
-          icon: "warning",
-          confirmButtonText: "Koreksi Datamu",
-        });
-
-        setIsButtonDisabled(false);
-        setShowButton(true);
       } else {
-        Swal.fire({
-          title: `NISN sudah pernah terdaftar `,
-          text: "Data gagal dikirim",
-          icon: "warning",
-          confirmButtonText: "Koreksi Datamu",
-        });
+        Swal.fire(
+          adaEmail === true
+            ? {
+                title: `Email sudah pernah terdaftar `,
+                text: "Data gagal dikirim",
+                icon: "warning",
+                confirmButtonText: "Koreksi Datamu",
+              }
+            : {
+                title: `NISN sudah pernah terdaftar `,
+                text: "Data gagal dikirim",
+                icon: "warning",
+                confirmButtonText: "Koreksi Datamu",
+              }
+        );
+
         setIsButtonDisabled(false);
         setShowButton(true);
       }
