@@ -123,8 +123,7 @@ export default function Newmember() {
       } else {
         Swal.fire({
           title: `${
-            (emailExists && "Email: ".session.user.email) ||
-            (nisnExists && " NISN: ".form.nisn)
+            (emailExists && session.user.email) || (nisnExists && form.nisn)
           } sudah terdaftar `,
           text: "Data gagal dikirim",
           icon: "warning",
