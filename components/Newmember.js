@@ -140,7 +140,7 @@ export default function Newmember() {
 
         setIsButtonDisabled(false);
         setShowButton(true);
-      } else if (adaNisn === true) {
+      } else {
         Swal.fire({
           title: `NISN sudah pernah terdaftar `,
           text: "Data gagal dikirim",
