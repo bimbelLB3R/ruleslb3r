@@ -17,6 +17,8 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
 export default function Newmember() {
   const [emailExists, setEmailExist] = useState();
   const [nisnExists, setNisnExist] = useState();
+  console.log(emailExists);
+  console.log(nisnExists);
   const { data: session } = useSession();
 
   const [isDisable, setIsDisable] = useState(
