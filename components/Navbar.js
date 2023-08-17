@@ -11,7 +11,7 @@ import { useSession } from "next-auth/react";
 
 const Navbar = forwardRef(({ allPost, ...props }, ref) => {
   const { data: session } = useSession();
-  console.log(session);
+  // console.log(session);
   // console.log(allPost);
   // const mapPost = allPost.allPost.map((post) => console.log(post.title));
   // Controling scroll efect
@@ -83,6 +83,20 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
           id="nav"
           className="bg-gradient-to-b from-red-500 to-white p-3 md:hidden fixed  top-0 z-40 w-full shadow shadow-slate-400"
         >
+          {session ? (
+            <div className="absolute right-0 -bottom-[10px]">
+              <Image
+                src={session.user.image}
+                width={76}
+                height={76}
+                alt="userFoto"
+                priority={true}
+                className="rounded-full shadow-2xl"
+              />
+            </div>
+          ) : (
+            ""
+          )}
           <div className="absolute right-0 -top-6 ">
             <Image
               src="/image/petaindo.png"
