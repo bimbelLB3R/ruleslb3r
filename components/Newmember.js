@@ -15,10 +15,8 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 export default function Newmember() {
-  const [emailExists, setEmailExist] = useState();
-  const [nisnExists, setNisnExist] = useState();
-  console.log(emailExists);
-  console.log(nisnExists);
+  const [adaEmail, setAdaEmail] = useState(false);
+  const [adaNisn, setAdaNisn] = useState(false);
   const { data: session } = useSession();
 
   const [isDisable, setIsDisable] = useState(
@@ -73,13 +71,11 @@ export default function Newmember() {
     const nisnExists = rows.find((row) => row.nisn === nisn); //penulisan row.name , name nya harus sama dengan di google sheet name
     const emailExists = rows.find((row) => row.email === email);
     // console.log(emailExists);
-    rows.find((row) => {
-      if (row.email === email) {
-        setEmailExist(session.user.email);
-      } else if (row.nisn === nisn) {
-        setNisnExist(form.nisn);
-      }
-    });
+    if (nisnExists) {
+      setAdaNisn(true);
+    } else if (emailExists) {
+      setAdaEmail(true);
+    }
     if (!nisnExists && !emailExists) {
       // Name does not exist, form can be submitted
       return true;
@@ -133,12 +129,19 @@ export default function Newmember() {
         });
         router.push("/form/login");
       } else {
-        Swal.fire({
-          title: `Email:${emailExists} atau NISN:${nisnExists}  sudah terdaftar `,
-          text: "Data gagal dikirim",
-          icon: "warning",
-          confirmButtonText: "Koreksi Datamu",
-        });
+        adaEmail === true
+          ? Swal.fire({
+              title: `Email sudah pernah terdaftar `,
+              text: "Data gagal dikirim",
+              icon: "warning",
+              confirmButtonText: "Koreksi Datamu",
+            })
+          : Swal.fire({
+              title: `NISN sudah pernah terdaftar `,
+              text: "Data gagal dikirim",
+              icon: "warning",
+              confirmButtonText: "Koreksi Datamu",
+            });
         setIsButtonDisabled(false);
         setShowButton(true);
       }
