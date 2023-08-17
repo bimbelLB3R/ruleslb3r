@@ -17,8 +17,8 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
 export default function Newmember() {
   const [adaEmail, setAdaEmail] = useState(false);
   const [adaNisn, setAdaNisn] = useState(false);
-  console.log(adaEmail);
-  console.log(adaNisn);
+  // console.log(adaEmail);
+  // console.log(adaNisn);
   const { data: session } = useSession();
 
   const [isDisable, setIsDisable] = useState(
@@ -97,11 +97,17 @@ export default function Newmember() {
       // form.nama !== "" &&
       form.nisn !== "" &&
       form.asalsekolah !== "" &&
+      form.asalsekolah.length < 31 &&
       form.wa !== "" &&
+      form.wa.length < 14 &&
       form.prodi1 !== "" &&
+      form.prodi1.length < 31 &&
       form.kampus1 !== "" &&
+      form.kampus1.length < 31 &&
       form.prodi2 !== "" &&
-      form.kampus2 !== ""
+      form.prodi2.length < 31 &&
+      form.kampus2 !== "" &&
+      form.kampus2.length < 31
     ) {
       const canSubmit = await checkNisn(`1${form.nisn}`, session.user.email);
 
@@ -285,7 +291,7 @@ export default function Newmember() {
                     type="text"
                     name="asalsekolah"
                     id="asalsekolah"
-                    placeholder="contoh SMA N 1 Tanjung"
+                    placeholder="Maks 30 karakter"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
                     onChange={handleChange}
@@ -304,7 +310,7 @@ export default function Newmember() {
                     type="number"
                     name="wa"
                     id="wa"
-                    placeholder="format 6281345346374"
+                    placeholder="maks 13 karakter"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
                     onChange={handleChange}
@@ -324,7 +330,7 @@ export default function Newmember() {
                     type="text"
                     name="prodi1"
                     id="prodi1"
-                    placeholder="Tulis Jurusan Pilihan Pertama"
+                    placeholder="Maks 30 Karakter"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
                     onChange={handleChange}
@@ -343,7 +349,7 @@ export default function Newmember() {
                     type="text"
                     name="kampus1"
                     id="kampus1"
-                    placeholder="Tulis Kampus Pilihan Pertama"
+                    placeholder="Maks 30 Karakter"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
                     onChange={handleChange}
@@ -362,7 +368,7 @@ export default function Newmember() {
                     type="text"
                     name="prodi2"
                     id="prodi2"
-                    placeholder="Tulis Jurusan Pilihan Kedua"
+                    placeholder="Maks 30 Karakter"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
                     onChange={handleChange}
@@ -381,7 +387,7 @@ export default function Newmember() {
                     type="text"
                     name="kampus2"
                     id="kampus2"
-                    placeholder="Tulis Kampus Pilihan Kedua"
+                    placeholder="Maks 30 Karakter"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
                     onChange={handleChange}

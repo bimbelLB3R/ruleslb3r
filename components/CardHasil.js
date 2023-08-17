@@ -5,9 +5,15 @@ import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 
-const CardHasil = ({ filteredNisn, storedName, storedNisn, tipeSoal }) => {
-  const { data: session } = useSession();
-  console.log(session);
+const CardHasil = ({
+  filteredNisn,
+  storedName,
+  storedNisn,
+  tipeSoal,
+  choosenBiodata,
+}) => {
+  // const { data: session } = useSession();
+  // console.log(session);
   const [link, setLink] = useState("");
   useEffect(() => {
     const link = localStorage.getItem("link");
@@ -102,6 +108,19 @@ const CardHasil = ({ filteredNisn, storedName, storedNisn, tipeSoal }) => {
                   alt="foto"
                 />
               </div> */}
+              {choosenBiodata.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-center m-2"
+                >
+                  <Image
+                    src={item.foto}
+                    alt="foto"
+                    width={96}
+                    className="rounded-full shadow-lg"
+                  />
+                </div>
+              ))}
               <h5 className=" text-xl font-medium text-gray-900 dark:text-white">
                 {storedName}
               </h5>

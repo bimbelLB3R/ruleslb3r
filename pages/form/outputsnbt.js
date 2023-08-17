@@ -7,7 +7,7 @@ import Head from "next/head";
 import CardHasil from "../../components/CardHasil";
 import { runFireworks } from "../../libs/utils";
 
-const ContactForm = ({ sheetdata }) => {
+const ContactForm = ({ sheetdata, biodata }) => {
   // console.log(query.link);
 
   // console.log(sheetdata[0][1]);
@@ -18,7 +18,11 @@ const ContactForm = ({ sheetdata }) => {
   // console.log(storedName);
   // console.log(storedNisn);
   const filteredData = sheetdata.map((item) => item);
+  const filteredBiodata = biodata.map((item) => item);
   const filteredNisn = filteredData.filter((item) => item[1] === storedNisn);
+  const choosenBiodata = filteredBiodata.filter(
+    (item) => item[0] === storedNisn
+  );
   // console.log(filteredNisn);
   useEffect(() => {
     runFireworks();
@@ -62,6 +66,7 @@ const ContactForm = ({ sheetdata }) => {
               <CardHasil
                 sheetdata={sheetdata}
                 filteredNisn={filteredNisn}
+                choosenBiodata={choosenBiodata}
                 storedName={storedName}
                 storedNisn={storedNisn}
                 tipeSoal={tipeSoal}
@@ -80,11 +85,14 @@ export default ContactForm;
 export async function getServerSideProps({ query }) {
   const link = query.link;
   const req = await fetch(`https://bimbellb3r.com/api/analisis${link}`);
+  const req2 = await fetch(`https://bimbellb3r.com/api/biodata`);
   const res = await req.json();
+  const res2 = await req2.json();
 
   return {
     props: {
       sheetdata: res.data,
+      biodata: res2.data,
     },
   };
 }
