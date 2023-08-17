@@ -7,7 +7,7 @@ import TombolInOut from "./TombolInOut";
 import TombolCari from "./TombolCari";
 import DropdownMenuSNBT from "./DropdownMenuSNBT";
 import DropdownMenuLayanan from "./DropdownMenuLayanan";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 const Navbar = forwardRef(({ allPost, ...props }, ref) => {
   const { data: session } = useSession();
@@ -118,7 +118,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
               >
                 {session ? (
                   <div className="border-2 border-white rounded-full relative">
-                    <div className="w-[6px] h-[6px] absolute rounded-full bg-green-400"></div>
+                    <div className="w-[12px] h-[12px] absolute rounded-full bg-green-400"></div>
                     <Image
                       src={session.user.image}
                       width={46}
@@ -340,6 +340,15 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                         </div>
                       </div>
                     </Link>
+                    {session ? (
+                      <div className="flex items-center justify-end p-2 underline">
+                        <button onClick={signOut()}>
+                          Keluar dari {session.user.name}
+                        </button>
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
                   <Footer />
                 </div>
