@@ -15,6 +15,8 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 export default function Newmember() {
+  const [emailExists, setEmailExist] = useState();
+  const [nisnExists, setNisnExist] = useState();
   const { data: session } = useSession();
 
   const [isDisable, setIsDisable] = useState(
@@ -68,12 +70,20 @@ export default function Newmember() {
     // console.log(rows);
     const nisnExists = rows.find((row) => row.nisn === nisn); //penulisan row.name , name nya harus sama dengan di google sheet name
     const emailExists = rows.find((row) => row.email === email);
-    console.log(emailExists);
+    // console.log(emailExists);
+    rows.find((row) => {
+      if (row.email === email) {
+        setEmailExist(row.email);
+      } else if (row.nisn === nisn) {
+        setNisnExist(row.nisn);
+      }
+    });
     if (!nisnExists && !emailExists) {
       // Name does not exist, form can be submitted
       return true;
     } else {
       // Name already exists, form cannot be submitted
+
       return false;
     }
   };
@@ -122,9 +132,7 @@ export default function Newmember() {
         router.push("/form/login");
       } else {
         Swal.fire({
-          title: `${
-            (emailExists && session.user.email) || (nisnExists && form.nisn)
-          } sudah terdaftar `,
+          title: `${emailExists || nisnExists} sudah terdaftar `,
           text: "Data gagal dikirim",
           icon: "warning",
           confirmButtonText: "Koreksi Datamu",
