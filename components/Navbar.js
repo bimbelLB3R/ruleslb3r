@@ -342,7 +342,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                     </Link>
                     {session ? (
                       <div className="flex items-center justify-end p-2 underline">
-                        <button onClick={signOut()}>
+                        <button onClick={() => signOut()}>
                           Keluar dari {session.user.name}
                         </button>
                       </div>
@@ -352,7 +352,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                           <button
                             type="submit"
                             name="loginGoogle"
-                            onClick={signIn}
+                            onClick={() => signIn()}
                             className="underline"
                           >
                             Login dengan
