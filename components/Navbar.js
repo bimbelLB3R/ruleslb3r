@@ -87,8 +87,8 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
             <div className="absolute right-0 -bottom-[10px]">
               <Image
                 src={session.user.image}
-                width={76}
-                height={76}
+                width={46}
+                height={46}
                 alt="userFoto"
                 priority={true}
                 className="rounded-full shadow-2xl"
