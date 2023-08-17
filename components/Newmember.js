@@ -56,7 +56,7 @@ export default function Newmember() {
   };
 
   // cek apakah NISN sudah ada
-  const checkNisn = async (nama) => {
+  const checkNisn = async (nisn, email) => {
     await doc.useServiceAccountAuth({
       client_email: GOOGLE_CLIENT_EMAIL,
       private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
@@ -66,8 +66,9 @@ export default function Newmember() {
     const rows = await sheet.getRows();
 
     // console.log(rows);
-    const nisnExists = rows.find((row) => row.nisn === nama); //penulisan row.name , name nya harus sama dengan di google sheet name
-    if (!nisnExists) {
+    const nisnExists = rows.find((row) => row.nisn === nisn); //penulisan row.name , name nya harus sama dengan di google sheet name
+    const emailExists = rows.find((row) => row.email === email);
+    if (!nisnExists && !emailExists) {
       // Name does not exist, form can be submitted
       return true;
     } else {
@@ -91,7 +92,7 @@ export default function Newmember() {
       form.prodi2 !== "" &&
       form.kampus2 !== ""
     ) {
-      const canSubmit = await checkNisn(session.user.name, sheet);
+      const canSubmit = await checkNisn(`1${form.nisn}`, session.user.email);
 
       if (canSubmit) {
         const newRow = {
@@ -120,8 +121,8 @@ export default function Newmember() {
         router.push("/form/login");
       } else {
         Swal.fire({
-          title: `${session.user.name} sudah terdaftar`,
-          text: "Data gagal dikirim karena email kamu sudah terdaftar",
+          title: `${session.user.email} atau NISN sudah terdaftar `,
+          text: "Data gagal dikirim",
           icon: "warning",
           confirmButtonText: "Login",
         });
