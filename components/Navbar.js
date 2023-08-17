@@ -117,7 +117,8 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                 title="Toggle Menu"
               >
                 {session ? (
-                  <div>
+                  <div className="border-2 border-white rounded-full relative">
+                    <div className="w-[6px] h-[6px] absolute rounded-full bg-green-400"></div>
                     <Image
                       src={session.user.image}
                       width={46}
