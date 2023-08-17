@@ -1,23 +1,27 @@
-import { Card, Dropdown } from 'flowbite-react';
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { Card, Dropdown } from "flowbite-react";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 const CardHasil = ({ filteredNisn, storedName, storedNisn, tipeSoal }) => {
-  const [link, setLink] = useState('');
+  const { data: session } = useSession();
+  console.log(session);
+  const [link, setLink] = useState("");
   useEffect(() => {
-    const link = localStorage.getItem('link');
+    const link = localStorage.getItem("link");
     setLink(link);
   });
   //   console.log(filteredNisn);
   // console.log(tipeSoal);
-  const [hapusLocal, setHapusLocal] = useState('');
+  const [hapusLocal, setHapusLocal] = useState("");
   // const [tipeSoal, setTipeSoal] = useState('');
   const handleHapus = () => {
     setHapusLocal(localStorage.clear());
   };
   const handleLocal = () => {
-    localStorage.removeItem('tipeSoal');
+    localStorage.removeItem("tipeSoal");
   };
   const router = useRouter();
   const handlePembahasan = () => {
@@ -40,21 +44,24 @@ const CardHasil = ({ filteredNisn, storedName, storedNisn, tipeSoal }) => {
               <Dropdown.Item>
                 <a
                   href="#"
-                  className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
+                  className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
                   Download Soal
                 </a>
               </Dropdown.Item>
               <Dropdown.Item>
                 <button
                   onClick={handlePembahasan}
-                  className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
+                  className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
                   Lihat Pembahasan
                 </button>
               </Dropdown.Item>
               <Dropdown.Item>
                 <a
                   href="#"
-                  className="block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
+                  className="block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                >
                   Lihat Skor Peserta Lain
                 </a>
               </Dropdown.Item>
@@ -74,7 +81,8 @@ const CardHasil = ({ filteredNisn, storedName, storedNisn, tipeSoal }) => {
                   height="36"
                   fill="currentColor"
                   className="bi bi-arrow-counterclockwise"
-                  viewBox="0 0 16 16">
+                  viewBox="0 0 16 16"
+                >
                   <path
                     fillRule="evenodd"
                     d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"
@@ -86,31 +94,39 @@ const CardHasil = ({ filteredNisn, storedName, storedNisn, tipeSoal }) => {
           </div>
           <div>
             <div className="border-b-2">
+              {/* <div>
+                <Image
+                  src={session.user.image}
+                  width={100}
+                  className="rounded-full"
+                  alt="foto"
+                />
+              </div> */}
               <h5 className=" text-xl font-medium text-gray-900 dark:text-white">
                 {storedName}
               </h5>
               <span className="text-sm text-gray-500 dark:text-gray-400">
-                NISN : {storedNisn}
+                NISN : {storedNisn.toString().replace("1", "")}
               </span>
             </div>
             {filteredNisn.map((item, index) => (
               <div key={index} className="border-b-2">
                 <p>
-                  Ranking subtes :{' '}
+                  Ranking subtes :{" "}
                   <span className="font-bold text-red-900">{item[0]}</span>
                 </p>
                 <p>
-                  Skor Kamu :{' '}
+                  Skor Kamu :{" "}
                   <span className="font-bold text-red-900">{item[8]}</span>
                 </p>
                 <p>
-                  Jumlah jawaban benar :{' '}
+                  Jumlah jawaban benar :{" "}
                   <span className="font-bold text-red-900">
                     {item[5]} dari {item[7]} soal
                   </span>
                 </p>
                 <p>
-                  Jumlah Peserta :{' '}
+                  Jumlah Peserta :{" "}
                   <span className="font-bold text-red-900">
                     {item[6]} Orang
                   </span>
@@ -134,7 +150,8 @@ const CardHasil = ({ filteredNisn, storedName, storedNisn, tipeSoal }) => {
                 <button
                   onClick={handleHapus}
                   href="/"
-                  className="inline-flex items-center rounded-lg bg-blue-700 py-2 px-4 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  className="inline-flex items-center rounded-lg bg-blue-700 py-2 px-4 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
                   Lanjut Soal Yang Lain
                 </button>
               </a>

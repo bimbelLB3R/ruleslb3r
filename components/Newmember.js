@@ -103,6 +103,8 @@ export default function Newmember() {
           kampus1: form.kampus1,
           prodi2: form.prodi2,
           kampus2: form.kampus2,
+          email: session.user.email,
+          foto: session.user.image,
         };
         // setIsLoading(true); // set status loading menjadi true
         await appendSpreadsheet(newRow);

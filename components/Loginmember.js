@@ -62,7 +62,7 @@ const Loginmember = () => {
     const rows = await sheet2.getRows();
 
     // console.log(rows);
-    const nisnExists = rows.find((row) => row.nisn === nisn); //penulisan row.name , name nya harus sama dengan di google sheet name
+    const nisnExists = rows.find((row) => row.nisn === `1${nisn}`); //penulisan row.name , name nya harus sama dengan di google sheet name
 
     // console.log(nisnExists);
     if (!nisnExists) {
@@ -85,14 +85,14 @@ const Loginmember = () => {
 
       if (canSubmit) {
         const newRow = {
-          nisn: form.nisn,
+          nisn: `1${form.nisn}`,
           nama: form.nama,
         };
 
         const link = localStorage.getItem("link");
         // await appendSpreadsheet(newRow);
         localStorage.setItem("name", form.nama);
-        localStorage.setItem("nisn", form.nisn);
+        localStorage.setItem("nisn", `1${form.nisn}`);
         if (link === "snbt") {
           localStorage.setItem("timeLeft", 2700); //30 soal
         } else if (link === "kuantitatif") {
@@ -127,12 +127,12 @@ const Loginmember = () => {
           title: "Kamu Berhasil Masuk",
           text: "Tunggu sebentar soal sedang disiapkan....",
           icon: "success",
-          confirmButtonText: "Ok",
+          confirmButtonText: "Oke",
         });
       } else {
         Swal.fire({
-          title: `${form.nisn} belum terdaftar`,
-          text: "Data gagal dikirim karena NISN kamu belum terdaftar atau nama dan NISN tidak cocok",
+          title: `1${form.nisn} belum terdaftar`,
+          text: "Data gagal dikirim karena NISN kamu belum terdaftar",
           icon: "warning",
           confirmButtonText: "Daftar",
         });
@@ -201,10 +201,6 @@ const Loginmember = () => {
                     autoComplete="off"
                     disabled={isButtonDisabled}
                   />
-                  <p className="text-[10px] text-red-600">
-                    Jika NISN kamu dimulai angka 0, misal 012345, maka tambahkan
-                    angka 1 didepannya menjadi 1012345
-                  </p>
                 </div>
                 <div>
                   <label
