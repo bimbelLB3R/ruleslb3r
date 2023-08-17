@@ -121,11 +121,16 @@ export default function Newmember() {
         router.push("/form/login");
       } else {
         Swal.fire({
-          title: `${session.user.email} atau NISN sudah terdaftar `,
+          title: `${
+            (emailExists && "Email: ".session.user.email) ||
+            (nisnExists && " NISN: ".form.nisn)
+          } sudah terdaftar `,
           text: "Data gagal dikirim",
           icon: "warning",
-          confirmButtonText: "Login",
+          confirmButtonText: "Koreksi Datamu",
         });
+        setIsButtonDisabled(true);
+        setShowButton(true);
       }
     }
   };
