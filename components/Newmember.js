@@ -131,21 +131,12 @@ export default function Newmember() {
         });
         router.push("/form/login");
       } else {
-        Swal.fire(
-          adaEmail === true
-            ? {
-                title: `Email sudah pernah terdaftar `,
-                text: "Data gagal dikirim",
-                icon: "warning",
-                confirmButtonText: "Koreksi Datamu",
-              }
-            : {
-                title: `NISN sudah pernah terdaftar `,
-                text: "Data gagal dikirim",
-                icon: "warning",
-                confirmButtonText: "Koreksi Datamu",
-              }
-        );
+        Swal.fire({
+          title: `Cek lagi datamu ya...`,
+          text: "Data gagal dikirim",
+          icon: "warning",
+          confirmButtonText: "Koreksi Datamu",
+        });
 
         setIsButtonDisabled(false);
         setShowButton(true);
@@ -230,13 +221,24 @@ export default function Newmember() {
                       type="text"
                       name="nama"
                       id="nama"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className={`bg-gray-50 border  text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${
+                        adaEmail === true ? "border-red-900" : "border-gray-300"
+                      }`}
                       placeholder="Verifikasi nama via email"
                       onFocus={!session ? signIn : ""}
                       value={session ? session.user.name : ""}
                       readOnly
                       autoComplete="off"
                     />
+                    {adaEmail === true ? (
+                      <div>
+                        <p className="text-xs text-red-900">
+                          Email sudah terdaftar
+                        </p>
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <div>
@@ -251,11 +253,22 @@ export default function Newmember() {
                     name="nisn"
                     id="nisn"
                     placeholder="NISN Kamu"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                    className={`bg-gray-50 border  text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${
+                      adaNisn === true ? "border-red-900" : "border-gray-300"
+                    }`}
                     onChange={handleChange}
                     autoComplete="off"
                     disabled={isDisable}
                   />
+                  {adaNisn === true ? (
+                    <div>
+                      <p className="text-xs text-red-900">
+                        NISN sudah terdaftar
+                      </p>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                   {/* <p className="text-[10px] text-red-600">
                     Jika NISN kamu dimulai angka 0, misal 012345, maka tambahkan
                     angka 1 didepannya menjadi 1012345
