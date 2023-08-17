@@ -7,8 +7,11 @@ import TombolInOut from "./TombolInOut";
 import TombolCari from "./TombolCari";
 import DropdownMenuSNBT from "./DropdownMenuSNBT";
 import DropdownMenuLayanan from "./DropdownMenuLayanan";
+import { useSession } from "next-auth/react";
 
 const Navbar = forwardRef(({ allPost, ...props }, ref) => {
+  const { data: session } = useSession();
+  console.log(session);
   // console.log(allPost);
   // const mapPost = allPost.allPost.map((post) => console.log(post.title));
   // Controling scroll efect
@@ -129,16 +132,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
               </button>
             </div>
           </div>
-          <div className="flex items-center space-x-6 border-l-2 border-gray-400 pl-1 ">
-            <div>
-              <p className="text-[10px] font-semibold">Kantor Pusat :</p>
-              <p className="text-[10px]">
-                Jalan Ir. P.H.M. Noor RT 10 No. 24 Sulingan
-              </p>
-              <p className="text-[10px]">
-                Kec. Murung Pudak, Kab. Tabalong, Kalimantan Selatan
-              </p>
-            </div>
+          <div className="flex items-center space-x-3   ">
             <div className="animate-bounce">
               <Link href="https://maps.app.goo.gl/P9qk89mYJ2piQr8j9">
                 <svg
@@ -159,6 +153,15 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                   />
                 </svg>
               </Link>
+            </div>
+            <div className="border-l-2 border-gray-400 pl-1">
+              <p className="text-[10px] font-semibold">Kantor Pusat :</p>
+              <p className="text-[10px]">
+                Jalan Ir. P.H.M. Noor RT 10 No. 24 Sulingan
+              </p>
+              <p className="text-[10px]">
+                Kec. Murung Pudak, Kab. Tabalong, KalSel
+              </p>
             </div>
           </div>
           <div className="md:flex md:items-center md:p-4">
