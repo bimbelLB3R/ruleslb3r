@@ -75,9 +75,9 @@ export default function Newmember() {
     // console.log(emailExists);
     rows.find((row) => {
       if (row.email === email) {
-        setEmailExist(email);
+        setEmailExist(session.user.email);
       } else if (row.nisn === nisn) {
-        setNisnExist(nisn);
+        setNisnExist(form.nisn);
       }
     });
     if (!nisnExists && !emailExists) {
