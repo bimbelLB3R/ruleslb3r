@@ -83,20 +83,6 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
           id="nav"
           className="bg-gradient-to-b from-red-500 to-white p-3 md:hidden fixed  top-0 z-40 w-full shadow shadow-slate-400"
         >
-          {session ? (
-            <div className="absolute right-0 -bottom-[10px]">
-              <Image
-                src={session.user.image}
-                width={46}
-                height={46}
-                alt="userFoto"
-                priority={true}
-                className="rounded-full shadow-2xl"
-              />
-            </div>
-          ) : (
-            ""
-          )}
           <div className="absolute right-0 -top-6 ">
             <Image
               src="/image/petaindo.png"
@@ -130,19 +116,32 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                 className="text-red-900 "
                 title="Toggle Menu"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="36"
-                  height="36"
-                  fill="currentColor"
-                  className="bi bi-text-left"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
-                  />
-                </svg>
+                {session ? (
+                  <div>
+                    <Image
+                      src={session.user.image}
+                      width={46}
+                      height={46}
+                      alt="userFoto"
+                      priority={true}
+                      className="rounded-full shadow-2xl"
+                    />
+                  </div>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="36"
+                    height="36"
+                    fill="currentColor"
+                    className="bi bi-text-left"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
+                    />
+                  </svg>
+                )}
               </button>
             </div>
           </div>
