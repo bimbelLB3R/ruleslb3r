@@ -33,11 +33,10 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
   const isInputReadOnly =
     typeof session === "undefined" || session ? true : false;
 
-  console.log(session);
-
   const [isDisable, setIsDisable] = useState(
     typeof session === "undefined" || session ? false : true
   );
+  // console.log(isDisable);
   const [showButton, setShowButton] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 

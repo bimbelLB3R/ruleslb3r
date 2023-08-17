@@ -5,6 +5,7 @@ import Loader from "./Loader";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
+import { signIn, useSession, signOut } from "next-auth/react";
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -13,8 +14,16 @@ const GOOGLE_CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
 const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
-const Newmember = () => {
+export default function Newmember() {
+  const { data: session } = useSession();
+
+  const [isDisable, setIsDisable] = useState(
+    typeof session === "undefined" || session ? false : true
+  );
+  // console.log(isDisable);
+
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [showButton, setShowButton] = useState(false);
   const router = useRouter();
   const [form, setForm] = useState({
     nama: "",
@@ -47,7 +56,7 @@ const Newmember = () => {
   };
 
   // cek apakah NISN sudah ada
-  const checkNisn = async (nisn) => {
+  const checkNisn = async (nama) => {
     await doc.useServiceAccountAuth({
       client_email: GOOGLE_CLIENT_EMAIL,
       private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
@@ -57,7 +66,7 @@ const Newmember = () => {
     const rows = await sheet.getRows();
 
     // console.log(rows);
-    const nisnExists = rows.find((row) => row.nisn === nisn); //penulisan row.name , name nya harus sama dengan di google sheet name
+    const nisnExists = rows.find((row) => row.nisn === nama); //penulisan row.name , name nya harus sama dengan di google sheet name
     if (!nisnExists) {
       // Name does not exist, form can be submitted
       return true;
@@ -73,7 +82,7 @@ const Newmember = () => {
     e.preventDefault();
 
     if (
-      form.nama !== "" &&
+      // form.nama !== "" &&
       form.nisn !== "" &&
       form.asalsekolah !== "" &&
       form.wa !== "" &&
@@ -82,12 +91,12 @@ const Newmember = () => {
       form.prodi2 !== "" &&
       form.kampus2 !== ""
     ) {
-      const canSubmit = await checkNisn(form.nisn, sheet);
+      const canSubmit = await checkNisn(session.user.name, sheet);
 
       if (canSubmit) {
         const newRow = {
-          nama: form.nama,
-          nisn: form.nisn,
+          nama: session.user.name,
+          nisn: `1${form.nisn}`,
           asalsekolah: form.asalsekolah,
           wa: form.wa,
           prodi1: form.prodi1,
@@ -109,8 +118,8 @@ const Newmember = () => {
         router.push("/form/login");
       } else {
         Swal.fire({
-          title: `${form.nisn} sudah terdaftar`,
-          text: "Data gagal dikirim karena NISN kamu sudah terdaftar",
+          title: `${session.user.name} sudah terdaftar`,
+          text: "Data gagal dikirim karena email kamu sudah terdaftar",
           icon: "warning",
           confirmButtonText: "Login",
         });
@@ -123,6 +132,20 @@ const Newmember = () => {
       ...form,
       [e.target.name]: e.target.value,
     });
+    // memeriksa apakah semua form telah terisi
+    if (
+      // form.nama &&
+      session &&
+      form.nisn !== "" &&
+      form.asalsekolah !== "" &&
+      form.wa !== "" &&
+      form.prodi1 !== "" &&
+      form.kampus1 !== "" &&
+      form.prodi2 !== "" &&
+      form.kampus2 !== ""
+    ) {
+      setShowButton(true); // menampilkan tombol
+    }
   };
   return (
     <>
@@ -160,23 +183,35 @@ const Newmember = () => {
                 action="#"
                 onSubmit={submitForm}
               >
-                <div>
+                <div className="relative">
                   <label
                     htmlFor="nama"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Nama Kamu*
                   </label>
-                  <input
-                    type="text"
-                    name="nama"
-                    id="nama"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Nama Lengkap"
-                    required=""
-                    onChange={handleChange}
-                    autoComplete="off"
-                  />
+                  <div className="relative">
+                    <div className="absolute translate-y-1/2 right-0">
+                      {typeof session === "undefined" || session ? (
+                        <button onClick={() => signOut()}>
+                          <p className="underline text-xs">Ganti email ?</p>
+                        </button>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                    <input
+                      type="text"
+                      name="nama"
+                      id="nama"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Verifikasi nama via email"
+                      onFocus={!session ? signIn : ""}
+                      value={session ? session.user.name : ""}
+                      readOnly
+                      autoComplete="off"
+                    />
+                  </div>
                 </div>
                 <div>
                   <label
@@ -191,14 +226,14 @@ const Newmember = () => {
                     id="nisn"
                     placeholder="NISN Kamu"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-                    required=""
                     onChange={handleChange}
                     autoComplete="off"
+                    disabled={isDisable}
                   />
-                  <p className="text-[10px] text-red-600">
+                  {/* <p className="text-[10px] text-red-600">
                     Jika NISN kamu dimulai angka 0, misal 012345, maka tambahkan
                     angka 1 didepannya menjadi 1012345
-                  </p>
+                  </p> */}
                 </div>
                 <div>
                   <label
@@ -216,6 +251,7 @@ const Newmember = () => {
                     required=""
                     onChange={handleChange}
                     autoComplete="off"
+                    disabled={isDisable}
                   />
                 </div>
                 <div>
@@ -234,6 +270,7 @@ const Newmember = () => {
                     required=""
                     onChange={handleChange}
                     autoComplete="off"
+                    disabled={isDisable}
                   />
                 </div>
                 {/* Penjurusan */}
@@ -253,6 +290,7 @@ const Newmember = () => {
                     required=""
                     onChange={handleChange}
                     autoComplete="off"
+                    disabled={isDisable}
                   />
                 </div>
                 <div>
@@ -271,6 +309,7 @@ const Newmember = () => {
                     required=""
                     onChange={handleChange}
                     autoComplete="off"
+                    disabled={isDisable}
                   />
                 </div>
                 <div>
@@ -289,6 +328,7 @@ const Newmember = () => {
                     required=""
                     onChange={handleChange}
                     autoComplete="off"
+                    disabled={isDisable}
                   />
                 </div>
                 <div>
@@ -307,6 +347,7 @@ const Newmember = () => {
                     required=""
                     onChange={handleChange}
                     autoComplete="off"
+                    disabled={isDisable}
                   />
                 </div>
                 {/* Penjurusan end */}
@@ -318,6 +359,7 @@ const Newmember = () => {
                       type="checkbox"
                       className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
                       required=""
+                      disabled={isDisable}
                     />
                   </div>
                   <div className="ml-3 text-sm">
@@ -339,13 +381,15 @@ const Newmember = () => {
                 {isButtonDisabled ? (
                   <Loader /> // tampilkan komponen loader jika proses append sedang berlangsung
                 ) : (
-                  <button
-                    disabled={isButtonDisabled}
-                    type="submit"
-                    className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  >
-                    Create an account
-                  </button>
+                  showButton && (
+                    <button
+                      disabled={isButtonDisabled}
+                      type="submit"
+                      className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    >
+                      Create an account
+                    </button>
+                  )
                 )}
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Already have an account?{" "}
@@ -363,6 +407,4 @@ const Newmember = () => {
       </div>
     </>
   );
-};
-
-export default Newmember;
+}
