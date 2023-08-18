@@ -8,6 +8,30 @@ import axios from "axios";
 import Layout from "./Layout";
 import Navbar from "./Navbar";
 import { signIn, signOut, useSession } from "next-auth/react";
+import nodemailer from "nodemailer";
+
+async function sendEmailWithLink(email, link) {
+  const transporter = nodemailer.createTransport({
+    service: "Gmail", // Ganti dengan layanan email yang sesuai
+    auth: {
+      user: "bimbellb3r@gmail.com",
+      pass: "sulingan",
+    },
+  });
+
+  try {
+    await transporter.sendMail({
+      from: "bimbellb3r@gmail.com",
+      to: email, // Alamat email pengguna
+      subject: "Link Pembayaran Bimbel LB3R",
+      text: `Here is your link: ${link}`,
+    });
+
+    console.log("Email sent successfully");
+  } catch (error) {
+    console.error("Email sending failed:", error);
+  }
+}
 
 // mengubah mata uang
 function formatCurrency(amount) {
@@ -179,7 +203,9 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         //   icon: 'success',
         //   confirmButtonText: 'ok',
         // });
-        router.push(transactionRedirectUrl);
+        sendEmailWithLink(session.user.email, transactionRedirectUrl);
+
+        // router.push(transactionRedirectUrl);
       } else {
         Swal.fire({
           title: `${session.user.name} pernah terdaftar,gunakan email lain.`,

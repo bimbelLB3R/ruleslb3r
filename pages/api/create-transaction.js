@@ -1,28 +1,4 @@
 import axios from "axios";
-import nodemailer from "nodemailer";
-
-async function sendEmailWithLink(email, link) {
-  const transporter = nodemailer.createTransport({
-    service: "Gmail", // Ganti dengan layanan email yang sesuai
-    auth: {
-      user: "bimbellb3r@gmail.com",
-      pass: "sulingan",
-    },
-  });
-
-  try {
-    await transporter.sendMail({
-      from: "bimbellb3r@gmail.com",
-      to: email, // Alamat email pengguna
-      subject: "Link Pembayaran Bimbel LB3R",
-      text: `Here is your link: ${link}`,
-    });
-
-    console.log("Email sent successfully");
-  } catch (error) {
-    console.error("Email sending failed:", error);
-  }
-}
 
 export default async function handler(req, res) {
   const newRow = req.body;
@@ -102,7 +78,6 @@ export default async function handler(req, res) {
     // transaction redirect url
     const transactionRedirectUrl = response.data.redirect_url;
     console.log("transactionRedirectUrl:", transactionRedirectUrl);
-    sendEmailWithLink(newRow.email, transactionRedirectUrl);
 
     res.setHeader("Content-Type", "application/json");
     res.status(200).json({ transactionToken, transactionRedirectUrl });
