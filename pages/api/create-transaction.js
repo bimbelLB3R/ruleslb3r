@@ -1,26 +1,26 @@
 import axios from "axios";
-import nodemailer from nodemailer
+import nodemailer from "nodemailer";
 
 async function sendEmailWithLink(email, link) {
   const transporter = nodemailer.createTransport({
-    service: 'Gmail', // Ganti dengan layanan email yang sesuai
+    service: "Gmail", // Ganti dengan layanan email yang sesuai
     auth: {
-      user: 'bimbellb3r@gmail.com',
-      pass: 'sulingan',
+      user: "bimbellb3r@gmail.com",
+      pass: "sulingan",
     },
   });
 
   try {
     await transporter.sendMail({
-      from: 'bimbellb3r@gmail.com',
+      from: "bimbellb3r@gmail.com",
       to: email, // Alamat email pengguna
-      subject: 'Link Pembayaran Bimbel LB3R',
+      subject: "Link Pembayaran Bimbel LB3R",
       text: `Here is your link: ${link}`,
     });
 
-    console.log('Email sent successfully');
+    console.log("Email sent successfully");
   } catch (error) {
-    console.error('Email sending failed:', error);
+    console.error("Email sending failed:", error);
   }
 }
 
