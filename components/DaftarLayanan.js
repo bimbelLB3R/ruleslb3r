@@ -216,9 +216,15 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         //   icon: 'success',
         //   confirmButtonText: 'ok',
         // });
+        Swal.fire({
+          title: `SELAMAT!${session.user.name} berhasil terdaftar di Bimbel LB3R .`,
+          text: "Cek email Kamu untuk melanjutkan pembayaran",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
 
-        // router.push(transactionRedirectUrl);
-        console.log(transactionRedirectUrl);
+        router.push("/");
+        // console.log(transactionRedirectUrl);
       } else {
         Swal.fire({
           title: `${session.user.name} pernah terdaftar,gunakan email lain.`,
