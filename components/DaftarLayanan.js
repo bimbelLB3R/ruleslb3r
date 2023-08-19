@@ -140,6 +140,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
           email: session.user.email,
           program: form.program,
           biaya: form.biaya,
+          redirectUrl: transactionRedirectUrl,
         };
         // 1.mengirim permintaan ke api/create-transaction dan mengirim data newrow sekalian
         // 2.Request token ke end poin mid trans
