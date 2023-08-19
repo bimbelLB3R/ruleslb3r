@@ -140,7 +140,6 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
           email: session.user.email,
           program: form.program,
           biaya: form.biaya,
-          redirectUrl: transactionRedirectUrl,
         };
         // 1.mengirim permintaan ke api/create-transaction dan mengirim data newrow sekalian
         // 2.Request token ke end poin mid trans
@@ -172,8 +171,18 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         // setIsLoading(true); // set status loading menjadi true, kirim ke drive
 
         // sendMail(newRow.email, transactionRedirectUrl);
+        const newRowWithRedirect = {
+          nama: session.user.name,
+          kelas: form.kelas,
+          asalsekolah: form.asalsekolah,
+          wa: form.wa,
+          email: session.user.email,
+          program: form.program,
+          biaya: form.biaya,
+          redirectUrl: transactionRedirectUrl,
+        };
 
-        await appendSpreadsheet(newRow);
+        await appendSpreadsheet(newRowWithRedirect);
         e.target.reset();
         setIsButtonDisabled(false);
 
