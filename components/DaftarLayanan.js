@@ -144,19 +144,6 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         // 1.mengirim permintaan ke api/create-transaction dan mengirim data newrow sekalian
         // 2.Request token ke end poin mid trans
         // 3.Handle submit ke sheet dan membuat tombol bayar
-        const kirimEmail = async (newRow) => {
-          try {
-            const response2 = await axios.post(
-              "/api/create-transaction",
-              newRow
-            );
-            console.log(response2);
-          } catch (error) {
-            console.error("Failed to send mail:", error);
-            return null;
-          }
-        };
-        await kirimEmail(newRow);
 
         const createTransaction = async (newRow) => {
           // console.log(isDisable);
@@ -166,15 +153,16 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               newRow
             );
             console.log(response);
-            const transactionToken = response.data.transactionToken;
-            const transactionRedirectUrl = response.data.transactionRedirectUrl;
+            const { transactionToken, transactionRedirectUrl } =
+              response.data.transactionToken;
+            // const transactionRedirectUrl = response.data.transactionRedirectUrl;
             // console.log('transactionToken:', transactionToken);
             // console.log('redirectUrl:', transactionRedirectUrl);
 
-            return transactionToken, transactionRedirectUrl;
+            return { transactionToken, transactionRedirectUrl };
           } catch (error) {
             console.error("Failed to create transaction:", error);
-            return null;
+            return { error: true, message: "Pesan kesalahan di sini" };
           }
         };
         const transactionToken = await createTransaction(newRow);
@@ -185,6 +173,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         // setIsLoading(true); // set status loading menjadi true, kirim ke drive
 
         // sendMail(newRow.email, transactionRedirectUrl);
+
         const newRowWithRedirect = {
           nama: session.user.name,
           kelas: form.kelas,
@@ -195,7 +184,29 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
           biaya: form.biaya,
           redirectUrl: transactionRedirectUrl,
         };
+        const sendContactForm = async (newRowWithRedirect) => {
+          try {
+            const res = await fetch("/api/mailApi", {
+              method: "POST",
+              body: JSON.stringify(newRowWithRedirect),
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+            });
 
+            if (!res.ok) {
+              throw new Error("Failed to send message");
+            }
+
+            return res.json();
+          } catch (error) {
+            console.error("Failed to send message:", error);
+            return { error: true, message: "Pesan kesalahan di sini" };
+          }
+        };
+
+        await sendContactForm(newRowWithRedirect);
         await appendSpreadsheet(newRowWithRedirect);
         e.target.reset();
         setIsButtonDisabled(false);
@@ -207,8 +218,8 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         //   confirmButtonText: 'ok',
         // });
 
-        router.push(transactionRedirectUrl);
-        // console.log(transactionRedirectUrl);
+        // router.push(transactionRedirectUrl);
+        console.log(transactionRedirectUrl);
       } else {
         Swal.fire({
           title: `${session.user.name} pernah terdaftar,gunakan email lain.`,
