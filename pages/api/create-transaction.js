@@ -1,4 +1,5 @@
 import axios from "axios";
+import { transporter } from "../../config/nodemailer";
 
 export default async function handler(req, res) {
   const newRow = req.body;
@@ -69,8 +70,22 @@ export default async function handler(req, res) {
     Accept: "application/json",
     Authorization: `Basic ${Buffer.from(snapServerKey).toString("base64")}`,
   };
+  const headers2 = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  };
 
   try {
+    //referensi nodemailer  https://www.youtube.com/watch?v=t2LvPXHLrek
+    await transporter.sendMail({
+      from: process.env.EMAIL_NODEMAILER,
+      to: newRow.email,
+      subject: "Pembayaran Bimbel LB3R",
+      text: "Hai",
+    });
+    const responseMail = await axios.post({ headers2 });
+    const response2 = responseMail.data;
+
     const response = await axios.post(snapApiUrl, requestBody, { headers });
     const transactionToken = response.data.token;
     // console.log("transactionToken:", transactionToken);
@@ -80,7 +95,9 @@ export default async function handler(req, res) {
     // console.log("transactionRedirectUrl:", transactionRedirectUrl);
 
     res.setHeader("Content-Type", "application/json");
-    res.status(200).json({ transactionToken, transactionRedirectUrl });
+    res
+      .status(200)
+      .json({ transactionToken, transactionRedirectUrl, response2 });
   } catch (error) {
     console.log("Error occurred:", error.message);
     res.setHeader("Content-Type", "application/json");

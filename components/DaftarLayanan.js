@@ -144,6 +144,19 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         // 1.mengirim permintaan ke api/create-transaction dan mengirim data newrow sekalian
         // 2.Request token ke end poin mid trans
         // 3.Handle submit ke sheet dan membuat tombol bayar
+        const kirimEmail = async (newRow) => {
+          try {
+            const response2 = await axios.post(
+              "/api/create-transaction",
+              newRow
+            );
+            console.log(response2);
+          } catch (error) {
+            console.error("Failed to send mail:", error);
+            return null;
+          }
+        };
+        await kirimEmail(newRow);
 
         const createTransaction = async (newRow) => {
           // console.log(isDisable);
