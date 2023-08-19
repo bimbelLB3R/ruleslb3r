@@ -223,7 +223,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
           confirmButtonText: "Ok",
         });
 
-        router.push("/");
+        router.push("/user/term");
         // console.log(transactionRedirectUrl);
       } else {
         Swal.fire({
