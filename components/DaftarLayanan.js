@@ -152,14 +152,13 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               "/api/create-transaction",
               newRow
             );
-            console.log(response);
-            const { transactionToken, transactionRedirectUrl } =
-              response.data.transactionToken;
-            // const transactionRedirectUrl = response.data.transactionRedirectUrl;
+            // console.log(response);
+            const transactionToken = response.data.transactionToken;
+            const transactionRedirectUrl = response.data.transactionRedirectUrl;
             // console.log('transactionToken:', transactionToken);
             // console.log('redirectUrl:', transactionRedirectUrl);
 
-            return { transactionToken, transactionRedirectUrl };
+            return transactionToken, transactionRedirectUrl;
           } catch (error) {
             console.error("Failed to create transaction:", error);
             return { error: true, message: "Pesan kesalahan di sini" };
