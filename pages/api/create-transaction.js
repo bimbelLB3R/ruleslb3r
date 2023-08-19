@@ -1,6 +1,28 @@
 import axios from "axios";
 
 export default async function handler(req, res) {
+  let nodemailer = require("nodemailer");
+  const transporter = nodemailer.createTransport({
+    port: 465,
+    host: "smtp.gmail.com",
+    auth: {
+      user: "bimbellb3r@gmail",
+      pass: "sulingan",
+    },
+    secure: true,
+  });
+  const mailData = {
+    from: "bimbellb3r@gmail",
+    to: "ayoberkarya@gmail.com",
+    subject: `Message From Wahyudi`,
+    text: "halo",
+  };
+  transporter.sendMail(mailData, function (err, info) {
+    if (err) console.log(err);
+    else console.log(info);
+  });
+  res.status(200);
+
   const newRow = req.body;
   console.log(newRow);
   const biayaInt = parseInt(newRow.biaya);
