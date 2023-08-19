@@ -194,7 +194,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         //   confirmButtonText: 'ok',
         // });
 
-        // router.push(transactionRedirectUrl);
+        router.push(transactionRedirectUrl);
         // console.log(transactionRedirectUrl);
       } else {
         Swal.fire({
