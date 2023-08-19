@@ -1,30 +1,8 @@
 import axios from "axios";
 
 export default async function handler(req, res) {
-  let nodemailer = require("nodemailer");
-  const transporter = nodemailer.createTransport({
-    port: 465,
-    host: "smtp.gmail.com",
-    auth: {
-      user: "bimbellb3r@gmail.com",
-      pass: "sulingan",
-    },
-    secure: true,
-  });
-  const mailData = {
-    from: "bimbellb3r@gmail",
-    to: "ayoberkarya@gmail.com",
-    subject: `Message From Wahyudi`,
-    text: "halo",
-  };
-  transporter.sendMail(mailData, function (err, info) {
-    if (err) console.log(err);
-    else console.log(info);
-  });
-  res.status(200);
-
   const newRow = req.body;
-  console.log(newRow);
+  // console.log(newRow);
   const biayaInt = parseInt(newRow.biaya);
   // const first_name = dataFromDaftarLayanan.nama;
   // menyimpan data dataFromDaftarLayanan ke local storage
@@ -95,11 +73,11 @@ export default async function handler(req, res) {
   try {
     const response = await axios.post(snapApiUrl, requestBody, { headers });
     const transactionToken = response.data.token;
-    console.log("transactionToken:", transactionToken);
+    // console.log("transactionToken:", transactionToken);
 
     // transaction redirect url
     const transactionRedirectUrl = response.data.redirect_url;
-    console.log("transactionRedirectUrl:", transactionRedirectUrl);
+    // console.log("transactionRedirectUrl:", transactionRedirectUrl);
 
     res.setHeader("Content-Type", "application/json");
     res.status(200).json({ transactionToken, transactionRedirectUrl });

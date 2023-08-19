@@ -152,6 +152,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               "/api/create-transaction",
               newRow
             );
+            console.log(response);
             const transactionToken = response.data.transactionToken;
             const transactionRedirectUrl = response.data.transactionRedirectUrl;
             // console.log('transactionToken:', transactionToken);
@@ -193,8 +194,8 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         //   confirmButtonText: 'ok',
         // });
 
-        // router.push(transactionRedirectUrl);
-        console.log(transactionRedirectUrl);
+        router.push(transactionRedirectUrl);
+        // console.log(transactionRedirectUrl);
       } else {
         Swal.fire({
           title: `${session.user.name} pernah terdaftar,gunakan email lain.`,
