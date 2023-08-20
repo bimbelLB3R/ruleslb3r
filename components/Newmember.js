@@ -16,6 +16,32 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 export default function Newmember() {
+  useEffect(() => {
+    if ("serviceWorker" in navigator && "PushManager" in window) {
+      navigator.serviceWorker
+        .register("/worker.js")
+        .then((registration) => {
+          console.log(
+            "Service Worker registered with scope:",
+            registration.scope
+          );
+        })
+        .catch((error) => {
+          console.error("Service Worker registration failed:", error);
+        });
+    }
+  }, []);
+  const subscribeToPush = async () => {
+    const registration = await navigator.serviceWorker.ready;
+    const subscription = await registration.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: process.env.WEBPUSH_PUBLIC_KEY,
+    });
+    console.log("Push subscription:", JSON.stringify(subscription));
+    // const dataUser = JSON.stringify(subscription);
+    return subscription;
+  };
+
   const [adaEmail, setAdaEmail] = useState(false);
   const [adaNisn, setAdaNisn] = useState(false);
   // console.log(adaEmail);
@@ -91,32 +117,6 @@ export default function Newmember() {
   // cek apakah nama sudah ada end
 
   const submitForm = async (e, sheet) => {
-    useEffect(() => {
-      if ("serviceWorker" in navigator && "PushManager" in window) {
-        navigator.serviceWorker
-          .register("/worker.js")
-          .then((registration) => {
-            console.log(
-              "Service Worker registered with scope:",
-              registration.scope
-            );
-          })
-          .catch((error) => {
-            console.error("Service Worker registration failed:", error);
-          });
-      }
-    }, []);
-    const subscribeToPush = async () => {
-      const registration = await navigator.serviceWorker.ready;
-      const subscription = await registration.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: process.env.WEBPUSH_PUBLIC_KEY,
-      });
-      console.log("Push subscription:", JSON.stringify(subscription));
-      // const dataUser = JSON.stringify(subscription);
-      return subscription;
-    };
-
     setIsButtonDisabled(true);
     e.preventDefault();
 
@@ -140,10 +140,10 @@ export default function Newmember() {
       // Berlangganan notifikasi push setelah pengguna memberikan izin
       if (Notification.permission === "granted") {
         const subscription = await subscribeToPush(); // Menggunakan await untuk mendapatkan hasil berlangganan
-        const endpoint = subscription.endpoint;
-        const authKey = subscription.keys.auth;
-        const p256dhKey = subscription.keys.p256dh;
-
+        // const endpoint = subscription.endpoint;
+        // const authKey = subscription.keys.auth;
+        // const p256dhKey = subscription.keys.p256dh;
+        console.log(subscription);
         if (canSubmit) {
           const newRow = {
             nama: session.user.name,
@@ -156,9 +156,9 @@ export default function Newmember() {
             kampus2: form.kampus2,
             email: session.user.email,
             foto: session.user.image,
-            endpoint: endpoint,
-            authKey: authKey,
-            p256dhKey: p256dhKey,
+            // endpoint: endpoint,
+            // authKey: authKey,
+            // p256dhKey: p256dhKey,
           };
           // setIsLoading(true); // set status loading menjadi true
           await appendSpreadsheet(newRow);
