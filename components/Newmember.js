@@ -139,50 +139,50 @@ export default function Newmember() {
       const canSubmit = await checkNisn(`1${form.nisn}`, session.user.email);
       // Berlangganan notifikasi push setelah pengguna memberikan izin
       if (Notification.permission === "granted") {
-        subscribeToPush(); // Memanggil fungsi untuk berlangganan notifikasi push
-      }
-      const endpoint = subscription.endpoint;
-      const authKey = subscription.keys.auth;
-      const p256dhKey = subscription.keys.p256dh;
+        const subscription = await subscribeToPush(); // Menggunakan await untuk mendapatkan hasil berlangganan
+        const endpoint = subscription.endpoint;
+        const authKey = subscription.keys.auth;
+        const p256dhKey = subscription.keys.p256dh;
 
-      if (canSubmit) {
-        const newRow = {
-          nama: session.user.name,
-          nisn: `1${form.nisn}`,
-          asalsekolah: form.asalsekolah,
-          wa: form.wa,
-          prodi1: form.prodi1,
-          kampus1: form.kampus1,
-          prodi2: form.prodi2,
-          kampus2: form.kampus2,
-          email: session.user.email,
-          foto: session.user.image,
-          endpoint: endpoint,
-          authKey: authKey,
-          p256dhKey: p256dhKey,
-        };
-        // setIsLoading(true); // set status loading menjadi true
-        await appendSpreadsheet(newRow);
-        // setIsLoading(false); // set status loading menjadi false setelah proses selesai
-        e.target.reset();
+        if (canSubmit) {
+          const newRow = {
+            nama: session.user.name,
+            nisn: `1${form.nisn}`,
+            asalsekolah: form.asalsekolah,
+            wa: form.wa,
+            prodi1: form.prodi1,
+            kampus1: form.kampus1,
+            prodi2: form.prodi2,
+            kampus2: form.kampus2,
+            email: session.user.email,
+            foto: session.user.image,
+            endpoint: endpoint,
+            authKey: authKey,
+            p256dhKey: p256dhKey,
+          };
+          // setIsLoading(true); // set status loading menjadi true
+          await appendSpreadsheet(newRow);
+          // setIsLoading(false); // set status loading menjadi false setelah proses selesai
+          e.target.reset();
 
-        Swal.fire({
-          title: "Kamu Berhasil Terdaftar",
-          text: "Terima kasih telah bergabung program SNBT LB3R",
-          icon: "success",
-          confirmButtonText: "Ok",
-        });
-        router.push("/form/login");
-      } else {
-        Swal.fire({
-          title: `Cek lagi datamu ya...`,
-          text: "Data gagal dikirim",
-          icon: "warning",
-          confirmButtonText: "Koreksi Datamu",
-        });
+          Swal.fire({
+            title: "Kamu Berhasil Terdaftar",
+            text: "Terima kasih telah bergabung program SNBT LB3R",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+          router.push("/form/login");
+        } else {
+          Swal.fire({
+            title: `Cek lagi datamu ya...`,
+            text: "Data gagal dikirim",
+            icon: "warning",
+            confirmButtonText: "Koreksi Datamu",
+          });
 
-        setIsButtonDisabled(false);
-        setShowButton(true);
+          setIsButtonDisabled(false);
+          setShowButton(true);
+        }
       }
     }
   };
