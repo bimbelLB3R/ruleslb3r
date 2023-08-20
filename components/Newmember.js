@@ -39,7 +39,7 @@ export default function Newmember() {
     });
     console.log("Push subscription:", JSON.stringify(subscription));
     // const dataUser = JSON.stringify(subscription);
-    // return dataUser
+    return subscription;
   };
 
   const [adaEmail, setAdaEmail] = useState(false);
