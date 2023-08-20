@@ -3,6 +3,8 @@ import Layout from "../../components/Layout";
 import Navbar from "../../components/Navbar";
 import { getBlogsData } from "../../utils/blogsApi";
 import { getTutorialData } from "../../utils/TutorialApi";
+import "animate.css";
+
 export async function getStaticProps() {
   const data = getBlogsData();
   const dataTutorial = getTutorialData();
@@ -16,12 +18,12 @@ export async function getStaticProps() {
 }
 export default function Term({ allPost }) {
   return (
-    <>
+    <div>
       <Navbar allPost={allPost} />
       <Layout>
-        <div className="flex items-center justify-center md:max-w-2xl m-auto h-screen">
+        <div className="flex items-center justify-center md:max-w-2xl m-auto h-screen animate__animated  animate__slideInDown">
           <div className="m-4 text-center">
-            <h1 className="font-semibold text-slate-600 mb-5">
+            <h1 className="font-semibold text-slate-600 mb-5 ">
               TATA TERTIB & KETENTUAN
             </h1>
             <Link href="/rules/newclass">
@@ -52,6 +54,6 @@ export default function Term({ allPost }) {
           </div>
         </div>
       </Layout>
-    </>
+    </div>
   );
 }

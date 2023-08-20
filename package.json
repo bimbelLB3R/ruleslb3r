@@ -12,6 +12,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.13",
+    "animate.css": "^4.1.1",
     "antd": "^5.1.4",
     "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",

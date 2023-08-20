@@ -147,7 +147,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
             </div>
           </div>
           <div className="flex items-center space-x-3   ">
-            <div className="animate-bounce">
+            <div className="">
               <Link href="https://maps.app.goo.gl/P9qk89mYJ2piQr8j9">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

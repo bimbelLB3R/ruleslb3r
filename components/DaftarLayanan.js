@@ -8,6 +8,7 @@ import axios from "axios";
 import Layout from "./Layout";
 import Navbar from "./Navbar";
 import { signIn, signOut, useSession } from "next-auth/react";
+import "animate.css";
 // import sendMail from "./SendMail";
 
 // mengubah mata uang
@@ -217,7 +218,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         //   confirmButtonText: 'ok',
         // });
         Swal.fire({
-          title: `SELAMAT!${session.user.name} berhasil terdaftar di Bimbel LB3R .`,
+          title: `Pendaftaran ${session.user.name} berhasil`,
           text: "Cek email Kamu untuk melanjutkan pembayaran",
           icon: "success",
           confirmButtonText: "Ok",
@@ -278,7 +279,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         />
       </Head>
       <Layout>
-        <div className="flex justify-center items-center bg-slate-100 text-gray-900 mt-[100px]">
+        <div className="flex justify-center items-center bg-slate-100 text-gray-900 mt-[100px] animate__animated  animate__slideInDown">
           <form
             className="space-y-3 w-full max-w-lg mx-auto p-5"
             onSubmit={submitForm}

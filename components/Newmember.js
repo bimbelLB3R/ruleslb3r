@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
 import { signIn, useSession, signOut } from "next-auth/react";
+import "animate.css";
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -183,7 +184,7 @@ export default function Newmember() {
         />
       </Head>
 
-      <div className="bg-gray-50 dark:bg-gray-900">
+      <div className="bg-gray-50 dark:bg-gray-900 animate__animated  animate__slideInDown">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-full lg:py-0">
           <Link
             href="/"

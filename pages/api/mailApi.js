@@ -8,7 +8,7 @@ const handler = async (req, res) => {
     <p>Terima kasih telah mendaftar di Bimbel LB3R.</p>
     <p>Silakan klik tautan di bawah ini untuk melanjutkan proses pembayaran:</p>
     <a href="${data.redirectUrl}">${data.redirectUrl}</a>
-    <p>Jika Anda mengalami masalah, silakan hubungi dukungan pelanggan kami.</p>
+    <p>Jika Anda mengalami masalah, silakan hubungi dukungan pelanggan kami.</p>    
   `;
     if (!data) {
       return res.status(400).send({ message: "Bad request" });

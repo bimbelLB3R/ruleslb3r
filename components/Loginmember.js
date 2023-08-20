@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import cookie from "js-cookie";
 import Dropdown from "./DropdownTipeSoal";
 import Head from "next/head";
+import "animate.css";
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -161,7 +162,7 @@ const Loginmember = () => {
       </Head>
 
       <div className="bg-gray-50 dark:bg-gray-900">
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-full lg:py-0">
+        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-full lg:py-0 animate__animated  animate__slideInDown">
           <a
             href="/"
             className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"

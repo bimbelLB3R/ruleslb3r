@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import "animate.css";
 
 import Swal from "sweetalert2";
 const ButtonUmum = () => {
@@ -16,7 +17,7 @@ const ButtonUmum = () => {
     router.push("/layanan");
   };
   return (
-    <div className="flex justify-center md:max-w-xl m-auto  p-4 ">
+    <div className="flex justify-center md:max-w-xl m-auto  p-4 animate__slideInDown">
       <button
         className="bg-gradient-to-b from-red-500 to-white  text-white font-bold py-4 px-8  transition-colors duration-300 ease-in-out text-xl rounded-full shadow-lg hover:shadow-xl"
         onClick={handleClick}

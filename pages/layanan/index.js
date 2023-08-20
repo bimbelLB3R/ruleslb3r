@@ -3,6 +3,7 @@ import Layout from "../../components/Layout";
 import Navbar from "../../components/Navbar";
 import Wa from "../../components/Wa";
 import { getProgramsData } from "../../utils/layananApi";
+import "animate.css";
 
 import { getBlogsData } from "../../utils/blogsApi";
 import { getTutorialData } from "../../utils/TutorialApi";
@@ -59,14 +60,14 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
                 }`}
               >
                 {program.keterangan === "Best Seller" ? (
-                  <div className="absolute rounded-b-2xl shadow-lg right-0 top-0 p-2 bg-amber-500 text-xl text-gray-900 font-bold">
+                  <div className="animate__animated  animate__slideInDown absolute rounded-b-2xl shadow-lg right-0 top-0 p-2 bg-amber-500 text-xl text-gray-900 font-bold">
                     Best Seller
                   </div>
                 ) : (
                   ""
                 )}
                 {program.keterangan === "Free/Gratis" ? (
-                  <div className="absolute rounded-b-2xl shadow-lg right-0 top-0 p-2 bg-gray-500 text-xl text-gray-900 font-bold">
+                  <div className="animate__animated  animate__slideInDown absolute rounded-b-2xl shadow-lg right-0 top-0 p-2 bg-gray-500 text-xl text-gray-900 font-bold">
                     Free/Gratis
                   </div>
                 ) : (
