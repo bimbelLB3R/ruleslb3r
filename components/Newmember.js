@@ -38,8 +38,6 @@ export default function Newmember() {
       applicationServerKey: process.env.WEBPUSH_PUBLIC_KEY,
     });
     console.log("Push subscription:", JSON.stringify(subscription));
-    // const dataUser = JSON.stringify(subscription);
-    return subscription;
   };
 
   const [adaEmail, setAdaEmail] = useState(false);
@@ -140,10 +138,11 @@ export default function Newmember() {
       // Berlangganan notifikasi push setelah pengguna memberikan izin
       if (Notification.permission === "granted") {
         const subscription = await subscribeToPush(); // Menggunakan await untuk mendapatkan hasil berlangganan
-        // const endpoint = subscription.endpoint;
-        // const authKey = subscription.keys.auth;
-        // const p256dhKey = subscription.keys.p256dh;
-        console.log(subscription);
+        const dataUser = JSON.stringify(subscription);
+        const endpoint = dataUser.endpoint;
+        const authKey = dataUser.keys.auth;
+        const p256dhKey = dataUser.keys.p256dh;
+        // console.log(subscription);
         if (canSubmit) {
           const newRow = {
             nama: session.user.name,
@@ -156,9 +155,9 @@ export default function Newmember() {
             kampus2: form.kampus2,
             email: session.user.email,
             foto: session.user.image,
-            // endpoint: endpoint,
-            // authKey: authKey,
-            // p256dhKey: p256dhKey,
+            endpoint: endpoint,
+            authKey: authKey,
+            p256dhKey: p256dhKey,
           };
           // setIsLoading(true); // set status loading menjadi true
           await appendSpreadsheet(newRow);
