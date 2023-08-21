@@ -2,10 +2,16 @@ self.addEventListener("push", (event) => {
   const options = {
     body: event.data.text(),
   };
-
   event.waitUntil(
-    self.registration.showNotification("Tagihan Pembayaran Les", options)
+    self.registration.showNotification(
+      "Info Tagihan Pembayaran Les Bimbel LB3R",
+      options
+    )
   );
+});
+
+self.addEventListener("notificationclick", (event) => {
+  event.waitUntil(clients.openWindow("https://www.bimbellb3r.com/bayarles"));
 });
 
 // public/service-worker.js

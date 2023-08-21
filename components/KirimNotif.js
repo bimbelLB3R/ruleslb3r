@@ -1,24 +1,39 @@
+import { useEffect, useState } from "react";
 import push from "web-push";
 
 function KirimNotif() {
   // const handleSendNotification = async () => {
-
-  const pushSubscription = {
+  // const [pushSubscription, setPushSubscription] = useState({});
+  // const [payload, setPayLoad] = useState("");
+  // const [options, setOptions] = useState({});
+  // useEffect(() => {
+  const subscription = {
     endpoint:
-      "https://fcm.googleapis.com/fcm/send/dD8dJyHBq5w:APA91bGLNVoWXIeVRt6w3erSPlUJdGtTl4-z6dgInbbfhFsifRL8msdvT-DlGjkN3W35XrY0NIkSzet-vJCReVR43EyEdcZPbkF-Q52iuTdQLt-XGjNn4fhuoGKjJLS4xQ5k-R-znVzG",
+      "https://fcm.googleapis.com/fcm/send/erzUDBCq8Nk:APA91bGj1Rqq_iDAfj8_AlK8mtB1XPp00EMUdI5wswYfiyhIOg4CZu75nM9EofYADsMNxdeN6IckpiEhdubvL-O6Jh7rBsnKe6IMw1_36CwjxmoE1fPRCtFcvTZPFfsPh9lZbmgLxy3y",
+    expirationTime: null,
     keys: {
       p256dh:
-        "BAMGC1JgucwhbJxfaVaRpNKADyVc7KGyopvkAsAAChn5cLTtRJRZybIR6ZeGKlTKvJnsEjY4TX4EsrPm9bUuU-A",
-      auth: "TbijJI-546IP-b7Z75ia5g",
+        "BDUkRPwduISfGtPjKJhIkHqQRrojGvQXda2VMBR8iKPImHfQedQV78eroSy3jrGBn3apI5M0Q0x3y86NZaoB5aQ",
+      auth: "hnMdvjrRgSu9Nw_wggLrZQ",
     },
   };
 
-  const payload = "Halooo ini notifikasi";
+  const pushSubscription = {
+    endpoint:
+      "https://fcm.googleapis.com/fcm/send/erzUDBCq8Nk:APA91bGj1Rqq_iDAfj8_AlK8mtB1XPp00EMUdI5wswYfiyhIOg4CZu75nM9EofYADsMNxdeN6IckpiEhdubvL-O6Jh7rBsnKe6IMw1_36CwjxmoE1fPRCtFcvTZPFfsPh9lZbmgLxy3y",
+    keys: {
+      p256dh:
+        "BDUkRPwduISfGtPjKJhIkHqQRrojGvQXda2VMBR8iKPImHfQedQV78eroSy3jrGBn3apI5M0Q0x3y86NZaoB5aQ",
+      auth: "hnMdvjrRgSu9Nw_wggLrZQ",
+    },
+  };
+
+  const payload = "Jatuh tempo per tanggal 15";
 
   const options = {
     // ... other options ...
     vapidDetails: {
-      subject: "mailto:your@email.com",
+      subject: "mailto:seftinadwi@gmail.com",
       publicKey:
         "BF_iaXMcfVjq42wC7dpLb_gfrkzuHsjBuz3THvJ-uHHzbyGacAAYWTdwlhXD-HT6LLtafMTB_y612SgpFxag3qU", // Replace with your public VAPID key
       privateKey: "p-TkUgtjAAZ6pwzjr1PiPal5JsdG-E4w27bLrM1uU4Q", // Replace with your private VAPID key
@@ -33,6 +48,10 @@ function KirimNotif() {
     topic: "Pembayaran", // Replace with your desired topic
     // ... other options ...
   };
+  // setPushSubscription(pushSubscription2);
+  // setPayLoad(payload2);
+  // setOptions(options2);
+  // push.sendNotification(pushSubscription, payload, options);
 
   // push.sendNotification(pushSubscription, payload, options);
 
