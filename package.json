@@ -15,6 +15,7 @@
     "animate.css": "^4.1.1",
     "antd": "^5.1.4",
     "axios": "^1.4.0",
+    "base64url": "^3.0.1",
     "bcryptjs": "^2.4.3",
     "canvas-confetti": "^1.5.1",
     "chart.js": "^4.3.0",

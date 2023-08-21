@@ -7,6 +7,9 @@ import Head from "next/head";
 import Link from "next/link";
 import { signIn, useSession, signOut } from "next-auth/react";
 import "animate.css";
+import PushNotif from "./PushNotif";
+import KirimNotif from "./kirimNotif";
+import webpush from "web-push";
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -16,29 +19,11 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 export default function Newmember() {
+  const [subscription, setSubscription] = useState({});
   useEffect(() => {
-    if ("serviceWorker" in navigator && "PushManager" in window) {
-      navigator.serviceWorker
-        .register("/worker.js")
-        .then((registration) => {
-          console.log(
-            "Service Worker registered with scope:",
-            registration.scope
-          );
-        })
-        .catch((error) => {
-          console.error("Service Worker registration failed:", error);
-        });
-    }
+    const dataSubscription = localStorage.getItem("subscription");
+    setSubscription(dataSubscription);
   }, []);
-  const subscribeToPush = async () => {
-    const registration = await navigator.serviceWorker.ready;
-    const subscription = await registration.pushManager.subscribe({
-      userVisibleOnly: true,
-      applicationServerKey: process.env.WEBPUSH_PUBLIC_KEY,
-    });
-    console.log("Push subscription:", JSON.stringify(subscription));
-  };
 
   const [adaEmail, setAdaEmail] = useState(false);
   const [adaNisn, setAdaNisn] = useState(false);
@@ -135,30 +120,42 @@ export default function Newmember() {
       form.kampus2.length < 31
     ) {
       const canSubmit = await checkNisn(`1${form.nisn}`, session.user.email);
-      // Berlangganan notifikasi push setelah pengguna memberikan izin
 
+      let newRow;
       if (canSubmit) {
-        const subscription = await subscribeToPush(); // Menggunakan await untuk mendapatkan hasil berlangganan
-        // const dataUser = JSON.stringify(subscription);
-        const endpoint = subscription.endpoint;
-        const authKey = subscription.keys.auth;
-        const p256dhKey = subscription.keys.p256dh;
-        // console.log(subscription);
-        const newRow = {
-          nama: session.user.name,
-          nisn: `1${form.nisn}`,
-          asalsekolah: form.asalsekolah,
-          wa: form.wa,
-          prodi1: form.prodi1,
-          kampus1: form.kampus1,
-          prodi2: form.prodi2,
-          kampus2: form.kampus2,
-          email: session.user.email,
-          foto: session.user.image,
-          endpoint: endpoint,
-          authKey: authKey,
-          p256dhKey: p256dhKey,
-        };
+        if (subscription) {
+          newRow = {
+            nama: session.user.name,
+            nisn: `1${form.nisn}`,
+            asalsekolah: form.asalsekolah,
+            wa: form.wa,
+            prodi1: form.prodi1,
+            kampus1: form.kampus1,
+            prodi2: form.prodi2,
+            kampus2: form.kampus2,
+            email: session.user.email,
+            foto: session.user.image,
+            endpoint: subscription.endpoint,
+            authKey: subscription.authKey,
+            p256dhKey: subscription.p256dhKey,
+          };
+        } else {
+          newRow = {
+            nama: session.user.name,
+            nisn: `1${form.nisn}`,
+            asalsekolah: form.asalsekolah,
+            wa: form.wa,
+            prodi1: form.prodi1,
+            kampus1: form.kampus1,
+            prodi2: form.prodi2,
+            kampus2: form.kampus2,
+            email: session.user.email,
+            foto: session.user.image,
+            endpoint: "",
+            authKey: "",
+            p256dhKey: "",
+          };
+        }
         // setIsLoading(true); // set status loading menjadi true
         await appendSpreadsheet(newRow);
         // setIsLoading(false); // set status loading menjadi false setelah proses selesai
@@ -236,6 +233,8 @@ export default function Newmember() {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Buat Akun Baru
               </h1>
+              <PushNotif />
+              {/* <KirimNotif /> */}
               <form
                 className="space-y-4 md:space-y-6"
                 action="#"
