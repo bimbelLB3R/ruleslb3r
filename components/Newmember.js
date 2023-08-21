@@ -120,7 +120,7 @@ export default function Newmember() {
       const canSubmit = await checkNisn(`1${form.nisn}`, session.user.email);
 
       if (canSubmit) {
-        newRow = {
+        const newRow = {
           nama: session.user.name,
           nisn: `1${form.nisn}`,
           asalsekolah: form.asalsekolah,
