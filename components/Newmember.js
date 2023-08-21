@@ -119,41 +119,21 @@ export default function Newmember() {
     ) {
       const canSubmit = await checkNisn(`1${form.nisn}`, session.user.email);
 
-      let newRow;
       if (canSubmit) {
-        if (subscription) {
-          newRow = {
-            nama: session.user.name,
-            nisn: `1${form.nisn}`,
-            asalsekolah: form.asalsekolah,
-            wa: form.wa,
-            prodi1: form.prodi1,
-            kampus1: form.kampus1,
-            prodi2: form.prodi2,
-            kampus2: form.kampus2,
-            email: session.user.email,
-            foto: session.user.image,
-            endpoint: subscription.endpoint,
-            authKey: subscription.authKey,
-            p256dhKey: subscription.p256dhKey,
-          };
-        } else {
-          newRow = {
-            nama: session.user.name,
-            nisn: `1${form.nisn}`,
-            asalsekolah: form.asalsekolah,
-            wa: form.wa,
-            prodi1: form.prodi1,
-            kampus1: form.kampus1,
-            prodi2: form.prodi2,
-            kampus2: form.kampus2,
-            email: session.user.email,
-            foto: session.user.image,
-            endpoint: "",
-            authKey: "",
-            p256dhKey: "",
-          };
-        }
+        newRow = {
+          nama: session.user.name,
+          nisn: `1${form.nisn}`,
+          asalsekolah: form.asalsekolah,
+          wa: form.wa,
+          prodi1: form.prodi1,
+          kampus1: form.kampus1,
+          prodi2: form.prodi2,
+          kampus2: form.kampus2,
+          email: session.user.email,
+          foto: session.user.image,
+          subscription: subscription,
+        };
+
         // setIsLoading(true); // set status loading menjadi true
         await appendSpreadsheet(newRow);
         // setIsLoading(false); // set status loading menjadi false setelah proses selesai
