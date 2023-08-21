@@ -8,8 +8,6 @@ import Link from "next/link";
 import { signIn, useSession, signOut } from "next-auth/react";
 import "animate.css";
 import PushNotif from "./PushNotif";
-import KirimNotif from "./kirimNotif";
-import webpush from "web-push";
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
