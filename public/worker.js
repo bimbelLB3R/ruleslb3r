@@ -1,6 +1,7 @@
 self.addEventListener("push", (event) => {
   const options = {
     body: event.data.text(),
+    badge: "https://bimbellb3r.github.io/img/slider/logolb3r4.png",
   };
   event.waitUntil(
     self.registration.showNotification(
@@ -11,7 +12,9 @@ self.addEventListener("push", (event) => {
 });
 
 self.addEventListener("notificationclick", (event) => {
-  event.waitUntil(clients.openWindow("https://www.bimbellb3r.com/bayarles"));
+  event.waitUntil(
+    clients.openWindow("https://www.bimbellb3r.com/layanan/bayarles")
+  );
 });
 
 // public/service-worker.js

@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
-import push from "web-push";
+import webpush from "web-push";
 
-function KirimNotif() {
-  // const handleSendNotification = async () => {
-  // const [pushSubscription, setPushSubscription] = useState({});
-  // const [payload, setPayLoad] = useState("");
-  // const [options, setOptions] = useState({});
-  // useEffect(() => {
+export default function kirimpesan() {
   const subscription = {
     endpoint:
       "https://fcm.googleapis.com/fcm/send/erzUDBCq8Nk:APA91bGj1Rqq_iDAfj8_AlK8mtB1XPp00EMUdI5wswYfiyhIOg4CZu75nM9EofYADsMNxdeN6IckpiEhdubvL-O6Jh7rBsnKe6IMw1_36CwjxmoE1fPRCtFcvTZPFfsPh9lZbmgLxy3y",
@@ -42,30 +37,22 @@ function KirimNotif() {
     TTL: 3600, // Replace with your desired TTL value
     headers: {
       // ... custom headers if needed ...
+      "Content-Type": "application/json",
     },
     contentEncoding: "aesgcm", // Replace with the desired encoding type
     urgency: "normal", // Replace with 'high' if needed
     topic: "Pembayaran", // Replace with your desired topic
     // ... other options ...
   };
-  // setPushSubscription(pushSubscription2);
-  // setPayLoad(payload2);
-  // setOptions(options2);
-  // push.sendNotification(pushSubscription, payload, options);
+  webpush.sendNotification(pushSubscription, payload, options);
+  console.log("sent succesfully");
 
-  // push.sendNotification(pushSubscription, payload, options);
+  // const handleSendNotification = () => {
+  // router.push("/");
 
   return (
-    <div>
-      {/* ... */}
-      <button
-      // onClick={handleSendNotification}
-      // disabled={notificationPermission !== "granted"}
-      >
-        Kirim Push Notification
-      </button>
-    </div>
+    <>
+      <p>Terimakasih</p>
+    </>
   );
 }
-
-export default KirimNotif;

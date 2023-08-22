@@ -8,7 +8,6 @@ import Link from "next/link";
 import { signIn, useSession, signOut } from "next-auth/react";
 import "animate.css";
 import PushNotif from "./PushNotif";
-// import KirimNotif from "./kirimNotif";
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -213,7 +212,6 @@ export default function Newmember() {
                 Buat Akun Baru
               </h1>
               <PushNotif />
-              {/* <KirimNotif /> */}
               <form
                 className="space-y-4 md:space-y-6"
                 action="#"
