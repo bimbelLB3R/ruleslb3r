@@ -2,6 +2,8 @@ self.addEventListener("push", (event) => {
   const options = {
     body: event.data.text(),
     badge: "https://bimbellb3r.github.io/img/slider/logolb3r4.png",
+    icon: "https://lh3.googleusercontent.com/a/AAcHTtfIYVX3ZbXWNqqvkmEc0YLYf-cBpVBW4Era3YqlU4LQ-A=s96-c",
+    tag: "unique-notification-id", // Menambahkan tag unik pada notifikasi
   };
   event.waitUntil(
     self.registration.showNotification(
@@ -14,6 +16,19 @@ self.addEventListener("push", (event) => {
 self.addEventListener("notificationclick", (event) => {
   event.waitUntil(
     clients.openWindow("https://www.bimbellb3r.com/layanan/bayarles")
+  );
+});
+
+self.addEventListener("notificationclick", (event) => {
+  event.waitUntil(
+    // Hapus notifikasi dengan tag yang sesuai
+    self.registration
+      .getNotifications({ tag: "unique-notification-id" })
+      .then((notifications) => {
+        notifications.forEach((notification) => {
+          notification.close();
+        });
+      })
   );
 });
 

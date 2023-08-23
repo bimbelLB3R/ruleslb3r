@@ -302,7 +302,7 @@ const BayarLes = ({ allPost }) => {
             onSubmit={submitForm}
           >
             <p className="font-semibold text-2xl text-center w-full bg-slate-500 p-2 text-slate-100 rounded-lg">
-              Lengkapi Data
+              FORMULIR PEMBAYARAN
             </p>
             <div>
               {/* <div className="relative">
