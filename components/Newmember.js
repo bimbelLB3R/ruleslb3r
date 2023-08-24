@@ -47,8 +47,9 @@ export default function Newmember() {
     kampus1: "",
     prodi2: "",
     kampus2: "",
+    cekaja: "",
   });
-  console.log(isChecked);
+  // console.log(isChecked);
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
   const appendSpreadsheet = async (row) => {
@@ -161,7 +162,7 @@ export default function Newmember() {
     }
   };
 
-  const handleChange = (e, isChecked) => {
+  const handleChange = (e) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
@@ -170,7 +171,6 @@ export default function Newmember() {
     if (
       // form.nama &&
       session &&
-      isChecked === true &&
       form.nisn !== "" &&
       form.asalsekolah !== "" &&
       form.wa !== "" &&
