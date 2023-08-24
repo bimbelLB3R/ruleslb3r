@@ -47,9 +47,8 @@ export default function Newmember() {
     kampus1: "",
     prodi2: "",
     kampus2: "",
-    cekaja: "",
   });
-
+  console.log(isChecked);
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
   const appendSpreadsheet = async (row) => {
@@ -171,6 +170,7 @@ export default function Newmember() {
     if (
       // form.nama &&
       session &&
+      !isChecked &&
       form.nisn !== "" &&
       form.asalsekolah !== "" &&
       form.wa !== "" &&
@@ -178,11 +178,12 @@ export default function Newmember() {
       form.kampus1 !== "" &&
       form.prodi2 !== "" &&
       form.kampus2 !== "" &&
-      form.cekaja === true
+      form.cekaja === isChecked
     ) {
       setShowButton(true); // menampilkan tombol
     }
   };
+
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
     setSubscription(localStorage.getItem("subscription"));
@@ -418,7 +419,6 @@ export default function Newmember() {
                   <div className="flex items-center h-5">
                     <input
                       id="terms"
-                      name="cekaja"
                       aria-describedby="terms"
                       type="checkbox"
                       className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
@@ -426,7 +426,6 @@ export default function Newmember() {
                       disabled={isDisable}
                       checked={isChecked}
                       onChange={handleCheckboxChange}
-                      value={isChecked}
                     />
                   </div>
                   <div className="ml-3 text-sm">

@@ -29,7 +29,7 @@ function PushNotif() {
           // Kirimkan subscription ke server Anda untuk langganan
           // console.log("Subscription:", JSON.stringify(subscription));
           localStorage.setItem("subscription", JSON.stringify(subscription));
-          alert("it saved successfully");
+          alert("it saved successfully, you can continue fill the form");
         }
       } catch (error) {
         console.error("Error subscribing:", error);
