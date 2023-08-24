@@ -1,6 +1,7 @@
 // pages/index.js
 
 import { useEffect, useState } from "react";
+import "animate.css";
 
 function PushNotif() {
   const [notificationPermission, setNotificationPermission] =
@@ -29,7 +30,7 @@ function PushNotif() {
           // Kirimkan subscription ke server Anda untuk langganan
           // console.log("Subscription:", JSON.stringify(subscription));
           localStorage.setItem("subscription", JSON.stringify(subscription));
-          alert("it saved successfully, you can continue fill the form");
+          alert("your status is verified, you can continue fill the form");
         }
       } catch (error) {
         console.error("Error subscribing:", error);
@@ -38,19 +39,24 @@ function PushNotif() {
   };
 
   return (
-    <div>
+    <div className="animate__animated animate__bounceIn animate__delay-1s">
       {notificationPermission === "granted" ? (
         <div>
-          Congratulation! Your status is granted. klik{" "}
+          Congratulation! Your status is{" "}
+          <span className="font-bold text-green-600 uppercase">granted</span>.
+          klik{" "}
           <button onClick={handleSubscribe} className="underline">
-            here to save it
+            here to verify
           </button>{" "}
           before continue fill the form
         </div>
       ) : (
         <div>
-          Your status is {notificationPermission}, make sure to change it become
-          granted by{" "}
+          Your status is{" "}
+          <span className="font-bold text-red-600 uppercase">
+            {notificationPermission}
+          </span>{" "}
+          , make sure to change it become granted by{" "}
           <button onClick={handleSubscribe} className="underline">
             clik here
           </button>{" "}
