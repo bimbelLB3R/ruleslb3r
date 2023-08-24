@@ -170,15 +170,14 @@ export default function Newmember() {
     if (
       // form.nama &&
       session &&
-      !isChecked &&
+      isChecked === true &&
       form.nisn !== "" &&
       form.asalsekolah !== "" &&
       form.wa !== "" &&
       form.prodi1 !== "" &&
       form.kampus1 !== "" &&
       form.prodi2 !== "" &&
-      form.kampus2 !== "" &&
-      form.cekaja === isChecked
+      form.kampus2 !== ""
     ) {
       setShowButton(true); // menampilkan tombol
     }
