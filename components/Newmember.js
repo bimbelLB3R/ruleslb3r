@@ -170,7 +170,7 @@ export default function Newmember() {
     if (
       // form.nama &&
       session &&
-      isChecked === true &&
+      e.target.checked && // <-- Periksa apakah checkbox dicentang
       form.nisn !== "" &&
       form.asalsekolah !== "" &&
       form.wa !== "" &&
