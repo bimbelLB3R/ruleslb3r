@@ -161,7 +161,7 @@ export default function Newmember() {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e, isChecked) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
@@ -170,7 +170,7 @@ export default function Newmember() {
     if (
       // form.nama &&
       session &&
-      e.target.checked && // <-- Periksa apakah checkbox dicentang
+      isChecked === true &&
       form.nisn !== "" &&
       form.asalsekolah !== "" &&
       form.wa !== "" &&
