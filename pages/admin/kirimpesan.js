@@ -84,10 +84,10 @@ export default function kirimpesan({ biodata }) {
     // ... other options ...
   };
 
-  // for (const subscription of pushSubscription) {
-  //   webpush.sendNotification(subscription, payload, options);
-  //   console.log("Notification sent successfully");
-  // }
+  for (const subscription of pushSubscription) {
+    webpush.sendNotification(subscription, payload, options);
+    console.log("Notification sent successfully");
+  }
 
   // You can trigger sending notifications on component mount or other events
 

@@ -27,8 +27,9 @@ function PushNotif() {
           });
 
           // Kirimkan subscription ke server Anda untuk langganan
-          console.log("Subscription:", JSON.stringify(subscription));
+          // console.log("Subscription:", JSON.stringify(subscription));
           localStorage.setItem("subscription", JSON.stringify(subscription));
+          alert("it saved successfully");
         }
       } catch (error) {
         console.error("Error subscribing:", error);
@@ -38,15 +39,24 @@ function PushNotif() {
 
   return (
     <div>
-      <h1 className="underline">Aktifkan Notifikasi</h1>
-      <p>Status Izin: {notificationPermission}</p>
-      <button
-        onClick={handleSubscribe}
-        className="bg-blue-600 hover:bg-blue-400 p-2 rounded-xl"
-        // disabled={notificationPermission !== "granted"}
-      >
-        Aktifkan Sekarang
-      </button>
+      {notificationPermission === "granted" ? (
+        <div>
+          Congratulation! Your status is granted. klik{" "}
+          <button onClick={handleSubscribe} className="underline">
+            here to save it
+          </button>{" "}
+          before continue fill the form
+        </div>
+      ) : (
+        <div>
+          Your status is {notificationPermission}, make sure to change it become
+          granted by{" "}
+          <button onClick={handleSubscribe} className="underline">
+            clik here
+          </button>{" "}
+          or set up your browser.
+        </div>
+      )}
     </div>
   );
 }
