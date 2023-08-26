@@ -132,7 +132,7 @@ const Loginmember = () => {
         });
       } else {
         Swal.fire({
-          title: `1${form.nisn} belum terdaftar`,
+          title: `${form.nisn} belum terdaftar`,
           text: "Data gagal dikirim karena NISN kamu belum terdaftar",
           icon: "warning",
           confirmButtonText: "Daftar",
