@@ -3,27 +3,25 @@ self.addEventListener("push", (event) => {
     body: event.data.text(),
     badge: "https://bimbellb3r.github.io/img/slider/logolb3r4.png",
     icon: "https://lh3.googleusercontent.com/a/AAcHTtfIYVX3ZbXWNqqvkmEc0YLYf-cBpVBW4Era3YqlU4LQ-A=s96-c",
-    tag: "unique-notification-id", // Menambahkan tag unik pada notifikasi
+    tag: "snbt01", // Menambahkan tag unik pada notifikasi
   };
   event.waitUntil(
     self.registration.showNotification(
-      "Info Tagihan Pembayaran Les Bimbel LB3R",
+      "Gak usah bingung pilih jurusan, baik SNBP atau SNBT",
       options
     )
   );
 });
 
 self.addEventListener("notificationclick", (event) => {
-  event.waitUntil(
-    clients.openWindow("https://www.bimbellb3r.com/layanan/bayarles")
-  );
+  event.waitUntil(clients.openWindow("https://www.bimbellb3r.com/blogs"));
 });
 
 self.addEventListener("notificationclick", (event) => {
   event.waitUntil(
     // Hapus notifikasi dengan tag yang sesuai
     self.registration
-      .getNotifications({ tag: "unique-notification-id" })
+      .getNotifications({ tag: "snbt01" })
       .then((notifications) => {
         notifications.forEach((notification) => {
           notification.close();
