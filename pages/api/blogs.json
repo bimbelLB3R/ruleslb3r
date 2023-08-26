@@ -1,6 +1,33 @@
 {
   "posts": [
     {
+      "id": 3,
+      "title": "Tips Memilih Jurusan Kuliah",
+      "description": "Sebanyak 85% mahasiswa di Indonesia salah memilih jurusan, lalu bagaimanakah tips memilih jurusan ? lanjutkan ...",
+      "slug": "pilih-jurusan",
+      "bahasa": "language-js",
+      "body": [
+        "Meskipun sudah berada di kelas 12, kadang kita masih belum bisa menentukan jurusan kuliah apa yang sabaiknya diambil. Kita tidak bisa mengukur kemampuan dan keinginan kita sehingga pilihan kita justru terpengaruh oleh orang lain, misalnya teman atau orang tua. Apa saja sih yang perlu kalian pertimbangkan ketika memilih jurusan?",
+        "<span style='color: #ea580c; font-weight: bold; '>Ketahuilah Minat Kamu</span>",
+        "Coba gali kembali apa yang sangat kalian inginkan dan sukai. Ketika kalian menemukan dua hal tersebut maka kalian tinggal mencari informasi jurusan apa yang tepat. Namun perlu diingat, hal yang kita sukai bisa jadi hanya sekedar hobi saja atau bisa menjadi hobi sekaligus profesi yang menghasilkan pendapatan. Sebagai contoh, kalian menyukai olah raga, maka profesi yang berkaitan dengan olah raga bisa jadi guru atau atlet. Kalau olah raga hanya sekedar hobi, maka ini tidak bisa dijadikan acuan memilih jurusan.",
+        "<span style='color: #ea580c; font-weight: bold;'>Kemampuan Akademik</span>",
+        "Hal lain yang tidak kalah penting adalah kemampuan akademik yang bisa diukur dari rata-rata nilai raport kamu dari semester 1-5. Nilai apa yang sekiranya rata-ratanya tinggi dapat kita gunakan sebagai pertimbangan dalam memillih jurusan. Sebagai contoh, jika kita memilih jurusan kedokteran, maka mata pelajaran kimia dan biologi diusahakan tinggi. Selain dari nilai, kemampuan akademik juga bisa diukur dari sertifikat-sertifikat yang kita peroleh dari luar. Kadang-kadang nilai kita di sekolah tidak bisa mewakili atau tidak mencerminkan kemampuan akademik kita yang sesungguhnya. Ada faktor like and dislike sama guru, ada faktor lingkungan sekolah dan lain-lain. ",
+        "<span style='color: #ea580c; font-weight: bold;'>Ekonomi Keluarga</span>",
+        "Selama kita menjadi mahasiswa, tentu akan banyak pengeluaran. Jika kita jauh dari rumah, kita akan mencari tempat kos dan juga makan-sehari-hari. Namun, yang terpenting bukan itu, tetapi berapa besarnya biaya UKT atau biaya per semester yang harus dibayar. Ukur sesuai kemampuan orang tua kita. Biaya UKT beberapa universitas biasanya ada di web mereka.",
+        "<span style='color: #ea580c; font-weight: bold;'>Prospek Jurusan</span>",
+        "Jurusan yang kita pilih sebaiknya memiliki prospek kerja yang luas. Saat ini ada banyak sekali jenis profesi baru yang dulunya belum pernah ada. Sebagai contoh, jaman dulu tidak ada content creator media sosial karena dulu belum seramai sekarang. Namun perlu diingat, jurusan dengan prospek keja semakin tinggi maka persaingannya pun pasti semakin besar",
+        "<span style='color: #ea580c; font-weight: bold;'>Kenali Jurusan</span>",
+        "Setelah menemukan pilihan jurusan, kalian bisa cek apa saja yang dipelajari di jurusan itu. Tugas-tugas apa yang harus diselesaikan dan kendala-kendala apa yang mungkin akan dihadapi."
+      ],
+      "ogImageName": "testOg.png",
+      "imageUrl": "/image/image1.webp",
+      "writer": "Wahyudi, S.Pd.",
+      "createdAt": "2023-08-12T07:34:56",
+      "updatedAt": "2023-08-12T07:34:56",
+      "tags": "SNBT",
+      "keyword": "SNBT"
+    },
+    {
       "id": 2,
       "title": "GET AND PUT To Github API using Postman ",
       "description": "You will know how to get information from your github file and up date data , testing using postman....",
