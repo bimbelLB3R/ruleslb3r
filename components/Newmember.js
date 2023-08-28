@@ -121,7 +121,8 @@ export default function Newmember() {
     ) {
       const canSubmit = await checkNisn(`1${form.nisn}`, session.user.email);
 
-      if (canSubmit && subscription !== null) {
+      // if (canSubmit && subscription !== null) {
+      if (canSubmit) {
         const newRow = {
           nama: session.user.name,
           nisn: `1${form.nisn}`,
