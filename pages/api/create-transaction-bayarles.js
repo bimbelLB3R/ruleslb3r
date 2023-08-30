@@ -36,7 +36,7 @@ export default async function handler(req, res) {
   // Prepare request body
   // satu order_id hanya untuk satu kali request
   const requestBody = {
-    payment_type: "qris", //sy tambahkan ini, moga dapat url qris
+    // payment_type: "qris", //sy tambahkan ini, moga dapat url qris
     transaction_details: {
       order_id: `LB3R_${timestamp}`,
       gross_amount: totalDibayar, //quantity x price
@@ -56,12 +56,12 @@ export default async function handler(req, res) {
     // },
 
     // gopay, berhasil
-    enabled_payments: ["gopay"],
-    gopay: {
-      // callback_url: "http://gopay.com",
-      enable_callback: true,
-      callback_url: "http://bimbellb3r.com",
-    },
+    // enabled_payments: ["gopay"],
+    // gopay: {
+    //   // callback_url: "http://gopay.com",
+    //   enable_callback: true,
+    //   callback_url: "http://bimbellb3r.com",
+    // },
 
     item_details: [
       {
