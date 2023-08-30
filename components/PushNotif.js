@@ -23,8 +23,7 @@ function PushNotif() {
         if ("PushManager" in window) {
           const subscription = await registration.pushManager.subscribe({
             userVisibleOnly: true,
-            applicationServerKey:
-              "BF_iaXMcfVjq42wC7dpLb_gfrkzuHsjBuz3THvJ-uHHzbyGacAAYWTdwlhXD-HT6LLtafMTB_y612SgpFxag3qU", // Ganti dengan kunci publik Anda
+            applicationServerKey: process.env.WEBPUSH_PUBLIC_KEY, // Ganti dengan kunci publik Anda
           });
 
           // Kirimkan subscription ke server Anda untuk langganan

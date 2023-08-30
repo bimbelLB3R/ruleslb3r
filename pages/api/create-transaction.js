@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   // https://docs.midtrans.com/en/snap/integration-guide?id=alternative-way-to-display-snap-payment-page-via-redirect
 
   const snapApiUrl = "https://app.midtrans.com/snap/v1/transactions";
-  const snapServerKey = "Mid-server-zzOiNRXtsXKskJUV-kAyWdD1";
+  const snapServerKey = process.env.SERVER_KEY_MIDTRANS;
   const timestamp = Date.now();
 
   // Prepare request body

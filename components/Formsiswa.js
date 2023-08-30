@@ -1,27 +1,27 @@
-import { useState } from 'react';
-import appendDataToSheet from '../libs/Formsiswa/postForm';
+import { useState } from "react";
+import appendDataToSheet from "../libs/Formsiswa/postForm";
 
 const AddDataForm = () => {
   // Buat state untuk menyimpan input dari form
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   // Fungsi yang akan dipanggil saat form dikirim
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Kirim data ke Google Sheets
-    await appendDataToSheet(
-      '1J5pXl17Zm40o4LCDUGqu23rQq2mwGdfJuZTZ23MNnGY',
-      'Sheet1',
-      [name, email, message]
-    );
+    await appendDataToSheet(process.env.NEXT_PUBLIC_SPREADSHEET_ID, "Sheet1", [
+      name,
+      email,
+      message,
+    ]);
 
     // Bersihkan input setelah data dikirim
-    setName('');
-    setEmail('');
-    setMessage('');
+    setName("");
+    setEmail("");
+    setMessage("");
   };
 
   return (
