@@ -27,8 +27,7 @@ export default function Profile({ allPost }) {
         <div className="flex justify-center items-center p-6 mt-20">
           {session ? (
             <div>
-              <div className="border-2 border-white rounded-full ">
-                <div className="w-[12px] h-[12px]  rounded-full bg-green-400"></div>
+              <div className="flex justify-center">
                 <Image
                   src={session.user.image}
                   width={46}
@@ -38,13 +37,18 @@ export default function Profile({ allPost }) {
                   className="rounded-full shadow-2xl"
                 />
               </div>
-              <p>{session.user.name}</p>
-              <p>{session.user.email}</p>
+              <p className="text-center">{session.user.name}</p>
+              <p className="text-center mb-4">{session.user.email}</p>
               <div className="p-2 bg-blue-200 shadow-lg shadow-amber-600 m-2 rounded-lg">
                 Pembayaran Tertunda : 0
               </div>
               <div className="p-2 bg-blue-200 shadow-lg shadow-amber-600 m-2 rounded-lg">
                 Pembayaran Berhasil : 0
+              </div>
+              <div className="p-2 bg-blue-200 shadow-lg shadow-amber-600 m-2 rounded-lg">
+                <p className="font-semibold">Pilihan Jurusan</p>
+                <p>1. Pilihan Pertama</p>
+                <p>2. Pilihan Kedua</p>
               </div>
             </div>
           ) : (
