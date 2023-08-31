@@ -342,9 +342,12 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                     </Link>
                     {session ? (
                       <div className="flex items-center justify-end p-2 underline">
-                        <button onClick={() => signOut()}>
-                          Keluar dari {session.user.name}
-                        </button>
+                        <div>
+                          <button onClick={() => signOut()}>
+                            Keluar dari {session.user.name}
+                          </button>
+                          <Link href="/user/profile">My Account</Link>
+                        </div>
                       </div>
                     ) : (
                       <div>
