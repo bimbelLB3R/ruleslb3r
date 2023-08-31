@@ -346,7 +346,11 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                       <div className="flex items-center justify-end p-2 underline">
                         <div>
                           <div>
-                            <Link href="/user/profile">My Account</Link>
+                            <Link href="/user/profile" passHref>
+                              <a target="_blank" rel="noopener noreferrer">
+                                My Account
+                              </a>
+                            </Link>
                           </div>
                           <button onClick={() => signOut()}>
                             Keluar dari {session.user.name}
