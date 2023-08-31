@@ -9,14 +9,13 @@ import { useState } from "react";
 export default function Profile({ biodata }) {
   const filteredBiodata = biodata.map((item) => item);
   const { data: session } = useSession();
-  const [choosenEmail, setChoosenEmail] = useState({});
+  const [choosenEmail, setChoosenEmail] = useState([]);
+  //   console.log(choosenEmail);
   if (session) {
     const emailTerpilih = filteredBiodata.filter(
       (item) => item[8] == session.user.email
     );
     setChoosenEmail(emailTerpilih);
-  } else {
-    setChoosenEmail({});
   }
   return (
     <div>
@@ -44,7 +43,7 @@ export default function Profile({ biodata }) {
                 <div className="font-semibold p-2 bg-blue-200 shadow-lg shadow-amber-600 m-2 rounded-lg">
                   Pembayaran Berhasil : 0
                 </div>
-                {choosenEmail?.map((item, index) => (
+                {choosenEmail.map((item, index) => (
                   <div key={index}>
                     <div className="p-2 bg-blue-200 shadow-lg shadow-amber-600 m-2 rounded-lg">
                       <p className="font-semibold">Pilihan Jurusan</p>
