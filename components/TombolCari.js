@@ -78,7 +78,7 @@ export default function TombolCari({ allPost }) {
             onFocus={handleFocus}
             onBlur={handleBlur}
             onChange={handleSearch}
-            className={`relative peer z-10 bg-transparent  h-8  border-none focus:border w-[200px] sm:w-full focus:border-lime-300 cursor-pointer focus:cursor-text pl-12 focus:pl-16 focus:pr-4`}
+            className={`relative peer z-10 bg-transparent  h-8  border-none focus:border w-[150px] sm:w-full focus:border-lime-300 cursor-pointer focus:cursor-text pl-12 focus:pl-16 focus:pr-4`}
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"

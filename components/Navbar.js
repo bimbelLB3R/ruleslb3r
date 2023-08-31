@@ -8,6 +8,7 @@ import TombolCari from "./TombolCari";
 import DropdownMenuSNBT from "./DropdownMenuSNBT";
 import DropdownMenuLayanan from "./DropdownMenuLayanan";
 import { signIn, signOut, useSession } from "next-auth/react";
+import DropdownMenuProfile from "./DropdownMenuProfile";
 
 const Navbar = forwardRef(({ allPost, ...props }, ref) => {
   const { data: session } = useSession();
@@ -62,6 +63,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
             </Link>
             <DropdownMenu />
             <DropdownMenuSNBT />
+            <DropdownMenuProfile />
           </div>
           <div className="flex space-x-4">
             {/* <Link href="/form/newmember">
@@ -343,10 +345,12 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                     {session ? (
                       <div className="flex items-center justify-end p-2 underline">
                         <div>
+                          <div>
+                            <Link href="/user/profile">My Account</Link>
+                          </div>
                           <button onClick={() => signOut()}>
                             Keluar dari {session.user.name}
                           </button>
-                          <Link href="/user/profile">My Account</Link>
                         </div>
                       </div>
                     ) : (

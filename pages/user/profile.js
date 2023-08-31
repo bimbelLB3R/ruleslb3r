@@ -24,7 +24,7 @@ export default function Profile({ allPost }) {
     <div>
       <Navbar allPost={allPost} />
       <Layout>
-        <div className="flex justify-center items-center p-6">
+        <div className="flex justify-center items-center p-6 mt-20">
           {session ? (
             <div>
               <div className="border-2 border-white rounded-full ">
@@ -48,7 +48,7 @@ export default function Profile({ allPost }) {
               </div>
             </div>
           ) : (
-            <div className="flex justify-center items-center p-6">
+            <div className="flex justify-center items-center p-6 mt-20">
               <button
                 type="submit"
                 name="loginGoogle"
