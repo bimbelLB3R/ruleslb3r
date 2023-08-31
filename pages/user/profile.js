@@ -4,7 +4,7 @@ import Layout from "../../components/Layout";
 import "animate.css";
 import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Profile({ biodata }) {
   const filteredBiodata = biodata.map((item) => item);
