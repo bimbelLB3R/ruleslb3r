@@ -25,7 +25,7 @@ export default function handler(req, res) {
       //CUSTOMIZATION FROM HERE
       const opt = {
         spreadsheetId: process.env.NEXT_PUBLIC_SPREADSHEET_ID,
-        range: "biodata!A2:T900",
+        range: "biodata!A2:Z900",
       };
 
       let data = await gsapi.spreadsheets.values.get(opt);

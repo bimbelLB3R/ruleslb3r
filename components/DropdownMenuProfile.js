@@ -83,7 +83,7 @@ export default function DropdownMenuProfile() {
               tabIndex="-1"
               // id="menu-item-1"
             >
-              Other
+              Logout
             </Link>
           </div>
         </div>
