@@ -4,7 +4,8 @@ import Navbar from "../../components/Navbar";
 import { getBlogsData } from "../../utils/blogsApi";
 import { getTutorialData } from "../../utils/TutorialApi";
 import "animate.css";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 export async function getStaticProps() {
   const data = getBlogsData();
