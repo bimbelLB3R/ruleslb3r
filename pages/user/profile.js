@@ -11,12 +11,14 @@ export default function Profile({ biodata }) {
   const { data: session } = useSession();
   const [choosenEmail, setChoosenEmail] = useState([]);
   //   console.log(choosenEmail);
-  if (session) {
-    const emailTerpilih = filteredBiodata.filter(
-      (item) => item[8] == session.user.email
-    );
-    setChoosenEmail(emailTerpilih);
-  }
+  useEffect(() => {
+    if (session) {
+      const emailTerpilih = filteredBiodata.filter(
+        (item) => item[8] == session.user.email
+      );
+      setChoosenEmail(emailTerpilih);
+    }
+  }, [session, filteredBiodata]);
   return (
     <div>
       {/* <Navbar allPost={allPost} /> */}
