@@ -134,7 +134,7 @@ export default function Newmember() {
           kampus2: form.kampus2,
           email: session.user.email,
           foto: session.user.image,
-          subscription: subscription,
+          // subscription: subscription,
         };
 
         // setIsLoading(true); // set status loading menjadi true
