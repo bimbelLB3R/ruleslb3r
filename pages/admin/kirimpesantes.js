@@ -16,7 +16,7 @@ export default function kirimpesantes({ biodata }) {
         keys: item.keys,
       },
     ];
-    const nama = namaUser[index + 17].toLowerCase();
+    const nama = namaUser[index + 17];
     const payload = `${nama} ,ini dia tips memilih jurusan agar sesuai bakat, minat dan kemampuanmu`;
     return {
       pushSubscription: pushSubscription,

@@ -383,9 +383,9 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
                     }`}
                   >
                     {pilihanProdi.length !== 0 ? (
-                      <div className="pt-6 ">
+                      <div className="pt-6 mt-4">
                         {defProdi.map((item, index) => (
-                          <div key={index} className=" p-2 relative">
+                          <div key={index} className=" p-2 relative ">
                             <div className="absolute  transform   -translate-y-1/2 bg-blue-400/20">
                               <div className="p-2 flex items-center">
                                 <div className="">
@@ -406,7 +406,7 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
                               </div>
                             </div>
 
-                            <div className="mt-10 flex flex-wrap">
+                            <div className="mt-[60px] flex flex-wrap">
                               {item.mata_kuliah
                                 ?.sort((a, b) => a.localeCompare(b))
                                 .map((item2, index) => (
@@ -434,7 +434,7 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
                     }`}
                   >
                     {pilihanProdi.length !== 0 ? (
-                      <div className="pt-6 ">
+                      <div className="pt-6 mt-4">
                         {defProdi.map((item, index) => (
                           <div key={index} className=" p-2 relative">
                             <div className="absolute  transform   -translate-y-1/2 bg-yellow-400/20">
@@ -458,7 +458,7 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
                               </div>
                             </div>
 
-                            <div className="mt-10">
+                            <div className="mt-[60px]">
                               {item.prospek_kerja
                                 ?.sort((a, b) => a.localeCompare(b))
                                 .map((item2, index) => (
@@ -498,7 +498,7 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
                     }`}
                   >
                     {pilihanProdi.length !== 0 ? (
-                      <div className="pt-6 ">
+                      <div className="pt-6 mt-4">
                         {defProdi.map((item, index) => (
                           <div key={index} className=" p-2 relative">
                             <div className="absolute  transform   -translate-y-1/2 bg-green-400/20">
@@ -522,15 +522,18 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
                               </div>
                             </div>
 
-                            <div className="mt-10">
+                            <div className="mt-[60px]">
                               {item.st30?.map((item2, index) => (
                                 <div
                                   key={index}
                                   className="flex items-center space-x-2"
                                 >
                                   {item2.merah?.map((item3, index) => (
-                                    <div key={index} className="mb-2 border-2">
-                                      <p className=" p-1 bg-red-600/50 font-roboto text-sm">
+                                    <div
+                                      key={index}
+                                      className="mb-2 border-2 mt-2"
+                                    >
+                                      <p className=" p-1 bg-red-600/50 font-roboto text-sm ">
                                         {item3}
                                       </p>
                                     </div>
@@ -551,6 +554,29 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
                                   ))}
                                 </div>
                               ))}
+                            </div>
+                            <div>
+                              <a
+                                href="https://temubakat.com/id/index.php/main/disp/tes"
+                                target="_blank"
+                                className="bg-green-500 rounded px-4 py-2 text-gray-100 flex items-center justify-center space-x-2"
+                              >
+                                <p>Kenali Kekuatanmu Disini!</p>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  strokeWidth="1.5"
+                                  stroke="currentColor"
+                                  className="w-6 h-6"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33"
+                                  />
+                                </svg>
+                              </a>
                             </div>
                           </div>
                         ))}
