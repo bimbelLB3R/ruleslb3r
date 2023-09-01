@@ -1,6 +1,31 @@
 {
   "posts": [
     {
+      "id": 4,
+      "title": "Peran Bakat Dalam Pemilihan Jurusan",
+      "description": "I am not perfect, but i am very special limited edition (Abah Rama) ...",
+      "slug": "bakat-dan-jurusan",
+      "bahasa": "language-js",
+      "body": [
+        "Ada tiga hal penting yang perlu diperhatikan dalam pemilihan jurusan, yaitu bakat, minat dan kemampuan akademik. Bakat cenderung diartikan sebagai faktor bawaan sejak lahir, sedangkan minat cenderung berasal dari pengaruh faktor eksternal (lingkungan).",
+        "<span style='color: #ea580c; font-weight: bold; '>Definisi Bakat yang Sesungguhnya</span>",
+        "Sangat beragam pendapat orang tentang arti bakat. dalam tulisan kali ini, penulis merujuk arti bakat yang dikemukakan oleh Abah Rama Royani, Penemu Talents Mapping. Bakat diartikan sebagai sifat (personality) yang produktif. Dikatakan produktif bilamana suatu sifat (personality) dapat dimanfaatkan sebesar-besarnya untuk menghasilkan sesuatu. Adapun sifat lainnya yang tidak ada hubungannya dengan produktivitas berarti tidak termasuk dalam arti bakat.",
+        "<span style='color: #ea580c; font-weight: bold;'>Fokus Pada Kekuatan, Siasati Keterbatasan</span>",
+        "Setelah kalian mengetahui sifat (personality) masing-masing, langkah selanjutnya adalah menggunakannya sebagai kekuatan (nilai lebih). Setiap orang akan memiliki lebih dari satu personality yang menjadikan dirinya unik. Potensi-potensi kekuatan yang dimiliki harus diarahkan ke tempat yang tepat (jurusan  dan karir yang sesuai). Sebagai contoh, seseorang yang senang berkomunikasi pada orang atau memiliki kemampuan untuk melihat potensi orang lain dan senang melihat orang lain berhasil, maka jurusan yang mengarah pada profesi guru cocok baginya. Contoh lain, jika seseorang suka berpikir sistematis dan senang mengkomunikasikan pikirannya, maka jurusan yang mengarah pada aktivitas menulis cocok baginya. Disisi lain, setiap orang akan memiliki keterbatasan dalam hal tertentu. Keterbatasan itu harus tetap kita akui sebagai muhasabah kita bahwa tak ada manusia yang sempurna, tetapi tiap manusia itu unik.",
+        "<span style='color: #ea580c; font-weight: bold;'>Ciri-ciri Bakat</span>",
+        "Pertama, adakah aktivitas yang membuat kamu lupa waktu atau waktu terasa berlalu begitu cepat?ini mungkin salah satu tanda bakat anda. Kedua, ketika orang lain terlihat kesulitan mempelajari sesuatu, tetapi bagi kamu itu hal yang mudah, orang lain merasa iri dan kadang bertanya kepadamu, ini juga merupakan tanda bakat. Ketiga, ketika kamu melakukan sesuatu bahkan tanpa persiapan tetapi hasilnya tetap maksimal. Keempat, aktivitas tertentu yang memperlihatkan sekelebat keunggulanmu sehingga kamu berpikir, kok bisa ya saya melakukannya. Kelima, aktivitas yang membuat kamu merasa puas dan ingin mengulanginya lagi tanpa rasa bosan dan tanpa rasa lelah.",
+        "<span style='color: #ea580c; font-weight: bold;'>Cara mengembangkan bakat</span>",
+        "Setelah kamu menemukan potensi kekuatanmu, maka saatnya buat kamu untuk terjun ke dalam aktivitas yang dapat mengembangkan kekuatanmu, sehingga kamu merasa enjoy dan easy. Tambahkan pengetahuan (knowledge) yang dibutuhkan dalam aktivitas tersebut."
+      ],
+      "ogImageName": "testOg.png",
+      "imageUrl": "https://kevin-lehner.com/wp-content/uploads/2019/10/cropped-Talent.jpg",
+      "writer": "Wahyudi, S.Pd.",
+      "createdAt": "2023-09-12T11:51:56",
+      "updatedAt": "2023-09-12T11:51:56",
+      "tags": "SNBT",
+      "keyword": "SNBT"
+    },
+    {
       "id": 3,
       "title": "Tips Memilih Jurusan Kuliah",
       "description": "Sebanyak 85% mahasiswa di Indonesia salah memilih jurusan, lalu bagaimanakah tips memilih jurusan ? lanjutkan ...",

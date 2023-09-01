@@ -18,6 +18,7 @@ module.exports = {
       "https://www.bimbellb3r.com/favicon.ico",
       "drive.google.com",
       "unsplash.com",
+      "https://kevin-lehner.com",
     ],
   },
   webpack: (config, { isServer }) => {
