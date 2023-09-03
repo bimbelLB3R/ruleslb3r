@@ -148,7 +148,7 @@ export default function Newmember() {
           icon: "success",
           confirmButtonText: "Ok",
         });
-        router.push("/form/login");
+        router.push("/");
       } else {
         Swal.fire({
           title: `Cek lagi datamu ya...`,
