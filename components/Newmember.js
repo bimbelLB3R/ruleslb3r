@@ -191,7 +191,7 @@ export default function Newmember() {
   return (
     <>
       <Head>
-        <title>Daftar TO SNBT</title>
+        <title>FORM PROGRAM SNBT</title>
         <meta name="description" content="Seleksi Masuk PTN Jalur Tes" />
         <link
           rel="icon"

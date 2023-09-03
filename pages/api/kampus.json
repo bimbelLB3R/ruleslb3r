@@ -4139,6 +4139,19 @@
           "peminat": [238, 402, 192, 222, 190, 0]
         }
       ]
+    },
+    {
+      "kode_kampus": 334,
+      "nama_kampus": "UNIVERSITAS PENDIDIKAN INDONESIA",
+      "prodi": [
+        {
+          "kode_prodi": "334001",
+          "nama_prodi": "PENDIDIKAN MATEMATIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [49, 41, 46, 45, 50, 45],
+          "peminat": [1202, 588, 662, 635, 530, 0]
+        }
+      ]
     }
   ]
 }
