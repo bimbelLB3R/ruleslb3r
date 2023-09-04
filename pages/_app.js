@@ -3,6 +3,7 @@ import "../styles/prism.css";
 // import { Montserrat } from 'next/font/google';
 import { SessionProvider } from "next-auth/react";
 import { useEffect } from "react";
+import { initGA, logPageView } from "../utils/analitics";
 
 // const montserrat = Montserrat({
 //   subsets: ['latin'],
@@ -23,6 +24,10 @@ function MyApp({ Component, pageProps, session }) {
           console.error("Service Worker registration failed:", error);
         });
     }
+  }, []);
+  useEffect(() => {
+    initGA();
+    logPageView();
   }, []);
   return (
     <SessionProvider session={session}>
