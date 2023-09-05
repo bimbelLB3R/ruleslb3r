@@ -89,7 +89,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
             <Image
               src="/image/petaindo.png"
               width={300}
-              height={80}
+              height={60}
               alt="indomap"
               priority={true}
               className="opacity-50"

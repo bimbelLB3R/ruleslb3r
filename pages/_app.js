@@ -26,8 +26,9 @@ function MyApp({ Component, pageProps, session }) {
     }
   }, []);
   useEffect(() => {
-    initGA();
+    const xx = initGA();
     logPageView();
+    console.log(xx);
   }, []);
   return (
     <SessionProvider session={session}>

@@ -4150,6 +4150,286 @@
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [49, 41, 46, 45, 50, 45],
           "peminat": [1202, 588, 662, 635, 530, 0]
+        },
+        {
+          "kode_prodi": "334002",
+          "nama_prodi": "PENDIDIKAN FISIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [36, 41, 41, 41, 45, 45],
+          "peminat": [544, 465, 196, 225, 165, 0]
+        },
+        {
+          "kode_prodi": "334003",
+          "nama_prodi": "PENDIDIKAN BIOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [37, 41, 41, 41, 41, 43],
+          "peminat": [1188, 768, 508, 559, 518, 0]
+        },
+        {
+          "kode_prodi": "334004",
+          "nama_prodi": "PENDIDIKAN KIMIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [41, 41, 41, 40, 50, 40],
+          "peminat": [754, 489, 345, 234, 277, 0]
+        },
+        {
+          "kode_prodi": "334005",
+          "nama_prodi": "PENDIDIKAN ILMU KOMPUTER",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [34, 41, 42, 42, 41, 46],
+          "peminat": [570, 467, 302, 270, 282, 0]
+        },
+        {
+          "kode_prodi": "334006",
+          "nama_prodi": "MATEMATIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [20, 41, 45, 45, 45, 45],
+          "peminat": [716, 623, 432, 596, 377, 0]
+        },
+        {
+          "kode_prodi": "334007",
+          "nama_prodi": "FISIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [17, 21, 21, 21, 20, 40],
+          "peminat": [263, 399, 80, 152, 107, 0]
+        },
+        {
+          "kode_prodi": "334008",
+          "nama_prodi": "BIOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [16, 21, 21, 20, 22, 33],
+          "peminat": [928, 556, 283, 422, 415, 0]
+        },
+        {
+          "kode_prodi": "334009",
+          "nama_prodi": "KIMIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [26, 36, 34, 40, 50, 50],
+          "peminat": [633, 695, 334, 410, 419, 0]
+        },
+        {
+          "kode_prodi": "3340010",
+          "nama_prodi": "ILMU KOMPUTER",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [16, 41, 42, 42, 40, 49],
+          "peminat": [1445, 891, 1011, 1080, 1215, 0]
+        },
+        {
+          "kode_prodi": "3340011",
+          "nama_prodi": "PENDIDIKAN TEKNIK ARSITEKTUR",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [34, 27, 42, 40, 28, 33],
+          "peminat": [542, 322, 266, 273, 191, 0]
+        },
+        {
+          "kode_prodi": "3340012",
+          "nama_prodi": "PENDIDIKAN TEKNIK BANGUNAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [40, 27, 43, 50, 50, 33],
+          "peminat": [335, 275, 230, 146, 195, 0]
+        },
+        {
+          "kode_prodi": "3340013",
+          "nama_prodi": "PENDIDIKAN TEKNIK ELEKTRO",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [40, 51, 46, 50, 45, 27],
+          "peminat": [314, 527, 109, 190, 127, 0]
+        },
+        {
+          "kode_prodi": "3340014",
+          "nama_prodi": "PENDIDIKAN TEKNIK MESIN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [45, 42, 40, 35, 40, 33],
+          "peminat": [589, 290, 212, 233, 211, 0]
+        },
+        {
+          "kode_prodi": "3340015",
+          "nama_prodi": "ILMU KEOLAHRAGAAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [42, 59, 61, 60, 60, 52],
+          "peminat": [662, 161, 145, 198, 189, 0]
+        },
+        {
+          "kode_prodi": "3340016",
+          "nama_prodi": "TEKNIK ELEKTRO",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [35, 50, 46, 40, 45, 32],
+          "peminat": [980, 908, 470, 420, 417, 0]
+        },
+        {
+          "kode_prodi": "3340017",
+          "nama_prodi": "PENDIDIKAN TEKNOLOGI AGRO INDUSTRI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [30, 36, 44, 20, 20, 22],
+          "peminat": [651, 576, 190, 206, 210, 0]
+        },
+        {
+          "kode_prodi": "3340018",
+          "nama_prodi": "TEKNIK SIPIL",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [41, 54, 40, 40, 40, 47],
+          "peminat": [1734, 1084, 669, 906, 837, 0]
+        },
+        {
+          "kode_prodi": "3340019",
+          "nama_prodi": "PENDIDIKAN ILMU PENGETAHUAN ALAM",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [13, 16, 17, 8, 10, 20],
+          "peminat": [456, 363, 98, 128, 200, 0]
+        },
+        {
+          "kode_prodi": "3340020",
+          "nama_prodi": "ARSITEKTUR",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [24, 27, 40, 40, 30, 27],
+          "peminat": [1179, 736, 713, 1169, 829, 0]
+        },
+        {
+          "kode_prodi": "3340021",
+          "nama_prodi": "PENDIDIKAN KELAUTAN DAN PERIKANAN KAMPUS SERANG",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [56, 48, 65, 45, 60, 63],
+          "peminat": [177, 277, 79, 75, 118, 0]
+        },
+        {
+          "kode_prodi": "3340022",
+          "nama_prodi": "PENDIDIKAN MULTIMEDIA KAMPUS CIBIRU",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [46, 45, 40, 32, 40, 45],
+          "peminat": [332, 478, 318, 168, 234, 0]
+        },
+        {
+          "kode_prodi": "3340023",
+          "nama_prodi": "PENDIDIKAN SISTEM DAN TEKNOLOGI INFORMASI KAMPUS PURWAKARTA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [56, 45, 45, 45, 45, 43],
+          "peminat": [210, 321, 181, 124, 188, 0]
+        },
+        {
+          "kode_prodi": "3340024",
+          "nama_prodi": "PENDIDIKAN TEKNIK OTOMOTIF",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 53, 36, 40, 45, 53],
+          "peminat": [0, 162, 170, 139, 147, 0]
+        },
+        {
+          "kode_prodi": "3340025",
+          "nama_prodi": "SISTEM INFORMASI KELAUTAN KAMPUS SERANG",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 53, 51, 65, 55, 63],
+          "peminat": [0, 184, 107, 99, 100, 0]
+        },
+        {
+          "kode_prodi": "3340026",
+          "nama_prodi": "KEPELATIHAN FISIK OLAHRAGA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 53, 51, 40, 40, 48],
+          "peminat": [0, 86, 159, 98, 124, 0]
+        },
+        {
+          "kode_prodi": "3340027",
+          "nama_prodi": "REKAYASA PERANGKAT LUNAK (KAMPUS UPI CIBIRU)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 53, 41, 32, 43, 45],
+          "peminat": [0, 708, 204, 258, 367, 0]
+        },
+        {
+          "kode_prodi": "3340028",
+          "nama_prodi": "SISTEM TELEKOMUNIKASI (KAMPUS UPI PURWAKARTA)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 53, 45, 45, 45, 58],
+          "peminat": [0, 288, 148, 163, 166, 0]
+        },
+        {
+          "kode_prodi": "3340029",
+          "nama_prodi": "KEPERAWATAN - KAMPUS SUMEDANG",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 45, 40, 56, 65],
+          "peminat": [0, 0, 768, 895, 1320, 0]
+        },
+        {
+          "kode_prodi": "3340030",
+          "nama_prodi": "TEKNIK LOGISTIK",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 32, 50, 45, 48],
+          "peminat": [0, 0, 387, 270, 367, 0]
+        },
+        {
+          "kode_prodi": "3340031",
+          "nama_prodi": "PENDIDIKAN TEKNIK OTOMASI INDUSTRI DAN ROBOTIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 38, 22, 24, 20],
+          "peminat": [0, 0, 103, 57, 104, 0]
+        },
+        {
+          "kode_prodi": "3340032",
+          "nama_prodi": "TEKNIK KOMPUTER - KAMPUS CIBIRU",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 56, 32, 43, 45],
+          "peminat": [0, 0, 428, 274, 499, 0]
+        },
+        {
+          "kode_prodi": "3340033",
+          "nama_prodi": "LOGISTIK KELAUTAN - KAMPUS SERANG",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 52, 40, 65, 67],
+          "peminat": [0, 0, 79, 89, 122, 0]
+        },
+        {
+          "kode_prodi": "3340034",
+          "nama_prodi": "GIZI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 30, 40, 35],
+          "peminat": [0, 0, 0, 1851, 1413, 0]
+        },
+        {
+          "kode_prodi": "3340035",
+          "nama_prodi": "MEKATRONIKA DAN KECERDASAN BUATAN - KAMPUS UPI DI PURWAKARTA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 32, 50, 48],
+          "peminat": [0, 0, 0, 128, 119, 0]
+        },
+        {
+          "kode_prodi": "3340037",
+          "nama_prodi": "KEPERAWATAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 40, 80],
+          "peminat": [0, 0, 0, 0, 773, 0]
+        },
+        {
+          "kode_prodi": "3340038",
+          "nama_prodi": "ADMINISTRASI PENDIDIKAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [33, 37, 42, 40, 40, 32],
+          "peminat": [816, 453, 841, 468, 569, 0]
+        },
+        {
+          "kode_prodi": "3340039",
+          "nama_prodi": "BIMBINGAN DAN KONSELING",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [38, 42, 41, 41, 41, 51],
+          "peminat": [1913, 815, 1168, 1150, 1411, 0]
+        },
+        {
+          "kode_prodi": "3340040",
+          "nama_prodi": "PENDIDIKAN MASYARAKAT",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [38, 41, 42, 40, 36, 48],
+          "peminat": [387, 683, 373, 347, 343, 0]
+        },
+        {
+          "kode_prodi": "3340041",
+          "nama_prodi": "PENDIDIKAN KHUSUS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [32, 41, 46, 45, 45, 35],
+          "peminat": [741, 481, 458, 451, 311, 0]
+        },
+        {
+          "kode_prodi": "3340042",
+          "nama_prodi": "TEKNOLOGI PENDIDIKAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [34, 36, 41, 41, 41, 43],
+          "peminat": [595, 445, 462, 279, 535, 0]
         }
       ]
     }
