@@ -4430,6 +4430,426 @@
           "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
           "daya_tampung": [34, 36, 41, 41, 41, 43],
           "peminat": [595, 445, 462, 279, 535, 0]
+        },
+        {
+          "kode_prodi": "3340043",
+          "nama_prodi": "PSIKOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [40, 43, 41, 54, 54, 90],
+          "peminat": [2656, 1151, 1715, 2393, 2732, 0]
+        },
+        {
+          "kode_prodi": "3340044",
+          "nama_prodi": "PKN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [40, 45, 50, 40, 40, 43],
+          "peminat": [557, 527, 258, 376, 290, 0]
+        },
+        {
+          "kode_prodi": "3340045",
+          "nama_prodi": "PENDIDIKAN SEJARAH",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [41, 45, 50, 40, 40, 43],
+          "peminat": [765, 557, 431, 388, 475, 0]
+        },
+        {
+          "kode_prodi": "3340046",
+          "nama_prodi": "PENDIDIKAN GEOGRAFI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [41, 45, 50, 40, 40, 43],
+          "peminat": [741, 488, 398, 312, 346, 0]
+        },
+        {
+          "kode_prodi": "3340047",
+          "nama_prodi": "ILMU PENDIDIKAN AGAMA ISLAM",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [44, 46, 56, 55, 44, 46],
+          "peminat": [1406, 639, 1021, 912, 861, 0]
+        },
+        {
+          "kode_prodi": "3340048",
+          "nama_prodi": "MANAJEMEN RESORT DAN LEISURE",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [37, 45, 55, 55, 55, 43],
+          "peminat": [1520, 867, 730, 788, 605, 0]
+        },
+        {
+          "kode_prodi": "3340049",
+          "nama_prodi": "MANAJEMEN PEMASARAN PARIWISATA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [42, 45, 50, 30, 40, 43],
+          "peminat": [1686, 960, 1068, 873, 743, 0]
+        },
+        {
+          "kode_prodi": "3340050",
+          "nama_prodi": "MANAJEMEN INDUSTRI KATERING",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [44, 45, 50, 40, 30, 33],
+          "peminat": [910, 743, 702, 642, 511, 0]
+        },
+        {
+          "kode_prodi": "3340051",
+          "nama_prodi": "PENDIDIKAN BHS.DAN SASTRA INDONESIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [36, 61, 49, 55, 54, 38],
+          "peminat": [1035, 531, 669, 571, 630, 0]
+        },
+        {
+          "kode_prodi": "3340052",
+          "nama_prodi": "PENDIDIKAN BAHASA SUNDA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [49, 60, 60, 48, 42, 53],
+          "peminat": [785, 538, 460, 336, 311, 0]
+        },
+        {
+          "kode_prodi": "3340053",
+          "nama_prodi": "PENDIDIKAN BAHASA INGGRIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [24, 34, 45, 45, 35, 43],
+          "peminat": [1337, 551, 991, 741, 760, 0]
+        },
+        {
+          "kode_prodi": "3340054",
+          "nama_prodi": "PENDIDIKAN BAHASA ARAB",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [33, 42, 46, 46, 40, 43],
+          "peminat": [795, 482, 480, 492, 493, 0]
+        },
+        {
+          "kode_prodi": "3340055",
+          "nama_prodi": "PENDIDIKAN BAHASA JEPANG",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [36, 52, 41, 41, 41, 54],
+          "peminat": [818, 544, 631, 474, 583, 0]
+        },
+        {
+          "kode_prodi": "3340056",
+          "nama_prodi": "PENDIDIKAN BAHASA JERMAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [29, 36, 41, 41, 40, 43],
+          "peminat": [356, 402, 184, 299, 155, 0]
+        },
+        {
+          "kode_prodi": "3340057",
+          "nama_prodi": "PENDIDIKAN BAHASA PERANCIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [33, 36, 45, 45, 45, 43],
+          "peminat": [285, 431, 175, 226, 191, 0]
+        },
+        {
+          "kode_prodi": "3340058",
+          "nama_prodi": "PENDIDIKAN SENI RUPA DAN KERAJINAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [48, 54, 50, 50, 52, 42],
+          "peminat": [336, 163, 177, 209, 197, 0]
+        },
+        {
+          "kode_prodi": "3340059",
+          "nama_prodi": "PENDIDIKAN SENI TARI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [65, 68, 85, 80, 60, 60],
+          "peminat": [251, 110, 187, 138, 146, 0]
+        },
+        {
+          "kode_prodi": "3340060",
+          "nama_prodi": "PENDIDIKAN SENI MUSIK",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [48, 54, 60, 60, 48, 52],
+          "peminat": [604, 229, 230, 211, 166, 0]
+        },
+        {
+          "kode_prodi": "3340061",
+          "nama_prodi": "BAHASA DAN SASTRA INGGRIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [28, 38, 45, 45, 45, 27],
+          "peminat": [1395, 708, 1272, 1077, 1293, 0]
+        },
+        {
+          "kode_prodi": "3340062",
+          "nama_prodi": "BAHASA DAN SASTRA INDONESIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [36, 41, 43, 35, 54, 38],
+          "peminat": [866, 533, 518, 627, 624, 0]
+        },
+        {
+          "kode_prodi": "3340063",
+          "nama_prodi": "PENDIDIKAN KESEJAHTERAAN KELUARGA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [21, 27, 41, 30, 24, 22],
+          "peminat": [404, 258, 362, 273, 190, 0]
+        },
+        {
+          "kode_prodi": "3340064",
+          "nama_prodi": "PENDIDIKAN TATA BOGA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [27, 27, 42, 40, 40, 32],
+          "peminat": [1417, 643, 1104, 1052, 1031, 0]
+        },
+        {
+          "kode_prodi": "3340065",
+          "nama_prodi": "PENDIDIKAN TATA BUSANA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [23, 27, 44, 30, 30, 32],
+          "peminat": [755, 434, 594, 669, 674, 0]
+        },
+        {
+          "kode_prodi": "3340066",
+          "nama_prodi": "PENDIDIKAN KEPELATIHAN OLAHRAGA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [43, 59, 60, 60, 60, 65],
+          "peminat": [943, 304, 339, 363, 341, 0]
+        },
+        {
+          "kode_prodi": "3340067",
+          "nama_prodi": "PEND. JASMANI KESEHATAN & REKREASI (PJKR)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [61, 78, 82, 85, 92, 103],
+          "peminat": [1517, 425, 659, 536, 577, 0]
+        },
+        {
+          "kode_prodi": "3340068",
+          "nama_prodi": "PENDIDIKAN AKUNTANSI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [31, 45, 46, 40, 40, 53],
+          "peminat": [522, 596, 380, 303, 381, 0]
+        },
+        {
+          "kode_prodi": "3340069",
+          "nama_prodi": "PENDIDIKAN BISNIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [33, 45, 46, 40, 45, 53],
+          "peminat": [890, 520, 553, 751, 579, 0]
+        },
+        {
+          "kode_prodi": "3340070",
+          "nama_prodi": "PENDIDIKAN MANAJEMEN PERKANTORAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [32, 45, 46, 40, 50, 63],
+          "peminat": [850, 642, 745, 743, 884, 0]
+        },
+        {
+          "kode_prodi": "3340071",
+          "nama_prodi": "PENDIDIKAN EKONOMI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [34, 46, 45, 40, 45, 53],
+          "peminat": [524, 728, 130, 617, 248, 0]
+        },
+        {
+          "kode_prodi": "3340072",
+          "nama_prodi": "MANAJEMEN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [32, 46, 45, 40, 40, 60],
+          "peminat": [2624, 1341, 1765, 2322, 2285, 0]
+        },
+        {
+          "kode_prodi": "3340073",
+          "nama_prodi": "AKUNTANSI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [32, 45, 46, 40, 40, 56],
+          "peminat": [1786, 931, 1137, 1178, 1140, 0]
+        },
+        {
+          "kode_prodi": "3340074",
+          "nama_prodi": "PERPUSTAKAAN DAN SAINS INFORMASI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [20, 41, 18, 18, 18, 17],
+          "peminat": [658, 795, 271, 392, 415, 0]
+        },
+        {
+          "kode_prodi": "3340075",
+          "nama_prodi": "PENDIDIKAN IPS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [41, 45, 52, 40, 40, 43],
+          "peminat": [613, 455, 375, 279, 416, 0]
+        },
+        {
+          "kode_prodi": "3340076",
+          "nama_prodi": "PENDIDIKAN SOSIOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [42, 45, 53, 40, 40, 43],
+          "peminat": [1016, 609, 579, 676, 706, 0]
+        },
+        {
+          "kode_prodi": "3340077",
+          "nama_prodi": "PGSD PEND. JASMANI KAMPUS BUMI SILIWANGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [57, 75, 76, 76, 60, 64],
+          "peminat": [247, 123, 171, 116, 117, 0]
+        },
+        {
+          "kode_prodi": "3340078",
+          "nama_prodi": "PGSD KAMPUS CIBIRU",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [75, 117, 122, 64, 104, 110],
+          "peminat": [1323, 1011, 1130, 790, 1016, 0]
+        },
+        {
+          "kode_prodi": "3340079",
+          "nama_prodi": "PGPAUD KAMPUS CIBIRU",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [38, 45, 41, 32, 45, 65],
+          "peminat": [310, 314, 207, 243, 304, 0]
+        },
+        {
+          "kode_prodi": "3340080",
+          "nama_prodi": "PGSD KAMPUS SUMEDANG",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [65, 69, 183, 110, 110, 108],
+          "peminat": [652, 497, 824, 532, 645, 0]
+        },
+        {
+          "kode_prodi": "3340081",
+          "nama_prodi": "PGSD PENDIDIKAN JASMANI KAMPUS SUMEDANG",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [65, 81, 124, 100, 80, 100],
+          "peminat": [201, 81, 107, 100, 100, 0]
+        },
+        {
+          "kode_prodi": "3340082",
+          "nama_prodi": "PGSD KAMPUS PURWAKARTA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [78, 81, 83, 83, 81, 101],
+          "peminat": [749, 513, 439, 488, 398, 0]
+        },
+        {
+          "kode_prodi": "3340083",
+          "nama_prodi": "PGSD KAMPUS TASIKMALAYA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [101, 103, 80, 80, 53, 71],
+          "peminat": [964, 671, 689, 633, 646, 0]
+        },
+        {
+          "kode_prodi": "3340084",
+          "nama_prodi": "PGSD KAMPUS SERANG",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [82, 93, 90, 70, 70, 75],
+          "peminat": [695, 582, 342, 363, 441, 0]
+        },
+        {
+          "kode_prodi": "3340085",
+          "nama_prodi": "PGSD KAMPUS BUMI SILIWANGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [57, 72, 108, 72, 90, 86],
+          "peminat": [1211, 723, 1153, 851, 849, 0]
+        },
+        {
+          "kode_prodi": "3340086",
+          "nama_prodi": "PGPAUD KAMPUS BUMI SILIWANGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [35, 42, 27, 41, 40, 39],
+          "peminat": [359, 304, 359, 341, 311, 0]
+        },
+        {
+          "kode_prodi": "3340087",
+          "nama_prodi": "ILMU KOMUNIKASI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [38, 41, 41, 36, 45, 36],
+          "peminat": [2910, 1828, 1731, 2513, 2724, 0]
+        },
+        {
+          "kode_prodi": "3340088",
+          "nama_prodi": "PGPAUD KAMPUS SERANG",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [43, 48, 57, 60, 70, 53],
+          "peminat": [152, 137, 82, 109, 94, 0]
+        },
+        {
+          "kode_prodi": "3340089",
+          "nama_prodi": "ILMU EKONOMI DAN KEUANGAN ISLAM",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [30, 41, 43, 40, 50, 53],
+          "peminat": [912, 750, 522, 581, 554, 0]
+        },
+        {
+          "kode_prodi": "3340090",
+          "nama_prodi": "PGPAUD KAMPUS TASIKMALAYA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [88, 63, 70, 70, 55, 59],
+          "peminat": [271, 210, 163, 188, 167, 0]
+        },
+        {
+          "kode_prodi": "3340091",
+          "nama_prodi": "PGPAUD KAMPUS PURWAKARTA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [31, 48, 48, 50, 60, 43],
+          "peminat": [158, 138, 117, 117, 140, 0]
+        },
+        {
+          "kode_prodi": "3340092",
+          "nama_prodi": "PENDIDIKAN BAHASA KOREA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [30, 36, 44, 34, 36, 35],
+          "peminat": [1118, 664, 345, 1029, 821, 0]
+        },
+        {
+          "kode_prodi": "3340093",
+          "nama_prodi": "KEWIRAUSAHAAN KAMPUS TASIKMALAYA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [38, 62, 41, 37, 46, 58],
+          "peminat": [281, 520, 214, 192, 239, 0]
+        },
+        {
+          "kode_prodi": "3340094",
+          "nama_prodi": "SAINS INFORMASI GEOGRAFI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [56, 45, 50, 50, 50, 53],
+          "peminat": [635, 673, 331, 365, 445, 0]
+        },
+        {
+          "kode_prodi": "3340095",
+          "nama_prodi": "DESAIN KOMUNIKASI VISUAL",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [56, 45, 70, 70, 56, 52],
+          "peminat": [981, 524, 868, 1042, 1049, 0]
+        },
+        {
+          "kode_prodi": "3340096",
+          "nama_prodi": "PENDIDIKAN PARIWISATA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 68, 46, 40, 35, 43],
+          "peminat": [0, 816, 302, 467, 502, 0]
+        },
+        {
+          "kode_prodi": "3340097",
+          "nama_prodi": "FILM DAN TELEVISI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 68, 50, 50, 48, 52],
+          "peminat": [0, 185, 308, 481, 430, 0]
+        },
+        {
+          "kode_prodi": "3340098",
+          "nama_prodi": "BISNIS DIGITAL (KAMPUS UPI TASIKMALAYA)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 68, 37, 45, 50, 59],
+          "peminat": [0, 568, 289, 534, 713, 0]
+        },
+        {
+          "kode_prodi": "3340099",
+          "nama_prodi": "MUSIK",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 60, 70, 48, 52],
+          "peminat": [0, 0, 96, 133, 118, 0]
+        },
+        {
+          "kode_prodi": "33400100",
+          "nama_prodi": "INDUSTRI PARIWISATA KAMPUS SUMEDANG",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 60, 60, 126],
+          "peminat": [0, 0, 0, 399, 254, 0]
+        },
+        {
+          "kode_prodi": "33400101",
+          "nama_prodi": "DESAIN PRODUK INDUSTRI - KAMPUS UPI DI TASIKMALAYA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 36, 45, 48],
+          "peminat": [0, 0, 0, 132, 148, 0]
+        },
+        {
+          "kode_prodi": "3340036",
+          "nama_prodi": "SURVEI PEMETAAN DAN INFORMASI GEOGRAFIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 40, 43],
+          "peminat": [0, 0, 0, 0, 223, 0]
         }
       ]
     }
