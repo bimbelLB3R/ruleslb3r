@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Script from "next/script";
 
 const Meta = () => (
   <Head>
@@ -28,22 +27,6 @@ const Meta = () => (
     <meta
       name="google-site-verification"
       content="E5IKh82N4mjraBEM96ptZIJd2VU22yfjOqiKWuE6RHU"
-    />
-    <Script
-      async
-      src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTIC_PENGUKURAN}`}
-    />
-    <Script
-      dangerouslySetInnerHTML={{
-        __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${process.env.GOOGLE_ANALYTIC_PENGUKURAN}', {
-              page_path: window.location.pathname,
-            });
-          `,
-      }}
     />
   </Head>
 );

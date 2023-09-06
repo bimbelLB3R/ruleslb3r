@@ -10,6 +10,7 @@ import Head from "next/head";
 import { getDefinisiProdi } from "../../utils/kampusApaItuProdiApi";
 import { Transition } from "@headlessui/react";
 import Wa from "../../components/Wa";
+import Script from "next/script";
 
 // meminta data ke server /api
 export async function getStaticProps() {

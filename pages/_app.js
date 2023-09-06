@@ -3,6 +3,7 @@ import "../styles/prism.css";
 // import { Montserrat } from 'next/font/google';
 import { SessionProvider } from "next-auth/react";
 import { useEffect } from "react";
+import Script from "next/script";
 
 // const montserrat = Montserrat({
 //   subsets: ['latin'],
@@ -27,6 +28,20 @@ function MyApp({ Component, pageProps, session }) {
 
   return (
     <SessionProvider session={session}>
+      {/* <!-- Google tag (gtag.js) --> */}
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-DYQLVBYP7G"
+      ></Script>
+      <Script>
+        {` window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DYQLVBYP7G')`}
+        ;
+      </Script>
+
       <Component {...pageProps} />
     </SessionProvider>
     // <main>
