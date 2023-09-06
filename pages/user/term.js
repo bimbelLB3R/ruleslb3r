@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import { getBlogsData } from "../../utils/blogsApi";
 import { getTutorialData } from "../../utils/TutorialApi";
 import "animate.css";
+import Head from "next/head";
 
 export async function getStaticProps() {
   const data = getBlogsData();
@@ -19,6 +20,25 @@ export async function getStaticProps() {
 export default function Term({ allPost }) {
   return (
     <div>
+      <Head>
+        <title>Tata Tertib LB3R</title>
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="4x16"
+          href="/image/logolb3r.png"
+        />
+        <meta
+          name="description"
+          content="Selamat telah menjadi bagian keluarga bimbel LB3R. Agar lebih nyaman , yuk kenali LB3R!"
+          key="desc"
+        />
+        <meta
+          property="og:image"
+          itemProp="image"
+          content="https://raw.githubusercontent.com/bimbelLB3R/ruleslb3r/main/public/image/image1.webp"
+        />
+      </Head>
       <Navbar allPost={allPost} />
       <Layout>
         <div className="flex items-center justify-center md:max-w-2xl m-auto h-screen animate__animated  animate__slideInDown">

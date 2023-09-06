@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import Wa from "../../components/Wa";
 import { getProgramsData } from "../../utils/layananApi";
 import "animate.css";
+import Head from "next/head";
 
 import { getBlogsData } from "../../utils/blogsApi";
 import { getTutorialData } from "../../utils/TutorialApi";
@@ -38,6 +39,25 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
 
   return (
     <>
+      <Head>
+        <title>Program Bimbel LB3R</title>
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="4x16"
+          href="/image/logolb3r.png"
+        />
+        <meta
+          name="description"
+          content="Program apa yang sedang kalian butuhkan?Yuk cek disini!"
+          key="desc"
+        />
+        <meta
+          property="og:image"
+          itemProp="image"
+          content="https://raw.githubusercontent.com/bimbelLB3R/ruleslb3r/main/public/image/image1.webp"
+        />
+      </Head>
       <Wa />
       <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" allPost={allPost} />
       <Layout>

@@ -1,24 +1,46 @@
 import { useRouter } from "next/router";
 import Youtube from "../../../components/Youtube";
 import { getMathData } from "../../../utils/mathApi";
+import Head from "next/head";
 
 export default function Detail({ detailMath, allMath }) {
   const router = useRouter();
   const bab = router.query.bab;
   const idMath = router.query.id;
   return (
-    <div className="flex items-center justify-center m-auto ">
-      <div>
-        <div className="shadow-2xl p-4">
-          <Youtube
-            videoId={detailMath.videoId}
-            bab={bab}
-            allMath={allMath}
-            id={idMath}
-          />
+    <>
+      <Head>
+        <title>Free Basic Math-{bab}</title>
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="4x16"
+          href="/image/logolb3r.png"
+        />
+        <meta
+          name="description"
+          content="Program gratis buat memperkuat kemampuan matematikamu"
+          key="desc"
+        />
+        <meta
+          property="og:image"
+          itemProp="image"
+          content="https://raw.githubusercontent.com/bimbelLB3R/ruleslb3r/main/public/image/image1.webp"
+        />
+      </Head>
+      <div className="flex items-center justify-center m-auto ">
+        <div>
+          <div className="shadow-2xl p-4">
+            <Youtube
+              videoId={detailMath.videoId}
+              bab={bab}
+              allMath={allMath}
+              id={idMath}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
