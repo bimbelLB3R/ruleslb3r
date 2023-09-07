@@ -5046,6 +5046,446 @@
           "peminat": [0, 434, 160, 216, 214, 0]
         }
       ]
+    },
+    {
+      "kode_kampus": 341,
+      "nama_kampus": "INSTITUT PERTANIAN BOGOR",
+      "prodi": [
+        {
+          "kode_prodi": "341001",
+          "nama_prodi": "AGRIBISNIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [37, 55, 48, 53, 53, 53],
+          "peminat": [2274, 509, 872, 917, 883, 0]
+        },
+        {
+          "kode_prodi": "341002",
+          "nama_prodi": "AGRONOMI DAN HORTIKULTURA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [62, 78, 69, 69, 69, 69],
+          "peminat": [1666, 495, 864, 631, 488, 0]
+        },
+        {
+          "kode_prodi": "341003",
+          "nama_prodi": "ARSITEKTUR LANSEKAP",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [25, 35, 32, 32, 32, 32],
+          "peminat": [1119, 386, 497, 594, 477, 0]
+        },
+        {
+          "kode_prodi": "341004",
+          "nama_prodi": "BIOKIMIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [28, 41, 35, 35, 35, 35],
+          "peminat": [682, 433, 205, 483, 221, 0]
+        },
+        {
+          "kode_prodi": "341005",
+          "nama_prodi": "BIOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [31, 42, 35, 35, 35, 39],
+          "peminat": [808, 325, 363, 362, 344, 0]
+        },
+        {
+          "kode_prodi": "341006",
+          "nama_prodi": "EKONOMI SUMBERDAYA DAN LINGKUNGAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [30, 40, 34, 35, 35, 35],
+          "peminat": [751, 477, 234, 467, 227, 0]
+        },
+        {
+          "kode_prodi": "341007",
+          "nama_prodi": "ILMU DAN TEKNOLOGI KELAUTAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [31, 41, 35, 35, 35, 42],
+          "peminat": [976, 336, 334, 346, 304, 0]
+        },
+        {
+          "kode_prodi": "341008",
+          "nama_prodi": "ILMU KOMPUTER",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [50, 49, 42, 42, 42, 53],
+          "peminat": [2184, 645, 889, 1294, 1241, 0]
+        },
+        {
+          "kode_prodi": "341009",
+          "nama_prodi": "KEDOKTERAN HEWAN DAN BIOMEDIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [55, 86, 58, 58, 58, 70],
+          "peminat": [1227, 564, 677, 715, 1007, 0]
+        },
+        {
+          "kode_prodi": "341010",
+          "nama_prodi": "KIMIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [30, 41, 35, 35, 35, 42],
+          "peminat": [654, 345, 280, 294, 289, 0]
+        },
+        {
+          "kode_prodi": "341011",
+          "nama_prodi": "KOMUNIKASI DAN PENGEMBANGAN MASYARAKAT",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [40, 53, 46, 49, 53, 53],
+          "peminat": [1624, 632, 865, 754, 780, 0]
+        },
+        {
+          "kode_prodi": "341012",
+          "nama_prodi": "KONSERVASI SUMBERDAYAHUTAN& EKOWISATA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [30, 45, 44, 46, 46, 46],
+          "peminat": [1026, 442, 669, 591, 505, 0]
+        },
+        {
+          "kode_prodi": "341013",
+          "nama_prodi": "MANAJEMEN HUTAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [32, 43, 42, 44, 44, 46],
+          "peminat": [821, 378, 524, 404, 419, 0]
+        },
+        {
+          "kode_prodi": "341014",
+          "nama_prodi": "STATISTIKA DAN SAINS DATA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [25, 37, 32, 35, 35, 35],
+          "peminat": [936, 317, 632, 644, 823, 0]
+        },
+        {
+          "kode_prodi": "341015",
+          "nama_prodi": "TEKNIK PERTANIAN DAN BIOSISTEM",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [35, 50, 42, 42, 42, 42],
+          "peminat": [932, 290, 608, 390, 408, 0]
+        },
+        {
+          "kode_prodi": "341016",
+          "nama_prodi": "TEKNOLOGI HASIL HUTAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [23, 30, 30, 30, 30, 32],
+          "peminat": [803, 349, 267, 332, 236, 0]
+        },
+        {
+          "kode_prodi": "341017",
+          "nama_prodi": "TEKNOLOGI INDUSTRI PERTANIAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [40, 63, 44, 44, 44, 44],
+          "peminat": [1375, 428, 608, 632, 626, 0]
+        },
+        {
+          "kode_prodi": "341018",
+          "nama_prodi": "TEKNOLOGI PANGAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [41, 65, 48, 48, 47, 46],
+          "peminat": [1703, 604, 862, 935, 1129, 0]
+        },
+        {
+          "kode_prodi": "341019",
+          "nama_prodi": "NUTRISI DAN TEKNOLOGI PAKAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [38, 50, 53, 53, 53, 53],
+          "peminat": [772, 508, 291, 531, 318, 0]
+        },
+        {
+          "kode_prodi": "341020",
+          "nama_prodi": "TEKNOLOGI PRODUKSI TERNAK",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [32, 40, 35, 35, 35, 35],
+          "peminat": [864, 379, 309, 332, 364, 0]
+        },
+        {
+          "kode_prodi": "341021",
+          "nama_prodi": "TEKNIK SIPIL DAN LINGKUNGAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [27, 41, 35, 35, 35, 32],
+          "peminat": [1753, 646, 677, 808, 710, 0]
+        },
+        {
+          "kode_prodi": "341022",
+          "nama_prodi": "TEKNOLOGI & MANAJEMEN PERIKANAN BUDIDAYA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [38, 50, 42, 42, 42, 42],
+          "peminat": [814, 663, 275, 396, 301, 0]
+        },
+        {
+          "kode_prodi": "341023",
+          "nama_prodi": "EKONOMI PEMBANGUNAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [27, 37, 32, 35, 35, 35],
+          "peminat": [783, 374, 350, 393, 526, 0]
+        },
+        {
+          "kode_prodi": "341024",
+          "nama_prodi": "MANAJEMEN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [40, 53, 46, 53, 53, 53],
+          "peminat": [1920, 534, 995, 918, 992, 0]
+        },
+        {
+          "kode_prodi": "341025",
+          "nama_prodi": "ILMU GIZI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [26, 37, 34, 34, 33, 35],
+          "peminat": [2480, 645, 1119, 1165, 1132, 0]
+        },
+        {
+          "kode_prodi": "341026",
+          "nama_prodi": "EKONOMI SYARIAH",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [26, 35, 30, 32, 32, 35],
+          "peminat": [1049, 315, 353, 383, 370, 0]
+        },
+        {
+          "kode_prodi": "341027",
+          "nama_prodi": "MANAJEMEN SUMBERDAYA LAHAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [26, 35, 30, 30, 30, 30],
+          "peminat": [524, 638, 218, 271, 218, 0]
+        },
+        {
+          "kode_prodi": "341028",
+          "nama_prodi": "PROTEKSI TANAMAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [30, 40, 34, 34, 34, 34],
+          "peminat": [691, 378, 216, 248, 276, 0]
+        },
+        {
+          "kode_prodi": "341029",
+          "nama_prodi": "MANAJEMEN SUMBERDAYA PERAIRAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [28, 39, 34, 34, 33, 34],
+          "peminat": [646, 315, 233, 203, 253, 0]
+        },
+        {
+          "kode_prodi": "341030",
+          "nama_prodi": "TEKNOLOGI HASIL PERAIRAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [28, 39, 34, 34, 33, 34],
+          "peminat": [638, 208, 459, 130, 425, 0]
+        },
+        {
+          "kode_prodi": "341031",
+          "nama_prodi": "TEKNOLOGI & MANAJEMEN PERIKANAN TANGKAP",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [28, 28, 34, 34, 33, 34],
+          "peminat": [304, 828, 95, 366, 110, 0]
+        },
+        {
+          "kode_prodi": "341032",
+          "nama_prodi": "SILVIKULTUR",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [25, 32, 35, 35, 35, 35],
+          "peminat": [1147, 298, 492, 267, 236, 0]
+        },
+        {
+          "kode_prodi": "341033",
+          "nama_prodi": "METEOROLOGI TERAPAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [27, 35, 35, 35, 35, 35],
+          "peminat": [669, 353, 262, 265, 367, 0]
+        },
+        {
+          "kode_prodi": "341034",
+          "nama_prodi": "MATEMATIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [25, 31, 28, 32, 32, 32],
+          "peminat": [560, 326, 284, 375, 324, 0]
+        },
+        {
+          "kode_prodi": "341035",
+          "nama_prodi": "FISIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [30, 35, 35, 35, 35, 42],
+          "peminat": [446, 296, 226, 151, 164, 0]
+        },
+        {
+          "kode_prodi": "341036",
+          "nama_prodi": "ILMU KELUARGA DAN KONSUMEN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [26, 37, 32, 35, 35, 39],
+          "peminat": [1161, 367, 606, 490, 416, 0]
+        },
+        {
+          "kode_prodi": "341037",
+          "nama_prodi": "BISNIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [25, 41, 58, 63, 70, 70],
+          "peminat": [1250, 537, 948, 810, 801, 0]
+        },
+        {
+          "kode_prodi": "341038",
+          "nama_prodi": "TEKNOLOGI HASIL TERNAK",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [21, 28, 28, 28, 28, 32],
+          "peminat": [564, 289, 298, 221, 306, 0]
+        },
+        {
+          "kode_prodi": "341039",
+          "nama_prodi": "AKTUARIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [20, 27, 25, 25, 25, 25],
+          "peminat": [1441, 374, 555, 457, 480, 0]
+        },
+        {
+          "kode_prodi": "341042",
+          "nama_prodi": "KOMUNIKASI DIGITAL DAN MEDIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 84],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341043",
+          "nama_prodi": "KOMUNIKASI DIGITAL DAN MEDIA (KAMPUS SUKABUMI)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 21],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341044",
+          "nama_prodi": "EKOWISATA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 32],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341045",
+          "nama_prodi": "EKOWISATA (KAMPUS SUKABUMI)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 21],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341046",
+          "nama_prodi": "TEKNOLOGI REKAYASA PERANGKAT LUNAK",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 42],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341047",
+          "nama_prodi": "TEKNOLOGI REKAYASA KOMPUTER",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 42],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341048",
+          "nama_prodi": "SUPERVISOR JAMINAN MUTU PANGAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 42],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341049",
+          "nama_prodi": "MANAJEMEN INDUSTRI JASA MAKANAN DAN GIZI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 42],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341050",
+          "nama_prodi": "TEKNOLOGI DAN MANAJEMEN PEMBENIHAN IKAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 21],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341051",
+          "nama_prodi": "TEKNOLOGI DAN MANAJEMEN PEMBENIHAN IKAN (KAMPUS SUKABUMI)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 21],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341052",
+          "nama_prodi": "TEKNOLOGI DAN MANAJEMEN TERNAK",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 21],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341053",
+          "nama_prodi": "TEKNOLOGI DAN MANAJEMEN TERNAK (KAMPUS SUKABUMI)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 21],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341054",
+          "nama_prodi": "MANAJEMEN AGRIBISNIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 84],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341055",
+          "nama_prodi": "MANAJEMEN AGRIBISNIS (KAMPUS SUKABUMI)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 21],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341056",
+          "nama_prodi": "MANJEMEN INDUSTRI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 42],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341057",
+          "nama_prodi": "ANALISIS KIMIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 42],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341058",
+          "nama_prodi": "TEKNIK DAN MANAJEMEN LINGKUNGAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 42],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341059",
+          "nama_prodi": "AKUNTANSI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 84],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341060",
+          "nama_prodi": "PARAMEDIK VETERINER",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 21],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341061",
+          "nama_prodi": "TEKNOLOGI PRODUKSI DAN MANAJEMEN PERKEBUNAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 32],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341062",
+          "nama_prodi": "TEKNOLOGI PRODUKSI DAN PENGEMBANGAN MASYARAKAT PERTANIAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 21],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341040",
+          "nama_prodi": "TEKNOLOGI INDUSTRI BENIH",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 21],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        },
+        {
+          "kode_prodi": "341041",
+          "nama_prodi": "TEKNOLOGI INDUSTRI BENIH (KAMPUS SUKABUMI)",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 21],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        }
+      ]
     }
   ]
 }
