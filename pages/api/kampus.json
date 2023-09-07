@@ -4852,6 +4852,200 @@
           "peminat": [0, 0, 0, 0, 223, 0]
         }
       ]
+    },
+    {
+      "kode_kampus": 335,
+      "nama_kampus": "ISBI BANDUNG",
+      "prodi": [
+        {
+          "kode_prodi": "335001",
+          "nama_prodi": "TARI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [43, 36, 33, 32, 33, 34],
+          "peminat": [196, 59, 85, 79, 87, 0]
+        },
+        {
+          "kode_prodi": "335002",
+          "nama_prodi": "KARAWITAN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [58, 59, 55, 45, 48, 45],
+          "peminat": [253, 95, 91, 114, 91, 0]
+        },
+        {
+          "kode_prodi": "335003",
+          "nama_prodi": "TEATER",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [38, 50, 45, 38, 41, 36],
+          "peminat": [227, 27, 39, 66, 43, 0]
+        },
+        {
+          "kode_prodi": "335004",
+          "nama_prodi": "SENI MURNI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [19, 18, 15, 15, 18, 14],
+          "peminat": [317, 85, 106, 138, 137, 0]
+        },
+        {
+          "kode_prodi": "335005",
+          "nama_prodi": "ANTROPOLOGI BUDAYA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [38, 46, 36, 36, 32, 32],
+          "peminat": [300, 408, 198, 210, 232, 0]
+        },
+        {
+          "kode_prodi": "335006",
+          "nama_prodi": "ANGKLUNG DAN MUSIK BAMBU",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 33, 32, 23],
+          "peminat": [0, 0, 0, 18, 22, 0]
+        },
+        {
+          "kode_prodi": "335007",
+          "nama_prodi": "TARI SUNDA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 14, 18, 13],
+          "peminat": [0, 0, 0, 7, 8, 0]
+        },
+        {
+          "kode_prodi": "335008",
+          "nama_prodi": "TELEVISI DAN FILM",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 35, 32, 32],
+          "peminat": [0, 0, 0, 271, 255, 0]
+        },
+        {
+          "kode_prodi": "335009",
+          "nama_prodi": "TATA RIAS DAN BUSANA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 19, 14],
+          "peminat": [0, 0, 0, 0, 100, 0]
+        },
+        {
+          "kode_prodi": "3350010",
+          "nama_prodi": "KRIYA SENI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 0, 0, 0, 0, 14],
+          "peminat": [0, 0, 0, 0, 0, 0]
+        }
+      ]
+    },
+    {
+      "kode_kampus": 336,
+      "nama_kampus": "UNIVERSITAS ISLAM NEGERI SUNAN GUNUNG DJATI ",
+      "prodi": [
+        {
+          "kode_prodi": "336002",
+          "nama_prodi": "MATEMATIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [43, 35, 45, 41, 35, 36],
+          "peminat": [517, 386, 211, 213, 150, 0]
+        },
+        {
+          "kode_prodi": "336003",
+          "nama_prodi": "BIOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [43, 38, 44, 42, 36, 36],
+          "peminat": [775, 633, 187, 349, 222, 0]
+        },
+        {
+          "kode_prodi": "336004",
+          "nama_prodi": "FISIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [23, 18, 22, 19, 16, 18],
+          "peminat": [204, 287, 58, 62, 44, 0]
+        },
+        {
+          "kode_prodi": "336005",
+          "nama_prodi": "KIMIA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [35, 35, 41, 37, 36, 36],
+          "peminat": [473, 531, 185, 220, 123, 0]
+        },
+        {
+          "kode_prodi": "336006",
+          "nama_prodi": "TEKNIK INFORMATIKA",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [39, 48, 64, 60, 53, 54],
+          "peminat": [1292, 865, 830, 803, 758, 0]
+        },
+        {
+          "kode_prodi": "336007",
+          "nama_prodi": "TEKNIK ELEKTRO",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [39, 34, 67, 40, 33, 36],
+          "peminat": [534, 502, 248, 205, 161, 0]
+        },
+        {
+          "kode_prodi": "336008",
+          "nama_prodi": "AGROTEKNOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [18, 33, 41, 38, 38, 36],
+          "peminat": [613, 815, 253, 390, 252, 0]
+        },
+        {
+          "kode_prodi": "3360012",
+          "nama_prodi": "SOSIOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [95, 122, 101, 104, 94, 90],
+          "peminat": [891, 1315, 300, 619, 416, 0]
+        },
+        {
+          "kode_prodi": "3360014",
+          "nama_prodi": "ILMU HUKUM",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [66, 64, 85, 80, 80, 72],
+          "peminat": [1042, 663, 586, 690, 632, 0]
+        },
+        {
+          "kode_prodi": "3360015",
+          "nama_prodi": "MANAJEMEN",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [93, 83, 84, 97, 121, 108],
+          "peminat": [2323, 1379, 1155, 1278, 1200, 0]
+        },
+        {
+          "kode_prodi": "3360016",
+          "nama_prodi": "ADMINISTRASI PUBLIK",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [108, 98, 106, 98, 86, 90],
+          "peminat": [1220, 1179, 590, 737, 561, 0]
+        },
+        {
+          "kode_prodi": "3360017",
+          "nama_prodi": "ILMU KOM. KONST. HUMAS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [44, 38, 41, 58, 58, 72],
+          "peminat": [839, 735, 485, 649, 515, 0]
+        },
+        {
+          "kode_prodi": "3360018",
+          "nama_prodi": "ILMU KOM. KONST. JURNALISTIK",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [82, 71, 81, 78, 78, 72],
+          "peminat": [1103, 816, 615, 554, 491, 0]
+        },
+        {
+          "kode_prodi": "3360019",
+          "nama_prodi": "BAHASA DAN SASTRA INGGRIS",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [91, 108, 128, 121, 119, 108],
+          "peminat": [1086, 760, 643, 651, 569, 0]
+        },
+        {
+          "kode_prodi": "3360020",
+          "nama_prodi": "PSIKOLOGI",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [87, 78, 93, 84, 82, 80],
+          "peminat": [1572, 1002, 1092, 1114, 1034, 0]
+        },
+        {
+          "kode_prodi": "3360041",
+          "nama_prodi": "ILMU POLITIK",
+          "tahun": [2018, 2019, 2020, 2021, 2022, 2023],
+          "daya_tampung": [0, 41, 46, 39, 35, 48],
+          "peminat": [0, 434, 160, 216, 214, 0]
+        }
+      ]
     }
   ]
 }
