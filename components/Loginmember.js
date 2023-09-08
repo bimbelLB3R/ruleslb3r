@@ -95,19 +95,19 @@ const Loginmember = () => {
         localStorage.setItem("name", form.nama);
         localStorage.setItem("nisn", `1${form.nisn}`);
         if (link === "snbt") {
-          localStorage.setItem("timeLeft", 2700); //30 soal
+          localStorage.setItem("timeLeft", 2700); //30 soal 45 menit
         } else if (link === "kuantitatif") {
-          localStorage.setItem("timeLeft", 1200); //15 soal
+          localStorage.setItem("timeLeft", 1200); //15 soal 20 menit
         } else if (link === "matematika") {
-          localStorage.setItem("timeLeft", 1800); //20 soal
+          localStorage.setItem("timeLeft", 1800); //20 soal 30 menit
         } else if (link === "english") {
-          localStorage.setItem("timeLeft", 1800); //20 soal
+          localStorage.setItem("timeLeft", 1800); //20 soal 30 menit
         } else if (link === "bacaan") {
-          localStorage.setItem("timeLeft", 1500); //20 soal
+          localStorage.setItem("timeLeft", 1500); //20 soal 25 menit
         } else if (link === "penalaran") {
-          localStorage.setItem("timeLeft", 1800); //30 soal
+          localStorage.setItem("timeLeft", 1800); //30 soal 30 menit
         } else if (link === "pengetahuan") {
-          localStorage.setItem("timeLeft", 900); //20 soal
+          localStorage.setItem("timeLeft", 1200); //20 soal 20 menit
         } else {
           console.log("link undetect");
         }
@@ -252,7 +252,8 @@ const Loginmember = () => {
                     </div>
                   </div>
                   <a
-                    href="#"
+                    href="https://wa.me/6281392552459"
+                    target="_blank"
                     className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
                   >
                     Forgot NISN & Name?
