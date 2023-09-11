@@ -32,10 +32,17 @@ export default function BeritaTerbaru({ allPost }) {
                     <div
                       className={
                         index === 0
-                          ? "flex justify-center"
+                          ? "flex justify-center relative"
                           : "flex justify-center w-auto h-auto "
                       }
                     >
+                      {index === 0 ? (
+                        <p className="absolute bottom-1 bg-gray-900 text-gray-100 p-2 bg-opacity-50 font-semibold text-xl">
+                          {post.title}
+                        </p>
+                      ) : (
+                        ""
+                      )}
                       <Image
                         src={post.imageUrl}
                         width={index === 0 ? 600 : 150}

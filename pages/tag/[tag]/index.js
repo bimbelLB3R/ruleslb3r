@@ -45,13 +45,13 @@ export default function PostDetail({ tagPost, allPost }) {
       </Head>
       <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" allPost={allPost} />
       <Layout>
-        <div className="p-4 h-screen mt-20 md:max-w-xl md:flex md:justify-center md:m-auto md:mt-20">
+        <div className="p-4 h-screen mt-[100px] md:max-w-xl md:flex md:justify-center md:m-auto md:mt-20">
           <div>
-            <h1 className="font-semibold text-xl">
+            <h1 className="font-semibold text-lg">
               {tagPost.map((tag) => (
                 <div key={tag.id}>
                   <Link href={`/blogs/${tag.slug}`}>
-                    <p>{tag.title}</p>
+                    <p className="underline">{tag.title}</p>
                   </Link>
                 </div>
               ))}
