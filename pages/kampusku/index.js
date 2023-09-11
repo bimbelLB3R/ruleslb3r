@@ -26,7 +26,20 @@ export async function getStaticProps() {
   };
 }
 
+// Fungsi untuk menghitung rata-rata peminat dan mengabaikan nilai 0
+function calculateAveragePeminat(peminatArray) {
+  const filteredPeminat = peminatArray.filter((peminat) => peminat !== 0);
+  if (filteredPeminat.length === 0) {
+    return 0; // Mengembalikan 0 jika tidak ada nilai selain 0
+  }
+  const sum = filteredPeminat.reduce((acc, val) => acc + val, 0);
+  return sum / filteredPeminat.length;
+}
+
 export default function Kampus({ allKampus, allPost, definisiProdi }) {
+  const [ranking, setRanking] = useState();
+  const [rataMinat, setRataPeminat] = useState();
+
   const [showNavbar, setShowNavbar] = useState(false);
   const navbarRef = useRef(null);
   useEffect(() => {
@@ -52,6 +65,7 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
   const [pilihanKampus, setPilihanKampus] = useState([]);
   const [pilihanProdi, setPilihanProdi] = useState([]);
   const [disableprodi, setDisableProdi] = useState(false);
+  // console.log(pilihanKampus);
 
   const AllNamaKampus = allKampus.map((item, index) => item.nama_kampus);
 
@@ -66,6 +80,7 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
   const kampusPunyaPilihanProdi = allKampus.filter((kampus) => {
     return kampus.prodi.some((prodi) => prodi.nama_prodi === namaProdi);
   });
+  // console.log(namaProdi);
   const filteredKampus = kampusPunyaPilihanProdi.filter(
     (item) => item.nama_kampus !== pilihanKampus
   );
@@ -76,15 +91,17 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
 
   const dataKampus = allKampus.find(
     (item) => item.nama_kampus == pilihanKampus
-  ); //identifikasi nama kampus
-
+  ); //identifikasi kampus
   const prodi = dataKampus?.prodi || [];
+  const jmlProdi = prodi.length;
   const DataProdiYangDiKlik = prodi.find(
     (item) => item.kode_prodi == pilihanProdi
   );
+  // console.log(DataProdiYangDiKlik);
   const dataTahun = DataProdiYangDiKlik?.tahun || [];
   const dataDayaTampung = DataProdiYangDiKlik?.daya_tampung || [];
   const dataPeminat = DataProdiYangDiKlik?.peminat || [];
+  // console.log(dataPeminat);
   const dataKeketatan = dataDayaTampung.map((item, index) =>
     ((item / dataPeminat[index]) * 100).toFixed(3)
   );
@@ -113,6 +130,66 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
     setPilihanProdi(e.target.value);
     // setDisableProdi(true);
   };
+
+  // Menghitung rata-rata peminat untuk setiap nama_prodi
+  const averagePeminatData = prodi.map((item) => ({
+    nama_prodi: item.nama_prodi,
+    rata_rata_peminat: calculateAveragePeminat(item.peminat),
+  }));
+
+  // Mengurutkan data berdasarkan rata-rata peminat dari yang paling besar ke yang paling kecil
+  averagePeminatData.sort((a, b) => b.rata_rata_peminat - a.rata_rata_peminat);
+  // console.log(averagePeminatData);
+  // Mencari peringkat nama_prodi tertentu
+  const targetProdiNama = namaProdi; // Ganti dengan nama_prodi yang ingin Anda cari
+  // console.log(targetProdiNama);
+  const targetProdi = averagePeminatData.find(
+    (prodi) => prodi.nama_prodi === targetProdiNama
+  );
+  useEffect(() => {
+    if (targetProdi) {
+      const ranking = averagePeminatData.indexOf(targetProdi) + 1;
+      setRataPeminat(targetProdi.rata_rata_peminat);
+      setRanking(ranking);
+      // console.log(ranking);
+    } else {
+      console.log(``);
+    }
+  }, [targetProdi]);
+
+  // Membuat kategori popularitas prodi
+  // Jml total prodi=jmlProdi
+  // Peringkat prodi=ranking
+  // Menghitung jumlah prodi dalam setiap kategori (dibagi menjadi 5 kategori)
+  const prodiPerKategori = Math.floor(jmlProdi / 5);
+  // console.log(jmlProdi);
+  // console.log(ranking);
+  // console.log(rataMinat);
+  // console.log(filteredKampus);
+  // console.log(defProdi);
+  // Menentukan batas peringkat untuk setiap kategori
+  const batasSangatPopuler = prodiPerKategori; // Misalnya, 13 prodi pertama
+  const batasPopuler = 2 * prodiPerKategori; // Misalnya, prodi ke-14 hingga ke-26
+  const batasCukupPopuler = 3 * prodiPerKategori; // Misalnya, prodi ke-27 hingga ke-39
+  const batasTidakPopuler = 4 * prodiPerKategori; // Misalnya, prodi ke-40 hingga ke-52
+
+  // Klasifikasi prodi ke dalam kategori
+  function klasifikasikanProdi(ranking) {
+    if (ranking <= batasSangatPopuler) {
+      return "Sangat Populer";
+    } else if (ranking <= batasPopuler) {
+      return "Populer";
+    } else if (ranking <= batasCukupPopuler) {
+      return "Cukup Populer";
+    } else if (ranking <= batasTidakPopuler) {
+      return "Tidak Populer";
+    } else {
+      return "Sangat Tidak Populer";
+    }
+  }
+
+  // Menggunakan contoh peringkat prodi kedokteran
+  const kategoriProdi = klasifikasikanProdi(ranking);
 
   return (
     <>
@@ -259,7 +336,9 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
                     )}
                   </div>
                   <div className="mb-4 shadow-md p-3">
-                    <p className="font-semibold text-orange-400">Peminat</p>
+                    <p className="font-semibold text-orange-400">
+                      Tren Peminat
+                    </p>
                     {pilihanProdi.length === 0 ? (
                       <p className="text-xs text-red-900 italic">
                         Tidak ada data
@@ -326,6 +405,37 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
                           Catatan : Tiap kampus memiliki penamaan prodi yang
                           berbeda-beda sehingga tidak semua kampus dengan prodi
                           yang kamu pilih bisa muncul.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                  <div className="shadow-md p-3 mb-4">
+                    <p className="font-semibold text-orange-400">
+                      Tingkat Popularitas
+                    </p>
+
+                    {!ranking ? (
+                      <div>
+                        <p className="text-xs text-red-900 italic">
+                          Tidak ada data
+                        </p>
+                      </div>
+                    ) : (
+                      <div className="text-sm p-2">
+                        <p className="text-sm mb-1">
+                          Prodi yang kamu pilih menduduki peringkat{" "}
+                          <span className="font-bold">
+                            {ranking} dari {jmlProdi} prodi
+                          </span>{" "}
+                          yang ada dikampus ini dengan rata-rata jumlah
+                          peminatnya adalah{" "}
+                          <span className="font-bold">
+                            {Math.ceil(rataMinat)} orang.{" "}
+                          </span>
+                          Prodi pilihanmu termasuk{" "}
+                          <span className="uppercase font-bold text-green-900">
+                            {kategoriProdi}
+                          </span>
                         </p>
                       </div>
                     )}

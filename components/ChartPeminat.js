@@ -14,16 +14,17 @@ const ChartPeminat = ({ data }) => {
 
     chartInstance = new Chart(ctx, {
       // Chart configuration
-      type: "bar",
+      type: "line",
       data: {
         labels: data.labels,
         datasets: [
           {
-            label: "Peminat",
+            label: "Jumlah Peminat",
             data: data.values,
             backgroundColor: "#e879f9", // Warna latar belakang batang
             borderColor: "#d946ef", // Warna garis batang
             borderWidth: 1,
+            fill: false, // Menghapus pengisian area di bawah garis
           },
         ],
       },
