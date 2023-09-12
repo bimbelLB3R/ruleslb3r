@@ -59,7 +59,7 @@ const AccordianEng = ({ allEnglish }) => {
                             />
                           </svg>
                         </div>
-                        <div>{item.title}</div>
+                        <div>{item.description}</div>
                       </Link>
                     </div>
                   ))}

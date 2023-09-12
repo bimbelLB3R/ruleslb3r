@@ -71,7 +71,7 @@ export default function Youtube({ videoId, bab, allMath, theme, allEnglish }) {
                   </svg>
                 </div>
                 <div className={item.id == id ? " text-red-900" : ""}>
-                  {item.title}
+                  {theme ? item.description : item.title}
                 </div>
               </Link>
             </div>

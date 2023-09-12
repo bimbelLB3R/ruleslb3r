@@ -85,6 +85,15 @@ export default function DropdownMenuLayanan() {
             >
               Cek Keketatan Prodi
             </Link>
+            <Link
+              href="https://www.jambore.temubakat.com"
+              className="text-gray-700 block px-4 py-2 text-sm hover:bg-slate-200"
+              role="menuitem"
+              tabIndex="-1"
+              // id="menu-item-1"
+            >
+              Assesment Talents Mapping
+            </Link>
           </div>
         </div>
       </div>
