@@ -51,7 +51,7 @@ export default function Profile({ biodata }) {
                   key={index}
                   className="flex items-center justify-center p-2 m-auto"
                 >
-                  <image src={item[20]} />
+                  <img src={item[20]} />
                   {/* <div className="p-2 bg-blue-200 shadow-sm shadow-amber-600 m-2 rounded-lg">
                     <p className="font-semibold">Pilihan Jurusan</p>
                     <p>
