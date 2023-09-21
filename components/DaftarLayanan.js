@@ -45,7 +45,19 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
   // const [isNamaEmpty, setIsNamaEmpty] = useState(false);
   const [isKelasEmpty, setIsKelasEmpty] = useState(false);
   const [isAsalSekolahEmpty, setIsAsalSekolahEmpty] = useState(false);
+  const [isTtlEmpty, setIsTtlEmpty] = useState(false);
+  const [isInstagramEmpty, setIsInstagramEmpty] = useState(false);
+  const [isAlamatEmpty, setIsAlamatEmpty] = useState(false);
   const [isWaEmpty, setIsWaEmpty] = useState(false);
+  const [isWaOrtuEmpty, setIsWaOrtuEmpty] = useState(false);
+  const [isAyahEmpty, setIsAyahEmpty] = useState(false);
+  const [isKerjaAyahEmpty, setIsKerjaAyahEmpty] = useState(false);
+  const [isKantorAyahEmpty, setIsKantorAyahEmpty] = useState(false);
+  const [isIbuEmpty, setIsIbuEmpty] = useState(false);
+  const [isKerjaIbuEmpty, setIsKerjaIbuEmpty] = useState(false);
+  const [isKantorIbuEmpty, setIsKantorIbuEmpty] = useState(false);
+  const [isAlasanEmpty, setIsAlasanEmpty] = useState(false);
+  const [isSumberEmpty, setIsSumberEmpty] = useState(false);
   // const [isEmailEmpty, setIsEmailEmpty] = useState(false);
 
   const namaProgram = detailProgram.nama;
@@ -60,9 +72,21 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
   const router = useRouter();
   const [form, setForm] = useState({
     nama: "",
+    ttl: "",
     kelas: "",
     asalsekolah: "",
+    instagram: "",
+    alamat: "",
     wa: "",
+    waortu: "",
+    ayah: "",
+    kerjaayah: "",
+    kantorayah: "",
+    ibu: "",
+    kerjaibu: "",
+    kantoribu: "",
+    alasan: "",
+    sumber: "",
     email: "",
     program: "",
     biaya: "",
@@ -118,12 +142,36 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
     if (
       // form.email !== "" &&
       // form.nama !== "" &&
+      form.ttl !== "" &&
+      form.ttl.length < 80 &&
       form.kelas !== "" &&
       form.kelas.length < 3 &&
       form.asalsekolah !== "" &&
       form.asalsekolah.length < 31 &&
+      form.instagram !== "" &&
+      form.instagram.length < 20 &&
+      form.alamat !== "" &&
+      form.alamat.length < 100 &&
       form.wa !== "" &&
       form.wa.length < 14 &&
+      form.waortu !== "" &&
+      form.waortu.length < 14 &&
+      form.ayah !== "" &&
+      form.ayah.length < 30 &&
+      form.kerjaayah !== "" &&
+      form.kerjaayah.length < 30 &&
+      form.kantorayah !== "" &&
+      form.kantorayah.length < 30 &&
+      form.ibu !== "" &&
+      form.ibu.length < 30 &&
+      form.kerjaibu !== "" &&
+      form.kerjaibu.length < 30 &&
+      form.kantoribu !== "" &&
+      form.kantoribu.length < 30 &&
+      form.alasan !== "" &&
+      form.alasan.length < 100 &&
+      form.sumber !== "" &&
+      form.sumber.length < 30 &&
       form.program !== "" &&
       form.biaya !== ""
     ) {
@@ -135,9 +183,21 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
       if (canSubmit) {
         const newRow = {
           nama: session.user.name,
+          ttl: form.ttl,
           kelas: form.kelas,
           asalsekolah: form.asalsekolah,
+          instagram: form.instagram,
+          alamat: form.alamat,
           wa: form.wa,
+          waortu: form.waortu,
+          ayah: form.ayah,
+          kerjaayah: form.kerjaayah,
+          kantorayah: form.kantorayah,
+          ibu: form.ibu,
+          kerjaibu: form.kerjaibu,
+          kantoribu: form.kantoribu,
+          alasan: form.alasan,
+          sumber: form.sumber,
           email: session.user.email,
           program: form.program,
           biaya: form.biaya,
@@ -176,9 +236,21 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
 
         const newRowWithRedirect = {
           nama: session.user.name,
+          ttl: form.ttl,
           kelas: form.kelas,
           asalsekolah: form.asalsekolah,
+          instagram: form.instagram,
+          alamat: form.alamat,
           wa: form.wa,
+          waortu: form.waortu,
+          ayah: form.ayah,
+          kerjaayah: form.kerjaayah,
+          kantorayah: form.kantorayah,
+          ibu: form.ibu,
+          kerjaibu: form.kerjaibu,
+          kantoribu: form.kantoribu,
+          alasan: form.alasan,
+          sumber: form.sumber,
           email: session.user.email,
           program: form.program,
           biaya: form.biaya,
@@ -256,9 +328,21 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
     if (
       // form.nama &&
       session &&
+      form.ttl !== "" &&
       form.kelas !== "" &&
       form.asalsekolah !== "" &&
-      form.wa !== ""
+      form.instagram !== "" &&
+      form.alamat !== "" &&
+      form.wa !== "" &&
+      form.waortu !== "" &&
+      form.ayah !== "" &&
+      form.kerjaayah !== "" &&
+      form.kantorayah !== "" &&
+      form.ibu !== "" &&
+      form.kerjaibu !== "" &&
+      form.kantoribu !== "" &&
+      form.alasan !== "" &&
+      form.sumber !== ""
       // form.email
     ) {
       setShowButton(true); // menampilkan tombol
@@ -361,6 +445,38 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
             </div>
             <div className="relative">
               <input
+                name="ttl"
+                type="text"
+                id="floating_outlined5"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isTtlEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.ttl === "" || form.ttl.length > 80) {
+                    setIsTtlEmpty(true);
+                  } else {
+                    setIsTtlEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined5"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Tempat,tanggal lahir
+              </label>
+              {isTtlEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 80 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
                 name="kelas"
                 type="number"
                 id="floating_outlined4"
@@ -425,6 +541,70 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
             </div>
             <div className="relative">
               <input
+                name="instagram"
+                type="text"
+                id="floating_outlined5"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isInstagramEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.instagram === "" || form.instagram.length > 20) {
+                    setIsInstagramEmpty(true);
+                  } else {
+                    setIsInstagramEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined5"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Akun Instagram
+              </label>
+              {isInstagramEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 20 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="alamat"
+                type="text"
+                id="floating_outlined5"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isAlamatEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.alamat === "" || form.alamat.length > 100) {
+                    setIsAlamatEmpty(true);
+                  } else {
+                    setIsAlamatEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined5"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Alamat rumah domisili
+              </label>
+              {isAlamatEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 100 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
                 name="wa"
                 type="number"
                 id="floating_outlined6"
@@ -447,11 +627,299 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 htmlFor="floating_outlined6"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
               >
-                Nomor WA Aktif
+                Nomor WA Aktif Siswa
               </label>
               {isWaEmpty && (
                 <p className="text-red-500 text-xs">
                   Wajib diisi angka (maks 13 digit)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="waortu"
+                type="number"
+                id="floating_outlined6"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isWaOrtuEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.waortu === "" || form.waortu.length > 13) {
+                    setIsWaOrtuEmpty(true);
+                  } else {
+                    setIsWaOrtuEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined6"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Nomor WA Orang Tua
+              </label>
+              {isWaOrtuEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi angka (maks 13 digit)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="ayah"
+                type="text"
+                id="floating_outlined5"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isAyahEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.ayah === "" || form.ayah.length > 30) {
+                    setIsAyahEmpty(true);
+                  } else {
+                    setIsAyahEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined5"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Nama Ayah
+              </label>
+              {isAyahEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 30 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="kerjaayah"
+                type="text"
+                id="floating_outlined5"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isKerjaAyahEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.kerjaayah === "" || form.kerjaayah.length > 30) {
+                    setIsKerjaAyahEmpty(true);
+                  } else {
+                    setIsKerjaAyahEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined5"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Pekerjaan Ayah
+              </label>
+              {isKerjaAyahEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 30 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="kantorayah"
+                type="text"
+                id="floating_outlined5"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isKantorAyahEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.kantorayah === "" || form.kantorayah.length > 30) {
+                    setIsKantorAyahEmpty(true);
+                  } else {
+                    setIsKantorAyahEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined5"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Nama Tempat Kerja Ayah
+              </label>
+              {isKantorAyahEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 30 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="ibu"
+                type="text"
+                id="floating_outlined5"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isIbuEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.ibu === "" || form.ibu.length > 30) {
+                    setIsIbuEmpty(true);
+                  } else {
+                    setIsIbuEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined5"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Nama Ibu
+              </label>
+              {isIbuEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 30 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="kerjaibu"
+                type="text"
+                id="floating_outlined5"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isKerjaIbuEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.kerjaibu === "" || form.kerjaibu.length > 30) {
+                    setIsKerjaIbuEmpty(true);
+                  } else {
+                    setIsKerjaIbuEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined5"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Pekerjaan Ibu
+              </label>
+              {isKerjaIbuEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 30 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="kantoribu"
+                type="text"
+                id="floating_outlined5"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isKantorIbuEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.kantoribu === "" || form.kantoribu.length > 30) {
+                    setIsKantorIbuEmpty(true);
+                  } else {
+                    setIsKantorIbuEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined5"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Nama Tempat Kerja Ibu
+              </label>
+              {isKantorIbuEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 30 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="alasan"
+                type="text"
+                id="floating_outlined5"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isAlasanEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.alasan === "" || form.alasan.length > 100) {
+                    setIsAlasanEmpty(true);
+                  } else {
+                    setIsAlasanEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined5"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Alasan Les di LB3R
+              </label>
+              {isAlasanEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 100 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="sumber"
+                type="text"
+                id="floating_outlined5"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isSumberEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.sumber === "" || form.sumber.length > 30) {
+                    setIsSumberEmpty(true);
+                  } else {
+                    setIsSumberEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined5"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Dapat Informasi LB3R dari
+              </label>
+              {isSumberEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 30 karakter)
                 </p>
               )}
             </div>
