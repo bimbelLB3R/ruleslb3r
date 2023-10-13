@@ -925,7 +925,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
             </div>
 
             <p className="w-full bg-slate-500 p-2 text-slate-100">
-              PROGRAM YANG KAMU PILIH
+              CENTANG SEMUA PILIHAN DI BAWAH INI
             </p>
             <div className="flex items-center space-x-2">
               <input
