@@ -83,7 +83,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
 
         <div
           id="nav"
-          className="bg-gradient-to-b from-red-500 to-white p-3 md:hidden fixed  top-0 z-40 w-full shadow shadow-slate-400"
+          className="bg-orange-300 p-3 md:hidden fixed  top-0 z-40 w-full shadow shadow-slate-400"
         >
           <div className="absolute right-0 -top-6 ">
             <Image
@@ -184,7 +184,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
             <div
               className={`${
                 isMenuOpen
-                  ? 'block fixed top-5 z-30 mt-[90px] md:relative w-full bg-slate-100 md:hidden h-screen shadow shadow-slate-300"'
+                  ? 'block fixed top-5 z-30 mt-[90px] md:relative w-full bg-orange-100 md:hidden h-screen shadow shadow-slate-300"'
                   : "hidden  bg-slate-100  uppercase font-semibold text-slate-600"
               }`}
             >

@@ -21,7 +21,7 @@
     {
       "idProgram": "SnbtLB3R",
       "keterangan": "",
-      "nama": "Program UTBK SNBT",
+      "nama": "Program Intensif UTBK SNBT",
       "slug": "program-utbk-snbt",
       "biaya": 1000000,
       "total": 1000000,
@@ -34,6 +34,25 @@
         "Pembahasan langsung di kelas",
         "Konsultasi Pemilihan Jurusan",
         "Free T-Shirt senilai 100.000 bagi yang lolos SNBT"
+      ]
+    },
+    {
+      "idProgram": "SnbtLB3R-2",
+      "keterangan": "Populer",
+      "nama": "Program Eksklusif UTBK SNBT 2024",
+      "slug": "program-utbk-snbt-eksklusif",
+      "biaya": 2000000,
+      "total": 2000000,
+      "rincian": "Biaya Pendaftaran, Les dan FC Soal",
+      "frekuensi": "sekali bayar",
+      "fasilitas": [
+        "Masuk selama bulan januari sampai maret",
+        "Masuk 2-4 kali per minggu (tentatif)",
+        "Durasi waktu 2 jam per hari (tentatif)",
+        "Mendapatkan FC Soal sesuai aturan SNBT",
+        "Pembahasan langsung di kelas",
+        "Konsultasi Pemilihan Jurusan",
+        "Pendampingan sampai pengumuman"
       ]
     },
     {

@@ -86,6 +86,13 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
                 ) : (
                   ""
                 )}
+                {program.keterangan === "Populer" ? (
+                  <div className="animate__animated  animate__slideInDown absolute rounded-b-2xl shadow-lg right-0 top-0 p-2 bg-purple-500 text-xl text-gray-900 font-bold">
+                    Populer
+                  </div>
+                ) : (
+                  ""
+                )}
                 {program.keterangan === "Free/Gratis" ? (
                   <div className="animate__animated  animate__slideInDown absolute rounded-b-2xl shadow-lg right-0 top-0 p-2 bg-gray-500 text-xl text-gray-900 font-bold">
                     Free/Gratis
@@ -93,7 +100,7 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
                 ) : (
                   ""
                 )}
-                <p className="font-semibold text-slate-800 tracking-wider underline underline-offset-4 decoration-4 decoration-orange-600 ">
+                <p className="w-2/3 font-semibold text-slate-800 tracking-wider underline underline-offset-4 decoration-4 decoration-orange-600 ">
                   {program.nama}
                 </p>
                 <div className="flex items-center justify-center">
