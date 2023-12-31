@@ -133,8 +133,8 @@ const Home = ({ allPost, dataAlumni }) => {
       <Layout>
         <BayarLes />
         <ImageSlide />
-        <Welcome />
         <ButtonUmum />
+        <Welcome />
         <BluryBg />
         <Faq />
         {/* <InfoTerbaru /> */}

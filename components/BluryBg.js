@@ -10,12 +10,12 @@ export default function BluryBg() {
         <div className="absolute -bottom-8 left-20 w-36 md:w-72 h-36 md:h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
         {/* atas bg */}
         <div className="md:m-8 relative space-y-4">
-          <div className="p-2 md:p-5 bg-yellow-100 rounded-lg flex items-center justify-center space-x-3">
+          <div className="p-2 md:p-5 bg-purple-600 rounded-lg flex items-center justify-center space-x-3">
             <div>
-              <p className="font-black">AMBAK (Apa Manfaat Bagiku)</p>
+              <p className="font-black text-gray-50">KEUNGGULAN</p>
             </div>
           </div>
-          <div className="p-2 md:p-5 bg-white/50 text-yellow-900/80 rounded-lg flex items-center  space-x-3">
+          <div className="p-2 md:p-5 bg-purple-400/50 text-yellow-900/80 rounded-lg flex items-center  space-x-3">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,7 @@ export default function BluryBg() {
               kelasmu ya..
             </div>
           </div>
-          <div className="p-2 md:p-5 bg-white/50 text-yellow-900/80 rounded-lg flex items-center  space-x-3">
+          <div className="p-2 md:p-5 bg-purple-400/50 text-yellow-900/80 rounded-lg flex items-center  space-x-3">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@ export default function BluryBg() {
               Off sementara dan lanjut les lagi bulan depan (cek tatibnya ya)
             </div>
           </div>
-          <div className="p-2 md:p-5 bg-white/50 text-yellow-900/80 rounded-lg flex items-center  space-x-3">
+          <div className="p-2 md:p-5 bg-purple-400/50 text-yellow-900/80 rounded-lg flex items-center  space-x-3">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@ export default function BluryBg() {
               Lebih efektif belajar bersama teman dari sekolah/kelas yang sama
             </div>
           </div>
-          <div className="p-2 md:p-5 bg-white/50 text-yellow-900/80 rounded-lg flex items-center  space-x-3">
+          <div className="p-2 md:p-5 bg-purple-400/50 text-yellow-900/80 rounded-lg flex items-center  space-x-3">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@ export default function BluryBg() {
               masing-masing
             </div>
           </div>
-          <div className="p-2 md:p-5 bg-white/50 text-yellow-900/80 rounded-lg flex items-center  space-x-3">
+          <div className="p-2 md:p-5 bg-purple-400/50 text-yellow-900/80 rounded-lg flex items-center  space-x-3">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

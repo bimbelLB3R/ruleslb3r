@@ -83,9 +83,9 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
 
         <div
           id="nav"
-          className="bg-orange-300 p-3 md:hidden fixed  top-0 z-40 w-full shadow shadow-slate-400"
+          className="bg-gray-100 p-3 md:hidden fixed  top-0 z-40 w-full shadow shadow-slate-400"
         >
-          <div className="absolute right-0 -top-6 ">
+          {/* <div className="absolute right-0 -top-6 ">
             <Image
               src="/image/petaindo.png"
               width={300}
@@ -94,7 +94,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
               priority={true}
               className="opacity-50"
             />
-          </div>
+          </div> */}
           <div className="flex justify-between ">
             <div className="flex items-center space-x-2">
               <Link href="/">

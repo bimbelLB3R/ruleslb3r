@@ -7,7 +7,7 @@ import Image from "next/image";
 export default class ImageSlide extends Component {
   render() {
     return (
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center bg-gradient-to-b from-purple-800  to-purple-500">
         <div className="md:max-w-2xl  overflow-hidden">
           {/* <h2>NextJs Carousel - GeeksforGeeks</h2> */}
           <Carousel
