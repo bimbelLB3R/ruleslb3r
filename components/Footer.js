@@ -4,48 +4,48 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <footer className="bg-orange-400 ">
+      <footer className="bg-orange-400/50 ">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
           <div className="flex justify-center text-center">
             <div>
               <div className="flex space-x-2 items-center justify-center mb-4">
                 <Link href="/kampusku">
-                  <p className="text-xs text-gray-50 bg-purple-600 p-1 underline underline-offset-2 decoration-2 decoration-purple-600">
+                  <p className="text-xs rounded-lg bg-gradient-to-b from-yellow-400 to-white  text-purple-800 p-1  decoration-2 decoration-purple-600">
                     Cek Keketatan Prodi SNBT
                   </p>
                 </Link>
               </div>
               <div className="flex space-x-2 items-center justify-center mb-4">
                 <Link href="/blogs">
-                  <p className="text-xs text-gray-50 bg-purple-600 p-1 underline underline-offset-2 decoration-2 decoration-purple-600">
+                  <p className="text-xs rounded-lg bg-gradient-to-b from-yellow-400 to-white  text-purple-800 p-1  decoration-2 decoration-purple-600">
                     Berita
                   </p>
                 </Link>
                 <Link href="/layanan">
-                  <p className="text-xs text-gray-50 bg-purple-600 p-1 underline underline-offset-2 decoration-2 decoration-purple-600">
+                  <p className="text-xs rounded-lg bg-gradient-to-b from-yellow-400 to-white  text-purple-800 p-1  decoration-2 decoration-purple-600">
                     Program
                   </p>
                 </Link>
                 <Link href="/layanan/bayarles">
-                  <p className="text-xs text-gray-50 bg-purple-600 p-1 underline underline-offset-2 decoration-2 decoration-purple-600">
+                  <p className="text-xs rounded-lg bg-gradient-to-b from-yellow-400 to-white  text-purple-800 p-1  decoration-2 decoration-purple-600">
                     Bayar Les
                   </p>
                 </Link>
                 <Link href="/form/login">
-                  <p className="text-xs text-gray-50 bg-purple-600 p-1 underline underline-offset-2 decoration-2 decoration-purple-600">
+                  <p className="text-xs rounded-lg bg-gradient-to-b from-yellow-400 to-white  text-purple-800 p-1  decoration-2 decoration-purple-600">
                     Try Out SNBT
                   </p>
                 </Link>
               </div>
               <div className="flex space-x-2 items-center justify-center">
                 <Link href="/user/term">
-                  <p className="text-xs text-gray-50 bg-purple-600 p-1 underline underline-offset-2 decoration-2 decoration-purple-600">
+                  <p className="text-xs rounded-lg bg-gradient-to-b from-yellow-400 to-white  text-purple-800 p-1  decoration-2 decoration-purple-600">
                     Tata Tertib
                   </p>
                 </Link>
                 <Link href="/user/privacy">
-                  <p className="text-xs text-gray-50 bg-purple-600 p-1 underline underline-offset-2 decoration-2 decoration-purple-600">
+                  <p className="text-xs rounded-lg bg-gradient-to-b from-yellow-400 to-white  text-purple-800 p-1  decoration-2 decoration-purple-600">
                     Kerahasiaan Data
                   </p>
                 </Link>
