@@ -439,6 +439,7 @@ const BayarLes = ({ allPost }) => {
                 <option value="">Pilih Bulan</option>
                 <option value={bulanSekarang}>{bulanSekarang}</option>
                 <option value="Biaya Pendaftaran">Biaya Pendaftaran</option>
+                <option value="Biaya Lainnya">Biaya Lainnya</option>
               </select>
               {isbulanEmpty && (
                 <p className="text-red-500 text-xs mb-2">Wajib diisi</p>
@@ -462,7 +463,7 @@ const BayarLes = ({ allPost }) => {
                 <option value="175000">Rp 175.000,-</option>
                 <option value="185000">Rp 185.000,-</option>
                 <option value="195000">Rp 195.000,-</option>
-                <option value="1000">Rp 1.000,-</option>
+                <option value="1500000">Rp 1.500.000,-</option>
                 <option value="35000">Rp 35.000,-</option>
                 <option value="40000">Rp 40.000,-</option>
                 <option value="45000">Rp 45.000,-</option>
