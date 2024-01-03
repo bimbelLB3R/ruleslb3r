@@ -9,8 +9,6 @@ import DropdownMenuSNBT from "./DropdownMenuSNBT";
 import DropdownMenuLayanan from "./DropdownMenuLayanan";
 import { signIn, signOut, useSession } from "next-auth/react";
 import DropdownMenuProfile from "./DropdownMenuProfile";
-import ImageSlide from "./ImageSlide";
-import ImageSlide2 from "./ImageSlide2";
 
 const Navbar = forwardRef(({ allPost, ...props }, ref) => {
   const { data: session } = useSession();
