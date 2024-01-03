@@ -15,7 +15,7 @@ import { getBlogsData } from "../utils/blogsApi";
 import InfoTerbaru from "../components/InfoTerbaru";
 import { getDataAlumni } from "../utils/alumniApi";
 import Swal from "sweetalert2";
-import Service from "../components/service";
+import Service from "../components/Layanan2024";
 
 const Home = ({ allPost, dataAlumni }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
