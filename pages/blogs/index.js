@@ -7,6 +7,7 @@ import BeritaTerbaru from "../../components/BeritaTerbaru";
 import ArtikelTutorial from "../../components/ArtikelTutorial";
 import { getBlogsData } from "../../utils/blogsApi";
 import { getTutorialData } from "../../utils/TutorialApi";
+import TombolCari from "../../components/TombolCari";
 export async function getStaticProps() {
   const data = getBlogsData();
   const dataTutorial = getTutorialData();
@@ -83,6 +84,7 @@ export default function BlogsPage({ allPost, allTutorial }) {
         />
       </Transition>
       <Layout>
+        <TombolCari allPost={allPost} />
         <BeritaTerbaru allPost={allPost} />
         <ArtikelTutorial allTutorial={allTutorial} />
       </Layout>

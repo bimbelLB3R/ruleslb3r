@@ -95,6 +95,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
               className="opacity-50"
             />
           </div> */}
+
           <div className="flex justify-between ">
             <div className="flex items-center space-x-2">
               <Link href="/">
@@ -111,7 +112,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
             </div>
 
             <div className="flex items-center space-x-2 absolute z-10 right-4">
-              <TombolCari allPost={allPost} />
+              {/* <TombolCari allPost={allPost} /> */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 ref={menuRef}

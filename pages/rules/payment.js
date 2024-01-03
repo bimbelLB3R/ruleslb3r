@@ -57,8 +57,8 @@ const Payment = ({ allPost }) => {
                 <td className="align-top">3.</td>
                 <td className="text-justify">
                   Pembayaran dapat dilakukan secara cash maupun transfer. Untuk
-                  transfer kami hanya menyediakan rekening Bank BSI Mandiri atau
-                  QRIS
+                  transfer kami menyediakan rekening utama Bank BSI Mandiri dan
+                  rekening lain (fitur bayar les)
                 </td>
               </tr>
               <tr>
@@ -97,6 +97,13 @@ const Payment = ({ allPost }) => {
                 <td className="text-justify">
                   Tidak berlaku sistem pembayaran berdasarkan persentase
                   kehadiran, kecuali untuk kelas tertentu.
+                </td>
+              </tr>
+              <tr>
+                <td className="align-top">9.</td>
+                <td className="text-justify">
+                  Pastikan kalian mendapatkan e-kuitansi sebagai bukti
+                  elektronik pembayaran
                 </td>
               </tr>
             </tbody>
