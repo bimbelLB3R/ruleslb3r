@@ -9,6 +9,8 @@ import DropdownMenuSNBT from "./DropdownMenuSNBT";
 import DropdownMenuLayanan from "./DropdownMenuLayanan";
 import { signIn, signOut, useSession } from "next-auth/react";
 import DropdownMenuProfile from "./DropdownMenuProfile";
+import ImageSlide from "./ImageSlide";
+import ImageSlide2 from "./ImageSlide2";
 
 const Navbar = forwardRef(({ allPost, ...props }, ref) => {
   const { data: session } = useSession();
@@ -116,7 +118,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 ref={menuRef}
-                className="text-red-900 "
+                className="text-purple-600 "
                 title="Toggle Menu"
               >
                 {session ? (
@@ -149,7 +151,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
               </button>
             </div>
           </div>
-          <div className="flex items-center space-x-3   ">
+          <div className="flex items-center space-x-3">
             <div className="">
               <Link href="https://maps.app.goo.gl/P9qk89mYJ2piQr8j9">
                 <svg
@@ -185,41 +187,42 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
             <div
               className={`${
                 isMenuOpen
-                  ? 'block fixed top-5 z-30 mt-[90px] md:relative w-full bg-orange-100 md:hidden h-screen shadow shadow-slate-300"'
+                  ? 'block fixed top-5 z-30 mt-[90px] md:relative w-full left-0 bg-gray-900/80 md:hidden h-screen shadow shadow-slate-300"'
                   : "hidden  bg-slate-100  uppercase font-semibold text-slate-600"
               }`}
             >
               {/* button */}
               <div className="overflow-auto">
-                <div className="flex justify-center md:hidden  overflow-auto ">
-                  <div className="w-full flex flex-wrap p-2 justify-center">
+                <div className="flex justify-center items-center md:hidden  overflow-auto ">
+                  <div className="w-full flex flex-wrap p-2 justify-center items-center mt-10">
                     <Link href="/" title="Home">
-                      <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded w-[100px] h-[100px] flex items-center justify-center">
+                      <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div>
                           <div className="text-center">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
                               fill="currentColor"
-                              className="w-6 h-6 "
+                              className="w-10 h-10 "
                             >
                               <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
                               <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
                             </svg>
+                            <p>Home</p>
                           </div>
-                          <p>HOME</p>
+                          {/* <p>HOME</p> */}
                         </div>
                       </div>
                     </Link>
                     <Link href="/layanan">
-                      <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded w-[100px] h-[100px] flex items-center justify-center">
+                      <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
                               fill="currentColor"
-                              className="w-6 h-6"
+                              className="w-10 h-10"
                             >
                               <path
                                 fillRule="evenodd"
@@ -228,21 +231,22 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                               />
                               <path d="M5.26 17.242a.75.75 0 10-.897-1.203 5.243 5.243 0 00-2.05 5.022.75.75 0 00.625.627 5.243 5.243 0 005.022-2.051.75.75 0 10-1.202-.897 3.744 3.744 0 01-3.008 1.51c0-1.23.592-2.323 1.51-3.008z" />
                             </svg>
+                            <p>Service</p>
                           </div>
-                          <p>LAYANAN</p>
+                          {/* <p>LAYANAN</p> */}
                         </div>
                       </div>
                     </Link>
                     {/* <DropdownMenuLayanan /> */}
                     <Link href="/blogs">
-                      <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded w-[100px] h-[100px] flex items-center justify-center">
+                      <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
                               fill="currentColor"
-                              className="w-6 h-6"
+                              className="w-10 h-10"
                             >
                               <path
                                 fillRule="evenodd"
@@ -250,42 +254,22 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                                 clipRule="evenodd"
                               />
                             </svg>
+                            <p>Blog</p>
                           </div>
-                          <p>BLOG</p>
+                          {/* <p>BLOG</p> */}
                         </div>
                       </div>
                     </Link>
 
-                    <Link href="/form/newmember">
-                      <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded w-[100px] h-[100px] flex items-center justify-center">
-                        <div className="">
-                          <div>
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 24 24"
-                              fill="currentColor"
-                              className="w-6 h-6"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M1.5 6.375c0-1.036.84-1.875 1.875-1.875h17.25c1.035 0 1.875.84 1.875 1.875v3.026a.75.75 0 01-.375.65 2.249 2.249 0 000 3.898.75.75 0 01.375.65v3.026c0 1.035-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 011.5 17.625v-3.026a.75.75 0 01.374-.65 2.249 2.249 0 000-3.898.75.75 0 01-.374-.65V6.375zm15-1.125a.75.75 0 01.75.75v.75a.75.75 0 01-1.5 0V6a.75.75 0 01.75-.75zm.75 4.5a.75.75 0 00-1.5 0v.75a.75.75 0 001.5 0v-.75zm-.75 3a.75.75 0 01.75.75v.75a.75.75 0 01-1.5 0v-.75a.75.75 0 01.75-.75zm.75 4.5a.75.75 0 00-1.5 0V18a.75.75 0 001.5 0v-.75zM6 12a.75.75 0 01.75-.75H12a.75.75 0 010 1.5H6.75A.75.75 0 016 12zm.75 2.25a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z"
-                                clipRule="evenodd"
-                              />
-                            </svg>
-                          </div>
-                          <p>DAFTAR SNBT</p>
-                        </div>
-                      </div>
-                    </Link>
                     <Link href="/form/login">
-                      <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded w-[100px] h-[100px] flex items-center justify-center">
+                      <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
                               fill="currentColor"
-                              className="w-6 h-6"
+                              className="w-10 h-10"
                             >
                               <path
                                 fillRule="evenodd"
@@ -298,30 +282,14 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                                 clipRule="evenodd"
                               />
                             </svg>
+                            <p>SNBT</p>
                           </div>
-                          <p>MULAI TRY OUT SNBT</p>
+                          {/* <p>MULAI TRY OUT SNBT</p> */}
                         </div>
                       </div>
                     </Link>
                     <Link href="/kampusku">
-                      <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded w-[100px] h-[100px] flex items-center justify-center">
-                        <div className="">
-                          <div>
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 24 24"
-                              fill="currentColor"
-                              className="w-6 h-6"
-                            >
-                              <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z" />
-                            </svg>
-                          </div>
-                          <p>CEK KEKETATAN PRODI</p>
-                        </div>
-                      </div>
-                    </Link>
-                    <Link href="/user/term">
-                      <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded w-[100px] h-[100px] flex items-center justify-center">
+                      <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
@@ -330,7 +298,32 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                               viewBox="0 0 24 24"
                               strokeWidth="1.5"
                               stroke="currentColor"
-                              className="w-6 h-6"
+                              className="w-10 h-10"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
+                              />
+                            </svg>
+
+                            <p>Kampus</p>
+                          </div>
+                          {/* <p>CEK KEKETATAN PRODI</p> */}
+                        </div>
+                      </div>
+                    </Link>
+                    <Link href="/user/term">
+                      <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                        <div className="">
+                          <div>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth="1.5"
+                              stroke="currentColor"
+                              className="w-10 h-10"
                             >
                               <path
                                 strokeLinecap="round"
@@ -338,13 +331,14 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                                 d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z"
                               />
                             </svg>
+                            <p>Tatib</p>
                           </div>
-                          <p>CEK TATA TERTIB & KETENTUAN</p>
+                          {/* <p>CEK TATA TERTIB & KETENTUAN</p> */}
                         </div>
                       </div>
                     </Link>
                     <Link href="https://www.jambore.temubakat.com">
-                      <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded w-[100px] h-[100px] flex items-center justify-center">
+                      <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
@@ -353,7 +347,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                               viewBox="0 0 24 24"
                               strokeWidth="1.5"
                               stroke="currentColor"
-                              className="w-6 h-6"
+                              className="w-10 h-10"
                             >
                               <path
                                 strokeLinecap="round"
@@ -361,8 +355,9 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                                 d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33"
                               />
                             </svg>
+                            <p>Bakat</p>
                           </div>
-                          <p>ASSESMENT TALENTS MAPPING</p>
+                          {/* <p>ASSESMENT TALENTS MAPPING</p> */}
                         </div>
                       </div>
                     </Link>
@@ -371,7 +366,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                 <div className="md:hidden ">
                   <div>
                     {session ? (
-                      <div className="flex items-center justify-end p-2 underline">
+                      <div className="flex items-center justify-end p-2 underline text-slate-50">
                         <div>
                           <div>
                             <a
@@ -389,25 +384,15 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                       </div>
                     ) : (
                       <div>
-                        <div className="flex items-center space-x-2 justify-center font-roboto mt-4">
+                        <div className="flex items-center space-x-2 justify-center font-roboto mt-4 ">
                           <button
                             type="submit"
                             name="loginGoogle"
                             onClick={() => signIn()}
-                            className="underline"
+                            className="underline  bg-orange-600   text-slate-50 px-3 py-3 rounded-xl"
                           >
-                            Login dengan
+                            Login dengan Google
                           </button>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            fill="currentColor"
-                            className="bi bi-google"
-                            viewBox="0 0 16 16"
-                          >
-                            <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
-                          </svg>
                         </div>
                       </div>
                     )}
