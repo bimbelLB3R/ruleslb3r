@@ -368,7 +368,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
             className="space-y-3 w-full max-w-lg mx-auto p-5"
             onSubmit={submitForm}
           >
-            <p className="font-semibold text-2xl text-center w-full bg-slate-500 p-2 text-slate-100 rounded-lg">
+            <p className="font-semibold text-2xl text-center w-full bg-gradient-to-b from-purple-800  to-purple-500 p-2 text-slate-100 rounded-lg">
               Lengkapi Data
             </p>
             <div className="relative">
@@ -973,7 +973,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                   disabled={isButtonDisabled}
                   id="tombolKirim"
                   type="submit"
-                  className=" w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className=" w-full bg-gradient-to-b from-yellow-400 to-white  text-purple-800 hover:bg-yellow-200 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                 >
                   <p className="text-lg">Lanjutkan</p>
                 </button>

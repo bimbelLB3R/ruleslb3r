@@ -72,7 +72,7 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
             {allProgram.map((program, index) => (
               <div
                 key={index}
-                className={`card bg-gradient-to-br from-rose-200/50 drop-shadow-lg m-4 p-5 border border-slate-300 md:w-[400px] w-[320px] ${
+                className={`card bg-gradient-to-b from-purple-600 drop-shadow-lg m-4 p-5 border border-slate-300 md:w-[400px] w-[320px] ${
                   (program.keterangan === "Best Seller" &&
                     "bg-gradient-to-br from-amber-500/50") ||
                   (program.keterangan === "Free/Gratis" &&
@@ -100,12 +100,14 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
                 ) : (
                   ""
                 )}
-                <p className="w-2/3 font-semibold text-slate-800 tracking-wider underline underline-offset-4 decoration-4 decoration-orange-600 ">
-                  {program.nama}
-                </p>
+                <div className="">
+                  <p className="w-2/3 font-semibold text-slate-800 tracking-wider underline underline-offset-4 decoration-4 decoration-orange-600 ">
+                    {program.nama}
+                  </p>
+                </div>
                 <div className="flex items-center justify-center">
                   <div>
-                    <p className="text-[40px] md:text-[30px] font-bold mt-10">
+                    <p className="text-[40px] md:text-[30px] font-bold mt-10 text-orange-400">
                       {formatCurrency(program.biaya)}
                     </p>
                     <p className="text-center">{program.frekuensi}</p>
@@ -135,8 +137,8 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
                       : `/layanan/${program.slug}`
                   }
                 >
-                  <div className="bg-slate-600 hover:bg-slate-800 mt-5 flex items-center space-x-3 justify-center rounded-full mb-10">
-                    <p className="text-center font-semibold px-2 py-4 text-slate-50">
+                  <div className="bg-gradient-to-b from-yellow-400 to-white  text-purple-800  mt-5 flex items-center space-x-3 justify-center rounded-full mb-10">
+                    <p className="text-center font-semibold px-2 py-4 ">
                       DAFTAR SEKARANG
                     </p>
                     <div className="text-slate-50">

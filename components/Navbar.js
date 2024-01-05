@@ -83,7 +83,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
 
         <div
           id="nav"
-          className="bg-gray-100 p-3 md:hidden fixed  top-0 z-40 w-full shadow shadow-slate-400"
+          className="bg-slate-100 p-3 md:hidden fixed  top-0 z-40 w-full shadow shadow-slate-400"
         >
           {/* <div className="absolute right-0 -top-6 ">
             <Image
@@ -150,28 +150,23 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
             </div>
           </div>
           <div className="flex items-center space-x-3">
-            <div className="">
+            <div className="text-yellow-400">
               <Link href="https://maps.app.goo.gl/P9qk89mYJ2piQr8j9">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="bi bi-pin-map-fill shadow-lg"
-                  viewBox="0 0 16 16"
+                  className="w-8 h-8"
                 >
                   <path
                     fillRule="evenodd"
-                    d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"
-                  />
-                  <path
-                    fillRule="evenodd"
-                    d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                    d="M8.161 2.58a1.875 1.875 0 0 1 1.678 0l4.993 2.498c.106.052.23.052.336 0l3.869-1.935A1.875 1.875 0 0 1 21.75 4.82v12.485c0 .71-.401 1.36-1.037 1.677l-4.875 2.437a1.875 1.875 0 0 1-1.676 0l-4.994-2.497a.375.375 0 0 0-.336 0l-3.868 1.935A1.875 1.875 0 0 1 2.25 19.18V6.695c0-.71.401-1.36 1.036-1.677l4.875-2.437ZM9 6a.75.75 0 0 1 .75.75V15a.75.75 0 0 1-1.5 0V6.75A.75.75 0 0 1 9 6Zm6.75 3a.75.75 0 0 0-1.5 0v8.25a.75.75 0 0 0 1.5 0V9Z"
+                    clipRule="evenodd"
                   />
                 </svg>
               </Link>
             </div>
-            <div className="border-l-2 border-gray-400 pl-1">
+            <div className="border-l-2 border-yellow-400 pl-1 text-yellow-400">
               <p className="text-[10px] font-semibold">Kantor Pusat :</p>
               <p className="text-[10px]">
                 Jalan Ir. P.H.M. Noor RT 10 No. 24 Sulingan
@@ -185,7 +180,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
             <div
               className={`${
                 isMenuOpen
-                  ? 'block fixed top-5 z-30 mt-[90px] md:relative w-full left-0 bg-gray-900/80 md:hidden h-screen shadow shadow-slate-300"'
+                  ? 'block fixed top-5 z-30 mt-[80px] md:relative w-full left-0 bg-gray-900/80 md:hidden h-screen shadow shadow-slate-300"'
                   : "hidden  bg-slate-100  uppercase font-semibold text-slate-600"
               }`}
             >
