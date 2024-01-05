@@ -4,7 +4,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <footer className="bg-orange-400/50 ">
+      <footer className="bg-gray-900 ">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
           <div className="flex justify-center text-center">
@@ -132,7 +132,7 @@ const Footer = () => {
                   <span className="sr-only">Dribbble account</span>
                 </a>
               </div>
-              <div className=" text-gray-50 sm:text-center text-xs mt-5 bg-purple-600">
+              <div className=" text-purple-600 sm:text-center text-xs mt-5">
                 © 2023{" "}
                 <a href="/" className="hover:underline">
                   LB3R™
