@@ -16,6 +16,7 @@ import InfoTerbaru from "../components/InfoTerbaru";
 import { getDataAlumni } from "../utils/alumniApi";
 import Swal from "sweetalert2";
 import Service from "../components/Layanan2024";
+import { runFireworks } from "../libs/utils";
 
 const Home = ({ allPost, dataAlumni }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -110,6 +111,9 @@ const Home = ({ allPost, dataAlumni }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+  }, []);
+  useEffect(() => {
+    runFireworks();
   }, []);
   return (
     <div className="overflow-hidden scroll-smooth">

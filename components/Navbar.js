@@ -47,6 +47,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, [menuRef]);
+
   return (
     <>
       <nav>
