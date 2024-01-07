@@ -9,6 +9,7 @@ import DropdownMenuSNBT from "./DropdownMenuSNBT";
 import DropdownMenuLayanan from "./DropdownMenuLayanan";
 import { signIn, signOut, useSession } from "next-auth/react";
 import DropdownMenuProfile from "./DropdownMenuProfile";
+import DropdownMenuDok from "./DropdownMenuDok";
 
 const Navbar = forwardRef(({ allPost, ...props }, ref) => {
   const { data: session } = useSession();
@@ -58,9 +59,10 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
               <p className="text-slate-600 hover:text-slate-900">LAYANAN</p>
             </Link> */}
             <DropdownMenuLayanan />
-            <Link href="/blogs">
+            <DropdownMenuDok />
+            {/* <Link href="/blogs">
               <p className="text-slate-600 hover:text-slate-900">BLOGS</p>
-            </Link>
+            </Link> */}
             <DropdownMenu />
             <DropdownMenuSNBT />
             <DropdownMenuProfile />
@@ -116,7 +118,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 ref={menuRef}
-                className="text-purple-600 "
+                className="text-orange-600 "
                 title="Toggle Menu"
               >
                 {session ? (
@@ -248,6 +250,29 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                               />
                             </svg>
                             <p>Blog</p>
+                          </div>
+                          {/* <p>BLOG</p> */}
+                        </div>
+                      </div>
+                    </Link>
+                    <Link href="/gallery">
+                      <div className="bg-orange-600 p-1 text-slate-50 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                        <div className="">
+                          <div>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="32"
+                              height="32"
+                              fill="currentColor"
+                              className="bi bi-camera-video"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1z"
+                              />
+                            </svg>
+                            <p>Gallery</p>
                           </div>
                           {/* <p>BLOG</p> */}
                         </div>
