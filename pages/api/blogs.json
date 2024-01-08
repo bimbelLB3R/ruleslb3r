@@ -1,6 +1,31 @@
 {
   "posts": [
     {
+      "id": 6,
+      "title": "Apa saja yang berubah pada SNPMB 2024?",
+      "description": "Tahun 2024 siswa bisa memilih hingga 4 pilihan program studi dengan aturan yang sudah ditentukan oleh panitia SNPMB BPPP...",
+      "slug": "snpmb-2024",
+      "bahasa": "language-js",
+      "body": [
+        "Tahun 2024 ada tiga kelompok pilihan jenjang pada perguruan tinggi negeri yang membuka jalur peneriamaan melalui SNPMB, yaitu Jenjang Diploma Tiga, Diploma Empat (Sarjana Terapan) dan Sarjana. Berdasarkan informasi dari BPPP terdapat 76 PTN Akademik, 43 PTN Vokasi dan 24 PTKIN yang akan mengikuti membuka penerimaan mahasiswa baru melalui program SNPMB BPPP Kemendikbudristek. PTN Akademik merupakan perguruan tinggi negeri yang menyediakan program kuliah jenjang sarjana. Sedangkan PTN Vokasi menyediakan program Diploma Tiga dan Diploma Empat (Sarjana Terapan). PTKIN merupakan Perguruan Tinggi Negeri Islam yang akan membuka program studi yang sifatnya umum.",
+        "<span style='color: #ea580c; font-weight: bold; '>Tiga Jalur Penerimaan MABA</span>",
+        "Ada tiga jalur penerimaan mahasiswa baru, yaitu jalur prestasi (SNBP), jalur tes (SNBT) dan Jalur Mandiri. Pada jalur SNBP, tiap sekolah diberi kuota berdasarkan akreditasi sekolahnya masing-masing. Untuk sekolah dengan akreditasi A mendapat kuota 40%, akreditasi B mendapat kuota 25%, akreditasi C dan yang lainnya mendapat kuota 5% terbaik di sekolahnya. Jalur SNBT merupakan jalur tes dengan kuota minimum 40%, sedangkan jalur mandiri memiliki kuota maksimum 30%.",
+        "<span style='color: #ea580c; font-weight: bold; '>SNBP (Seleksi Nasional Berdasarkan Prestasi)</span>",
+        "Seleksi ini didasarkan pada nilai akademik siswa dari semester 1-5 dan prestasi lainnya yang ditetapka oleh PTN. Semua nilai siswa dibuat rata-rata dan di ranking secara paralel. Siswa yang masuk dalam kuota disebut siswa eligibel. Misalnya, ada 100 siswa yang sudah di ranking di SMA N 1 Tanjung (akreditasi A), maka ada 40 anak dinyatakan eligibel (ranking 1-40). Siswa yang dinyatakan eligibel dapat mengikuti SNBP dengan memilih maksimal dua program studi yang salah satunya wajib berada di propinsi dimana anak tinggal. Namun, jika hanya memilih satu program studi maka dapat memilih PTN dimana saja. Jika ada siswa yang memiliki ranking yang sama, sekolah dapat menambahkan kriteria lain, misalnya Projek Penguatan Profil Pelajar Pancasila pada sekolah yang mengimplementasikan Kurikulum Merdeka.",
+        "<span style='color: #ea580c; font-weight: bold; '>SNBT (Seleksi Nasional Berdasarkan Tes)</span>",
+        "Seleksi ini didasarkan pada hasil Ujian Tulis Berbasis Komputer (UTBK) dan kriteria lain yang ditetapkan bersama oleh PTN. Siswa yang sudah lolos SNBP tidak boleh mengikuti SNBT sesuai prinsip keadilan. Melalui jalur ini siswa dapat memilih hingga empat pilihan program studi dengan syarat yang sudah ditentukan oleh panitia SNPMB. Materi yang diujikan pada UTBK ada 7 macam subtes, yaitu Tes Potensi Skolastik yang meliputi Penalaran Umum, Pengetahuan Kuantitatif, Pengetahuan dan pemahamam Umum, dan kemampuan memahami bacaan dan menulis. Kemudian tiga materi lagi yaitu literasi numerasi (Penalaran Matematika), Literasi Bahasa Inggris dan Literasi Bahasa Indonesia.",
+        "<span style='color: #ea580c; font-weight: bold; '>Jalur Mandiri</span>",
+        "Seleksi pada jalur mandiri ditentukan oleh masing-masing PTN dan ada beberapa PTN yang menggunakan nilai UTBK serta ada yang melakukan tes lagi. Jalur mandiri memiliki kuota maksimum 30%. Siswa yang sudah lolos jalur SNBP atau SNBT tidak boleh mengikuti jalur mandiri di PTN manapun. Jadi, pemiilihan program studi harus benar-benar dipertimbangkan secara matang."
+      ],
+      "ogImageName": "unirank.png",
+      "imageUrl": "/image/image3.webp",
+      "writer": "Wahyudi, S.Pd.",
+      "createdAt": "2024-01-08T09:51:56",
+      "updatedAt": "2024-01-08T09:51:56",
+      "tags": "SNBT",
+      "keyword": "SNBT,SNBP,SNPMB"
+    },
+    {
       "id": 5,
       "title": "60 Universitas Terbaik di Indonesia versi UniRank 2023",
       "description": "Unirank merupakan lembaga pembuat ranking perguruan tinggi yang tiap tahunnya merilis daftar perguruan tinggi terbaik di dunia. Pada tahun 2023, terdapat 582 universitas dari Indonesia yang dinilai dan memenuhi kriteria Unirank. Dalam menentukan universitas yang paling populer di Indonesia, Unirank menggunakan tiga kriteria...",
