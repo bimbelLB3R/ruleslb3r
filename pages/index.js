@@ -17,8 +17,10 @@ import { getDataAlumni } from "../utils/alumniApi";
 import Swal from "sweetalert2";
 import Service from "../components/Layanan2024";
 import { runFireworks } from "../libs/utils";
+import PopBerita from "../components/PopBerita";
 
 const Home = ({ allPost, dataAlumni }) => {
+  console.log(allPost);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -143,6 +145,7 @@ const Home = ({ allPost, dataAlumni }) => {
         <Service />
         <BluryBg />
         <Faq />
+        <PopBerita beritaTerbaru={allPost} />
         {/* <InfoTerbaru /> */}
         {/* <CodeBlog /> */}
       </Layout>
