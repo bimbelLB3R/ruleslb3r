@@ -18,9 +18,10 @@ import Swal from "sweetalert2";
 import Service from "../components/Layanan2024";
 import { runFireworks } from "../libs/utils";
 import PopBerita from "../components/PopBerita";
+import ShortCut from "../components/ShortCut";
 
 const Home = ({ allPost, dataAlumni }) => {
-  console.log(allPost);
+  // console.log(allPost);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -141,6 +142,7 @@ const Home = ({ allPost, dataAlumni }) => {
         <BayarLes />
         <ImageSlide />
         <ButtonUmum />
+        <ShortCut />
         <Welcome />
         <Service />
         <BluryBg />
