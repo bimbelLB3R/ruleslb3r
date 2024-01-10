@@ -32,10 +32,10 @@ const Payment = ({ allPost }) => {
           key="desc"
         />
       </Head>
-      <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" allPost={allPost} />
+      {/* <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" allPost={allPost} /> */}
       <div className="flex justify-center items-center m-auto  md:overflow-hidden mb-5 md:max-w-2xl">
         <div className=" text-gray-900 p-4 overflow-auto md:overflow-hidden">
-          <h1 className="rounded-2xl text-lg font-semibold p-4  relative top-0 left-0 bg-gray-900 w-full text-gray-100 mt-[100px]">
+          <h1 className="rounded-2xl text-lg font-semibold p-4  relative top-0 left-0 bg-gray-900 w-full text-gray-100">
             Ketentuan Pembayaran LB3R
           </h1>
           <table className="mt-6 md:mt-0">

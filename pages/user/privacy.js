@@ -17,9 +17,9 @@ export async function getStaticProps() {
 export default function Privacy({ allPost }) {
   return (
     <>
-      <Navbar allPost={allPost} />
+      {/* <Navbar allPost={allPost} /> */}
       <Layout>
-        <div className="flex  justify-center m-auto mt-[100px] p-4 max-h-screen md:max-w-2xl">
+        <div className="flex  justify-center m-auto  p-4 h-screen md:max-w-2xl">
           <div>
             <div>
               <p className="text-center mb-5 font-extrabold">PRIVACY POLICY</p>

@@ -351,7 +351,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
 
   return (
     <>
-      <Navbar allPost={allPost} />
+      {/* <Navbar allPost={allPost} /> */}
       <Head>
         <title>Lengkapi Data</title>
         <meta name="description" content="Formulir Pendaftaran" key="desc" />
@@ -363,7 +363,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         />
       </Head>
       <Layout>
-        <div className="flex justify-center items-center bg-slate-100 text-gray-900 mt-[100px] animate__animated  animate__slideInDown">
+        <div className="flex justify-center items-center bg-slate-100 text-gray-900  animate__animated  animate__slideInDown">
           <form
             className="space-y-3 w-full max-w-lg mx-auto p-5"
             onSubmit={submitForm}

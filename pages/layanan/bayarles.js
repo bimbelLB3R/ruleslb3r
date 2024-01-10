@@ -284,7 +284,7 @@ const BayarLes = ({ allPost }) => {
 
   return (
     <>
-      <Navbar allPost={allPost} />
+      {/* <Navbar allPost={allPost} /> */}
       <Head>
         <title>Lengkapi Data</title>
         <meta name="description" content="Formulir Pendaftaran" key="desc" />
@@ -298,7 +298,7 @@ const BayarLes = ({ allPost }) => {
       <Layout>
         <div className="flex justify-center items-center  bg-slate-100 text-gray-900">
           <form
-            className="space-y-3 w-full max-w-lg mx-auto p-5 mt-24"
+            className="space-y-3 w-full max-w-lg mx-auto p-5 "
             onSubmit={submitForm}
           >
             <p className="font-semibold text-2xl text-center w-full bg-gradient-to-b from-purple-800  to-purple-500 p-2 text-slate-100 rounded-lg">

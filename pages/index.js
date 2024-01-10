@@ -142,7 +142,7 @@ const Home = ({ allPost, dataAlumni }) => {
         <BayarLes />
         <ImageSlide />
         <ButtonUmum />
-        <ShortCut />
+        {/* <ShortCut /> */}
         <Welcome />
         <Service />
         <BluryBg />

@@ -7,7 +7,7 @@ export default function PopBerita({ beritaTerbaru }) {
   // Mengambil berita terbaru (elemen pertama setelah diurutkan)
   const beritaTerbaruIdTerbesar = beritaTerbaruSorted[0];
   // Mengambil tiga berita terakhir
-  const tigaBeritaTerakhir = beritaTerbaruSorted.slice(0, 3);
+  const tigaBeritaTerakhir = beritaTerbaruSorted.slice(0, 5);
 
   //   console.log(beritaTerbaruIdTerbesar);
   return (

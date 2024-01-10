@@ -6,46 +6,51 @@ const Footer = () => {
     <>
       <footer className="bg-gray-900 ">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-          <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
+          {/* <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8" /> */}
           <div className="flex justify-center text-center">
             <div>
               <div className="flex space-x-2 items-center justify-center mb-4">
+                <Link href="/">
+                  <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
+                    Home
+                  </p>
+                </Link>
                 <Link href="/kampusku">
-                  <p className="text-xs rounded-lg bg-gradient-to-b from-yellow-400 to-white  text-purple-800 p-1  decoration-2 decoration-purple-600">
+                  <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
                     Cek Keketatan Prodi SNBT
                   </p>
                 </Link>
               </div>
               <div className="flex space-x-2 items-center justify-center mb-4">
                 <Link href="/blogs">
-                  <p className="text-xs rounded-lg bg-gradient-to-b from-yellow-400 to-white  text-purple-800 p-1  decoration-2 decoration-purple-600">
+                  <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
                     Berita
                   </p>
                 </Link>
                 <Link href="/layanan">
-                  <p className="text-xs rounded-lg bg-gradient-to-b from-yellow-400 to-white  text-purple-800 p-1  decoration-2 decoration-purple-600">
+                  <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
                     Program
                   </p>
                 </Link>
                 <Link href="/layanan/bayarles">
-                  <p className="text-xs rounded-lg bg-gradient-to-b from-yellow-400 to-white  text-purple-800 p-1  decoration-2 decoration-purple-600">
+                  <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
                     Bayar Les
                   </p>
                 </Link>
                 <Link href="/form/login">
-                  <p className="text-xs rounded-lg bg-gradient-to-b from-yellow-400 to-white  text-purple-800 p-1  decoration-2 decoration-purple-600">
+                  <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
                     Try Out SNBT
                   </p>
                 </Link>
               </div>
               <div className="flex space-x-2 items-center justify-center">
                 <Link href="/user/term">
-                  <p className="text-xs rounded-lg bg-gradient-to-b from-yellow-400 to-white  text-purple-800 p-1  decoration-2 decoration-purple-600">
+                  <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
                     Tata Tertib
                   </p>
                 </Link>
                 <Link href="/user/privacy">
-                  <p className="text-xs rounded-lg bg-gradient-to-b from-yellow-400 to-white  text-purple-800 p-1  decoration-2 decoration-purple-600">
+                  <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
                     Kerahasiaan Data
                   </p>
                 </Link>
@@ -53,7 +58,7 @@ const Footer = () => {
               <div className="flex mt-4 space-x-6 sm:justify-center ">
                 <a
                   href="https://www.facebook.com/bimbel.lb3r"
-                  className="text-yellow-100 hover:text-gray-50 "
+                  className="text-yellow-400 hover:text-gray-50 "
                 >
                   <svg
                     className="w-8 h-8"
@@ -71,7 +76,7 @@ const Footer = () => {
                 </a>
                 <a
                   href="https://www.instagram.com/bimbel_lb3r"
-                  className="text-yellow-100 hover:text-gray-50 "
+                  className="text-yellow-400 hover:text-gray-50 "
                 >
                   <svg
                     className="w-8 h-8"
@@ -89,7 +94,7 @@ const Footer = () => {
                 </a>
                 <a
                   href="https://www.twitter.com/bimbel_lb3r"
-                  className="text-yellow-100 hover:text-gray-50 "
+                  className="text-yellow-400 hover:text-gray-50 "
                 >
                   <svg
                     className="w-8 h-8"
@@ -101,7 +106,7 @@ const Footer = () => {
                   </svg>
                   <span className="sr-only">Twitter page</span>
                 </a>
-                <a href="#" className="text-yellow-100 hover:text-gray-50 ">
+                <a href="#" className="text-yellow-400 hover:text-gray-50 ">
                   <svg
                     className="w-8 h-8"
                     fill="currentColor"
@@ -116,7 +121,7 @@ const Footer = () => {
                   </svg>
                   <span className="sr-only">GitHub account</span>
                 </a>
-                <a href="#" className="text-yellow-100 hover:text-gray-50 ">
+                <a href="#" className="text-yellow-400 hover:text-gray-50 ">
                   <svg
                     className="w-8 h-8"
                     fill="currentColor"

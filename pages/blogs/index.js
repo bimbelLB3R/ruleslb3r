@@ -76,12 +76,12 @@ export default function BlogsPage({ allPost, allTutorial }) {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <Navbar
+        {/* <Navbar
           ref={navbarRef}
           logoUrl="/image/logolb3r.png"
           logoAlt="Logo"
           allPost={allPost}
-        />
+        /> */}
       </Transition>
       <Layout>
         <TombolCari allPost={allPost} />
