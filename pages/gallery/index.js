@@ -9,7 +9,7 @@ import Head from "next/head";
 
 export default function Gallery({ feed, allPost }) {
   const [selectedMediaType, setSelectedMediaType] = useState("IMAGE");
-  //   console.log(feed);
+  console.log(feed);
   const images = feed.data;
   const filteredImages = images.filter(
     (image) => image.media_type === selectedMediaType
@@ -63,6 +63,7 @@ export default function Gallery({ feed, allPost }) {
                 controls
                 src={image.media_url}
                 alt={image.caption}
+                type="video/mp4"
               />
             ) : (
               <img
