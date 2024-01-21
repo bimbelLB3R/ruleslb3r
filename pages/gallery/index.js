@@ -8,11 +8,15 @@ import "animate.css";
 import Head from "next/head";
 
 export default function Gallery({ feed, allPost }) {
-  const [selectedMediaType, setSelectedMediaType] = useState("IMAGE");
-  console.log(feed);
+  const [selectedMediaType, setSelectedMediaType] = useState("CAROUSEL_ALBUM");
+  const [selectedMediaType2, setSelectedMediaType2] = useState("IMAGE");
+  // console.log(feed);
   const images = feed.data;
   const filteredImages = images.filter(
     (image) => image.media_type === selectedMediaType
+  );
+  const filteredImages2 = images.filter(
+    (image) => image.media_type === selectedMediaType2
   );
   return (
     <>
@@ -38,9 +42,9 @@ export default function Gallery({ feed, allPost }) {
       <Navbar allPost={allPost} />
       <div className="flex justify-center space-x-4 p-2 border mt-[120px]">
         <button
-          onClick={() => setSelectedMediaType("IMAGE")}
+          onClick={() => setSelectedMediaType("CAROUSEL_ALBUM")}
           className={` ${
-            selectedMediaType === "IMAGE" ? "text-orange-600" : ""
+            selectedMediaType === "CAROUSEL_ALBUM" ? "text-orange-600" : ""
           } `}
         >
           Images
@@ -66,13 +70,23 @@ export default function Gallery({ feed, allPost }) {
                 type="video/mp4"
               />
             ) : (
-              <img
-                className="object-cover aspect-square rounded-sm filter grayscale hover:filter-none transition duration-200"
-                src={image.media_url}
-                alt={image.caption}
-              />
+              <div>
+                <img
+                  className="object-cover aspect-square rounded-sm filter grayscale hover:filter-none transition duration-200"
+                  src={image.media_url}
+                  alt={image.caption}
+                />
+              </div>
             )}
           </div>
+        ))}
+        {filteredImages2.map((image2) => (
+          <img
+            className="object-cover aspect-square rounded-sm filter grayscale hover:filter-none transition duration-200"
+            src={image2.media_url}
+            alt={image2.caption}
+            key={image2.id}
+          />
         ))}
       </div>
     </>
