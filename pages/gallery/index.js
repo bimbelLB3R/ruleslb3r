@@ -42,7 +42,10 @@ export default function Gallery({ feed, allPost }) {
       <Navbar allPost={allPost} />
       <div className="flex justify-center space-x-4 p-2 border mt-[120px]">
         <button
-          onClick={() => setSelectedMediaType("CAROUSEL_ALBUM")}
+          onClick={() => {
+            setSelectedMediaType("CAROUSEL_ALBUM"),
+              setSelectedMediaType2("IMAGE");
+          }}
           className={` ${
             selectedMediaType === "CAROUSEL_ALBUM" ? "text-orange-600" : ""
           } `}
@@ -50,7 +53,9 @@ export default function Gallery({ feed, allPost }) {
           Images
         </button>
         <button
-          onClick={() => setSelectedMediaType("VIDEO")}
+          onClick={() => {
+            setSelectedMediaType("VIDEO"), setSelectedMediaType2("");
+          }}
           className={` ${
             selectedMediaType === "VIDEO" ? "text-orange-600" : ""
           } `}
@@ -81,12 +86,25 @@ export default function Gallery({ feed, allPost }) {
           </div>
         ))}
         {filteredImages2.map((image2) => (
-          <img
-            className="object-cover aspect-square rounded-sm filter grayscale hover:filter-none transition duration-200"
-            src={image2.media_url}
-            alt={image2.caption}
-            key={image2.id}
-          />
+          <div key={image2.id}>
+            {selectedMediaType2 === "VIDEO" ? (
+              <video
+                className=""
+                controls
+                src={image2.media_url}
+                alt={image2.caption}
+                type="video/mp4"
+              />
+            ) : (
+              <div>
+                <img
+                  className="object-cover aspect-square rounded-sm filter grayscale hover:filter-none transition duration-200"
+                  src={image2.media_url}
+                  alt={image2.caption}
+                />
+              </div>
+            )}
+          </div>
         ))}
       </div>
     </>
