@@ -6,6 +6,7 @@ import { getBlogsData } from "../../utils/blogsApi";
 import { getTutorialData } from "../../utils/TutorialApi";
 import "animate.css";
 import Head from "next/head";
+import Image from "next/image";
 
 export default function Gallery({ feed, allPost }) {
   const [selectedMediaType, setSelectedMediaType] = useState("CAROUSEL_ALBUM");
@@ -76,10 +77,13 @@ export default function Gallery({ feed, allPost }) {
               />
             ) : (
               <div>
-                <img
+                <Image
                   className="object-cover aspect-square rounded-sm filter grayscale hover:filter-none transition duration-200"
                   src={image.media_url}
                   alt={image.caption}
+                  width={500}
+                  height={500}
+                  priority={true}
                 />
               </div>
             )}

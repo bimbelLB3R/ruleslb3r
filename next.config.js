@@ -19,6 +19,7 @@ module.exports = {
       "drive.google.com",
       "unsplash.com",
       "https://kevin-lehner.com",
+      "scontent.cdninstagram.com",
     ],
   },
   webpack: (config, { isServer }) => {
