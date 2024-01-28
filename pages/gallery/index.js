@@ -44,11 +44,10 @@ export default function Gallery({ feed, allPost }) {
       <div className="flex justify-center space-x-4 p-2 border mt-[120px]">
         <button
           onClick={() => {
-            setSelectedMediaType("CAROUSEL_ALBUM"),
-              setSelectedMediaType2("IMAGE");
+            setSelectedMediaType("IMAGE");
           }}
           className={` ${
-            selectedMediaType === "CAROUSEL_ALBUM" ? "text-orange-600" : ""
+            selectedMediaType === "IMAGE" ? "text-orange-600" : ""
           } `}
         >
           Images
