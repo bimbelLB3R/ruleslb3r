@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { formatDistanceToNow } from "date-fns";
+import { id } from "date-fns/locale";
+
 export default function PopBerita({ beritaTerbaru }) {
   //   console.log(beritaTerbaru);
   // Mengurutkan berita berdasarkan ID secara descending
@@ -30,6 +33,12 @@ export default function PopBerita({ beritaTerbaru }) {
                 <p className="text-sm text-gray-800">{berita.title}</p>
                 <p className="text-xs text-gray-400">
                   ditulis oleh {berita.writer}
+                </p>
+                <p className="text-xs text-gray-400">
+                  {formatDistanceToNow(new Date(berita.createdAt), {
+                    addSuffix: true,
+                    locale: id,
+                  })}
                 </p>
               </div>
             </Link>

@@ -10,12 +10,16 @@ import Image from "next/image";
 
 export default function Gallery({ feed, allPost }) {
   const [selectedMediaType, setSelectedMediaType] = useState("VIDEO");
+  const [videoLoaded, setVideoLoaded] = useState(false);
   // console.log(feed);
   const images = feed.data;
   const filteredImages = images.filter(
     (image) => image.media_type === selectedMediaType
   );
   // console.log(filteredImages);
+  const handleVideoLoaded = () => {
+    setVideoLoaded(true);
+  };
   return (
     <>
       <Head>
@@ -38,7 +42,7 @@ export default function Gallery({ feed, allPost }) {
         />
       </Head>
       <Navbar allPost={allPost} />
-      <div className="flex justify-center space-x-4 p-2 border mt-[120px]">
+      <div className="flex justify-center space-x-4 p-2 border mt-[20px]">
         {/* <button
           onClick={() => setSelectedMediaType("IMAGE")}
           className={` ${
@@ -60,13 +64,23 @@ export default function Gallery({ feed, allPost }) {
         {filteredImages.map((image) => (
           <div key={image.id}>
             {selectedMediaType === "VIDEO" && (
-              <video
-                className=""
-                controls
-                src={image.media_url}
-                alt={image.caption}
-                type="video/mp4"
-              />
+              <div className="relative">
+                <video
+                  className=""
+                  controls
+                  src={image.media_url}
+                  alt={image.caption}
+                  type="video/mp4"
+                  onLoadedData={handleVideoLoaded}
+                />
+                {image.caption && videoLoaded ? (
+                  <p className="absolute bottom-[60px] bg-orange-900 bg-opacity-75 p-1 text-gray-100 m-auto left-0 right-0 text-center text-sm md:text-lg">
+                    {image.caption}
+                  </p>
+                ) : (
+                  ""
+                )}
+              </div>
             )}
           </div>
         ))}
