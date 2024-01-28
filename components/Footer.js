@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import YearRange from "./YearRange";
 
 const Footer = () => {
   return (
@@ -138,11 +139,7 @@ const Footer = () => {
                 </a>
               </div>
               <div className=" text-purple-600 sm:text-center text-xs mt-5">
-                © 2023{" "}
-                <a href="/" className="hover:underline">
-                  LB3R™
-                </a>
-                . All Rights Reserved.
+                {<YearRange />}
               </div>
             </div>
           </div>
