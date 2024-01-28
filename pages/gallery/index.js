@@ -9,7 +9,7 @@ import Head from "next/head";
 import Image from "next/image";
 
 export default function Gallery({ feed, allPost }) {
-  const [selectedMediaType, setSelectedMediaType] = useState("IMAGE");
+  const [selectedMediaType, setSelectedMediaType] = useState("VIDEO");
   // console.log(feed);
   const images = feed.data;
   const filteredImages = images.filter(
@@ -39,14 +39,14 @@ export default function Gallery({ feed, allPost }) {
       </Head>
       <Navbar allPost={allPost} />
       <div className="flex justify-center space-x-4 p-2 border mt-[120px]">
-        <button
+        {/* <button
           onClick={() => setSelectedMediaType("IMAGE")}
           className={` ${
             selectedMediaType === "IMAGE" ? "text-orange-600" : ""
           } `}
         >
           Images
-        </button>
+        </button> */}
         <button
           onClick={() => setSelectedMediaType("VIDEO")}
           className={` ${
@@ -59,25 +59,14 @@ export default function Gallery({ feed, allPost }) {
       <div className="grid grid-cols-1 md:grid-cols-2 max-w-3xl mt-10 px-6 sm:px-6 gap-5 sm:gap-10 mx-auto">
         {filteredImages.map((image) => (
           <div key={image.id}>
-            {selectedMediaType === "IMAGE" ? (
-              <Image
-                className="object-cover aspect-square rounded-sm filter grayscale hover:filter-none transition duration-200"
+            {selectedMediaType === "VIDEO" && (
+              <video
+                className=""
+                controls
                 src={image.media_url}
                 alt={image.caption}
-                width={500}
-                height={500}
-                priority={true}
+                type="video/mp4"
               />
-            ) : (
-              <div>
-                <video
-                  className=""
-                  controls
-                  src={image.media_url}
-                  alt={image.caption}
-                  type="video/mp4"
-                />
-              </div>
             )}
           </div>
         ))}
