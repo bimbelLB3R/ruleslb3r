@@ -66,23 +66,23 @@ export default function Gallery({ feed, allPost }) {
       <div className="grid grid-cols-1 md:grid-cols-2 max-w-3xl mt-10 px-6 sm:px-6 gap-5 sm:gap-10 mx-auto">
         {filteredImages.map((image) => (
           <div key={image.id}>
-            {selectedMediaType === "VIDEO" ? (
-              <video
-                className=""
-                controls
+            {selectedMediaType === "IMAGE" ? (
+              <Image
+                className="object-cover aspect-square rounded-sm filter grayscale hover:filter-none transition duration-200"
                 src={image.media_url}
                 alt={image.caption}
-                type="video/mp4"
+                width={500}
+                height={500}
+                priority={true}
               />
             ) : (
               <div>
-                <Image
-                  className="object-cover aspect-square rounded-sm filter grayscale hover:filter-none transition duration-200"
+                <video
+                  className=""
+                  controls
                   src={image.media_url}
                   alt={image.caption}
-                  width={500}
-                  height={500}
-                  priority={true}
+                  type="video/mp4"
                 />
               </div>
             )}
