@@ -9,7 +9,7 @@ import Head from "next/head";
 import Image from "next/image";
 
 export default function Gallery({ feed, allPost }) {
-  const [selectedMediaType, setSelectedMediaType] = useState("CAROUSEL_ALBUM");
+  const [selectedMediaType, setSelectedMediaType] = useState("IMAGE");
   const [selectedMediaType2, setSelectedMediaType2] = useState("IMAGE");
   // console.log(feed);
   const images = feed.data;
@@ -89,7 +89,7 @@ export default function Gallery({ feed, allPost }) {
             )}
           </div>
         ))}
-        {filteredImages2.map((image2) => (
+        {/* {filteredImages2.map((image2) => (
           <div key={image2.id}>
             {selectedMediaType2 === "VIDEO" ? (
               <video
@@ -109,7 +109,7 @@ export default function Gallery({ feed, allPost }) {
               </div>
             )}
           </div>
-        ))}
+        ))} */}
       </div>
     </>
   );
