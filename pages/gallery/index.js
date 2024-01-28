@@ -10,15 +10,12 @@ import Image from "next/image";
 
 export default function Gallery({ feed, allPost }) {
   const [selectedMediaType, setSelectedMediaType] = useState("IMAGE");
-  const [selectedMediaType2, setSelectedMediaType2] = useState("IMAGE");
   // console.log(feed);
   const images = feed.data;
   const filteredImages = images.filter(
     (image) => image.media_type === selectedMediaType
   );
-  const filteredImages2 = images.filter(
-    (image) => image.media_type === selectedMediaType2
-  );
+  // console.log(filteredImages);
   return (
     <>
       <Head>
@@ -43,9 +40,7 @@ export default function Gallery({ feed, allPost }) {
       <Navbar allPost={allPost} />
       <div className="flex justify-center space-x-4 p-2 border mt-[120px]">
         <button
-          onClick={() => {
-            setSelectedMediaType("IMAGE");
-          }}
+          onClick={() => setSelectedMediaType("IMAGE")}
           className={` ${
             selectedMediaType === "IMAGE" ? "text-orange-600" : ""
           } `}
@@ -53,9 +48,7 @@ export default function Gallery({ feed, allPost }) {
           Images
         </button>
         <button
-          onClick={() => {
-            setSelectedMediaType("VIDEO"), setSelectedMediaType2("");
-          }}
+          onClick={() => setSelectedMediaType("VIDEO")}
           className={` ${
             selectedMediaType === "VIDEO" ? "text-orange-600" : ""
           } `}
