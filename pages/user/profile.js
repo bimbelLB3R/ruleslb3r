@@ -51,8 +51,8 @@ export default function Profile({ biodata }) {
                   key={index}
                   className="flex items-center justify-center p-2 m-auto"
                 >
-                  <img src={item[20]} />
-                  {/* <div className="p-2 bg-blue-200 shadow-sm shadow-amber-600 m-2 rounded-lg">
+                  {/* <img src={item[20]} /> */}
+                  <div className="p-2 bg-blue-200 shadow-sm shadow-amber-600 m-2 rounded-lg">
                     <p className="font-semibold">Pilihan Jurusan</p>
                     <p>
                       1. Pilihan Pertama : {item[4]}, {item[6]}
@@ -90,7 +90,7 @@ export default function Profile({ biodata }) {
                       <p className="text-xl text-red-900">{item[12]}</p>
                       <p className="text-sm">PK</p>
                     </div>
-                  </div> */}
+                  </div>
                 </div>
               ))}
             </div>
