@@ -19,6 +19,7 @@ import Service from "../components/Layanan2024";
 import { runFireworks } from "../libs/utils";
 import PopBerita from "../components/PopBerita";
 import ShortCut from "../components/ShortCut";
+import WarningSnbt from "../components/WarningSnbt";
 
 const Home = ({ allPost, dataAlumni }) => {
   // console.log(allPost);
@@ -140,8 +141,10 @@ const Home = ({ allPost, dataAlumni }) => {
       </Transition>
       <Layout>
         <BayarLes />
+        <WarningSnbt />
         <ImageSlide />
         <ButtonUmum />
+
         {/* <ShortCut /> */}
         <Welcome />
         <Service />

@@ -49,7 +49,7 @@ export default function Profile({ biodata }) {
               {choosenEmail.map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-center p-2 m-auto"
+                  className="md:flex items-center justify-center p-2 m-auto"
                 >
                   {/* <img src={item[20]} /> */}
                   <div className="p-2 bg-blue-200 shadow-sm shadow-amber-600 m-2 rounded-lg">
