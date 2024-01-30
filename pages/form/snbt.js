@@ -486,7 +486,7 @@ const ContactForm = ({ sheetdata }) => {
                       <p className="text-justify mb-2 indent-8 hover:bg-gray-100">
                         {item[3]}
                       </p>
-                      <p className="text-justify mb-2 hover:bg-gray-100">
+                      <p className="text-justify mb-2 hover:bg-gray-100 ">
                         <Latex>{item[4]}</Latex>
                       </p>
                       <p className="text-justify mb-2 indent-8 hover:bg-gray-100">
@@ -537,7 +537,7 @@ const ContactForm = ({ sheetdata }) => {
                       className={`${
                         link === "kuantitatif" || link === "matematika"
                           ? "lg:max-w-full border-dashed border-l-2 border-yellow-900"
-                          : "lg:max-w-1/2  border-l-2 border-gray-400 border-dashed"
+                          : "lg:max-w-1/2  border-l-2 border-gray-400 border-dashed bg-blue-50 rounded-t-lg"
                       }`}
                     >
                       {/* Pertanyaan */}
@@ -661,9 +661,9 @@ const ContactForm = ({ sheetdata }) => {
                   <button
                     disabled={isButtonDisabled}
                     type="submit"
-                    className="flex space-x-2 items-center justify-end fixed top-2 z-50 overflow-auto  text-gray-100 right-2"
+                    className="flex space-x-2 items-center justify-end fixed top-2 z-50 overflow-auto  text-blue-300 right-2"
                   >
-                    <p className="text-xs">Kirim</p>
+                    <p className="text-xs font-bold">Kirim</p>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="18"

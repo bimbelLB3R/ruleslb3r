@@ -59,7 +59,7 @@ export default function NavSoal({ sumSoal, tipeSoal, pages }) {
         {/* modal end */}
         <div className="flex space-x-2">
           <button
-            className="bg-gray-800 p-2 rounded text-xs"
+            className="bg-gray-800 p-2 rounded text-xs text-yellow-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <svg
@@ -112,20 +112,16 @@ export default function NavSoal({ sumSoal, tipeSoal, pages }) {
           </div> */}
         </div>
         <div className="bg-gray-800 p-1 rounded text-xs">
-          <Link href="/form/login" className=" text-gray-100">
+          <Link href="/form/login" className=" text-red-600">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-6 h-6"
+              width="18"
+              height="18"
+              fill="currentColor"
+              className="bi bi-x-lg"
+              viewBox="0 0 16 16"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
-              />
+              <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
             </svg>
 
             <div className="">
