@@ -16,7 +16,7 @@ export default function WarningSnbt() {
     <>
       {nameKu ? (
         <div className="w-full grid m-auto p-2 bg-red-900">
-          <Link href={`http://www.bimbellb3r.com/form/snbt?link=${linkKu}`}>
+          <Link href={`https://www.bimbellb3r.com/form/snbt?link=${linkKu}`}>
             <p className="text-center text-gray-100 text-xs md:text-lg">
               {nameKu}, kamu masih aktif mengerjakan soal TO SNBT klik disini.
             </p>

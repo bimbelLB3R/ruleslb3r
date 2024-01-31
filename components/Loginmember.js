@@ -105,7 +105,7 @@ const Loginmember = () => {
         } else if (link === "bacaan") {
           localStorage.setItem("timeLeft", 1500); //20 soal 25 menit
         } else if (link === "penalaran") {
-          localStorage.setItem("timeLeft", 1800); //30 soal 30 menit,20 soal 30 menit
+          localStorage.setItem("timeLeft", 1800); //30 soal 30 menit
         } else if (link === "pengetahuan") {
           localStorage.setItem("timeLeft", 900); //20 soal 20 menit, rev 20 soal 15 menit
         } else {

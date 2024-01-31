@@ -46,7 +46,13 @@ const ContactForm = ({ sheetdata }) => {
     const interval = setInterval(() => {
       if (timeLeft.asSeconds() <= 0) {
         clearInterval(interval);
-        alert("Time's up!");
+        // alert("Time's up!");
+        Swal.fire({
+          title: "Waktu Sudah Habis",
+          text: "Kirim jawabanmu atau tutup dengan klik X",
+          icon: "warning",
+          confirmButtonText: "Oke Bos",
+        });
         setIsRadioButtonDisabled(true);
       } else {
         setTimeLeft(timeLeft.subtract(1, "second"));

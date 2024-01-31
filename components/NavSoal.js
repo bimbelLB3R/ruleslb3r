@@ -1,8 +1,11 @@
 import { Button } from "flowbite-react";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
+import Swal from "sweetalert2";
+import { useRouter } from "next/router";
 
 export default function NavSoal({ sumSoal, tipeSoal, pages }) {
+  const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleLocal = () => {
@@ -13,6 +16,26 @@ export default function NavSoal({ sumSoal, tipeSoal, pages }) {
     const link = localStorage.getItem("link");
     setLink(link);
   });
+  const handleExit = () => {
+    Swal.fire({
+      title: "Kamu Yakin Ingin Keluar",
+      text: "Jawabanmu tidak akan tersimpan",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Ya, Saya Yakin",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Jawaban Tidak Terkirim",
+          text: "Kamu bisa login kembali",
+          icon: "success",
+        });
+        router.push("/form/login");
+      }
+    });
+  };
   return (
     <div>
       {/* modal */}
@@ -112,7 +135,7 @@ export default function NavSoal({ sumSoal, tipeSoal, pages }) {
           </div> */}
         </div>
         <div className="bg-gray-800 p-1 rounded text-xs">
-          <Link href="/form/login" className=" text-red-600">
+          <button onClick={() => handleExit()} className=" text-red-600">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -127,7 +150,23 @@ export default function NavSoal({ sumSoal, tipeSoal, pages }) {
             <div className="">
               <p className="text-xs"></p>
             </div>
-          </Link>
+          </button>
+          {/* <Link href="/form/login" className=" text-red-600">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              fill="currentColor"
+              className="bi bi-x-lg"
+              viewBox="0 0 16 16"
+            >
+              <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+            </svg>
+
+            <div className="">
+              <p className="text-xs"></p>
+            </div>
+          </Link> */}
         </div>
       </div>
       {/* <Button.Group>
