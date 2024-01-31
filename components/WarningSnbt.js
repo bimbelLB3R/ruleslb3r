@@ -23,7 +23,14 @@ export default function WarningSnbt() {
           </Link>
         </div>
       ) : (
-        ""
+        <div className="w-full grid m-auto p-4 bg-gradient-to-b from-purple-900 via-gray-900 to-purple-900">
+          <Link href={"/form/newmember"}>
+            <p className="text-center text-yellow-400 underline text-xs md:text-lg">
+              Yuk..Ikuti Try Out SNBT 2024 bersama LB3R ! GRATIS LOH....Klik di
+              sini untuk daftar ya!!
+            </p>
+          </Link>
+        </div>
       )}
     </>
   );

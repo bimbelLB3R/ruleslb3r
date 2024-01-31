@@ -30,7 +30,7 @@ export default function NavSoal({ sumSoal, tipeSoal, pages }) {
         Swal.fire({
           title: "Jawaban Tidak Terkirim",
           text: "Kamu bisa login kembali",
-          icon: "success",
+          icon: "warning",
         });
         router.push("/form/login");
       }
