@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import Swal from "sweetalert2";
 
 const CardHasil = ({
   filteredNisn,
@@ -31,9 +32,14 @@ const CardHasil = ({
   };
   const router = useRouter();
   const handlePembahasan = () => {
-    router.push({
-      pathname: `/form/pembahasan`,
-      query: { link },
+    // router.push({
+    //   pathname: `/form/pembahasan`,
+    //   query: { link },
+    // });
+    Swal.fire({
+      title: "Hanya Untuk Siswa",
+      text: "Pembahasan dilakukan di kampus LB3R ya ..",
+      icon: "warning",
     });
   };
 
