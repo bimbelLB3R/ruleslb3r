@@ -229,7 +229,7 @@ const Loginmember = () => {
                   >
                     Pilih Soal
                   </label>
-                  <Dropdown />
+                  <Dropdown disabled={isButtonDisabled} />
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-start">

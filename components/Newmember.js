@@ -219,6 +219,15 @@ export default function Newmember() {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Buat Akun Baru
               </h1>
+              <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                Sudah punya akun?{" "}
+                <Link
+                  href="/form/login"
+                  className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+                >
+                  Login disini !
+                </Link>
+              </p>
               {/* <PushNotif /> */}
               <form
                 className="space-y-4 md:space-y-6"
