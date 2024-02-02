@@ -45,7 +45,7 @@ export default function Profile({ biodata }) {
                 />
               </div>
               <p className="text-center">{session.user.name}</p>
-              <p className="text-center mb-4">{session.user.email}</p>
+              <p className="text-center">{session.user.email}</p>
 
               {/* <div className="font-semibold p-2 bg-blue-200 shadow-sm shadow-amber-600 m-2 rounded-lg">
                 Pembayaran Tertunda : 0
@@ -72,33 +72,33 @@ export default function Profile({ biodata }) {
                     <p className="font-semibold bg-purple-800 text-purple-50">
                       Skor Try Out
                     </p>
-                    <div className="flex justify-end text-purple-900">
+                    <div className="flex justify-between text-purple-900">
                       <p>Literasi Bahasa Indonesia</p>
-                      <p>{Math.floor(item[11])}</p>
+                      <p>{item[11]}</p>
                     </div>
-                    <div className="flex justify-end text-purple-900">
+                    <div className="flex justify-between text-purple-900">
                       <p>Literasi Bahasa Inggris</p>
-                      <p>{Math.floor(item[14])}</p>
+                      <p>{item[14]}</p>
                     </div>
-                    <div className="flex justify-end text-purple-900">
+                    <div className="flex justify-between text-purple-900">
                       <p>Penalaran Umum</p>
-                      <p>{Math.floor(item[16])}</p>
+                      <p>{item[16]}</p>
                     </div>
-                    <div className="flex justify-end text-purple-900">
+                    <div className="flex justify-between text-purple-900">
                       <p>Pemahaman Bacaan & Menulis</p>
-                      <p>{Math.floor(item[15])}</p>
+                      <p>{item[15]}</p>
                     </div>
-                    <div className="flex justify-end text-purple-900">
+                    <div className="flex justify-between text-purple-900">
                       <p>Penalaran Matematika</p>
-                      <p>{Math.floor(item[13])}</p>
+                      <p>{item[13]}</p>
                     </div>
-                    <div className="flex justify-end text-purple-900">
+                    <div className="flex justify-between text-purple-900">
                       <p>Pengetahuan & Pemahaman Umum</p>
-                      <p>{Math.floor(item[17])}</p>
+                      <p>{item[17]}</p>
                     </div>
-                    <div className="flex justify-end text-purple-900">
+                    <div className="flex justify-between text-purple-900">
                       <p>Pengetahuan Kuantitatif</p>
-                      <p>{Math.floor(item[12])}</p>
+                      <p>{item[12]}</p>
                     </div>
                   </div>
                 </div>
