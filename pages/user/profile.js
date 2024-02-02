@@ -20,10 +20,10 @@ export default function Profile({ biodata }) {
     }
   }, [session, filteredBiodata]);
   return (
-    <div>
+    <div className="flex items-center justify-center p-4">
       {/* <Navbar allPost={allPost} /> */}
 
-      <div className="grid-cols-1 m-auto max-w-md p-2 bg-purple-400 rounded-2xl">
+      <div className="grid-cols-1 m-auto max-w-md  bg-purple-400 rounded-2xl">
         {session ? (
           <div className="overflow-auto p-4 ">
             <div>
@@ -52,7 +52,7 @@ export default function Profile({ biodata }) {
                   className="md:flex items-center justify-center p-2 m-auto"
                 >
                   {/* <img src={item[20]} /> */}
-                  <div className="p-2 bg-purple-200 shadow-sm shadow-amber-600 m-2 rounded-lg">
+                  <div className="p-2 bg-purple-200 shadow-sm shadow-amber-600 m-2 rounded-lg text-xs md:text-sm">
                     <p className="font-semibold">Pilihan Jurusan</p>
                     <p>
                       1. Pilihan Pertama : {item[4]}, {item[6]}
@@ -61,34 +61,34 @@ export default function Profile({ biodata }) {
                       2. Pilihan Kedua : {item[5]}, {item[7]}
                     </p>
                   </div>
-                  <div className="p-2 bg-purple-200 shadow-sm shadow-amber-600 m-2 rounded-lg flex flex-wrap md:max-w-xl">
+                  <div className="p-2 bg-purple-200 shadow-sm shadow-amber-600 m-2 rounded-lg flex flex-wrap md:max-w-xl text-xs md:text-sm">
                     <div className="text-center bg-yellow-300 rounded p-1 m-1">
                       <p className="text-xl text-gray-900">{item[11]}</p>
-                      <p className="text-sm">LBI</p>
+                      <p className="">LBI</p>
                     </div>
                     <div className="text-center bg-yellow-300 rounded p-1 m-1">
                       <p className="text-xl text-gray-900">{item[14]}</p>
-                      <p className="text-sm">LBE</p>
+                      <p className="">LBE</p>
                     </div>
                     <div className="text-center bg-yellow-300 rounded p-1 m-1">
                       <p className="text-xl text-gray-900">{item[16]}</p>
-                      <p className="text-sm">PU</p>
+                      <p className="">PU</p>
                     </div>
                     <div className="text-center bg-yellow-300 rounded p-1 m-1">
                       <p className="text-xl text-gray-900">{item[15]}</p>
-                      <p className="text-sm">PBM</p>
+                      <p className="">PBM</p>
                     </div>
                     <div className="text-center bg-yellow-300 rounded p-1 m-1">
                       <p className="text-xl text-gray-900">{item[13]}</p>
-                      <p className="text-sm">PM</p>
+                      <p className="">PM</p>
                     </div>
                     <div className="text-center bg-yellow-300 rounded p-1 m-1">
                       <p className="text-xl text-gray-900">{item[17]}</p>
-                      <p className="text-sm">PPU</p>
+                      <p className="">PPU</p>
                     </div>
                     <div className="text-center bg-yellow-300 rounded p-1 m-1">
                       <p className="text-xl text-gray-900">{item[12]}</p>
-                      <p className="text-sm">PK</p>
+                      <p className="">PK</p>
                     </div>
                   </div>
                 </div>
