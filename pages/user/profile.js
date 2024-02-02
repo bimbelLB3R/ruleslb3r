@@ -23,9 +23,9 @@ export default function Profile({ biodata }) {
     <div>
       {/* <Navbar allPost={allPost} /> */}
 
-      <div className="flex justify-center items-center p-6 mt-20">
+      <div className="grid-cols-1 m-auto max-w-md mt-20 bg-purple-400">
         {session ? (
-          <div className="overflow-auto">
+          <div className="overflow-auto p-4 ">
             <div>
               <div className="flex justify-center">
                 <Image
@@ -52,7 +52,7 @@ export default function Profile({ biodata }) {
                   className="md:flex items-center justify-center p-2 m-auto"
                 >
                   {/* <img src={item[20]} /> */}
-                  <div className="p-2 bg-blue-200 shadow-sm shadow-amber-600 m-2 rounded-lg">
+                  <div className="p-2 bg-purple-200 shadow-sm shadow-amber-600 m-2 rounded-lg">
                     <p className="font-semibold">Pilihan Jurusan</p>
                     <p>
                       1. Pilihan Pertama : {item[4]}, {item[6]}
@@ -61,33 +61,33 @@ export default function Profile({ biodata }) {
                       2. Pilihan Kedua : {item[5]}, {item[7]}
                     </p>
                   </div>
-                  <div className="p-2 bg-blue-200 shadow-sm shadow-amber-600 m-2 rounded-lg flex flex-wrap md:max-w-xl">
-                    <div className="text-center bg-slate-300 rounded p-1 m-1">
-                      <p className="text-xl text-red-900">{item[11]}</p>
+                  <div className="p-2 bg-purple-200 shadow-sm shadow-amber-600 m-2 rounded-lg flex flex-wrap md:max-w-xl">
+                    <div className="text-center bg-yellow-300 rounded p-1 m-1">
+                      <p className="text-xl text-gray-900">{item[11]}</p>
                       <p className="text-sm">LBI</p>
                     </div>
-                    <div className="text-center bg-slate-300 rounded p-1 m-1">
-                      <p className="text-xl text-red-900">{item[14]}</p>
+                    <div className="text-center bg-yellow-300 rounded p-1 m-1">
+                      <p className="text-xl text-gray-900">{item[14]}</p>
                       <p className="text-sm">LBE</p>
                     </div>
-                    <div className="text-center bg-slate-300 rounded p-1 m-1">
-                      <p className="text-xl text-red-900">{item[16]}</p>
+                    <div className="text-center bg-yellow-300 rounded p-1 m-1">
+                      <p className="text-xl text-gray-900">{item[16]}</p>
                       <p className="text-sm">PU</p>
                     </div>
-                    <div className="text-center bg-slate-300 rounded p-1 m-1">
-                      <p className="text-xl text-red-900">{item[15]}</p>
+                    <div className="text-center bg-yellow-300 rounded p-1 m-1">
+                      <p className="text-xl text-gray-900">{item[15]}</p>
                       <p className="text-sm">PBM</p>
                     </div>
-                    <div className="text-center bg-slate-300 rounded p-1 m-1">
-                      <p className="text-xl text-red-900">{item[13]}</p>
+                    <div className="text-center bg-yellow-300 rounded p-1 m-1">
+                      <p className="text-xl text-gray-900">{item[13]}</p>
                       <p className="text-sm">PM</p>
                     </div>
-                    <div className="text-center bg-slate-300 rounded p-1 m-1">
-                      <p className="text-xl text-red-900">{item[17]}</p>
+                    <div className="text-center bg-yellow-300 rounded p-1 m-1">
+                      <p className="text-xl text-gray-900">{item[17]}</p>
                       <p className="text-sm">PPU</p>
                     </div>
-                    <div className="text-center bg-slate-300 rounded p-1 m-1">
-                      <p className="text-xl text-red-900">{item[12]}</p>
+                    <div className="text-center bg-yellow-300 rounded p-1 m-1">
+                      <p className="text-xl text-gray-900">{item[12]}</p>
                       <p className="text-sm">PK</p>
                     </div>
                   </div>
@@ -107,6 +107,13 @@ export default function Profile({ biodata }) {
             </button>
           </div>
         )}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path
+            fill="#6b21a8"
+            fill-opacity="1"
+            d="M0,128L48,112C96,96,192,64,288,53.3C384,43,480,53,576,74.7C672,96,768,128,864,138.7C960,149,1056,139,1152,117.3C1248,96,1344,64,1392,48L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
       </div>
     </div>
   );
