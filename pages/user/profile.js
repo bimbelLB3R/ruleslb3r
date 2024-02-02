@@ -23,7 +23,7 @@ export default function Profile({ biodata }) {
     <div>
       {/* <Navbar allPost={allPost} /> */}
 
-      <div className="grid-cols-1 m-auto max-w-md mt-20 bg-purple-400">
+      <div className="grid-cols-1 m-auto max-w-md p-2 bg-purple-400 rounded-2xl">
         {session ? (
           <div className="overflow-auto p-4 ">
             <div>
