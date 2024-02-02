@@ -20,10 +20,10 @@ export default function Profile({ biodata }) {
     }
   }, [session, filteredBiodata]);
   return (
-    <div className="flex items-center justify-center p-4">
+    <div className="flex items-center justify-center p-4 h-screen ">
       {/* <Navbar allPost={allPost} /> */}
 
-      <div className="grid-cols-1 m-auto max-w-md  bg-purple-400 rounded-2xl">
+      <div className="grid-cols-1 m-auto max-w-md  bg-purple-400 shadow-xl">
         {session ? (
           <div className="overflow-auto p-4 ">
             <div>
