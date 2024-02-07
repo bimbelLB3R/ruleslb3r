@@ -20,6 +20,7 @@ module.exports = {
       "unsplash.com",
       "https://kevin-lehner.com",
       "scontent.cdninstagram.com",
+      "https://raw.githubusercontent.com",
     ],
   },
   webpack: (config, { isServer }) => {

@@ -60,7 +60,7 @@ export default function Profile({ biodata }) {
                 >
                   {/* <img src={item[20]} /> */}
                   <div className="p-2 bg-purple-200 shadow-sm shadow-amber-600 m-2 rounded-lg text-xs md:text-sm">
-                    <p className="font-semibold bg-purple-800 text-purple-50">
+                    <p className="font-semibold bg-purple-800 text-purple-50 p-1">
                       Pilihan Jurusan
                     </p>
                     <p>
@@ -69,7 +69,7 @@ export default function Profile({ biodata }) {
                     <p>
                       2. Pilihan Kedua : {item[5]}, {item[7]}
                     </p>
-                    <p className="font-semibold bg-purple-800 text-purple-50">
+                    <p className="font-semibold bg-purple-800 text-purple-50 p-1">
                       Skor Try Out
                     </p>
                     <div className="flex justify-between text-purple-900">

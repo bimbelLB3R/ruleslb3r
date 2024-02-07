@@ -98,9 +98,9 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
     (item) => item.kode_prodi == pilihanProdi
   );
   // console.log(DataProdiYangDiKlik);
-  const dataTahun = DataProdiYangDiKlik?.tahun || [];
-  const dataDayaTampung = DataProdiYangDiKlik?.daya_tampung || [];
-  const dataPeminat = DataProdiYangDiKlik?.peminat || [];
+  const dataTahun = (DataProdiYangDiKlik?.tahun || []).slice(-6);
+  const dataDayaTampung = (DataProdiYangDiKlik?.daya_tampung || []).slice(-6);
+  const dataPeminat = (DataProdiYangDiKlik?.peminat || []).slice(-6);
   // console.log(dataPeminat);
   const dataKeketatan = dataDayaTampung.map((item, index) =>
     ((item / dataPeminat[index]) * 100).toFixed(3)
