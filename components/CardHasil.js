@@ -117,7 +117,7 @@ const CardHasil = ({
                   key={index}
                   className="flex items-center justify-center m-2"
                 >
-                  <Image
+                  <img
                     src={item[9]}
                     alt="foto"
                     width={96}
