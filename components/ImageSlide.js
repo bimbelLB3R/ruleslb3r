@@ -18,6 +18,17 @@ export default class ImageSlide extends Component {
           >
             <div>
               <Image
+                src="/image/image9.png"
+                alt="Foto siswa"
+                width={500}
+                height={500}
+                priority={true}
+              />
+              {/* <img src="image/image1.webp" alt="Foto Seminar Bakat" /> */}
+              <p className="legend">PARA PEJUANG KAMPUS</p>
+            </div>
+            <div>
+              <Image
                 src="/image/image8.png"
                 alt="Foto siswa"
                 width={500}
@@ -50,13 +61,13 @@ export default class ImageSlide extends Component {
             </div>
             <div>
               <Image
-                src="/image/image3.webp"
+                src="/image/image3.png"
                 alt="Foto Kelas UTBK"
                 width={500}
                 height={500}
               />
               {/* <img src="image/image3.webp" alt="Foto Kelas UTBK" /> */}
-              <p className="legend">KELAS INTENSIF UTBK SNBT</p>
+              <p className="legend">KELAS EKSKLUSIF UTBK SNBT</p>
             </div>
             <div>
               <Image

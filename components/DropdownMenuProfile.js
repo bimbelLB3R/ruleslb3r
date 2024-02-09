@@ -76,7 +76,7 @@ export default function DropdownMenuProfile() {
             >
               Profile
             </Link>
-            <Link
+            {/* <Link
               href="#"
               className="text-gray-700 block px-4 py-2 text-sm hover:bg-slate-200"
               role="menuitem"
@@ -84,7 +84,7 @@ export default function DropdownMenuProfile() {
               // id="menu-item-1"
             >
               Logout
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
