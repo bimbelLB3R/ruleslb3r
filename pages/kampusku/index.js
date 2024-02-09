@@ -28,7 +28,9 @@ export async function getStaticProps() {
 
 // Fungsi untuk menghitung rata-rata peminat dan mengabaikan nilai 0
 function calculateAveragePeminat(peminatArray) {
-  const filteredPeminat = peminatArray.filter((peminat) => peminat !== 0);
+  const filteredPeminat = peminatArray
+    .filter((peminat) => peminat !== 0)
+    .slice(-5);
   if (filteredPeminat.length === 0) {
     return 0; // Mengembalikan 0 jika tidak ada nilai selain 0
   }
