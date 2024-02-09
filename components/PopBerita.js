@@ -24,11 +24,14 @@ export default function PopBerita({ beritaTerbaru }) {
               href={`/blogs/${berita.slug}`}
               className="flex hover:bg-gray-200  space-x-1 shadow-lg  m-1"
             >
-              <img
-                src={berita.imageUrl}
-                alt="beritaUpdate"
-                className="aspect-square w-[60px]"
-              />
+              <div className="flex items-center justify-center">
+                <img
+                  src={berita.imageUrl}
+                  alt="beritaUpdate"
+                  className="aspect-square w-[60px] h-[60px]"
+                />
+              </div>
+
               <div className="p-2">
                 <p className="text-sm text-gray-800">{berita.title}</p>
                 <p className="text-xs text-gray-400">

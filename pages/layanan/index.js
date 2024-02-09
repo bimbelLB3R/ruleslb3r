@@ -74,9 +74,9 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
                 key={index}
                 className={`card bg-gradient-to-b from-purple-600 drop-shadow-lg m-4 p-5 border border-slate-300 md:w-[400px] w-[320px] ${
                   (program.keterangan === "Best Seller" &&
-                    "bg-gradient-to-br from-amber-500/50") ||
+                    "bg-gradient-to-b from-amber-500/50") ||
                   (program.keterangan === "Free/Gratis" &&
-                    "bg-gradient-to-br from-gray-500/50")
+                    "bg-gradient-to-b from-gray-500/50")
                 }`}
               >
                 {program.keterangan === "Best Seller" ? (

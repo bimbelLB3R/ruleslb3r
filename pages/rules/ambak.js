@@ -51,7 +51,10 @@ const Odb = ({ allPost }) => {
                   <Link href="/rules/odb">
                     <span className=" text-blue-600">kelas ODB </span>
                   </Link>
-                  secara GRATIS selama kuota tersedia.
+                  secara GRATIS selama kuota tersedia. ODB (One Day Before)
+                  merupakan les untuk persiapan ujian sekolah dan biasanya
+                  jadwal menyesuaikan jadwal ujian di sekolah. ODB dilaksanakan
+                  H-1 sebelum ujian.
                 </td>
               </tr>
               <tr>
@@ -60,21 +63,23 @@ const Odb = ({ allPost }) => {
                   <Link href="/rules/off">
                     <span className=" text-blue-600">Off sementara </span>
                   </Link>{" "}
-                  dan lanjut les lagi bulan depan
+                  dan lanjut les lagi bulan depan. Bagi para organisatoris
+                  (OSIS,Pramuka dll), ketika kamu les dan ada agenda besar di
+                  sekolah, kamu bisa ajukan off sementara.
                 </td>
               </tr>
               <tr>
                 <td className="align-top">3.</td>
                 <td className="text-justify">
                   Lebih efektif belajar bersama teman dari sekolah/kelas yang
-                  sama
+                  sama.
                 </td>
               </tr>
               <tr>
                 <td className="align-top">4.</td>
                 <td className="text-justify">
                   Belajar tepat sasaran menggunakan buku paket/modul sekolah
-                  masing-masing
+                  masing-masing.
                 </td>
               </tr>
               <tr>
@@ -118,7 +123,8 @@ const Odb = ({ allPost }) => {
                 <td className="align-top">11.</td>
                 <td className="text-justify">
                   Reservasi lebih awal dan dapatkan keuntungan bebas kenaikan
-                  harga
+                  harga. Ketika pergantian tahun ajaran, segera daftar ulang ya
+                  supaya biaya lesnya tidak naik.
                 </td>
               </tr>
               <tr>
