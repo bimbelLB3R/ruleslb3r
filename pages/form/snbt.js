@@ -286,7 +286,7 @@ const ContactForm = ({ sheetdata }) => {
       Swal.fire({
         title: "Nilai sedang diproses!",
         html: "I will close in <b></b> milliseconds.",
-        timer: 3000,
+        timer: 2000,
         timerProgressBar: true,
         didOpen: () => {
           Swal.showLoading();
@@ -304,11 +304,17 @@ const ContactForm = ({ sheetdata }) => {
           console.log("I was closed by the timer");
         }
       });
-      // mengulur waktu saat ambil data dari sheet
-      router.push({
-        pathname: `/form/outputsnbt`,
-        query: { link },
-      });
+      // mengulur waktu saat ambil data dari sheet end
+      // router.push({
+      //   pathname: `/form/outputsnbt`,
+      //   query: { link },
+      // });
+      router
+        .push({
+          pathname: `/form/outputsnbt`,
+          query: { link },
+        })
+        .then(() => window.location.reload());
     } else {
       Swal.fire({
         title: "Error",
