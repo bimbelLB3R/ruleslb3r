@@ -134,61 +134,68 @@ const CardHasil = ({
                 NISN : {storedNisn.toString().replace("1", "")}
               </p>
             </div>
-            {filteredNisn.length > 0
-              ? filteredNisn.map((item, index) => (
-                  <div key={index} className="mt-4 text-xs">
-                    <p className=" p-1 text-yellow-900 text-center font-semibold">
-                      Hasil Sementara
-                    </p>
-                    <div className="flex  justify-center">
-                      <table className="border-collapse border border-gray-800">
-                        <tbody>
-                          <tr className="border border-gray-800">
-                            <td className="border border-gray-800 p-1">
-                              Materi Subtes
-                            </td>
-                            <td className="border border-gray-800 p-1">
-                              {tipeSoal}
-                            </td>
-                          </tr>
-                          <tr className="border border-gray-800">
-                            <td className="border border-gray-800 p-1">
-                              Ranking subtes
-                            </td>
-                            <td className="border border-gray-800 p-1">
-                              {item[0]}
-                            </td>
-                          </tr>
-                          <tr className="border border-gray-800">
-                            <td className="border border-gray-800 p-1">
-                              Skor Kamu
-                            </td>
-                            <td className="border border-gray-800 p-1">
-                              {item[8]}
-                            </td>
-                          </tr>
-                          <tr className="border border-gray-800">
-                            <td className="border border-gray-800 p-1">
-                              Jumlah jawaban benar
-                            </td>
-                            <td className="border border-gray-800 p-1">
-                              {item[5]} dari {item[7]} soal
-                            </td>
-                          </tr>
-                          <tr className="border border-gray-800">
-                            <td className="border border-gray-800 p-1">
-                              Jumlah Peserta
-                            </td>
-                            <td className="border border-gray-800 p-1">
-                              {item[6]} Orang
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+            {filteredNisn.length > 0 ? (
+              filteredNisn.map((item, index) => (
+                <div key={index} className="mt-4 text-xs">
+                  <p className=" p-1 text-yellow-900 text-center font-semibold">
+                    Hasil Sementara
+                  </p>
+                  <div className="flex  justify-center">
+                    <table className="border-collapse border border-gray-800">
+                      <tbody>
+                        <tr className="border border-gray-800">
+                          <td className="border border-gray-800 p-1">
+                            Materi Subtes
+                          </td>
+                          <td className="border border-gray-800 p-1">
+                            {tipeSoal}
+                          </td>
+                        </tr>
+                        <tr className="border border-gray-800">
+                          <td className="border border-gray-800 p-1">
+                            Ranking subtes
+                          </td>
+                          <td className="border border-gray-800 p-1">
+                            {item[0]}
+                          </td>
+                        </tr>
+                        <tr className="border border-gray-800">
+                          <td className="border border-gray-800 p-1">
+                            Skor Kamu
+                          </td>
+                          <td className="border border-gray-800 p-1">
+                            {item[8]}
+                          </td>
+                        </tr>
+                        <tr className="border border-gray-800">
+                          <td className="border border-gray-800 p-1">
+                            Jumlah jawaban benar
+                          </td>
+                          <td className="border border-gray-800 p-1">
+                            {item[5]} dari {item[7]} soal
+                          </td>
+                        </tr>
+                        <tr className="border border-gray-800">
+                          <td className="border border-gray-800 p-1">
+                            Jumlah Peserta
+                          </td>
+                          <td className="border border-gray-800 p-1">
+                            {item[6]} Orang
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
-                ))
-              : isLoading}
+                </div>
+              ))
+            ) : (
+              <Link
+                href={"/form/outputsnbt"}
+                className="flex items-center justify-center"
+              >
+                <p className="underline">Klik Untuk Melihat Hasil</p>
+              </Link>
+            )}
             <div>
               <p className=" p-1 text-yellow-900 font-semibold text-xs mt-4 text-center">
                 Penjelasan Metode IRT (Item Response Test)

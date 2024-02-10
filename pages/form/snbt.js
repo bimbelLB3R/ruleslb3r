@@ -309,12 +309,10 @@ const ContactForm = ({ sheetdata }) => {
       //   pathname: `/form/outputsnbt`,
       //   query: { link },
       // });
-      router
-        .push({
-          pathname: `/form/outputsnbt`,
-          query: { link },
-        })
-        .then(() => window.location.reload());
+      router.push({
+        pathname: `/form/outputsnbt`,
+        query: { link },
+      });
     } else {
       Swal.fire({
         title: "Error",
