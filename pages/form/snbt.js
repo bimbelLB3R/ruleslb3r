@@ -281,6 +281,8 @@ const ContactForm = ({ sheetdata }) => {
       setForm({ nisn: "", name: "" });
       setSelectedValues({});
       localStorage.setItem("tipeSoal", tipeSoal);
+      // hapus sisa waktu di localstorage
+      localStorage.removeItem("timeLeft");
       // mengulur waktu saat ambil data dari sheet
       let timerInterval;
       Swal.fire({
