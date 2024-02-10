@@ -12,6 +12,7 @@ const CardHasil = ({
   storedNisn,
   tipeSoal,
   choosenBiodata,
+  isLoading,
 }) => {
   // const { data: session } = useSession();
   // console.log(session);
@@ -133,80 +134,61 @@ const CardHasil = ({
                 NISN : {storedNisn.toString().replace("1", "")}
               </p>
             </div>
-            {filteredNisn.length > 0 ? (
-              filteredNisn.map((item, index) => (
-                <div key={index} className="mt-4 text-xs">
-                  <p className=" p-1 text-yellow-900 text-center font-semibold">
-                    Hasil Sementara
-                  </p>
-                  <div className="flex  justify-center">
-                    <table className="border-collapse border border-gray-800">
-                      <tbody>
-                        <tr className="border border-gray-800">
-                          <td className="border border-gray-800 p-1">
-                            Materi Subtes
-                          </td>
-                          <td className="border border-gray-800 p-1">
-                            {tipeSoal}
-                          </td>
-                        </tr>
-                        <tr className="border border-gray-800">
-                          <td className="border border-gray-800 p-1">
-                            Ranking subtes
-                          </td>
-                          <td className="border border-gray-800 p-1">
-                            {item[0]}
-                          </td>
-                        </tr>
-                        <tr className="border border-gray-800">
-                          <td className="border border-gray-800 p-1">
-                            Skor Kamu
-                          </td>
-                          <td className="border border-gray-800 p-1">
-                            {item[8]}
-                          </td>
-                        </tr>
-                        <tr className="border border-gray-800">
-                          <td className="border border-gray-800 p-1">
-                            Jumlah jawaban benar
-                          </td>
-                          <td className="border border-gray-800 p-1">
-                            {item[5]} dari {item[7]} soal
-                          </td>
-                        </tr>
-                        <tr className="border border-gray-800">
-                          <td className="border border-gray-800 p-1">
-                            Jumlah Peserta
-                          </td>
-                          <td className="border border-gray-800 p-1">
-                            {item[6]} Orang
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+            {filteredNisn.length > 0
+              ? filteredNisn.map((item, index) => (
+                  <div key={index} className="mt-4 text-xs">
+                    <p className=" p-1 text-yellow-900 text-center font-semibold">
+                      Hasil Sementara
+                    </p>
+                    <div className="flex  justify-center">
+                      <table className="border-collapse border border-gray-800">
+                        <tbody>
+                          <tr className="border border-gray-800">
+                            <td className="border border-gray-800 p-1">
+                              Materi Subtes
+                            </td>
+                            <td className="border border-gray-800 p-1">
+                              {tipeSoal}
+                            </td>
+                          </tr>
+                          <tr className="border border-gray-800">
+                            <td className="border border-gray-800 p-1">
+                              Ranking subtes
+                            </td>
+                            <td className="border border-gray-800 p-1">
+                              {item[0]}
+                            </td>
+                          </tr>
+                          <tr className="border border-gray-800">
+                            <td className="border border-gray-800 p-1">
+                              Skor Kamu
+                            </td>
+                            <td className="border border-gray-800 p-1">
+                              {item[8]}
+                            </td>
+                          </tr>
+                          <tr className="border border-gray-800">
+                            <td className="border border-gray-800 p-1">
+                              Jumlah jawaban benar
+                            </td>
+                            <td className="border border-gray-800 p-1">
+                              {item[5]} dari {item[7]} soal
+                            </td>
+                          </tr>
+                          <tr className="border border-gray-800">
+                            <td className="border border-gray-800 p-1">
+                              Jumlah Peserta
+                            </td>
+                            <td className="border border-gray-800 p-1">
+                              {item[6]} Orang
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
-                </div>
-              ))
-            ) : (
-              <div className="hover:cursor-pointer flex items-center justify-center">
-                <a href={`/form/outputsnbt?link=${link}`}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="36"
-                    height="36"
-                    fill="currentColor"
-                    className="bi bi-arrow-counterclockwise"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"
-                    />
-                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
-                  </svg>
-                </a>
-              </div>
-            )}
+                ))
+              : isLoading}
             <div>
               <p className=" p-1 text-yellow-900 font-semibold text-xs mt-4 text-center">
                 Penjelasan Metode IRT (Item Response Test)

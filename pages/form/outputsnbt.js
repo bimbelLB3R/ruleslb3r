@@ -7,7 +7,7 @@ import Head from "next/head";
 import CardHasil from "../../components/CardHasil";
 import { runFireworks } from "../../libs/utils";
 
-const ContactForm = ({ sheetdata, biodata }) => {
+const ContactForm = () => {
   // console.log(query.link);
   // console.log(biodata);
 
@@ -17,6 +17,9 @@ const ContactForm = ({ sheetdata, biodata }) => {
   // console.log(storedNisn);
   const [storedName, setStorageName] = useState("Student");
   const [tipeSoal, setTipeSoal] = useState("");
+  const [sheetdata, setSheetData] = useState([]);
+  const [biodata, setBiodata] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   // console.log(storedName);
   // console.log(storedNisn);
   const filteredData = sheetdata.map((item) => item);
@@ -28,22 +31,54 @@ const ContactForm = ({ sheetdata, biodata }) => {
   // console.log(choosenBiodata);
   // console.log(filteredNisn);
   useEffect(() => {
-    runFireworks();
-    // cek apakah ada name di local storage
-    const storedName = localStorage.getItem("name");
-    const storedNisn = localStorage.getItem("nisn");
-    const tipeSoal = localStorage.getItem("tipeSoal");
-    const link = localStorage.getItem("link");
+    // Mengambil data dengan cara lain
+    const fetchData = async () => {
+      try {
+        // const link = query.link;
+        const link = localStorage.getItem("link");
+        const req = await fetch(
+          `https://www.bimbellb3r.com/api/analisis${link}`
+        );
+        const req2 = await fetch(`https://www.bimbellb3r.com/api/biodata`);
+        const res = await req.json();
+        const res2 = await req2.json();
+        setStorageName(localStorage.getItem("name"));
+        setStorageNisn(localStorage.getItem("nisn"));
+        setTipeSoal(localStorage.getItem("tipeSoal"));
+        setSheetData(res.data); // Set data dari API ke state sheetdata
+        setBiodata(res2.data); // Set data dari API ke state sheetdata
+        setIsLoading(false);
+        runFireworks();
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+    // // cek apakah ada name di local storage
+    // const storedName = localStorage.getItem("name");
+    // const storedNisn = localStorage.getItem("nisn");
+    // const tipeSoal = localStorage.getItem("tipeSoal");
+    // const link = localStorage.getItem("link");
 
-    if (!storedName) {
-      router.push("/form/login");
-    } else {
-      setStorageName(storedName);
-      setStorageNisn(storedNisn);
-      setTipeSoal(tipeSoal);
-    }
+    // if (!storedName) {
+    //   router.push("/form/login");
+    // } else {
+    //   setStorageName(storedName);
+    //   setStorageNisn(storedNisn);
+    //   setTipeSoal(tipeSoal);
+    // }
   }, []);
-  const router = useRouter();
+  // const router = useRouter();
+  if (isLoading) {
+    return (
+      <>
+        <div className="flex items-center justify-center m-auto h-screen">
+          <Loader />
+        </div>
+      </>
+    );
+  }
 
   return (
     <div>
@@ -58,7 +93,7 @@ const ContactForm = ({ sheetdata, biodata }) => {
           rel="icon"
           type="image/png"
           sizes="4x16"
-          href="image/logolb3r.png"
+          href="../image/logolb3r.png"
         />
       </Head>
 
@@ -73,6 +108,7 @@ const ContactForm = ({ sheetdata, biodata }) => {
                 storedName={storedName}
                 storedNisn={storedNisn}
                 tipeSoal={tipeSoal}
+                isLoading={isLoading}
               />
             </div>
           </div>
@@ -84,18 +120,18 @@ const ContactForm = ({ sheetdata, biodata }) => {
 
 export default ContactForm;
 
-// ambil data soal
-export async function getServerSideProps({ query }) {
-  const link = query.link;
-  const req = await fetch(`https://bimbellb3r.com/api/analisis${link}`);
-  const req2 = await fetch(`https://bimbellb3r.com/api/biodata`);
-  const res = await req.json();
-  const res2 = await req2.json();
+// ambil data soal (permintaan loading langsung dari server)
+// export async function getServerSideProps({ query }) {
+//   const link = query.link;
+//   const req = await fetch(`https://bimbellb3r.com/api/analisis${link}`);
+//   const req2 = await fetch(`https://bimbellb3r.com/api/biodata`);
+//   const res = await req.json();
+//   const res2 = await req2.json();
 
-  return {
-    props: {
-      sheetdata: res.data,
-      biodata: res2.data,
-    },
-  };
-}
+//   return {
+//     props: {
+//       sheetdata: res.data,
+//       biodata: res2.data,
+//     },
+//   };
+// }

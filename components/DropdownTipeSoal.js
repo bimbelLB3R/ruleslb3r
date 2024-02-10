@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 export default function Dropdown({ disabled }) {
-  console.log(disabled);
+  // console.log(disabled);
   const [selectedOption, setSelectedOption] = useState("");
   const handleDrop = (e) => {
     // e.preventDefault();
