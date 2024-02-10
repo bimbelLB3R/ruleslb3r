@@ -41,6 +41,7 @@ function calculateAveragePeminat(peminatArray) {
 export default function Kampus({ allKampus, allPost, definisiProdi }) {
   const [ranking, setRanking] = useState();
   const [rataMinat, setRataPeminat] = useState();
+  const [kategori, setKategori] = useState();
 
   const [showNavbar, setShowNavbar] = useState(false);
   const navbarRef = useRef(null);
@@ -69,7 +70,11 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
   const [disableprodi, setDisableProdi] = useState(false);
   // console.log(pilihanKampus);
 
-  const AllNamaKampus = allKampus.map((item, index) => item.nama_kampus);
+  // const AllNamaKampus = allKampus.map((item, index) => item.nama_kampus);
+  const AllNamaKampus = allKampus.filter(
+    (item, index) => item.kategori == kategori
+  );
+  // console.log(AllNamaKampus);
 
   let namaProdi = "";
   const cariProdiDariKode = allKampus.forEach((item, index) =>
@@ -94,12 +99,13 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
   const dataKampus = allKampus.find(
     (item) => item.nama_kampus == pilihanKampus
   ); //identifikasi kampus
+  // console.log(allKampus);
   const prodi = dataKampus?.prodi || [];
   const jmlProdi = prodi.length;
   const DataProdiYangDiKlik = prodi.find(
     (item) => item.kode_prodi == pilihanProdi
   );
-  // console.log(DataProdiYangDiKlik);
+  // console.log(pilihanKampus);
   const dataTahun = (DataProdiYangDiKlik?.tahun || []).slice(-6);
   const dataDayaTampung = (DataProdiYangDiKlik?.daya_tampung || []).slice(-6);
   const dataPeminat = (DataProdiYangDiKlik?.peminat || []).slice(-6);
@@ -122,6 +128,9 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
   };
 
   // console.log(defProdi);
+  const handleKategori = (e) => {
+    setKategori(e.target.value);
+  };
 
   const handleKampus = (e) => {
     setPilihanKampus(e.target.value);
@@ -232,8 +241,38 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
             <form className="text-gray-600">
               <div className="bg-[url('/og-images/testOg.png')] p-4 bg-no-repeat bg-cover ">
                 <h1 className="mb-4 text-xl font-bold text-orange-900 text-center">
-                  Cek Keketatan Prodi
+                  Cek Keketatan Prodi SNBT
                 </h1>
+                <div className="mb-2 text-orange-900">
+                  <div className="flex justify-center ">
+                    <div className="relative  ">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="w-6 h-6 absolute top-1/2 left-2  transform  -translate-y-1/2"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"
+                        />
+                      </svg>
+                    </div>
+                    <select
+                      name="pilihanKategori"
+                      className="w-full md:w-1/2 border-orange-600 pl-10 bg-gray-100/70 "
+                      onChange={handleKategori}
+                    >
+                      <option value="">Pilih Kategori</option>
+                      <option value="akademik">PTN Akademik</option>
+                      <option value="vokasi">PTN Vokasi</option>
+                      <option value="kin">PT KIN</option>
+                    </select>
+                  </div>
+                </div>
                 <div className="mb-2 text-orange-900">
                   <div className="flex justify-center ">
                     <div className="relative  ">
@@ -261,10 +300,10 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
                       {AllNamaKampus.map((item, index) => (
                         <option
                           key={index}
-                          value={item}
+                          value={item.nama_kampus}
                           className="hover:bg-gray-600 p-2"
                         >
-                          {item}
+                          {item.nama_kampus}
                         </option>
                       ))}
                     </select>
