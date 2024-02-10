@@ -188,7 +188,7 @@ const CardHasil = ({
                 </div>
               ))
             ) : (
-              <div className="hover:cursor-pointer">
+              <div className="hover:cursor-pointer flex items-center justify-center">
                 <a href={`/form/outputsnbt?link=${link}`}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
