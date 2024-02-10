@@ -270,17 +270,41 @@ const ContactForm = ({ sheetdata }) => {
       appendSpreadsheet(newRow);
       setIsLoading(false); // set status loading menjadi false setelah proses selesai
       // Show a message to indicate that the data has been sent
-      Swal.fire({
-        title: "Jawabanmu Berhasil Terkirim",
-        text: "Lanjutkan Soal Berikutnya",
-        icon: "success",
-      });
+      // Swal.fire({
+      //   title: "Jawabanmu Berhasil Terkirim",
+      //   text: "Lanjutkan Soal Berikutnya",
+      //   icon: "success",
+      // });
       // clear localstorage
       // localStorage.clear();
       // Reset the form
       setForm({ nisn: "", name: "" });
       setSelectedValues({});
       localStorage.setItem("tipeSoal", tipeSoal);
+      // mengulur waktu saat ambil data dari sheet
+      let timerInterval;
+      Swal.fire({
+        title: "Nilai sedang diproses!",
+        html: "I will close in <b></b> milliseconds.",
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const timer = Swal.getPopup().querySelector("b");
+          timerInterval = setInterval(() => {
+            timer.textContent = `${Swal.getTimerLeft()}`;
+          }, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        },
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log("I was closed by the timer");
+        }
+      });
+      // mengulur waktu saat ambil data dari sheet
       router.push({
         pathname: `/form/outputsnbt`,
         query: { link },
@@ -734,7 +758,7 @@ export default ContactForm;
 // ambil data soal
 export async function getServerSideProps({ query }) {
   const link = query.link;
-  const req = await fetch(`https://bimbellb3r.com/api/soal${link}`);
+  const req = await fetch(`https://www.bimbellb3r.com/api/soal${link}`);
   const res = await req.json();
 
   return {
