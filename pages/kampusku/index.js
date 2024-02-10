@@ -68,6 +68,7 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
   const [pilihanKampus, setPilihanKampus] = useState([]);
   const [pilihanProdi, setPilihanProdi] = useState([]);
   const [disableprodi, setDisableProdi] = useState(false);
+  const [disablekategori, setDisableKategori] = useState(false);
   // console.log(pilihanKampus);
 
   // const AllNamaKampus = allKampus.map((item, index) => item.nama_kampus);
@@ -140,6 +141,7 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
   const handleProdi = (e) => {
     setPilihanProdi(e.target.value);
     // setDisableProdi(true);
+    setDisableKategori(true);
   };
 
   // Menghitung rata-rata peminat untuk setiap nama_prodi
@@ -243,7 +245,11 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
                 <h1 className="mb-4 text-xl font-bold text-orange-900 text-center">
                   Cek Keketatan Prodi SNBT
                 </h1>
-                <div className="mb-2 text-orange-900">
+                <div
+                  className={`text-orange-900 ${
+                    disablekategori ? "mb-1" : "mb-2"
+                  }`}
+                >
                   <div className="flex justify-center ">
                     <div className="relative  ">
                       <svg
@@ -263,8 +269,11 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
                     </div>
                     <select
                       name="pilihanKategori"
-                      className="w-full md:w-1/2 border-orange-600 pl-10 bg-gray-100/70 "
+                      className={`w-full md:w-1/2 border-orange-600 pl-10 ${
+                        disablekategori ? "bg-gray-400" : "bg-gray-100/70"
+                      }`}
                       onChange={handleKategori}
+                      disabled={disablekategori}
                     >
                       <option value="">Pilih Kategori</option>
                       <option value="akademik">PTN Akademik</option>
@@ -273,6 +282,13 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
                     </select>
                   </div>
                 </div>
+                {disablekategori ? (
+                  <p className="text-xs text-gray-50 text-center mb-2 animate-bounce">
+                    (refresh halaman untuk memilih kategori lain)
+                  </p>
+                ) : (
+                  ""
+                )}
                 <div className="mb-2 text-orange-900">
                   <div className="flex justify-center ">
                     <div className="relative  ">
