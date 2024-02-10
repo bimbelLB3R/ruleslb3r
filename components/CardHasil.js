@@ -138,7 +138,7 @@ const CardHasil = ({
               filteredNisn.map((item, index) => (
                 <div key={index} className="mt-4 text-xs">
                   <p className=" p-1 text-yellow-900 text-center font-semibold">
-                    Hasil Sementara
+                    Hasil Sementara Simulasi UTBK SNBT 2024
                   </p>
                   <div className="flex  justify-center">
                     <table className="border-collapse border border-gray-800">
@@ -189,16 +189,18 @@ const CardHasil = ({
                 </div>
               ))
             ) : (
-              <Link
+              <a
                 href="/form/outputsnbt"
                 className="flex items-center justify-center"
               >
-                <p className="underline">Klik Untuk Melihat Hasil</p>
-              </Link>
+                <p className="underline">
+                  Klik atau refresh halaman Untuk Melihat Hasil
+                </p>
+              </a>
             )}
             <div>
               <p className=" p-1 text-yellow-900 font-semibold text-xs mt-4 text-center">
-                Penjelasan Metode IRT (Item Response Test)
+                Penjelasan Metode IRT (Item Response Theory)
               </p>
               <p className="text-xs text-justify indent-6 p-2 ">
                 Perlu {storedName} ketahui bahwa dalam Try Out SNBT menggunakan
