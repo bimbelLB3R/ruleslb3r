@@ -25,7 +25,7 @@ const ContactForm = ({ sheetdata, biodata }) => {
   const choosenBiodata = filteredBiodata.filter(
     (item) => item[0] == storedNisn
   );
-  console.log(choosenBiodata);
+  // console.log(choosenBiodata);
   // console.log(filteredNisn);
   useEffect(() => {
     runFireworks();
@@ -63,9 +63,9 @@ const ContactForm = ({ sheetdata, biodata }) => {
       </Head>
 
       <main>
-        <div className="max-w-xl mb-2 flex items-center justify-center m-auto p-4 bg-gray-300 text-gray-900">
-          <div className="mb-12">
-            <div>
+        <div className="max-w-sm mb-2 flex items-center justify-center m-auto  text-gray-900 ">
+          <div className="mb-12 ">
+            <div className="">
               <CardHasil
                 sheetdata={sheetdata}
                 filteredNisn={filteredNisn}

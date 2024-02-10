@@ -20,7 +20,7 @@ const CardHasil = ({
     const link = localStorage.getItem("link");
     setLink(link);
   });
-  //   console.log(filteredNisn);
+  // console.log(filteredNisn);
   // console.log(tipeSoal);
   const [hapusLocal, setHapusLocal] = useState("");
   // const [tipeSoal, setTipeSoal] = useState('');
@@ -44,10 +44,10 @@ const CardHasil = ({
   };
 
   return (
-    <div className="max-w-md ">
-      <Card className="bg-blue-200">
+    <div className="max-w-md bg-gradient-to-b from-purple-900">
+      <Card className="bg-gradient-to-b from-purple-900 via-yellow-200 to-purple-900">
         <div className="">
-          <div className="flex justify-end  items-center  p-4 ">
+          <div className="flex justify-end  items-center ">
             {/* <p className="w-full text-[16] font-bold">{tipeSoal}</p> */}
 
             <Dropdown inline={true} label="">
@@ -83,7 +83,7 @@ const CardHasil = ({
             src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
             alt="Bonnie image"
           /> */}
-            <div className="hover:cursor-pointer">
+            {/* <div className="hover:cursor-pointer">
               <a href={`/form/outputsnbt?link=${link}`}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -100,10 +100,10 @@ const CardHasil = ({
                   <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
                 </svg>
               </a>
-            </div>
+            </div> */}
           </div>
           <div>
-            <div className="border-b-2 border-blue-400">
+            <div className="border-b-4 border-gray-600  p-1">
               {/* <div>
                 <Image
                   src={session.user.image}
@@ -126,43 +126,92 @@ const CardHasil = ({
                   />
                 </div>
               ))}
-              <h5 className=" text-xl font-medium text-gray-900 dark:text-white">
+              <h5 className=" text-xl font-medium text-yellow-900  text-center">
                 {storedName}
               </h5>
-              <span className="text-sm text-gray-500 dark:text-gray-400">
+              <p className="text-sm text-gray-50  text-center mb-3">
                 NISN : {storedNisn.toString().replace("1", "")}
-              </span>
+              </p>
             </div>
-            {filteredNisn.map((item, index) => (
-              <div key={index} className="border-b-2 border-blue-400">
-                <p>
-                  Materi Subtes :{" "}
-                  <span className="font-bold text-red-900">{tipeSoal}</span>
-                </p>
-                <p>
-                  Ranking subtes :{" "}
-                  <span className="font-bold text-red-900">{item[0]}</span>
-                </p>
-                <p>
-                  Skor Kamu :{" "}
-                  <span className="font-bold text-red-900">{item[8]}</span>
-                </p>
-                <p>
-                  Jumlah jawaban benar :{" "}
-                  <span className="font-bold text-red-900">
-                    {item[5]} dari {item[7]} soal
-                  </span>
-                </p>
-                <p>
-                  Jumlah Peserta :{" "}
-                  <span className="font-bold text-red-900">
-                    {item[6]} Orang
-                  </span>
-                </p>
+            {filteredNisn.length > 0 ? (
+              filteredNisn.map((item, index) => (
+                <div key={index} className="mt-4 text-xs">
+                  <p className=" p-1 text-yellow-900 text-center font-semibold">
+                    Hasil Sementara
+                  </p>
+                  <div className="flex  justify-center">
+                    <table className="border-collapse border border-gray-800">
+                      <tbody>
+                        <tr className="border border-gray-800">
+                          <td className="border border-gray-800 p-1">
+                            Materi Subtes
+                          </td>
+                          <td className="border border-gray-800 p-1">
+                            {tipeSoal}
+                          </td>
+                        </tr>
+                        <tr className="border border-gray-800">
+                          <td className="border border-gray-800 p-1">
+                            Ranking subtes
+                          </td>
+                          <td className="border border-gray-800 p-1">
+                            {item[0]}
+                          </td>
+                        </tr>
+                        <tr className="border border-gray-800">
+                          <td className="border border-gray-800 p-1">
+                            Skor Kamu
+                          </td>
+                          <td className="border border-gray-800 p-1">
+                            {item[8]}
+                          </td>
+                        </tr>
+                        <tr className="border border-gray-800">
+                          <td className="border border-gray-800 p-1">
+                            Jumlah jawaban benar
+                          </td>
+                          <td className="border border-gray-800 p-1">
+                            {item[5]} dari {item[7]} soal
+                          </td>
+                        </tr>
+                        <tr className="border border-gray-800">
+                          <td className="border border-gray-800 p-1">
+                            Jumlah Peserta
+                          </td>
+                          <td className="border border-gray-800 p-1">
+                            {item[6]} Orang
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="hover:cursor-pointer">
+                <a href={`/form/outputsnbt?link=${link}`}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="36"
+                    height="36"
+                    fill="currentColor"
+                    className="bi bi-arrow-counterclockwise"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"
+                    />
+                    <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+                  </svg>
+                </a>
               </div>
-            ))}
+            )}
             <div>
-              <p className="text-xs text-justify indent-6 border-l-2 border-gray-300 p-2 mt-4">
+              <p className=" p-1 text-yellow-900 font-semibold text-xs mt-4 text-center">
+                Penjelasan Metode IRT (Item Response Test)
+              </p>
+              <p className="text-xs text-justify indent-6 p-2 ">
                 Perlu {storedName} ketahui bahwa dalam Try Out SNBT menggunakan
                 metode IRT, skor kamu bisa berubah-ubah disebabkan penambahan
                 jumlah peserta TO. Makin banyak peserta yang menjawab benar pada
