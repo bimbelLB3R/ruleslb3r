@@ -190,7 +190,7 @@ const CardHasil = ({
               ))
             ) : (
               <Link
-                href={"/form/outputsnbt"}
+                href="/form/outputsnbt"
                 className="flex items-center justify-center"
               >
                 <p className="underline">Klik Untuk Melihat Hasil</p>
