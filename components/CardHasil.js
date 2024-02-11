@@ -20,6 +20,8 @@ const CardHasil = ({
   useEffect(() => {
     const link = localStorage.getItem("link");
     setLink(link);
+    // hapus sisa waktu di localstorage
+    localStorage.removeItem("timeLeft");
   });
   // console.log(filteredNisn);
   // console.log(tipeSoal);
