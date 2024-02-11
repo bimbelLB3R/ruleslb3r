@@ -17,6 +17,7 @@ const Meta = () => (
     />
     <meta name="keywords" content="bimbel LB3R SNBT " />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#581c87" />
     <title>LB3R |OFFICIAL</title>
     <link rel="icon" type="image/png" sizes="4x16" href="image/logolb3r.png" />
     <meta

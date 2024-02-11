@@ -23,7 +23,7 @@ export default function Newmember() {
     const dataSubscription = localStorage.getItem("subscription");
     setSubscription(dataSubscription);
   }, []);
-  console.log(subscription);
+  // console.log(subscription);
   const [adaEmail, setAdaEmail] = useState(false);
   const [adaNisn, setAdaNisn] = useState(false);
   // console.log(adaEmail);
@@ -193,6 +193,7 @@ export default function Newmember() {
       <Head>
         <title>FORM PROGRAM SNBT</title>
         <meta name="description" content="Seleksi Masuk PTN Jalur Tes" />
+        <meta name="theme-color" content="#581c87" />
         <link
           rel="icon"
           type="image/png"

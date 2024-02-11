@@ -125,11 +125,11 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
               >
                 {session ? (
                   <div className="border-2 border-white rounded-full relative">
-                    <div className="w-[12px] h-[12px] absolute rounded-full bg-green-400"></div>
+                    <div className="w-[8px] h-[8px] absolute rounded-full bg-green-400"></div>
                     <Image
                       src={session.user.image}
-                      width={46}
-                      height={46}
+                      width={36}
+                      height={36}
                       alt="userFoto"
                       priority={true}
                       className="rounded-full shadow-2xl"
