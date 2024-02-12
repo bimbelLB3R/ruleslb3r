@@ -41,7 +41,7 @@ const VideoDraggable = () => {
           <iframe
             width="280"
             height="160"
-            src="https://www.youtube.com/embed/8toydm0StA4"
+            src="https://www.youtube.com/embed/8toydm0StA4?autoplay=1"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
