@@ -20,6 +20,7 @@ import { runFireworks } from "../libs/utils";
 import PopBerita from "../components/PopBerita";
 import ShortCut from "../components/ShortCut";
 import WarningSnbt from "../components/WarningSnbt";
+import VideoDraggable from "../components/Videodraggable";
 
 const Home = ({ allPost, dataAlumni }) => {
   // console.log(allPost);
