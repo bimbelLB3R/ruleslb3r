@@ -28,7 +28,7 @@ const ContactForm = ({ sheetdata }) => {
 
   useEffect(() => {
     const timeStorage = localStorage.getItem("timeLeft");
-
+    setCurrentPage(1);
     // console.log(timeStorage);
     if (timeStorage) {
       setTimeStorage(dayjs.duration(parseInt(timeStorage), "second"));
@@ -336,7 +336,7 @@ const ContactForm = ({ sheetdata }) => {
     localStorage.setItem(name, value);
   };
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState();
   const [selectedPage, setSelectedPage] = useState(null);
   const [isChecked, setIsChecked] = useState({});
   const postsPerPage = 1;
