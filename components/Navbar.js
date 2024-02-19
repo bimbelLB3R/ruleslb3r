@@ -193,7 +193,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                 <div className="flex justify-center items-center md:hidden  overflow-auto ">
                   <div className="w-full flex flex-wrap p-2 justify-center items-center mt-10">
                     <Link href="/" title="Home">
-                      <div className="bg-orange-400 p-1 text-slate-900 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                      <div className="bg-orange-400 dark:bg-gray-900 p-1 text-slate-900 dark:text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div>
                           <div className="text-center">
                             <svg
@@ -212,7 +212,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                       </div>
                     </Link>
                     <Link href="/layanan">
-                      <div className="bg-orange-400 p-1 text-slate-900 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                      <div className="bg-orange-400 dark:bg-gray-900 p-1 text-slate-900 dark:text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
@@ -236,7 +236,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                     </Link>
                     {/* <DropdownMenuLayanan /> */}
                     <Link href="/blogs">
-                      <div className="bg-orange-400 p-1 text-slate-900 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                      <div className="bg-orange-400 dark:bg-gray-900 p-1 text-slate-900 dark:text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
@@ -258,7 +258,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                       </div>
                     </Link>
                     <Link href="/gallery">
-                      <div className="bg-orange-400 p-1 text-slate-900 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                      <div className="bg-orange-400 dark:bg-gray-900 p-1 text-slate-900 dark:text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
@@ -282,7 +282,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                     </Link>
 
                     <Link href="/form/login">
-                      <div className="bg-orange-400 p-1 text-slate-900 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                      <div className="bg-orange-400 dark:bg-gray-900 p-1 text-slate-900 dark:text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
@@ -309,7 +309,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                       </div>
                     </Link>
                     <Link href="/kampusku">
-                      <div className="bg-orange-400 p-1 text-slate-900 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                      <div className="bg-orange-400 dark:bg-gray-900 p-1 text-slate-900 dark:text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
@@ -334,7 +334,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                       </div>
                     </Link>
                     <Link href="/user/term">
-                      <div className="bg-orange-400 p-1 text-slate-900 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                      <div className="bg-orange-400 dark:bg-gray-900 p-1 text-slate-900 dark:text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
@@ -358,7 +358,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                       </div>
                     </Link>
                     <Link href="https://www.jambore.temubakat.com">
-                      <div className="bg-orange-400 p-1 text-slate-900 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                      <div className="bg-orange-400 dark:bg-gray-900 p-1 text-slate-900 dark:text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg

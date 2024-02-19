@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import Loader from "./Loader";
 import { useRouter } from "next/router";
 // import session from 'express-session';
+import { signIn, signOut, useSession } from "next-auth/react";
 import cookie from "js-cookie";
 import Dropdown from "./DropdownTipeSoal";
 import Head from "next/head";
@@ -18,12 +19,15 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 const Loginmember = () => {
+  const { data: session } = useSession();
+  // console.log(session);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const router = useRouter();
   const [form, setForm] = useState({
     nisn: "",
     nama: "",
   });
+  // console.log(form.nisn);
   // cek apakah sudah ada nisn dan nama di local storage
   useEffect(() => {
     const storedNisn = localStorage.getItem("nisn");
@@ -32,6 +36,12 @@ const Loginmember = () => {
       // router.push('/form/snbt');
       localStorage.clear();
     }
+    // if (!session) {
+    //   setForm((prevState) => ({
+    //     ...prevState,
+    //     nisn: "0987",
+    //   }));
+    // }
   }, []);
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
@@ -157,11 +167,11 @@ const Loginmember = () => {
           rel="icon"
           type="image/png"
           sizes="4x16"
-          href="/image/logolb3r.png"
+          href="../image/logolb3r.png"
         />
       </Head>
 
-      <div className="bg-gray-50 dark:bg-gray-900">
+      <div className="bg-gray-50 dark:bg-gray-900 h-screen">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-full lg:py-0 animate__animated  animate__slideInDown">
           <a
             href="/"

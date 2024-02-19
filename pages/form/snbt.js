@@ -28,6 +28,7 @@ const ContactForm = ({ sheetdata }) => {
 
   useEffect(() => {
     const timeStorage = localStorage.getItem("timeLeft");
+
     // console.log(timeStorage);
     if (timeStorage) {
       setTimeStorage(dayjs.duration(parseInt(timeStorage), "second"));
@@ -335,7 +336,7 @@ const ContactForm = ({ sheetdata }) => {
     localStorage.setItem(name, value);
   };
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(); //aslinya defaultnya 1, saya ubah supaya pas refreh tdk ke hal 1
   const [selectedPage, setSelectedPage] = useState(null);
   const [isChecked, setIsChecked] = useState({});
   const postsPerPage = 1;
@@ -352,8 +353,23 @@ const ContactForm = ({ sheetdata }) => {
   useEffect(() => {
     // Saat komponen dimuat, cek apakah ada nilai currentPage yang disimpan di localStorage
     const savedCurrentPage = localStorage.getItem("currentPage");
+    // if (savedCurrentPage) {
+    //   setCurrentPage(Number(savedCurrentPage));
+    // }
     if (savedCurrentPage) {
-      setCurrentPage(Number(savedCurrentPage));
+      // Set status loading menjadi true saat proses pengecekan sedang berlangsung
+      setIsLoading(true);
+      // Simulasikan penundaan untuk menampilkan efek loading (opsional)
+      const delay = setTimeout(() => {
+        setCurrentPage(Number(savedCurrentPage));
+        // Setelah pengecekan selesai, atur status loading menjadi false
+        setIsLoading(false);
+      }, 1000); // Contoh penundaan 1 detik
+      // Membersihkan timeout pada unmount atau saat efek berubah
+      return () => clearTimeout(delay);
+    } else {
+      // Jika tidak ada nilai currentPage di localStorage, atur status loading menjadi false
+      setIsLoading(false);
     }
   }, []);
 
@@ -387,9 +403,10 @@ const ContactForm = ({ sheetdata }) => {
       setIsChecked(JSON.parse(savedData));
     }
   }, []);
+
   // const isRadioButtonDisabled = <Timer />;
   // const text = document.getElementById('textBacaan').innerText;
-  // console.log(text);
+  // console.log(isLoading);
 
   return (
     <div>
@@ -474,204 +491,212 @@ const ContactForm = ({ sheetdata }) => {
           {storedName} is doing {tipeSoal} now...
         </p>
       </div>
-      <main>
-        <form onSubmit={submitForm} ref={formRef}>
-          <div className="max-w-xl lg:max-w-full  select-none flex items-center justify-center m-auto p-4 bg-gray-300 text-gray-900">
-            <div className="mb-4">
-              <p className="fixed left-0 top-0  z-50  text-[8px] md:text-sm text-gray-50 p-2 md:p-3">
-                {currentPage} dari {totalPages} soal
-              </p>
-              <div>
-                {/* <label htmlFor="nisn">NISN:</label> */}
-                <input
-                  type="hidden"
-                  name="nisn"
-                  id="nisn"
-                  className="w-full"
-                  value={form.nisn}
-                  placeholder="isi NISN tanpa spasi"
-                  onChange={(e) => setForm({ ...form, nisn: e.target.value })}
-                />
-              </div>
-              {/* Timer */}
+      {isLoading ? (
+        <div className="flex items-center justify-center mt-[50px]">
+          <Loader />
+        </div>
+      ) : (
+        <main>
+          <form onSubmit={submitForm} ref={formRef}>
+            <div className="max-w-xl lg:max-w-full  select-none flex items-center justify-center m-auto p-4 bg-gray-300 text-gray-900">
+              <div className="mb-4">
+                <p className="fixed left-0 top-0  z-50  text-[8px] md:text-sm text-gray-50 p-2 md:p-3">
+                  {currentPage} dari {totalPages} soal
+                </p>
+                <div>
+                  {/* <label htmlFor="nisn">NISN:</label> */}
+                  <input
+                    type="hidden"
+                    name="nisn"
+                    id="nisn"
+                    className="w-full"
+                    value={form.nisn}
+                    placeholder="isi NISN tanpa spasi"
+                    onChange={(e) => setForm({ ...form, nisn: e.target.value })}
+                  />
+                </div>
+                {/* Timer */}
 
-              {paginatedPosts.map((item) => (
-                <div
-                  key={item[0]}
-                  className="bg-gray-50 lg:drop-shadow-2xl lg:m-10 p-2"
-                >
-                  {/* {console.log(item[0])} */}
-                  {/* Bacaan */}
-                  <div className="lg:flex  lg:p-10 lg:space-x-4 ">
+                {paginatedPosts.map((item) => (
+                  <div
+                    key={item[0]}
+                    className="bg-gray-50 lg:drop-shadow-2xl lg:m-10 p-2"
+                  >
+                    {/* {console.log(item[0])} */}
+                    {/* Bacaan */}
                     <div
-                      key={item[0]}
-                      id="textBacaan"
-                      className={`${
-                        link === "kuantitatif" || link === "matematika"
-                          ? "lg:max-w-1/2"
-                          : "lg:max-w-1/2 max-h-[500px] overflow-auto"
-                      }`}
+                      className="lg:flex  lg:p-10 lg:space-x-4 "
+                      id="custom-text"
                     >
-                      <p className="text-center mb-2 indent-8 font-semibold mt-4 lg:mt-0">
-                        {item[2]}
-                      </p>
-                      <div className="flex items-center justify-center hover:w-full hover:absolute hover:z-50 hover:right-0 hover:left-0 ">
-                        <img src={item[27]} className="w-full " />
-                      </div>
-                      <p className="text-justify mb-2 indent-8 hover:bg-gray-100">
-                        {item[3]}
-                      </p>
-                      <p className="text-justify mb-2 hover:bg-gray-100 ">
-                        <Latex>{item[4]}</Latex>
-                      </p>
-                      <p className="text-justify mb-2 indent-8 hover:bg-gray-100">
-                        {item[5]}
-                      </p>
-                      <p className="text-justify mb-2 indent-8 hover:bg-gray-100">
-                        {item[6]}
-                      </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                        {item[7]}
-                      </p>
-                      {/* Tambahan bacaan kolom orange */}
-                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                        {item[14]}
-                      </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                        {item[15]}
-                      </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                        {item[16]}
-                      </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                        {item[17]}
-                      </p>
-                      <p className="text-center mb-4 indent-8 hover:bg-gray-100 font-semibold">
-                        {item[18]}
-                      </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                        {item[19]}
-                      </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                        {item[20]}
-                      </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                        {item[21]}
-                      </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                        {item[22]}
-                      </p>
-                      <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                        {item[23]}
-                      </p>
-                      <p className="text-left mb-4 text-xs font-semibold italic">
-                        {item[26]}
-                      </p>
-                    </div>
-                    <div
-                      className={`${
-                        link === "kuantitatif" || link === "matematika"
-                          ? "lg:max-w-full border-dashed border-l-2 border-yellow-900"
-                          : "lg:max-w-1/2  border-l-2 border-gray-400 border-dashed bg-blue-50 rounded-t-lg"
-                      }`}
-                    >
-                      {/* Pertanyaan */}
-                      <div className="flex space-x-2 p-2">
-                        <p
-                          className="text-justify mb-2 bg-gray-200 flex items-center p-1 "
-                          id={item[28]}
-                        >
-                          {item[28]}
+                      <div
+                        key={item[0]}
+                        id="textBacaan"
+                        className={`${
+                          link === "kuantitatif" || link === "matematika"
+                            ? "lg:max-w-1/2"
+                            : "lg:max-w-1/2 max-h-[500px] overflow-auto"
+                        }`}
+                      >
+                        <p className="text-center mb-2 indent-8 font-semibold mt-4 lg:mt-0">
+                          {item[2]}
                         </p>
-                        <p className="text-left mb-2  bg-gray-50 p-1 border-b-2 border-t-2 border-gray-200">
-                          <Latex>{item[8]}</Latex>
+                        <div className="flex items-center justify-center hover:w-full hover:absolute hover:z-50 hover:right-0 hover:left-0 ">
+                          <img src={item[27]} className="w-full " />
+                        </div>
+                        <p className="text-justify mb-2 indent-8 hover:bg-gray-100">
+                          {item[3]}
+                        </p>
+                        <p className="text-justify mb-2 indent-8 hover:bg-gray-100 ">
+                          <Latex>{item[4]}</Latex>
+                        </p>
+                        <p className="text-justify mb-2 indent-8 hover:bg-gray-100">
+                          {item[5]}
+                        </p>
+                        <p className="text-justify mb-2 indent-8 hover:bg-gray-100">
+                          <Latex>{item[6]}</Latex>
+                        </p>
+                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                          {item[7]}
+                        </p>
+                        {/* Tambahan bacaan kolom orange */}
+                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                          {item[14]}
+                        </p>
+                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                          {item[15]}
+                        </p>
+                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                          {item[16]}
+                        </p>
+                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                          {item[17]}
+                        </p>
+                        <p className="text-center mb-4 indent-8 hover:bg-gray-100 font-semibold">
+                          {item[18]}
+                        </p>
+                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                          <Latex>{item[19]}</Latex>
+                        </p>
+                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                          {item[20]}
+                        </p>
+                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                          {item[21]}
+                        </p>
+                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                          {item[22]}
+                        </p>
+                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                          {item[23]}
+                        </p>
+                        <p className="text-left mb-4 text-xs font-semibold italic">
+                          {item[26]}
                         </p>
                       </div>
-                      {/* Opsi Jawaban */}
-                      <div className="pr-4 pl-4">
-                        <Radio.Group
-                          disabled={isRadioButtonDisabled}
-                          onChange={handleChange}
-                          value={selectedValues[`group${item[0]}`]}
-                          name={`group${item[0]}`}
-                        >
-                          <div className="flex space-x-1">
-                            <Radio value="A" className="text-justify">
-                              <div className="flex items-center space-x-2 mb-2">
-                                <p className="font-semibold">A</p>
-                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
-                                  {item[9]}
-                                </p>
-                              </div>
-                            </Radio>
-                          </div>
-                          <div className="flex space-x-1">
-                            <Radio value="B" className="text-justify ">
-                              <div className="flex items-center space-x-2 mb-2">
-                                <p className="font-semibold">B</p>
-                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
-                                  {item[10]}
-                                </p>
-                              </div>
-                            </Radio>
-                          </div>
-                          <div className="flex space-x-1">
-                            <Radio value="C" className="text-justify ">
-                              <div className="flex items-center space-x-2 mb-2">
-                                <p className="font-semibold">C</p>
-                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
-                                  {item[11]}
-                                </p>
-                              </div>
-                            </Radio>
-                          </div>
-                          <div className="flex space-x-1">
-                            <Radio value="D" className="text-justify ">
-                              <div className="flex items-center space-x-2 mb-2">
-                                <p className="font-semibold">D</p>
-                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
-                                  {item[12]}
-                                </p>
-                              </div>
-                            </Radio>
-                          </div>
-                          <div className="flex space-x-1">
-                            <Radio value="E" className=" flex items-start">
-                              <div className="flex items-center space-x-2">
-                                <p className="font-semibold">E</p>
-                                <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
-                                  {item[13]}
-                                </p>
-                              </div>
-                            </Radio>
-                          </div>
-                        </Radio.Group>
-                      </div>
+                      <div
+                        className={`${
+                          link === "kuantitatif" || link === "matematika"
+                            ? "lg:max-w-full border-dashed border-l-2 border-yellow-900"
+                            : "lg:max-w-1/2  border-l-2 border-gray-400 border-dashed bg-blue-50 rounded-t-lg"
+                        }`}
+                      >
+                        {/* Pertanyaan */}
+                        <div className="flex space-x-2 p-2">
+                          <p
+                            className="text-justify mb-2 bg-gray-200 flex items-center p-1 "
+                            id={item[28]}
+                          >
+                            {item[28]}
+                          </p>
+                          <p className="text-left mb-2  bg-gray-50 p-1 border-b-2 border-t-2 border-gray-200">
+                            <Latex>{item[8]}</Latex>
+                          </p>
+                        </div>
+                        {/* Opsi Jawaban */}
+                        <div className="pr-4 pl-4">
+                          <Radio.Group
+                            disabled={isRadioButtonDisabled}
+                            onChange={handleChange}
+                            value={selectedValues[`group${item[0]}`]}
+                            name={`group${item[0]}`}
+                          >
+                            <div className="flex space-x-1">
+                              <Radio value="A" className="text-justify">
+                                <div className="flex items-center space-x-2 mb-2">
+                                  <p className="font-semibold">A</p>
+                                  <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
+                                    {item[9]}
+                                  </p>
+                                </div>
+                              </Radio>
+                            </div>
+                            <div className="flex space-x-1">
+                              <Radio value="B" className="text-justify ">
+                                <div className="flex items-center space-x-2 mb-2">
+                                  <p className="font-semibold">B</p>
+                                  <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
+                                    {item[10]}
+                                  </p>
+                                </div>
+                              </Radio>
+                            </div>
+                            <div className="flex space-x-1">
+                              <Radio value="C" className="text-justify ">
+                                <div className="flex items-center space-x-2 mb-2">
+                                  <p className="font-semibold">C</p>
+                                  <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
+                                    {item[11]}
+                                  </p>
+                                </div>
+                              </Radio>
+                            </div>
+                            <div className="flex space-x-1">
+                              <Radio value="D" className="text-justify ">
+                                <div className="flex items-center space-x-2 mb-2">
+                                  <p className="font-semibold">D</p>
+                                  <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
+                                    {item[12]}
+                                  </p>
+                                </div>
+                              </Radio>
+                            </div>
+                            <div className="flex space-x-1">
+                              <Radio value="E" className=" flex items-start">
+                                <div className="flex items-center space-x-2">
+                                  <p className="font-semibold">E</p>
+                                  <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
+                                    {item[13]}
+                                  </p>
+                                </div>
+                              </Radio>
+                            </div>
+                          </Radio.Group>
+                        </div>
 
-                      <div className="checklist flex flex-col items-center mt-10 mb-10">
-                        <input
-                          className="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                          type="checkbox"
-                          checked={isChecked[currentPage] || false}
-                          // id={`page-${item[28]}`}
-                          // nilai cek (ischecked) pada nomor sekian tru/false
-                          // checked={isChecked[item[28]]}
-                          onChange={() => handleCheckbox(currentPage)}
-                        />
-                        <label
-                          htmlFor={`page-${item[28]}`}
-                          className="text-xs pl-10 pr-10 text-center"
-                        >
-                          {/* Page {item[28]} */}
-                          Tandai jika kamu masih ragu-ragu dengan jawabanmu atau
-                          soal mau dilewati dulu
-                        </label>
-                        <p className="border-b-2 border-gray-400 p-2 text-gray-800 text-xs font-bold">
-                          Soal Nomor-{item[28]}
-                        </p>
-                      </div>
+                        <div className="checklist flex flex-col items-center mt-10 mb-10">
+                          <input
+                            className="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            type="checkbox"
+                            checked={isChecked[currentPage] || false}
+                            // id={`page-${item[28]}`}
+                            // nilai cek (ischecked) pada nomor sekian tru/false
+                            // checked={isChecked[item[28]]}
+                            onChange={() => handleCheckbox(currentPage)}
+                          />
+                          <label
+                            htmlFor={`page-${item[28]}`}
+                            className="text-xs pl-10 pr-10 text-center"
+                          >
+                            {/* Page {item[28]} */}
+                            Tandai jika kamu masih ragu-ragu dengan jawabanmu
+                            atau soal mau dilewati dulu
+                          </label>
+                          <p className="border-b-2 border-gray-400 p-2 text-gray-800 text-xs font-bold">
+                            Soal Nomor-{item[28]}
+                          </p>
+                        </div>
 
-                      {/* <div>
+                        {/* <div>
                       <Button
                         className={`page-button ${
                           isChecked[item[28]]
@@ -682,78 +707,81 @@ const ContactForm = ({ sheetdata }) => {
                         {item[28]}
                       </Button>
                     </div> */}
+                      </div>
                     </div>
                   </div>
-                </div>
-                // tombol ragu2
-              ))}
-              <div className="flex justify-end">
-                {isButtonDisabled ? (
-                  <p className="flex space-x-2 items-center justify-end fixed top-0 z-50 overflow-auto  text-gray-50 right-2">
-                    <Loader />
-                  </p>
-                ) : (
-                  <button
-                    disabled={isButtonDisabled}
-                    type="submit"
-                    className="flex space-x-2 items-center justify-end fixed top-2 z-50 overflow-auto  text-blue-300 right-2"
-                  >
-                    <p className="text-xs font-bold">Kirim</p>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      fill="currentColor"
-                      className="bi bi-send"
-                      viewBox="0 0 16 16"
+                  // tombol ragu2
+                ))}
+                <div className="flex justify-end">
+                  {isButtonDisabled ? (
+                    <p className="flex space-x-2 items-center justify-end fixed top-0 z-50 overflow-auto  text-gray-50 right-2">
+                      <Loader />
+                    </p>
+                  ) : (
+                    <button
+                      disabled={isButtonDisabled}
+                      type="submit"
+                      className="flex space-x-2 items-center justify-end fixed top-2 z-50 overflow-auto  text-blue-300 right-2"
                     >
-                      <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
-                    </svg>
-                  </button>
-                )}
+                      <p className="text-xs font-bold">Kirim</p>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        fill="currentColor"
+                        className="bi bi-send"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
+                      </svg>
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        </form>
-        <div className="">
-          {/* tombol next n before */}
-          <button
-            onClick={handlePrevious}
-            disabled={currentPage <= 1}
-            className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 sm:hidden left-0 z-50 flex items-center space-x-2 rounded-tr-full lg:rounded-none"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-arrow-left-square-fill"
-              viewBox="0 0 16 16"
+          </form>
+          <div className="">
+            {/* tombol next n before */}
+            <button
+              onClick={handlePrevious}
+              disabled={currentPage <= 1}
+              className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 sm:hidden left-0 z-50 flex items-center space-x-2 rounded-tr-full lg:rounded-none"
             >
-              <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
-            </svg>
-            <span className="text-xs">Soal Sebelumnya</span>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-arrow-left-square-fill"
+                viewBox="0 0 16 16"
+              >
+                <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
+              </svg>
+              <span className="text-xs">Soal Sebelumnya</span>
+            </button>
 
-          <button
-            className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 sm:hidden right-0 z-50 flex items-center space-x-2 rounded-tl-full lg:rounded-none"
-            onClick={handleNext}
-            disabled={currentPage >= Math.ceil(sheetdata.length / postsPerPage)}
-          >
-            <span className="text-xs">Soal Berikutnya</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-arrow-right-square-fill"
-              viewBox="0 0 16 16"
+            <button
+              className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 sm:hidden right-0 z-50 flex items-center space-x-2 rounded-tl-full lg:rounded-none"
+              onClick={handleNext}
+              disabled={
+                currentPage >= Math.ceil(sheetdata.length / postsPerPage)
+              }
             >
-              <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z" />
-            </svg>
-          </button>
-        </div>
-      </main>
+              <span className="text-xs">Soal Berikutnya</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-arrow-right-square-fill"
+                viewBox="0 0 16 16"
+              >
+                <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z" />
+              </svg>
+            </button>
+          </div>
+        </main>
+      )}
     </div>
   );
 };
