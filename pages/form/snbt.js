@@ -336,7 +336,7 @@ const ContactForm = ({ sheetdata }) => {
     localStorage.setItem(name, value);
   };
 
-  const [currentPage, setCurrentPage] = useState(); //aslinya defaultnya 1, saya ubah supaya pas refreh tdk ke hal 1
+  const [currentPage, setCurrentPage] = useState(1);
   const [selectedPage, setSelectedPage] = useState(null);
   const [isChecked, setIsChecked] = useState({});
   const postsPerPage = 1;
