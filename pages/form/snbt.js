@@ -445,7 +445,12 @@ const ContactForm = ({ sheetdata }) => {
       ></script>
       {/* navigasi soal */}
       <div className="sm:flex justify-center fixed bottom-0 z-50 overflow-auto left-0 right-0 ">
-        <NavSoal sumSoal={sheetdata} tipeSoal={tipeSoal} pages={pages} />
+        <NavSoal
+          sumSoal={sheetdata}
+          tipeSoal={tipeSoal}
+          pages={pages}
+          totalPages={totalPages}
+        />
 
         <div className=" flex flex-row overflow-auto">
           {Array.from(
@@ -742,43 +747,50 @@ const ContactForm = ({ sheetdata }) => {
           </form>
           <div className="">
             {/* tombol next n before */}
-            <button
-              onClick={handlePrevious}
-              disabled={currentPage <= 1}
-              className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 sm:hidden left-0 z-50 flex items-center space-x-2 rounded-tr-full lg:rounded-none"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-arrow-left-square-fill"
-                viewBox="0 0 16 16"
+            {currentPage == 1 ? (
+              ""
+            ) : (
+              <button
+                onClick={handlePrevious}
+                disabled={currentPage <= 1}
+                className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 sm:hidden left-0 z-50 flex items-center space-x-2 rounded-tr-full lg:rounded-none"
               >
-                <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
-              </svg>
-              <span className="text-xs">Soal Sebelumnya</span>
-            </button>
-
-            <button
-              className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 sm:hidden right-0 z-50 flex items-center space-x-2 rounded-tl-full lg:rounded-none"
-              onClick={handleNext}
-              disabled={
-                currentPage >= Math.ceil(sheetdata.length / postsPerPage)
-              }
-            >
-              <span className="text-xs">Soal Berikutnya</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-arrow-right-square-fill"
-                viewBox="0 0 16 16"
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-arrow-left-square-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
+                </svg>
+                <span className="text-xs">Soal Sebelumnya</span>
+              </button>
+            )}
+            {currentPage == totalPages ? (
+              ""
+            ) : (
+              <button
+                className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 sm:hidden right-0 z-50 flex items-center space-x-2 rounded-tl-full lg:rounded-none"
+                onClick={handleNext}
+                disabled={
+                  currentPage >= Math.ceil(sheetdata.length / postsPerPage)
+                }
               >
-                <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z" />
-              </svg>
-            </button>
+                <span className="text-xs">Soal Berikutnya</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-arrow-right-square-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z" />
+                </svg>
+              </button>
+            )}
           </div>
         </main>
       )}

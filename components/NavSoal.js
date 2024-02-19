@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Swal from "sweetalert2";
 import { useRouter } from "next/router";
 
-export default function NavSoal({ sumSoal, tipeSoal, pages }) {
+export default function NavSoal({ sumSoal, tipeSoal, pages, totalPages }) {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
