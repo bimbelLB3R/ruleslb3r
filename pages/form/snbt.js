@@ -27,18 +27,38 @@ const ContactForm = ({ sheetdata }) => {
   const [timeStorage, setTimeStorage] = useState(null);
 
   useEffect(() => {
-    const timeStorage = localStorage.getItem("timeLeft");
+    // const timeStorage = localStorage.getItem("timeLeft");
+    const storedMaxTime = localStorage.getItem("maxTime");
     setCurrentPage(1);
     // console.log(timeStorage);
-    if (timeStorage) {
-      setTimeStorage(dayjs.duration(parseInt(timeStorage), "second"));
-      setTimeLeft(dayjs.duration(parseInt(timeStorage), "second"));
+    // if (timeStorage) {
+    //   setTimeStorage(dayjs.duration(parseInt(timeStorage), "second"));
+    //   setTimeLeft(dayjs.duration(parseInt(timeStorage), "second"));
+    // }
+    if (storedMaxTime) {
+      const maxTimeInSeconds = parseInt(storedMaxTime);
+      const currentTime = dayjs();
+      const startTime = localStorage.getItem("startTime")
+        ? dayjs(localStorage.getItem("startTime"))
+        : currentTime; // Use current time if startTime is not set
+      const elapsedTime = currentTime.diff(startTime, "second");
+      const remainingTime = Math.max(0, maxTimeInSeconds - elapsedTime);
+      setTimeLeft(dayjs.duration(remainingTime, "second"));
+      if (!localStorage.getItem("startTime")) {
+        localStorage.setItem("startTime", currentTime.toISOString());
+      }
+    } else {
+      const defaultMaxTimeInSeconds = storedMaxTime; // 20 minutes in seconds
+      localStorage.setItem("maxTime", defaultMaxTimeInSeconds);
+      const currentTime = dayjs();
+      localStorage.setItem("startTime", currentTime.toISOString());
+      setTimeLeft(dayjs.duration(defaultMaxTimeInSeconds, "second"));
     }
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("timeLeft", timeLeft.asSeconds());
-  }, [timeLeft]);
+  // useEffect(() => {
+  //   localStorage.setItem("timeLeft", timeLeft.asSeconds());
+  // }, [timeLeft]);
 
   useEffect(() => {
     if (!timeLeft) {
@@ -56,12 +76,13 @@ const ContactForm = ({ sheetdata }) => {
         });
         setIsRadioButtonDisabled(true);
       } else {
-        setTimeLeft(timeLeft.subtract(1, "second"));
+        // setTimeLeft(timeLeft.subtract(1, "second"));
+        setTimeLeft((prevTimeLeft) => prevTimeLeft.subtract(1, "second"));
       }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [timeLeft]);
+  }, [timeLeft, setIsRadioButtonDisabled]);
   // from timer end
 
   const onLoad = () => {
