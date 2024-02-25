@@ -4,6 +4,7 @@ import "../styles/prism.css";
 import { SessionProvider } from "next-auth/react";
 import { useEffect } from "react";
 import Script from "next/script";
+import customHeaders from "../libs/middlewares/setCookieAll";
 
 // const montserrat = Montserrat({
 //   subsets: ['latin'],
@@ -53,4 +54,4 @@ function MyApp({ Component, pageProps, session }) {
   );
 }
 
-export default MyApp;
+export default customHeaders(MyApp);

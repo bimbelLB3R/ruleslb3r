@@ -69,8 +69,12 @@ export default function TombolCari({ allPost }) {
     <>
       <div className="relative">
         <form action="" className="relative w-max mx-auto" ref={searchRef}>
-          <label className="hidden">Cari Blog</label>
+          <label htmlFor="fieldCari" className="hidden">
+            Cari Blog
+          </label>
           <input
+            name="fieldCari"
+            id="fieldCari"
             type="text"
             title="cari blog"
             placeholder="cari blog"

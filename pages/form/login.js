@@ -1,5 +1,5 @@
-import Loginmember from '../../components/Loginmember';
-import Head from 'next/head';
+import Loginmember from "../../components/Loginmember";
+import Head from "next/head";
 const login = () => {
   return (
     <div>

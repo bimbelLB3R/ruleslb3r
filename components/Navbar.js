@@ -10,6 +10,7 @@ import DropdownMenuLayanan from "./DropdownMenuLayanan";
 import { signIn, signOut, useSession } from "next-auth/react";
 import DropdownMenuProfile from "./DropdownMenuProfile";
 import DropdownMenuDok from "./DropdownMenuDok";
+import "animate.css";
 
 const Navbar = forwardRef(({ allPost, ...props }, ref) => {
   const { data: session } = useSession();
@@ -86,7 +87,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
 
         <div
           id="nav"
-          className="bg-slate-200 p-3 md:hidden fixed  top-0 z-40 w-full md:shadow md:shadow-slate-400"
+          className="bg-slate-200 p-3 md:hidden fixed  top-0 z-40 w-full md:shadow md:shadow-slate-400  "
         >
           {/* <div className="absolute right-0 -top-6 ">
             <Image
@@ -184,7 +185,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
             <div
               className={`${
                 isMenuOpen
-                  ? 'block fixed top-5 z-30 mt-[43px] md:relative w-full left-0 bg-slate-900/80 md:hidden h-screen shadow shadow-slate-300"'
+                  ? "block fixed top-5 z-30 mt-[43px] md:relative w-full left-0 bg-slate-900/80 md:hidden h-screen shadow shadow-slate-300 animate__animated  animate__fadeInDown"
                   : "hidden  bg-slate-100  uppercase font-semibold text-slate-600"
               }`}
             >
@@ -193,7 +194,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                 <div className="flex justify-center items-center md:hidden  overflow-auto ">
                   <div className="w-full flex flex-wrap p-2 justify-center items-center mt-10">
                     <Link href="/" title="Home">
-                      <div className="bg-orange-400 dark:bg-gray-900 p-1 text-slate-900 dark:text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                      <div className="bg-gray-900 p-1 text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div>
                           <div className="text-center">
                             <svg
@@ -212,7 +213,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                       </div>
                     </Link>
                     <Link href="/layanan">
-                      <div className="bg-orange-400 dark:bg-gray-900 p-1 text-slate-900 dark:text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                      <div className="bg-gray-900 p-1 text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
@@ -236,7 +237,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                     </Link>
                     {/* <DropdownMenuLayanan /> */}
                     <Link href="/blogs">
-                      <div className="bg-orange-400 dark:bg-gray-900 p-1 text-slate-900 dark:text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                      <div className="bg-gray-900 p-1 text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
@@ -258,7 +259,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                       </div>
                     </Link>
                     <Link href="/gallery">
-                      <div className="bg-orange-400 dark:bg-gray-900 p-1 text-slate-900 dark:text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                      <div className="bg-gray-900 p-1 text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
@@ -282,7 +283,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                     </Link>
 
                     <Link href="/form/login">
-                      <div className="bg-orange-400 dark:bg-gray-900 p-1 text-slate-900 dark:text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                      <div className="bg-gray-900 p-1 text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
@@ -309,7 +310,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                       </div>
                     </Link>
                     <Link href="/kampusku">
-                      <div className="bg-orange-400 dark:bg-gray-900 p-1 text-slate-900 dark:text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                      <div className="bg-gray-900 p-1 text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
@@ -334,7 +335,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                       </div>
                     </Link>
                     <Link href="/user/term">
-                      <div className="bg-orange-400 dark:bg-gray-900 p-1 text-slate-900 dark:text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                      <div className="bg-gray-900 p-1 text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
@@ -357,8 +358,8 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                         </div>
                       </div>
                     </Link>
-                    <Link href="https://www.jambore.temubakat.com">
-                      <div className="bg-orange-400 dark:bg-gray-900 p-1 text-slate-900 dark:text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
+                    <Link href="https://temubakat.com/id/index.php/main/disp/tes">
+                      <div className="bg-gray-900 p-1 text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg

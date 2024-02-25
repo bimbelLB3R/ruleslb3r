@@ -4,7 +4,7 @@ const Welcome = () => {
   return (
     <div className="relative">
       <div className="absolute -top-[150px] md:-top-[500px] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-        <VideoDraggable />
+        {/* <VideoDraggable /> */}
       </div>
 
       <div className="flex justify-center md:max-w-xl m-auto">

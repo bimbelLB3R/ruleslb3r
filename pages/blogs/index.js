@@ -8,6 +8,7 @@ import ArtikelTutorial from "../../components/ArtikelTutorial";
 import { getBlogsData } from "../../utils/blogsApi";
 import { getTutorialData } from "../../utils/TutorialApi";
 import TombolCari from "../../components/TombolCari";
+
 export async function getStaticProps() {
   const data = getBlogsData();
   const dataTutorial = getTutorialData();
@@ -23,7 +24,7 @@ export async function getStaticProps() {
 export default function BlogsPage({ allPost, allTutorial }) {
   const [showNavbar, setShowNavbar] = useState(false);
   const navbarRef = useRef(null);
-
+  // console.log(visits);
   useEffect(() => {
     // setShowNavbar(true);
     const handleScroll = () => {

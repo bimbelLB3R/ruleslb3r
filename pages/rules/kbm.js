@@ -27,7 +27,7 @@ const Kbm = ({ allPost }) => {
           rel="icon"
           type="image/png"
           sizes="4x16"
-          href="/image/logolb3r.png"
+          href="../image/logolb3r.png"
         />
         <meta
           name="description"
