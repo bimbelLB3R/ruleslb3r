@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Draggable from "react-draggable";
+import Image from "next/image";
 
 const VideoDraggable = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -34,19 +35,28 @@ const VideoDraggable = () => {
         // defaultPosition={{ x: 0, y: 0 }}
         onStop={handleClose} // Mengaktifkan handleClose saat pergerakan drag berhenti
       >
-        <div className="fixed top-20  bg-gray-900 rounded-lg p-4 cursor-move">
-          <p className="text-gray-50 m-1 w-full bg-red-900 p-1 text-center">
-            Seret Untuk Menutup Video Ini !!
+        <div className="fixed top-20  border-4 border-double border-red-900 rounded-lg p-1 cursor-move w-[300px] sm:w-[400px]">
+          <p className="text-yellow-200  w-full bg-yellow-900  text-center font-roboto p-1">
+            Informasi Terbaru !! (seret untuk menutup)
           </p>
-          <iframe
+          {/* <iframe
             width="280"
             height="160"
             src="https://www.youtube.com/embed/8toydm0StA4?autoplay=1"
             title="YouTube video player"
             allowFullScreen
-          ></iframe>
-          <p className="text-gray-50 text-xs m-1 w-full bg-yellow-400 p-1 text-center">
-            Kenapa pilihan kedua di SNBP peluangnya kecil sekali?
+          ></iframe> */}
+          <Image
+            src="/image/snbt/intensif2024.jpeg"
+            alt="Foto siswa"
+            width={1080}
+            height={1080}
+            priority={true}
+            className=""
+          />
+          <p className="text-gray-50 text-xs  w-full bg-gray-900 text-center p-1">
+            Dibuka kembali ‼️ Program Intensif UTBK SNBT 2024 Program persiapan
+            menghadapi ujian seleksi masuk PTN Akademik, PTN Vokasi, dan PTKIN.
           </p>
         </div>
       </Draggable>
