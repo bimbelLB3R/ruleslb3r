@@ -23,6 +23,7 @@ export default class ImageSlide extends Component {
                 width={500}
                 height={500}
                 priority={true}
+                className="object-scale-down"
               />
               {/* <img src="image/image1.webp" alt="Foto Seminar Bakat" /> */}
               <p className="legend">PARA PEJUANG KAMPUS</p>
@@ -34,6 +35,7 @@ export default class ImageSlide extends Component {
                 width={500}
                 height={500}
                 priority={true}
+                className="object-scale-down"
               />
               {/* <img src="image/image1.webp" alt="Foto Seminar Bakat" /> */}
               <p className="legend">MEMBANGUN HUBUNGAN PERSAHABATAN</p>
@@ -45,6 +47,7 @@ export default class ImageSlide extends Component {
                 width={500}
                 height={500}
                 priority={true}
+                className="object-scale-down"
               />
               {/* <img src="image/image1.webp" alt="Foto Seminar Bakat" /> */}
               <p className="legend">SEMINAR BAKAT DAN PEMILIHAN JURUSAN</p>
@@ -55,6 +58,8 @@ export default class ImageSlide extends Component {
                 alt="Foto Kelas Programming"
                 width={500}
                 height={500}
+                priority={true}
+                className="object-scale-down"
               />
               {/* <img src="image/image2.webp" alt="Foto Kelas Programming" /> */}
               <p className="legend">KELAS PEMROGRAMAN WEB</p>
@@ -65,6 +70,8 @@ export default class ImageSlide extends Component {
                 alt="Foto Kelas UTBK"
                 width={500}
                 height={500}
+                priority={true}
+                className="object-scale-down"
               />
               {/* <img src="image/image3.webp" alt="Foto Kelas UTBK" /> */}
               <p className="legend">KELAS EKSKLUSIF UTBK SNBT</p>
@@ -75,6 +82,8 @@ export default class ImageSlide extends Component {
                 alt="Foto Kantor Bimbel"
                 width={500}
                 height={500}
+                priority={true}
+                className="object-scale-down"
               />
               {/* <img src="image/image4.webp" alt="Foto Kantor Bimbel" /> */}
               <p className="legend">KANTOR UTAMA BIMBEL LB3R</p>
@@ -85,6 +94,8 @@ export default class ImageSlide extends Component {
                 alt="Foto presensi QRcode"
                 width={500}
                 height={500}
+                priority={true}
+                className="object-scale-down"
               />
               {/* <img src="image/image5.webp" alt="Foto presensi QRcode" /> */}
               <p className="legend">PRESENSI DENGAN QRQODE </p>
@@ -95,6 +106,8 @@ export default class ImageSlide extends Component {
                 alt="Foto Pengajar"
                 width={500}
                 height={500}
+                priority={true}
+                className="object-scale-down"
               />
               {/* <img src="image/image6.webp" alt="Foto Pengajar LB3R" /> */}
               <p className="legend">BEBERAPA PENGAJAR PEREMPUAN DI LB3R</p>
@@ -105,6 +118,8 @@ export default class ImageSlide extends Component {
                 alt="Foto Siswa Ultah"
                 width={500}
                 height={500}
+                priority={true}
+                className="object-scale-down"
               />
               {/* <img src="image/image7.webp" alt="Foto Siswa LB3R Ultah" /> */}
               <p className="legend">SALAH SATU SISWA MERAYAKAN ULANG TAHUN</p>

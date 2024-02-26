@@ -48,6 +48,14 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, [menuRef]);
+  const handleSignIn = async () => {
+    try {
+      // Menetapkan prompt ke 'select_account' saat memanggil signIn
+      await signIn("google", { prompt: "select_account" });
+    } catch (error) {
+      console.error("Error signing in:", error);
+    }
+  };
 
   return (
     <>
@@ -409,7 +417,8 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                           <button
                             type="submit"
                             name="loginGoogle"
-                            onClick={() => signIn()}
+                            // onClick={() => signIn()}
+                            onClick={handleSignIn}
                             className="underline  bg-slate-900   text-slate-50 px-3 py-3 rounded-xl"
                           >
                             Login dengan Google

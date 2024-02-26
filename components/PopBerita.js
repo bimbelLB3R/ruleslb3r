@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 import { id } from "date-fns/locale";
+import Image from "next/image";
 
 export default function PopBerita({ beritaTerbaru }) {
   //   console.log(beritaTerbaru);
@@ -25,10 +26,12 @@ export default function PopBerita({ beritaTerbaru }) {
               className="flex hover:bg-gray-200  space-x-1 shadow-lg  m-1"
             >
               <div className="flex items-center justify-center">
-                <img
+                <Image
                   src={berita.imageUrl}
                   alt="beritaUpdate"
-                  className="aspect-square w-[60px] h-[60px]"
+                  className="aspect-square w-[60px] h-[60px] object-scale-down"
+                  width={60}
+                  height={60}
                 />
               </div>
 

@@ -15,7 +15,7 @@ export default function BluryBg() {
               <p className="font-black text-gray-50">KEUNGGULAN</p>
             </div>
           </div>
-          <div className="p-2 md:p-5 bg-purple-400/50 text-yellow-900/80 rounded-lg flex items-center  space-x-3">
+          <div className="p-2 md:p-5 bg-purple-400/50 text-gray-900 rounded-lg flex items-center  space-x-3">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,7 @@ export default function BluryBg() {
               kelasmu ya..
             </div>
           </div>
-          <div className="p-2 md:p-5 bg-purple-400/50 text-yellow-900/80 rounded-lg flex items-center  space-x-3">
+          <div className="p-2 md:p-5 bg-purple-400/50 text-gray-900 rounded-lg flex items-center  space-x-3">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@ export default function BluryBg() {
               Off sementara dan lanjut les lagi bulan depan (cek tatibnya ya)
             </div>
           </div>
-          <div className="p-2 md:p-5 bg-purple-400/50 text-yellow-900/80 rounded-lg flex items-center  space-x-3">
+          <div className="p-2 md:p-5 bg-purple-400/50 text-gray-900 rounded-lg flex items-center  space-x-3">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@ export default function BluryBg() {
               Lebih efektif belajar bersama teman dari sekolah/kelas yang sama
             </div>
           </div>
-          <div className="p-2 md:p-5 bg-purple-400/50 text-yellow-900/80 rounded-lg flex items-center  space-x-3">
+          <div className="p-2 md:p-5 bg-purple-400/50 text-gray-900 rounded-lg flex items-center  space-x-3">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@ export default function BluryBg() {
               masing-masing
             </div>
           </div>
-          <div className="p-2 md:p-5 bg-purple-400/50 text-yellow-900/80 rounded-lg flex items-center  space-x-3">
+          <div className="p-2 md:p-5 bg-purple-400/50 text-gray-900 rounded-lg flex items-center  space-x-3">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +109,7 @@ export default function BluryBg() {
           </div>
           <Link
             href="/rules/ambak"
-            className="p-2 md:p-5 bg-white/50 text-yellow-900/80 rounded-lg flex items-center justify-center space-x-3 border border-blue-600"
+            className="p-2 md:p-5 bg-white/50 text-gray-900 rounded-lg flex items-center justify-center space-x-3 border border-blue-600"
           >
             <p className="text-center">Cek Lainnya....</p>
             <svg

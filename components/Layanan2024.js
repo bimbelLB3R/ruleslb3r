@@ -12,6 +12,7 @@ const Service = () => {
             height={128}
             alt="service1"
             priority={true}
+            className="object-scale-down"
           />
           <div className="w-full justify-center m-auto">
             <p className=" bg-orange-400 text-center text-xs md:text-sm p-1">
@@ -26,6 +27,7 @@ const Service = () => {
             height={128}
             alt="service1"
             priority={true}
+            className="object-scale-down"
           />
           <div className="w-full justify-center m-auto">
             <p className=" bg-orange-400 text-center text-xs md:text-sm p-1">
@@ -40,6 +42,7 @@ const Service = () => {
             height={128}
             alt="service1"
             priority={true}
+            className="object-scale-down"
           />
           <div className="w-full justify-center m-auto">
             <p className=" bg-orange-400 text-center text-xs md:text-sm p-1">
@@ -54,6 +57,7 @@ const Service = () => {
             height={128}
             alt="service1"
             priority={true}
+            className="object-scale-down"
           />
           <div className="w-full justify-center m-auto">
             <p className=" bg-orange-400 text-center text-xs md:text-sm p-1">
