@@ -9,6 +9,7 @@ import cookie from "js-cookie";
 import Dropdown from "./DropdownTipeSoal";
 import Head from "next/head";
 import "animate.css";
+import Image from "next/image";
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
