@@ -49,7 +49,7 @@ export default function BeritaTerbaru({ allPost }) {
                         height={index === 0 ? 300 : 150}
                         alt={post.id}
                         priority={true}
-                        className="object-scale-down"
+                        className=""
                       />
                     </div>
                   </div>
