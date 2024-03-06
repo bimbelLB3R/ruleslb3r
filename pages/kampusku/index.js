@@ -11,6 +11,7 @@ import { getDefinisiProdi } from "../../utils/kampusApaItuProdiApi";
 import { Transition } from "@headlessui/react";
 import Wa from "../../components/Wa";
 import Script from "next/script";
+// import InfoTerbaru from "../../components/InfoTerbaru";
 
 // meminta data ke server /api
 export async function getStaticProps() {
@@ -758,6 +759,7 @@ export default function Kampus({ allKampus, allPost, definisiProdi }) {
             </form>
           </div>
         </div>
+        {/* <InfoTerbaru /> */}
       </Layout>
     </>
   );
