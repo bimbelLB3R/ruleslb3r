@@ -1,6 +1,33 @@
 {
   "posts": [
     {
+      "id": 7,
+      "title": "Agar Tidak Salah Memilih Jurusan Kuliah",
+      "description": "Salah satu dampak ketika salah dalam memilih jurusan adalah rasa bosan dan berat menjalani kuliah ...",
+      "slug": "agar-tidak-salah-jurusan",
+      "bahasa": "language-js",
+      "body": [
+        "Kapankah seharusnya kita mulai memikirkan tentang jurusan kuliah?Apakah ketika sudah kelas 12 SMA baru kita sibuk dan bingung? Jangan sampai ya gaes.... Ketika kalian mau memasuki SMA paling tidak sudah memiliki gambaran kedepannya kalian mau ngapain, mau bekerja atau berprofesi sebagai apa. Untuk sampai kesitu, tentu kalian harus tahu dulu apa sih kelebihan dan kesukaanku itu. Sehingga saat ada penjurusan di SMA ataupun pemilihan mata pelajaran di SMA kamu gak kebingungan karena sudah jelas kalian mau fokus belajar apa. Sebagai contoh nih, kamu ingin menjadi dokter maka kamu harus serius untuk belajar biologi dan kimia. Karena ilmu kedokteran sangat dekat dengan dua mata pelajaran itu. Jadi, mulai sekarang kenali dirimu dulu ya. Apa yang kamu sukai dan kamu merasa bisa melakukannya dengan mudah. Nah, berikut ini kami sampaikan tips agar tidak salah dalam memilih jurusan.",
+        "<span style='color: #ea580c; font-weight: bold; '>Pahami Diri</span>",
+        "Kemampuan untuk memahami diri sendiri sangatlah penting untuk menentukan arah dan tujuan hidupmu. Kamu akan terombang-ambing menjalani sekolah jika tidak mengenali diri sendiri karena kamu tidak memiliki prinsip dalam hidup. Bisa jadi kamu akan menjadi orang yang mudah terpengaruh oleh teman sekitarmu. Dengan memahami kelebihan dan kekurangan diri sendiri, kamu dapat denan mudah bergaul dan menempatkan diri dalam pergaulan. Kamu juga bisa fokus untuk mengembangkan kekuatanmu melalui berbagai kegiatan ekskul di Sekolah Guys. Jadi, memilih ekskul itu jangan asal pilih ya, tapi sesuaikan dengan bakat dan minatmu supaya kamu bisa berkembang.",
+        "<span style='color: #ea580c; font-weight: bold; '>Tau Pilihan</span>",
+        "Nah ini juga penting, tau pilihan atau kamu memiliki preferensi terhadap sesuatu. Maksudnya kamu bisa memilih kegiatan-kegiatan yang cocok dengan kamu, atau istilahnya gue banget. Kamu juga bisa mengatakan tidak pada hal-hal yang dapat membuatmu semakin tidak berkembang. Kamu juga bisa menilai nih, mana hal yang baik dan perlu segera dilakukan atau hal yang perlu kamu hindari. Karena kamu sudah bisa mengambil keputusan yang benar. Kemampuan mengambil keputusan ini perlu kalian latih karena akan berdampak pada apa yang akan kamu alami dimasa mendatang. So, kamu harus memiliki pilihan dalam hidup. Jangan diterima semua atau asal temen orang lain senang tetapi menyengsarakan diri sendiri.",
+        "<span style='color: #ea580c; font-weight: bold; '>Perbanyak Wawasan</span>",
+        "Wawasan sangat penting untuk menghindari salah jurusan. Sebagai contoh wawasan mengenai jurusan yang akan kamu ambil saat kuliah nanti. Mulai dari mata kuliah yang akan dipelajari, profesi setelah lulus dari jurusan itu, hingga contoh orang yang sudah sukses. Jangan sampai memilih kucing di dalam karung, ibaratnya kita memilih sesuatu yang tidak kita ketahui isi di dalamnya. Maka dari itu, mulailah mencari wawasan tentang pilihan profesi atau karir yang akan kamu ambil di masa yang akan datang.",
+        "<span style='color: #ea580c; font-weight: bold; '>Mulai Merasa Bahwa Hidup Kita Penting</span>",
+        "Ketergantungan kita terhadap orang tua , kadang membuat kita terlena dan tidak berani mengambil tanggung jawab. Kamu harus mulai berpikir untuk mengurangi beban orang tua dengan mengambil tanggung jawab terhadap dirimu sendiri. Masa depan ada di tanganmu sendiri, jika kamu banyak santai, kamu sendiri yang akan rugi. Lakukan sebaik mungkin aktivitas kamu saat ini agar semakin membuatmu berkembng sesuai dengan passion yang kalian miliki. Ketika kamu bersandar pada orang tua, kamu tidak akan menjadi dewasa dan berani mengambil sikap. Oleh sebab itu, dirimu adalah tanggung jawabmu sendiri. Mulai sekarang bangkit dan perbaiki semuanya, karena tidak ada kata terlambat untuk berubah.",
+        "<span style='color: #ea580c; font-weight: bold; '>Pilih Lingkungan</span>",
+        "Sekarang saatnya bagi kamu untuk menjauhi lingkungan yang bersifat toxic. Baik lingkungan pergaulan di sekolah maupun di komunitas di luar sekolah. Peran lingkungan dalam membentuk kepribadian sangat besar. Apa lagi jika kamu merasa ingin diterima oleh pergaulan, bisa jadi banyak hal akan kamu korbankan termasuk dirimu sendiri. Mulailah memilih untuk fokus pada pengembangan diri yang positif melalui pergaulan yang positif. Hindari lingkungan yang membuatmu malas dan semakin tidak semangat. Lingkungan seperti itu akan melemahkan cita-citamu dan membuatmu makin tidak semangat."
+      ],
+      "ogImageName": "unirank.png",
+      "imageUrl": "/image/image3.png",
+      "writer": "Wahyudi, S.Pd.",
+      "createdAt": "2024-03-06T14:10:56",
+      "updatedAt": "2024-03-06T14:10:56",
+      "tags": "SNBT",
+      "keyword": "SNBT,SNBP,SNPMB"
+    },
+    {
       "id": 6,
       "title": "Apa saja yang berubah pada SNPMB 2024?",
       "description": "Tahun 2024 siswa bisa memilih hingga 4 pilihan program studi dengan aturan yang sudah ditentukan oleh panitia SNPMB BPPP...",
