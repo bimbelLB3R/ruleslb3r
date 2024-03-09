@@ -57,20 +57,13 @@ const FeedbackForm = () => {
     // Panggil fungsi ambilJadwal disini
 
     if (session) {
-      const userMail = session.user.email;
-      ambilJadwal(userMail);
+      const email_user = session.user.email;
+      ambilJadwal(email_user);
     }
   }, []);
 
   const [ratings, setRatings] = useState(0);
   const [submitted, setSubmitted] = useState({});
-
-  // Contoh data orang
-  // const people = [
-  //   { id: 1, name: "Paijo" },
-  //   { id: 2, name: "Inem" },
-  //   { id: 3, name: "Cenil" },
-  // ];
 
   const handleRatingChange = (jadwalId, value) => {
     const jadwalName = dataJadwal.find(
