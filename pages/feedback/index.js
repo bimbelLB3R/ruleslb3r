@@ -24,7 +24,7 @@ const FeedbackForm = () => {
   };
 
   const { data: session } = useSession();
-  console.log(session.user.email);
+  console.log(session.email);
   const [dataJadwal, setDataJadwal] = useState([]);
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
