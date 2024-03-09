@@ -50,6 +50,7 @@ const FeedbackForm = () => {
               height={100}
               alt="Pengajar"
               className="rounded-full"
+              priority
             />
             <StarRating
               onChange={(value) => handleRatingChange(person.id, value)}
