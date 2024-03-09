@@ -24,6 +24,7 @@ const FeedbackForm = () => {
   };
 
   const { data: session } = useSession();
+  console.log(session);
   const [dataJadwal, setDataJadwal] = useState([]);
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
@@ -54,8 +55,7 @@ const FeedbackForm = () => {
   };
   useEffect(() => {
     // Panggil fungsi ambilJadwal disini
-    const email_user = session.user.email;
-    console.log(email_user);
+    const email_user = "ikhwchemist@gmail.com";
     ambilJadwal(email_user);
   }, []);
 
@@ -103,9 +103,7 @@ const FeedbackForm = () => {
       </Head>
       {session ? (
         <div>
-          <h2 className="text-center font-bold uppercase">
-            {session.user.email} Beri Penilaian
-          </h2>
+          <h2 className="text-center font-bold uppercase">Beri Penilaian</h2>
           {dataJadwal.map((daJal) => (
             <form
               key={daJal.id_jadwal}
