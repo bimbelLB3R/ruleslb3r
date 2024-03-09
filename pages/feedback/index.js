@@ -14,6 +14,7 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 const FeedbackForm = () => {
+  const [userEmail, setUserEmail] = useState();
   const handleSignIn = async () => {
     try {
       // Menetapkan prompt ke 'select_account' saat memanggil signIn
@@ -24,7 +25,9 @@ const FeedbackForm = () => {
   };
 
   const { data: session } = useSession();
-
+  if (session) {
+    setUserEmail(session.user.email);
+  }
   const [dataJadwal, setDataJadwal] = useState([]);
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
@@ -56,8 +59,8 @@ const FeedbackForm = () => {
   useEffect(() => {
     // Panggil fungsi ambilJadwal disini
     // const email_user = "ikhwchemist@gmail.com";
-    ambilJadwal(session.user.email);
-  }, [session.user.email]);
+    ambilJadwal(userEmail);
+  }, []);
 
   const [ratings, setRatings] = useState(0);
   const [submitted, setSubmitted] = useState({});
