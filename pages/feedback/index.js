@@ -24,7 +24,6 @@ const FeedbackForm = () => {
   };
 
   const { data: session } = useSession();
-
   const [dataJadwal, setDataJadwal] = useState([]);
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
@@ -57,7 +56,7 @@ const FeedbackForm = () => {
     // Panggil fungsi ambilJadwal disini
 
     if (session) {
-      const email_user = session.user.email;
+      const email_user = `${session.user.email}`;
       ambilJadwal(email_user);
     }
   }, []);
