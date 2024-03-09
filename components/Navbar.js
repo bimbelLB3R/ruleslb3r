@@ -266,24 +266,24 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                         </div>
                       </div>
                     </Link>
-                    <Link href="/gallery">
+                    <Link href="/feedback">
                       <div className="bg-gray-900 p-1 text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
-                              width="32"
-                              height="32"
+                              viewBox="0 0 24 24"
                               fill="currentColor"
-                              className="bi bi-camera-video"
-                              viewBox="0 0 16 16"
+                              className="w-10 h-10"
                             >
                               <path
                                 fillRule="evenodd"
-                                d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1z"
+                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                clipRule="evenodd"
                               />
                             </svg>
-                            <p>Gallery</p>
+
+                            <p>Bintang</p>
                           </div>
                           {/* <p>BLOG</p> */}
                         </div>
