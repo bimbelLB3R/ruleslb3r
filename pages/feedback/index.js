@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import Head from "next/head";
 import { signIn, signOut, useSession } from "next-auth/react";
+import Loader from "../../components/Loader";
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID_RATING;
@@ -14,6 +15,7 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 const FeedbackForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const { data: session } = useSession();
   // const [userEmail, setUserEmail] = useState();
   const handleSignIn = async () => {
@@ -37,6 +39,7 @@ const FeedbackForm = () => {
       client_email: GOOGLE_CLIENT_EMAIL,
       private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
     });
+    setIsLoading(true);
     await doc.loadInfo(); // tambahkan baris ini untuk memastikan sheet telah terdefinisi
     const sheet1 = doc.sheetsById[SHEET_ID1]; // tambahkan baris ini untuk mendefinisikan sheet
     const sheet2 = doc.sheetsById[SHEET_ID2]; // tambahkan baris ini untuk mendefinisikan sheet
@@ -56,12 +59,13 @@ const FeedbackForm = () => {
     // setKelasUserState(kelasUser);
     console.log(jadwalSesuaiKelasUser);
     setDataJadwal(jadwalSesuaiKelasUser);
+    setIsLoading(false);
   };
   useEffect(() => {
     // Panggil fungsi ambilJadwal disini
     // const email_user = "ikhwchemist@gmail.com";
     ambilJadwal();
-  }, []);
+  }, [session]);
 
   const [ratings, setRatings] = useState(0);
   const [submitted, setSubmitted] = useState({});
@@ -108,39 +112,45 @@ const FeedbackForm = () => {
       {session ? (
         <div>
           <h2 className="text-center font-bold uppercase">Beri Penilaian</h2>
-          {dataJadwal.map((daJal) => (
-            <form
-              key={daJal.id_jadwal}
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSubmit(daJal.id_jadwal);
-              }}
-            >
-              <div className="flex items-center justify-center space-x-3 border-b-2 border-gray-300 p-2 max-w-[300px] md:max-w-xl m-auto">
-                <div>
-                  <Image
-                    src="/image/image1.webp"
-                    width={100}
-                    height={100}
-                    alt="Pengajar"
-                    className="rounded-full"
-                    priority
-                  />
-                  <p className="text-center">{daJal.pengajar_jadwal}</p>
-                </div>
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <div>
+              {dataJadwal.map((daJal) => (
+                <form
+                  key={daJal.id_jadwal}
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    handleSubmit(daJal.id_jadwal);
+                  }}
+                >
+                  <div className="flex items-center justify-center space-x-3 border-b-2 border-gray-300 p-2 max-w-[300px] md:max-w-xl m-auto">
+                    <div>
+                      <Image
+                        src="/image/image1.webp"
+                        width={100}
+                        height={100}
+                        alt="Pengajar"
+                        className="rounded-full"
+                        priority
+                      />
+                      <p className="text-center">{daJal.pengajar_jadwal}</p>
+                    </div>
 
-                <StarRating
-                  onChange={(value) =>
-                    handleRatingChange(daJal.id_jadwal, value)
-                  }
-                  disabled={submitted[daJal.id_jadwal]}
-                />
-                <button type="submit" disabled={submitted[daJal.id_jadwal]}>
-                  {submitted[daJal.id_jadwal] ? "Terkirim" : "Kirim"}
-                </button>
-              </div>
-            </form>
-          ))}
+                    <StarRating
+                      onChange={(value) =>
+                        handleRatingChange(daJal.id_jadwal, value)
+                      }
+                      disabled={submitted[daJal.id_jadwal]}
+                    />
+                    <button type="submit" disabled={submitted[daJal.id_jadwal]}>
+                      {submitted[daJal.id_jadwal] ? "Terkirim" : "Kirim"}
+                    </button>
+                  </div>
+                </form>
+              ))}
+            </div>
+          )}
         </div>
       ) : (
         <div>
