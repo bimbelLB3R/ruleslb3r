@@ -116,7 +116,7 @@ const FeedbackForm = () => {
           <div>
             <h2 className="text-center font-bold uppercase">Beri Penilaian</h2>
             {isLoading ? (
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center h-screen m-auto">
                 <Loader />
               </div>
             ) : (
