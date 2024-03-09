@@ -57,7 +57,7 @@ const FeedbackForm = () => {
     // Panggil fungsi ambilJadwal disini
     // const email_user = "ikhwchemist@gmail.com";
     ambilJadwal(session.user.email);
-  }, []);
+  }, [session.user.email]);
 
   const [ratings, setRatings] = useState(0);
   const [submitted, setSubmitted] = useState({});
