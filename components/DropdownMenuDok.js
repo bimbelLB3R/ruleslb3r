@@ -83,7 +83,7 @@ export default function DropdownMenuDok() {
               tabIndex="-1"
               // id="menu-item-1"
             >
-              Feed Back
+              Rate Us
             </Link>
           </div>
         </div>

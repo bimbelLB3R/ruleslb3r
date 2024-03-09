@@ -283,7 +283,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                               />
                             </svg>
 
-                            <p>Bintang</p>
+                            <p>Rate Us</p>
                           </div>
                           {/* <p>BLOG</p> */}
                         </div>

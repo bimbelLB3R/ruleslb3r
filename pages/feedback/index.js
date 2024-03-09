@@ -5,6 +5,7 @@ import { GoogleSpreadsheet } from "google-spreadsheet";
 import Head from "next/head";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Loader from "../../components/Loader";
+import Layout from "../../components/Layout";
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID_RATING;
@@ -94,7 +95,7 @@ const FeedbackForm = () => {
   };
 
   return (
-    <div className=" mt-20">
+    <Layout>
       <Head>
         <title>Rating Pengajar | Bimbel LB3R</title>
         <meta
@@ -106,68 +107,101 @@ const FeedbackForm = () => {
           rel="icon"
           type="image/png"
           sizes="4x16"
-          href="image/logolb3r.png"
+          href="/image/logolb3r.png"
         />
       </Head>
-      {session ? (
-        <div>
-          <h2 className="text-center font-bold uppercase">Beri Penilaian</h2>
-          {isLoading ? (
-            <Loader />
-          ) : (
-            <div>
-              {dataJadwal.map((daJal) => (
-                <form
-                  key={daJal.id_jadwal}
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    handleSubmit(daJal.id_jadwal);
-                  }}
-                >
-                  <div className="flex items-center justify-center space-x-3 border-b-2 border-gray-300 p-2 max-w-[300px] md:max-w-xl m-auto">
-                    <div>
-                      <Image
-                        src="/image/image1.webp"
-                        width={100}
-                        height={100}
-                        alt="Pengajar"
-                        className="rounded-full"
-                        priority
-                      />
-                      <p className="text-center">{daJal.pengajar_jadwal}</p>
-                    </div>
+      <div className=" mt-20">
+        {session ? (
+          <div>
+            <h2 className="text-center font-bold uppercase">Beri Penilaian</h2>
+            {isLoading ? (
+              <div className="flex items-center justify-center">
+                <Loader />
+              </div>
+            ) : (
+              <div>
+                <div>
+                  {dataJadwal.map((daJal) => (
+                    <form
+                      key={daJal.id_jadwal}
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        handleSubmit(daJal.id_jadwal);
+                      }}
+                    >
+                      <div className="flex items-center justify-center space-x-3 border-b-2 border-gray-300 p-2 max-w-[300px] md:max-w-xl m-auto">
+                        <div>
+                          <Image
+                            src="/image/image1.webp"
+                            width={100}
+                            height={100}
+                            alt="Pengajar"
+                            className="rounded-full"
+                            priority
+                          />
+                          <p className="text-center">{daJal.pengajar_jadwal}</p>
+                        </div>
 
-                    <StarRating
-                      onChange={(value) =>
-                        handleRatingChange(daJal.id_jadwal, value)
-                      }
-                      disabled={submitted[daJal.id_jadwal]}
-                    />
-                    <button type="submit" disabled={submitted[daJal.id_jadwal]}>
-                      {submitted[daJal.id_jadwal] ? "Terkirim" : "Kirim"}
-                    </button>
-                  </div>
-                </form>
-              ))}
-            </div>
-          )}
-        </div>
-      ) : (
-        <div>
-          <div className="flex items-center space-x-2 justify-center font-roboto mt-4 ">
-            <button
-              type="submit"
-              name="loginGoogle"
-              // onClick={() => signIn()}
-              onClick={handleSignIn}
-              className="underline  bg-slate-900   text-slate-50 px-3 py-3 rounded-xl"
-            >
-              Login dengan Google
-            </button>
+                        <StarRating
+                          onChange={(value) =>
+                            handleRatingChange(daJal.id_jadwal, value)
+                          }
+                          disabled={submitted[daJal.id_jadwal]}
+                        />
+                        <button
+                          type="submit"
+                          disabled={submitted[daJal.id_jadwal]}
+                        >
+                          {submitted[daJal.id_jadwal] ? "Terkirim" : "Kirim"}
+                        </button>
+                      </div>
+                    </form>
+                  ))}
+                </div>
+                <div className="flex items-center justify-center">
+                  <table>
+                    <th className="bg-gray-900 text-gray-50">
+                      <tr>
+                        <td>No</td>
+                        <td>Indikator Rating</td>
+                      </tr>
+                    </th>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Kamu paham apa yang diajarkan oleh guru</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Kamu suka dengan cara guru menyampaikan materi</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Kamu merasa terbantu oleh guru</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
           </div>
-        </div>
-      )}
-    </div>
+        ) : (
+          <div>
+            <div className="flex items-center space-x-2 justify-center font-roboto mt-4 ">
+              <button
+                type="submit"
+                name="loginGoogle"
+                // onClick={() => signIn()}
+                onClick={handleSignIn}
+                className="underline  bg-slate-900   text-slate-50 px-3 py-3 rounded-xl"
+              >
+                Login dengan Google
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </Layout>
   );
 };
 
