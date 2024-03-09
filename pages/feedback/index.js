@@ -14,6 +14,7 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 const FeedbackForm = () => {
+  const { data: session } = useSession();
   // const [userEmail, setUserEmail] = useState();
   const handleSignIn = async () => {
     try {
@@ -31,7 +32,7 @@ const FeedbackForm = () => {
   const [dataJadwal, setDataJadwal] = useState([]);
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
-  const ambilJadwal = async (email_user) => {
+  const ambilJadwal = async () => {
     await doc.useServiceAccountAuth({
       client_email: GOOGLE_CLIENT_EMAIL,
       private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
@@ -46,7 +47,7 @@ const FeedbackForm = () => {
     // console.log(email_user);
 
     const cekEmailUser = rows2.find(
-      (row) => row.email_user === `${email_user}`
+      (row) => row.email_user === `${session.user.email}`
     ); //penulisan row.name , name nya harus sama dengan di google sheet name
     const kelasUser = cekEmailUser.kelas_user;
     const jadwalSesuaiKelasUser = rows.filter(
@@ -57,10 +58,9 @@ const FeedbackForm = () => {
     setDataJadwal(jadwalSesuaiKelasUser);
   };
   useEffect(() => {
-    const { data: session } = useSession();
     // Panggil fungsi ambilJadwal disini
     // const email_user = "ikhwchemist@gmail.com";
-    ambilJadwal(session.user.email);
+    ambilJadwal();
   }, []);
 
   const [ratings, setRatings] = useState(0);
