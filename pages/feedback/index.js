@@ -54,12 +54,9 @@ const FeedbackForm = () => {
   };
   useEffect(() => {
     // Panggil fungsi ambilJadwal disini
-
-    if (session) {
-      const email_user = `${session.user.email}`;
-      console.log(email_user);
-      ambilJadwal(email_user);
-    }
+    const email_user = session.user.email;
+    console.log(email_user);
+    ambilJadwal(email_user);
   }, []);
 
   const [ratings, setRatings] = useState(0);
@@ -106,7 +103,9 @@ const FeedbackForm = () => {
       </Head>
       {session ? (
         <div>
-          <h2 className="text-center font-bold uppercase">Beri Penilaian</h2>
+          <h2 className="text-center font-bold uppercase">
+            {session.user.email} Beri Penilaian
+          </h2>
           {dataJadwal.map((daJal) => (
             <form
               key={daJal.id_jadwal}
