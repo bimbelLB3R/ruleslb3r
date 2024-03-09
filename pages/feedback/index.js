@@ -49,18 +49,19 @@ const FeedbackForm = () => {
     // setDataJadwal(jadwalSesuaiEmail);
     // setDataSiswa(rows2);
     // console.log(email_user);
-
-    const cekEmailUser = rows2.find(
-      (row) => row.email_user === `${session.user.email}`
-    ); //penulisan row.name , name nya harus sama dengan di google sheet name
-    const kelasUser = cekEmailUser.kelas_user;
-    const jadwalSesuaiKelasUser = rows.filter(
-      (row) => row.kelas_jadwal === `${kelasUser}`
-    );
-    // setKelasUserState(kelasUser);
-    console.log(jadwalSesuaiKelasUser);
-    setDataJadwal(jadwalSesuaiKelasUser);
-    setIsLoading(false);
+    if (session) {
+      const cekEmailUser = rows2.find(
+        (row) => row.email_user === `${session.user.email}`
+      ); //penulisan row.name , name nya harus sama dengan di google sheet name
+      const kelasUser = cekEmailUser.kelas_user;
+      const jadwalSesuaiKelasUser = rows.filter(
+        (row) => row.kelas_jadwal === `${kelasUser}`
+      );
+      // setKelasUserState(kelasUser);
+      console.log(jadwalSesuaiKelasUser);
+      setDataJadwal(jadwalSesuaiKelasUser);
+      setIsLoading(false);
+    }
   };
   useEffect(() => {
     // Panggil fungsi ambilJadwal disini
@@ -158,45 +159,71 @@ const FeedbackForm = () => {
                     </form>
                   ))}
                 </div>
-                <div className="flex items-center justify-center">
-                  <table>
-                    <th className="bg-gray-900 text-gray-50">
-                      <tr>
-                        <td>No</td>
-                        <td>Indikator Rating</td>
-                      </tr>
-                    </th>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Kamu paham apa yang diajarkan oleh guru</td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Kamu suka dengan cara guru menyampaikan materi</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Kamu merasa terbantu oleh guru</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div className="flex items-center justify-center m-6">
+                  <div className="flex items-center justify-center">
+                    <table class="table-auto w-full border-collapse border border-gray-900">
+                      <thead>
+                        <tr class="bg-gray-900 text-white">
+                          <th class="px-4 py-2">No</th>
+                          <th class="px-4 py-2">Indikator Rating</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="bg-gray-100 hover:bg-gray-200">
+                          <td class="border px-4 py-2">1</td>
+                          <td class="border px-4 py-2">
+                            Kamu paham apa yang diajarkan oleh guru
+                          </td>
+                        </tr>
+                        <tr class="bg-gray-100 hover:bg-gray-200">
+                          <td class="border px-4 py-2">2</td>
+                          <td class="border px-4 py-2">
+                            Kamu suka dengan cara guru menyampaikan materi
+                          </td>
+                        </tr>
+                        <tr class="bg-gray-100 hover:bg-gray-200">
+                          <td class="border px-4 py-2">3</td>
+                          <td class="border px-4 py-2">
+                            Kamu merasa terbantu oleh guru
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             )}
           </div>
         ) : (
           <div>
-            <div className="flex items-center space-x-2 justify-center font-roboto mt-4 ">
-              <button
-                type="submit"
-                name="loginGoogle"
-                // onClick={() => signIn()}
-                onClick={handleSignIn}
-                className="underline  bg-slate-900   text-slate-50 px-3 py-3 rounded-xl"
-              >
-                Login dengan Google
-              </button>
+            <div className="flex items-center justify-center h-screen m-auto p-6 max-w-sm">
+              <div>
+                <div className="flex items-center justify-center">
+                  <Image
+                    src="/image/image1.webp"
+                    width={100}
+                    height={100}
+                    alt="Pengajar"
+                    className="rounded-full"
+                    priority
+                  />
+                </div>
+                <p className="text-center">
+                  Silahkan kamu login terlebih dahulu. Gunakan email seperti
+                  email yang kamu pakai saat mendaftar di LB3R
+                </p>
+                <div className="flex items-center justify-center">
+                  <button
+                    type="submit"
+                    name="loginGoogle"
+                    // onClick={() => signIn()}
+                    onClick={handleSignIn}
+                    className="underline  bg-slate-900   text-slate-50 px-3 py-3 rounded-xl"
+                  >
+                    Login dengan Google
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         )}
