@@ -57,6 +57,7 @@ const FeedbackForm = () => {
 
     if (session) {
       const email_user = `${session.user.email}`;
+      console.log(email_user);
       ambilJadwal(email_user);
     }
   }, []);
