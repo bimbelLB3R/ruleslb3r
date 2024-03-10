@@ -112,6 +112,29 @@ const FeedbackForm = () => {
     }
   };
 
+  // kirim ke spreadsheet
+  const appendSpreadsheet = async (newRow) => {
+    console.log(newRow);
+    try {
+      await doc.useServiceAccountAuth({
+        client_email: GOOGLE_CLIENT_EMAIL,
+        // private_key: GOOGLE_SERVICE_PRIVATE_KEY,
+        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+      });
+      // loads document properties and worksheets
+      await doc.loadInfo();
+
+      const sheet = doc.sheetsById[SHEET_ID3];
+      // console.log(sheet);
+
+      await sheet.addRow(newRow);
+      alert("data terkirim");
+    } catch (e) {
+      console.error("Error: ", e);
+    }
+  };
+  // kirim ke spreadsheet end
+
   const handleSubmit = (jadwalId) => {
     const jadwalName = dataJadwal.find(
       (jadwal) => jadwal.id_jadwal === jadwalId
@@ -132,33 +155,12 @@ const FeedbackForm = () => {
         kode_materi: kodeJadwal,
       };
       appendSpreadsheet(newRow);
-      setIsLoading(false);
       setSubmitted({ ...submitted, [jadwalId]: true });
     } else {
       alert(`Anda belum memberikan penilaian untuk ${jadwalName}`);
     }
   };
-  // kirim ke spreadsheet
-  const appendSpreadsheet = async (newRow) => {
-    try {
-      await doc.useServiceAccountAuth({
-        client_email: GOOGLE_CLIENT_EMAIL,
-        // private_key: GOOGLE_SERVICE_PRIVATE_KEY,
-        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
-      });
-      // loads document properties and worksheets
-      await doc.loadInfo();
 
-      const sheet = doc.sheetsById[SHEET_ID3];
-      // console.log(sheet);
-      setIsLoading(true);
-      await sheet.addRow(newRow);
-      setIsLoading(false);
-    } catch (e) {
-      console.error("Error: ", e);
-    }
-  };
-  // kirim ke spreadsheet end
   return (
     <Layout>
       <Head>
@@ -217,17 +219,9 @@ const FeedbackForm = () => {
                           type="submit"
                           disabled={submitted[daJal.id_jadwal]}
                         >
-                          {submitted ? (
-                            <div>
-                              {submitted[daJal.id_jadwal]
-                                ? "Terkirim"
-                                : "Kirim"}
-                            </div>
-                          ) : (
-                            <div>
-                              <Loader />
-                            </div>
-                          )}
+                          <div>
+                            {submitted[daJal.id_jadwal] ? "Terkirim" : "Kirim"}
+                          </div>
                         </button>
                       </div>
                     </form>
