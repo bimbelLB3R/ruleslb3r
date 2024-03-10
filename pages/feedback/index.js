@@ -123,9 +123,9 @@ const FeedbackForm = () => {
       });
       // loads document properties and worksheets
       await doc.loadInfo();
-
+      console.log(SHEET_ID3);
       const sheet = doc.sheetsById[SHEET_ID3];
-      // console.log(sheet);
+      console.log(sheet);
 
       await sheet.addRow(newRow);
       alert("data terkirim");
