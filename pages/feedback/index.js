@@ -56,17 +56,7 @@ const FeedbackForm = () => {
       const cekEmailUser = rows2.find(
         (row) => row.email_user === `${session.user.email}`
       ); //penulisan row.name , name nya harus sama dengan di google sheet name
-      const kelasUser = cekEmailUser.kelas_user;
-      const jadwalSesuaiKelasUser = rows.filter(
-        (row) => row.kelas_jadwal === `${kelasUser}`
-      );
-      // setKelasUserState(kelasUser);
-      // console.log(jadwalSesuaiKelasUser);
-      if (cekEmailUser) {
-        setDataJadwal(jadwalSesuaiKelasUser);
-        setIsLoading(false);
-      } else {
-        setIsLoading(false);
+      if (!cekEmailUser) {
         Swal.fire({
           title: "Email Kamu belum terdaftar, coba email lain?",
           showDenyButton: true,
@@ -82,6 +72,14 @@ const FeedbackForm = () => {
           }
         });
       }
+      const kelasUser = cekEmailUser.kelas_user;
+      const jadwalSesuaiKelasUser = rows.filter(
+        (row) => row.kelas_jadwal === `${kelasUser}`
+      );
+      // setKelasUserState(kelasUser);
+      // console.log(jadwalSesuaiKelasUser);
+      setDataJadwal(jadwalSesuaiKelasUser);
+      setIsLoading(false);
     }
   };
   useEffect(() => {
