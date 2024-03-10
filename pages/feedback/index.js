@@ -6,6 +6,8 @@ import Head from "next/head";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Loader from "../../components/Loader";
 import Layout from "../../components/Layout";
+import Swal from "sweetalert2";
+import { useRouter } from "next/router";
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID_RATING;
@@ -16,6 +18,7 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 const FeedbackForm = () => {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const { data: session } = useSession();
   // const [userEmail, setUserEmail] = useState();
@@ -58,9 +61,26 @@ const FeedbackForm = () => {
         (row) => row.kelas_jadwal === `${kelasUser}`
       );
       // setKelasUserState(kelasUser);
-      console.log(jadwalSesuaiKelasUser);
-      setDataJadwal(jadwalSesuaiKelasUser);
-      setIsLoading(false);
+      // console.log(jadwalSesuaiKelasUser);
+      if (jadwalSesuaiKelasUser) {
+        setDataJadwal(jadwalSesuaiKelasUser);
+        setIsLoading(false);
+      } else {
+        Swal.fire({
+          title: "Email Kamu belum terdaftar, coba email lain?",
+          showDenyButton: true,
+          showCancelButton: true,
+          confirmButtonText: "Ya",
+          denyButtonText: `Tidak`,
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            handleSignIn();
+          } else if (result.isDenied) {
+            router.push("/");
+          }
+        });
+      }
     }
   };
   useEffect(() => {
