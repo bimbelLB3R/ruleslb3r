@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID_RATING;
 const SHEET_ID1 = process.env.NEXT_PUBLIC_SHEET_ID_RATING1;
 const SHEET_ID2 = process.env.NEXT_PUBLIC_SHEET_ID_RATING2;
+const SHEET_ID3 = process.env.NEXT_PUBLIC_SHEET_ID_RATING3;
 const GOOGLE_CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
 const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
@@ -36,8 +37,11 @@ const FeedbackForm = () => {
   //   setUserEmail(session.user.email);
   // }
   const [dataJadwal, setDataJadwal] = useState([]);
+  const [kelasSiswa, setKelasSiswa] = useState();
+  const [tanggalJadwal, setTanggalJadwal] = useState();
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
+
   const ambilJadwal = async () => {
     await doc.useServiceAccountAuth({
       client_email: GOOGLE_CLIENT_EMAIL,
@@ -73,12 +77,20 @@ const FeedbackForm = () => {
         });
       }
       const kelasUser = cekEmailUser.kelas_user;
+      const today = new Date();
+      const tanggalJadwalSiswa = `${today.getFullYear()}-${(
+        today.getMonth() + 1
+      )
+        .toString()
+        .padStart(2, "0")}-${today.getDate().toString().padStart(2, "0")}`; //tanggal saat ini format 2024-09-09
       const jadwalSesuaiKelasUser = rows.filter(
         (row) => row.kelas_jadwal === `${kelasUser}`
       );
       // setKelasUserState(kelasUser);
       // console.log(jadwalSesuaiKelasUser);
       setDataJadwal(jadwalSesuaiKelasUser);
+      setKelasSiswa(kelasUser);
+      setTanggalJadwal(tanggalJadwalSiswa);
       setIsLoading(false);
     }
   };
@@ -104,16 +116,49 @@ const FeedbackForm = () => {
     const jadwalName = dataJadwal.find(
       (jadwal) => jadwal.id_jadwal === jadwalId
     ).pengajar_jadwal;
+    const kodeJadwal = dataJadwal.find(
+      (jadwal) => jadwal.id_jadwal === jadwalId
+    ).id_jadwal;
     // Validasi apakah pengguna memberikan penilaian sebelum mengirimkan data
     if (ratings[jadwalId] !== undefined) {
       // Kirim rating ke server atau lakukan tindakan lainnya.
       console.log(`${jadwalName}'s Rating:`, ratings[jadwalId]);
+      const newRow = {
+        email_siswa: session.user.email,
+        kelas_siswa: kelasSiswa,
+        rating_pengajar: jadwalName,
+        rating: ratings[jadwalId],
+        tanggal_rating: tanggalJadwal,
+        kode_materi: kodeJadwal,
+      };
+      appendSpreadsheet(newRow);
+      setIsLoading(false);
       setSubmitted({ ...submitted, [jadwalId]: true });
     } else {
       alert(`Anda belum memberikan penilaian untuk ${jadwalName}`);
     }
   };
+  // kirim ke spreadsheet
+  const appendSpreadsheet = async (newRow) => {
+    try {
+      await doc.useServiceAccountAuth({
+        client_email: GOOGLE_CLIENT_EMAIL,
+        // private_key: GOOGLE_SERVICE_PRIVATE_KEY,
+        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+      });
+      // loads document properties and worksheets
+      await doc.loadInfo();
 
+      const sheet = doc.sheetsById[SHEET_ID3];
+      // console.log(sheet);
+      setIsLoading(true);
+      await sheet.addRow(newRow);
+      setIsLoading(false);
+    } catch (e) {
+      console.error("Error: ", e);
+    }
+  };
+  // kirim ke spreadsheet end
   return (
     <Layout>
       <Head>
@@ -172,7 +217,17 @@ const FeedbackForm = () => {
                           type="submit"
                           disabled={submitted[daJal.id_jadwal]}
                         >
-                          {submitted[daJal.id_jadwal] ? "Terkirim" : "Kirim"}
+                          {submitted ? (
+                            <div>
+                              {submitted[daJal.id_jadwal]
+                                ? "Terkirim"
+                                : "Kirim"}
+                            </div>
+                          ) : (
+                            <div>
+                              <Loader />
+                            </div>
+                          )}
                         </button>
                       </div>
                     </form>
