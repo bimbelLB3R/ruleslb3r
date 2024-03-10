@@ -1,7 +1,7 @@
 // components/StarRating.js
 import { useState, useEffect } from "react";
 
-const StarRating = ({ value, onChange, disabled, kodeMateri }) => {
+const StarRating = ({ value, onChange, disabled }) => {
   const [rating, setRating] = useState(value || 0);
 
   const handleClick = (newValue) => {
@@ -10,15 +10,6 @@ const StarRating = ({ value, onChange, disabled, kodeMateri }) => {
       onChange(newValue);
     }
   };
-
-  // cek dilokal
-  useEffect(() => {
-    const namaPengajar = localStorage.getItem(`namaTentor_${kodeMateri}`);
-    const nilaiRating = localStorage.getItem(`rating_${kodeMateri}`);
-    if (nilaiRating) {
-      setRating(nilaiRating);
-    }
-  });
 
   return (
     <div>

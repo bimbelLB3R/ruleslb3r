@@ -123,9 +123,9 @@ const FeedbackForm = () => {
       });
       // loads document properties and worksheets
       await doc.loadInfo();
-      console.log(SHEET_ID3);
+      // console.log(SHEET_ID3);
       const sheet = doc.sheetsById[SHEET_ID3];
-      console.log(sheet);
+      // console.log(sheet);
 
       await sheet.addRow(newRow);
       alert("data terkirim");
@@ -134,12 +134,6 @@ const FeedbackForm = () => {
     }
   };
   // kirim ke spreadsheet end
-  useEffect(() => {
-    const cekBintang = localStorage.getItem(`rating_${kodeMateri}`);
-    if (cekBintang) {
-      setSubmitted({ ...submitted, [jadwalId]: true });
-    }
-  });
 
   const handleSubmit = (jadwalId) => {
     const jadwalName = dataJadwal.find(
@@ -162,8 +156,6 @@ const FeedbackForm = () => {
       };
       appendSpreadsheet(newRow);
       setSubmitted({ ...submitted, [jadwalId]: true });
-      localStorage.setItem(`namaTentor_${kodeJadwal}`, jadwalName);
-      localStorage.setItem(`rating_${kodeJadwal}`, ratings[jadwalId]);
     } else {
       alert(`Anda belum memberikan penilaian untuk ${jadwalName}`);
     }
@@ -222,7 +214,6 @@ const FeedbackForm = () => {
                             handleRatingChange(daJal.id_jadwal, value)
                           }
                           disabled={submitted[daJal.id_jadwal]}
-                          kodeMateri={daJal.id_jadwal}
                         />
                         <button
                           type="submit"
