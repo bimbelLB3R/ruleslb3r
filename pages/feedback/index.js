@@ -62,7 +62,7 @@ const FeedbackForm = () => {
       );
       // setKelasUserState(kelasUser);
       // console.log(jadwalSesuaiKelasUser);
-      if (!jadwalSesuaiKelasUser) {
+      if (jadwalSesuaiKelasUser) {
         setDataJadwal(jadwalSesuaiKelasUser);
         setIsLoading(false);
       } else {
