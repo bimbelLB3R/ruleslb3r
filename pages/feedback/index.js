@@ -66,6 +66,7 @@ const FeedbackForm = () => {
         setDataJadwal(jadwalSesuaiKelasUser);
         setIsLoading(false);
       } else {
+        setIsLoading(false);
         Swal.fire({
           title: "Email Kamu belum terdaftar, coba email lain?",
           showDenyButton: true,
