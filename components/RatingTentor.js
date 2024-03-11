@@ -29,7 +29,7 @@ const StarRating = ({ value, onChange, jadwalId }) => {
         jadwalId: jadwalId,
         rating: newValue,
       };
-      localStorage.setItem(`rating_${jadwalId}`, JSON.stringify(dataToStore));
+      // localStorage.setItem(`rating_${jadwalId}`, JSON.stringify(dataToStore));
     }
   };
 

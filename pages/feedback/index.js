@@ -116,7 +116,7 @@ const FeedbackForm = () => {
         jadwalName: jadwalName,
         rating: value,
       };
-      localStorage.setItem(`rating_${jadwalId}`, JSON.stringify(dataToStore));
+      // localStorage.setItem(`rating_${jadwalId}`, JSON.stringify(dataToStore));
     }
   };
 
