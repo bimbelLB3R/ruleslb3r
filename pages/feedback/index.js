@@ -39,7 +39,7 @@ const FeedbackForm = () => {
   const [dataJadwal, setDataJadwal] = useState([]);
   const [kelasSiswa, setKelasSiswa] = useState();
   const [tanggalJadwal, setTanggalJadwal] = useState();
-  const [jadwalIdterkirim, setJadwalIdterkirim] = useState();
+  const [submitedLocal, setSubmitedLocal] = useState({});
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
@@ -177,17 +177,17 @@ const FeedbackForm = () => {
   };
 
   useEffect(() => {
-    // Load rating from local storage when component mounts
-    const storedSubmitedJadwaiId = localStorage.getItem(
-      `submited${jadwalIdterkirim}`
-    );
-    // Parse storedSubmitedJadwaiId from JSON string and set rating to 0 if it's null
-    if (storedSubmitedJadwaiId) {
-      setSubmitted({ ...submitted, [jadwalIdterkirim]: true });
-    } else {
-      setSubmitted({ ...submitted, [jadwalIdterkirim]: false });
-    }
-  }, [jadwalIdterkirim]);
+    const submitedLocalData = {};
+    dataJadwal.forEach((jadwal) => {
+      const storedSubmitedJadwaiId = localStorage.getItem(
+        `submited${jadwal.id_jadwal}`
+      );
+      if (storedSubmitedJadwaiId) {
+        submitedLocalData[jadwal.id_jadwal] = true;
+      }
+    });
+    setSubmitedLocal(submitedLocalData);
+  }, [dataJadwal]);
 
   return (
     <Layout>
@@ -247,13 +247,13 @@ const FeedbackForm = () => {
                         <button
                           type="submit"
                           disabled={
-                            submitted[daJal.id_jadwal] ===
-                            submitted[jadwalIdterkirim]
+                            submitted[jadwal.id_jadwal] ||
+                            submitedLocal[jadwal.id_jadwal]
                           }
                         >
                           <div>
-                            {submitted[daJal.id_jadwal] ===
-                            submitted[jadwalIdterkirim]
+                            {submitted[jadwal.id_jadwal] ||
+                            submitedLocal[jadwal.id_jadwal]
                               ? "terkirim"
                               : "kirim"}
                           </div>
