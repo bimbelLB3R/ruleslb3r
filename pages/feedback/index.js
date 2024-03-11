@@ -165,7 +165,7 @@ const FeedbackForm = () => {
       appendSpreadsheet(newRow);
       setSubmitted({ ...submitted, [jadwalId]: true });
       localStorage.setItem(`submited${jadwalId}`, true);
-      setJadwalIdterkirim(jadwalId);
+
       const dataToStore = {
         jadwalId: kodeJadwal,
         rating: ratings[jadwalId],
@@ -188,6 +188,31 @@ const FeedbackForm = () => {
     });
     setSubmitedLocal(submitedLocalData);
   }, [dataJadwal]);
+
+  // HAPUS SEMUA DATA LOCAL STORAGE SETELAH 6 JAM
+  useEffect(() => {
+    // Set waktu saat ini
+    const currentTime = new Date().getTime();
+    // Set waktu kedaluwarsa (6 jam setelah saat ini)
+    const expirationTime = currentTime + 6 * 60 * 60 * 1000; // 6 jam dalam milidetik
+
+    // Simpan waktu kedaluwarsa di local storage
+    localStorage.setItem("expirationTime", expirationTime.toString());
+  }, []); // Efek ini hanya dijalankan saat komponen dimuat
+
+  useEffect(() => {
+    // Ambil waktu saat ini
+    const currentTime = new Date().getTime();
+    // Ambil waktu kedaluwarsa dari local storage
+    const expirationTime = parseInt(localStorage.getItem("expirationTime"));
+
+    // Periksa apakah sudah melewati waktu kedaluwarsa
+    if (currentTime > expirationTime) {
+      // Jika sudah lewat, hapus semua data dari local storage
+      localStorage.clear();
+    }
+  }, []); // Efek ini hanya dijalankan saat komponen dimuat
+  // HAPUS SEMUA DATA LOCAL STORAGE SETELAH 12 JAM END
 
   return (
     <Layout>
