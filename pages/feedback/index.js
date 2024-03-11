@@ -246,10 +246,16 @@ const FeedbackForm = () => {
                         />
                         <button
                           type="submit"
-                          disabled={submitted[jadwalIdterkirim]}
+                          disabled={
+                            submitted[daJal.id_jadwal] ===
+                            submitted[jadwalIdterkirim]
+                          }
                         >
                           <div>
-                            {submitted[jadwalIdterkirim] ? "Terkirim" : "Kirim"}
+                            {submitted[daJal.id_jadwal] ===
+                            submitted[jadwalIdterkirim]
+                              ? "terkirim"
+                              : "kirim"}
                           </div>
                         </button>
                       </div>
