@@ -39,6 +39,7 @@ const FeedbackForm = () => {
   const [dataJadwal, setDataJadwal] = useState([]);
   const [kelasSiswa, setKelasSiswa] = useState();
   const [tanggalJadwal, setTanggalJadwal] = useState();
+  const [jadwalIdterkirim, setJadwalIdterkirim] = useState();
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
@@ -109,12 +110,19 @@ const FeedbackForm = () => {
     ).pengajar_jadwal;
     if (!submitted[jadwalId]) {
       setRatings({ ...ratings, [jadwalId]: value });
+      // Menyimpan data dalam local storage dengan format yang lebih terstruktur
+      const dataToStore = {
+        jadwalId: jadwalId,
+        jadwalName: jadwalName,
+        rating: value,
+      };
+      localStorage.setItem(`rating_${jadwalId}`, JSON.stringify(dataToStore));
     }
   };
 
   // kirim ke spreadsheet
   const appendSpreadsheet = async (newRow) => {
-    console.log(newRow);
+    // console.log(newRow);
     try {
       await doc.useServiceAccountAuth({
         client_email: GOOGLE_CLIENT_EMAIL,
@@ -156,10 +164,30 @@ const FeedbackForm = () => {
       };
       appendSpreadsheet(newRow);
       setSubmitted({ ...submitted, [jadwalId]: true });
+      localStorage.setItem(`submited${jadwalId}`, true);
+      setJadwalIdterkirim(jadwalId);
+      const dataToStore = {
+        jadwalId: kodeJadwal,
+        rating: ratings[jadwalId],
+      };
+      localStorage.setItem(`rating_${jadwalId}`, JSON.stringify(dataToStore));
     } else {
       alert(`Anda belum memberikan penilaian untuk ${jadwalName}`);
     }
   };
+
+  useEffect(() => {
+    // Load rating from local storage when component mounts
+    const storedSubmitedJadwaiId = localStorage.getItem(
+      `submited${jadwalIdterkirim}`
+    );
+    // Parse storedSubmitedJadwaiId from JSON string and set rating to 0 if it's null
+    if (storedSubmitedJadwaiId) {
+      setSubmitted({ ...submitted, [jadwalIdterkirim]: true });
+    } else {
+      setSubmitted({ ...submitted, [jadwalIdterkirim]: false });
+    }
+  }, [jadwalIdterkirim]);
 
   return (
     <Layout>
@@ -213,14 +241,15 @@ const FeedbackForm = () => {
                           onChange={(value) =>
                             handleRatingChange(daJal.id_jadwal, value)
                           }
-                          disabled={submitted[daJal.id_jadwal]}
+                          // disabled={submitted[daJal.id_jadwal]}
+                          jadwalId={daJal.id_jadwal}
                         />
                         <button
                           type="submit"
-                          disabled={submitted[daJal.id_jadwal]}
+                          disabled={submitted[jadwalIdterkirim]}
                         >
                           <div>
-                            {submitted[daJal.id_jadwal] ? "Terkirim" : "Kirim"}
+                            {submitted[jadwalIdterkirim] ? "Terkirim" : "Kirim"}
                           </div>
                         </button>
                       </div>
