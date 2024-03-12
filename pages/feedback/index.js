@@ -319,41 +319,35 @@ const FeedbackForm = () => {
           </div>
         ) : (
           <div>
-            {isLoading ? (
-              <div className="flex items-center justify-center h-screen m-auto">
-                <Loader />
-              </div>
-            ) : (
-              <div className="flex items-center justify-center h-screen m-auto p-6 max-w-sm">
-                <div>
-                  <div className="flex items-center justify-center">
-                    <Image
-                      src="/image/image1.webp"
-                      width={100}
-                      height={100}
-                      alt="Pengajar"
-                      className="rounded-full"
-                      priority
-                    />
-                  </div>
-                  <p className="text-center">
-                    Silahkan kamu login terlebih dahulu. Gunakan email seperti
-                    email yang kamu pakai saat mendaftar di LB3R
-                  </p>
-                  <div className="flex items-center justify-center">
-                    <button
-                      type="submit"
-                      name="loginGoogle"
-                      // onClick={() => signIn()}
-                      onClick={handleSignIn}
-                      className="underline  bg-slate-900   text-slate-50 px-3 py-3 rounded-xl"
-                    >
-                      Login dengan Google
-                    </button>
-                  </div>
+            <div className="flex items-center justify-center h-screen m-auto p-6 max-w-sm">
+              <div>
+                <div className="flex items-center justify-center">
+                  <Image
+                    src="/image/image1.webp"
+                    width={100}
+                    height={100}
+                    alt="Pengajar"
+                    className="rounded-full"
+                    priority
+                  />
+                </div>
+                <p className="text-center">
+                  Silahkan kamu login terlebih dahulu. Gunakan email seperti
+                  email yang kamu pakai saat mendaftar di LB3R
+                </p>
+                <div className="flex items-center justify-center">
+                  <button
+                    type="submit"
+                    name="loginGoogle"
+                    // onClick={() => signIn()}
+                    onClick={handleSignIn}
+                    className="underline  bg-slate-900   text-slate-50 px-3 py-3 rounded-xl"
+                  >
+                    Login dengan Google
+                  </button>
                 </div>
               </div>
-            )}
+            </div>
           </div>
         )}
       </div>
