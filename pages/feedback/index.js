@@ -229,84 +229,97 @@ const FeedbackForm = () => {
         {session ? (
           <div>
             <h2 className="text-center font-bold uppercase">Beri Penilaian</h2>
+            <h3 className="text-center italic text-xs lowercase">
+              `your mail : ${session.user.email}`
+            </h3>
             {isLoading ? (
               <div className="flex items-center justify-center h-screen m-auto">
                 <Loader />
               </div>
             ) : (
               <div>
-                <div>
-                  {dataJadwal.map((daJal) => (
-                    <form
-                      key={daJal.id_jadwal}
-                      onSubmit={(e) => {
-                        e.preventDefault();
-                        handleSubmit(daJal.id_jadwal);
-                      }}
-                    >
-                      <div className="flex items-center justify-center space-x-3 border-b-2 border-gray-300 p-2 max-w-[300px] md:max-w-xl m-auto">
-                        <div>
-                          <Image
-                            src="/image/image1.webp"
-                            width={100}
-                            height={100}
-                            alt="Pengajar"
-                            className="rounded-full"
-                            priority
-                          />
-                          <p className="text-center">{daJal.pengajar_jadwal}</p>
-                        </div>
-
-                        <StarRating
-                          onChange={(value) =>
-                            handleRatingChange(daJal.id_jadwal, value)
-                          }
-                          // disabled={submitted[daJal.id_jadwal]}
-                          jadwalId={daJal.id_jadwal}
-                        />
-                        <button
-                          type="submit"
-                          disabled={
-                            submitted[daJal.id_jadwal] ||
-                            submitedLocal[daJal.id_jadwal]
-                          }
-                        >
+                {dataJadwal ? (
+                  <div>
+                    {dataJadwal.map((daJal) => (
+                      <form
+                        key={daJal.id_jadwal}
+                        onSubmit={(e) => {
+                          e.preventDefault();
+                          handleSubmit(daJal.id_jadwal);
+                        }}
+                      >
+                        <div className="flex items-center justify-center space-x-3 border-b-2 border-gray-300 p-2 max-w-[300px] md:max-w-xl m-auto">
                           <div>
-                            {submitted[daJal.id_jadwal] ||
-                            submitedLocal[daJal.id_jadwal]
-                              ? "terkirim"
-                              : "kirim"}
+                            <Image
+                              src="/image/image1.webp"
+                              width={100}
+                              height={100}
+                              alt="Pengajar"
+                              className="rounded-full"
+                              priority
+                            />
+                            <p className="text-center">
+                              {daJal.pengajar_jadwal}
+                            </p>
                           </div>
-                        </button>
-                      </div>
-                    </form>
-                  ))}
-                </div>
+
+                          <StarRating
+                            onChange={(value) =>
+                              handleRatingChange(daJal.id_jadwal, value)
+                            }
+                            // disabled={submitted[daJal.id_jadwal]}
+                            jadwalId={daJal.id_jadwal}
+                          />
+                          <button
+                            type="submit"
+                            disabled={
+                              submitted[daJal.id_jadwal] ||
+                              submitedLocal[daJal.id_jadwal]
+                            }
+                          >
+                            <div>
+                              {submitted[daJal.id_jadwal] ||
+                              submitedLocal[daJal.id_jadwal]
+                                ? "terkirim"
+                                : "kirim"}
+                            </div>
+                          </button>
+                        </div>
+                      </form>
+                    ))}
+                  </div>
+                ) : (
+                  <div>
+                    <p className="italic text-xs text-red-900 p-2 text-center">
+                      Hari ini kamu tidak ada jadwal
+                    </p>
+                  </div>
+                )}
                 <div className="flex items-center justify-center m-6">
                   <div className="flex items-center justify-center">
-                    <table class="table-auto w-full border-collapse border border-gray-900">
+                    <table className="table-auto w-full border-collapse border border-gray-900">
                       <thead>
-                        <tr class="bg-gray-900 text-white">
-                          <th class="px-4 py-2">No</th>
-                          <th class="px-4 py-2">Indikator Rating</th>
+                        <tr className="bg-gray-900 text-white">
+                          <th className="px-4 py-2">No</th>
+                          <th className="px-4 py-2">Indikator Rating</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr class="bg-gray-100 hover:bg-gray-200">
-                          <td class="border px-4 py-2">1</td>
-                          <td class="border px-4 py-2">
+                        <tr className="bg-gray-100 hover:bg-gray-200">
+                          <td className="border px-4 py-2">1</td>
+                          <td className="border px-4 py-2">
                             Kamu paham apa yang diajarkan oleh guru
                           </td>
                         </tr>
-                        <tr class="bg-gray-100 hover:bg-gray-200">
-                          <td class="border px-4 py-2">2</td>
-                          <td class="border px-4 py-2">
+                        <tr className="bg-gray-100 hover:bg-gray-200">
+                          <td className="border px-4 py-2">2</td>
+                          <td className="border px-4 py-2">
                             Kamu suka dengan cara guru menyampaikan materi
                           </td>
                         </tr>
-                        <tr class="bg-gray-100 hover:bg-gray-200">
-                          <td class="border px-4 py-2">3</td>
-                          <td class="border px-4 py-2">
+                        <tr className="bg-gray-100 hover:bg-gray-200">
+                          <td className="border px-4 py-2">3</td>
+                          <td className="border px-4 py-2">
                             Kamu merasa terbantu oleh guru
                           </td>
                         </tr>
