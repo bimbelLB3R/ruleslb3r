@@ -85,8 +85,11 @@ const FeedbackForm = () => {
         .toString()
         .padStart(2, "0")}-${today.getDate().toString().padStart(2, "0")}`; //tanggal saat ini format 2024-09-09
       const jadwalSesuaiKelasUser = rows.filter(
-        (row) => row.kelas_jadwal === `${kelasUser}`
+        (row) =>
+          row.kelas_jadwal === kelasUser &&
+          row.tanggal_jadwal === tanggalJadwalSiswa
       );
+
       // setKelasUserState(kelasUser);
       // console.log(jadwalSesuaiKelasUser);
       setDataJadwal(jadwalSesuaiKelasUser);
