@@ -127,6 +127,9 @@ const FeedbackForm = () => {
   const appendSpreadsheet = async (newRow) => {
     // console.log(newRow);
     try {
+      const currentTime = new Date().getTime();
+      const expirationTime = currentTime + 12 * 60 * 60 * 1000; // 12 jam dalam milidetik
+      localStorage.setItem("expirationTime", expirationTime.toString());
       await doc.useServiceAccountAuth({
         client_email: GOOGLE_CLIENT_EMAIL,
         // private_key: GOOGLE_SERVICE_PRIVATE_KEY,
@@ -191,17 +194,6 @@ const FeedbackForm = () => {
     });
     setSubmitedLocal(submitedLocalData);
   }, [dataJadwal]);
-
-  // HAPUS SEMUA DATA LOCAL STORAGE SETELAH 6 JAM
-  useEffect(() => {
-    // Set waktu saat ini
-    const currentTime = new Date().getTime();
-    // Set waktu kedaluwarsa (6 jam setelah saat ini)
-    const expirationTime = currentTime + 6 * 60 * 60 * 1000; // 6 jam dalam milidetik
-
-    // Simpan waktu kedaluwarsa di local storage
-    localStorage.setItem("expirationTime", expirationTime.toString());
-  }, []); // Efek ini hanya dijalankan saat komponen dimuat
 
   useEffect(() => {
     // Ambil waktu saat ini
