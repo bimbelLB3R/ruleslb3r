@@ -240,7 +240,7 @@ const FeedbackForm = () => {
               </div>
             ) : (
               <div>
-                {cekEmail ? (
+                {dataJadwal.length > 0 ? (
                   <div>
                     {dataJadwal.map((daJal) => (
                       <form
@@ -291,12 +291,9 @@ const FeedbackForm = () => {
                     ))}
                   </div>
                 ) : (
-                  <div>
-                    <p className="italic text-xs text-red-900 p-2 text-center">
-                      _Hari ini kamu tidak ada jadwal_
-                    </p>
-                  </div>
+                  <p className="text-center p-3">Tidak ada jadwal hari ini</p>
                 )}
+
                 <div className="flex items-center justify-center m-6">
                   <div className="flex items-center justify-center">
                     <table className="table-auto w-full border-collapse border border-gray-900">
