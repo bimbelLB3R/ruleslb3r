@@ -291,7 +291,7 @@ const FeedbackForm = () => {
                 ) : (
                   <div>
                     <p className="italic text-xs text-red-900 p-2 text-center">
-                      _Hari ini kamu tidak ada jadwal_
+                      Hari ini kamu tidak ada jadwal
                     </p>
                   </div>
                 )}
