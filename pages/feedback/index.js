@@ -230,7 +230,7 @@ const FeedbackForm = () => {
           <div>
             <h2 className="text-center font-bold uppercase">Beri Penilaian</h2>
             <h3 className="text-center italic text-xs lowercase">
-              `your mail : ${session.user.email}`
+              as {session.user.email}
             </h3>
             {isLoading ? (
               <div className="flex items-center justify-center h-screen m-auto">
