@@ -40,6 +40,7 @@ const FeedbackForm = () => {
   const [kelasSiswa, setKelasSiswa] = useState();
   const [tanggalJadwal, setTanggalJadwal] = useState();
   const [submitedLocal, setSubmitedLocal] = useState({});
+  const [cekEmail, setCekEmail] = useState();
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
@@ -92,6 +93,7 @@ const FeedbackForm = () => {
 
       // setKelasUserState(kelasUser);
       // console.log(jadwalSesuaiKelasUser);
+      setCekEmail(cekEmailUser);
       setDataJadwal(jadwalSesuaiKelasUser);
       setKelasSiswa(kelasUser);
       setTanggalJadwal(tanggalJadwalSiswa);
@@ -238,7 +240,7 @@ const FeedbackForm = () => {
               </div>
             ) : (
               <div>
-                {dataJadwal ? (
+                {cekEmail ? (
                   <div>
                     {dataJadwal.map((daJal) => (
                       <form
