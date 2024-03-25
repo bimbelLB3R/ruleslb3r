@@ -47,7 +47,7 @@ const VideoDraggable = () => {
             allowFullScreen
           ></iframe> */}
           <Image
-            src="/image/snbt/intensif2024.jpeg"
+            src="/image/snbt/ujicoba.jpeg"
             alt="Foto siswa"
             width={1080}
             height={1080}
@@ -55,8 +55,8 @@ const VideoDraggable = () => {
             className=""
           />
           <p className="text-gray-50 text-xs  w-full bg-gray-900 text-center p-1">
-            Dibuka kembali ‼️ Program Intensif UTBK SNBT 2024 Program persiapan
-            menghadapi ujian seleksi masuk PTN Akademik, PTN Vokasi, dan PTKIN.
+            Program Uji Coba Kelas Reguler, Gratis!! Masuk mengikuti jadwal yang
+            sudah berjalan.
           </p>
         </div>
       </Draggable>

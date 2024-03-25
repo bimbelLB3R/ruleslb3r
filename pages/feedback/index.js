@@ -331,15 +331,15 @@ const FeedbackForm = () => {
           </div>
         ) : (
           <div>
-            <div className="flex items-center justify-center h-screen m-auto p-6 max-w-sm">
+            <div className="flex items-center justify-center  m-auto p-6 max-w-sm">
               <div>
                 <div className="flex items-center justify-center">
                   <Image
-                    src="/image/image1.webp"
-                    width={100}
-                    height={100}
+                    src="/image/snbt/ujicoba.jpeg"
+                    width={540}
+                    height={540}
                     alt="Pengajar"
-                    className="rounded-full"
+                    className=""
                     priority
                   />
                 </div>
