@@ -10,37 +10,37 @@ import { getTutorialData } from "../../utils/TutorialApi";
 import TombolCari from "../../components/TombolCari";
 import { fetchDataVercel } from "../../utils/endpointLuar";
 
-// export async function getStaticProps() {
-//   const data = getBlogsData();
-//   const dataTutorial = getTutorialData();
-//   // console.log(dataTutorial);
-//   return {
-//     props: {
-//       allPost: data.posts,
-//       allTutorial: dataTutorial.tutorials,
-//     },
-//   };
-// }
 export async function getStaticProps() {
-  try {
-    const data = await fetchDataVercel();
-    const dataTutorial = await getTutorialData();
-    return {
-      props: {
-        allPost: data.posts,
-        allTutorial: dataTutorial.tutorials,
-      },
-    };
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    return {
-      props: {
-        allPost: null,
-        allTutorial: null,
-      },
-    };
-  }
+  const data = getBlogsData();
+  const dataTutorial = getTutorialData();
+  // console.log(dataTutorial);
+  return {
+    props: {
+      allPost: data.posts,
+      allTutorial: dataTutorial.tutorials,
+    },
+  };
 }
+// export async function getStaticProps() {
+//   try {
+//     const data = await fetchDataVercel();
+//     const dataTutorial = await getTutorialData();
+//     return {
+//       props: {
+//         allPost: data.posts,
+//         allTutorial: dataTutorial.tutorials,
+//       },
+//     };
+//   } catch (error) {
+//     console.error("Error fetching data:", error);
+//     return {
+//       props: {
+//         allPost: null,
+//         allTutorial: null,
+//       },
+//     };
+//   }
+// }
 
 export default function BlogsPage({ allPost, allTutorial }) {
   const [showNavbar, setShowNavbar] = useState(false);
