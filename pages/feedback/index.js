@@ -41,7 +41,6 @@ const FeedbackForm = () => {
   const [tanggalJadwal, setTanggalJadwal] = useState();
   const [submitedLocal, setSubmitedLocal] = useState({});
   const [cekEmail, setCekEmail] = useState();
-  const [averageRatings, setAverageRatings] = useState({});
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
@@ -189,34 +188,6 @@ const FeedbackForm = () => {
   };
 
   useEffect(() => {
-    const fetchRatingData = async () => {
-      try {
-        await doc.useServiceAccountAuth({
-          client_email: GOOGLE_CLIENT_EMAIL,
-          private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
-        });
-        await doc.loadInfo();
-        const ratingSheet = doc.sheetsById[SHEET_ID3];
-        const ratingRows = await ratingSheet.getRows();
-        const pengajarHariIni = dataJadwal.map(
-          (jadwal) => jadwal.pengajar_jadwal
-        );
-        const ratingTentorHariIni = ratingRows.filter((row) =>
-          pengajarHariIni.includes(row.rating_pengajar)
-        );
-        const averageRatings = calculateAverageRating(ratingTentorHariIni);
-        setAverageRatings(averageRatings);
-      } catch (error) {
-        console.error("Error fetching rating data:", error);
-      }
-    };
-
-    if (dataJadwal.length > 0) {
-      fetchRatingData();
-    }
-  }, [dataJadwal]);
-
-  useEffect(() => {
     const submitedLocalData = {};
     dataJadwal.forEach((jadwal) => {
       const storedSubmitedJadwaiId = localStorage.getItem(
@@ -297,14 +268,6 @@ const FeedbackForm = () => {
                             <p className="text-center">
                               {daJal.pengajar_jadwal}
                             </p>
-                            {averageRatings[daJal.pengajar_jadwal] && (
-                              <p className="text-center">
-                                Rata-rata Rating:{" "}
-                                {averageRatings[
-                                  daJal.pengajar_jadwal
-                                ].averageRating.toFixed(2)}
-                              </p>
-                            )}
                           </div>
 
                           <StarRating
