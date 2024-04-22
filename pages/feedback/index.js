@@ -101,6 +101,13 @@ const FeedbackForm = () => {
       setTanggalJadwal(tanggalJadwalSiswa);
       setIsLoading(false);
     }
+    // tentor hari ini
+
+    const tentorHariIni = dataJadwal.map((item) => item.pengajar_jadwal);
+    const ratingTentorHariIni = rows3.find(
+      (item) => item.rating_pengajar === tentorHariIni
+    );
+    console.log(ratingTentorHariIni);
   };
   useEffect(() => {
     // Panggil fungsi ambilJadwal disini
@@ -212,14 +219,6 @@ const FeedbackForm = () => {
     }
   }, []); // Efek ini hanya dijalankan saat komponen dimuat
   // HAPUS SEMUA DATA LOCAL STORAGE SETELAH 12 JAM END
-
-  // tentor hari ini
-
-  const tentorHariIni = dataJadwal.map((item) => item.pengajar_jadwal);
-  const ratingTentorHariIni = rows3.find(
-    (item) => item.rating_pengajar === tentorHariIni
-  );
-  console.log(ratingTentorHariIni);
 
   return (
     <Layout>
