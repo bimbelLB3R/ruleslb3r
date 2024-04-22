@@ -53,8 +53,10 @@ const FeedbackForm = () => {
     await doc.loadInfo(); // tambahkan baris ini untuk memastikan sheet telah terdefinisi
     const sheet1 = doc.sheetsById[SHEET_ID1]; // tambahkan baris ini untuk mendefinisikan sheet
     const sheet2 = doc.sheetsById[SHEET_ID2]; // tambahkan baris ini untuk mendefinisikan sheet
+    const sheet3 = doc.sheetsById[SHEET_ID3]; // tambahkan baris ini untuk mendefinisikan sheet
     const rows = await sheet1.getRows(); //data jadwal
     const rows2 = await sheet2.getRows(); //data siswa
+    const rows3 = await sheet3.getRows(); //data rating
     // setDataJadwal(jadwalSesuaiEmail);
     // setDataSiswa(rows2);
     // console.log(email_user);
@@ -210,6 +212,16 @@ const FeedbackForm = () => {
     }
   }, []); // Efek ini hanya dijalankan saat komponen dimuat
   // HAPUS SEMUA DATA LOCAL STORAGE SETELAH 12 JAM END
+
+  // tentor hari ini
+  useEffect(() => {
+    dataJadwal.map((item) => {
+      const ambilRating = rows3.find(
+        (row) => row.rating_pengajar === item.pengajar_jadwal
+      );
+      console.log(ambilRating);
+    });
+  }, [dataJadwal]);
 
   return (
     <Layout>
