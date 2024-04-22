@@ -214,14 +214,12 @@ const FeedbackForm = () => {
   // HAPUS SEMUA DATA LOCAL STORAGE SETELAH 12 JAM END
 
   // tentor hari ini
-  useEffect(() => {
-    dataJadwal.map((item) => {
-      const ambilRating = rows3.find(
-        (row) => row.rating_pengajar === item.pengajar_jadwal
-      );
-      console.log(ambilRating);
-    });
-  }, [dataJadwal]);
+
+  const tentorHariIni = dataJadwal.map((item) => item.pengajar_jadwal);
+  const ratingTentorHariIni = rows3.find(
+    (item) => item.rating_pengajar === tentorHariIni
+  );
+  console.log(ratingTentorHariIni);
 
   return (
     <Layout>
