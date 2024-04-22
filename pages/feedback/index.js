@@ -191,6 +191,11 @@ const FeedbackForm = () => {
   useEffect(() => {
     const fetchRatingData = async () => {
       try {
+        await doc.useServiceAccountAuth({
+          client_email: GOOGLE_CLIENT_EMAIL,
+          private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+        });
+        await doc.loadInfo();
         const ratingSheet = doc.sheetsById[SHEET_ID3];
         const ratingRows = await ratingSheet.getRows();
         const pengajarHariIni = dataJadwal.map(
