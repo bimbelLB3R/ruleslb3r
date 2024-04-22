@@ -104,10 +104,11 @@ const FeedbackForm = () => {
     // tentor hari ini
 
     const tentorHariIni = dataJadwal.map((item) => item.pengajar_jadwal);
-    const ratingTentorHariIni = rows3.find(
+    const ratingTentorHariIni = rows3.filter(
       (item) => item.rating_pengajar === tentorHariIni
     );
     console.log(ratingTentorHariIni);
+    console.log(tentorHariIni);
   };
   useEffect(() => {
     // Panggil fungsi ambilJadwal disini
