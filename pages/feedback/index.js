@@ -41,6 +41,7 @@ const FeedbackForm = () => {
   const [tanggalJadwal, setTanggalJadwal] = useState();
   const [submitedLocal, setSubmitedLocal] = useState({});
   const [cekEmail, setCekEmail] = useState();
+  const [averageRatings, setAverageRatings] = useState({});
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
@@ -102,13 +103,6 @@ const FeedbackForm = () => {
       setIsLoading(false);
     }
     // tentor hari ini
-
-    const tentorHariIni = dataJadwal.map((item) => item.pengajar_jadwal);
-    const ratingTentorHariIni = rows3.filter(
-      (item) => item.rating_pengajar === tentorHariIni
-    );
-    console.log(ratingTentorHariIni);
-    console.log(tentorHariIni);
   };
   useEffect(() => {
     // Panggil fungsi ambilJadwal disini
@@ -195,6 +189,29 @@ const FeedbackForm = () => {
   };
 
   useEffect(() => {
+    const fetchRatingData = async () => {
+      try {
+        const ratingSheet = doc.sheetsById[SHEET_ID3];
+        const ratingRows = await ratingSheet.getRows();
+        const pengajarHariIni = dataJadwal.map(
+          (jadwal) => jadwal.pengajar_jadwal
+        );
+        const ratingTentorHariIni = ratingRows.filter((row) =>
+          pengajarHariIni.includes(row.rating_pengajar)
+        );
+        const averageRatings = calculateAverageRating(ratingTentorHariIni);
+        setAverageRatings(averageRatings);
+      } catch (error) {
+        console.error("Error fetching rating data:", error);
+      }
+    };
+
+    if (dataJadwal.length > 0) {
+      fetchRatingData();
+    }
+  }, [dataJadwal]);
+
+  useEffect(() => {
     const submitedLocalData = {};
     dataJadwal.forEach((jadwal) => {
       const storedSubmitedJadwaiId = localStorage.getItem(
@@ -220,6 +237,8 @@ const FeedbackForm = () => {
     }
   }, []); // Efek ini hanya dijalankan saat komponen dimuat
   // HAPUS SEMUA DATA LOCAL STORAGE SETELAH 12 JAM END
+
+  // tentor hari ini
 
   return (
     <Layout>
@@ -273,6 +292,14 @@ const FeedbackForm = () => {
                             <p className="text-center">
                               {daJal.pengajar_jadwal}
                             </p>
+                            {averageRatings[daJal.pengajar_jadwal] && (
+                              <p className="text-center">
+                                Rata-rata Rating:{" "}
+                                {averageRatings[
+                                  daJal.pengajar_jadwal
+                                ].averageRating.toFixed(2)}
+                              </p>
+                            )}
                           </div>
 
                           <StarRating
