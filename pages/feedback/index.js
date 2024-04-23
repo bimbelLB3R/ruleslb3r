@@ -99,8 +99,8 @@ const FeedbackForm = () => {
       // console.log(jadwalSesuaiKelasUser);
 
       // mengeluarkan data rows3
-      rows3.map((items) => {
-        setDataRatingHariIni(items);
+      rows3.forEach((row) => {
+        setDataRatingHariIni(row); // Tampilkan setiap baris
       });
 
       setCekEmail(cekEmailUser);
