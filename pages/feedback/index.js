@@ -98,17 +98,10 @@ const FeedbackForm = () => {
       // setKelasUserState(kelasUser);
       // console.log(jadwalSesuaiKelasUser);
 
-      const pengajarHariIni = jadwalSesuaiKelasUser.map(
-        (item) => item.pengajar_jadwal
-      ); //array
-      if (pengajarHariIni.length > 0) {
-        pengajarHariIni.map((tentor) => {
-          const tentorRating = rows3.filter(
-            (item) => item.rating_pengajar === tentor
-          );
-          setDataRatingHariIni(tentorRating);
-        });
-      }
+      // mengeluarkan data rows3
+      rows3.map((items) => {
+        setDataRatingHariIni(items);
+      });
 
       setCekEmail(cekEmailUser);
       setDataJadwal(jadwalSesuaiKelasUser);
