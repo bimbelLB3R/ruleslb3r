@@ -308,20 +308,20 @@ const FeedbackForm = () => {
                               priority
                             />
                             <p className="text-center">
-                              {daJal.pengajar_jadwal}
-                            </p>
-                            <span
-                              className="text-3xl"
-                              style={{
-                                color: "gold",
-                              }}
-                            >
-                              (★{" "}
+                              {daJal.pengajar_jadwal}({" "}
                               {rataRataRatingByPengajar[
                                 daJal.pengajar_jadwal
                               ].toFixed(2)}
+                              <span
+                                className="text-xl"
+                                style={{
+                                  color: "gold",
+                                }}
+                              >
+                                ★
+                              </span>
                               )
-                            </span>
+                            </p>
                           </div>
 
                           <StarRating
