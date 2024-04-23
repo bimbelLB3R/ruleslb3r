@@ -39,7 +39,7 @@ const AllRatingTentor = () => {
     // Panggil fungsi ambilJadwal disini
     // const email_user = "ikhwchemist@gmail.com";
     ambilRatingTentor();
-  }, [session]);
+  }, [pengajarData]);
   useEffect(() => {
     // Fungsi untuk mengelompokkan data dan menghitung rata-rata rating
     const hitungRataRataRating = (data) => {
@@ -77,7 +77,7 @@ const AllRatingTentor = () => {
 
     // Set data pengajar ke state
     setPengajarData(pengajarList);
-  }, [session]);
+  }, [pengajarData]);
   return (
     <div className="max-w-2xl grid grid-cols-1 m-auto mb-4 p-4">
       {pengajarData ? (
