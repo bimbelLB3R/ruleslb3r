@@ -231,9 +231,32 @@ const FeedbackForm = () => {
   const arrayPengajarHariIni = dataJadwal.map((item) => item.pengajar_jadwal);
   const dataRows3SesuaiArray = dataRows3.filter((row) =>
     arrayPengajarHariIni.includes(row.rating_pengajar)
-  );
+  ); //berisi data dari rows3 yang sesuai tentor di kelas anak
+  // Buat objek untuk menyimpan total rating dan jumlah entri rating untuk setiap pengajar
+  const ratingByPengajar = {};
+  dataRows3SesuaiArray.forEach((data) => {
+    const { namaPengajar, rating } = data;
+    // Jika nama pengajar belum ada dalam objek ratingByPengajar, inisialisasi total rating dan jumlah entri ratingnya
+    if (!ratingByPengajar[namaPengajar]) {
+      ratingByPengajar[namaPengajar] = { totalRating: 0, jumlahEntri: 0 };
+    }
+    // Tambahkan rating ke total rating untuk pengajar yang bersangkutan
+    ratingByPengajar[namaPengajar].totalRating += rating;
+    // Tambahkan 1 ke jumlah entri rating untuk pengajar yang bersangkutan
+    ratingByPengajar[namaPengajar].jumlahEntri += 1;
+  });
+  // Buat objek untuk menyimpan rata-rata rating untuk setiap pengajar
+  const rataRataRatingByPengajar = {};
+  // Hitung rata-rata rating untuk setiap pengajar
+  Object.keys(ratingByPengajar).forEach((namaPengajar) => {
+    const { totalRating, jumlahEntri } = ratingByPengajar[namaPengajar];
+    const rataRataRating = totalRating / jumlahEntri;
 
-  console.log(dataRows3SesuaiArray);
+    // Simpan nama pengajar dan rata-rata ratingnya dalam objek rataRataRatingByPengajar
+    rataRataRatingByPengajar[namaPengajar] = rataRataRating;
+  });
+
+  // console.log(dataRows3SesuaiArray);
   return (
     <Layout>
       <Head>
@@ -285,6 +308,9 @@ const FeedbackForm = () => {
                             />
                             <p className="text-center">
                               {daJal.pengajar_jadwal}
+                            </p>
+                            <p className="text-center">
+                              {rataRataRatingByPengajar[daJal.pengajar_jadwal]}
                             </p>
                           </div>
 
