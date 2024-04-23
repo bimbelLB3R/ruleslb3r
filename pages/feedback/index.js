@@ -8,6 +8,7 @@ import Loader from "../../components/Loader";
 import Layout from "../../components/Layout";
 import Swal from "sweetalert2";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID_RATING;
@@ -299,14 +300,19 @@ const FeedbackForm = () => {
                       >
                         <div className="flex items-center justify-center space-x-3 border-b-2 border-gray-300 p-2 max-w-[300px] md:max-w-xl m-auto">
                           <div>
-                            <Image
-                              src={`/image/tentor/${daJal.pengajar_jadwal}.png`}
-                              width={50}
-                              height={50}
-                              alt="No Image"
-                              className="rounded-full"
-                              priority
-                            />
+                            <Link
+                              href={`https://www.bimbellb3r.com/image/tentor/${daJal.pengajar_jadwal}.png`}
+                              className="flex items-center justify-center"
+                            >
+                              <Image
+                                src={`/image/tentor/${daJal.pengajar_jadwal}.png`}
+                                width={50}
+                                height={50}
+                                alt="No Image"
+                                className="rounded-full"
+                                priority
+                              />
+                            </Link>
                             <p className="text-center text-sm ">
                               {daJal.pengajar_jadwal}
                             </p>
