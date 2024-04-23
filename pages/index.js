@@ -21,6 +21,7 @@ import PopBerita from "../components/PopBerita";
 import ShortCut from "../components/ShortCut";
 import WarningSnbt from "../components/WarningSnbt";
 import VideoDraggable from "../components/Videodraggable";
+import AllRatingTentor from "../components/AllRatingTentor";
 
 const Home = ({ allPost, dataAlumni }) => {
   // console.log(allPost);
@@ -152,6 +153,7 @@ const Home = ({ allPost, dataAlumni }) => {
         <BluryBg />
         <Faq />
         <PopBerita beritaTerbaru={allPost} />
+        <AllRatingTentor />
         {/* <InfoTerbaru /> */}
         {/* <CodeBlog /> */}
       </Layout>
