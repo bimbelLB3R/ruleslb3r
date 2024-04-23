@@ -41,7 +41,7 @@ const FeedbackForm = () => {
   const [tanggalJadwal, setTanggalJadwal] = useState();
   const [submitedLocal, setSubmitedLocal] = useState({});
   const [cekEmail, setCekEmail] = useState();
-  const [dataRatingHariIni, setDataRatingHariIni] = useState([]);
+  const [dataRows3, setDataRows3] = useState([]);
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
@@ -104,7 +104,7 @@ const FeedbackForm = () => {
         allRowsData.push(row);
       });
       // Set array data ke state
-      setDataRatingHariIni(allRowsData);
+      setDataRows3(allRowsData);
 
       setCekEmail(cekEmailUser);
       setDataJadwal(jadwalSesuaiKelasUser);
@@ -226,7 +226,14 @@ const FeedbackForm = () => {
   // HAPUS SEMUA DATA LOCAL STORAGE SETELAH 12 JAM END
 
   // tentor hari ini
-  console.log(dataRatingHariIni);
+
+  // pilih data yang sesuai dengan aray tentor hari ini
+  const arrayPengajarHariIni = dataJadwal.map((item) => item.pengajar_jadwal);
+  const dataRows3SesuaiArray = dataRows3.filter((row) =>
+    arrayPengajarHariIni.includes(row.rating_pengajar)
+  );
+
+  console.log(dataRows3SesuaiArray);
   return (
     <Layout>
       <Head>
