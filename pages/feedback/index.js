@@ -109,7 +109,7 @@ const FeedbackForm = () => {
           setDataRatingHariIni(tentorRating);
         });
       }
-      console.log(tentorRating);
+      console.log(dataRatingHariIni);
 
       setCekEmail(cekEmailUser);
       setDataJadwal(jadwalSesuaiKelasUser);
