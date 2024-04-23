@@ -99,7 +99,7 @@ const FeedbackForm = () => {
         (item) => item.pengajar_jadwal
       );
       const ambilDataRating = rows3.filter(
-        (item) => item.rating_pengajar === "Bu Maya"
+        (item) => item.rating_pengajar === "Pak Karim"
       );
 
       // setKelasUserState(kelasUser);
