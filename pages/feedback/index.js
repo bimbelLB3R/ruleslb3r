@@ -300,17 +300,17 @@ const FeedbackForm = () => {
                         <div className="flex items-center justify-center space-x-3 border-b-2 border-gray-300 p-2 max-w-[300px] md:max-w-xl m-auto">
                           <div>
                             <Image
-                              src="/image/image1.webp"
+                              src={`/image/tentor/${daJal.pengajar_jadwal}.png`}
                               width={100}
                               height={100}
-                              alt="Pengajar"
+                              alt="No Image"
                               className="rounded-full"
                               priority
                             />
-                            <p className="text-center text-sm md:text-xl">
+                            <p className="text-center text-sm ">
                               {daJal.pengajar_jadwal}
                             </p>
-                            <p className="text-center text-sm md:text-xl">
+                            <p className="text-center text-sm ">
                               ({" "}
                               {rataRataRatingByPengajar[
                                 daJal.pengajar_jadwal
