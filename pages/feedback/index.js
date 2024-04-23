@@ -100,16 +100,16 @@ const FeedbackForm = () => {
 
       const pengajarHariIni = jadwalSesuaiKelasUser.map(
         (item) => item.pengajar_jadwal
-      );
+      ); //array
       if (pengajarHariIni.length > 0) {
         pengajarHariIni.forEach((tentor) => {
-          const tentorRating = rows3.find(
+          const tentorRating = rows3.filter(
             (item) => item.rating_pengajar === tentor
           );
           setDataRatingHariIni(tentorRating);
         });
       }
-      console.log(pengajarHariIni);
+      console.log(tentorRating);
 
       setCekEmail(cekEmailUser);
       setDataJadwal(jadwalSesuaiKelasUser);
