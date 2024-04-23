@@ -41,7 +41,7 @@ const FeedbackForm = () => {
   const [tanggalJadwal, setTanggalJadwal] = useState();
   const [submitedLocal, setSubmitedLocal] = useState({});
   const [cekEmail, setCekEmail] = useState();
-  const [dataRating, setDataRating] = useState({});
+  const [dataRating, setDataRating] = useState();
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
@@ -99,7 +99,7 @@ const FeedbackForm = () => {
         (item) => item.pengajar_jadwal
       );
       const ambilDataRating = rows3.filter(
-        (item) => item.rating_pengajar === pengajarSesuaiKelasUser
+        (item) => item.rating_pengajar === "Bu Maya"
       );
 
       // setKelasUserState(kelasUser);
