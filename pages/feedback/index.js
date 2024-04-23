@@ -41,7 +41,6 @@ const FeedbackForm = () => {
   const [tanggalJadwal, setTanggalJadwal] = useState();
   const [submitedLocal, setSubmitedLocal] = useState({});
   const [cekEmail, setCekEmail] = useState();
-  const [dataRating, setDataRating] = useState();
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
@@ -94,17 +93,10 @@ const FeedbackForm = () => {
           row.kelas_jadwal === kelasUser &&
           row.tanggal_jadwal === tanggalJadwalSiswa
       );
-      // ambil data rating
-      const pengajarSesuaiKelasUser = jadwalSesuaiKelasUser.map(
-        (item) => item.pengajar_jadwal
-      );
-      const ambilDataRating = rows3.filter(
-        (item) => item.rating_pengajar === "Pak Karim"
-      );
 
       // setKelasUserState(kelasUser);
       // console.log(jadwalSesuaiKelasUser);
-      setDataRating(ambilDataRating);
+
       setCekEmail(cekEmailUser);
       setDataJadwal(jadwalSesuaiKelasUser);
       setKelasSiswa(kelasUser);
@@ -225,7 +217,10 @@ const FeedbackForm = () => {
   // HAPUS SEMUA DATA LOCAL STORAGE SETELAH 12 JAM END
 
   // tentor hari ini
-  console.log(dataRating);
+  if (dataJadwal.length > 0) {
+    const pengajarHariIni = dataJadwal.map((item) => item.pengajar_jadwal);
+    console.log(pengajarHariIni);
+  }
 
   return (
     <Layout>
