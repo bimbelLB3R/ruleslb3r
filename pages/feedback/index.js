@@ -230,7 +230,7 @@ const FeedbackForm = () => {
   // HAPUS SEMUA DATA LOCAL STORAGE SETELAH 12 JAM END
 
   // tentor hari ini
-  console.log(dataRatingHariIni);
+  console.log(pengajarHariIni);
 
   return (
     <Layout>
