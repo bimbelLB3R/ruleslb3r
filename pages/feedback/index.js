@@ -41,6 +41,7 @@ const FeedbackForm = () => {
   const [tanggalJadwal, setTanggalJadwal] = useState();
   const [submitedLocal, setSubmitedLocal] = useState({});
   const [cekEmail, setCekEmail] = useState();
+  const [dataRating, setDataRating] = useState({});
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
@@ -64,6 +65,7 @@ const FeedbackForm = () => {
       const cekEmailUser = rows2.find(
         (row) => row.email_user === `${session.user.email}`
       ); //penulisan row.name , name nya harus sama dengan di google sheet name
+
       if (!cekEmailUser) {
         Swal.fire({
           title: "Email Kamu belum terdaftar, coba email lain?",
@@ -92,16 +94,24 @@ const FeedbackForm = () => {
           row.kelas_jadwal === kelasUser &&
           row.tanggal_jadwal === tanggalJadwalSiswa
       );
+      // ambil data rating
+      const pengajarSesuaiKelasUser = jadwalSesuaiKelasUser.map(
+        (item) => item.pengajar_jadwal
+      );
+      const ambilDataRating = rows3.filter(
+        (item) => item.rating_pengajar === pengajarSesuaiKelasUser
+      );
 
       // setKelasUserState(kelasUser);
       // console.log(jadwalSesuaiKelasUser);
+      setDataRating(ambilDataRating);
       setCekEmail(cekEmailUser);
       setDataJadwal(jadwalSesuaiKelasUser);
       setKelasSiswa(kelasUser);
       setTanggalJadwal(tanggalJadwalSiswa);
       setIsLoading(false);
     }
-    // tentor hari ini
+    // tentor hari ini,ambil data rating
   };
   useEffect(() => {
     // Panggil fungsi ambilJadwal disini
@@ -215,6 +225,7 @@ const FeedbackForm = () => {
   // HAPUS SEMUA DATA LOCAL STORAGE SETELAH 12 JAM END
 
   // tentor hari ini
+  console.log(dataRating);
 
   return (
     <Layout>
@@ -268,6 +279,7 @@ const FeedbackForm = () => {
                             <p className="text-center">
                               {daJal.pengajar_jadwal}
                             </p>
+                            {/* rating pengajar */}
                           </div>
 
                           <StarRating
