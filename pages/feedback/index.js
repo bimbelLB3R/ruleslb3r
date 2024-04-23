@@ -310,10 +310,18 @@ const FeedbackForm = () => {
                             <p className="text-center">
                               {daJal.pengajar_jadwal}
                             </p>
-                            <p className="text-center">
-                              rating rata-rata:
-                              {rataRataRatingByPengajar[daJal.pengajar_jadwal]}
-                            </p>
+                            <span
+                              className="text-3xl"
+                              style={{
+                                color: "gold",
+                              }}
+                            >
+                              (★{" "}
+                              {rataRataRatingByPengajar[
+                                daJal.pengajar_jadwal
+                              ].toFixed(2)}
+                              )
+                            </span>
                           </div>
 
                           <StarRating
