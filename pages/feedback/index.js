@@ -301,8 +301,8 @@ const FeedbackForm = () => {
                           <div>
                             <Image
                               src={`/image/tentor/${daJal.pengajar_jadwal}.png`}
-                              width={100}
-                              height={100}
+                              width={50}
+                              height={50}
                               alt="No Image"
                               className="rounded-full"
                               priority
