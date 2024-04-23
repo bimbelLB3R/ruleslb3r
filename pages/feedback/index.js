@@ -41,7 +41,7 @@ const FeedbackForm = () => {
   const [tanggalJadwal, setTanggalJadwal] = useState();
   const [submitedLocal, setSubmitedLocal] = useState({});
   const [cekEmail, setCekEmail] = useState();
-  const [dataRatingHariIni, setDataRatingHariIni] = useState();
+  const [dataRatingHariIni, setDataRatingHariIni] = useState([]);
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
@@ -109,7 +109,6 @@ const FeedbackForm = () => {
           setDataRatingHariIni(tentorRating);
         });
       }
-      console.log(dataRatingHariIni);
 
       setCekEmail(cekEmailUser);
       setDataJadwal(jadwalSesuaiKelasUser);
@@ -231,7 +230,7 @@ const FeedbackForm = () => {
   // HAPUS SEMUA DATA LOCAL STORAGE SETELAH 12 JAM END
 
   // tentor hari ini
-
+  console.log(dataRatingHariIni);
   return (
     <Layout>
       <Head>
