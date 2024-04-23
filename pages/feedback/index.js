@@ -102,7 +102,7 @@ const FeedbackForm = () => {
         (item) => item.pengajar_jadwal
       ); //array
       if (pengajarHariIni.length > 0) {
-        pengajarHariIni.forEach((tentor) => {
+        pengajarHariIni.map((tentor) => {
           const tentorRating = rows3.filter(
             (item) => item.rating_pengajar === tentor
           );
