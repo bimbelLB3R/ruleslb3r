@@ -98,10 +98,13 @@ const FeedbackForm = () => {
       // setKelasUserState(kelasUser);
       // console.log(jadwalSesuaiKelasUser);
 
-      // mengeluarkan data rows3
+      // Mengumpulkan semua data dari rows3 ke dalam sebuah array
+      const allRowsData = [];
       rows3.forEach((row) => {
-        setDataRatingHariIni(row); // Tampilkan setiap baris
+        allRowsData.push(row);
       });
+      // Set array data ke state
+      setDataRatingHariIni(allRowsData);
 
       setCekEmail(cekEmailUser);
       setDataJadwal(jadwalSesuaiKelasUser);
@@ -276,7 +279,6 @@ const FeedbackForm = () => {
                             <p className="text-center">
                               {daJal.pengajar_jadwal}
                             </p>
-                            {/* rating pengajar */}
                           </div>
 
                           <StarRating
