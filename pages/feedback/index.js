@@ -109,6 +109,7 @@ const FeedbackForm = () => {
           setDataRatingHariIni(tentorRating);
         });
       }
+      console.log(pengajarHariIni);
 
       setCekEmail(cekEmailUser);
       setDataJadwal(jadwalSesuaiKelasUser);
@@ -230,7 +231,6 @@ const FeedbackForm = () => {
   // HAPUS SEMUA DATA LOCAL STORAGE SETELAH 12 JAM END
 
   // tentor hari ini
-  console.log(pengajarHariIni);
 
   return (
     <Layout>
