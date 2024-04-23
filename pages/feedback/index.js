@@ -311,7 +311,11 @@ const FeedbackForm = () => {
                               {daJal.pengajar_jadwal}({" "}
                               {rataRataRatingByPengajar[
                                 daJal.pengajar_jadwal
-                              ].toFixed(2)}
+                              ] !== undefined
+                                ? rataRataRatingByPengajar[
+                                    daJal.pengajar_jadwal
+                                  ].toFixed(2)
+                                : "0,00"}
                               <span
                                 className="text-xl"
                                 style={{
