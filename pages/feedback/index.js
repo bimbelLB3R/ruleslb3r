@@ -97,15 +97,17 @@ const FeedbackForm = () => {
 
       // setKelasUserState(kelasUser);
       // console.log(jadwalSesuaiKelasUser);
-      if (jadwalSesuaiKelasUser.length > 0) {
-        jadwalSesuaiKelasUser
-          .map((item) => item.pengajar_jadwal)
-          .forEach((tentor) => {
-            const tentorRating = rows3.find(
-              (item) => item.rating_pengajar === tentor
-            );
-            setDataRatingHariIni(tentorRating);
-          });
+
+      const pengajarHariIni = jadwalSesuaiKelasUser.map(
+        (item) => item.pengajar_jadwal
+      );
+      if (pengajarHariIni.length > 0) {
+        pengajarHariIni.forEach((tentor) => {
+          const tentorRating = rows3.find(
+            (item) => item.rating_pengajar === tentor
+          );
+          setDataRatingHariIni(tentorRating);
+        });
       }
 
       setCekEmail(cekEmailUser);
