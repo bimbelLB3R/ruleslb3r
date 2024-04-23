@@ -307,8 +307,11 @@ const FeedbackForm = () => {
                               className="rounded-full"
                               priority
                             />
-                            <p className="text-center">
-                              {daJal.pengajar_jadwal}({" "}
+                            <p className="text-center text-sm md:text-xl">
+                              {daJal.pengajar_jadwal}
+                            </p>
+                            <p className="text-center text-sm md:text-xl">
+                              ({" "}
                               {rataRataRatingByPengajar[
                                 daJal.pengajar_jadwal
                               ] !== undefined
@@ -317,7 +320,6 @@ const FeedbackForm = () => {
                                   ].toFixed(2)
                                 : "0,00"}
                               <span
-                                className="text-xl"
                                 style={{
                                   color: "gold",
                                 }}
