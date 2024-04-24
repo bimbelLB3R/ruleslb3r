@@ -9,6 +9,7 @@ import Layout from "../../components/Layout";
 import Swal from "sweetalert2";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import AllRatingTentor from "../../components/AllRatingTentor";
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID_RATING;
@@ -406,14 +407,15 @@ const FeedbackForm = () => {
             <div className="flex items-center justify-center  m-auto p-6 max-w-sm">
               <div>
                 <div className="flex items-center justify-center">
-                  <Image
+                  {/* <Image
                     src="/image/snbt/ujicoba.jpeg"
                     width={540}
                     height={540}
                     alt="Pengajar"
                     className=""
                     priority
-                  />
+                  /> */}
+                  <AllRatingTentor />
                 </div>
                 <p className="text-center">
                   Silahkan kamu login terlebih dahulu. Gunakan email seperti
