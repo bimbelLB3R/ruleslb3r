@@ -73,7 +73,7 @@ const FeedbackForm = () => {
         Swal.fire({
           title: "Email Kamu belum terdaftar, coba email lain?",
           showDenyButton: true,
-          showCancelButton: true,
+          // showCancelButton: true,
           confirmButtonText: "Ya",
           denyButtonText: `Tidak`,
         }).then((result) => {
@@ -81,7 +81,8 @@ const FeedbackForm = () => {
           if (result.isConfirmed) {
             handleSignIn();
           } else if (result.isDenied) {
-            router.push("/");
+            // router.push("/");
+            setIsLoading(false);
           }
         });
       }
@@ -364,7 +365,7 @@ const FeedbackForm = () => {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-center p-3">Tidak ada jadwal hari ini</p>
+                  <p className="text-center p-3">Jadwal belum tersedia</p>
                 )}
 
                 <div className="flex items-center justify-center m-6">
