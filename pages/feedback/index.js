@@ -365,7 +365,12 @@ const FeedbackForm = () => {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-center p-3">Jadwal belum tersedia</p>
+                  <p className="text-center p-3">
+                    Jadwal belum tersedia,
+                    <button onClick={() => signOut()} className="underline">
+                      ganti email?
+                    </button>
+                  </p>
                 )}
 
                 <div className="flex items-center justify-center m-6">
