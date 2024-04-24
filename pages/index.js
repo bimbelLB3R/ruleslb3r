@@ -153,7 +153,7 @@ const Home = ({ allPost, dataAlumni }) => {
         <BluryBg />
         <Faq />
         <PopBerita beritaTerbaru={allPost} />
-        {/* <AllRatingTentor /> */}
+        <AllRatingTentor />
         {/* <InfoTerbaru /> */}
         {/* <CodeBlog /> */}
       </Layout>

@@ -15,6 +15,7 @@ const AllRatingTentor = () => {
   const { data: session } = useSession();
   const [dataRows3, setDataRows3] = useState([]);
   const [pengajarData, setPengajarData] = useState([]);
+  const [loading, setLoading] = useState(true); // State untuk menampilkan loader
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
   const ambilRatingTentor = async () => {
@@ -34,12 +35,13 @@ const AllRatingTentor = () => {
     });
     // Set array data ke state
     setDataRows3(allRows3Data);
+    setLoading(false); // Set loading menjadi false setelah data diperbarui
   };
   useEffect(() => {
     // Panggil fungsi ambilJadwal disini
     // const email_user = "ikhwchemist@gmail.com";
     ambilRatingTentor();
-  }, [pengajarData]);
+  }, []); // Gunakan array kosong agar useEffect hanya dijalankan sekali saat komponen pertama kali dirender
   useEffect(() => {
     // Fungsi untuk mengelompokkan data dan menghitung rata-rata rating
     const hitungRataRataRating = (data) => {
@@ -80,7 +82,9 @@ const AllRatingTentor = () => {
   }, [pengajarData]);
   return (
     <div className="max-w-2xl grid grid-cols-1 m-auto mb-4 p-4">
-      {pengajarData ? (
+      {loading ? (
+        <Loader />
+      ) : (
         <div className="border-l-4">
           {pengajarData.map((pengajar, index) => (
             <div key={index}>
@@ -117,8 +121,6 @@ const AllRatingTentor = () => {
             </div>
           ))}
         </div>
-      ) : (
-        <Loader />
       )}
     </div>
   );
