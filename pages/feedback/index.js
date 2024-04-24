@@ -406,7 +406,7 @@ const FeedbackForm = () => {
           <div>
             <div className="flex items-center justify-center  m-auto p-6 max-w-sm">
               <div>
-                <div className="flex items-center justify-center">
+                <div>
                   {/* <Image
                     src="/image/snbt/ujicoba.jpeg"
                     width={540}
