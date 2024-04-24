@@ -62,7 +62,7 @@ const FeedbackForm = () => {
     // setDataJadwal(jadwalSesuaiEmail);
     // setDataSiswa(rows2);
     // console.log(email_user);
-    if (session && session.user && session.user.email) {
+    if (session) {
       const lowerCaseSessionEmail = session.user.email.toLowerCase();
       const cekEmailUser = rows2.find(
         (row) => row.email_user.toLowerCase() === lowerCaseSessionEmail
