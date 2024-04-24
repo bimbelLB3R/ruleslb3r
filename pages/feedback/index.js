@@ -369,34 +369,37 @@ const FeedbackForm = () => {
 
                 <div className="flex items-center justify-center m-6">
                   <div className="flex items-center justify-center">
-                    <table className="table-auto w-full border-collapse border border-gray-900">
-                      <thead>
-                        <tr className="bg-gray-900 text-white">
-                          <th className="px-4 py-2">No</th>
-                          <th className="px-4 py-2">Indikator Rating</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="bg-gray-100 hover:bg-gray-200">
-                          <td className="border px-4 py-2">1</td>
-                          <td className="border px-4 py-2">
-                            Kamu paham apa yang diajarkan oleh guru
-                          </td>
-                        </tr>
-                        <tr className="bg-gray-100 hover:bg-gray-200">
-                          <td className="border px-4 py-2">2</td>
-                          <td className="border px-4 py-2">
-                            Kamu suka dengan cara guru menyampaikan materi
-                          </td>
-                        </tr>
-                        <tr className="bg-gray-100 hover:bg-gray-200">
-                          <td className="border px-4 py-2">3</td>
-                          <td className="border px-4 py-2">
-                            Kamu merasa terbantu oleh guru
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    <div>
+                      <table className="table-auto w-full border-collapse border border-gray-900 mb-4">
+                        <thead>
+                          <tr className="bg-gray-900 text-white">
+                            <th className="px-4 py-2">No</th>
+                            <th className="px-4 py-2">Indikator Rating</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="bg-gray-100 hover:bg-gray-200">
+                            <td className="border px-4 py-2">1</td>
+                            <td className="border px-4 py-2">
+                              Kamu paham apa yang diajarkan oleh guru
+                            </td>
+                          </tr>
+                          <tr className="bg-gray-100 hover:bg-gray-200">
+                            <td className="border px-4 py-2">2</td>
+                            <td className="border px-4 py-2">
+                              Kamu suka dengan cara guru menyampaikan materi
+                            </td>
+                          </tr>
+                          <tr className="bg-gray-100 hover:bg-gray-200">
+                            <td className="border px-4 py-2">3</td>
+                            <td className="border px-4 py-2">
+                              Kamu merasa terbantu oleh guru
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <AllRatingTentor />
+                    </div>
                   </div>
                 </div>
               </div>
