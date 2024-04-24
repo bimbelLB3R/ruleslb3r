@@ -62,9 +62,10 @@ const FeedbackForm = () => {
     // setDataJadwal(jadwalSesuaiEmail);
     // setDataSiswa(rows2);
     // console.log(email_user);
-    if (session) {
+    if (session && session.user && session.user.email) {
+      const lowerCaseSessionEmail = session.user.email.toLowerCase();
       const cekEmailUser = rows2.find(
-        (row) => row.email_user === `${session.user.email}`
+        (row) => row.email_user.toLowerCase() === lowerCaseSessionEmail
       ); //penulisan row.name , name nya harus sama dengan di google sheet name
 
       if (!cekEmailUser) {
