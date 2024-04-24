@@ -29,6 +29,7 @@ const AllRatingTentor = () => {
     const rows3 = await sheet3.getRows(); //data rating
 
     // Mengumpulkan semua data dari rows3 ke dalam sebuah array
+    setLoading(true);
     const allRows3Data = [];
     rows3.forEach((row) => {
       allRows3Data.push(row);
@@ -38,8 +39,6 @@ const AllRatingTentor = () => {
     setLoading(false); // Set loading menjadi false setelah data diperbarui
   };
   useEffect(() => {
-    // Panggil fungsi ambilJadwal disini
-    // const email_user = "ikhwchemist@gmail.com";
     ambilRatingTentor();
   }, []); // Gunakan array kosong agar useEffect hanya dijalankan sekali saat komponen pertama kali dirender
   useEffect(() => {

@@ -23,7 +23,7 @@ export default function WarningSnbt() {
       : currentTime; // Use current time if startTime is not set
     const elapsedTime = currentTime.diff(startTime, "second");
     const remainingTime = Math.max(0, maxTimeInSeconds - elapsedTime);
-    console.log(remainingTime);
+    // console.log(remainingTime);
     setNameKu(storedName);
     setLinkku(linkSoal);
     setSisaWaktu(remainingTime);

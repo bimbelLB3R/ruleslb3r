@@ -11,50 +11,50 @@ const Footer = () => {
           <div className="flex justify-center text-center">
             <div>
               <div className="flex space-x-2 items-center justify-center mb-4">
-                <Link href="/">
+                <a href="/">
                   <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
                     Home
                   </p>
-                </Link>
-                <Link href="/kampusku">
+                </a>
+                <a href="/kampusku">
                   <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
                     Cek Keketatan Prodi SNBT
                   </p>
-                </Link>
+                </a>
               </div>
               <div className="flex space-x-2 items-center justify-center mb-4">
-                <Link href="/blogs">
+                <a href="/blogs">
                   <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
                     Berita
                   </p>
-                </Link>
-                <Link href="/layanan">
+                </a>
+                <a href="/layanan">
                   <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
                     Program
                   </p>
-                </Link>
-                <Link href="/layanan/bayarles">
+                </a>
+                <a href="/layanan/bayarles">
                   <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
                     Bayar Les
                   </p>
-                </Link>
-                <Link href="/form/login">
+                </a>
+                <a href="/form/login">
                   <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
                     Try Out SNBT
                   </p>
-                </Link>
+                </a>
               </div>
               <div className="flex space-x-2 items-center justify-center">
-                <Link href="/user/term">
+                <a href="/user/term">
                   <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
                     Tata Tertib
                   </p>
-                </Link>
-                <Link href="/user/privacy">
+                </a>
+                <a href="/user/privacy">
                   <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
                     Kerahasiaan Data
                   </p>
-                </Link>
+                </a>
               </div>
               <div className="flex mt-4 space-x-6 sm:justify-center ">
                 <a
