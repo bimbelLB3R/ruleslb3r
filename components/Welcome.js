@@ -8,25 +8,17 @@ const Welcome = () => {
       </div>
 
       <div className="flex justify-center md:max-w-xl m-auto">
-        <div className="leading-tight p-4 text-orange-900/80 text-center">
+        <div className="leading-tight p-4 text-gray-600 text-center">
           {/* <h2 className="mb-4 text-[52px] font-gasok font-bold">LB3R</h2> */}
           <p>
-            Bimbingan belajar (Bimbel)/tempat les ternama di Kabupaten Tabalong
-            yang didirikan sejak tahun 2012. Bimbel LB3R berpengalaman dalam
-            mendampingi kebutuhan belajar anak mulai jenjang SD/MI, SMP/Mts,
-            SMA/MA/SMK hingga Alumni. Keunggulan Bimbel LB3R diantaranya{" "}
-            <Link href="/rules/payment">
-              <span className=" text-blue-600">sistem pembayaran</span>
-            </Link>{" "}
-            yang mudah dan{" "}
-            <Link href="/rules/newclass">
-              <span className=" text-blue-600">fleksibilitas kelas </span>
-            </Link>
-            . Selain itu,{" "}
-            <Link href="/rules/kbm">
-              <span className=" text-blue-600">sistem pembelajaran </span>
-            </Link>{" "}
-            di Bimbel LB3R menyesuaikan dengan kebutuhan anak.
+            Makin kamu banyak kegiatan di sekolah, makin perlu kamu ikut
+            bimbingan belajar supaya bisa mengejar ketertinggalan materi. Kamu
+            tetap bisa eksis di organisasi sekolah dan kamu tetap berprestasi
+            secara akademik. Di Bimbel LB3R, kamu bisa lebih mudah mengatur
+            jadwal sesuai kebutuhan kamu, apalagi sebagai organisatoris. Ingat
+            ya, nilai raport sangat penting untuk mengikuti seleksi masuk kuliah
+            jalur Tanpa Tes (SNBP). Enak lho kalau kamu bisa lolos jalur ini,
+            tidak perlu pusing belajar lagi untuk tes SNBT.
           </p>
         </div>
       </div>

@@ -5,9 +5,9 @@ const Service = () => {
   return (
     <>
       <div className="flex flex-wrap justify-center">
-        <div className="m-2 border-4 border-yellow-400 relative">
+        <div className="m-2  relative">
           <Image
-            src="/image/ramah.png"
+            src="/image/buatKelas.png"
             width={128}
             height={128}
             alt="service1"
@@ -15,14 +15,14 @@ const Service = () => {
             className="object-scale-down"
           />
           <div className="w-full justify-center m-auto">
-            <p className=" bg-orange-400 text-center text-xs md:text-sm p-1">
-              Pelayanan Ramah
+            <p className=" text-center text-sm text-gray-600 p-1">
+              Buat kelas baru
             </p>
           </div>
         </div>
-        <div className="m-2 border-4 border-yellow-400">
+        <div className="m-2 ">
           <Image
-            src="/image/kelasnyaman.png"
+            src="/image/cariTeman.png"
             width={128}
             height={128}
             alt="service1"
@@ -30,14 +30,27 @@ const Service = () => {
             className="object-scale-down"
           />
           <div className="w-full justify-center m-auto">
-            <p className=" bg-orange-400 text-center text-xs md:text-sm p-1">
-              Kelas Bersih & wangi
+            <p className=" text-center text-sm text-gray-600 p-1">Cari teman</p>
+          </div>
+        </div>
+        <div className="m-2 ">
+          <Image
+            src="/image/lihatJadwal.png"
+            width={128}
+            height={128}
+            alt="service1"
+            priority={true}
+            className="object-scale-down"
+          />
+          <div className="w-full justify-center m-auto">
+            <p className=" text-center text-sm text-gray-600 p-1">
+              Lihat Jadwal
             </p>
           </div>
         </div>
-        <div className="m-2 border-4 border-yellow-400">
+        <div className="m-2 ">
           <Image
-            src="/image/qrcode.png"
+            src="/image/konsulJadwal.png"
             width={128}
             height={128}
             alt="service1"
@@ -45,23 +58,8 @@ const Service = () => {
             className="object-scale-down"
           />
           <div className="w-full justify-center m-auto">
-            <p className=" bg-orange-400 text-center text-xs md:text-sm p-1">
-              Presensi QRcode
-            </p>
-          </div>
-        </div>
-        <div className="m-2 border-4 border-yellow-400">
-          <Image
-            src="/image/buktibayar.png"
-            width={128}
-            height={128}
-            alt="service1"
-            priority={true}
-            className="object-scale-down"
-          />
-          <div className="w-full justify-center m-auto">
-            <p className=" bg-orange-400 text-center text-xs md:text-sm p-1">
-              E-Kuitansi
+            <p className=" text-center text-sm text-gray-600 p-1">
+              Konsultasi Jadwal
             </p>
           </div>
         </div>
