@@ -37,7 +37,7 @@ const VideoDraggable = () => {
       >
         <div className="fixed top-20  border-4 border-double border-red-900 rounded-lg p-1 cursor-move w-[300px] sm:w-[400px]">
           <p className="text-yellow-200  w-full bg-yellow-900  text-center font-roboto p-1">
-            Informasi Terbaru !! (seret untuk menutup)
+            HARDIKNAS 2024
           </p>
           {/* <iframe
             width="280"
@@ -47,7 +47,7 @@ const VideoDraggable = () => {
             allowFullScreen
           ></iframe> */}
           <Image
-            src="/image/snbt/ujicoba.jpeg"
+            src="/image/snbt/hardiknas.jpeg"
             alt="Foto siswa"
             width={1080}
             height={1080}
@@ -55,8 +55,8 @@ const VideoDraggable = () => {
             className=""
           />
           <p className="text-gray-50 text-xs  w-full bg-gray-900 text-center p-1">
-            Program Uji Coba Kelas Reguler, Gratis!! Masuk mengikuti jadwal yang
-            sudah berjalan.
+            Selamat Hari Pendidikan Nasional. Semoga Pendidikan di Indonesia
+            Semakin Maju.
           </p>
         </div>
       </Draggable>
