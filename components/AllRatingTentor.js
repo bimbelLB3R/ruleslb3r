@@ -15,6 +15,7 @@ const AllRatingTentor = () => {
   const { data: session } = useSession();
   const [dataRows3, setDataRows3] = useState([]);
   const [pengajarData, setPengajarData] = useState([]);
+  const [pengajarCount, setPengajarCount] = useState({}); // State untuk menyimpan jumlah review per pengajar
   const [loading, setLoading] = useState(true); // State untuk menampilkan loader
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
@@ -56,7 +57,7 @@ const AllRatingTentor = () => {
         pengajarRating[item.rating_pengajar] += rating;
         pengajarCount[item.rating_pengajar]++;
       });
-
+      setPengajarCount(pengajarCount); // Set state pengajarCount
       const result = {};
       Object.keys(pengajarRating).forEach((key) => {
         result[key] = pengajarRating[key] / pengajarCount[key];
@@ -72,13 +73,14 @@ const AllRatingTentor = () => {
     const pengajarList = Object.keys(rataRataRating).map((rating_pengajar) => ({
       rating_pengajar: rating_pengajar,
       rataRating: rataRataRating[rating_pengajar],
+      count: pengajarCount[rating_pengajar], // Menambah informasi jumlah review
     }));
     // Mengurutkan pengajar berdasarkan rating tertinggi
     pengajarList.sort((a, b) => b.rataRating - a.rataRating);
 
     // Set data pengajar ke state
     setPengajarData(pengajarList);
-  }, [pengajarData]);
+  }, [pengajarData, pengajarCount]);
   return (
     <div className="max-w-2xl grid grid-cols-1 m-auto mb-4 p-4">
       {loading ? (
@@ -112,6 +114,11 @@ const AllRatingTentor = () => {
                       }}
                     >
                       ★
+                    </span>
+                    /
+                    <span style={{ marginLeft: "5px" }}>
+                      {pengajar.count}{" "}
+                      {pengajar.count > 1 ? "reviews" : "review"}
                     </span>
                     )
                   </div>
