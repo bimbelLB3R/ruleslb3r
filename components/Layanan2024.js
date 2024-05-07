@@ -20,18 +20,22 @@ const Service = () => {
             </p>
           </div>
         </div>
-        <div className="m-2 ">
-          <Image
-            src="/image/cariTeman.png"
-            width={128}
-            height={128}
-            alt="service1"
-            priority={true}
-            className="object-scale-down"
-          />
-          <div className="w-full justify-center m-auto">
-            <p className=" text-center text-sm text-gray-600 p-1">Cari teman</p>
-          </div>
+        <div className="m-2 hover:shadow-sm">
+          <a href="https://fitur-lb3r.vercel.app/">
+            <Image
+              src="/image/cariTeman.png"
+              width={128}
+              height={128}
+              alt="service1"
+              priority={true}
+              className="object-scale-down"
+            />
+            <div className="w-full justify-center m-auto">
+              <p className=" text-center text-sm text-gray-600 p-1">
+                Cari teman
+              </p>
+            </div>
+          </a>
         </div>
         <div className="m-2 ">
           <Image
