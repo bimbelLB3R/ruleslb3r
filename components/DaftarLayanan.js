@@ -348,6 +348,14 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
       setShowButton(true); // menampilkan tombol
     }
   };
+  const handleSignIn = async () => {
+    try {
+      // Menetapkan prompt ke 'select_account' saat memanggil signIn
+      await signIn("google", { prompt: "select_account" });
+    } catch (error) {
+      console.error("Error signing in:", error);
+    }
+  };
 
   return (
     <>
@@ -389,7 +397,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 placeholder=" "
                 autoComplete="off"
                 // onChange={handleChange}
-                onFocus={!session ? signIn : ""}
+                onFocus={!session ? handleSignIn : ""}
                 value={session ? session.user.email : ""}
                 readOnly
                 // disabled={isDisable}
@@ -938,7 +946,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 // readOnly
                 value={inputValueProgramName}
               />
-              <p>{inputValueProgramName}</p>
+              <p>{inputValueProgramName} (Wajib centang)</p>
             </div>
             <div className="flex items-center space-x-2">
               <input
@@ -952,7 +960,8 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 value={inputValueProgramPrice}
               />
               <p className="flex items-center">
-                {formatCurrency(inputValueProgramPrice)} {detailProgram.rincian}
+                {formatCurrency(inputValueProgramPrice)} {detailProgram.rincian}{" "}
+                (Wajib Centang)
               </p>
             </div>
 
