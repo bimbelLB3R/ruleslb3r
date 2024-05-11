@@ -188,6 +188,14 @@ export default function Newmember() {
     setIsChecked(!isChecked);
     setSubscription(localStorage.getItem("subscription"));
   };
+  const handleSignIn = async () => {
+    try {
+      // Menetapkan prompt ke 'select_account' saat memanggil signIn
+      await signIn("google", { prompt: "select_account" });
+    } catch (error) {
+      console.error("Error signing in:", error);
+    }
+  };
   return (
     <>
       <Head>
@@ -260,7 +268,7 @@ export default function Newmember() {
                         adaEmail === true ? "border-red-900" : "border-gray-300"
                       }`}
                       placeholder="Verifikasi nama via email"
-                      onFocus={!session ? signIn : ""}
+                      onFocus={!session ? handleSignIn : ""}
                       value={session ? session.user.name : ""}
                       readOnly
                       autoComplete="off"

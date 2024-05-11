@@ -20,7 +20,7 @@ const Service = () => {
             </p>
           </div>
         </div>
-        <div className="m-2 hover:shadow-sm">
+        <div className="m-2 hover:shadow-xl">
           <a href="https://fitur-lb3r.vercel.app/">
             <Image
               src="/image/cariTeman.png"
