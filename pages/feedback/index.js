@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import AllRatingTentor from "../../components/AllRatingTentor";
-
+import { runFireworks } from "../../libs/utils";
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID_RATING;
 const SHEET_ID1 = process.env.NEXT_PUBLIC_SHEET_ID_RATING1;
@@ -162,7 +162,8 @@ const FeedbackForm = () => {
       // console.log(sheet);
 
       await sheet.addRow(newRow);
-      alert("data terkirim");
+      // alert("data terkirim");
+      runFireworks();
     } catch (e) {
       console.error("Error: ", e);
     }
