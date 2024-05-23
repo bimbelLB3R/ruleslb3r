@@ -37,7 +37,7 @@ const VideoDraggable = () => {
       >
         <div className="fixed top-20  border-4 border-double border-red-900 rounded-lg p-1 cursor-move w-[300px] sm:w-[400px]">
           <p className="text-yellow-200  w-full bg-yellow-900  text-center font-roboto p-1">
-            HARDIKNAS 2024
+            PROGRAM ODB 2024
           </p>
           {/* <iframe
             width="280"
@@ -47,7 +47,7 @@ const VideoDraggable = () => {
             allowFullScreen
           ></iframe> */}
           <Image
-            src="/image/snbt/hardiknas.jpeg"
+            src="/image/snbt/odb.jpeg"
             alt="Foto siswa"
             width={1080}
             height={1080}
@@ -55,8 +55,9 @@ const VideoDraggable = () => {
             className=""
           />
           <p className="text-gray-50 text-xs  w-full bg-gray-900 text-center p-1">
-            Selamat Hari Pendidikan Nasional. Semoga Pendidikan di Indonesia
-            Semakin Maju.
+            Program persiapan menghadapi Asesmen Sumatif/Penilaian Akhir Tahun.
+            One Day Before (ODB) dilaksanakan guna membahas kisi-kisi soal satu
+            hari sebelum ujian dilaksanakan.
           </p>
         </div>
       </Draggable>
