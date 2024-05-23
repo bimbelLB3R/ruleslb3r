@@ -147,11 +147,11 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
       form.kelas !== "" &&
       form.kelas.length < 3 &&
       form.asalsekolah !== "" &&
-      form.asalsekolah.length < 31 &&
+      form.asalsekolah.length < 100 &&
       form.instagram !== "" &&
       form.instagram.length < 20 &&
       form.alamat !== "" &&
-      form.alamat.length < 100 &&
+      form.alamat.length < 200 &&
       form.wa !== "" &&
       form.wa.length < 14 &&
       form.waortu !== "" &&
@@ -159,19 +159,19 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
       form.ayah !== "" &&
       form.ayah.length < 30 &&
       form.kerjaayah !== "" &&
-      form.kerjaayah.length < 30 &&
+      form.kerjaayah.length < 100 &&
       form.kantorayah !== "" &&
-      form.kantorayah.length < 30 &&
+      form.kantorayah.length < 100 &&
       form.ibu !== "" &&
       form.ibu.length < 30 &&
       form.kerjaibu !== "" &&
-      form.kerjaibu.length < 30 &&
+      form.kerjaibu.length < 100 &&
       form.kantoribu !== "" &&
-      form.kantoribu.length < 30 &&
+      form.kantoribu.length < 100 &&
       form.alasan !== "" &&
-      form.alasan.length < 100 &&
+      form.alasan.length < 200 &&
       form.sumber !== "" &&
-      form.sumber.length < 30 &&
+      form.sumber.length < 100 &&
       form.program !== "" &&
       form.biaya !== ""
     ) {
@@ -543,7 +543,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               </label>
               {isAsalSekolahEmpty && (
                 <p className="text-red-500 text-xs">
-                  Wajib diisi (maks 30 karakter)
+                  Wajib diisi (maks 100 karakter)
                 </p>
               )}
             </div>
@@ -607,7 +607,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               </label>
               {isAlamatEmpty && (
                 <p className="text-red-500 text-xs">
-                  Wajib diisi (maks 100 karakter)
+                  Wajib diisi (maks 200 karakter)
                 </p>
               )}
             </div>
@@ -735,7 +735,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               </label>
               {isKerjaAyahEmpty && (
                 <p className="text-red-500 text-xs">
-                  Wajib diisi (maks 30 karakter)
+                  Wajib diisi (maks 100 karakter)
                 </p>
               )}
             </div>
@@ -767,7 +767,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               </label>
               {isKantorAyahEmpty && (
                 <p className="text-red-500 text-xs">
-                  Wajib diisi (maks 30 karakter)
+                  Wajib diisi (maks 100 karakter)
                 </p>
               )}
             </div>
@@ -831,7 +831,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               </label>
               {isKerjaIbuEmpty && (
                 <p className="text-red-500 text-xs">
-                  Wajib diisi (maks 30 karakter)
+                  Wajib diisi (maks 100 karakter)
                 </p>
               )}
             </div>
@@ -863,7 +863,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               </label>
               {isKantorIbuEmpty && (
                 <p className="text-red-500 text-xs">
-                  Wajib diisi (maks 30 karakter)
+                  Wajib diisi (maks 100 karakter)
                 </p>
               )}
             </div>
@@ -895,7 +895,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               </label>
               {isAlasanEmpty && (
                 <p className="text-red-500 text-xs">
-                  Wajib diisi (maks 100 karakter)
+                  Wajib diisi (maks 200 karakter)
                 </p>
               )}
             </div>
