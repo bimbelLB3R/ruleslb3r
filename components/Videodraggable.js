@@ -37,7 +37,7 @@ const VideoDraggable = () => {
       >
         <div className="fixed top-20  border-4 border-double border-red-900 rounded-lg p-1 cursor-move w-[300px] sm:w-[400px]">
           <p className="text-yellow-200  w-full bg-yellow-900  text-center font-roboto p-1">
-            PROGRAM ODB 2024
+            PROGRAM ODB 2024 (FREE*)
           </p>
           {/* <iframe
             width="280"
