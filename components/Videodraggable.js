@@ -37,7 +37,7 @@ const VideoDraggable = () => {
       >
         <div className="fixed top-20  border-4 border-double border-red-900 rounded-lg p-1 cursor-move w-[300px] sm:w-[400px]">
           <p className="text-yellow-200  w-full bg-yellow-900  text-center font-roboto p-1">
-            PROGRAM ODB 2024 (FREE*)
+            PROGRAM PROMO CASHBACK 50%
           </p>
           {/* <iframe
             width="280"
@@ -47,7 +47,7 @@ const VideoDraggable = () => {
             allowFullScreen
           ></iframe> */}
           <Image
-            src="/image/snbt/odb.jpeg"
+            src="/image/snbt/promojuni.png"
             alt="Foto siswa"
             width={1080}
             height={1080}
@@ -55,9 +55,7 @@ const VideoDraggable = () => {
             className=""
           />
           <p className="text-gray-50 text-xs  w-full bg-gray-900 text-center p-1">
-            Program persiapan menghadapi Asesmen Sumatif/Penilaian Akhir Tahun.
-            One Day Before (ODB) dilaksanakan guna membahas kisi-kisi soal satu
-            hari sebelum ujian dilaksanakan.
+            Yuk...daftar sebelum akhir juni supaya kalian dapat cashback 50% berupa uang tunai.
           </p>
         </div>
       </Draggable>

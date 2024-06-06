@@ -371,7 +371,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
         />
       </Head>
       <Layout>
-        <div className="flex justify-center items-center bg-slate-100 text-gray-900  animate__animated  animate__slideInDown">
+        <div className="flex justify-center items-center bg-slate-100 text-gray-900  animate__animated  animate__slideInDown mb-10">
           <form
             className="space-y-3 w-full max-w-lg mx-auto p-5"
             onSubmit={submitForm}
@@ -980,7 +980,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               showButton && (
                 <div>
                   <div>
-                    <p className="text-purple-900">Dengan klik lanjutkan, maka pian setuju dengan <span><a href="/user/term" target="_blank" className="underline text-red-900">ketentuan LB3R</a></span><a href="/user/term" target="_blank" className="underline text-red-900">ketentuan LB3R</a></p>
+                    <p className="text-purple-900">Dengan klik lanjutkan, maka pian setuju dengan <span><a href="/user/term" target="_blank" className="underline text-red-900">ketentuan LB3R</a></span></p>
                   </div>
                 <button
                   disabled={isButtonDisabled}

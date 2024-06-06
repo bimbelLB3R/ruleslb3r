@@ -37,7 +37,8 @@ const Service = () => {
             </div>
           </a>
         </div>
-        <div className="m-2 ">
+        <div className="m-2 hover:shadow-xl">
+        <a href="/livejadwal">
           <Image
             src="/image/lihatJadwal.png"
             width={128}
@@ -48,12 +49,16 @@ const Service = () => {
           />
           <div className="w-full justify-center m-auto">
             <p className=" text-center text-sm text-gray-600 p-1">
-              Lihat Jadwal
+              Live Jadwal
             </p>
           </div>
+          </a>
         </div>
-        <div className="m-2 ">
-          <Image
+        <div className="m-2 hover:shadow-xl">
+        <a href="https://wa.me/6281392552459"
+                  className="object-scale-down"
+                >
+                  <Image
             src="/image/konsulJadwal.png"
             width={128}
             height={128}
@@ -66,6 +71,8 @@ const Service = () => {
               Konsultasi Jadwal
             </p>
           </div>
+                </a>
+          
         </div>
       </div>
     </>
