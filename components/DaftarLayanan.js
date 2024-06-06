@@ -978,6 +978,10 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
               <Loader /> // tampilkan komponen loader jika proses append sedang berlangsung
             ) : (
               showButton && (
+                <div>
+                  <div>
+                    <p className="text-purple-900">Dengan klik lanjutkan, maka pian setuju dengan <span><a href="/user/term" target="_blank" className="underline text-red-900">ketentuan LB3R</a></span><a href="/user/term" target="_blank" className="underline text-red-900">ketentuan LB3R</a></p>
+                  </div>
                 <button
                   disabled={isButtonDisabled}
                   id="tombolKirim"
@@ -986,6 +990,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
                 >
                   <p className="text-lg">Lanjutkan</p>
                 </button>
+                </div>
               )
             )}
           </form>
