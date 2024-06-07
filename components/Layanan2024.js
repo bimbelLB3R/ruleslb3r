@@ -7,7 +7,7 @@ const Service = () => {
       <div className="flex flex-wrap justify-center">
         <div className="m-2  relative">
           <Image
-            src="/image/buatKelas.png"
+            src="/image/buatKelas2.png"
             width={128}
             height={128}
             alt="service1"
@@ -15,7 +15,7 @@ const Service = () => {
             className="object-scale-down"
           />
           <div className="w-full justify-center m-auto">
-            <p className=" text-center text-sm text-gray-600 p-1">
+            <p className=" text-center text-sm text-gray-600 p-1 bg-gray-200 ">
               Buat kelas baru
             </p>
           </div>
@@ -23,7 +23,7 @@ const Service = () => {
         <div className="m-2 hover:shadow-xl">
           <a href="https://fitur-lb3r.vercel.app/">
             <Image
-              src="/image/cariTeman.png"
+              src="/image/cariTeman2.png"
               width={128}
               height={128}
               alt="service1"
@@ -31,7 +31,7 @@ const Service = () => {
               className="object-scale-down"
             />
             <div className="w-full justify-center m-auto">
-              <p className=" text-center text-sm text-gray-600 p-1">
+              <p className=" text-center text-sm text-gray-600 p-1 bg-gray-200">
                 Cari teman
               </p>
             </div>
@@ -40,7 +40,7 @@ const Service = () => {
         <div className="m-2 hover:shadow-xl">
         <a href="/livejadwal">
           <Image
-            src="/image/lihatJadwal.png"
+            src="/image/jadwal.png"
             width={128}
             height={128}
             alt="service1"
@@ -48,7 +48,7 @@ const Service = () => {
             className="object-scale-down"
           />
           <div className="w-full justify-center m-auto">
-            <p className=" text-center text-sm text-gray-600 p-1">
+            <p className=" text-center text-sm text-gray-600 p-1 bg-gray-200">
               Live Jadwal
             </p>
           </div>
@@ -59,7 +59,7 @@ const Service = () => {
                   className="object-scale-down"
                 >
                   <Image
-            src="/image/konsulJadwal.png"
+            src="/image/konsulJadwal2.png"
             width={128}
             height={128}
             alt="service1"
@@ -67,7 +67,7 @@ const Service = () => {
             className="object-scale-down"
           />
           <div className="w-full justify-center m-auto">
-            <p className=" text-center text-sm text-gray-600 p-1">
+            <p className=" text-center text-sm text-gray-600 p-1 bg-gray-200">
               Konsultasi Jadwal
             </p>
           </div>

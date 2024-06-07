@@ -14,8 +14,27 @@
         "Biaya Pendaftaran 150.000 (Sekali bayar)",
         "Mendapatkan Layanan ODB",
         "Free Konsultasi dengan tentor favorit",
-        "Laporan Kehadiran dan Pembayaran",
-        "Laporan Perkembangan Materi dan Review"
+        "Laporan Kehadiran, Pembayaran dan Keaktivan",
+        "Laporan Perkembangan Materi"
+      ]
+    },
+    {
+      "idProgram": "RegSMA",
+      "keterangan": "Best Choice",
+      "nama": "Reguler SMA",
+      "slug": "program-reguler-sma",
+      "biaya": 225000,
+      "total": 375000,
+      "rincian": "Biaya Pendaftaran dan Les Bulan Pertama",
+      "frekuensi": "per bulan",
+      "fasilitas": [
+        "Masuk 2-4 kali dalam seminggu",
+        "Biaya Pendaftaran 150.000 (Sekali bayar)",
+        "Materi Pengembangan Diri (Bakat,Manajemen diri dll)",
+        "Mendapatkan Layanan ODB",
+        "Free Konsultasi dengan tentor favorit",
+        "Laporan Kehadiran, Pembayaran dan Keaktivan",
+        "Laporan Perkembangan Materi"
       ]
     },
     {
