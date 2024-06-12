@@ -43,7 +43,7 @@ const Seminar = () => {
     }
   };
 
-  const checkToken = async (anak,e) => {
+  const checkToken = async (anak,wa,e) => {
     await doc.useServiceAccountAuth({
       client_email: GOOGLE_CLIENT_EMAIL,
       private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
@@ -51,12 +51,13 @@ const Seminar = () => {
     await doc.loadInfo();
     const sheet = doc.sheetsById[SHEET_ID3];
     const rows = await sheet.getRows();
-    const tokenExists = rows.find((row) => row.anak === anak);
+    const tokenExists = rows.find((row) => row.anak === anak || row.wa === wa);
+    console.log(tokenExists);
 
     if (tokenExists) {
       e.target.reset();
       Swal.fire({
-        title: ` ${form.anak} sudah terdaftar`,
+        title: ` ${form.anak} atau nomor ${form.wa} sudah pernah terdaftar`,
         text: "Data gagal dikirim",
         icon: "warning",
         confirmButtonText: "Ok",
@@ -72,13 +73,19 @@ const Seminar = () => {
 
     if (form.wa && form.anak && form.kelas && form.masalah) {
       setIsButtonDisabled(true);
-      const canSubmit = await checkToken(form.anak,e);
+      const canSubmit = await checkToken(form.anak,form.wa,e);
 
       if (canSubmit) {
         const newRow = { ...form };
         await appendSpreadsheet(newRow);
         e.target.reset();
         setIsButtonDisabled(false);
+        Swal.fire({
+          title: 'Pendaftaran Berhasil',
+          text: 'Silahkan lihat-lihat web kami',
+          icon: 'success',
+          confirmButtonText: 'ok',
+        });
         router.push(`/`);
       } else {
         setIsButtonDisabled(false);
@@ -101,6 +108,11 @@ const Seminar = () => {
       <Head>
         <title>Form Pendaftaran Seminar</title>
         <meta name="description" content="Formulir Pendaftaran Seminar" key="desc" />
+        <meta
+          property="og:image"
+          itemProp="image"
+          content="https://raw.githubusercontent.com/bimbelLB3R/ruleslb3r/main/public/image/image1.webp"
+        />
         <link
           rel="icon"
           type="image/png"
