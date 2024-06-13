@@ -30,12 +30,14 @@ const Seminar = ({allSeminar}) => {
   const [isanakEmpty, setIsanakEmpty] = useState(false);
   const [iskelasEmpty, setIskelasEmpty] = useState(false);
   const [ismasalahEmpty, setIsmasalahEmpty] = useState(false);
+  const [iskuliahEmpty, setIskuliahEmpty] = useState(false);
   const router = useRouter();
   const [form, setForm] = useState({
     wa: "",
     anak: "",
     kelas: "",
-    masalah: ""
+    masalah: "",
+    kuliah: ""
   });
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
@@ -82,7 +84,7 @@ const Seminar = ({allSeminar}) => {
   const submitForm = async (e) => {
     e.preventDefault();
 
-    if (form.wa && form.anak && form.kelas && form.masalah) {
+    if (form.wa && form.anak && form.kelas && form.masalah&& form.kuliah) {
       setIsButtonDisabled(true);
       const canSubmit = await checkToken(form.anak,form.wa,e);
 
@@ -106,6 +108,7 @@ const Seminar = ({allSeminar}) => {
       setIsanakEmpty(!form.anak);
       setIskelasEmpty(!form.kelas);
       setIsmasalahEmpty(!form.masalah);
+      setIskuliahEmpty(!form.kuliah);
     }
   };
 
@@ -132,9 +135,9 @@ const Seminar = ({allSeminar}) => {
         />
       </Head>
       <Layout>
-        <div className="flex justify-center items-center bg-slate-100 text-gray-900">
+        <div className="flex justify-center items-center bg-slate-100 text-gray-900 font-roboto">
           <div>
-          <form className="space-y-6 w-full max-w-lg mx-auto p-8 m-2" onSubmit={submitForm}>
+          <form className="space-y-6 w-full max-w-lg mx-auto p-8 m-2 border-b" onSubmit={submitForm}>
             
             <div className="flex items-center justify-center">
             <Image
@@ -190,7 +193,7 @@ const Seminar = ({allSeminar}) => {
               {isanakEmpty && <p className="text-red-500 text-xs mb-2">Wajib diisi</p>}
 
               <select
-                className={`w-full px-2.5 pb-2.5 pt-4 text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 ${iskelasEmpty ? "border-red-500" : ""}`}
+                className={`w-full mb-2 px-2.5 pb-2.5 pt-4 text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 ${iskelasEmpty ? "border-red-500" : ""}`}
                 name="kelas"
                 onBlur={() => setIskelasEmpty(!form.kelas)}
                 onChange={handleChange}
@@ -202,41 +205,55 @@ const Seminar = ({allSeminar}) => {
               {iskelasEmpty && <p className="text-red-500 text-xs mb-2">Wajib diisi</p>}
 
               <textarea
-                className="w-full px-2.5 pb-2.5 pt-4 text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 mb-2"
+                className={`w-full px-2.5 pb-2.5 pt-4 text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 mb-2 ${ismasalahEmpty ? "border-red-500" : ""}`}
                 placeholder="Kendala yang dihadapi orang tua dengan anak"
                 name="masalah"
                 onChange={handleChange}
               ></textarea>
               {ismasalahEmpty && <p className="text-red-500 text-xs mb-2">Wajib diisi</p>}
+
+              <textarea
+                className={`w-full px-2.5 pb-2.5 pt-4 text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 mb-2 ${iskuliahEmpty ? "border-red-500" : ""}`}
+                placeholder="Rencana kuliah jurusan apa dan kampus mana"
+                name="kuliah"
+                onChange={handleChange}
+              ></textarea>
+              {iskuliahEmpty && <p className="text-red-500 text-xs mb-2">Wajib diisi</p>}
             </div>
 
             {isButtonDisabled ? (
               <Loader />
             ) : (
+              <div className="flex justify-end">
               <button
                 id="tombolKirim"
                 type="submit"
-                className="w-full bg-blue-600 text-gray-100 hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                className=" bg-blue-400 text-gray-100 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-orange-300 rounded-lg  text-sm px-5 py-2.5 text-center"
               >
                 <p className="text-lg">Kirim</p>
               </button>
+              </div>
             )}
           </form>
+          <div className="bg-gray-900 md:bg-gray-100">
           <div className="flex items-center justify-center">
-              <p className="text-center text-xl uppercase font-semibold bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-blue-500">
+              <p className="text-center text-xl uppercase font-semibold bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-blue-500 m-2">
                 tentang seminar
               </p>
-            </div>
+          </div>
           <AccordianSeminar allSeminar={allSeminar} />
-          <div className="flex flex-row justify-center items-center space-x-2 border-b p-2 mb-10">
-            <p className="text-sm">Diselenggarakan oleh,</p>
-              <div>
+          </div>
+          <div className="bg-gray-900 md:bg-gray-100 p-2">
+            <p className="text-sm text-center text-gray-600 font-roboto">Diselenggarakan oleh,</p>
+            <div className="flex flex-row justify-center items-center space-x-2 ">
+            <div>
                 <Image src="/image/logolb3r.png" alt="logo lb3r" width={75} height={30} />
-              </div>
-              <div>
+            </div>
+            <div>
                 <Image src="/image/logosmanta.png" alt="logo lb3r" width={50} height={50} />
               </div>
             </div>
+          </div>
         </div>
         </div>
       </Layout>

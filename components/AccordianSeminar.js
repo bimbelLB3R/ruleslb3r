@@ -46,7 +46,7 @@ const AccordianSeminar = ({ allSeminar }) => {
 
   return (
     <div className="flex items-center justify-center p-8">
-      <div className="w-full md:max-w-2xl overflow-hidden">
+      <div className="w-full md:max-w-2xl text-gray-100 md:text-gray-900 overflow-hidden text-sm">
         <Accordion alwaysOpen={true}>
           {allSeminar.map((itemi, index) => (
             <Accordion.Panel key={index}>
