@@ -1,0 +1,30 @@
+{
+  "seminar": [
+    {
+      "id": 1,
+      "judul": "Latar Belakang",
+      "isi": "Komunikasi antara orang tua dan anak sangat penting terutama keputusan untuk memilih jurusan dan kampus. Komunikasi efektif antara orang tua dan anak juga dapat meminimalisisr tindakan negatif anak dan mencegah hal-hal tidak diinginkan selama proses belajar di kampus. Oleh karena itu, keterbukaan antara orang tua dan anak (generasi Z) ini perlu dibangun dari sekarang."
+    },
+    {
+        "id": 2,
+        "judul": "Tujuan",
+        "isi": "Tujuan diadakan seminar ini adalah untuk memberikan wawasan kepada orang tua agar lebih mengenali kepribadian dan potensi yang dimiliki oleh anak. Selain itu, seminar ini juga bertujuan untuk mendekatkan kembali orang tua dan anak melalui komunikasi efektif antara keduanya sehingga mudah dalam mencapai cita-cita"
+      },
+      {
+        "id": 3,
+        "judul": "Identifikasi Masalah",
+        "isi": "Generasi Z atau anak yang lahir tahun 1995-2010 disebut sebut memiliki mental health yang lemah. Profesor Renald Kasali menyebut generasi ini sebagai generasi strowbery. Generasi yang daya juangnya lemah dan labil. Sehingga dukungan dari keluarga (orang tua) akan menguatkan mental mereka dan mencegah mereka dari pengaruh negatif dari luar."
+      },
+      {
+        "id": 4,
+        "judul": "Data dan Fakta Pendukung",
+        "isi": "Data tingkat depresi antarnegara 2023 yang dimuat laman World Population Review menyebutkan ditemukan 9.162.886 kasus depresi di Indonesia. Depresi juga sudah dialami oleh remaja Indonesia hingga membuat 19 persen di antaranya mempunyai ide untuk bunuh diri. Sebanyak 45 persen remaja bahkan sudah melakukan tindakan untuk menyakiti diri sendiri."
+      },
+      {
+        "id": 5,
+        "judul": "Tindak Lanjut",
+        "isi": "Program seminar ini merupakan gerbang awal untuk mendampingi anak secara psikologis, baik dari orang tua maupun konselor. Kami berusaha untuk melakukan pendampingan secara intensif bagi orang tua dan siswa yang menginginkan."
+      }
+    
+  ]
+}

@@ -6,6 +6,17 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Layout from "../../components/Layout";
 import Image from "next/image";
+import { getSeminarData } from "../../utils/seminarApi";
+import AccordianSeminar from "../../components/AccordianSeminar";
+
+export async function getStaticProps() {
+  const data = getSeminarData();
+  return {
+    props: {
+      allSeminar: data.seminar,
+    },
+  };
+}
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_IDRULESLB3R;
@@ -13,7 +24,7 @@ const SHEET_ID3 = process.env.NEXT_PUBLIC_SHEET_ID_SEMINAR;
 const GOOGLE_CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
 const GOOGLE_SERVICE_PRIVATE_KEY = process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
-const Seminar = () => {
+const Seminar = ({allSeminar}) => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [iswaEmpty, setIswaEmpty] = useState(false);
   const [isanakEmpty, setIsanakEmpty] = useState(false);
@@ -122,24 +133,25 @@ const Seminar = () => {
       </Head>
       <Layout>
         <div className="flex justify-center items-center bg-slate-100 text-gray-900">
+          <div>
           <form className="space-y-6 w-full max-w-lg mx-auto p-8 m-2" onSubmit={submitForm}>
-            <div className="flex flex-row justify-center items-center space-x-2 border-b p-2">
-              <div>
-                <Image src="/image/logolb3r.png" alt="logo lb3r" width={75} height={30} />
-              </div>
-              <div>
-                <Image src="/image/logosmanta.png" alt="logo lb3r" width={50} height={50} />
-              </div>
-            </div>
+            
             <div className="flex items-center justify-center">
-              <p className="font-medium">PRESENT</p>
-            </div>
+            <Image
+              src="/image/seminarPic.png"
+              width={300}
+              height={300}
+              alt="math"
+              priority={true}
+              className=""
+            />
+          </div>
             <div className="flex items-center justify-center">
-              <p className="text-center text-sm">
-                Seminar Daring : "Membuka Blok Komunikasi Antara Orang Tua dan Anak Guna Mempersiapkan Mental di Jenjang Pendidikan Tinggi (Kampus)"
+              <p className="text-center text-md bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-blue-500">
+                "Membuka Blok Komunikasi Antara Orang Tua dan Anak Guna Mempersiapkan Mental di Jenjang Pendidikan Tinggi (Kampus)"
               </p>
             </div>
-            <p className="font-semibold text-2xl text-center w-full bg-gradient-to-b from-orange-500 to-orange-400 p-2 text-slate-100">
+            <p className="font-semibold text-lg text-center w-full bg-gradient-to-b from-orange-500 to-orange-400 p-2 text-slate-100">
               FORMULIR PENDAFTARAN
             </p>
             <div>
@@ -204,12 +216,28 @@ const Seminar = () => {
               <button
                 id="tombolKirim"
                 type="submit"
-                className="w-full bg-gradient-to-b from-blue-400 to-white text-purple-800 hover:bg-yellow-200 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                className="w-full bg-blue-600 text-gray-100 hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
               >
                 <p className="text-lg">Kirim</p>
               </button>
             )}
           </form>
+          <div className="flex items-center justify-center">
+              <p className="text-center text-xl uppercase font-semibold bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-blue-500">
+                tentang seminar
+              </p>
+            </div>
+          <AccordianSeminar allSeminar={allSeminar} />
+          <div className="flex flex-row justify-center items-center space-x-2 border-b p-2 mb-10">
+            <p className="text-sm">Diselenggarakan oleh,</p>
+              <div>
+                <Image src="/image/logolb3r.png" alt="logo lb3r" width={75} height={30} />
+              </div>
+              <div>
+                <Image src="/image/logosmanta.png" alt="logo lb3r" width={50} height={50} />
+              </div>
+            </div>
+        </div>
         </div>
       </Layout>
     </>
