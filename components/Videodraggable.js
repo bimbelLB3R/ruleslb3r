@@ -37,7 +37,7 @@ const VideoDraggable = () => {
       >
         <div className="fixed top-20  border-4 border-double border-red-900 rounded-lg p-1 cursor-move w-[300px] sm:w-[400px]">
           <p className="text-yellow-200  w-full bg-yellow-900  text-center font-roboto p-1">
-            PROGRAM PROMO CASHBACK 50%
+            Webinar Buat Orang Tua
           </p>
           {/* <iframe
             width="280"
@@ -47,15 +47,15 @@ const VideoDraggable = () => {
             allowFullScreen
           ></iframe> */}
           <Image
-            src="/image/snbt/promojuni.png"
-            alt="Foto siswa"
+            src="/image/snbt/webinar.png"
+            alt="webinar image"
             width={1080}
             height={1080}
             priority={true}
             className=""
           />
           <p className="text-gray-50 text-xs  w-full bg-gray-900 text-center p-1">
-            Yuk...daftar sebelum akhir juni supaya kalian dapat cashback 50% berupa uang tunai.
+          “Membuka Blok Komunikasi Antara Orang Tua dan Anak Guna Mempersiapkan Mental di Jenjang Pendidikan Tinggi (Kampus)”.
           </p>
         </div>
       </Draggable>

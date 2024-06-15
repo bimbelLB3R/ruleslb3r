@@ -32,6 +32,7 @@ const Seminar = ({allSeminar}) => {
   const [ismasalahEmpty, setIsmasalahEmpty] = useState(false);
   const [iskuliahEmpty, setIskuliahEmpty] = useState(false);
   const [selectedClass, setSelectedClass] = useState(""); // State to manage selected class
+  const [isDisabled, setIsDisabled] = useState(true); // State to manage input disable status
   const router = useRouter();
   const [form, setForm] = useState({
     wa: "",
@@ -66,7 +67,7 @@ const Seminar = ({allSeminar}) => {
     const sheet = doc.sheetsById[SHEET_ID3];
     const rows = await sheet.getRows();
     const tokenExists = rows.find((row) => row.anak === anak || row.wa === wa);
-    console.log(tokenExists);
+    // console.log(tokenExists);
 
     if (tokenExists) {
       e.target.reset();
@@ -118,6 +119,7 @@ const Seminar = ({allSeminar}) => {
     setForm({ ...form, [name]: value });
     if (name === "kelas") {
       setSelectedClass(value); // Update the selected class
+      setIsDisabled(value === "");
     }
   };
 
@@ -182,6 +184,7 @@ const Seminar = ({allSeminar}) => {
                   onChange={handleChange}
                   placeholder=" "
                   onBlur={() => setIswaEmpty(!form.wa)}
+                  disabled={isDisabled}
                 />
                 <label
                   className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
@@ -199,6 +202,7 @@ const Seminar = ({allSeminar}) => {
                   onChange={handleChange}
                   placeholder=" "
                   onBlur={() => setIsanakEmpty(!form.anak)}
+                  disabled={isDisabled}
                 />
                 <label
                   className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
@@ -215,6 +219,7 @@ const Seminar = ({allSeminar}) => {
                 placeholder={selectedClass === "Umum" ? "Alasan Ikut Seminar" : "Kendala yang dihadapi orang tua dengan anak"}
                 name="masalah"
                 onChange={handleChange}
+                disabled={isDisabled}
               ></textarea>
               {ismasalahEmpty && <p className="text-red-500 text-xs mb-2">Wajib diisi</p>}
 
@@ -223,6 +228,7 @@ const Seminar = ({allSeminar}) => {
                 placeholder={selectedClass === "Umum" ? "Alamat Domisili" : "Rencana kuliah jurusan apa dan kampus mana"}
                 name="kuliah"
                 onChange={handleChange}
+                disabled={isDisabled}
               ></textarea>
               {iskuliahEmpty && <p className="text-red-500 text-xs mb-2">Wajib diisi</p>}
             </div>
