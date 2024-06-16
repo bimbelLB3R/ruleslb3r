@@ -18,10 +18,7 @@ import Swal from "sweetalert2";
 import Service from "../components/Layanan2024";
 import { runFireworks } from "../libs/utils";
 import PopBerita from "../components/PopBerita";
-import ShortCut from "../components/ShortCut";
 import WarningSnbt from "../components/WarningSnbt";
-import VideoDraggable from "../components/Videodraggable";
-import AllRatingTentor from "../components/AllRatingTentor";
 
 const Home = ({ allPost, dataAlumni }) => {
   // console.log(allPost);
@@ -44,7 +41,7 @@ const Home = ({ allPost, dataAlumni }) => {
         const Toast = Swal.mixin({
           toast: true,
           position: "bottom",
-          background: "#fecaca",
+          background: "#f5f3ff",
           padding: "0.1rem",
           showConfirmButton: false,
           customClass: {
@@ -61,7 +58,7 @@ const Home = ({ allPost, dataAlumni }) => {
 
         Toast.fire({
           icon: "success",
-          title: "Lolos SNBT 2023",
+          title: "Lolos SNBT 2024",
           text: dataAlumni[index].nama,
         });
         // Swal.fire({
