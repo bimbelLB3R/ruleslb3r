@@ -279,7 +279,7 @@ const FeedbackForm = () => {
           href="/image/logolb3r.png"
         />
       </Head>
-      <div className=" mt-20">
+      <div className=" mt-20" id="content" >
         {session ? (
           <div>
             <h2 className="text-center font-bold uppercase">Beri Penilaian</h2>

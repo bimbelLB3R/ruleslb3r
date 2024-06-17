@@ -13,7 +13,7 @@ import {
   TelegramShareButton,
   TelegramIcon,
   TwitterShareButton,
-  TwitterIcon,
+  TwitterIcon
 } from 'next-share';
 
 export default function Sharebutton({ link }) {
@@ -32,6 +32,8 @@ export default function Sharebutton({ link }) {
       <WhatsappShareButton url={link}>
         <WhatsappIcon size={32} round />
       </WhatsappShareButton>
+      
+
     </div>
   );
 }

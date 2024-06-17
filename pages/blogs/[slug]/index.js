@@ -20,6 +20,7 @@ import CommentForm from "../../../components/CommentForm";
 // import "../prism";
 import Prism from "prismjs";
 import "prismjs/components/prism-javascript";
+import DownloadButton from "../../../components/DownloadButton";
 
 // async function getData() {
 //   const res = await fetch(`http://localhost:3000/api/blogs`);
@@ -98,12 +99,15 @@ export default function PostDetail({ detailPost, allPost }) {
               : "hidden"
           }
         >
+          <div className="flex justify-center space-x-1">
           <Sharebutton />
+          <DownloadButton type={detailPost.slug}/>
+          </div>
         </div>
         <div className="p-2 md:p-4  mt-10 md:max-w-2xl md:flex md:justify-center md:m-auto md:mt-0">
           <div>
             <div>
-              <div className="flex mb-10 font-bold  ">
+              <div className="flex mb-10 font-bold no-print ">
                 <Link href="/blogs">
                   <p className="text-orange-600 hover:underline">Blogs </p>
                 </Link>
@@ -114,10 +118,11 @@ export default function PostDetail({ detailPost, allPost }) {
                   </p>
                 </Link>
               </div>
-              <div className="flex justify-center">
+              <div className="flex justify-center space-x-1 no-print">
                 <Sharebutton
                   link={`https://www.bimbellb3r.com/blogs/${detailPost.slug}`}
                 />
+                <DownloadButton type={detailPost.slug}/>
               </div>
             </div>
             <div className="flex justify-center">
@@ -164,17 +169,17 @@ export default function PostDetail({ detailPost, allPost }) {
                 })}
               </div>
             </div>
-            <div className="flex">
+            <div className="flex no-print">
               <Link href={`/tag/${detailPost.tags}`}>
                 <p className="mt-4 bg-blue-400 hover:bg-blue-600 text-gray-100 font-semibold rounded p-1 text-xs">
                   {detailPost.tags}
                 </p>
               </Link>
             </div>
-            <div className="mt-5">
+            <div className="mt-5 no-print">
               <ArtikelTerkait allPost={allPost} detailPost={detailPost} />
             </div>
-            <div>
+            <div className="no-print">
               <CommentForm />
             </div>
           </div>

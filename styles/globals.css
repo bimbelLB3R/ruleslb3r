@@ -25,3 +25,10 @@ body {
   @apply text-white /* Atur ukuran teks sesuai keinginan Anda, misalnya gunakan text-sm atau text-lg */
   /* Tambahkan properti CSS lain sesuai kebutuhan Anda */;
 }
+
+/* mengatur komponen yang tidak mau ditampilkan dalam pdf */
+@media print {
+  .no-print {
+    display: none;
+  }
+}
