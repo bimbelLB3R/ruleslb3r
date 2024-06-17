@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "pages/api/generate-pdf.js",
+        "use": "@vercel/node"
+      }
+    ]
+  }
+  
