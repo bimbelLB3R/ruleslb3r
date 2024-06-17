@@ -13,7 +13,7 @@ export default async (req, res) => {
 //   page.on('console', msg => console.log('PAGE LOG:', msg.text())); // Log pesan dari halaman
   
   try {
-    await page.goto(`https://www.bimbellb3r.com:3000/blogs/${type}`, { waitUntil: 'networkidle0', timeout: 60000 });
+    await page.goto(`https://www.bimbellb3r.com/blogs/${type}`, { waitUntil: 'networkidle0', timeout: 60000 });
     // menambahkan ini agar komponen yang diberi class no-print tidak tampil di pdf
     await page.addStyleTag({ content: '@media print {.no-print { display: none; }}' });
     // jika data yang mau di pdf bersifat dinamis, tambahkan
