@@ -15,12 +15,10 @@ import IklanKonten from "../../../components/IklanKonten";
 import React from "react";
 import ArtikelTerkait from "../../../components/ArtikelTerkait";
 import MetaForBlog from "../../../components/MetaForBlog";
-import TombolInOut from "../../../components/TombolInOut";
 import CommentForm from "../../../components/CommentForm";
 // import "../prism";
 import Prism from "prismjs";
 import "prismjs/components/prism-javascript";
-import DownloadButton from "../../../components/DownloadButton";
 
 // async function getData() {
 //   const res = await fetch(`http://localhost:3000/api/blogs`);
@@ -101,7 +99,7 @@ export default function PostDetail({ detailPost, allPost }) {
         >
           <div className="flex justify-center space-x-1">
           <Sharebutton />
-          <DownloadButton type={detailPost.slug}/>
+          {/* <DownloadButton type={detailPost.slug}/> */}
           </div>
         </div>
         <div className="p-2 md:p-4  mt-10 md:max-w-2xl md:flex md:justify-center md:m-auto md:mt-0">
@@ -122,7 +120,7 @@ export default function PostDetail({ detailPost, allPost }) {
                 <Sharebutton
                   link={`https://www.bimbellb3r.com/blogs/${detailPost.slug}`}
                 />
-                <DownloadButton type={detailPost.slug}/>
+                {/* <DownloadButton type={detailPost.slug}/> */}
               </div>
             </div>
             <div className="flex justify-center">

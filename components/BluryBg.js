@@ -7,7 +7,7 @@ export default function BluryBg() {
         {/* bg 3 warna */}
         <div className="absolute top-0 -left-4 w-36 md:w-72 h-36 md:h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
         <div className="absolute top-0 -right-4 w-36 md:w-72 h-36 md:h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-36 md:w-72 h-36 md:h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        <div className="absolute -bottom-8 left-20 w-36 md:w-72 h-36 md:h-72 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
         {/* atas bg */}
         <div className="md:m-8 relative space-y-4">
           <div className="p-2 md:p-5 flex items-center justify-center text-gray-600">

@@ -8,7 +8,7 @@ const BayarLes = () => {
         <Link
           href="/layanan/bayarles"
           target="_blank"
-          className="flex items-center space-x-1  p-2  rounded-full shadow-inner bg-gradient-to-b from-yellow-400 to-white  text-purple-800"
+          className="flex items-center space-x-1  p-2  rounded-full shadow-inner bg-gradient-to-b from-orange-400 to-white  text-purple-800"
         >
           {/* <svg
             xmlns="http://www.w3.org/2000/svg"

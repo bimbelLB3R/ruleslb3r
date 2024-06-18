@@ -19,7 +19,7 @@ const ButtonUmum = () => {
   return (
     <div className="flex justify-center md:max-w-xl m-auto  p-4 animate__slideInDown">
       <button
-        className="bg-gradient-to-b from-yellow-400 to-white  text-purple-800 font-bold py-4 px-8  transition-colors duration-300 ease-in-out text-xl rounded-lg shadow-lg hover:shadow-xl"
+        className="bg-gradient-to-b from-orange-400 to-white  text-purple-800 font-bold py-4 px-8  transition-colors duration-300 ease-in-out text-xl rounded-lg shadow-lg hover:shadow-xl"
         onClick={handleClick}
       >
         <div className="flex items-center justify-center space-x-4">
