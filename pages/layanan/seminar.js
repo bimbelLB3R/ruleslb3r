@@ -8,6 +8,7 @@ import Layout from "../../components/Layout";
 import Image from "next/image";
 import { getSeminarData } from "../../utils/seminarApi";
 import AccordianSeminar from "../../components/AccordianSeminar";
+import Wa from '../../components/Wa';
 
 export async function getStaticProps() {
   const data = getSeminarData();
@@ -254,6 +255,7 @@ const Seminar = ({allSeminar}) => {
               </p>
           </div>
           <AccordianSeminar allSeminar={allSeminar} />
+          <Wa/>
           </div>
           <div className="bg-gray-900 md:bg-gray-100 p-2">
             <p className="text-sm text-center text-gray-600 font-roboto">Diselenggarakan oleh,</p>
