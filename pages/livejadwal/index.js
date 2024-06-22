@@ -90,6 +90,9 @@ const LiveJadwal = () => {
                             <p className="text-xs text-gray-400">
                             Masuk pukul : {daJal.mulai_jadwal} WITA
                           </p>
+                            <p className="text-xs text-gray-400 uppercase">
+                            Ruang Belajar : Ruang {daJal.ruang} 
+                          </p>
                         </div>
                       </div>
                     </div>
