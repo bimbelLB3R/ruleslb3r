@@ -35,25 +35,25 @@ const VideoDraggable = () => {
         // defaultPosition={{ x: 0, y: 0 }}
         onStop={handleClose} // Mengaktifkan handleClose saat pergerakan drag berhenti
       >
-        <div className="fixed top-20  border-4 border-double border-red-900 rounded-lg p-1 cursor-move w-[300px] sm:w-[400px]">
+        <div className="fixed top-20  border-4 border-double border-red-900 rounded-lg p-1 cursor-move w-[300px] sm:w-[300px]">
           <p className="text-yellow-200  w-full bg-yellow-900  text-center font-roboto p-1">
-            Webinar Buat Orang Tua
+            Rekaman Webinar Buat Orang Tua
           </p>
-          {/* <iframe
+          <iframe
             width="280"
             height="160"
-            src="https://www.youtube.com/embed/8toydm0StA4?autoplay=1"
+            src="https://www.youtube.com/embed/i5ZflnWyj94?si=s3KfJxQVp_CPNIgl"
             title="YouTube video player"
             allowFullScreen
-          ></iframe> */}
-          <Image
+          ></iframe>
+          {/* <Image
             src="/image/snbt/webinar.png"
             alt="webinar image"
             width={1080}
             height={1080}
             priority={true}
             className=""
-          />
+          /> */}
           <p className="text-gray-50 text-xs  w-full bg-gray-900 text-center p-1">
           “Membuka Blok Komunikasi Antara Orang Tua dan Anak Guna Mempersiapkan Mental di Jenjang Pendidikan Tinggi (Kampus)”.
           </p>
