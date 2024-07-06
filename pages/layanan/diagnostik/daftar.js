@@ -63,7 +63,7 @@ const Seminar = ({allSeminar}) => {
     }
   };
 
-  const checkToken = async (anak,wa,e) => {
+  const checkToken = async (wa,e) => {
     await doc.useServiceAccountAuth({
       client_email: GOOGLE_CLIENT_EMAIL,
       private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
@@ -71,13 +71,13 @@ const Seminar = ({allSeminar}) => {
     await doc.loadInfo();
     const sheet = doc.sheetsById[SHEET_ID3];
     const rows = await sheet.getRows();
-    const tokenExists = rows.find((row) => row.anak === anak || row.wa === wa);
+    const tokenExists = rows.find((row) => row.wa === wa);
     // console.log(tokenExists);
 
     if (tokenExists) {
       e.target.reset();
       Swal.fire({
-        title: ` ${form.anak} atau nomor ${form.wa} sudah pernah terdaftar`,
+        title: `Nomor ${form.wa} sudah pernah terdaftar`,
         text: "Data gagal dikirim",
         icon: "warning",
         confirmButtonText: "Ok",
@@ -93,7 +93,7 @@ const Seminar = ({allSeminar}) => {
 
     if (form.instagram && form.wa && form.anak && form.kelas && form.sekolah && form.alamat&& form.kesulitan) {
       setIsButtonDisabled(true);
-      const canSubmit = await checkToken(form.anak,form.wa,e);
+      const canSubmit = await checkToken(form.wa,e);
 
       if (canSubmit) {
         const newRow = { ...form };
