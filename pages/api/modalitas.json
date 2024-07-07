@@ -1,0 +1,34 @@
+{
+    "modalitasall": [
+      {
+        "tipe": 1,
+        "tipe_modalitas": "Visual",
+        "keterangan": "Kamu cenderung lebih mudah menyerap, mengatur dan mengolah suatu informasi melalui indera penglihatan atau dengan cara melihat. Kamu lebih mudah mengingat sesuatu yang dilihat daripada yang di dengar, lebih suka membaca daripada dibacakan. Kamu lebih teliti dan detail sehingga ringkasan/catatan akan membantumu dalam belajar. Kamu bisa memberikan warna warna yang bervariasi dalam buku catatanmu."
+      },
+      {
+        "tipe": 2,
+        "tipe_modalitas": "Auditori",
+        "keterangan": "Kamu cenderung lebih mudah menyerap informasi melalui indera pendengaran. Kamu membutuhkan suasana belajar yang tenang dan tidak bising karena kamu peka terhadap suara. Belajar terbaikmu dalah dengan metode diskusi, mendengarkan tutorial, ceramah atau seminar. Pilihlah musik yang kamu sukai yang bisa kamu putar saat belajar."
+      },
+      {
+        "tipe": 3,
+        "tipe_modalitas": "Kinestetik",
+        "keterangan": "Kamu cenderung lebih mudah menyerap, mengatur dan mengolah suatu informasi melalui sentuhan dan gerakan tubuh. Belajar terbaikmu adalah dengan praktik langsung yang melibatkan gerakan fisik atau menggunakan alat peraga. Kamu suka sekali bergerak sehingga cocok ikut kegiatan outdoor, misalnya olah raga dan jelajah alam. Saat belajar menghafal, kamu bisa coba sambil berjalan atau melakukan aktivitas dengan tangan/kaki kamu."
+      },
+      {
+        "tipe": 4,
+        "tipe_modalitas": "Visual dan Auditori",
+        "keterangan": "Kamu dapat menyerap informasi dengan mengkombinasikan penglihatan dan pendengaran. Video pembelajaran yang menarik dapat membantumu dalam memahami materi. Kamu bisa memahami apa yang disampaikan guru atau pun yang ditampilkan guru di papan tulis."
+      },
+      {
+        "tipe": 5,
+        "tipe_modalitas": "Visual dan Kinestetik",
+        "keterangan": "Kamu dapat menyerap informasi dengan mengkombinasikan penglihatan, sentuhan dan gerakan tubuh. Kamu dapat membiasakan diri untuk membuat ringkasan dengan menulis dan memberikan warna yang menarik dicatatan kamu kemudian melakukan pembuktian/praktik langsung."
+      },
+      {
+        "tipe": 6,
+        "tipe_modalitas": "Auditori dan Kinestetik",
+        "keterangan": "Kamu dapat menyerap informasi dengan mengkombinasikan pendengaran dan sentuhan. Belajar dengan diskusi, mendengarkan tutorial, ceramah atau seminar atau melalui praktik langsung"
+      }
+    ]
+}

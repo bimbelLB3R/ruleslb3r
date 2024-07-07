@@ -60,7 +60,7 @@ const ChartDiagnostik = ({ data }) => {
         labels: data.labels,
         datasets: [
           {
-            label: "Gaya Belajar (%)",
+            label: "Gaya Belajar Dominan (%)",
             data: percentageValues,
             backgroundColor: backgroundColors, // Set background colors
             borderColor: borderColors, // Set border colors

@@ -466,16 +466,16 @@ const DiagnostikSoal = ({ allsoal }) => {
       </div>
       {/* Selamat datang peserta */}
       <div className="flex justify-center items-center fixed top-0 z-50 overflow-auto left-0 right-0 bg-gray-900 text-gray-100 text-[8px] md:text-sm">
-        <div className="bg-red-800 p-1 rounded-full">
+        <div className="bg-red-800 p-2  m-1">
           {/* <Timer /> */}
           {/* from timer */}
           <div>{timeLeft ? timeLeft.format("mm:ss") : "Loading..."}</div>
           {/* from timer end */}
         </div>
 
-        <p className="text-center  p-2 ">
+        {/* <p className="text-center  p-2 ">
           Selamat Mengerjakan tes {tipeSoal},{storedName}!
-        </p>
+        </p> */}
       </div>
       {isLoading ? (
         <div className="flex items-center justify-center mt-[50px]">
