@@ -32,11 +32,11 @@ const Loginmember = () => {
   // cek apakah sudah ada nisn dan nama di local storage
   useEffect(() => {
     const storedNisn = localStorage.getItem("nisn");
-
-    if (storedNisn) {
-      // router.push('/form/snbt');
-      localStorage.clear();
-    }
+    localStorage.clear();
+    // if (storedNisn) {
+    //   // router.push('/form/snbt');
+    //   localStorage.clear();
+    // }
     // if (!session) {
     //   setForm((prevState) => ({
     //     ...prevState,

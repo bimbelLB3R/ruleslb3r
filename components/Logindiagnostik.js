@@ -31,17 +31,11 @@ const Logindiagnostik = () => {
   // cek apakah sudah ada wa dan nama di local storage
   useEffect(() => {
     const storedNisn = localStorage.getItem("wa");
-
-    if (storedNisn) {
-      // router.push('/form/snbt');
-      localStorage.clear();
-    }
-    // if (!session) {
-    //   setForm((prevState) => ({
-    //     ...prevState,
-    //     nisn: "0987",
-    //   }));
+    localStorage.clear();
+    // if (storedNisn) {
+    //   localStorage.clear();
     // }
+    
   }, []);
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 

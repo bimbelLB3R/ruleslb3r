@@ -90,37 +90,11 @@ const DiagnostikSoal = ({ allsoal }) => {
     renderMathInElement(document.body);
   };
   // Config variables
-  const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
+  const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_IDRULESLB3R;
   // sheet jawaban
-  const SHEET_ID3 = process.env.NEXT_PUBLIC_SHEET_ID3;
-  // sheet analisis
-  const SHEET_ID4 = process.env.NEXT_PUBLIC_SHEET_ID4;
-  // sheet jawaban
-  const SHEET_ID5 = process.env.NEXT_PUBLIC_SHEET_ID5;
-  // sheet analisis
-  const SHEET_ID6 = process.env.NEXT_PUBLIC_SHEET_ID6;
-  // sheet jawaban
-  const SHEET_ID7 = process.env.NEXT_PUBLIC_SHEET_ID7;
-  // sheet analisis
-  const SHEET_ID8 = process.env.NEXT_PUBLIC_SHEET_ID8;
-  // sheet jawaban
-  const SHEET_ID9 = process.env.NEXT_PUBLIC_SHEET_ID9;
-  // sheet analisis
-  const SHEET_ID10 = process.env.NEXT_PUBLIC_SHEET_ID10;
-  // jwb
-  const SHEET_ID11 = process.env.NEXT_PUBLIC_SHEET_ID11;
-  // sheet analisis
-  const SHEET_ID12 = process.env.NEXT_PUBLIC_SHEET_ID12;
-
-  // jwb
-  const SHEET_ID13 = process.env.NEXT_PUBLIC_SHEET_ID13;
-  // sheet analisis
-  const SHEET_ID14 = process.env.NEXT_PUBLIC_SHEET_ID14;
-
-  // jwb
-  const SHEET_ID15 = process.env.NEXT_PUBLIC_SHEET_ID15;
-  // sheet analisis
-  const SHEET_ID16 = process.env.NEXT_PUBLIC_SHEET_ID16;
+  const SHEET_ID3 = process.env.NEXT_PUBLIC_SHEET_ID_DIAGNOSTIKHASIL;
+  const SHEET_ID4 = process.env.NEXT_PUBLIC_SHEET_ID_DIAGNOSTIKHASIL;
+  
 
   const GOOGLE_CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
   const GOOGLE_SERVICE_PRIVATE_KEY =
@@ -142,7 +116,7 @@ const DiagnostikSoal = ({ allsoal }) => {
   }, []);
 
   // console.log(allsoal[0][1]);
-  const tipeSoal = "Diagnostik";
+  const tipeSoal = "diagnostik";
   const formRef = useRef(null);
 
   // console.log(allsoal);
@@ -160,7 +134,7 @@ const DiagnostikSoal = ({ allsoal }) => {
       const storedNisn = localStorage.getItem("wa");
       // console.log(index[0]);
       if (storedNisn) {
-        setForm({ ...form, nisn: storedNisn });
+        setForm({ ...form, wa: storedNisn });
       }
       const savedValue = localStorage.getItem(`group${index.id}`);
 
@@ -182,7 +156,7 @@ const DiagnostikSoal = ({ allsoal }) => {
   const [selectedValues, setSelectedValues] = useState({});
   const router = useRouter();
   const [form, setForm] = useState({
-    nisn: "",
+    wa: "",
   });
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
@@ -241,7 +215,7 @@ const DiagnostikSoal = ({ allsoal }) => {
     if (!form.wa) {
       isValid = false;
       // errorMessage = 'NISN is required';
-      setErrorMessage("NISN is required");
+      setErrorMessage("WA is required");
     }
     if (isValid && !isNumber(form.wa)) {
       isValid = false;
@@ -271,6 +245,7 @@ const DiagnostikSoal = ({ allsoal }) => {
           return acc;
         }, {}),
       };
+      // console.log(newRow);
       setIsLoading(true); // set status loading menjadi true
       appendSpreadsheet(newRow);
       setIsLoading(false); // set status loading menjadi false setelah proses selesai
@@ -516,16 +491,16 @@ const DiagnostikSoal = ({ allsoal }) => {
                   {/* <label htmlFor="nisn">NISN:</label> */}
                   <input
                     type="hidden"
-                    name="nisn"
-                    id="nisn"
+                    name="wa"
+                    id="wa"
                     className="w-full"
                     value={form.wa}
-                    placeholder="isi NISN tanpa spasi"
+                    placeholder="wa ortu"
                     onChange={(e) => setForm({ ...form, wa: e.target.value })}
                   />
                 </div>
                 {/* Timer */}
-
+                <p className="mt-10 text-center font-semibold mb-2">TES DIAGNOSTIK</p>
                 {paginatedPosts.map((item) => (
                   <div
                     key={item.id}

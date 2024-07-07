@@ -34,12 +34,18 @@ export default function WarningSnbt() {
     <>
       {sisawaktu > 0 ? (
         <div className="w-full grid m-auto p-2 bg-red-900">
-          <Link href={`/form/snbt?link=${linkKu}`}>
+          {linkKu==='diagnostik'?<Link href={`/layanan/diagnostik/diagnostiktes?link=diagnostik`}>
+            <p className="text-center text-gray-100 text-xs md:text-lg">
+              {nameKu}, kamu masih punya sisa waktu mengerjakan Tes Diagnostik
+              klik disini.
+            </p>
+          </Link>:<Link href={`/form/snbt?link=${linkKu}`}>
             <p className="text-center text-gray-100 text-xs md:text-lg">
               {nameKu}, kamu masih punya sisa waktu mengerjakan soal TO SNBT
               klik disini.
             </p>
-          </Link>
+          </Link>}
+          
         </div>
       ) : (
         <div className="w-full grid m-auto p-4 bg-gradient-to-b from-purple-900 via-gray-900 to-purple-900">
