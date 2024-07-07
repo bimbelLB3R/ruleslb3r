@@ -240,6 +240,7 @@ const DiagnostikSoal = ({ allsoal }) => {
       }
       const newRow = {
         wa: form.wa,
+        nama:storedName,
         ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
           acc[name] = savedValue;
           return acc;
@@ -265,8 +266,8 @@ const DiagnostikSoal = ({ allsoal }) => {
       // mengulur waktu saat ambil data dari sheet
       let timerInterval;
       Swal.fire({
-        title: "Nilai sedang diproses!",
-        html: "I will close in <b></b> milliseconds.",
+        title: "Jawabanmu sedang diproses!",
+        html: "wait until <b></b> milliseconds.",
         timer: 2000,
         timerProgressBar: true,
         didOpen: () => {

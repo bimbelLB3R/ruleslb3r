@@ -174,14 +174,9 @@ const Logindiagnostik = () => {
                   </div>
                 </div>
               ) : (
-                ""
-              )}
-              {/* <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                Login
-              </h1> */}
-              <a
+                <a
             href="/"
-            className="flex items-center justify-center mb-6  text-2xl font-semibold text-gray-900 dark:text-white "
+            className="flex items-center justify-center mb-6 "
           >
             <img
               className="w-24 mr-2"
@@ -190,6 +185,9 @@ const Logindiagnostik = () => {
             />
             
           </a>
+              )}
+              
+              
               <form
                 className="space-y-4 md:space-y-6"
                 action="#"
