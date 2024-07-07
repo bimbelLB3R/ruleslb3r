@@ -503,7 +503,7 @@ const DiagnostikSoal = ({ allsoal }) => {
                   />
                 </div>
                 {/* Timer */}
-                <p className="mt-10 text-center font-semibold mb-2">TES DIAGNOSTIK</p>
+                <p className="mt-10 text-center font-bold mb-2">TES DIAGNOSTIK</p>
                 {paginatedPosts.map((item) => (
                   <div
                     key={item.id}

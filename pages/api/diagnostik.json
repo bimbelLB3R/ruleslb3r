@@ -143,6 +143,87 @@
             "pilihan_a": "Melihatnya",
             "pilihan_b": "Mendengarnya",
             "pilihan_c": "Menulisnya"
+          },
+          {
+            "id": 16,
+            "tipe_soal":"Diagnostik",
+            "nomor_soal": "17",
+            "soal": "Ketika kamu akan mulai memasak makanan, apa yang biasa kamu lakukan?",
+            "pilihan_a": "Mengikuti petunjuk resep tertulis.",
+            "pilihan_b": "Meminta penjelasan kepada orang lain (ibu atau teman)",
+            "pilihan_c": "Mengikuti naluri, mencicipi selagi memasaknya."
+          },
+          {
+            "id": 17,
+            "tipe_soal":"Diagnostik",
+            "nomor_soal": "18",
+            "soal": "Ketika kamu pergi berbelanja pakaian, kamu cenderung untuk...",
+            "pilihan_a": "Membayangkan apakah pakaian tersebut cocok untuk saya.",
+            "pilihan_b": "Meminta rekomendasi dengan karyawan toko",
+            "pilihan_c": "Mencoba pakaian dan melihat kecocokannya."
+          },
+          {
+            "id": 18,
+            "tipe_soal":"Diagnostik",
+            "nomor_soal": "19",
+            "soal": "Kamu mengalami kesulitan belajar dan ingin mengikuti bimbingan belajar (bimbel), misalnya bimbel LB3R yang ada di sulingan. Apa yang akan kamu lakukan pertama kali?",
+            "pilihan_a": "Membaca ulasan di internet dan membaca informasi di medsos atau website resmi",
+            "pilihan_b": "Bertanya langsung melalui kontak Wa yang ada atau bertanya kepada teman yang pernah les disana",
+            "pilihan_c": "Langsung mendaftar dan mencoba ikut belajar beberapi kali pertemuan."
+          },
+          {
+            "id": 19,
+            "tipe_soal":"Diagnostik",
+            "nomor_soal": "20",
+            "soal": "Ketika kamu berkonsentrasi, kamu paling sering",
+            "pilihan_a": "Fokus pada kata-kata atau gambar-gambar didepan saya",
+            "pilihan_b": "Membahas masalah dan memikirkan solusinya yang mungkin dapat dilakukan",
+            "pilihan_c": "Banyak bergerak, bermain dengan pena dan pensil, atau menyentuh sesuatu"
+          },
+          {
+            "id": 20,
+            "tipe_soal":"Diagnostik",
+            "nomor_soal": "21",
+            "soal": "Sebagian besar waktu luang kamu habiskan untuk ...",
+            "pilihan_a": "Menonton televisi atau menonton film",
+            "pilihan_b": "Mengobrol denngan teman-teman",
+            "pilihan_c": "Melakukan aktivitas fisik atau membuat sesuatu"
+          },
+          {
+            "id": 21,
+            "tipe_soal":"Diagnostik",
+            "nomor_soal": "22",
+            "soal": "Jika kamu sedang marah, kamu cenderung untuk ...",
+            "pilihan_a": "Terus mengingat hal yang membuat kamu marah",
+            "pilihan_b": "Menyampaikan ke orang-orang sekitar tentang perasaan kamu",
+            "pilihan_c": "Menunjukkan kemarahanmu, misalnya dengan menghentakkan kaki, membanting pintu dan lainnya"
+          },
+          {
+            "id": 22,
+            "tipe_soal":"Diagnostik",
+            "nomor_soal": "23",
+            "soal": "Kamu dapat mengetahui kalau teman-temanmu berbohong jika...",
+            "pilihan_a": "Mereka menghindari kontak mata",
+            "pilihan_b": "Perubahan nada bicara meraka",
+            "pilihan_c": "Mereka menunjukkan perilaku aneh yang tidak biasanya"
+          },
+          {
+            "id": 23,
+            "tipe_soal":"Diagnostik",
+            "nomor_soal": "24",
+            "soal": "Kamu mudah mengingat sesuatu dengan cara ...",
+            "pilihan_a": "Menulis catatan atau menyimpan materi",
+            "pilihan_b": "Mengucapkan dan mengulang poin penting di pikiran kamu",
+            "pilihan_c": "Melakukan dan mempraktikkan secara langsung"
+          },
+          {
+            "id": 24,
+            "tipe_soal":"Diagnostik",
+            "nomor_soal": "25",
+            "soal": "Jika kamu mengeluh barang yang baru saja kamu beli ternyata rusak, apa yang akan kamu lakukan?",
+            "pilihan_a": "Menulis surat pengaduan",
+            "pilihan_b": "Menyampaikan keluhan melalui telpon",
+            "pilihan_c": "Mengembalikkannya ke toko atau penjual"
           }
   ]
 }
