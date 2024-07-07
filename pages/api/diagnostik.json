@@ -4,181 +4,145 @@
       "id": 0,
       "tipe_soal":"Diagnostik",
       "nomor_soal": "1",
-      "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-      "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-      "pilihan_b": "kisah-snbp-2024",
-      "pilihan_c": "language-js"
+      "soal": "Jika kamu bertemu dengan orang baru,apa yang biasanya kamu perhatikan pertama kali?",
+      "pilihan_a": "Penampilan dan cara berpakaiannya",
+      "pilihan_b": "Cara berbicara saat mengucapkan kata-kata atau suara",
+      "pilihan_c": "Perasaan kamu pada orang tersebut"
     },
     {
         "id": 1,
         "tipe_soal":"Diagnostik",
         "nomor_soal": "2",
-        "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-        "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-        "pilihan_b": "kisah-snbp-2024",
-        "pilihan_c": "language-js"
+        "soal": "Beberapa hari setelah kamu bertemu orang baru, apa yang biasanya paling kamu ingat darinya?",
+        "pilihan_a": "Wajah",
+        "pilihan_b": "Nama",
+        "pilihan_c": "Perasaan kamu saat bersama orang itu, meski kamu lupa nama dan wajahnya"
       },
       {
         "id": 2,
         "tipe_soal":"Diagnostik",
         "nomor_soal": "3",
-        "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-        "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-        "pilihan_b": "kisah-snbp-2024",
-        "pilihan_c": "language-js"
+        "soal": "Saat kamu memasuki ruangan yang baru, apa yang paling kamu perhatikan?",
+        "pilihan_a": "Keadaan ruangan",
+        "pilihan_b": "Suara ataupun diskusi-diskusi yang berlangsung di ruangan itu",
+        "pilihan_c": "Perasaaan nyaman yang kamu rasakan baik secara emosional maupun secara fisik"
       },
       {
         "id": 3,
         "tipe_soal":"Diagnostik",
         "nomor_soal": "4",
-        "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-        "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-        "pilihan_b": "kisah-snbp-2024",
-        "pilihan_c": "language-js"
+        "soal": "JIka kamu mempelajari sesuatu hal yang baru, cara mana yang paling kamu sukai?",
+        "pilihan_a": "Guru memberikan bahan untuk dibaca dan menunjukkan buku-buku, gambar, grafik, peta,bagan atau objek,tapi tanpa ada diskusi, pembicaraan atau menulis.",
+        "pilihan_b": "Guru menjelaskan segala sesuatunya melalui diskusi dan kamu diberi kesempatan untuk bertanya tapi tak memberikan sesuatupun untuk kamu lihat, baca tulis atau bahkan untuk kamu kerjakan.",
+        "pilihan_c": "Guru membiarkan kamu menulis atau menggambar informasi,menyentuh materi, mengetik atau bahkan membuat sesuatu dengan menggunakan tangan kamu."
       },
       {
         "id": 4,
         "tipe_soal":"Diagnostik",
         "nomor_soal": "5",
-        "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-        "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-        "pilihan_b": "kisah-snbp-2024",
-        "pilihan_c": "language-js"
+        "soal": "Saat kamu harus mengajar orang lain, manakah yang akan kamu lakukan?",
+        "pilihan_a": "Memberikan sesuatu kepada mereka untuk diamati seperti suatu objek, gambar, atau bagan dengan hanya sedikit saja atau bahkan tidak ada penjelasan verbal dan tidak ada diskusi sama sekali.",
+        "pilihan_b": "Kamu akan menjelaskannya dengan berbicara, tetapi tidak memberikan materi visual apapun.",
+        "pilihan_c": "Kamu akan menulis atau menggambarkannya atau akan menggunakan tangan kamu untuk menjelaskan semuanya."
       },
       {
         "id": 5,
         "tipe_soal":"Diagnostik",
         "nomor_soal": "6",
-        "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-        "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-        "pilihan_b": "kisah-snbp-2024",
-        "pilihan_c": "language-js"
+        "soal": "Jenis buku apakah yang paling kamu sukai?",
+        "pilihan_a": "Buku yang berisi tentang penjelasan untuk membantu Anda memahami situasi.",
+        "pilihan_b": "Buku yang berisi informasi faktual, sejarah atau dialog-dialog.",
+        "pilihan_c": "Buku yang berisi tentang karakter-karakter manusia, perasaan dan emosi,buku-buku psikologi populer, atau buku tentang kebugaran/olahraga."
       },
       {
           "id": 6,
           "tipe_soal":"Diagnostik",
           "nomor_soal": "7",
-          "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-          "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-          "pilihan_b": "kisah-snbp-2024",
-          "pilihan_c": "language-js"
+          "soal": "Jika kamu sedang memiliki waktu luang, kegiatan apa yang kamu lakukan?",
+          "pilihan_a": "Membaca buku atau majalah",
+          "pilihan_b": "Mendengarkan musik atau acara radio",
+          "pilihan_c": "Berkreasi membuat sesuatu."
         },
         {
           "id": 7,
           "tipe_soal":"Diagnostik",
           "nomor_soal": "8",
-          "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-          "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-          "pilihan_b": "kisah-snbp-2024",
-          "pilihan_c": "language-js"
+          "soal": "Situasi seperti apakah yang membuat kamu nyaman belajar?",
+          "pilihan_a": "Saya tetap bisa belajar dengan diiringi musik atau dengan suara bising disekitar kamu.",
+          "pilihan_b": "Saya tidak bisa fokus belajar jika ada suara, baik musik maupun suara bising.",
+          "pilihan_c": "Saya akan merasa nyaman belajar baik dengan musik atau tanpa musik,tapi saya harus membuat nyaman perasaan saya terlebih dahulu."
         },
         {
           "id": 8,
           "tipe_soal":"Diagnostik",
           "nomor_soal": "9",
-          "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-          "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-          "pilihan_b": "kisah-snbp-2024",
-          "pilihan_c": "language-js"
+          "soal": "Saat kamu berbicara dengan teman atau orang lain, kemanakah arah pandangan mata kamu?(kamu bisa meminta teman kamu untuk mengamati)",
+          "pilihan_a": "Kamu merasa harus melihat tepat diwajah orang yang kamu ajak berbicara dan ia pun harus melihat wajah kamu",
+          "pilihan_b": "Kamu memandangnya hanya sekilas saja dan kemudian mata kamu melihat dari satu sisi ke sisi yang lain, ke kanan dan ke kiri.",
+          "pilihan_c": "Kamu memandangnya secara sekilas untuk melihat ekspresi wajahnya kemudian menunduk atau melihat ke arah lain."
         },
         {
           "id": 9,
           "tipe_soal":"Diagnostik",
           "nomor_soal": "10",
-          "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-          "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-          "pilihan_b": "kisah-snbp-2024",
-          "pilihan_c": "language-js"
+          "soal": "Pernyataan manakah yang paling pas menggambarkan diri kamu?",
+          "pilihan_a": "Kamu senang mengamati warna,bentuk, desain dan pola-pola kemanapun kamu pergi dan memiliki pengamatan yang sangat baik dalam hal warna dan desain.",
+          "pilihan_b": "Kamu tidak bisa tinggal diam dan jika sekeliling kamu begitu sunyi, maka kamu akan bersenandung, menyanyi, berbicara dengan kencang, menghidupkan radio/tv, agar di ruangan tersebut selalu ada suara.",
+          "pilihan_c": "Kamu begitu sensitif trehadap perasaan seseorang, perasaan kamu sendiri mudah terluka, kamu tidak bisa berkonsentrasi bila ada seseorang yang tidak menyukai kamu dan kamu merasa harus dicintai dan diterima dulu sebelum bekerja/beraktivitas."
         },
         {
           "id": 10,
           "tipe_soal":"Diagnostik",
           "nomor_soal": "11",
-          "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-          "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-          "pilihan_b": "kisah-snbp-2024",
-          "pilihan_c": "language-js"
+          "soal": "Pernyataan manakah yang paling pas buat kamu?",
+          "pilihan_a": "Kamu sangat perhatian apabila ada seseorang yang berpakaian tidak pantas atau rambut tidak rapi dan kamu ingin membenahinya/merapikannya.",
+          "pilihan_b": "Kamu merasa terganggu apabila ada orang berbicara tidak sopan dan sangat sensitif dengan suara-suara.",
+          "pilihan_c": "Kamu akan ikut menangis apabila menemui bagian film/bacaan sedih."
         },
         {
             "id": 11,
             "tipe_soal":"Diagnostik",
             "nomor_soal": "12",
-            "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-            "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-            "pilihan_b": "kisah-snbp-2024",
-            "pilihan_c": "language-js"
+            "soal": "Apa yang paling mengganggu bagi kamu?",
+            "pilihan_a": "Tempat yang kacau dan tidak tertata rapi.",
+            "pilihan_b": "Tempat yang terlalu sunyi",
+            "pilihan_c": "Tempat yang tidak nyaman secara fisik dan emosi"
           },
           {
             "id": 12,
             "tipe_soal":"Diagnostik",
             "nomor_soal": "13",
-            "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-            "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-            "pilihan_b": "kisah-snbp-2024",
-            "pilihan_c": "language-js"
+            "soal": "APa yang paling mengganggumu ketika seseorang atau bahkan guru sedang mengajarimu?",
+            "pilihan_a": "Kamu hanya bisa mendengarkan saja tanpa ada satu objek visual pun yang bisa dilihat.",
+            "pilihan_b": "Guru tidak mengajak diskusi sama sekali dan hanya membacakan dengan santai.",
+            "pilihan_c": "Kamu tidak diijinkan menggambar, mencoret-coret, menyentuh sesuatu dengan menggunakan tangan kamu. Kamu hanya diminta duduk diam saja."
           },
           {
             "id": 13,
             "tipe_soal":"Diagnostik",
             "nomor_soal": "14",
-            "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-            "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-            "pilihan_b": "kisah-snbp-2024",
-            "pilihan_c": "language-js"
+            "soal": "Pikirkan kembali saat-saat membahagiakan dalam hidup kamu. Luangkan waktu sejenak untuk mengingat pengalaman-pengalaman kamu. Setelah mengenangnya, memori apa yang tertinggal dikepala kamu?",
+            "pilihan_a": "Apa yang kamu lihat, seperti deskripsi visual orang-orang, tempat dan segala sesuatunya.",
+            "pilihan_b": "Apa yang kamu dengar, seperti dialog dan percakapan-percakapan, apa yang kamu katakan dan suara-suara yang ada disekitar kamu.",
+            "pilihan_c": "Sensasi yang kamu rasakan lewat kulit dan tubuh, dan apa yang kamu rasakan secara fisik dan emosi."
           },
           {
             "id": 14,
             "tipe_soal":"Diagnostik",
             "nomor_soal": "15",
-            "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-            "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-            "pilihan_b": "kisah-snbp-2024",
-            "pilihan_c": "language-js"
+            "soal": "Anggaplah bahwa kamu harus menghabiskan waktu ditempat-tempat dibawah ini dengan aktivitas yang berbeda-beda. Tempat manakah yang menurut kamu paling nyaman?",
+            "pilihan_a": "Suatu tempat dimana kamu bisa membaca, melihat-gambar-gambar/karya seni,mengerjakan teka-teki atau menemukan bagian gambar yang hilang, bermain kata-kata seperti scrabble, mengerjakan dekorasi atau memilih pakaian.",
+            "pilihan_b": "Suatu tempat dimana kamu bisa mendengarkan cerita melalui radio, musik atau berita di tv,bermain musik atau menyanyi,berdebat , membaca puisi dengan suara keras.",
+            "pilihan_c": "Suatu tempat dimana kamu bisa berkreasi menggambar,mengecat, membuat patung/kerajinan tangan, menulis atau mengetik, mengerjakan sesuatu dengan tangan kamu."
           },
           {
             "id": 15,
             "tipe_soal":"Diagnostik",
             "nomor_soal": "16",
-            "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-            "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-            "pilihan_b": "kisah-snbp-2024",
-            "pilihan_c": "language-js"
-          },
-          {
-              "id": 16,
-              "tipe_soal":"Diagnostik",
-              "nomor_soal": "17",
-              "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-              "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-              "pilihan_b": "kisah-snbp-2024",
-              "pilihan_c": "language-js"
-            },
-            {
-              "id": 17,
-              "tipe_soal":"Diagnostik",
-              "nomor_soal": "18",
-              "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-              "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-              "pilihan_b": "kisah-snbp-2024",
-              "pilihan_c": "language-js"
-            },
-            {
-              "id": 18,
-              "tipe_soal":"Diagnostik",
-              "nomor_soal": "19",
-              "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-              "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-              "pilihan_b": "kisah-snbp-2024",
-              "pilihan_c": "language-js"
-            },
-            {
-              "id": 19,
-              "tipe_soal":"Diagnostik",
-              "nomor_soal": "20",
-              "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
-              "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
-              "pilihan_b": "kisah-snbp-2024",
-              "pilihan_c": "language-js"
-            }
+            "soal": "JIka kamu diharuskan untuk mengingat kata-kata baru, dengan cara apa yang kamu anggap paling mudah",
+            "pilihan_a": "Melihatnya",
+            "pilihan_b": "Mendengarnya",
+            "pilihan_c": "Menulisnya"
+          }
   ]
 }

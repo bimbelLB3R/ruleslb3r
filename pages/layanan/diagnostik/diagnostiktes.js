@@ -291,7 +291,7 @@ const DiagnostikSoal = ({ allsoal }) => {
       //   query: { link },
       // });
       router.push({
-        pathname: `/`,
+        pathname: `./hasil`,
         query: { link },
       });
     } else {
@@ -302,6 +302,8 @@ const DiagnostikSoal = ({ allsoal }) => {
       });
     }
   };
+
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
