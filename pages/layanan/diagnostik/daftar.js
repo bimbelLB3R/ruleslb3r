@@ -9,6 +9,7 @@ import Image from "next/image";
 import { getSeminarData } from "../../../utils/seminarApi";
 import AccordianSeminar from "../../../components/AccordianSeminar";
 import Wa from '../../../components/Wa';
+import Link from "next/link";
 
 export async function getStaticProps() {
   const data = getSeminarData();
@@ -102,11 +103,11 @@ const Seminar = ({allSeminar}) => {
         setIsButtonDisabled(false);
         Swal.fire({
           title: 'Pendaftaran Berhasil',
-          text: 'Silahkan lihat-lihat web kami',
+          text: 'Silahkan Login Untuk Mulai Tes Diagnostik',
           icon: 'success',
           confirmButtonText: 'ok',
         });
-        router.push(`/`);
+        router.push(`./login`);
       } else {
         setIsButtonDisabled(false);
       }
@@ -170,6 +171,15 @@ const Seminar = ({allSeminar}) => {
             <p className="font-semibold text-lg text-center w-full bg-gradient-to-b from-orange-500 to-orange-400 p-2 text-slate-100">
               FORMULIR PENDAFTARAN
             </p>
+            <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                Sudah punya akun?{" "}
+                <Link
+                  href="/layanan/diagnostik/login"
+                  className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+                >
+                  Login disini !
+                </Link>
+              </p>
             <div>
             <select
                 className={`w-full mb-2 px-2.5 pb-2.5 pt-4 text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 ${iskelasEmpty ? "border-red-500" : ""}`}
@@ -228,12 +238,14 @@ const Seminar = ({allSeminar}) => {
                   onBlur={() => setIswaEmpty(!form.wa)}
                   disabled={isDisabled}
                 />
+                
                 <label
                   className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                 >
                   {selectedClass === "Umum" ? "Nomor WA" : "Nomor WA Orang tua Kamu"}
                 </label>
               </div>
+              <p className="text-xs mb-2 text-right text-gray-500">format : 081392552459 (tanpa spasi)</p>
               {iswaEmpty && <p className="text-red-500 text-xs mb-2">Nomor WA Wajib diisi</p>}
               
               <div className="relative">

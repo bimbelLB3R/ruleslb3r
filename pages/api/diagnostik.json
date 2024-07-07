@@ -1,0 +1,94 @@
+{
+  "soals": [
+    {
+      "id": 0,
+      "tipe_soal":"Diagnostik",
+      "nomor_soal": "1",
+      "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
+      "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
+      "pilihan_b": "kisah-snbp-2024",
+      "pilihan_c": "language-js"
+    },
+    {
+        "id": 1,
+        "tipe_soal":"Diagnostik",
+        "nomor_soal": "2",
+        "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
+        "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
+        "pilihan_b": "kisah-snbp-2024",
+        "pilihan_c": "language-js"
+      },
+      {
+        "id": 2,
+        "tipe_soal":"Diagnostik",
+        "nomor_soal": "3",
+        "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
+        "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
+        "pilihan_b": "kisah-snbp-2024",
+        "pilihan_c": "language-js"
+      },
+      {
+        "id": 3,
+        "tipe_soal":"Diagnostik",
+        "nomor_soal": "4",
+        "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
+        "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
+        "pilihan_b": "kisah-snbp-2024",
+        "pilihan_c": "language-js"
+      },
+      {
+        "id": 4,
+        "tipe_soal":"Diagnostik",
+        "nomor_soal": "5",
+        "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
+        "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
+        "pilihan_b": "kisah-snbp-2024",
+        "pilihan_c": "language-js"
+      },
+      {
+        "id": 5,
+        "tipe_soal":"Diagnostik",
+        "nomor_soal": "6",
+        "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
+        "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
+        "pilihan_b": "kisah-snbp-2024",
+        "pilihan_c": "language-js"
+      },
+      {
+          "id": 6,
+          "tipe_soal":"Diagnostik",
+          "nomor_soal": "7",
+          "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
+          "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
+          "pilihan_b": "kisah-snbp-2024",
+          "pilihan_c": "language-js"
+        },
+        {
+          "id": 7,
+          "tipe_soal":"Diagnostik",
+          "nomor_soal": "8",
+          "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
+          "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
+          "pilihan_b": "kisah-snbp-2024",
+          "pilihan_c": "language-js"
+        },
+        {
+          "id": 8,
+          "tipe_soal":"Diagnostik",
+          "nomor_soal": "9",
+          "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
+          "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
+          "pilihan_b": "kisah-snbp-2024",
+          "pilihan_c": "language-js"
+        },
+        {
+          "id": 9,
+          "tipe_soal":"Diagnostik",
+          "nomor_soal": "10",
+          "soal": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
+          "pilihan_a": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
+          "pilihan_b": "kisah-snbp-2024",
+          "pilihan_c": "language-js"
+        }
+  ]
+}
