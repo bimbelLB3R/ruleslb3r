@@ -117,12 +117,22 @@ const hasilDiagnostik = ({ allTipeModalitas }) => {
     const canvas = await html2canvas(element);
     const data = canvas.toDataURL('image/png');
 
-    const pdf = new jsPDF();
-    const imgProperties = pdf.getImageProperties(data);
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+    // const pdf = new jsPDF();
+    // const imgProperties = pdf.getImageProperties(data);
+    // const pdfWidth = pdf.internal.pageSize.getWidth();
+    // const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
 
-    pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    // Ukuran halaman A4 dalam satuan mm
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pdfWidth = 210;
+    const pdfHeight = 297;
+    
+    // Rasio ukuran gambar untuk menyesuaikan dengan halaman A4
+    const imgWidth = pdfWidth;
+    const imgHeight = (canvas.height * pdfWidth) / canvas.width;
+
+    // pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.addImage(data, 'PNG', 0, 0, imgWidth, imgHeight);
     pdf.save(`Modalitas-${namaAnak}.pdf`);
   };
 
@@ -144,7 +154,7 @@ const hasilDiagnostik = ({ allTipeModalitas }) => {
       </Head>
     <div className="flex items-center justify-center m-4 " >
       <div>
-      <div className="md:max-w-3xl border p-2 md:p-10 shadow-md" id="page-content">
+      <div className="md:max-w-3xl print:w-[794px] print:h-[1123px] border p-4 md:p-10 shadow-md" id="page-content">
         <div className="flex items-center justify-center bg-gray-900 p-2 m-2">
           <p className="text-gray-50 font-semibold">HASIL TES MODALITAS BELAJAR</p>
         </div>
