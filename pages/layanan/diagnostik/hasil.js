@@ -4,6 +4,9 @@ import ChartDiagnostik from "../../../components/ChartDiagnostik";
 import Swal from "sweetalert2";
 import { getModalitasData } from "../../../utils/modalitasApi";
 import Head from "next/head";
+import DownloadPdf from "../../../components/DownloadPdf";
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 // meminta data ke server /api
 export async function getStaticProps() {
@@ -109,6 +112,20 @@ const hasilDiagnostik = ({ allTipeModalitas }) => {
     values: [counts.A, counts.B, counts.C],
   };
 
+  const handleDownload = async () => {
+    const element = document.getElementById('page-content');
+    const canvas = await html2canvas(element);
+    const data = canvas.toDataURL('image/png');
+
+    const pdf = new jsPDF();
+    const imgProperties = pdf.getImageProperties(data);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+
+    pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.save('download.pdf');
+  };
+
   return (
     <>
     <Head>
@@ -125,7 +142,7 @@ const hasilDiagnostik = ({ allTipeModalitas }) => {
           href="/image/logolb3r.png"
         />
       </Head>
-    <div className="flex items-center justify-center m-4 ">
+    <div className="flex items-center justify-center m-4 " id="page-content">
       <div className="md:max-w-lg border p-2 shadow-md">
         <div className="flex items-center justify-center bg-gray-900 p-2 m-2">
           <p className="text-gray-50 font-semibold">HASIL TES DIAGNOSTIK</p>
@@ -148,6 +165,9 @@ const hasilDiagnostik = ({ allTipeModalitas }) => {
           </div>
         </div>
         
+        <div className="flex items-center justify-center bg-gray-600 p-2 m-2">
+          <button onClick={handleDownload} className="text-gray-50 font-semibold">Download Hasil</button>
+        </div>
         <div className="flex items-center justify-center bg-red-600 p-2 m-2">
           <button onClick={handleTutup} className="text-gray-50 font-semibold">Keluar</button>
         </div>
