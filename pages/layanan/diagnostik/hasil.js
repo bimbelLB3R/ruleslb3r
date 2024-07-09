@@ -123,7 +123,7 @@ const hasilDiagnostik = ({ allTipeModalitas }) => {
     const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
 
     pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
-    pdf.save('download.pdf');
+    pdf.save(`Modalitas-${namaAnak}.pdf`);
   };
 
   return (
@@ -142,10 +142,11 @@ const hasilDiagnostik = ({ allTipeModalitas }) => {
           href="/image/logolb3r.png"
         />
       </Head>
-    <div className="flex items-center justify-center m-4 " id="page-content">
-      <div className="md:max-w-lg border p-2 shadow-md">
+    <div className="flex items-center justify-center m-4 " >
+      <div>
+      <div className="md:max-w-3xl border p-2 md:p-10 shadow-md" id="page-content">
         <div className="flex items-center justify-center bg-gray-900 p-2 m-2">
-          <p className="text-gray-50 font-semibold">HASIL TES DIAGNOSTIK</p>
+          <p className="text-gray-50 font-semibold">HASIL TES MODALITAS BELAJAR</p>
         </div>
         <div className="p-2">
           <div className="mb-2 flex space-x-2"> 
@@ -156,7 +157,7 @@ const hasilDiagnostik = ({ allTipeModalitas }) => {
             <p>Hasil Diagnostik :</p>
             <p className="font-semibold">{result}</p>
           </div>
-          <div className="w-[300px] md:w-[400px] mb-2">
+          <div className="w-[300px] md:w-[600px] mb-2">
             <ChartDiagnostik data={data} />
           </div>
           <div className="mb-2">
@@ -164,14 +165,16 @@ const hasilDiagnostik = ({ allTipeModalitas }) => {
             <p>{keterangan}</p>
           </div>
         </div>
-        
-        <div className="flex items-center justify-center bg-gray-600 p-2 m-2">
+      </div>
+      <div>
+      <div className="flex items-center justify-center bg-gray-600 p-2 m-2">
           <button onClick={handleDownload} className="text-gray-50 font-semibold">Download Hasil</button>
         </div>
         <div className="flex items-center justify-center bg-red-600 p-2 m-2">
           <button onClick={handleTutup} className="text-gray-50 font-semibold">Keluar</button>
         </div>
-      </div>
+        </div>
+        </div>
     </div>
     </>
   );
