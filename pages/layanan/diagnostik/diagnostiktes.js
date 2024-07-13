@@ -391,7 +391,7 @@ const DiagnostikSoal = ({ allsoal }) => {
   // console.log(isLoading);
 
   return (
-    <div>
+    <div className="font-roboto">
       <Head>
         <title>SOAL DIAGNOSTIK  | Bimbel LB3R</title>
         <meta
@@ -507,7 +507,7 @@ const DiagnostikSoal = ({ allsoal }) => {
                 {paginatedPosts.map((item) => (
                   <div
                     key={item.id}
-                    className="bg-gray-50 lg:drop-shadow-2xl lg:m-10 p-2"
+                    className="bg-gray-50 lg:drop-shadow-2xl lg:m-10 p-2 md:max-w-2xl"
                   >
                     {/* {console.log(item[0])} */}
                     {/* Bacaan */}
@@ -591,7 +591,7 @@ const DiagnostikSoal = ({ allsoal }) => {
 
                         <div className="checklist flex flex-col items-center mt-10 mb-10">
                           <input
-                            className="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            className="w-4 h-4 text-yellow-400 bg-blue-400 border-blue-300 rounded focus:ring-yellow-500 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                             type="checkbox"
                             checked={isChecked[currentPage] || false}
                             // id={`page-${item[28]}`}

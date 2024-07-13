@@ -201,12 +201,16 @@ const Seminar = ({allSeminar}) => {
                 onChange={handleChange}
               >
                 <option value="">Asal Sekolah</option>
+                <option value="Siswa LB3R">Siswa LB3R</option>
                 <option value="SMPIT Ashabul Kahfi">SMPIT Ashabul Kahfi</option>
                 <option value="SMP Hasbunallah">SMP Hasbunallah</option>
                 <option value="SMP Plus MP">SMP Plus MP</option>
                 <option value="SMPN 1 Tanjung">SMPN 1 Tanjung</option>
                 <option value="SMPN 2 Tanjung">SMPN 2 Tanjung</option>
                 <option value="MTsN 1 Tanjung">MTsN 1 Tanjung</option>
+                <option value="SMAN 1 Tanjung">SMAN 1 Tanjung</option>
+                <option value="SMAN 2 Tanjung">SMAN 2 Tanjung</option>
+                <option value="Lainnya">Lainnya</option>
               </select>
               {issekolahEmpty && <p className="text-red-500 text-xs mb-2">Asal Sekolah Wajib diisi</p>}
 
