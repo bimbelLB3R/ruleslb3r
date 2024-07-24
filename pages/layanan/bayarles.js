@@ -345,7 +345,7 @@ const BayarLes = ({ allPost }) => {
                   htmlFor="floating_outlined"
                   className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100  px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                 >
-                  Kode Identitasmu
+                  Nomor Tagihan
                 </label>
               </div>
               {isTokenEmpty && (
@@ -460,16 +460,16 @@ const BayarLes = ({ allPost }) => {
                 onChange={handleChange}
               >
                 <option value="">Pilih Nominal</option>
-                <option value="175000">Rp 175.000,-</option>
-                <option value="185000">Rp 185.000,-</option>
+                <option value="1000000">Rp 1.000.000,-</option>
+                <option value="225000">Rp 225.000,-</option>
+                <option value="200000">Rp 200.000,-</option>
                 <option value="195000">Rp 195.000,-</option>
-                <option value="1500000">Rp 1.500.000,-</option>
-                <option value="35000">Rp 35.000,-</option>
-                <option value="40000">Rp 40.000,-</option>
-                <option value="45000">Rp 45.000,-</option>
+                <option value="185000">Rp 185.000,-</option>
+                <option value="175000">Rp 175.000,-</option>
                 <option value="50000">Rp 50.000,-</option>
-                <option value="100000">Rp 100.000,-</option>
-                <option value="150000">Rp 150.000,-</option>
+                <option value="45000">Rp 45.000,-</option>
+                <option value="40000">Rp 40.000,-</option>
+                <option value="35000">Rp 35.000,-</option>
               </select>
               {isjumlahEmpty && (
                 <p className="text-red-500 text-xs mb-2">Wajib diisi</p>
@@ -518,7 +518,7 @@ const BayarLes = ({ allPost }) => {
                   }
                 }}
               >
-                <option value="">Pilih Jumlah Pembayaran</option>
+                <option value="">Pilih Jumlah Item</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
