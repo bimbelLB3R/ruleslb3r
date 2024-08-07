@@ -72,7 +72,7 @@ const LiveJadwal = () => {
                         <div>
                           <Link href={`https://www.bimbellb3r.com/image/tentor/${daJal.pengajar_jadwal}.png`} className="flex items-center justify-center">
                             <Image
-                              src={`/image/tentor/${daJal.pengajar_jadwal?daJal.pengajar_jadwal:'iconlb3r'}.png`}
+                              src={`/image/tentor/${daJal.pengajar_jadwal.length>0?daJal.pengajar_jadwal:'iconlb3r'}.png`}
                               width={50}
                               height={50}
                               alt="No Image"
