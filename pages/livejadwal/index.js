@@ -68,21 +68,18 @@ const LiveJadwal = () => {
             <div className="mb-20">
               {dataJadwal.length > 0 ? (
                 <div>
-                  {dataJadwal.map((daJal) => {
-                    const srcGambar= `image/tentor/${daJal.pengajar_jadwal}.png`;
+                  {dataJadwal.map((daJal) => (
                     <div key={daJal.id_jadwal}>
                       <div className="flex items-center justify-start space-x-3 border-b-2 border-gray-300 p-2 max-w-[300px] md:max-w-xl m-auto">
                         <div>
-                          <Link href={`https://www.bimbellb3r.com/${srcGambar}`} className="flex items-center justify-center">
+                          <Link href={`https://www.bimbellb3r.com/image/tentor/${daJal.pengajar_jadwal}.png`} className="flex items-center justify-center">
                             <Image
-                              // src={`/image/tentor/${daJal.pengajar_jadwal}.png`}
-                              src={`/${srcGambar}`}
+                              src={`/image/tentor/${daJal.pengajar_jadwal}.png`}
                               width={50}
                               height={50}
                               alt="No Image"
                               className="rounded-full"
                               priority
-                              onError={(e) => e.target.src = "image/tentor/iconlb3r.png"}
                             />
                           </Link>
                           
@@ -101,7 +98,7 @@ const LiveJadwal = () => {
                         </div>
                       </div>
                     </div>
-})}
+              ))}
                 </div>
               ) : (
                 <p className="text-center p-3">Jadwal belum tersedia</p>
