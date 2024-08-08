@@ -74,7 +74,7 @@ const Service = () => {
           </a>
         </div>
         <div className="m-2 shadow-lg hover:shadow-xl hover:shadow-orange-400 p-6">
-        <a href="https://wa.me/6281392552459"
+        <a href="https://wa.me/6285654179908"
                   className="object-scale-down"
                 >
                   {/* <Image
