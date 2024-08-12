@@ -6,6 +6,7 @@ const Service = () => {
     <>
       <div className="flex flex-wrap justify-center">
         <div className="m-2 shadow-lg hover:shadow-xl hover:shadow-orange-400 p-6">
+          <a href="https://www.bimbellb3r.com/rules/newclass">
           {/* <Image
             src="/image/buatKelas2.png"
             width={128}
@@ -24,6 +25,7 @@ const Service = () => {
               Buat kelas baru
             </p>
           </div>
+          </a>
         </div>
         <div className="m-2 shadow-lg hover:shadow-xl hover:shadow-orange-400 p-6">
           <a href="https://fitur-lb3r.vercel.app/">

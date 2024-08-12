@@ -11,7 +11,7 @@ const Faq = () => {
             <Accordion.Content>
               <p className="mb-2 text-gray-900 dark:text-gray-400 text-left">
                 Biaya les di LB3R terbilang murah dan mudah. Biaya pendaftaran
-                Rp 150.000,- dan biaya bulanannya Rp 195.000,-.
+                Rp 150.000,- dan biaya bulanannya mulai dari Rp 195.000,-.
               </p>
               <p className="text-gray-900 dark:text-gray-400 text-left">
                 Simak{" "}
