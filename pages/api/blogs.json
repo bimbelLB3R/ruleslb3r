@@ -1,6 +1,34 @@
 {
   "posts": [
     {
+      "id": 9,
+      "title": "Penerapan KPIM (Key Performance Indicators And Monitoring) Terhadap Karyawan LB3R untuk Meningkatkan Kinerja dan Memaksimalkan Layanan ke Konsumen",
+      "description": "Untuk menuju service excellence dan 1 juta customer terlayani, manajemen LB3R menerapkan KPIM...",
+      "slug": "penerapan-kpim",
+      "bahasa": "language-js",
+      "body": [
+        "Ujung tombak dari service excellence terletak pada kualitas pengajar yang kami miliki, pelayanan dibagian CS dan sistem yang powerfull. Dibelakang semua itu kami juga menyiapkan konten yang berkualitas, tepat sasaran, relavan dengan kebutuhan dan selalu up date. Semua itu dikemas secara efektif dan efisien untuk menghasilkan jasa pendidikan yang terjangkau untuk seluruh lapisan masyarakat dari berbagai kalangan ekonomi.",
+        "KPIM yang merupakan kependekan dari Key Performance Indicators and Monitoring, merupakan sebuah langkah inovatif untuk menuju bisnis autopilot tanpa meninggalkan mutu dan kualitas. Di LB3R ada beberapa kunci yang menjadi indikator perfoma karyawan dan staf, mencangkup guru/pengajar, staf administrasi, staf keuangan dan manajer cabang. Beberapa poin indikator akan kami rangkum secara singkat pada artikel kali ini.",
+        "<span style='color: #ea580c; font-weight: bold; '>Kedisiplinan Pengajar</span>",
+        "Kedisiplinan menjadi salah satu indikator perfoma dari pengajar yang diukur melalui jam kehadiran, ketepatan waktu mengajar dan kedisiplinan dalam mengisi capaian, mengamati siswa yang aktif dan memberikan feedback kepada siswa. Kedisiplinan akan dievaluasi setiap bulan dan bussines owner akan menerima laporan serta melakukan monitoring. Monitoring dilakukan secara bertahap , mulai dari pemberian peringatan secara langsung hingga membatasi jam mengajar. Semua data ditampilkan dalam grafik yang mudah dibaca.",
+        "<span style='color: #ea580c; font-weight: bold; '>Konten Pembelajaran</span>",
+        "Setiap pengajar kami gali karakter dan ciri khasnya masing-masing yang bisa menjadi keungggulan. Setiap pengajar diberi keleluasaan untuk mengembangkan bahan ajar yang meliputi penggunaan media pembelajaran, strategi pembelajaran berdasarkan modalitas anak, penggunaan Artificial Intelegence serta cara berkomunikasi personal kepada siswa. Pengajar akan mendapatkan feedback dari rating yang diisi oleh siswa setiap kali belajar bersama guru LB3R. Bussines owner akan memonitoring pengajar yang tidak mengalami perubahan pada rate dan akan mengevaluasinya. Stagnasi pada rate menunjukkan konten yang diberikan belum maksimal sehingga BO (Bussines Owner) perlu melakukan pendekatan atau memberikan support.",
+        "<span style='color: #ea580c; font-weight: bold; '>Menjadi Marketer</span>",
+        "Setiap organ yang ada di LB3R merupakan tools marketing, sehingga visi dan misi LB3R harus meresap dalam pemikiran karyawan. Pesan marketing disampaikan secara terbuka dalam grup WA dan secara tertutup dalam akun yang dimiliki setiap pengajar. Didalam kelas pun, pengajar adalah seorang marketer yang bisa mendokumentasikan kegiatannya sebagai sarana berkomunikasi ke publik dan sebagai bukti menariknya pembelajaran di kelas yang mereka berikan. Marketing menjadi aspek penting, sehingga ada reward yang diberikan kepada setiap pengajar yang besarnya berbeda tergantung perfoma dan capaian mereka.",
+        "<span style='color: #ea580c; font-weight: bold; '>Sistem Yang Handal dan Agil</span>",
+        "Semakin pesatnya teknologi, maka setiap sisi atau organ di LB3R memanfaatkan teknologi. Mulai dari sistem administrasi hingga sistem keamanan. Disinilah peran Front Liner serta Front office sebagai data collector dan pusat pelayanan kepada konsumen memberikan perannya untuk memajukan lembaga. Segala sumber informasi diinput dan diintegrasikan kedalam sistem on line yang memungkinkan semuanya dapat dimonitoring dengan baik. Sistem ini dibuat dan disesuaikan dengan kebutuhan konsumen untuk memudahkan akses informasi dan proses pelaporan.",
+        "<span style='color: #ea580c; font-weight: bold; '>Legalitas dan Keuangan</span>",
+        "Kami adalah lembaga yang taat hukum yang berlaku di Indonesia, sehingga legalitas kami penuhi. Mulai dai pembayaran pajak, pelaporan keuangan, hingga perijinan kami lakukan dengan baik. Indikator perfoma dari keuangan yaitu dengan laporan keungan yang balance, kejujuran laporan, bukti-bukti transaksi terdokumentasi dengan baik, pengeluaran dan pemasukan yang wajar dan yang paling penting penentuan harga penjualan sehingga memberikan cashflow positif. Data-data penting bisa disajikan dalam grafik sehingga memudahkan dalam mengambil keputusan penting."
+      ],
+      "ogImageName": "testOg.png",
+      "imageUrl": "/image/image6.webp",
+      "writer": "Wahyudi, S.Pd.",
+      "createdAt": "2024-03-27T14:10:56",
+      "updatedAt": "2024-03-27T14:10:56",
+      "tags": "HRD",
+      "keyword": "Bimbel LB3R"
+    },
+    {
       "id": 8,
       "title": "Berbagi kisah SNBP 2024, Kenapa Lolos Kenapa Gagal?",
       "description": "Nilai yang tinggi apakah akan menjamin lolos SNBP?Berapa nilai rata-rata agar lolos SNBP? ...",
