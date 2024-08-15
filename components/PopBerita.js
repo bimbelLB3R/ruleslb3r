@@ -23,19 +23,19 @@ export default function PopBerita({ beritaTerbaru }) {
             <Link
               key={berita.id}
               href={`/blogs/${berita.slug}`}
-              className="flex hover:bg-gray-200  space-x-1 shadow-lg  m-1"
+              className="flex hover:bg-gray-200  space-x-1 shadow-lg  m-1 w-full"
             >
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center w-1/5">
                 <Image
                   src={berita.imageUrl}
                   alt="beritaUpdate"
-                  className="aspect-square w-[60px] h-[60px] object-scale-down"
-                  width={60}
-                  height={60}
+                  className="object-scale-down"
+                  width={100}
+                  height={100}
                 />
               </div>
 
-              <div className="p-2">
+              <div className="p-2 w-4/5">
                 <p className="text-sm text-gray-800">{berita.title}</p>
                 <p className="text-xs text-gray-400">
                   ditulis oleh {berita.writer}
