@@ -97,7 +97,7 @@ const AllRatingTentor = () => {
 
     // Set data pengajar ke state
     setPengajarData(pengajarList);
-  }, [dataRows3]); //penggunaan dataRows3 menyebabkan data hanya akan muncul sekali, jika direfresh hilang 
+  }, [pengajarCount,pengajarData]); //penggunaan dataRows3 menyebabkan data hanya akan muncul sekali, jika direfresh hilang 
   return (
     <div className="max-w-2xl grid grid-cols-1 m-auto mb-4 p-4">
       {loading ? (
