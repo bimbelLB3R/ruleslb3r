@@ -17,6 +17,7 @@ const AllRatingTentor = () => {
   const [pengajarData, setPengajarData] = useState([]);
   const [pengajarCount, setPengajarCount] = useState({}); // State untuk menyimpan jumlah review per pengajar
   const [loading, setLoading] = useState(true); // State untuk menampilkan loader
+  const [maxCount,setMaxCount]=useState();
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
   const ambilRatingTentor = async () => {
@@ -29,11 +30,22 @@ const AllRatingTentor = () => {
     const sheet3 = doc.sheetsById[SHEET_ID3];
     const rows3 = await sheet3.getRows(); //data rating
 
-    // Mengumpulkan semua data dari rows3 ke dalam sebuah array
+    // Mengambil bulan dan tahun saat ini
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth() + 1; // Karena getMonth() mengembalikan index bulan mulai dari 0
+    const currentYear = currentDate.getFullYear();
+
+    // Mengumpulkan semua data dari rows3 yang hanya sesuai dengan bulan dan tahun saat ini
     setLoading(true);
     const allRows3Data = [];
     rows3.forEach((row) => {
-      allRows3Data.push(row);
+      const rowDate = new Date(row.tanggal_rating);
+      const rowMonth = rowDate.getMonth() + 1;
+      const rowYear = rowDate.getFullYear();
+
+      if (rowMonth === currentMonth && rowYear === currentYear) {
+        allRows3Data.push(row);
+      }
     });
     // Set array data ke state
     setDataRows3(allRows3Data);
@@ -69,6 +81,11 @@ const AllRatingTentor = () => {
     // Hitung rata-rata rating
     const rataRataRating = hitungRataRataRating(dataRows3);
 
+     // Menghitung jumlah maksimum review (maxCount)
+  const maxCounttt = Math.max(...Object.values(pengajarCount));
+  // console.log(maxCount);
+  setMaxCount(maxCounttt);
+
     // Ubah hasil perhitungan menjadi array untuk kemudian ditampilkan
     const pengajarList = Object.keys(rataRataRating).map((rating_pengajar) => ({
       rating_pengajar: rating_pengajar,
@@ -80,34 +97,39 @@ const AllRatingTentor = () => {
 
     // Set data pengajar ke state
     setPengajarData(pengajarList);
-  }, [pengajarData, pengajarCount]);
+  }, [dataRows3]); //penggunaan dataRows3 menyebabkan data hanya akan muncul sekali, jika direfresh hilang 
   return (
     <div className="max-w-2xl grid grid-cols-1 m-auto mb-4 p-4">
       {loading ? (
         <Loader />
       ) : (
-        <div className="border-l-4">
+        <div className="">
+          <h1 className="text-xl font-semibold w-full text-center">The Most Popular This Month</h1>
+          <h1 className="text-xs text-center">www.bimbellb3r.com</h1>
           {pengajarData.map((pengajar, index) => (
             <div key={index}>
+              
               <div
-                className="bg-blue-500 relative"
+                className="bg-blue-500 relative left-20 border-l-4"
                 style={{
-                  width: `${(pengajar.rataRating / 5) * 100}%`,
-                  height: "25px",
-                  marginTop: "5px",
+                  // width: `${(pengajar.rataRating / 5) * 100}%`,
+                  width: `${(pengajar.count / maxCount) * 100}%`, // Mengatur lebar sebagai persentase dari maxCount
+                  height: "35px",
+                  marginTop: "10px",
                 }}
               >
-                <div className="flex items-center w-full space-x-2 absolute inset-y-0 left-2">
-                  <Image
+                <div className="flex items-center w-full space-x-2 absolute inset-y-0 -left-14">
+                  <div >
+                    <div className="flex justify-center items-center space-x-1">
+                    <Image
                     src={`/image/tentor/${pengajar.rating_pengajar}.png`}
                     width={15}
                     height={15}
                     alt="No Image"
                     className="rounded-full"
                     priority
-                  />
-                  <div className="text-xs">
-                    {pengajar.rating_pengajar} ({pengajar.rataRating.toFixed(2)}
+                    />
+                    <p className="text-[8px]">{pengajar.rataRating.toFixed(2)}</p>
                     <span
                       style={{
                         color: "gold",
@@ -115,13 +137,9 @@ const AllRatingTentor = () => {
                     >
                       ★
                     </span>
-                    /
-                    <span style={{ marginLeft: "5px" }}>
-                      {pengajar.count}{" "}
-                      {pengajar.count > 1 ? "reviews" : "review"}
-                    </span>
-                    )
-                  </div>
+                    </div>
+                    <p className="text-[8px]">({pengajar.count} review)</p>
+                    </div>
                 </div>
               </div>
             </div>

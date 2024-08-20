@@ -427,7 +427,7 @@ const FeedbackForm = () => {
                   /> */}
                   <AllRatingTentor />
                 </div>
-                <p className="text-center">
+                <p className="text-center text-xs">
                   Silahkan kamu login terlebih dahulu. Gunakan email seperti
                   email yang kamu pakai saat mendaftar di LB3R
                 </p>
@@ -437,7 +437,7 @@ const FeedbackForm = () => {
                     name="loginGoogle"
                     // onClick={() => signIn()}
                     onClick={handleSignIn}
-                    className="underline  bg-slate-900   text-slate-50 px-3 py-3 rounded-xl"
+                    className="underline text-xs font-semibold text-blue-600"
                   >
                     Login dengan Google
                   </button>
