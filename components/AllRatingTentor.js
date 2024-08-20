@@ -113,7 +113,7 @@ const AllRatingTentor = () => {
                 className="bg-blue-500 relative left-20 border-l-4"
                 style={{
                   // width: `${(pengajar.rataRating / 5) * 100}%`,
-                  width: `${(pengajar.count / maxCount) * 100}%`, // Mengatur lebar sebagai persentase dari maxCount
+                  width: `${(pengajar.count / maxCount) * 175}px`, // Mengatur lebar sebagai persentase dari maxCount
                   height: "35px",
                   marginTop: "10px",
                 }}
