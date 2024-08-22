@@ -400,7 +400,19 @@ const FeedbackForm = () => {
                           <tr className="bg-gray-100 hover:bg-gray-200">
                             <td className="border px-4 py-2">3</td>
                             <td className="border px-4 py-2">
-                              Kamu merasa terbantu oleh guru
+                              Kamu merasa terbantu oleh guru ketika ada tugas
+                            </td>
+                          </tr>
+                          <tr className="bg-gray-100 hover:bg-gray-200">
+                            <td className="border px-4 py-2">4</td>
+                            <td className="border px-4 py-2">
+                              Materi yang disampaikan guru sesuai dengan materi di sekolah kamu
+                            </td>
+                          </tr>
+                          <tr className="bg-gray-100 hover:bg-gray-200">
+                            <td className="border px-4 py-2">5</td>
+                            <td className="border px-4 py-2">
+                              Saat mengajar, guru menggunakan spidol 3 warna (hitam-biru-merah)
                             </td>
                           </tr>
                         </tbody>
