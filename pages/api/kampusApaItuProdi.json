@@ -39,13 +39,14 @@
         "Bioteknologi"
       ],
       "st30": [
-        { "merah": ["Analist", "Interpreter"] },
-        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "merah": ["DES", "OPE","EVA"] },
+        { "kuning": ["STR", "QCA", "RES"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
         "Proses Engineer (terlibat dalam merancang, mengembangkan, dan mengoptimalkan proses produksi dalam industri,menganalisis dan meningkatkan efisiensi operasional, mengidentifikasi dan mengatasi masalah teknis, serta mengawasi perencanaan dan implementasi perubahan proses)"
-      ]
+      ],
+      "kriteria":["Calon mahasiswa Teknik Kimia perlu memiliki kemampuan merancang alat-alat proses dan fasilitas industri (Designer). Kemampuan mengoperasikan dan mengendalikan peralatan dalam pabrik atau industri sangat penting (Operator). Mahasiswa harus mampu melakukan analisis mendalam untuk memastikan efisiensi proses dan kualitas produk (Evaluator). Peran ini membantu dalam perencanaan jangka panjang dan pengembangan strategi untuk optimasi proses (Strategist).Memastikan kualitas produk yang dihasilkan sesuai dengan standar adalah aspek pendukung yang penting (Quality Controller).Mahasiswa dengan kemampuan mengembalikan atau memperbaiki kondisi proses atau peralatan akan sangat berharga, terutama dalam pemeliharaan dan perbaikan (Restorer)"]
     },
     {
       "nama_prodi": "KEDOKTERAN",
@@ -90,14 +91,15 @@
         "Radiologi"
       ],
       "st30": [
-        { "merah": ["Analist", "Interpreter"] },
-        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "merah": ["EVA", "INT","CARE"] },
+        { "kuning": ["EDU", "STR", "MED"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
         "Dokter Umum (memberikan perawatan medis umum kepada pasien, mendiagnosis penyakit, memberikan pengobatan, serta memberikan nasihat kesehatan preventif)",
         "Spesialis Medis (mendiagnosis, merawat, dan mengelola kondisi medis yang spesifik sesuai dengan bidang spesialisasi Anda)"
-      ]
+      ],
+      "kriteria":["Kemampuan untuk menganalisis kondisi pasien secara mendalam dan membuat diagnosis yang tepat sangat penting (Evaluator). Dokter harus mampu menginterpretasikan hasil pemeriksaan medis, seperti tes laboratorium dan pencitraan, serta menjelaskan hasilnya kepada pasien (Interpreter).Kemampuan untuk memberikan perawatan yang baik dan meyakinkan pasien mengenai pengobatan yang mereka terima adalah esensial (Care taker). Sebagai dokter, Anda juga akan mendidik pasien tentang kondisi mereka dan memberikan saran preventif (Educator). Kemampuan merencanakan perawatan jangka panjang dan strategi pengobatan untuk pasien juga menjadi nilai tambah (Strategist). Dalam situasi konflik atau ketidakpastian, dokter harus bisa menengahi antara kebutuhan medis dan keinginan pasien atau keluarga mereka (Mediator)."]
     },
     {
       "nama_prodi": "PENDIDIKAN MATEMATIKA",
@@ -139,11 +141,12 @@
         "Trigonometri"
       ],
       "st30": [
-        { "merah": ["Analist", "Interpreter"] },
-        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "merah": ["EDU", "EVA","STR "] },
+        { "kuning": ["CRE", "INT", "SER"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
-      "prospek_kerja": ["Guru", "Dosen", "Edupreneur"]
+      "prospek_kerja": ["Guru", "Dosen", "Edupreneur"],
+      "kriteria":["Sebagai calon pendidik, kemampuan untuk mendidik dan merencanakan pengajaran adalah yang paling penting (Educator). Evaluasi efektivitas pengajaran dan pemahaman siswa adalah keterampilan utama yang dibutuhkan dalam profesi ini (Evaluator). Merencanakan strategi pengajaran yang efektif dan inovatif untuk membantu siswa memahami konsep matematika adalah hal yang sangat diperlukan (Strategist). Kemampuan untuk menciptakan materi ajar yang menarik dan inovatif akan mendukung proses pembelajaran (Creator). Menginterpretasikan hasil evaluasi siswa untuk memberikan umpan balik yang konstruktif dan membantu perkembangan mereka (Interpreter). Keinginan untuk melayani kebutuhan siswa dan membantu mereka mencapai potensi penuh mereka adalah kualitas yang mendukung peran sebagai pendidik (Server)."]
     },
     {
       "nama_prodi": "PENDIDIKAN BIOLOGI",
@@ -164,11 +167,12 @@
         "Perencanaan dan Pembelajaran"
       ],
       "st30": [
-        { "merah": ["Analist", "Interpreter"] },
-        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "merah": ["EDU", "EVA","STR "] },
+        { "kuning": ["CRE", "INT", "SER"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
-      "prospek_kerja": ["Guru", "Dosen", "Edupreneur"]
+      "prospek_kerja": ["Guru", "Dosen", "Edupreneur"],
+      "kriteria":["Sebagai calon pendidik, kemampuan untuk mendidik dan merencanakan pengajaran adalah yang paling penting (Educator). Evaluasi efektivitas pengajaran dan pemahaman siswa adalah keterampilan utama yang dibutuhkan dalam profesi ini (Evaluator). Merencanakan strategi pengajaran yang efektif dan inovatif untuk membantu siswa memahami konsep biologi adalah hal yang sangat diperlukan (Strategist). Kemampuan untuk menciptakan materi ajar yang menarik dan inovatif akan mendukung proses pembelajaran (Creator). Menginterpretasikan hasil evaluasi siswa untuk memberikan umpan balik yang konstruktif dan membantu perkembangan mereka (Interpreter). Keinginan untuk melayani kebutuhan siswa dan membantu mereka mencapai potensi penuh mereka adalah kualitas yang mendukung peran sebagai pendidik (Server)."]
     },
     {
       "nama_prodi": "PENDIDIKAN KIMIA",
@@ -189,11 +193,12 @@
         "Teori Belajar dan Pembelajaran"
       ],
       "st30": [
-        { "merah": ["Analist", "Interpreter"] },
-        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "merah": ["EDU", "EVA","STR "] },
+        { "kuning": ["CRE", "INT", "SER"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
-      "prospek_kerja": ["Guru", "Dosen", "Edupreneur"]
+      "prospek_kerja": ["Guru", "Dosen", "Edupreneur"],
+      "kriteria":["Sebagai calon pendidik, kemampuan untuk mendidik dan merencanakan pengajaran adalah yang paling penting (Educator). Evaluasi efektivitas pengajaran dan pemahaman siswa adalah keterampilan utama yang dibutuhkan dalam profesi ini (Evaluator). Merencanakan strategi pengajaran yang efektif dan inovatif untuk membantu siswa memahami konsep kimia adalah hal yang sangat diperlukan (Strategist). Kemampuan untuk menciptakan materi ajar yang menarik dan inovatif akan mendukung proses pembelajaran (Creator). Menginterpretasikan hasil evaluasi siswa untuk memberikan umpan balik yang konstruktif dan membantu perkembangan mereka (Interpreter). Keinginan untuk melayani kebutuhan siswa dan membantu mereka mencapai potensi penuh mereka adalah kualitas yang mendukung peran sebagai pendidik (Server)."]
     },
     {
       "nama_prodi": "AGROEKOTEKNOLOGI",
@@ -220,8 +225,8 @@
         "Pengantar Agribisnis"
       ],
       "st30": [
-        { "merah": ["Analist", "Interpreter"] },
-        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "merah": ["ANA", "EVA","CRE"] },
+        { "kuning": ["STR", "EXP", "RES"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
@@ -230,7 +235,8 @@
         "Konsultan Agrikultur (membantu dalam perencanaan dan pengelolaan pertanian, memberikan rekomendasi tentang pemupukan, pengendalian hama dan penyakit, serta pemilihan varietas tanaman yang tepat)",
         "Spesialis Lingkungan (terlibat dalam penilaian dampak lingkungan, pengelolaan sumber daya alam, pengembangan praktik pertanian berkelanjutan, atau pemantauan kualitas tanah dan air)",
         "Pengembangan Produk Agrikultur (terlibat dalam pengembangan produk berbasis bahan pertanian, seperti pangan fungsional, suplemen makanan, atau produk-produk inovatif lainnya)"
-      ]
+      ],
+      "kriteria":["Kemampuan analisis yang mendalam sangat penting untuk menemukan dan memecahkan masalah dalam bidang agronomi dan ilmu tanah (Analist). Evaluasi berbagai faktor yang mempengaruhi pertumbuhan tanaman dan lingkungan sangat penting dalam menentukan metode terbaik dalam pertanian (Evaluator). Kemampuan untuk mengembangkan metode inovatif dalam pertanian, baik dari segi teknik budidaya maupun pengelolaan sumber daya alam (Creator). Merencanakan strategi jangka panjang untuk mengelola pertanian secara berkelanjutan dan meningkatkan produksi tanaman (Strategist). Keterampilan eksploratif dalam mencari solusi baru untuk tantangan yang dihadapi dalam pertanian modern dan penelitian pertanian (Eksplorer).Mengembalikan atau memperbaiki kualitas tanah dan lingkungan untuk mendukung praktik pertanian yang berkelanjutan (Restorer)."]
     },
     {
       "nama_prodi": "PETERNAKAN",
@@ -279,7 +285,8 @@
         "Peneliti Peternakan (terlibat dalam penelitian ilmiah untuk meningkatkan produksi, kesehatan, dan manajemen hewan ternak)",
         "Ahli Reproduksi Hewan (terlibat dalam pembiakan selektif, teknologi inseminasi buatan, fertilisasi in vitro, atau teknik reproduksi lainnya untuk meningkatkan efisiensi reproduksi dan produksi hewan ternak)",
         "Konsultan Peternakan (memberikan saran teknis kepada peternak dan perusahaan peternakan)"
-      ]
+      ],
+      "kriteria":["Evaluasi kondisi kesehatan hewan, kualitas pakan, dan efisiensi produksi adalah keterampilan utama dalam bidang peternakan (Evaluator). Kemampuan untuk memimpin dan mengelola operasional harian peternakan, termasuk pengelolaan tenaga kerja dan logistik (Commander). Menganalisis kebutuhan nutrisi hewan, kondisi kesehatan, serta performa reproduksi untuk meningkatkan hasil peternakan (Analyst). Menciptakan dan mengembangkan teknologi baru dalam pakan, produksi, dan pengolahan hewan ternak (Creator). Merencanakan strategi jangka panjang dalam pengelolaan peternakan, mulai dari produksi hingga distribusi (Strategist).Menjembatani antara peternak, konsultan, dan pihak lain dalam mengatasi masalah kesehatan dan manajemen hewan ternak (Mediator)."]
     },
     {
       "nama_prodi": "TEKNOLOGI INDUSTRI PERTANIAN",
@@ -310,8 +317,8 @@
         "Teknologi Pengolahan Hasil Perairan"
       ],
       "st30": [
-        { "merah": ["Analist", "Interpreter"] },
-        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "merah": ["CRE", "EVA","STR"] },
+        { "kuning": ["RES", "ANA", "PRO"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
@@ -321,7 +328,8 @@
         "Konsultan Agroindustri (memberikan saran dan solusi kepada perusahaan agroindustri)",
         "Spesialis R&D (Research & Development)(melakukan eksperimen, menganalisis data, dan mengembangkan teknik dan formulasi baru untuk meningkatkan efisiensi dan kualitas produk)",
         "Wirausaha Agroindustri (memproduksi, mengolah, atau mengemas produk pangan)"
-      ]
+      ],
+      "kriteria":["Menciptakan inovasi dan mengembangkan produk baru dalam bidang agroindustri, serta mengoptimalkan proses pasca panen (Creator). Mengevaluasi kualitas dan keamanan produk agroindustri, termasuk pengujian dan pengawasan selama proses produksi (Evaluator). Merencanakan dan mengelola proses produksi serta strategi pengembangan produk yang berkelanjutan dan inovatif (Strategist). Memulihkan dan meningkatkan kualitas produk pertanian pasca panen agar tetap bernilai tinggi (Restorer). Menganalisis data penelitian untuk pengembangan produk dan peningkatan efisiensi dalam proses produksi agroindustri (Analist). Mengelola dan mengawasi produksi di industri pertanian, memastikan produk akhir berkualitas tinggi dan sesuai standar (Produser)."]
     },
     {
       "nama_prodi": "AGROINDUSTRI",
@@ -352,8 +360,8 @@
         "Teknologi Pengolahan Hasil Perairan"
       ],
       "st30": [
-        { "merah": ["Analist", "Interpreter"] },
-        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "merah": ["CRE", "EVA","STR"] },
+        { "kuning": ["RES", "ANA", "PRO"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
@@ -363,7 +371,8 @@
         "Konsultan Agroindustri (memberikan saran dan solusi kepada perusahaan agroindustri)",
         "Spesialis R&D (Research & Development)(melakukan eksperimen, menganalisis data, dan mengembangkan teknik dan formulasi baru untuk meningkatkan efisiensi dan kualitas produk)",
         "Wirausaha Agroindustri (memproduksi, mengolah, atau mengemas produk pangan)"
-      ]
+      ],
+      "kriteria":["Menciptakan inovasi dan mengembangkan produk baru dalam bidang agroindustri, serta mengoptimalkan proses pasca panen (Creator). Mengevaluasi kualitas dan keamanan produk agroindustri, termasuk pengujian dan pengawasan selama proses produksi (Evaluator). Merencanakan dan mengelola proses produksi serta strategi pengembangan produk yang berkelanjutan dan inovatif (Strategist). Memulihkan dan meningkatkan kualitas produk pertanian pasca panen agar tetap bernilai tinggi (Restorer). Menganalisis data penelitian untuk pengembangan produk dan peningkatan efisiensi dalam proses produksi agroindustri (Analist). Mengelola dan mengawasi produksi di industri pertanian, memastikan produk akhir berkualitas tinggi dan sesuai standar (Produser)."]
     },
     {
       "nama_prodi": "TEKNOLOGI HASIL PERIKANAN",
@@ -397,13 +406,14 @@
         "Penyuluhan dan Pemberdayaan Masyarakat Perikanan"
       ],
       "st30": [
-        { "merah": ["Analist", "Interpreter"] },
-        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "merah": ["CRE", "EVA","RES"] },
+        { "kuning": ["STR", "ANA", "PRO"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
-        "ahli agroteknologi (merancang, mengembangkan, dan menerapkan berbagai teknologi yang dapat digunakan untuk meningkatkan produksi pertanian)"
-      ]
+        "ahli agroteknologi (merancang, mengembangkan, dan menerapkan berbagai teknologi yang dapat digunakan untuk meningkatkan produksi perikanan.)"
+      ],
+      "kriteria":["Menciptakan inovasi dalam pengolahan hasil perikanan, pengembangan produk yang zero waste, dan ramah lingkungan (Creator). Mengevaluasi kualitas dan keamanan produk perikanan serta efektivitas proses pengolahan pasca panen (Evaluator). Memulihkan dan mengelola limbah perikanan untuk memastikan proses produksi yang berkelanjutan dan ramah lingkungan (Restorer). Merencanakan strategi bisnis dan industri perikanan yang efisien, inovatif, dan berkelanjutan (Strategist). Menganalisis data terkait budidaya ikan, fermentasi, dan pengelolaan limbah untuk meningkatkan hasil produksi (Analyst). Mengelola dan mengawasi proses produksi di industri perikanan untuk menghasilkan produk berkualitas tinggi (PRO)."]
     },
     {
       "nama_prodi": "AKUAKULTUR",
@@ -432,14 +442,15 @@
         "Parasit dan Penyakit Ikan"
       ],
       "st30": [
-        { "merah": ["Analist", "Interpreter"] },
-        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "merah": ["ANA", "RES","STR"] },
+        { "kuning": ["CRE", "OPE", "EVA"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
         "Akuakulturis (memahami pertumbuhan, perkembangan dan produksi hewan yang ada di air)",
         "Wirausaha Akuakultur (membuka usaha tambak atau bisnis budidaya ikan, udang, maupun organisme akuatik lainnya)"
-      ]
+      ],
+      "kriteria":["Menganalisis kualitas air, kondisi lingkungan, dan kebutuhan biota perairan untuk memastikan keberhasilan budidaya (Analyst). Mengelola kelestarian lingkungan perairan, memastikan keseimbangan ekosistem, dan pemulihan habitat yang rusak (Restorer). Merencanakan strategi budidaya yang efisien dan berkelanjutan, mencakup pemeliharaan, penangkaran, dan pengembangbiakan biota perairan (Strategist). Mengembangkan inovasi dalam teknologi pakan, wadah, dan metode budidaya untuk meningkatkan hasil dan kualitas biota perairan (Creator). Mengoperasikan dan memelihara sistem budidaya, termasuk perangkat teknologi yang digunakan dalam pemeliharaan biota perairan (Operator). Mengevaluasi efektivitas metode budidaya, kondisi kesehatan biota, serta kualitas produk perairan (Evaluator)."]
     },
     {
       "nama_prodi": "PERIKANAN TANGKAP",
@@ -455,8 +466,8 @@
         "Dinamika Kapal"
       ],
       "st30": [
-        { "merah": ["Analist", "Interpreter"] },
-        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "merah": ["EXP", "STR","SAF"] },
+        { "kuning": ["RES", "CMD", "EVA"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
@@ -464,7 +475,8 @@
         "Supervisor",
         "Pengusaha",
         "Kantor Pelabuhan"
-      ]
+      ],
+      "kriteria":["Menyelidiki dan mengeksplorasi lokasi-lokasi potensial untuk penangkapan ikan, serta memahami kondisi lingkungan yang memengaruhi populasi ikan (Explorer). Merencanakan strategi penangkapan yang efisien dan berkelanjutan, dengan mempertimbangkan faktor biotik dan abiotik untuk mengurangi dampak negatif terhadap lingkungan (Strategist). Melindungi kelestarian sumber daya perikanan, mengurangi risiko penangkapan berlebih, dan menjaga keseimbangan ekosistem (Safe Keeper). Terlibat dalam usaha pemulihan populasi spesies yang terancam punah dan memitigasi dampak negatif dari polusi laut (Restorer). Memimpin dan mengoordinasikan operasi penangkapan di laut atau perairan lainnya, memastikan kelancaran dan keselamatan dalam proses penangkapan (Commander). Mengevaluasi efektivitas operasi penangkapan, termasuk jumlah tangkapan, dampak lingkungan, dan kelestarian populasi ikan (Evaluator)."]
     },
     {
       "nama_prodi": "MANAJEMEN SUMBER DAYA PERAIRAN",
@@ -490,13 +502,14 @@
         "Hukum dan Politik Perikanan"
       ],
       "st30": [
-        { "merah": ["Analist", "Interpreter"] },
-        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "merah": ["EVA", "STR","MAN"] },
+        { "kuning": ["ANA", "PRO", "MAR"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
         "Lulusan program studi Manajemen Sumberdaya Perairan dapat bekerja di a instansi pemerintahanKementerian Kelautan dan Perikanan (KKP), Dinas Perikanan, Balitbang Kelautan dan Perikanan, Balai Riset dan Observasi Laut, dan lain-lain. Juga Perusahaan Budidaya Laut, Pangan Ikan, Konsultan Kelautan, dan berwirausaha."
-      ]
+      ],
+      "kriteria":["ahasiswa Manajemen Sumber Daya Perairan perlu memiliki kemampuan untuk menganalisis dan mengevaluasi data tentang sumber daya perairan, seperti penilaian kondisi lingkungan dan efektivitas metode pengelolaan (Evaluator).Peran ini penting untuk merencanakan dan mengembangkan strategi pengelolaan sumber daya perairan yang berkelanjutan, termasuk manajemen eksploitasi dan produksi (Strategist). Mengorganisasi, mengelola, dan memanfaatkan sumber daya perairan secara efisien membutuhkan kemampuan manajerial yang kuat, termasuk dalam pengelolaan proyek, tim, dan sumber daya (Manager). Kemampuan analitis diperlukan untuk memahami data ilmiah dan ekonomi yang relevan dengan manajemen sumber daya perairan, serta untuk mengembangkan solusi yang berbasis data (Analyst). Memproduksi hasil yang optimal dari sumber daya perairan melalui teknik budidaya, eksploitasi, dan pemanfaatan yang tepat (Producer). engetahuan tentang strategi pemasaran diperlukan untuk menjual produk dan layanan yang terkait dengan sumber daya perairan, serta mengelola pasar secara efektif (Marketer)."]
     },
     {
       "nama_prodi": "SOSIAL EKONOMI PERIKANAN",
@@ -524,13 +537,14 @@
         "Pengendalian Pencemaran"
       ],
       "st30": [
-        { "merah": ["Analist", "Interpreter"] },
-        { "kuning": ["Designer", "Creator", "Administrator"] },
+        { "merah": ["STR", "ENT","MAN"] },
+        { "kuning": ["ANA", "MAR", "PRO"] },
         { "putih": ["Producer", "Evaluator", "Safekeeper"] }
       ],
       "prospek_kerja": [
         "Lulusan program studi Agrobisnis Perikanan akan meraih gelar Sarjana Perikanan (S.Pi) yang dapat berkarir di berbagai lembaga pemerintahan seperti Kementerian Kelautan dan Perikanan (KKP), Lembaga Ilmu Pengetahuan Indonesia (LIPI), Badan Pengkajian dan Penerapan Teknologi (BPPT), perusahaan swasta yang bergerak di bidang kemaritiman, perusahaan budidaya, bergabung di Lembaga Swadaya Masyarakat (LSM) Bidang Maritim, peneliti dan pengajar, serta menjadi entrepreneur dalam bisnis perikanan."
-      ]
+      ],
+      "kriteria":["Mengembangkan strategi pengelolaan dan pemasaran untuk bisnis perikanan, dengan mempertimbangkan aspek ekonomi dan lingkungan (Strategist). Memiliki jiwa kewirausahaan untuk mendirikan dan mengelola usaha di sektor perikanan, serta berinovasi dalam bisnis komoditas perikanan(Enterprener). Mengelola operasi bisnis perikanan, termasuk manajemen sumber daya, keuangan, dan logistik, untuk memastikan efisiensi dan keberlanjutan (Manager). Menganalisis data pasar, tren ekonomi, dan performa bisnis untuk membuat keputusan yang berbasis informasi dan meningkatkan kinerja (Analyst). Mengembangkan dan menerapkan strategi pemasaran untuk produk perikanan, serta memahami dinamika pasar dan kebutuhan konsumen (Marketer). Memastikan produksi yang optimal dalam bisnis perikanan, termasuk teknik budidaya dan pengelolaan kualitas produk (Produser)."]
     },
     {
       "nama_prodi": "AGROBISNIS PERIKANAN",
