@@ -1,6 +1,37 @@
 {
   "posts": [
     {
+      "id": 10,
+      "title": "Know Your Self and Be Your Self",
+      "description": "Mengenali diri dan menyadari bakat adalah langkah penting dalam pengembangan diri dan mencapai kesuksesan...",
+      "slug": "sadar-bakat",
+      "bahasa": "language-js",
+      "body": [
+        "Mengenali diri dan menyadari bakat adalah langkah penting dalam pengembangan diri dan mencapai kesuksesan. Ketika kita mengenal diri sendiri dengan baik, kita lebih mampu memahami kekuatan, kelemahan, minat, dan nilai-nilai yang mendasari keputusan dan tindakan kita. Hal ini membantu dalam mengambil keputusan yang lebih bijaksana, baik dalam karir, pemilihan jurusan maupun kehidupan pribadi.",
+        "Menyadari bakat yang kita miliki juga memungkinkan kita untuk fokus pada area yang kita kuasai dan menikmati, sehingga meningkatkan peluang untuk mencapai kepuasan dan kesuksesan. Dengan memaksimalkan potensi bakat, kita bisa bekerja dengan lebih efisien, menghasilkan karya yang lebih berkualitas, dan meraih prestasi yang lebih tinggi.",
+        "Selain itu, pengenalan diri dan kesadaran akan bakat juga membantu dalam membangun rasa percaya diri. Ketika kita tahu apa yang kita mampu lakukan dengan baik, kita lebih percaya diri dalam menghadapi tantangan dan bersaing dalam berbagai aspek kehidupan. Ini juga membuka peluang untuk pengembangan lebih lanjut, karena kita bisa mencari kesempatan untuk terus meningkatkan keterampilan dan pengetahuan di bidang yang kita minati.",
+        "Kita akan menggunakan assesmen Talents Mapping mengetahui bakat-bakat kita. Apa saja yang ada dalam hasil Asessmen TM tersebut?",
+        "<span style='color: #ea580c; font-weight: bold; '>Urutan 7 bakat terkuat dan 7 bakat terlemah</span>",
+        "Dalam pandangan Talents Mapping, setiap individu memiliki bakat yang berjumlah 34 tema bakat. Perbedaan satu individu dengan individu lainnya adalah urut-urutan tema bakatnya.Kita fokus memperhatikan urutan 1-7 sebagai bakat dominan atau bakat kuat, sedangkan 7 bakat terakhir perlu kita ketahui dan siasati karena itu merupakan keterbatasan kita.",
+        "<span style='color: #ea580c; font-weight: bold; '>Profil Produktif</span>",
+        "Dari tiga puluh empat bakat yang ada, didalam Talents Mapping dikelompokkan menjadi empat kelompok, yaitu Kelompok Thinking, Kelompok Influencing, Kelompok Striving dan Kelompok Relating. Kombinasi dari dua kelompok akan menghasilkan profil produktif seseorang. Sebagai contoh, seseorang yang dominan bakatnya berada pada kelompok influencing dan relating , maka memiliki profil produktif sebagai seorang influencer. Contoh lain, kombinasi Thinking dan Striving akan memberikan profil prodif seseorang yang expert di bidang tertentu.",
+        "<span style='color: #ea580c; font-weight: bold; '>Potensi Kekuatan</span>",
+        "Ada 14 potensi kekuatan yang ada dalam hasil asesmen Talents Mapping. Potensi kekuatan tersebut berupa aktivitas-aktivitas produktif yang direkomendasikan. Aktivitas produktif adalah aktivitas yang memenuhi unsur 4E, Enjoy, Easy, Excelence, dan Earn.",
+        "<span style='color: #ea580c; font-weight: bold; '>Strength Cluster Map</span>",
+        "Strength Cluster Map merupakan pemetaan yang lebih detail dari potensi kekuatan sesorang baik potensi kekuatan maupun potensi kelemahannya. Potensi tersebut dikelompokkan menjadi 8 bagian, yaitu Headman, Servicing, Generating Idea, Technically, Elementary, Reasoning, Thinking dan Networking. Dari Strength Cluster Map ini kita akan diberi tahu bakat dan minat, apakah bakat kita sudah dioptimalkan atau belum atau justru kita fokus bukan pada kekuatan melainkan kelemahan. Kita juga bisa memperoleh gambaran/ rekomendasi dalam memilih jurusan dan karir yang tepat.",
+        "<span style='color: #ea580c; font-weight: bold; '>Strength Typology</span>",
+        "Strength Typologi disebut juga sebagai personal branding, yaitu peran yang bisa kita maksimalkan yang akan memberikan nilai lebih saat dikerjakan. Strength Typologi ada tiga puluh, sehingga sering disingkat ST-30. Ketiga puluh peran tersebut secara garis besar terbagi menjadi dua, yaitu peran yang sifatnya individual dan peran yang sifatnya interpersonal.",
+        "Dengan tes bakat Talents Mapping, kita dapat mengembangkan bakat  dengan lebih terarah, mempersiapkan diri untuk masa depan, dan meningkatkan peluang untuk sukses dalam bidang yang kita minati."
+      ],
+      "ogImageName": "testOg.png",
+      "imageUrl": "/image/st-30.png",
+      "writer": "Wahyudi, S.Pd.",
+      "createdAt": "2024-09-04T12:28:56",
+      "updatedAt": "2024-09-04T12:28:56",
+      "tags": "HRD",
+      "keyword": "Bimbel LB3R"
+    },
+    {
       "id": 9,
       "title": "Penerapan KPIM (Key Performance Indicators And Monitoring) Terhadap Karyawan LB3R untuk Meningkatkan Kinerja dan Memaksimalkan Layanan ke Konsumen",
       "description": "Untuk menuju service excellence dan 1 juta customer terlayani, manajemen LB3R menerapkan KPIM...",
