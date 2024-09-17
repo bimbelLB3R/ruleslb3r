@@ -3,7 +3,7 @@
     {
       "idProgram": "RegLB3R",
       "keterangan": "Best Seller",
-      "nama": "Program Reguler",
+      "nama": "Reguler SD/SMP",
       "slug": "program-reguler",
       "biaya": 225000,
       "total": 375000,
@@ -43,7 +43,7 @@
     {
       "idProgram": "SnbtLB3R",
       "keterangan": "",
-      "nama": "Program Intensif UTBK SNBT",
+      "nama": "Intensif SNBT",
       "slug": "program-utbk-snbt",
       "biaya": 1000000,
       "total": 1000000,
@@ -61,7 +61,7 @@
     {
       "idProgram": "SnbtLB3R-2",
       "keterangan": "Populer",
-      "nama": "Program Eksklusif UTBK SNBT 2024",
+      "nama": "Eksklusif SNBT",
       "slug": "program-utbk-snbt-eksklusif",
       "biaya": 2000000,
       "total": 2000000,
@@ -80,7 +80,7 @@
     {
       "idProgram": "PrivLB3R",
       "keterangan": "",
-      "nama": "Program Kelas Khusus",
+      "nama": "Privat",
       "slug": "program-kelas-khusus",
       "biaya": 200000,
       "total": 350000,
@@ -98,7 +98,7 @@
     {
       "idProgram": "MathLB3R",
       "keterangan": "",
-      "nama": "Program Akselerasi Matematika",
+      "nama": "Matematika",
       "slug": "program-akselerasi-matematika",
       "biaya": 500000,
       "total": 650000,
@@ -116,7 +116,7 @@
     {
       "idProgram": "EngLB3R",
       "keterangan": "",
-      "nama": "Program Khusus Bahasa Inggris",
+      "nama": "Bahasa Inggris",
       "slug": "program-khusus-inggris",
       "biaya": 200000,
       "total": 350000,
@@ -134,7 +134,7 @@
     {
       "idProgram": "FreeSNBT",
       "keterangan": "Free/Gratis",
-      "nama": "Group SNBT 2024",
+      "nama": "Group SNBT",
       "slug": "group-snbt",
       "biaya": 0,
       "total": 0,
