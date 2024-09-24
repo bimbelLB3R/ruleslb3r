@@ -16,7 +16,7 @@ export default function PopBerita({ beritaTerbaru }) {
   //   console.log(beritaTerbaruIdTerbesar);
   return (
     <>
-      <div className="max-w-2xl grid grid-cols-1 m-auto mb-4">
+      <div className="max-w-2xl grid grid-cols-1 m-auto mb-4 mt-4">
         <p className="m-1 font-semibold">BERITA TERBARU</p>
         {tigaBeritaTerakhir &&
           tigaBeritaTerakhir.map((berita) => (

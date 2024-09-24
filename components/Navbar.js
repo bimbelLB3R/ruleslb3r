@@ -60,7 +60,22 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
   return (
     <>
       <nav>
-        <div className="hidden md:visible md:bg-slate-100 shadow shadow-slate-400 md:flex justify-between items-center p-4 fixed top-0 w-full z-50">
+        <div className="hidden lg:visible lg:bg-slate-100 shadow shadow-slate-400 lg:flex justify-between items-center p-4 fixed top-0 w-full z-50">
+        
+        <div className="flex items-center space-x-2">
+              <Link href="/">
+                <Image
+                  src="/image/logolb3r.png"
+                  width={100}
+                  height={40}
+                  alt="logo LB3r"
+                  priority={true}
+                  // className="w-18 h-12 "
+                />
+
+                {/* <div className="hidden md:visible md:flex">hello</div> */}
+              </Link>
+            </div>
           <div className="flex space-x-4">
             <Link href="/">
               <p className="text-slate-600 hover:text-slate-900">HOME</p>
@@ -95,7 +110,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
 
         <div
           id="nav"
-          className="bg-slate-200 p-3 md:hidden fixed  top-0 z-40 w-full md:shadow md:shadow-slate-400  "
+          className="bg-slate-200 p-3 lg:hidden fixed  top-0 z-40 w-full lg:shadow lg:shadow-slate-400 items-center flex "
         >
           {/* <div className="absolute right-0 -top-6 ">
             <Image
@@ -366,7 +381,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                         </div>
                       </div>
                     </Link>
-                    <Link href="https://temubakat.com/id/index.php/main/disp/tes">
+                    <Link href="https://talentsmapping.id/practitioner/4b764584-b4d2-4be9-ab12-29e1fe9ab8f3?ref=22093684459">
                       <div className="bg-gray-900 p-1 text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>

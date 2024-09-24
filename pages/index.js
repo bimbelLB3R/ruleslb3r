@@ -148,8 +148,8 @@ const Home = ({ allPost, dataAlumni }) => {
         <Welcome />
         <Service />
         <BluryBg />
-        <Faq />
         <PopBerita beritaTerbaru={allPost} />
+        <Faq />
         {/* <AllRatingTentor /> */}
         {/* <InfoTerbaru /> */}
         {/* <CodeBlog /> */}

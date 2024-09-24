@@ -86,7 +86,7 @@ export default function DropdownMenuLayanan() {
               Cek Keketatan Prodi
             </Link>
             <Link
-              href="https://temubakat.com/id/"
+              href="https://talentsmapping.id/practitioner/4b764584-b4d2-4be9-ab12-29e1fe9ab8f3?ref=22093684459"
               className="text-gray-700 block px-4 py-2 text-sm hover:bg-slate-200"
               role="menuitem"
               tabIndex="-1"
