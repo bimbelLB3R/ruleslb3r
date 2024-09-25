@@ -59,7 +59,6 @@ const FormTM = ({ detailProgram}) => {
   const router = useRouter();
   const [form, setForm] = useState({
     nama: "",
-    ttl: "",
     kelas: "",
     asalsekolah: "",
     profesi: "",
@@ -137,13 +136,12 @@ const handleCheckboxChange = (e) => {
     }
   };
   // cek apakah nama sudah ada end
+//   console.log(form);
 
   const submitForm = async (e, sheet) => {
     e.preventDefault();
 
     if (
-      form.ttl !== "" &&
-      form.ttl.length < 200 &&
       form.kelas !== "" &&
       form.kelas.length < 3 &&
       form.asalsekolah !== "" &&
@@ -165,7 +163,6 @@ const handleCheckboxChange = (e) => {
       if (canSubmit) {
         const newRow = {
           nama: session.user.name,
-          ttl: form.ttl,
           kelas: form.kelas,
           asalsekolah: form.asalsekolah,
           profesi: form.profesi,
@@ -271,7 +268,6 @@ const handleCheckboxChange = (e) => {
     if (
       // form.nama &&
       session &&
-      form.ttl !== "" &&
       form.kelas !== "" &&
       form.asalsekolah !== "" &&
       form.profesi !== ""&&
@@ -528,7 +524,7 @@ const handleCheckboxChange = (e) => {
                 name="kota"
                 type="text"
                 id="floating_outlined7"
-                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isKotaEmpty ? "border-red-500" : "mb-2"
                 }`}
                 placeholder=" "
