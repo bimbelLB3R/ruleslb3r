@@ -202,7 +202,8 @@ const handleCheckboxChange = (e) => {
             return { error: true, message: "Pesan kesalahan di sini" };
           }
         };
-        const { transactionToken, transactionRedirectUrl } = await createTransaction(newRow);
+        const transactionToken = await createTransaction(newRow);
+        const transactionRedirectUrl = await createTransaction(newRow);
 
         // console.log(transactionToken); //token berhasil
         // console.log(transactionRedirectUrl); //token berhasil
