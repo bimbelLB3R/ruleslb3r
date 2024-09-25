@@ -91,9 +91,15 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
                     <p className="text-[20px] md:text-[40px] font-bold text-orange-900">
                       {program.nama}
                     </p>
-                    <p className="text-[10px] md:text-[20px] font-bold text-orange-400">
+                    {program.keterangan==='diskon'?<div>
+                    <p className="text-[8px] md:text-[16px] font-bold text-red-900 line-through">
                       {formatCurrency(program.biaya)}
                     </p>
+                    <p className="text-[10px] md:text-[20px] font-bold text-orange-400">
+                      {formatCurrency(program.diskon)}
+                    </p></div>:<div><p className="text-[10px] md:text-[20px] font-bold text-orange-400">
+                      {formatCurrency(program.biaya)}
+                    </p></div>}
                     <p className="text-center">{program.frekuensi}</p>
                   </div>
                 </div>
@@ -117,7 +123,7 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
                 <Link
                   href={
                     program.keterangan === "Free/Gratis"
-                      ? `/form/newmember`
+                      ? `/form/newmember`:program.keterangan==="diskon"?`/form/tmasesmen`
                       : `/layanan/${program.slug}`
                   }
                   className="flex items-center justify-center"
