@@ -42,6 +42,7 @@ const FormTM = ({ detailProgram}) => {
 
   // const [isNamaEmpty, setIsNamaEmpty] = useState(false);
   const [isKelasEmpty, setIsKelasEmpty] = useState(false);
+  const [isWaEmpty, setIsWaEmpty] = useState(false);
   const [isAsalSekolahEmpty, setIsAsalSekolahEmpty] = useState(false);
   const [isProfesiEmpty, setIsProfesiEmpty] = useState(false);
   const [isProfesi2Empty, setIsProfesi2Empty] = useState(false);
@@ -60,6 +61,7 @@ const FormTM = ({ detailProgram}) => {
   const [form, setForm] = useState({
     nama: "",
     kelas: "",
+    wa:"",
     asalsekolah: "",
     profesi: "",
     profesi2: "",
@@ -144,12 +146,14 @@ const handleCheckboxChange = (e) => {
     if (
       form.kelas !== "" &&
       form.kelas.length < 3 &&
+      form.wa !== "" &&
+      form.wa.length < 15 &&
       form.asalsekolah !== "" &&
       form.asalsekolah.length < 100 &&
       form.profesi !== "" &&
-      form.profesi.length < 300 &&
+      form.profesi.length < 500 &&
       form.profesi2 !== "" &&
-      form.profesi2.length < 300 &&
+      form.profesi2.length < 500 &&
       form.kota !== "" &&
       form.kota.length < 300 &&
       form.program !== "" &&
@@ -164,6 +168,7 @@ const handleCheckboxChange = (e) => {
         const newRow = {
           nama: session.user.name,
           kelas: form.kelas,
+          wa:form.wa,
           asalsekolah: form.asalsekolah,
           profesi: form.profesi,
           profesi2: form.profesi2,
@@ -269,6 +274,7 @@ const handleCheckboxChange = (e) => {
       // form.nama &&
       session &&
       form.kelas !== "" &&
+      form.wa !== "" &&
       form.asalsekolah !== "" &&
       form.profesi !== ""&&
       form.profesi2 !== ""&&
@@ -397,6 +403,38 @@ const handleCheckboxChange = (e) => {
               {isKelasEmpty && (
                 <p className="text-red-500 text-xs">
                   Wajib diisi angka (maks 3 digit)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="wa"
+                type="number"
+                id="floating_outlined8"
+                className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isWaEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.wa === "" || form.wa.length > 13) {
+                    setIsWaEmpty(true);
+                  } else {
+                    setIsWaEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined8"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Nomor WA Aktif Siswa
+              </label>
+              {isWaEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi angka (maks 14 digit)
                 </p>
               )}
             </div>
