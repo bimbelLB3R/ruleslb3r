@@ -32,7 +32,9 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
 const FormTM = ({ detailProgram}) => {
   const { data: session } = useSession();
   const isInputReadOnly = !session ? true : false;
-  const [isDisable, setIsDisable] = useState(!session);
+  const [isDisable, setIsDisable] = useState(
+    typeof session === "undefined" || session ? false : true
+  );
 
   // console.log(isDisable);
   const [showButton, setShowButton] = useState(false);
