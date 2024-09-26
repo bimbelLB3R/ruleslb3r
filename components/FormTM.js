@@ -352,9 +352,7 @@ const handleCheckboxChange = (e) => {
       form.seni !== ""&&
       form.ketrampilan !== ""&&
       form.prestasi !== ""&&
-      form.todo !== ""&&
-      form.program!==""&&
-      form.biaya!==""
+      form.todo !== ""
 
       // form.email
     ) {
