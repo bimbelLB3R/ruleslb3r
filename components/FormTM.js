@@ -47,6 +47,18 @@ const FormTM = ({ detailProgram}) => {
   const [isProfesiEmpty, setIsProfesiEmpty] = useState(false);
   const [isProfesi2Empty, setIsProfesi2Empty] = useState(false);
   const [isKotaEmpty, setIsKotaEmpty] = useState(false);
+  const [isKampusEmpty, setIsKampusEmpty] = useState(false);
+  const [isJurusanmuEmpty, setIsJurusanmuEmpty] = useState(false);
+  const [isJurusannyaEmpty, setIsJurusannyaEmpty] = useState(false);
+  const [isSukaEmpty, setIsSukaEmpty] = useState(false);
+  const [isSulitEmpty, setIsSulitEmpty] = useState(false);
+  const [isNonmapelEmpty, setIsNonmapelEmpty] = useState(false);
+  const [isOrganisasiEmpty, setIsOrganisasiEmpty] = useState(false);
+  const [isOlahragaEmpty, setIsOlahragaEmpty] = useState(false);
+  const [isSeniEmpty, setIsSeniEmpty] = useState(false);
+  const [isKetrampilanEmpty, setIsKetrampilanEmpty] = useState(false);
+  const [isPrestasiEmpty, setIsPrestasiEmpty] = useState(false);
+  const [isTodoEmpty, setIsTodoEmpty] = useState(false);
 
   const namaProgram = detailProgram.nama;
   const biayaProgram = detailProgram.total;
@@ -70,7 +82,19 @@ const FormTM = ({ detailProgram}) => {
     biaya: "",
     hobbies:[],
     otherHobby:"",
-    kota:""
+    kota:"",
+    kampus:"",
+    jurusanmu:"",
+    jurusannya:"",
+    suka:"",
+    sulit:"",
+    nonmapel:"",
+    organisasi:"",
+    olahraga:"",
+    seni:"",
+    ketrampilan:"",
+    prestasi:"",
+    todo:""
   });
 
   // Menangani checkbox perubahan
@@ -156,6 +180,30 @@ const handleCheckboxChange = (e) => {
       form.profesi2.length < 500 &&
       form.kota !== "" &&
       form.kota.length < 300 &&
+      form.kampus !== "" &&
+      form.kampus.length < 300 &&
+      form.jurusanmu !== "" &&
+      form.jurusanmu.length < 300 &&
+      form.jurusannya !== "" &&
+      form.jurusannya.length < 300 &&
+      form.suka !== "" &&
+      form.suka.length < 300 &&
+      form.sulit !== "" &&
+      form.sulit.length < 300 &&
+      form.nonmapel !== "" &&
+      form.nonmapel.length < 300 &&
+      form.organisasi !== "" &&
+      form.organisasi.length < 300 &&
+      form.olahraga !== "" &&
+      form.olahraga.length < 300 &&
+      form.seni !== "" &&
+      form.seni.length < 300 &&
+      form.ketrampilan !== "" &&
+      form.ketrampilan.length < 300 &&
+      form.prestasi !== "" &&
+      form.prestasi.length < 300 &&
+      form.todo !== "" &&
+      form.todo.length < 300 &&
       form.program !== "" &&
       form.biaya !== ""
     ) {
@@ -170,14 +218,27 @@ const handleCheckboxChange = (e) => {
           kelas: form.kelas,
           wa:form.wa,
           asalsekolah: form.asalsekolah,
+          email: session.user.email,
           profesi: form.profesi,
           profesi2: form.profesi2,
-          kota: form.kota,
-          email: session.user.email,
-          program: form.program,
-          biaya: form.biaya,
           hobbies: form.hobbies.join(", "),
-          otherHobby:form.otherHobby
+          otherHobby:form.otherHobby,
+          kota: form.kota,
+          kampus: form.kampus,
+          jurusanmu: form.jurusanmu,
+          jurusannya: form.jurusannya,
+          suka: form.suka,
+          sulit: form.sulit,
+          nonmapel: form.nonmapel,
+          organisasi: form.organisasi,
+          olahraga: form.olahraga,
+          seni: form.seni,
+          ketrampilan: form.ketrampilan,
+          prestasi: form.prestasi,
+          todo: form.todo,
+          program: form.program,
+          biaya: form.biaya
+          
         };
         // 1.mengirim permintaan ke api/create-transaction dan mengirim data newrow sekalian
         // 2.Request token ke end poin mid trans
@@ -279,7 +340,21 @@ const handleCheckboxChange = (e) => {
       form.asalsekolah !== "" &&
       form.profesi !== ""&&
       form.profesi2 !== ""&&
-      form.kota !== ""
+      form.kota !== ""&&
+      form.kampus !== ""&&
+      form.jurusanmu !== ""&&
+      form.jurusannya !== ""&&
+      form.suka !== ""&&
+      form.sulit !== ""&&
+      form.nonmapel !== ""&&
+      form.organisasi !== ""&&
+      form.olahraga !== ""&&
+      form.seni !== ""&&
+      form.ketrampilan !== ""&&
+      form.prestasi !== ""&&
+      form.todo !== ""&&
+      form.program!==""&&
+      form.biaya!==""
 
       // form.email
     ) {
@@ -558,6 +633,8 @@ const handleCheckboxChange = (e) => {
                     <input type="text" className="mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600" id="otherHobbyInput" name="otherHobby" placeholder="Sebutkan profesi lain" onChange={handleChange}/>
                 </div>
             </div>
+            <p className="w-full bg-slate-500 p-2 text-slate-100">Pilihan Perguruan Tinggi dan Jurusan
+                </p>
             <div className="relative">
               <input
                 name="kota"
@@ -591,7 +668,398 @@ const handleCheckboxChange = (e) => {
                 </p>
               )}
             </div>
+            <div className="relative">
+              <input
+                name="kampus"
+                type="text"
+                id="floating_outlined8"
+                className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isKampusEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.kampus === "" || form.kampus.length > 300) {
+                    setIsKampusEmpty(true);
+                  } else {
+                    setIsKampusEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined8"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Perguruan Tinggi apa saja yang kamu akan sangat senang jika bisa diterima di sana?
 
+              </label>
+              {isKampusEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 300 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="jurusanmu"
+                type="text"
+                id="floating_outlined9"
+                className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isJurusanmuEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.jurusanmu === "" || form.jurusanmu.length > 300) {
+                    setIsJurusanmuEmpty(true);
+                  } else {
+                    setIsJurusanmuEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined9"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Jurusan apa saja yang kamu minati dan memang cocok untukmu?
+
+              </label>
+              {isJurusanmuEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 300 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="jurusannya"
+                type="text"
+                id="floating_outlined10"
+                className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isJurusannyaEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.jurusannya === "" || form.jurusannya.length > 300) {
+                    setIsJurusannyaEmpty(true);
+                  } else {
+                    setIsJurusannyaEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined10"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Jurusan apa saja yang disarankan oleh orangtuamu?
+
+              </label>
+              {isJurusannyaEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 300 karakter)
+                </p>
+              )}
+            </div>
+            <p className="w-full bg-slate-500 p-2 text-slate-100">Minat Akademik & Non Akademik
+            </p>
+            <div className="relative">
+              <input
+                name="suka"
+                type="text"
+                id="floating_outlined11"
+                className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isSukaEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.suka === "" || form.suka.length > 300) {
+                    setIsSukaEmpty(true);
+                } else {
+                    setIsSukaEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined11"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Sebutkan secara berurutan 3 pelajaran yang paling kamu sukai?
+
+              </label>
+              {isSukaEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 300 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="sulit"
+                type="text"
+                id="floating_outlined12"
+                className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isSulitEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.sulit === "" || form.sulit.length > 300) {
+                    setIsSulitEmpty(true);
+                } else {
+                    setIsSulitEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined12"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Sebutkan secara berurutan 3 pelajaran yang paling sulit kamu pelajari?
+
+              </label>
+              {isSulitEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 300 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="nonmapel"
+                type="text"
+                id="floating_outlined13"
+                className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isNonmapelEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.nonmapel === "" || form.nonmapel.length > 300) {
+                    setIsNonmapelEmpty(true);
+                } else {
+                    setIsNonmapelEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined13"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Sebutkan aktivitas lain yang tidak berhubungan dengan pelajaran yang paling sering dan senang kamu lakukan selama di sekolah?
+
+              </label>
+              {isNonmapelEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 300 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="organisasi"
+                type="text"
+                id="floating_outlined14"
+                className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isOrganisasiEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.organisasi === "" || form.organisasi.length > 300) {
+                    setIsOrganisasiEmpty(true);
+                } else {
+                    setIsOrganisasiEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined14"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Jika senang berorganisasi, peran atau tugas apa yang sering kamu ambil?
+              </label>
+              {isOrganisasiEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 300 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="olahraga"
+                type="text"
+                id="floating_outlined15"
+                className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isOlahragaEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.olahraga === "" || form.olahraga.length > 300) {
+                    setIsOlahragaEmpty(true);
+                } else {
+                    setIsOlahragaEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined15"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Olahraga yang kamu kuasai dan sering kamu lakukan?
+              </label>
+              {isOlahragaEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 300 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="seni"
+                type="text"
+                id="floating_outlined16"
+                className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isSeniEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.seni === "" || form.seni.length > 300) {
+                    setIsSeniEmpty(true);
+                } else {
+                    setIsSeniEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined16"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Aktivitas seni yang kamu kuasai dan sering kamu lakukan?
+              </label>
+              {isSeniEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 300 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="ketrampilan"
+                type="text"
+                id="floating_outlined17"
+                className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isKetrampilanEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.ketrampilan === "" || form.ketrampilan.length > 300) {
+                    setIsKetrampilanEmpty(true);
+                } else {
+                    setIsKetrampilanEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined17"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Keterampilan tertentu yang kamu sudah kuasai saat ini?
+              </label>
+              {isKetrampilanEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 300 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="prestasi"
+                type="text"
+                id="floating_outlined18"
+                className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isPrestasiEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.prestasi === "" || form.prestasi.length > 300) {
+                    setIsPrestasiEmpty(true);
+                } else {
+                    setIsPrestasiEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined18"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Prestasi atau pencapaian paling penting yang pernah kamu raih selama ini?
+              </label>
+              {isPrestasiEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 300 karakter)
+                </p>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                name="todo"
+                type="text"
+                id="floating_outlined19"
+                className={`mb-2  block px-2.5 pb-2.5 pt-20 mt-10 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                  isTodoEmpty ? "border-red-500" : "mb-2"
+                }`}
+                placeholder=" "
+                autoComplete="off"
+                onChange={handleChange}
+                disabled={isDisable}
+                onBlur={() => {
+                  if (form.todo === "" || form.todo.length > 300) {
+                    setIsTodoEmpty(true);
+                } else {
+                    setIsTodoEmpty(false);
+                  }
+                }}
+              />
+              <label
+                htmlFor="floating_outlined19"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+              >
+                Jika kamu dalam kondisi yang sangat leluasa, memiliki semua sumberdaya yang kamu butuhkan, memiliki seluruh potensi dan faktor pendukung yang bisa membantumu berhasil mewujudkan impian atau karya terpenting dalam hidup, maka apa yang kamu lakukan atau ciptakan ?
+              </label>
+              {isTodoEmpty && (
+                <p className="text-red-500 text-xs">
+                  Wajib diisi (maks 300 karakter)
+                </p>
+              )}
+            </div>
             <p className="w-full bg-slate-500 p-2 text-slate-100">
               CENTANG SEMUA PILIHAN DI BAWAH INI
             </p>
