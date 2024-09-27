@@ -24,7 +24,7 @@ const tmasesmen = ({detailProgram}) => {
         <title>Formulir Asesmen Talents Mapping | Bimbel LB3R</title>
         <meta
           name="description"
-          content="Sebelum mengisi asesmen talents mapping siswa wajib mengisi form persepsi dan minat personal ini."
+          content="Isi dan lengkapi setiap pertanyaan di bawah ini sebagai bagian penting dari proses Assessment Talents Mapping yang dilaksanakan untuk membantu anda menyusun rencana pendidikan dan karier"
           key="desc"
         />
         <link

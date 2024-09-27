@@ -368,28 +368,19 @@ const handleCheckboxChange = (e) => {
     }
   };
 
-  return (
-    <>
-      {/* <Navbar allPost={allPost} /> */}
-      <Head>
-        <title>PERSEPSI DAN MINAT PERSONAL</title>
-        <meta name="description" content="Formulir Pendaftaran" key="desc" />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="4x16"
-          href="/image/logolb3r.png"
-        />
-      </Head>
-      <Layout>
-        <div className="flex justify-center items-center bg-slate-100 text-gray-900  animate__animated  animate__slideInDown mb-10">
-          <form
-            className="space-y-3 w-full max-w-lg mx-auto p-5"
-            onSubmit={submitForm}
-          >
-            <p className="font-semibold text-2xl text-center w-full bg-gradient-to-b from-purple-800  to-purple-500 p-2 text-slate-100 rounded-lg">
-              PERSEPSI & MINAT PERSONAL
-            </p>
+
+  const [currentPage, setCurrentPage] = useState(1);
+   // Fungsi untuk menavigasi ke halaman berikutnya
+   const nextPage = () => {
+    setCurrentPage((prev) => prev + 1);
+  };
+
+  // Fungsi untuk menavigasi ke halaman sebelumnya
+  const prevPage = () => {
+    setCurrentPage((prev) => prev - 1);
+  };
+  const pages=[
+    <section key={"page1"}>
             <div className="relative">
               <div className="absolute translate-y-1/2 right-0">
                 {typeof session === "undefined" || session ? (
@@ -414,7 +405,7 @@ const handleCheckboxChange = (e) => {
               />
               <label
                 htmlFor="floating_outlined1"
-                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 underline"
               >
                 klik disini untuk Verifikasi Email dulu ya
               </label>
@@ -484,7 +475,7 @@ const handleCheckboxChange = (e) => {
               <input
                 name="wa"
                 type="number"
-                id="floating_outlined8"
+                id="floating_outlined20"
                 className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isWaEmpty ? "border-red-500" : "mb-2"
                 }`}
@@ -501,7 +492,7 @@ const handleCheckboxChange = (e) => {
                 }}
               />
               <label
-                htmlFor="floating_outlined8"
+                htmlFor="floating_outlined20"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
               >
                 Nomor WA Aktif Siswa
@@ -610,6 +601,8 @@ const handleCheckboxChange = (e) => {
                 </p>
               )}
             </div>
+            </section>,
+            <section key={"page2"}>
             <div className="text-sm text-gray-500 dark:text-gray-400 space-y-2">
                 <p className="w-full bg-slate-500 p-2 text-slate-100">Kategori Profesi yang diminati (boleh pilih lebih dari satu) :
                 </p>
@@ -631,6 +624,9 @@ const handleCheckboxChange = (e) => {
                     <input type="text" className="mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600" id="otherHobbyInput" name="otherHobby" placeholder="Sebutkan profesi lain" onChange={handleChange}/>
                 </div>
             </div>
+            </section>,
+
+            <section key={"page3"}>
             <p className="w-full bg-slate-500 p-2 text-slate-100">Pilihan Perguruan Tinggi dan Jurusan
                 </p>
             <div className="relative">
@@ -638,7 +634,7 @@ const handleCheckboxChange = (e) => {
                 name="kota"
                 type="text"
                 id="floating_outlined7"
-                className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                className={`mb-2  block px-2.5 pb-2.5 pt-8 mt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isKotaEmpty ? "border-red-500" : "mb-2"
                 }`}
                 placeholder=" "
@@ -765,6 +761,9 @@ const handleCheckboxChange = (e) => {
                 </p>
               )}
             </div>
+            </section>,
+
+            <section key={"page4"}>
             <p className="w-full bg-slate-500 p-2 text-slate-100">Minat Akademik & Non Akademik
             </p>
             <div className="relative">
@@ -772,7 +771,7 @@ const handleCheckboxChange = (e) => {
                 name="suka"
                 type="text"
                 id="floating_outlined11"
-                className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                className={`mb-2  block px-2.5 pb-2.5 pt-8 mt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isSukaEmpty ? "border-red-500" : "mb-2"
                 }`}
                 placeholder=" "
@@ -838,7 +837,7 @@ const handleCheckboxChange = (e) => {
                 name="nonmapel"
                 type="text"
                 id="floating_outlined13"
-                className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                className={`mb-2  block px-2.5 pb-2.5 pt-10  w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isNonmapelEmpty ? "border-red-500" : "mb-2"
                 }`}
                 placeholder=" "
@@ -855,7 +854,7 @@ const handleCheckboxChange = (e) => {
               />
               <label
                 htmlFor="floating_outlined13"
-                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                className="absolute text-sm  text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
               >
                 Sebutkan aktivitas lain yang tidak berhubungan dengan pelajaran yang paling sering dan senang kamu lakukan selama di sekolah?
 
@@ -1026,12 +1025,15 @@ const handleCheckboxChange = (e) => {
                 </p>
               )}
             </div>
+            </section>,
+
+            <section key={"page5"}>
             <div className="relative">
               <input
                 name="todo"
                 type="text"
                 id="floating_outlined19"
-                className={`mb-2  block px-2.5 pb-2.5 pt-20 mt-10 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
+                className={`mb-2  block px-2.5 pb-2.5 pt-32 md:pt-20 mt-20 md:mt-10 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isTodoEmpty ? "border-red-500" : "mb-2"
                 }`}
                 placeholder=" "
@@ -1110,6 +1112,54 @@ const handleCheckboxChange = (e) => {
                 </div>
               )
             )}
+            </section>
+  ]
+
+  return (
+    <>
+      {/* <Navbar allPost={allPost} /> */}
+      <Head>
+        <title>Formulir Pra-Asesmen Talents Mapping | Bimbel LB3R</title>
+        <meta name="description" content="Isi dan lengkapi setiap pertanyaan di bawah ini sebagai bagian penting dari proses Assessment Talents Mapping yang dilaksanakan untuk membantu anda menyusun rencana pendidikan dan karier" key="desc" />
+        <meta
+      property="og:image"
+      itemProp="image"
+      content="https://www.bimbellb3r.com/_next/image?url=%2Fimage%2Flogotm.png&w=1920&q=75"
+    />
+    <meta
+      property="og:description"
+      content="Bersama menemukan karir dan jurusan kuliah yang tepat"
+    />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="4x16"
+          href="/image/logolb3r.png"
+        />
+      </Head>
+      <Layout>
+        <div className="flex justify-center items-center bg-slate-100 text-gray-900  animate__animated  animate__slideInDown mb-10">
+          <form
+            className="space-y-3 w-full max-w-lg mx-auto p-5"
+            onSubmit={submitForm}
+          >
+            <p className="font-semibold text-2xl text-center w-full bg-gradient-to-b from-purple-800  to-purple-500 p-2 text-slate-100 rounded-lg">
+              PERSEPSI & MINAT PERSONAL
+            </p>
+            <p className="text-gray-500 text-center text-sm">Isi dan lengkapi setiap pertanyaan di bawah ini sebagai bagian penting dari proses Assessment Talents Mapping yang dilaksanakan untuk membantu anda menyusun rencana pendidikan dan karier</p>
+              {pages[currentPage - 1]}    
+            <div className="flex justify-center space-x-4 mt-6">
+              {currentPage > 1 && (
+              <button type="button" onClick={prevPage} className="shadow-md p-2 text-gray-500 rounded ">
+                Previous
+              </button>
+              )}
+              {currentPage < pages.length && (
+              <button type="button" onClick={nextPage} className="shadow-md p-2 text-gray-500 rounded">
+                Next
+              </button>
+              )}
+          </div>
           </form>
         </div>
       </Layout>
