@@ -410,6 +410,7 @@ const FormTM = ({ detailProgram}) => {
   };
   const pages=[
     <section key={"page1"}>
+            <p className="text-gray-500 text-center text-sm mb-2">Isi dan lengkapi setiap pertanyaan di bawah ini sebagai bagian penting dari proses Assessment Talents Mapping yang dilaksanakan untuk membantu anda menyusun rencana pendidikan dan karier</p>
             <div className="relative">
               <div className="absolute translate-y-1/2 right-0">
                 {typeof session === "undefined" || session ? (
@@ -434,13 +435,10 @@ const FormTM = ({ detailProgram}) => {
               />
               <label
                 htmlFor="floating_outlined1"
-                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 underline"
+                className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 underline  peer-placeholder-shown:opacity-100 peer-focus:opacity-0"
               >
                 klik disini untuk Verifikasi Email dulu ya
               </label>
-              {/* {isEmailEmpty && (
-                <p className="text-red-500 text-xs">Wajib diisi</p>
-              )} */}
             </div>
             <div className="relative">
               <input
@@ -1147,14 +1145,14 @@ const FormTM = ({ detailProgram}) => {
             ) : (
               showButton && (
                 <div>
-                  <div>
+                  <div className="m-2">
                     <p className="text-purple-900">Dengan klik lanjutkan, maka pian setuju dengan <span><a href="/user/term" target="_blank" className="underline text-red-900">ketentuan LB3R</a></span></p>
                   </div>
                 <button
                   disabled={isButtonDisabled}
                   id="tombolKirim"
                   type="submit"
-                  className=" w-full bg-gradient-to-b from-yellow-400 to-white  text-purple-800 hover:bg-yellow-200 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  className=" w-full bg-gradient-to-b from-yellow-400 to-white  text-purple-800 hover:bg-yellow-200 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center m-2"
                 >
                   <p className="text-lg">Kirim</p>
                 </button>
@@ -1195,7 +1193,7 @@ const FormTM = ({ detailProgram}) => {
             <p className="font-semibold text-2xl text-center w-full bg-gradient-to-b from-purple-800  to-purple-500 p-2 text-slate-100 rounded-lg">
               PERSEPSI & MINAT PERSONAL
             </p>
-            <p className="text-gray-500 text-center text-sm">Isi dan lengkapi setiap pertanyaan di bawah ini sebagai bagian penting dari proses Assessment Talents Mapping yang dilaksanakan untuk membantu anda menyusun rencana pendidikan dan karier</p>
+            
               {pages[currentPage - 1]}    
             <div className="flex justify-center space-x-4 mt-6">
               {currentPage > 1 && (
