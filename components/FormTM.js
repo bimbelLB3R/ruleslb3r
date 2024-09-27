@@ -97,23 +97,7 @@ const FormTM = ({ detailProgram}) => {
     todo:""
   });
 
-  // Menangani checkbox perubahan
-const handleCheckboxChange = (e) => {
-    const { value, checked } = e.target;
-    
-    setForm((prevForm) => {
-      if (checked) {
-        // Jika checkbox dipilih, tambahkan value ke array
-        return { ...prevForm, hobbies: [...prevForm.hobbies, value] };
-      } else {
-        // Jika checkbox tidak dipilih, hapus value dari array
-        return {
-          ...prevForm,
-          hobbies: prevForm.hobbies.filter((hobby) => hobby !== value),
-        };
-      }
-    });
-  };
+  
 
   // console.log(nama);
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
@@ -312,6 +296,7 @@ const handleCheckboxChange = (e) => {
         });
 
         router.push("/user/term");
+        localStorage.removeItem('tmData'); 
         // console.log(transactionRedirectUrl);
       } else {
         Swal.fire({
@@ -326,11 +311,39 @@ const handleCheckboxChange = (e) => {
   };
 
   const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value, type, checked } = e.target;
 
+    // Handle checkbox changes for 'hobbies'
+    if (type === 'checkbox') {
+      if (name === 'hobbies') {
+        // Handle hobbies checkboxes (multiple selection allowed)
+        setForm((prevForm) => {
+          const hobbies = checked 
+            ? [...prevForm.hobbies, value] // Add hobby if checked
+            : prevForm.hobbies.filter(hobby => hobby !== value); // Remove hobby if unchecked
+
+          const updatedForm = { ...prevForm, hobbies };
+          localStorage.setItem('tmData', JSON.stringify(updatedForm)); // Update Local Storage
+          return updatedForm;
+        });
+      } else {
+        // Handle single selection checkboxes for 'biaya' and 'program'
+        setForm((prevForm) => {
+          const updatedForm = { ...prevForm, [name]: checked ? value : "" }; // Save value if checked, clear if unchecked
+          localStorage.setItem('tmData', JSON.stringify(updatedForm)); // Update Local Storage
+          return updatedForm;
+        });
+      }
+    } else {
+      // Handle text input changes
+      setForm((prevForm) => {
+        const updatedForm = { ...prevForm, [name]: value };
+        localStorage.setItem('tmData', JSON.stringify(updatedForm)); // Update Local Storage
+        return updatedForm;
+      });
+    }
+
+    
     // memeriksa apakah semua form telah terisi
     if (
       // form.nama &&
@@ -370,14 +383,30 @@ const handleCheckboxChange = (e) => {
 
 
   const [currentPage, setCurrentPage] = useState(1);
-   // Fungsi untuk menavigasi ke halaman berikutnya
-   const nextPage = () => {
-    setCurrentPage((prev) => prev + 1);
+  // Ambil data dari Local Storage saat komponen pertama kali di-render
+  useEffect(() => {
+    const savedFormData = localStorage.getItem("tmData");
+    const savedPage = localStorage.getItem("currentPage");
+
+    if (savedFormData) {
+      setForm(JSON.parse(savedFormData));
+    }
+    if (savedPage) {
+      setCurrentPage(parseInt(savedPage));
+    }
+  },[]);
+  // Fungsi untuk menavigasi ke halaman berikutnya dan menyimpan ke Local Storage
+  const nextPage = () => {
+    const nextPageNumber = currentPage + 1;
+    setCurrentPage(nextPageNumber);
+    localStorage.setItem("currentPage", nextPageNumber.toString());
   };
 
-  // Fungsi untuk menavigasi ke halaman sebelumnya
+  // Fungsi untuk menavigasi ke halaman sebelumnya dan menyimpan ke Local Storage
   const prevPage = () => {
-    setCurrentPage((prev) => prev - 1);
+    const prevPageNumber = currentPage - 1;
+    setCurrentPage(prevPageNumber);
+    localStorage.setItem("currentPage", prevPageNumber.toString());
   };
   const pages=[
     <section key={"page1"}>
@@ -451,6 +480,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.kelas}
                 onBlur={() => {
                   if (form.kelas === "" || form.kelas.length > 2) {
                     setIsKelasEmpty(true);
@@ -483,6 +513,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.wa}
                 onBlur={() => {
                   if (form.wa === "" || form.wa.length > 13) {
                     setIsWaEmpty(true);
@@ -515,6 +546,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.asalsekolah}
                 onBlur={() => {
                   if (form.asalsekolah === "" || form.asalsekolah.length > 30) {
                     setIsAsalSekolahEmpty(true);
@@ -548,6 +580,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.profesi}
                 onBlur={() => {
                   if (form.profesi === "" || form.profesi.length > 100) {
                     setIsProfesiEmpty(true);
@@ -580,6 +613,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.profesi2}
                 onBlur={() => {
                   if (form.profesi2 === "" || form.profesi2.length > 100) {
                     setIsProfesi2Empty(true);
@@ -607,19 +641,19 @@ const handleCheckboxChange = (e) => {
                 <p className="w-full bg-slate-500 p-2 text-slate-100">Kategori Profesi yang diminati (boleh pilih lebih dari satu) :
                 </p>
                 <div className="flex items-center space-x-2">
-                    <input type="checkbox" id="hobby1" name="hobbies" onChange={handleCheckboxChange} value="Karyawan Perusahaan (BUMN/Swasta)"/>
+                    <input type="checkbox" id="hobby1" name="hobbies" onChange={handleChange} value="Karyawan Perusahaan (BUMN/Swasta)" checked={form.hobbies.includes("Karyawan Perusahaan (BUMN/Swasta)")}/>
                     <label htmlFor="hobby1">Karyawan Perusahaan (BUMN/Swasta)</label>
                 </div>
                 <div className="flex items-center space-x-2">
-                    <input type="checkbox" id="hobby2" name="hobbies" onChange={handleCheckboxChange} value="Profesional Mandiri (Dokter, Psikolog, Pengacara, Seniman, dll )"/>
+                    <input type="checkbox" id="hobby2" name="hobbies" onChange={handleChange} value="Profesional Mandiri (Dokter, Psikolog, Pengacara, Seniman, dll )" checked={form.hobbies.includes("Profesional Mandiri (Dokter, Psikolog, Pengacara, Seniman, dll )")}/>
                     <label htmlFor="hobby2">Profesional Mandiri (Dokter, Psikolog, Pengacara, Seniman, dll )</label>
                 </div>
                 <div className="flex items-center space-x-2">
-                    <input type="checkbox" id="hobby3" name="hobbies" onChange={handleCheckboxChange} value="Entrepreneur/Bisnis/Wirausaha"/>
+                    <input type="checkbox" id="hobby3" name="hobbies" onChange={handleChange} value="Entrepreneur/Bisnis/Wirausaha" checked={form.hobbies.includes("Entrepreneur/Bisnis/Wirausaha")}/>
                     <label htmlFor="hobby3">Entrepreneur/Bisnis/Wirausaha</label>
                 </div>
                 <div className="flex items-center space-x-2">
-                    <input type="checkbox" id="hobbyOther" name="hobbies" onChange={handleCheckboxChange} value="Lainnya"/>
+                    <input type="checkbox" id="hobbyOther" name="hobbies" onChange={handleChange} value="Lainnya" checked={form.hobbies.includes("Lainnya")}/>
                     <label htmlFor="hobbyOther">Lainnya:</label>
                     <input type="text" className="mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600" id="otherHobbyInput" name="otherHobby" placeholder="Sebutkan profesi lain" onChange={handleChange}/>
                 </div>
@@ -641,6 +675,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.kota}
                 onBlur={() => {
                   if (form.kota === "" || form.kota.length > 100) {
                     setIsKotaEmpty(true);
@@ -674,6 +709,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.kampus}
                 onBlur={() => {
                   if (form.kampus === "" || form.kampus.length > 300) {
                     setIsKampusEmpty(true);
@@ -707,6 +743,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.jurusanmu}
                 onBlur={() => {
                   if (form.jurusanmu === "" || form.jurusanmu.length > 300) {
                     setIsJurusanmuEmpty(true);
@@ -740,6 +777,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.jurusannya}
                 onBlur={() => {
                   if (form.jurusannya === "" || form.jurusannya.length > 300) {
                     setIsJurusannyaEmpty(true);
@@ -778,6 +816,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.suka}
                 onBlur={() => {
                   if (form.suka === "" || form.suka.length > 300) {
                     setIsSukaEmpty(true);
@@ -811,6 +850,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.sulit}
                 onBlur={() => {
                   if (form.sulit === "" || form.sulit.length > 300) {
                     setIsSulitEmpty(true);
@@ -844,6 +884,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.nonmapel}
                 onBlur={() => {
                   if (form.nonmapel === "" || form.nonmapel.length > 300) {
                     setIsNonmapelEmpty(true);
@@ -877,6 +918,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.organisasi}
                 onBlur={() => {
                   if (form.organisasi === "" || form.organisasi.length > 300) {
                     setIsOrganisasiEmpty(true);
@@ -909,6 +951,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.olahraga}
                 onBlur={() => {
                   if (form.olahraga === "" || form.olahraga.length > 300) {
                     setIsOlahragaEmpty(true);
@@ -941,6 +984,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.seni}
                 onBlur={() => {
                   if (form.seni === "" || form.seni.length > 300) {
                     setIsSeniEmpty(true);
@@ -973,6 +1017,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.ketrampilan}
                 onBlur={() => {
                   if (form.ketrampilan === "" || form.ketrampilan.length > 300) {
                     setIsKetrampilanEmpty(true);
@@ -1005,6 +1050,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.prestasi}
                 onBlur={() => {
                   if (form.prestasi === "" || form.prestasi.length > 300) {
                     setIsPrestasiEmpty(true);
@@ -1040,6 +1086,7 @@ const handleCheckboxChange = (e) => {
                 autoComplete="off"
                 onChange={handleChange}
                 disabled={isDisable}
+                value={form.todo}
                 onBlur={() => {
                   if (form.todo === "" || form.todo.length > 300) {
                     setIsTodoEmpty(true);
@@ -1071,6 +1118,7 @@ const handleCheckboxChange = (e) => {
                 placeholder="program"
                 onChange={handleChange}
                 disabled={isDisable}
+                checked={form.program.includes(inputValueProgramName)}
                 // readOnly
                 value={inputValueProgramName}
               />
@@ -1084,6 +1132,7 @@ const handleCheckboxChange = (e) => {
                 placeholder="biaya"
                 onChange={handleChange}
                 disabled={isDisable}
+                checked={form.biaya.includes(inputValueProgramPrice)}
                 // readOnly
                 value={inputValueProgramPrice}
               />
