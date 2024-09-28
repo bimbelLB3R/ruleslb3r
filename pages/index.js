@@ -19,6 +19,8 @@ import Service from "../components/Layanan2024";
 import { runFireworks } from "../libs/utils";
 import PopBerita from "../components/PopBerita";
 import WarningSnbt from "../components/WarningSnbt";
+import CanvaEmbed from "../components/CanvaEmbed1";
+import Link from "next/link";
 
 const Home = ({ allPost, dataAlumni }) => {
   // console.log(allPost);
@@ -143,11 +145,13 @@ const Home = ({ allPost, dataAlumni }) => {
         <WarningSnbt />
         <ImageSlide />
         <ButtonUmum />
-
         {/* <ShortCut /> */}
         <Welcome />
         <Service />
         <BluryBg />
+        <Link href={"/form/tmasesmen"}>
+        <CanvaEmbed/>
+        </Link>
         <PopBerita beritaTerbaru={allPost} />
         <Faq />
         {/* <AllRatingTentor /> */}

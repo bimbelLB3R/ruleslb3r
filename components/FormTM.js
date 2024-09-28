@@ -8,6 +8,7 @@ import axios from "axios";
 import Layout from "./Layout";
 import { signIn, signOut, useSession } from "next-auth/react";
 import "animate.css";
+import CanvaEmbed from "./CanvaEmbed1";
 // import sendMail from "./SendMail";
 
 // mengubah mata uang
@@ -387,6 +388,7 @@ const FormTM = ({ detailProgram}) => {
   useEffect(() => {
     const savedFormData = localStorage.getItem("tmData");
     const savedPage = localStorage.getItem("currentPage");
+    // localStorage.clear();
 
     if (savedFormData) {
       setForm(JSON.parse(savedFormData));
@@ -410,6 +412,13 @@ const FormTM = ({ detailProgram}) => {
   };
   const pages=[
     <section key={"page1"}>
+            <div className="lg:flex lg:items-center lg:justify-center">
+            <div className="hidden lg:visible"><div><CanvaEmbed/></div></div>
+              <div>
+            <p className="font-semibold lg:text-2xl text-center w-full bg-gradient-to-b from-purple-800/50  to-purple-500/50 p-2 text-purple-900 rounded-lg">
+              PERSEPSI & MINAT PERSONAL
+            </p>
+            <div className="flex items-center justify-center lg:hidden"><CanvaEmbed/></div>
             <p className="text-gray-500 text-center text-sm mb-2">Isi dan lengkapi setiap pertanyaan di bawah ini sebagai bagian penting dari proses Assessment Talents Mapping yang dilaksanakan untuk membantu anda menyusun rencana pendidikan dan karier</p>
             <div className="relative">
               <div className="absolute translate-y-1/2 right-0">
@@ -632,6 +641,8 @@ const FormTM = ({ detailProgram}) => {
                   Wajib diisi (maks 300 karakter)
                 </p>
               )}
+            </div>
+            </div>
             </div>
             </section>,
             <section key={"page2"}>
@@ -1185,14 +1196,12 @@ const FormTM = ({ detailProgram}) => {
         />
       </Head>
       <Layout>
-        <div className="flex justify-center items-center bg-slate-100 text-gray-900  animate__animated  animate__slideInDown mb-10">
+          
+          <div className="flex justify-center items-center bg-slate-100 text-gray-900  animate__animated  animate__slideInDown mb-10">
           <form
             className="space-y-3 w-full max-w-lg mx-auto p-5"
             onSubmit={submitForm}
           >
-            <p className="font-semibold text-2xl text-center w-full bg-gradient-to-b from-purple-800  to-purple-500 p-2 text-slate-100 rounded-lg">
-              PERSEPSI & MINAT PERSONAL
-            </p>
             
               {pages[currentPage - 1]}    
             <div className="flex justify-center space-x-4 mt-6">
@@ -1208,7 +1217,8 @@ const FormTM = ({ detailProgram}) => {
               )}
           </div>
           </form>
-        </div>
+          </div>
+        
       </Layout>
     </>
   );
