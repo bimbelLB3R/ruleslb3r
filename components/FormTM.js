@@ -399,9 +399,16 @@ const FormTM = ({ detailProgram}) => {
   },[]);
   // Fungsi untuk menavigasi ke halaman berikutnya dan menyimpan ke Local Storage
   const nextPage = () => {
-    const nextPageNumber = currentPage + 1;
-    setCurrentPage(nextPageNumber);
-    localStorage.setItem("currentPage", nextPageNumber.toString());
+    if (canProceed) {
+      const nextPageNumber = currentPage + 1;
+      setCurrentPage(nextPageNumber);
+      localStorage.setItem("currentPage", nextPageNumber.toString());
+    } else {
+      alert('Harap isi semua form sebelum melanjutkan ke halaman berikutnya.');
+    }
+    // const nextPageNumber = currentPage + 1;
+    // setCurrentPage(nextPageNumber);
+    // localStorage.setItem("currentPage", nextPageNumber.toString());
   };
 
   // Fungsi untuk menavigasi ke halaman sebelumnya dan menyimpan ke Local Storage
@@ -411,7 +418,7 @@ const FormTM = ({ detailProgram}) => {
     localStorage.setItem("currentPage", prevPageNumber.toString());
   };
   const pages=[
-    <section key={"page1"}>
+    <section key={"page1"} data-page="1">
             <div className="lg:flex lg:items-center lg:justify-center">
             <div className="hidden lg:visible"><div><CanvaEmbed/></div></div>
               <div>
@@ -479,6 +486,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="kelas"
                 type="number"
+                required
                 id="floating_outlined3"
                 className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isKelasEmpty ? "border-red-500" : "mb-2"
@@ -512,6 +520,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="wa"
                 type="number"
+                required
                 id="floating_outlined20"
                 className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isWaEmpty ? "border-red-500" : "mb-2"
@@ -545,6 +554,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="asalsekolah"
                 type="text"
+                required
                 id="floating_outlined4"
                 className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isAsalSekolahEmpty ? "border-red-500" : "mb-2"
@@ -579,6 +589,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="profesi"
                 type="text"
+                required
                 id="floating_outlined5"
                 className={`mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isProfesiEmpty ? "border-red-500" : "mb-2"
@@ -612,6 +623,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="profesi2"
                 type="text"
+                required
                 id="floating_outlined6"
                 className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isProfesi2Empty ? "border-red-500" : "mb-2"
@@ -645,7 +657,7 @@ const FormTM = ({ detailProgram}) => {
             </div>
             </div>
             </section>,
-            <section key={"page2"}>
+            <section key={"page2"} data-page="2">
             <div className="text-sm text-gray-500 dark:text-gray-400 space-y-2">
                 <p className="w-full bg-slate-500 p-2 text-slate-100">Kategori Profesi yang diminati (boleh pilih lebih dari satu) :
                 </p>
@@ -669,13 +681,14 @@ const FormTM = ({ detailProgram}) => {
             </div>
             </section>,
 
-            <section key={"page3"}>
+            <section key={"page3"} data-page="3">
             <p className="w-full bg-slate-500 p-2 text-slate-100">Pilihan Perguruan Tinggi dan Jurusan
                 </p>
             <div className="relative">
               <input
                 name="kota"
                 type="text"
+                required
                 id="floating_outlined7"
                 className={`mb-2  block px-2.5 pb-2.5 pt-8 mt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isKotaEmpty ? "border-red-500" : "mb-2"
@@ -710,6 +723,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="kampus"
                 type="text"
+                required
                 id="floating_outlined8"
                 className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isKampusEmpty ? "border-red-500" : "mb-2"
@@ -744,6 +758,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="jurusanmu"
                 type="text"
+                required
                 id="floating_outlined9"
                 className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isJurusanmuEmpty ? "border-red-500" : "mb-2"
@@ -778,6 +793,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="jurusannya"
                 type="text"
+                required
                 id="floating_outlined10"
                 className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isJurusannyaEmpty ? "border-red-500" : "mb-2"
@@ -810,13 +826,14 @@ const FormTM = ({ detailProgram}) => {
             </div>
             </section>,
 
-            <section key={"page4"}>
+            <section key={"page4"} data-page="4">
             <p className="w-full bg-slate-500 p-2 text-slate-100">Minat Akademik & Non Akademik
             </p>
             <div className="relative">
               <input
                 name="suka"
                 type="text"
+                required
                 id="floating_outlined11"
                 className={`mb-2  block px-2.5 pb-2.5 pt-8 mt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isSukaEmpty ? "border-red-500" : "mb-2"
@@ -851,6 +868,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="sulit"
                 type="text"
+                required
                 id="floating_outlined12"
                 className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isSulitEmpty ? "border-red-500" : "mb-2"
@@ -885,6 +903,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="nonmapel"
                 type="text"
+                required
                 id="floating_outlined13"
                 className={`mb-2  block px-2.5 pb-2.5 pt-10  w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isNonmapelEmpty ? "border-red-500" : "mb-2"
@@ -919,6 +938,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="organisasi"
                 type="text"
+                required
                 id="floating_outlined14"
                 className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isOrganisasiEmpty ? "border-red-500" : "mb-2"
@@ -952,6 +972,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="olahraga"
                 type="text"
+                required
                 id="floating_outlined15"
                 className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isOlahragaEmpty ? "border-red-500" : "mb-2"
@@ -985,6 +1006,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="seni"
                 type="text"
+                required
                 id="floating_outlined16"
                 className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isSeniEmpty ? "border-red-500" : "mb-2"
@@ -1018,6 +1040,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="ketrampilan"
                 type="text"
+                required
                 id="floating_outlined17"
                 className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isKetrampilanEmpty ? "border-red-500" : "mb-2"
@@ -1051,6 +1074,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="prestasi"
                 type="text"
+                required
                 id="floating_outlined18"
                 className={`mb-2  block px-2.5 pb-2.5 pt-8 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isPrestasiEmpty ? "border-red-500" : "mb-2"
@@ -1082,11 +1106,12 @@ const FormTM = ({ detailProgram}) => {
             </div>
             </section>,
 
-            <section key={"page5"}>
+            <section key={"page5"} data-page="5">
             <div className="relative">
               <input
                 name="todo"
                 type="text"
+                required
                 id="floating_outlined19"
                 className={`mb-2  block px-2.5 pb-2.5 pt-32 md:pt-20 mt-20 md:mt-10 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer ${
                   isTodoEmpty ? "border-red-500" : "mb-2"
@@ -1123,6 +1148,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="program"
                 type="checkbox"
+                required
                 className=""
                 placeholder="program"
                 onChange={handleChange}
@@ -1137,6 +1163,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="biaya"
                 type="checkbox"
+                required
                 className=""
                 placeholder="biaya"
                 onChange={handleChange}
@@ -1173,6 +1200,56 @@ const FormTM = ({ detailProgram}) => {
             </section>
   ]
 
+  const [canProceed, setCanProceed] = useState(false);
+  useEffect(()=>{
+    const validateCurrentPage=()=>{
+      const requiredFields=document.querySelectorAll(`section[data-page="$currentPage"] input[required]`);
+      const hobbyCheckboxes = document.querySelectorAll(`section[data-page="${currentPage}"] input[name="hobbies"]`);
+      
+      for(let field of requiredFields){
+        if(!field.value||(field.type==='checkbox' && !field.checked)){
+          return false;
+        }
+      }
+      // Jika input hobi ada, pastikan setidaknya satu dicentang
+      const hobbiesChecked=Array.from(hobbyCheckboxes).some(hobby=>hobby.checked);
+      if(hobbyCheckboxes.length>0 && !hobbiesChecked){
+        return false;
+      }
+    }
+    const isValid = validateCurrentPage();
+    setCanProceed(isValid);
+  },[currentPage])
+   // Fungsi untuk menghapus tmData dari localStorage dan mereset formulir
+   const clearForm = () => {
+    localStorage.removeItem('tmData'); // Hapus data dari localStorage
+    setForm({ // Reset state form
+      kelas: "",
+    wa:"",
+    asalsekolah: "",
+    profesi: "",
+    profesi2: "",
+    email: "",
+    program: "",
+    biaya: "",
+    hobbies:[],
+    otherHobby:"",
+    kota:"",
+    kampus:"",
+    jurusanmu:"",
+    jurusannya:"",
+    suka:"",
+    sulit:"",
+    nonmapel:"",
+    organisasi:"",
+    olahraga:"",
+    seni:"",
+    ketrampilan:"",
+    prestasi:"",
+    todo:""
+    });
+  };
+
   return (
     <>
       {/* <Navbar allPost={allPost} /> */}
@@ -1203,18 +1280,21 @@ const FormTM = ({ detailProgram}) => {
             onSubmit={submitForm}
           >
             
-              {pages[currentPage - 1]}    
-            <div className="flex justify-center space-x-4 mt-6">
+              {pages[currentPage - 1]} 
+            <div className="flex items-center justify-between mt-6">  
+            <div className="flex justify-center space-x-4 ">
               {currentPage > 1 && (
               <button type="button" onClick={prevPage} className="shadow-md p-2 text-gray-500 rounded ">
                 Previous
               </button>
               )}
               {currentPage < pages.length && (
-              <button type="button" onClick={nextPage} className="shadow-md p-2 text-gray-500 rounded">
+              <button  type="button"  onClick={nextPage} className="shadow-md p-2 text-gray-500 rounded">
                 Next
               </button>
               )}
+          </div>
+          <button onClick={clearForm} className="text-gray-500">Kosongkan formulir</button> 
           </div>
           </form>
           </div>
