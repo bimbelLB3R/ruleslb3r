@@ -382,7 +382,6 @@ const FormTM = ({ detailProgram}) => {
     }
   };
 
-
   const [currentPage, setCurrentPage] = useState(1);
   // Ambil data dari Local Storage saat komponen pertama kali di-render
   useEffect(() => {
@@ -397,18 +396,37 @@ const FormTM = ({ detailProgram}) => {
       setCurrentPage(parseInt(savedPage));
     }
   },[]);
+
+// Fungsi untuk memvalidasi halaman saat ini
+  const validateCurrentPage = () => {
+    const requiredFields = document.querySelectorAll(`section[data-page="${currentPage}"] input[required]`);
+
+    // Validasi setiap input yang required
+    for (let field of requiredFields) {
+      if (!field.value) {
+        return false; // Jika tidak valid, kembalikan false
+      }
+    }
+    // Periksa apakah ada isi di array hobbies di Local Storage
+    const savedFormData = localStorage.getItem('tmData');
+    if (savedFormData) {
+      const { hobbies } = JSON.parse(savedFormData);
+      // Jika berada di halaman 2 dan tidak ada hobi yang dipilih, kembalikan false
+      if (currentPage === 2 && (!hobbies || hobbies.length === 0)) {
+        return false; 
+      }
+    }
+    return true; // Jika semua validasi berhasil, kembalikan true
+  };
   // Fungsi untuk menavigasi ke halaman berikutnya dan menyimpan ke Local Storage
   const nextPage = () => {
-    if (canProceed) {
+    if (validateCurrentPage()) {
       const nextPageNumber = currentPage + 1;
       setCurrentPage(nextPageNumber);
       localStorage.setItem("currentPage", nextPageNumber.toString());
     } else {
-      alert('Harap isi semua form sebelum melanjutkan ke halaman berikutnya.');
+      alert('Harap isi semua form/centang sesuai petunjuk sebelum melanjutkan ke halaman berikutnya.');
     }
-    // const nextPageNumber = currentPage + 1;
-    // setCurrentPage(nextPageNumber);
-    // localStorage.setItem("currentPage", nextPageNumber.toString());
   };
 
   // Fungsi untuk menavigasi ke halaman sebelumnya dan menyimpan ke Local Storage
@@ -440,6 +458,7 @@ const FormTM = ({ detailProgram}) => {
               <input
                 name="email"
                 type="email"
+                required
                 id="floating_outlined1"
                 className="mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer "
                 placeholder=" "
@@ -453,13 +472,14 @@ const FormTM = ({ detailProgram}) => {
                 htmlFor="floating_outlined1"
                 className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-slate-100 dark:bg-slate-100 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-[24px] peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 underline  peer-placeholder-shown:opacity-100 peer-focus:opacity-0"
               >
-                klik disini untuk Verifikasi Email dulu ya
+                Gunakan email!
               </label>
             </div>
             <div className="relative">
               <input
                 name="nama"
                 type="text"
+                required
                 id="floating_outlined2"
                 className="mb-2  block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
@@ -1200,26 +1220,6 @@ const FormTM = ({ detailProgram}) => {
             </section>
   ]
 
-  const [canProceed, setCanProceed] = useState(false);
-  useEffect(()=>{
-    const validateCurrentPage=()=>{
-      const requiredFields=document.querySelectorAll(`section[data-page="$currentPage"] input[required]`);
-      const hobbyCheckboxes = document.querySelectorAll(`section[data-page="${currentPage}"] input[name="hobbies"]`);
-      
-      for(let field of requiredFields){
-        if(!field.value||(field.type==='checkbox' && !field.checked)){
-          return false;
-        }
-      }
-      // Jika input hobi ada, pastikan setidaknya satu dicentang
-      const hobbiesChecked=Array.from(hobbyCheckboxes).some(hobby=>hobby.checked);
-      if(hobbyCheckboxes.length>0 && !hobbiesChecked){
-        return false;
-      }
-    }
-    const isValid = validateCurrentPage();
-    setCanProceed(isValid);
-  },[currentPage])
    // Fungsi untuk menghapus tmData dari localStorage dan mereset formulir
    const clearForm = () => {
     localStorage.removeItem('tmData'); // Hapus data dari localStorage
