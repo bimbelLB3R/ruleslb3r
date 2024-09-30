@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import Script from "next/script";
 import customHeaders from "../libs/middlewares/setCookieAll";
 
+
 // const montserrat = Montserrat({
 //   subsets: ['latin'],
 //   variable: '--font-montserrat',
@@ -43,7 +44,9 @@ function MyApp({ Component, pageProps, session }) {
         ;
       </Script>
 
-      <Component {...pageProps} />
+      <main >
+        <Component {...pageProps} />
+      </main>
     </SessionProvider>
     // <main>
     //   <Component {...pageProps} />

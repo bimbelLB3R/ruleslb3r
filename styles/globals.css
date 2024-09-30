@@ -8,7 +8,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap");
 @import url("./sweatAlert.css");
 body {
-  background: #f1f5f9;
+  /* background: #f1f5f9; */
 }
 
 @layer utilities {

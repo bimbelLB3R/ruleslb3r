@@ -44,6 +44,10 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
       <Head>
         <title>Program Bimbel LB3R</title>
         <link
+          href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap"
+          rel="stylesheet"
+        />
+        <link
           rel="icon"
           type="image/png"
           sizes="4x16"
@@ -63,9 +67,36 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
       <Wa />
       {/* <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" allPost={allPost} /> */}
       <Layout>
-      <div className="flex items-center justify-center bg-gradient-to-b from-purple-800  to-purple-500 md:p-[100px]">
-      <div className="md:max-w-2xl  overflow-hidden">
-        <Carousel showArrows={true}
+        <h1 className="font-architects text-center text-[35px] lg:text-[70px] m-[55px] lg:m-[100px] text-gray-200">PILIHAN PROGRAM</h1>
+        <h1 className="font-extrabold text-center text-[30px] -mt-[150px] mb-[75px]">PILIHAN PROGRAM</h1>
+        <div className="flex justify-center items-center">
+  <div className="w-[20%] h-[2px] bg-yellow-500"></div>
+</div>
+      <div className="flex items-center justify-center  md:p-[50px]">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-screen m-5">
+        {allProgram.map((program,index)=>(
+          <div key={index} className="group flex items-center justify-center   h-[250px]   bg-gray-200 hover:bg-yellow-300 rounded-2xl transition duration-500">
+            <div className="">
+              <div className="flex items-center justify-center">
+              <Image src="/image/topi.png"
+                alt="hat"
+                width={100}
+                height={100}
+                priority={true}
+                className="object-scale-down sm:object-cover transition-transform duration-500 ease-in-out group-hover:translate-y-[-10px]" />
+                </div>
+              <div className="grid grid-col-1 gap-6">
+              <p className="text-center font-architects">{program.nama}</p>
+              <Link href={
+                    program.keterangan === "Free/Gratis"
+                      ? `/form/newmember`:program.keterangan==="diskon"?`/form/tmasesmen`
+                      : `/layanan/${program.slug}`
+                  } className="flex items-center justify-center"><p className="bg-gray-300 p-1 rounded-lg text-center w-[150px] h-[35px] hover:bg-gray-200">Pilih</p></Link>
+              </div>
+              </div>
+          </div>
+        ))}
+        {/* <Carousel showArrows={true}
             showThumbs={false}
             autoPlay={false}
             infiniteLoop={true}>
@@ -106,16 +137,6 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
                 <ul className="leading-normal  p-3 text-slate-200">
                   {program.fasilitas.map((elemen, index) => (
                     <li className="flex items-center justify-center space-x-3" key={index}>
-                      {/* <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        className="bi bi-check-lg w-[20px]"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
-                      </svg> */}
                       <p className="text-[12px] md:text-sm bg-purple-800">{elemen}</p>
                     </li>
                   ))}
@@ -151,7 +172,7 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
                 </Link>
               </div>
             ))}
-         </Carousel>
+         </Carousel> */}
          </div>
          </div>
       </Layout>

@@ -12,6 +12,7 @@ module.exports = {
         roboto: ["Roboto", " sans-serif"],
         cinzel: ["Cinzel Decorative", "cursive"],
         gasok: ["Gasoek One", "sans-serif"],
+        architects: ['"Architects Daughter"', 'cursive'],
       },
       maxWidth: {
         "1/2": "50%",
