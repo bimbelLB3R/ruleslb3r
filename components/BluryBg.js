@@ -12,7 +12,7 @@ export default function BluryBg() {
         <div className="md:m-8 relative space-y-4">
           <div className="p-2 md:p-5 flex items-center justify-center text-gray-600">
             <div>
-              <p className="font-black">KEUNGGULAN</p>
+              <p className="font-architects text-3xl">KEUNGGULAN</p>
             </div>
           </div>
           <div className="p-2 md:p-5 text-gray-900 rounded-lg flex items-center  space-x-3">

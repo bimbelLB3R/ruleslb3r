@@ -29,6 +29,10 @@ const Meta = () => (
       name="google-site-verification"
       content="E5IKh82N4mjraBEM96ptZIJd2VU22yfjOqiKWuE6RHU"
     />
+    <link
+          href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap"
+          rel="stylesheet"
+        />
   </Head>
 );
 

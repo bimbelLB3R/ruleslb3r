@@ -21,7 +21,7 @@ const Service = () => {
           </svg>
           </div>
           <div className="w-full justify-center m-auto">
-            <p className=" text-center text-sm text-gray-600 p-1  ">
+            <p className=" text-center text-sm text-gray-600 p-1  font-architects">
               Buat kelas baru
             </p>
           </div>
@@ -44,7 +44,7 @@ const Service = () => {
             </svg>
             </div>
             <div className="w-full justify-center m-auto">
-              <p className=" text-center text-sm text-gray-600 p-1 ">
+              <p className=" text-center text-sm text-gray-600 p-1 font-architects">
                 Cari teman
               </p>
             </div>
@@ -69,7 +69,7 @@ const Service = () => {
           </svg>
           </div>
           <div className="w-full justify-center m-auto">
-            <p className=" text-center text-sm text-gray-600 p-1 ">
+            <p className=" text-center text-sm text-gray-600 p-1 font-architects">
               Live Jadwal
             </p>
           </div>
@@ -93,7 +93,7 @@ const Service = () => {
           </svg>
           </div>
           <div className="w-full justify-center m-auto">
-            <p className=" text-center text-sm text-gray-600 p-1 ">
+            <p className=" text-center text-sm text-gray-600 p-1 font-architects">
               Konsultasi Jadwal
             </p>
           </div>
