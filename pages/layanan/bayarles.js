@@ -461,15 +461,16 @@ const BayarLes = ({ allPost }) => {
               >
                 <option value="">Pilih Nominal</option>
                 <option value="1000000">Rp 1.000.000,-</option>
+                <option value="375000">Rp 375.000,-</option>
                 <option value="225000">Rp 225.000,-</option>
                 <option value="200000">Rp 200.000,-</option>
                 <option value="195000">Rp 195.000,-</option>
                 <option value="185000">Rp 185.000,-</option>
                 <option value="175000">Rp 175.000,-</option>
+                <option value="150000">Rp 150.000,-</option>
                 <option value="50000">Rp 50.000,-</option>
                 <option value="45000">Rp 45.000,-</option>
                 <option value="40000">Rp 40.000,-</option>
-                <option value="35000">Rp 35.000,-</option>
               </select>
               {isjumlahEmpty && (
                 <p className="text-red-500 text-xs mb-2">Wajib diisi</p>
