@@ -68,10 +68,10 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
       {/* <Navbar logoUrl="/image/logolb3r.png" logoAlt="Logo" allPost={allPost} /> */}
       <Layout>
         <h1 className="font-architects text-center text-[35px] lg:text-[70px] m-[55px] lg:m-[100px] text-gray-200">PILIHAN PROGRAM</h1>
-        <h1 className="font-extrabold text-center text-[30px] -mt-[150px] mb-[75px]">PILIHAN PROGRAM</h1>
+        <h1 className="font-extrabold text-center text-[30px] -mt-[150px] mb-[60px]">PILIHAN PROGRAM</h1>
         <div className="flex justify-center items-center">
-  <div className="w-[20%] h-[2px] bg-yellow-500"></div>
-</div>
+          <div className="w-[20%] h-[2px] bg-yellow-500"></div>
+        </div>
       <div className="flex items-center justify-center  md:p-[50px]">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-screen m-5">
         {allProgram.map((program,index)=>(
