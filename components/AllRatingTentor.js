@@ -32,7 +32,7 @@ const AllRatingTentor = () => {
 
     // Mengambil bulan dan tahun saat ini
     const currentDate = new Date();
-    const currentMonth = currentDate.getMonth() + 1; // Karena getMonth() mengembalikan index bulan mulai dari 0
+    const currentMonth = currentDate.getMonth() + 1; // +1 artinya bulan saat ini, -1 artinya bulan lalu. tidak berlaku ketika bulan ini adalah januari.
     const currentYear = currentDate.getFullYear();
 
     // Mengumpulkan semua data dari rows3 yang hanya sesuai dengan bulan dan tahun saat ini
@@ -40,8 +40,10 @@ const AllRatingTentor = () => {
     const allRows3Data = [];
     rows3.forEach((row) => {
       const rowDate = new Date(row.tanggal_rating);
-      const rowMonth = rowDate.getMonth() + 1;
+      const rowMonth = rowDate.getMonth() + 1; //bulan saat ini 1-12
       const rowYear = rowDate.getFullYear();
+      // Mengambil bulan lalu
+      // const lastMonth = rowMonth === 1 ? 12 : rowMonth - 1; //berlaku jika bulan ini januari
 
       if (rowMonth === currentMonth && rowYear === currentYear) {
         allRows3Data.push(row);

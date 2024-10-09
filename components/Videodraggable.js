@@ -37,12 +37,13 @@ const VideoDraggable = () => {
       >
         <div className="fixed top-20  border-4 border-double border-red-900 rounded-lg p-1 cursor-move w-[300px] sm:w-[300px]">
           <p className="text-yellow-200  w-full bg-yellow-900  text-center font-roboto p-1">
-            Rekaman Webinar Buat Orang Tua
+            Alur dan Tata Cara Siswa Baru LB3R
           </p>
           <iframe
             width="280"
             height="160"
-            src="https://www.youtube.com/embed/i5ZflnWyj94?si=s3KfJxQVp_CPNIgl"
+            // src="https://www.youtube.com/embed/i5ZflnWyj94?si=s3KfJxQVp_CPNIgl"
+            src="https://www.youtube.com/embed/MphBjycP72g"
             title="YouTube video player"
             allowFullScreen
           ></iframe>
@@ -55,7 +56,7 @@ const VideoDraggable = () => {
             className=""
           /> */}
           <p className="text-gray-50 text-xs  w-full bg-gray-900 text-center p-1">
-          “Membuka Blok Komunikasi Antara Orang Tua dan Anak Guna Mempersiapkan Mental di Jenjang Pendidikan Tinggi (Kampus)”.
+          “Tonton video ini sampai akhir agar kalian bisa memaksimalkan semua layanan di Bimbel LB3R ya...”.
           </p>
         </div>
       </Draggable>

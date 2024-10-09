@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Layout from "../../components/Layout";
-import Navbar from "../../components/Navbar";
+// import Navbar from "../../components/Navbar";
 import Wa from "../../components/Wa";
 import { getProgramsData } from "../../utils/layananApi";
 import "animate.css";
 import Head from "next/head";
-import { Carousel } from "react-responsive-carousel";
+// import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { getBlogsData } from "../../utils/blogsApi";
 import { getTutorialData } from "../../utils/TutorialApi";

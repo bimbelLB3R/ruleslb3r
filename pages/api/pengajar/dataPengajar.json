@@ -1,0 +1,29 @@
+{
+    "pengajars": [
+      {
+        "idPengajar": 1,
+        "nama": "Rahmania",
+        "mapel": "Kimia",
+        "malam": "ready",
+        "foto": "Bu Rahmania",
+        "kampus":"ULM"
+      },
+      {
+        "idPengajar": 2,
+        "nama": "Ambarsari",
+        "mapel": "Matematika",
+        "malam": "ready",
+        "foto": "Bu Ambarsari",
+        "kampus":"ULM"
+      },
+      {
+        "idPengajar": 3,
+        "nama": "Munawir",
+        "mapel": "Matematika",
+        "malam": "ready",
+        "foto": "Pak Munawir",
+        "kampus":"ULM"
+      }  
+    ]
+  }
+  
