@@ -23,7 +23,127 @@
         "malam": "ready",
         "foto": "Pak Munawir",
         "kampus":"ULM"
-      }  
+      },
+      {
+        "idPengajar": 4,
+        "nama": "Ayu Rahma D",
+        "mapel": "Tematik",
+        "malam": "ready",
+        "foto": "BU ayurade",
+        "kampus":"ULM"
+      },
+      {
+        "idPengajar": 5,
+        "nama": "Feny",
+        "mapel": "Tematik",
+        "malam": "ready",
+        "foto": "Bu Feny",
+        "kampus":"ULM"
+      },
+      {
+        "idPengajar": 6,
+        "nama": "Heny",
+        "mapel": "Biologi",
+        "malam": "ready",
+        "foto": "Bu Heny",
+        "kampus":"ULM"
+      },
+      {
+        "idPengajar": 7,
+        "nama": "Herni",
+        "mapel": "Matematika",
+        "malam": "ready",
+        "foto": "Bu Herni",
+        "kampus":"ULM"
+      },
+      {
+        "idPengajar": 8,
+        "nama": "Inayah",
+        "mapel": "Ekonomi",
+        "malam": "ready",
+        "foto": "Bu Inayah",
+        "kampus":"ULM"
+      },
+      {
+        "idPengajar": 9,
+        "nama": "Jannah",
+        "mapel": "Sejarah",
+        "malam": "ready",
+        "foto": "Bu Jannah",
+        "kampus":"ULM"
+      },
+      {
+        "idPengajar": 10,
+        "nama": "Maya",
+        "mapel": "English",
+        "malam": "ready",
+        "foto": "Bu Maya",
+        "kampus":"ULM"
+      },
+      {
+        "idPengajar": 11,
+        "nama": "Meylanda",
+        "mapel": "Bahasa Jepang",
+        "malam": "ready",
+        "foto": "Bu Meylanda",
+        "kampus":"ULM"
+      },
+      {
+        "idPengajar": 12,
+        "nama": "Nazia",
+        "mapel": "English",
+        "malam": "ready",
+        "foto": "Bu Nazia",
+        "kampus":"ULM"
+      },
+      {
+        "idPengajar": 13,
+        "nama": "Nugraheni",
+        "mapel": "Tematik",
+        "malam": "ready",
+        "foto": "Bu Nugraheni",
+        "kampus":"ULM"
+      } ,
+      {
+        "idPengajar": 14,
+        "nama": "Tarisa",
+        "mapel": "Matematika",
+        "malam": "ready",
+        "foto": "Bu Tarisa",
+        "kampus":"ULM"
+      },
+      {
+        "idPengajar": 15,
+        "nama": "Yessy",
+        "mapel": "Bhs. Indonesia",
+        "malam": "ready",
+        "foto": "Bu Yessy",
+        "kampus":"ULM"
+      },
+      {
+        "idPengajar": 16,
+        "nama": "Hendra",
+        "mapel": "Matematika",
+        "malam": "ready",
+        "foto": "Pak Hendra",
+        "kampus":"ULM"
+      },
+      {
+        "idPengajar": 17,
+        "nama": "Karim",
+        "mapel": "Fisika",
+        "malam": "ready",
+        "foto": "Pak Karim",
+        "kampus":"ULM"
+      },
+      {
+        "idPengajar": 18,
+        "nama": "Kuswanto",
+        "mapel": "English",
+        "malam": "ready",
+        "foto": "Pak Kuswanto",
+        "kampus":"ULM"
+      }           
     ]
   }
   

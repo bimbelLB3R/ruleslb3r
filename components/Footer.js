@@ -21,6 +21,11 @@ const Footer = () => {
                     Cek Keketatan Prodi SNBT
                   </p>
                 </a>
+                <a href="/pengajar">
+                  <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
+                    Pengajar
+                  </p>
+                </a>
               </div>
               <div className="flex space-x-2 items-center justify-center mb-4">
                 <a href="/blogs">
@@ -43,6 +48,11 @@ const Footer = () => {
                     Try Out SNBT
                   </p>
                 </a>
+                <a href="/livejadwal">
+                  <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
+                    Live Jadwal
+                  </p>
+                </a>
               </div>
               <div className="flex space-x-2 items-center justify-center">
                 <a href="/user/term">
@@ -55,8 +65,13 @@ const Footer = () => {
                     Kerahasiaan Data
                   </p>
                 </a>
+                <a href="https://fitur-lb3r.vercel.app">
+                  <p className="text-xs rounded-lg  text-yellow-400 p-1  decoration-2 decoration-purple-600">
+                    Cari Bestie
+                  </p>
+                </a>
               </div>
-              <div className="flex mt-4 space-x-6 sm:justify-center ">
+              <div className="flex mt-4 space-x-6 justify-center ">
                 <a
                   href="https://www.facebook.com/bimbel.lb3r"
                   className="text-yellow-400 hover:text-gray-50 "
@@ -107,7 +122,7 @@ const Footer = () => {
                   </svg>
                   <span className="sr-only">Twitter page</span>
                 </a>
-                <a href="#" className="text-yellow-400 hover:text-gray-50 ">
+                {/* <a href="#" className="text-yellow-400 hover:text-gray-50 ">
                   <svg
                     className="w-8 h-8"
                     fill="currentColor"
@@ -136,7 +151,7 @@ const Footer = () => {
                     />
                   </svg>
                   <span className="sr-only">Dribbble account</span>
-                </a>
+                </a> */}
               </div>
               <div className=" text-purple-600 sm:text-center text-xs mt-5">
                 {<YearRange />}
