@@ -5,14 +5,20 @@
         "nama": "Wahyudi",
         "keahlian": "Praktisi Talents Mapping",
         "job": "Konsultan Karir/Jurusan",
-        "foto": "Pak Wahyudi"
+        "foto": "Pak Wahyudi",
+        "facebook":"m.wahyudi.haidar",
+        "instagram":"bimbel.lb3r",
+        "twitter":"bimbel.lb3r"
       },
       {
         "idPraktisi": 2,
         "nama": "Febrin Nur A",
         "keahlian": "Praktisi Talents Mapping",
         "job": "Konsultan Keluarga",
-        "foto": "Bu Febrin"
+        "foto": "Bu Febrin",
+        "facebook":"m.wahyudi.haidar",
+        "instagram":"bimbel.lb3r",
+        "twitter":"bimbel.lb3r"
       }
            
     ]

@@ -81,7 +81,7 @@ const Payment = ({ allPost }) => {
                 <td className="align-top">6.</td>
                 <td className="text-justify">
                   Besarnya biaya pendaftaran Rp 150.000,- per anak (sekali
-                  bayar), dan biaya bulanan Rp 195.000,- (Biaya bisa mengalami
+                  bayar), dan biaya bulanan Rp 225.000,- (Biaya bisa mengalami
                   kenaikan tanpa pemberitahuan).
                 </td>
               </tr>

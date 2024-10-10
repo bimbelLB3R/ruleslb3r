@@ -86,7 +86,11 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
                 className="object-scale-down sm:object-cover transition-transform duration-500 ease-in-out group-hover:translate-y-[-10px]" />
                 </div>
               <div className="grid grid-col-1 gap-6">
-              <p className="text-center font-architects">{program.nama}</p>
+                <div>
+                <p className="text-center font-architects">{program.nama}</p>
+                <p className="text-center font-architects">{formatCurrency(program.biaya)}</p>
+                </div>
+              
               <Link href={
                     program.keterangan === "Free/Gratis"
                       ? `/form/newmember`:program.keterangan==="diskon"?`/form/tmasesmen`
