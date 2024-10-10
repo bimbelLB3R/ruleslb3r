@@ -21,6 +21,7 @@ import PopBerita from "../components/PopBerita";
 import WarningSnbt from "../components/WarningSnbt";
 import CanvaEmbed from "../components/CanvaEmbed1";
 import Link from "next/link";
+// import Formst30 from "../components/Formst30";
 
 const Home = ({ allPost, dataAlumni }) => {
   // console.log(allPost);
@@ -154,6 +155,7 @@ const Home = ({ allPost, dataAlumni }) => {
         </Link>
         <PopBerita beritaTerbaru={allPost} />
         <Faq />
+        {/* <Formst30/> */}
         {/* <AllRatingTentor /> */}
         {/* <InfoTerbaru /> */}
         {/* <CodeBlog /> */}

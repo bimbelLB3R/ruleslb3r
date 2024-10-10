@@ -1,0 +1,27 @@
+{
+    "AMB": {
+      "activities": ["Representing", "Relating", "Liaising"],
+      "roles": ["Duta Besar","Humas"],
+      "talents": ["Relator", "Communication", "Belief"],
+      "pendukung":["Context","Woo"],
+      "category":"Interpersonal Relating",
+      "kelompok":"N"
+    },
+    "ADM": {
+      "activities": ["Compliancing", "Filling", "Housekeeping","Organising","Scheduling","Typewriting"],
+      "roles": ["Sekretaris","Notaris","Petugas Perpustakaan"],
+      "talents": ["Discipline", "Belief", "Consistency","Responsibility"],
+      "pendukung":"",
+      "category":"Individual Striving Indoor",
+      "kelompok":"N"
+    },
+    "ANA": {
+      "activities": ["Analysing", "Bookeeping", "Programming"],
+      "roles": ["Akuntan","Analyst","Engineer","IT Programmer"],
+      "talents": ["Analytical"],
+      "pendukung":"",
+      "category":"Individual Cognitive",
+      "kelompok":"H"
+    }
+  }
+  
