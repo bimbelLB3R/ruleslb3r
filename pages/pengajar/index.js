@@ -58,7 +58,7 @@ export default function Pengajar({ allPengajar,allPost,allPraktisi}) {
         <meta
           property="og:image"
           itemProp="image"
-          content="https://raw.githubusercontent.com/bimbelLB3R/ruleslb3r/main/public/image/image1.webp"
+          content="https://raw.githubusercontent.com/bimbelLB3R/ruleslb3r/main/public/image/image6.webp"
         />
       </Head>
       <Wa />
