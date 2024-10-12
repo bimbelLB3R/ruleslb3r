@@ -2,7 +2,7 @@
     "AMB": {
       "activities": ["Representing", "Relating", "Liaising"],
       "roles": ["Duta Besar","Humas"],
-      "talents": ["Relator", "Communication", "Belief"],
+      "talents": ["Relator", "Communication", "Belief","Context","Woo"],
       "pendukung":["Context","Woo"],
       "category":"Interpersonal Relating",
       "kelompok":"N"
@@ -13,7 +13,7 @@
       "talents": ["Discipline", "Belief", "Consistency","Responsibility"],
       "pendukung":"",
       "category":"Individual Striving Indoor",
-      "kelompok":"N"
+      "kelompok":"E"
     },
     "ANA": {
       "activities": ["Analysing", "Bookeeping", "Programming"],
@@ -21,7 +21,7 @@
       "talents": ["Analytical"],
       "pendukung":"",
       "category":"Individual Cognitive",
-      "kelompok":"H"
+      "kelompok":"T"
     }
   }
   
