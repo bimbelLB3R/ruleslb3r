@@ -17,7 +17,7 @@ export default function Tipologi(){
             <meta
             property="og:image"
             itemProp="image"
-            content="https://raw.githubusercontent.com/bimbelLB3R/ruleslb3r/main/public/image/assets/pilihjurusan.svg"
+            content="https://raw.githubusercontent.com/bimbelLB3R/ruleslb3r/main/public/og-images/career.png"
             />
             </Head>
             <Formst30/>
