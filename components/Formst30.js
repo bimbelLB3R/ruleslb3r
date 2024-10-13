@@ -1,6 +1,8 @@
 import { Button, Table, TextInput } from 'flowbite-react';
 import Image from 'next/image';
 import { useState,useEffect } from 'react';
+import SpiderChart from './SpiderChart';
+import PieChart from './PieChart';
 
 export default function Formst30() {
     const [inputValue, setInputValue] = useState('');
@@ -138,26 +140,7 @@ export default function Formst30() {
     // console.log(rekomendasiJurusan)
     return (
         <div>
-            {inputValue &&
-            <div className="w-full mt-0">
-                <div className="flex">
-                    <div className="relative w-full h-8 ">
-                        {sortedKelompok.map(([kelompok, percentage], index) => (
-                            <div
-                                key={index}
-                                className="fixed top-0 m-auto z-50 text-center"
-                                style={{
-                                    width: `${percentage}%`, // Sesuaikan lebar berdasarkan persentase
-                                    left: `${sortedKelompok.slice(0, index).reduce((acc, curr) => acc + parseFloat(curr[1]), 0)}%`, // Hitung posisi left
-                                    backgroundColor: colors[index], // Gunakan warna acak
-                                }}
-                            >
-                                <span className="text-white text-xs p-1 ">{kelompok} ({percentage}%)</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>}
+            
             <div className="flex items-center justify-center m-10">
                 <form onSubmit={handleSubmit} className='relative'>
                     <div className="flex items-center justify-center space-x-3">
@@ -213,7 +196,57 @@ export default function Formst30() {
             </div>
         </div>:
         <section>
-            <div className="flex items-center justify-center max-w-3xl p-6 m-auto">
+            {/* Cluster */}
+            {inputValue &&
+            <div className="flex items-center justify-center max-w-3xl m-auto">
+            <div className="">
+                {/* Mengumpulkan data untuk SpiderChart */}
+                <PieChart
+                  data={{
+                    labels: sortedKelompok.map(([kelompok]) => kelompok), // Mengambil nama kelompok
+                    values: sortedKelompok.map(([_, percentage]) => percentage), // Mengambil persentase
+                  }}
+                />
+            </div>
+          </div>
+          }
+            {/* Rekomendasi Jurusan */}
+            <div className="grid grid-cols-1 md:max-w-3xl p-6 m-auto ">
+                <div className=''>
+                    <h1 className='text-center m-3 font-architects bg-purple-200 p-2 rounded-xl' >REKOMENDASI KARIR/JURUSAN</h1>
+                    <div className=''>
+                        <Table>
+                            <Table.Head>
+                                <Table.HeadCell>Match Tipology</Table.HeadCell>
+                                <Table.HeadCell>Karir/jurusan</Table.HeadCell>
+                                <Table.HeadCell>Persentase</Table.HeadCell>
+                            </Table.Head>
+                            <Table.Body className="divide-y">
+                                {sortedData!==''&& rekomendasiJurusan.filter(item => item.percentageMatch > 0) .map((item, index) =>(
+                                    
+                                    <Table.Row key={index} className="bg-white dark:bg-gray-800" >
+                                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                                            
+                                            <button className="mr-2">
+                                            {item.matchedTalents.join(', ')}
+                                            </button>
+                                        
+                                        </Table.Cell>
+                                        <Table.Cell>
+                                            {item.jurusan.join(', ')} 
+                                        </Table.Cell>
+                                        <Table.Cell>
+                                        {item.percentageMatch.toFixed(2)}%
+                                        </Table.Cell>
+                                    </Table.Row>
+                                ))}
+                            </Table.Body>
+                        </Table>
+                </div>
+                </div>
+            </div>
+            
+            <div className="flex items-center justify-center max-w-3xl mb-20 p-6 m-auto">
                 <Table>
                     <Table.Head>
                         <Table.HeadCell>Code</Table.HeadCell>
@@ -286,41 +319,6 @@ export default function Formst30() {
                     </Table.Body>
                 </Table>
             </div> */}
-            {/* Rekomendasi Jurusan */}
-            <div className="grid grid-cols-1 md:max-w-3xl p-6 m-auto mb-20">
-                <div className=''>
-                    <h1 className='text-center m-3 font-architects bg-purple-200 p-2 rounded-xl' >REKOMENDASI KARIR/JURUSAN</h1>
-                    <div className=''>
-                        <Table>
-                            <Table.Head>
-                                <Table.HeadCell>Match Tipology</Table.HeadCell>
-                                <Table.HeadCell>Karir/jurusan</Table.HeadCell>
-                                <Table.HeadCell>Persentase</Table.HeadCell>
-                            </Table.Head>
-                            <Table.Body className="divide-y">
-                                {sortedData!==''&& rekomendasiJurusan.filter(item => item.percentageMatch > 0) .map((item, index) =>(
-                                    
-                                    <Table.Row key={index} className="bg-white dark:bg-gray-800" >
-                                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                                            
-                                            <button className="mr-2">
-                                            {item.matchedTalents.join(', ')}
-                                            </button>
-                                        
-                                        </Table.Cell>
-                                        <Table.Cell>
-                                            {item.jurusan.join(', ')} 
-                                        </Table.Cell>
-                                        <Table.Cell>
-                                        {item.percentageMatch.toFixed(2)}%
-                                        </Table.Cell>
-                                    </Table.Row>
-                                ))}
-                            </Table.Body>
-                        </Table>
-                </div>
-                </div>
-            </div>
         </section>
         }
 

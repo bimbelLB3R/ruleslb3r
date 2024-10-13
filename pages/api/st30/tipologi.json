@@ -22,6 +22,22 @@
       "pendukung":"",
       "category":"Individual Cognitive",
       "kelompok":"T"
+    },
+    "ARR": {
+      "activities": ["Cooperating", "Coordinating", "Dispatching"],
+      "roles": ["EO","Manajer","Direktur"],
+      "talents": ["Arranger","Command","Maximizer","Includer"],
+      "pendukung":"",
+      "category":"Interpersonal Influencing",
+      "kelompok":"H"
+    },
+    "CAR": {
+      "activities": ["Caring", "Counseling", "Spiritualizing","Therapies","Volunteering"],
+      "roles": ["Perawat","Dokter","Guru TK","Petugas Sosial"],
+      "talents": ["Empathy","Belief","Context"],
+      "pendukung":"",
+      "category":"Interpersonal Serving",
+      "kelompok":"S"
     }
   }
   
