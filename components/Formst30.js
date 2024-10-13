@@ -1,4 +1,5 @@
 import { Button, Table, TextInput } from 'flowbite-react';
+import Image from 'next/image';
 import { useState,useEffect } from 'react';
 
 export default function Formst30() {
@@ -6,9 +7,11 @@ export default function Formst30() {
     const [sortedData, setSortedData] = useState([]);
     const [sortedTalents, setSortedTalents] = useState([]);
     const [sortedKelompok, setSortedKelompok] = useState([]);
+    const [rekomendasiJurusan, setRekomendasiJurusan] = useState([]);
     const [tooltip, setTooltip] = useState({ show: false, text: '' });
     const [colors, setColors] = useState([]);
-    const [inputDuplikat,setInputDuplikat]=useState(false)
+    const [inputDuplikat,setInputDuplikat]=useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
     const [activityDescriptions, setActivityDescriptions] = useState({}); // State for activity descriptions
     const [activeActivity, setActiveActivity] = useState(null); // Track which activity is active
 
@@ -37,11 +40,9 @@ export default function Formst30() {
     // console.log(tooltip)
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Pisahkan input berdasarkan spasi
-    const inputs = inputValue.split(' ');
-
-    const codesArray = [];
-    const talentsArray = [];
+        const inputs = inputValue.split(' ').map(item => item.trim()).filter(item => item !== '');
+        const codesArray = [];
+        const talentsArray = [];
 
     // Memisahkan codes dan talents
     inputs.forEach(item => {
@@ -79,6 +80,8 @@ export default function Formst30() {
         setSortedData(data.sortedData);
         setSortedTalents(data.sortedTalents);
         setSortedKelompok(data.kelompokPercentages);
+        setRekomendasiJurusan(data.sortedRecommendations)
+        setIsSubmitted(true);
     };
     // console.log(sortedCategory)
     // Fungsi untuk menghasilkan warna acak dalam format hex
@@ -100,8 +103,8 @@ export default function Formst30() {
         const inputValue = e.target.value; // Ambil nilai dari input form
         setInputValue(inputValue); // Simpan input value ke state
     
-        // Pisahkan input berdasarkan spasi
-        const inputs = inputValue.split(' ');
+        // Pisahkan input berdasarkan spasi dan megatasi kelebihan spasi pada input user
+        const inputs = inputValue.split(' ').map(item => item.trim()).filter(item => item !== '');
     
         const codesArray = [];
         const talentsArray = [];
@@ -132,9 +135,10 @@ export default function Formst30() {
         // Jika tidak ada duplikat, hapus pesan error
         setInputDuplikat(false);
     };
-
+    // console.log(rekomendasiJurusan)
     return (
         <div>
+            {inputValue &&
             <div className="w-full mt-0">
                 <div className="flex">
                     <div className="relative w-full h-8 ">
@@ -153,7 +157,7 @@ export default function Formst30() {
                         ))}
                     </div>
                 </div>
-            </div>
+            </div>}
             <div className="flex items-center justify-center m-10">
                 <form onSubmit={handleSubmit} className='relative'>
                     <div className="flex items-center justify-center space-x-3">
@@ -164,12 +168,13 @@ export default function Formst30() {
                                 className='md:w-[500px]'
                                 onChange={handleChange}
                                 placeholder="Enter codes or talents (#Talent) separated by spaces"
+                                disabled={isSubmitted}
                             />
                             {inputValue && (
                                 <button
                                     type="button"
                                     className="absolute top-1/2 transform -translate-y-1/2 right-3 text-gray-500"
-                                    onClick={() => {setInputValue(''); setInputDuplikat(false); setSortedData('')}}
+                                    onClick={() => {setInputValue(''); setInputDuplikat(false); setSortedData(''); setSortedKelompok([]); setIsSubmitted(false);}}
                                 >
                                     ✕
                                 </button>
@@ -194,8 +199,21 @@ export default function Formst30() {
             </div>
             </div>
             )}
-
-            <div className="flex items-center justify-center max-w-3xl p-4 m-auto mb-20">
+    {/* Tabel */}
+    {!inputValue?<div className='grid grid-cols-1 md:grid-cols-2 m-auto max-w-3xl p-4'>
+            <div className='flex items-center justify-center'>
+                <Image src="/image/assets/pilihjurusan.svg" width={300} height={300} alt='jurusan'/>
+                
+            </div>
+            <div className='grid grid-cols-1 gap-2'>
+            <p className='font-bold font-architects'>Petunjuk Penggunaan</p>
+            <p className='text-justify'>Silahkan masukkan kode Strength Tipology yang berwarna merah pada hasil asessmen Talents Mapping atau hasil asesmen ST-30 Anda. Contoh formatnya, AMB spasi ADM spasi ANA. Anda bisa memasukkan tiga hingga tujuh kode Tipologi.</p>
+            <p className='text-justify'>Jika Anda ingin mengetahui data Tipologi berdasarkan bakat, silahkan ketikkan bakat dengan format : #Bakat (Diawali tanda # dan huruf awal huruf besar), maka semua data tipologi yang memiliki bakat tersebut akan di tampilkan.</p>
+            <p className='text-justify'>Untuk mengetahui deskripsi dari tipologi atau aktivitas silahkan klik pada tipologi atau aktivitas tersebut. Deskripsi akan muncul pada halaman bawah.</p>
+            </div>
+        </div>:
+        <section>
+            <div className="flex items-center justify-center max-w-3xl p-4 m-auto">
                 <Table>
                     <Table.Head>
                         <Table.HeadCell>Code</Table.HeadCell>
@@ -268,6 +286,42 @@ export default function Formst30() {
                     </Table.Body>
                 </Table>
             </div> */}
+            {/* Rekomendasi Jurusan */}
+            <div className="flex items-center justify-center max-w-3xl p-4 m-auto mb-20">
+                <div>
+                <h1 className='text-center m-3 font-architects bg-purple-200 p-2 rounded-xl' >REKOMENDASI JURUSAN</h1>
+                <Table>
+                    <Table.Head>
+                        <Table.HeadCell>Match Tipology</Table.HeadCell>
+                        <Table.HeadCell>Jurusan</Table.HeadCell>
+                        <Table.HeadCell>Persentase</Table.HeadCell>
+                    </Table.Head>
+                    <Table.Body className="divide-y">
+                        {sortedData!==''&& rekomendasiJurusan.filter(item => item.percentageMatch > 0) .map((item, index) =>(
+                            
+                            <Table.Row key={index} className="bg-white dark:bg-gray-800" >
+                                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                                    
+                                    <button className="mr-2">
+                                    {item.matchedTalents.join(', ')}
+                                    </button>
+                                   
+                                </Table.Cell>
+                                <Table.Cell>
+                                    {item.jurusan.join(', ')} 
+                                </Table.Cell>
+                                <Table.Cell>
+                                {item.percentageMatch.toFixed(2)}%
+                                </Table.Cell>
+                            </Table.Row>
+                        ))}
+                    </Table.Body>
+                </Table>
+                </div>
+            </div>
+        </section>
+        }
+
         </div>
     );
 }

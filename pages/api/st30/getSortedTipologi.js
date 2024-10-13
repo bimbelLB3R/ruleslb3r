@@ -1,10 +1,41 @@
 import tipologi from './tipologi.json';
+import path from 'path';
+import { promises as fs } from 'fs';
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
     if (req.method === 'POST') {
-        const { codes,talents:userTalents } = req.body;
+        const { codes,talents:userTalents } = req.body; //codes sebagai userset
 
-        const sortedData = [];
+        if(codes.length>2||codes.length<8){
+            const codesSet=new Set(codes); // Konversi input user menjadi set untuk kemudahan perbandingan
+            const recommendations=[];
+
+            // mengambil data dari datajurusan.json, serverside
+            const filePath = path.join(process.cwd(), 'public', 'datajurusan.json');
+            const fileContents = await fs.readFile(filePath, 'utf8');
+            const jurusanData = JSON.parse(fileContents);//dataset dari database
+            // Proses setiap entry dalam dataset
+            // Proses setiap entry dalam dataset
+            for (const [key, jurusan] of Object.entries(jurusanData)) {
+                const jurusanDataSet = new Set(key.split(' ')); // Konversi komposisi bakat dataset menjadi set
+                const intersection = [...codesSet].filter(item => jurusanDataSet.has(item)); // Hitung kecocokan
+
+                // Hitung persentase kecocokan berdasarkan dataset
+                const percentageMatch = (intersection.length / jurusanDataSet.size) * 100;
+
+                // Simpan hasil dengan persentase kecocokan
+                recommendations.push({
+                    jurusan, // Rekomendasi jurusan
+                    percentageMatch, // Persentase kecocokan
+                    matchedTalents: intersection // Bakat yang cocok
+                });
+            }
+        
+        // Urutkan hasil berdasarkan persentase kecocokan tertinggi
+        const sortedRecommendations = recommendations.sort((a, b) => b.percentageMatch - a.percentageMatch);
+        // console.log(sortedRecommendations)
+
+        const sortedData = []; //code AMB ADM dll
         const talentCount = {};
         const kelompokCount = {}; // Untuk menghitung frekuensi kategori
 
@@ -61,9 +92,10 @@ export default function handler(req, res) {
             const percentage = ((count / totalItems) * 100).toFixed(2); // Hitung persentase dan batasi hingga 2 angka desimal
             return [ kelompok, percentage ];
         });
-
-        res.status(200).json({ sortedData, sortedTalents,kelompokPercentages });
+    
+        res.status(200).json({ sortedData, sortedTalents,kelompokPercentages,sortedRecommendations });
     } else {
         res.status(405).json({ message: 'Method not allowed' });
     }
+    } //tutup if
 }

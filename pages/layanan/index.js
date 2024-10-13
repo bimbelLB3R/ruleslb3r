@@ -43,10 +43,10 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
     <>
       <Head>
         <title>Program Bimbel LB3R</title>
-        <link
+        {/* <link
           href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap"
           rel="stylesheet"
-        />
+        /> */}
         <link
           rel="icon"
           type="image/png"
