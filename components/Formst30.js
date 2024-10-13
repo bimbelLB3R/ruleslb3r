@@ -145,7 +145,7 @@ export default function Formst30() {
                         {sortedKelompok.map(([kelompok, percentage], index) => (
                             <div
                                 key={index}
-                                className="absolute h-full text-center"
+                                className="fixed top-0 m-auto z-50 text-center"
                                 style={{
                                     width: `${percentage}%`, // Sesuaikan lebar berdasarkan persentase
                                     left: `${sortedKelompok.slice(0, index).reduce((acc, curr) => acc + parseFloat(curr[1]), 0)}%`, // Hitung posisi left
@@ -213,7 +213,7 @@ export default function Formst30() {
             </div>
         </div>:
         <section>
-            <div className="flex items-center justify-center max-w-3xl p-4 m-auto">
+            <div className="flex items-center justify-center max-w-3xl p-6 m-auto">
                 <Table>
                     <Table.Head>
                         <Table.HeadCell>Code</Table.HeadCell>
@@ -287,36 +287,38 @@ export default function Formst30() {
                 </Table>
             </div> */}
             {/* Rekomendasi Jurusan */}
-            <div className="flex items-center justify-center max-w-3xl p-4 m-auto mb-20">
-                <div>
-                <h1 className='text-center m-3 font-architects bg-purple-200 p-2 rounded-xl' >REKOMENDASI JURUSAN</h1>
-                <Table>
-                    <Table.Head>
-                        <Table.HeadCell>Match Tipology</Table.HeadCell>
-                        <Table.HeadCell>Jurusan</Table.HeadCell>
-                        <Table.HeadCell>Persentase</Table.HeadCell>
-                    </Table.Head>
-                    <Table.Body className="divide-y">
-                        {sortedData!==''&& rekomendasiJurusan.filter(item => item.percentageMatch > 0) .map((item, index) =>(
-                            
-                            <Table.Row key={index} className="bg-white dark:bg-gray-800" >
-                                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+            <div className="grid grid-cols-1 md:max-w-3xl p-6 m-auto mb-20">
+                <div className=''>
+                    <h1 className='text-center m-3 font-architects bg-purple-200 p-2 rounded-xl' >REKOMENDASI JURUSAN</h1>
+                    <div className=''>
+                        <Table>
+                            <Table.Head>
+                                <Table.HeadCell>Match Tipology</Table.HeadCell>
+                                <Table.HeadCell>Jurusan</Table.HeadCell>
+                                <Table.HeadCell>Persentase</Table.HeadCell>
+                            </Table.Head>
+                            <Table.Body className="divide-y">
+                                {sortedData!==''&& rekomendasiJurusan.filter(item => item.percentageMatch > 0) .map((item, index) =>(
                                     
-                                    <button className="mr-2">
-                                    {item.matchedTalents.join(', ')}
-                                    </button>
-                                   
-                                </Table.Cell>
-                                <Table.Cell>
-                                    {item.jurusan.join(', ')} 
-                                </Table.Cell>
-                                <Table.Cell>
-                                {item.percentageMatch.toFixed(2)}%
-                                </Table.Cell>
-                            </Table.Row>
-                        ))}
-                    </Table.Body>
-                </Table>
+                                    <Table.Row key={index} className="bg-white dark:bg-gray-800" >
+                                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                                            
+                                            <button className="mr-2">
+                                            {item.matchedTalents.join(', ')}
+                                            </button>
+                                        
+                                        </Table.Cell>
+                                        <Table.Cell>
+                                            {item.jurusan.join(', ')} 
+                                        </Table.Cell>
+                                        <Table.Cell>
+                                        {item.percentageMatch.toFixed(2)}%
+                                        </Table.Cell>
+                                    </Table.Row>
+                                ))}
+                            </Table.Body>
+                        </Table>
+                </div>
                 </div>
             </div>
         </section>
