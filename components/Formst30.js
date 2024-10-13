@@ -289,12 +289,12 @@ export default function Formst30() {
             {/* Rekomendasi Jurusan */}
             <div className="grid grid-cols-1 md:max-w-3xl p-6 m-auto mb-20">
                 <div className=''>
-                    <h1 className='text-center m-3 font-architects bg-purple-200 p-2 rounded-xl' >REKOMENDASI JURUSAN</h1>
+                    <h1 className='text-center m-3 font-architects bg-purple-200 p-2 rounded-xl' >REKOMENDASI KARIR/JURUSAN</h1>
                     <div className=''>
                         <Table>
                             <Table.Head>
                                 <Table.HeadCell>Match Tipology</Table.HeadCell>
-                                <Table.HeadCell>Jurusan</Table.HeadCell>
+                                <Table.HeadCell>Karir/jurusan</Table.HeadCell>
                                 <Table.HeadCell>Persentase</Table.HeadCell>
                             </Table.Head>
                             <Table.Body className="divide-y">
