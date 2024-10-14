@@ -305,22 +305,22 @@ export default function Formst30() {
                     <p className="text-center text-xs">{tooltip.text}</p>
                 </div>
             )}
-            {/* <div className="flex items-center justify-center max-w-3xl p-4 m-auto">
+            <div className="flex items-center justify-center max-w-3xl p-4 m-auto">
                 <Table>
                     <Table.Head>
-                        <Table.HeadCell>Persentase Kelompok</Table.HeadCell>
+                        <Table.HeadCell>Dorongan Bakat</Table.HeadCell>
                     </Table.Head>
                     <Table.Body className="divide-y">
-                        {sortedKelompok.map((item, index) => (
+                        {sortedTalents.map((item, index) => (
                             <Table.Row key={index} className="bg-white dark:bg-gray-800">
                                 <Table.Cell className='flex justify-center items-center space-x-2'>
-                                    <p>{item[0]}</p><p>{item[1]}%</p>
+                                    <p>{item}</p>
                                 </Table.Cell>
                             </Table.Row>
                         ))}
                     </Table.Body>
                 </Table>
-            </div> */}
+            </div>
         </section>
         }
 

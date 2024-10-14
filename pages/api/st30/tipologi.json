@@ -175,6 +175,14 @@
       "category":"Individual Thinking",
       "kelompok":"R"
     },
+    "SAF": {
+      "activities": ["Finishing", "Testing"],
+      "roles": ["Safety Engineer","Investigator","Petugas Pajak","Landing Officer"],
+      "talents": ["Analytical","Deliberative","Responsibility","Discipline"],
+      "pendukung":"",
+      "category":"Individual Striving Outdoor",
+      "kelompok":"Te"
+    },
     "SEL": {
       "activities": ["Brokering", "Influencing","Selling"],
       "roles": ["Sales","Humas"],
