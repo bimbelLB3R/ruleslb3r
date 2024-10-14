@@ -138,7 +138,7 @@ export default function Formst30() {
         setInputDuplikat(false);
     };
     const imageSrc="/image/iconlb3r.png";
-    // console.log(rekomendasiJurusan)
+    // console.log(sortedTalents)
     return (
         <div>
             
@@ -248,7 +248,7 @@ export default function Formst30() {
                 </div>
             </div>
             
-            <div className="flex items-center justify-center max-w-3xl mb-20 p-6 m-auto">
+            <div className="flex items-center justify-center max-w-3xl p-6 m-auto">
                 <Table>
                     <Table.Head>
                         <Table.HeadCell>Code</Table.HeadCell>
@@ -305,22 +305,13 @@ export default function Formst30() {
                     <p className="text-center text-xs">{tooltip.text}</p>
                 </div>
             )}
-            <div className="flex items-center justify-center max-w-3xl p-4 m-auto">
-                <Table>
-                    <Table.Head>
-                        <Table.HeadCell>Dorongan Bakat</Table.HeadCell>
-                    </Table.Head>
-                    <Table.Body className="divide-y">
-                        {sortedTalents.map((item, index) => (
-                            <Table.Row key={index} className="bg-white dark:bg-gray-800">
-                                <Table.Cell className='flex justify-center items-center space-x-2'>
-                                    <p>{item}</p>
-                                </Table.Cell>
-                            </Table.Row>
-                        ))}
-                    </Table.Body>
-                </Table>
-            </div>
+            {/* <div className="flex flex-wrap items-center justify-center mb-20">
+                {sortedTalents.map((item,index)=>(
+                    <div key={index} className=''>
+                        <span className='bg-pink-300 p-1 mr-2 space-x-2  text-xs'>{item}</span>
+                    </div>
+                ))}
+            </div> */}
         </section>
         }
 

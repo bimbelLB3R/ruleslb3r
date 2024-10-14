@@ -2,7 +2,7 @@
     "AMB": {
       "activities": ["Representing", "Relating", "Liaising"],
       "roles": ["Duta Besar","Humas"],
-      "talents": ["Relator", "Communication","Context","Woo"],
+      "talents": ["Relator", "Communication","Responsibility"],
       "pendukung":"",
       "category":"Interpersonal Relating",
       "kelompok":"N"
@@ -10,7 +10,7 @@
     "ADM": {
       "activities": ["Compliancing", "Filling", "Housekeeping","Organising","Scheduling","Typewriting"],
       "roles": ["Sekretaris","Notaris","Petugas Perpustakaan"],
-      "talents": ["Discipline","Consistency","Responsibility"],
+      "talents": ["Consistency","Discipline"],
       "pendukung":"",
       "category":"Individual Striving Indoor",
       "kelompok":"E"
@@ -26,7 +26,7 @@
     "ARR": {
       "activities": ["Cooperating", "Coordinating", "Dispatching"],
       "roles": ["EO","Manajer","Direktur"],
-      "talents": ["Arranger","Command","Maximizer","Includer"],
+      "talents": ["Arranger","Maximizer","Command"],
       "pendukung":"",
       "category":"Interpersonal Influencing",
       "kelompok":"H"
@@ -34,7 +34,7 @@
     "CAR": {
       "activities": ["Caring", "Counseling", "Spiritualizing","Therapies","Volunteering"],
       "roles": ["Perawat","Dokter","Guru TK","Petugas Sosial"],
-      "talents": ["Empathy","Belief","Context"],
+      "talents": ["Empathy","Belief"],
       "pendukung":"",
       "category":"Interpersonal Serving",
       "kelompok":"S"
@@ -66,7 +66,7 @@
     "DES": {
       "activities": ["Designing", "Drafting"],
       "roles": ["Juru Gambar (Drafter)","Perancang"],
-      "talents": ["Analytical","Ideation"],
+      "talents": ["Ideation","Analytical"],
       "pendukung":"",
       "category":"Individual Generating Idea",
       "kelompok":"Gi"
@@ -74,7 +74,7 @@
     "DIS": {
       "activities": ["Delivering", "Distributing"],
       "roles": ["Kurir","Jasa Pengiriman"],
-      "talents": ["Achiever","Arranger","Responsibility"],
+      "talents": ["Arranger","Responsibility","Achiever"],
       "pendukung":"",
       "category":"Individual Striving Outdoor",
       "kelompok":"Te"
@@ -82,7 +82,7 @@
     "EDU": {
       "activities": ["Advising", "Coaching","Consulting","Mentoring","Teaching","Training"],
       "roles": ["Guru","Manajer","Pelatih","Mentor","Coach"],
-      "talents": ["Developer","Individualization","Communication","Connectedness","Includer","Competition"],
+      "talents": ["Developer","Individualization","Communication","Connectedness"],
       "pendukung":"",
       "category":"Interpersonal Relating",
       "kelompok":"N"
@@ -98,7 +98,7 @@
     "EXP": {
       "activities": ["Appraising", "Observing","Researching","Surveying"],
       "roles": ["Penemu","Peneliti","Surveyor"],
-      "talents": ["Analytical","Context","Input","Learner"],
+      "talents": ["Analytical","Input","Learner"],
       "pendukung":"",
       "category":"Individual Thinking",
       "kelompok":"R"
@@ -106,7 +106,7 @@
     "INT": {
       "activities": ["Interpreting", "Transcribing","Translating"],
       "roles": ["Penterjemah"],
-      "talents": ["Analytical","Communication","Intellection"],
+      "talents": ["Intellection","Communication","Analytical"],
       "pendukung":"",
       "category":"Individual Striving Indoor",
       "kelompok":"E"
@@ -114,7 +114,7 @@
     "JOU": {
       "activities": ["Conceptualizing", "Editing","Redacting"],
       "roles": ["Penulis Buku","Wartawan"],
-      "talents": ["Communication","Ideation","Input","Adaptability","Command","Intellection","Strategic","Woo"],
+      "talents": ["Adaptability","Command","Communication","Connectedness"],
       "pendukung":"",
       "category":"Individual Striving Indoor",
       "kelompok":"E"
@@ -122,7 +122,7 @@
     "MAR": {
       "activities": ["Advertising", "Developing","Marketing","Publicizing"],
       "roles": ["Humas","Marketing","Business Development"],
-      "talents": ["Strategic","Communication","Ideation","Competition","Significance"],
+      "talents": ["Significance","Communication","Strategic","Ideation"],
       "pendukung":"",
       "category":"Individual Generating Idea",
       "kelompok":"Gi"
@@ -130,7 +130,7 @@
     "MED": {
       "activities": ["Collecting", "Controlling","Interrogating"],
       "roles": ["Juru Damai","Negosiator"],
-      "talents": ["Harmony","Includer"],
+      "talents": ["Command","Harmony"],
       "pendukung":"",
       "category":"Interpersonal Influencing",
       "kelompok":"H"
@@ -138,7 +138,7 @@
     "MOT": {
       "activities": ["Guiding", "Motivating","Supporting"],
       "roles": ["Motivator","Guru","Pelatih"],
-      "talents": ["Positivity","Developer","Strategic","Futuristic"],
+      "talents": ["Developer","Strategic","Positivity","Futuristic"],
       "pendukung":"",
       "category":"Interpersonal Relating",
       "kelompok":"N"
@@ -146,7 +146,7 @@
     "OPE": {
       "activities": ["Maintaining", "Operating"],
       "roles": ["Operator","Maintenance Technician"],
-      "talents": ["Achiever","Discipline","Belief","Focus"],
+      "talents": ["Achiever","Discipline","Belief"],
       "pendukung":"",
       "category":"Individual Striving Outdoor",
       "kelompok":"Te"
@@ -154,7 +154,7 @@
     "PRO": {
       "activities": ["Assembling", "Building","Installing","Producing"],
       "roles": ["Teknisi Instalasi","Teknisi Perakit","Teknisi Produksi"],
-      "talents": ["Achiever","Discipline","Activator","Ideation","Responsibility","Focus"],
+      "talents": ["Achiever","Discipline","Activator","Ideation","Responsibility"],
       "pendukung":"",
       "category":"Individual Striving Outdoor",
       "kelompok":"Te"
@@ -186,7 +186,7 @@
     "SEL": {
       "activities": ["Brokering", "Influencing","Selling"],
       "roles": ["Sales","Humas"],
-      "talents": ["Relator","Significance","Communication","Woo","Competition"],
+      "talents": ["Relator","Significance","Communication"],
       "pendukung":"",
       "category":"Interpersonal Influencing",
       "kelompok":"H"
@@ -194,7 +194,7 @@
     "SER": {
       "activities": ["Assisting", "Greeting","Informing","Serving"],
       "roles": ["Customer Service","Account Sales","Humas","Service Engineer"],
-      "talents": ["Belief","Woo"],
+      "talents": ["Belief"],
       "pendukung":"",
       "category":"Interpersonal Serving",
       "kelompok":"S"

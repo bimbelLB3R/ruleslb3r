@@ -1,4 +1,7 @@
 {
-   "ANA CMD AMB": ["Kedokteran", "Keperawatan"],
-   "AMB ADM COMM CRE CAR EDU ANA": ["Ilmu Komunikasi", "Ilmu Hukum"]
+   "ANA RES CAR SER SAF": ["Dokter Umum"],
+   "PRO QCA ANA DES CRE": ["Design Engineer"],
+   "SAF ADM ANA MOT EDU": ["Safety Engineer"],
+   "ANA RES ADM SAF STR": ["IT Programmer"]
+
 }
