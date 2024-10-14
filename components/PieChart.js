@@ -1,16 +1,34 @@
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { useEffect } from 'react';
 
-// Register required components
-ChartJS.register(ArcElement, Tooltip, Legend);
+// Daftarkan plugin custom
+ChartJS.register(ArcElement, Tooltip, Legend, {
+  id: 'customPlugin',
+  afterDraw: (chart) => {
+    // console.log("Drawing image in the center"); // Memastikan plugin terpanggil
+    const ctx = chart.ctx;
+    const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
+    const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
 
-const PieChart = ({ data }) => {
+    const img = new Image();
+    img.src = '/image/iconlb3r.png'; // Pastikan path gambar benar
+
+    img.onload = () => {
+      const imgWidth = 100;
+      const imgHeight = 100;
+      ctx.drawImage(img, centerX - imgWidth / 2, centerY - imgHeight / 2, imgWidth, imgHeight);
+    };
+  }
+});
+
+const PieChart = ({ data, imageSrc }) => {
   const chartData = {
-    labels: data.labels, // Nama kelompok atau kategori
+    labels: data.labels,
     datasets: [
       {
         label: 'Persentase',
-        data: data.values, // Nilai persentase untuk setiap kelompok
+        data: data.values,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -36,10 +54,10 @@ const PieChart = ({ data }) => {
     responsive: true,
     plugins: {
       legend: {
-        position: 'bottom', // Posisi legenda
+        position: 'top',
       },
       tooltip: {
-        enabled: true, // Menampilkan tooltip
+        enabled: true,
       },
     },
   };

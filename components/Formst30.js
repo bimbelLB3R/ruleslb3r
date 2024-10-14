@@ -137,6 +137,7 @@ export default function Formst30() {
         // Jika tidak ada duplikat, hapus pesan error
         setInputDuplikat(false);
     };
+    const imageSrc="/image/iconlb3r.png";
     // console.log(rekomendasiJurusan)
     return (
         <div>
@@ -197,7 +198,7 @@ export default function Formst30() {
         </div>:
         <section>
             {/* Cluster */}
-            {inputValue &&
+            {isSubmitted &&
             <div className="flex items-center justify-center max-w-3xl m-auto">
             <div className="">
                 {/* Mengumpulkan data untuk SpiderChart */}
@@ -206,6 +207,7 @@ export default function Formst30() {
                     labels: sortedKelompok.map(([kelompok]) => kelompok), // Mengambil nama kelompok
                     values: sortedKelompok.map(([_, percentage]) => percentage), // Mengambil persentase
                   }}
+                  imageSrc={imageSrc}
                 />
             </div>
           </div>
