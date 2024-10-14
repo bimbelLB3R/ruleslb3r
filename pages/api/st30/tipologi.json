@@ -2,15 +2,15 @@
     "AMB": {
       "activities": ["Representing", "Relating", "Liaising"],
       "roles": ["Duta Besar","Humas"],
-      "talents": ["Relator", "Communication", "Belief","Context","Woo"],
-      "pendukung":["Context","Woo"],
+      "talents": ["Relator", "Communication","Context","Woo"],
+      "pendukung":"",
       "category":"Interpersonal Relating",
       "kelompok":"N"
     },
     "ADM": {
       "activities": ["Compliancing", "Filling", "Housekeeping","Organising","Scheduling","Typewriting"],
       "roles": ["Sekretaris","Notaris","Petugas Perpustakaan"],
-      "talents": ["Discipline", "Belief", "Consistency","Responsibility"],
+      "talents": ["Discipline","Consistency","Responsibility"],
       "pendukung":"",
       "category":"Individual Striving Indoor",
       "kelompok":"E"
@@ -74,7 +74,7 @@
     "DIS": {
       "activities": ["Delivering", "Distributing"],
       "roles": ["Kurir","Jasa Pengiriman"],
-      "talents": ["Strategic","Achiever","Arranger","Responsibility"],
+      "talents": ["Achiever","Arranger","Responsibility"],
       "pendukung":"",
       "category":"Individual Striving Outdoor",
       "kelompok":"Te"
@@ -90,7 +90,7 @@
     "EVA": {
       "activities": ["Diagnosing", "Identifying","Restoring"],
       "roles": ["Evaluator","Penyidik","Auditor"],
-      "talents": ["Analytical","Deliberative","Input"],
+      "talents": ["Analytical","Deliberative","Consistency"],
       "pendukung":"",
       "category":"Individual Thinking",
       "kelompok":"R"
@@ -98,7 +98,7 @@
     "EXP": {
       "activities": ["Appraising", "Observing","Researching","Surveying"],
       "roles": ["Penemu","Peneliti","Surveyor"],
-      "talents": ["Analytical","Context","Intelection","Input","Learner"],
+      "talents": ["Analytical","Context","Input","Learner"],
       "pendukung":"",
       "category":"Individual Thinking",
       "kelompok":"R"
@@ -106,7 +106,7 @@
     "INT": {
       "activities": ["Interpreting", "Transcribing","Translating"],
       "roles": ["Penterjemah"],
-      "talents": ["Analytical","Communication","Intelection"],
+      "talents": ["Analytical","Communication","Intellection"],
       "pendukung":"",
       "category":"Individual Striving Indoor",
       "kelompok":"E"
@@ -114,7 +114,7 @@
     "JOU": {
       "activities": ["Conceptualizing", "Editing","Redacting"],
       "roles": ["Penulis Buku","Wartawan"],
-      "talents": ["Communication","Ideation","Input","Discipline","Adaptability","Command","Intelection","Strategic"],
+      "talents": ["Communication","Ideation","Input","Adaptability","Command","Intellection","Strategic","Woo"],
       "pendukung":"",
       "category":"Individual Striving Indoor",
       "kelompok":"E"
@@ -130,7 +130,7 @@
     "MED": {
       "activities": ["Collecting", "Controlling","Interrogating"],
       "roles": ["Juru Damai","Negosiator"],
-      "talents": ["Command","Harmony","Includer"],
+      "talents": ["Harmony","Includer"],
       "pendukung":"",
       "category":"Interpersonal Influencing",
       "kelompok":"H"
@@ -138,7 +138,7 @@
     "MOT": {
       "activities": ["Guiding", "Motivating","Supporting"],
       "roles": ["Motivator","Guru","Pelatih"],
-      "talents": ["Positivity","Empathy","Developer","Strategic","Futuristic"],
+      "talents": ["Positivity","Developer","Strategic","Futuristic"],
       "pendukung":"",
       "category":"Interpersonal Relating",
       "kelompok":"N"
@@ -146,7 +146,7 @@
     "OPE": {
       "activities": ["Maintaining", "Operating"],
       "roles": ["Operator","Maintenance Technician"],
-      "talents": ["Belief","Discipline","Achiever"],
+      "talents": ["Achiever","Discipline","Belief","Focus"],
       "pendukung":"",
       "category":"Individual Striving Outdoor",
       "kelompok":"Te"
@@ -154,7 +154,7 @@
     "PRO": {
       "activities": ["Assembling", "Building","Installing","Producing"],
       "roles": ["Teknisi Instalasi","Teknisi Perakit","Teknisi Produksi"],
-      "talents": ["Achiever","Discipline","Activator","Ideation","Responsibility"],
+      "talents": ["Achiever","Discipline","Activator","Ideation","Responsibility","Focus"],
       "pendukung":"",
       "category":"Individual Striving Outdoor",
       "kelompok":"Te"
@@ -162,7 +162,7 @@
     "QCA": {
       "activities": ["Monitoring", "Safekeeping","Securing"],
       "roles": ["Teknisi Finishing","Teknisi Quality Control"],
-      "talents": ["Achiever","Focus","Maximizer","Deliberative","Consistency","Discipline","Responsibility"],
+      "talents": ["Consistency","Discipline","Responsibility","Maximizer","Deliberative"],
       "pendukung":"",
       "category":"Individual Striving Outdoor",
       "kelompok":"Te"
@@ -178,7 +178,7 @@
     "SAF": {
       "activities": ["Finishing", "Testing"],
       "roles": ["Safety Engineer","Investigator","Petugas Pajak","Landing Officer"],
-      "talents": ["Analytical","Deliberative","Responsibility","Discipline"],
+      "talents": ["Deliberative","Responsibility","Discipline"],
       "pendukung":"",
       "category":"Individual Striving Outdoor",
       "kelompok":"Te"
@@ -186,7 +186,7 @@
     "SEL": {
       "activities": ["Brokering", "Influencing","Selling"],
       "roles": ["Sales","Humas"],
-      "talents": ["Relator","Responsibility","Significance","Communication","Woo","Competition"],
+      "talents": ["Relator","Significance","Communication","Woo","Competition"],
       "pendukung":"",
       "category":"Interpersonal Influencing",
       "kelompok":"H"
