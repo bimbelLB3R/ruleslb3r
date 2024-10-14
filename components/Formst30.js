@@ -1,10 +1,27 @@
 import { Button, Table, TextInput } from 'flowbite-react';
 import Image from 'next/image';
 import { useState,useEffect } from 'react';
-import SpiderChart from './SpiderChart';
 import PieChart from './PieChart';
+import { useRef } from 'react';
+
 
 export default function Formst30() {
+    const contentRef = useRef(null);
+    const generatePdf = async () => {
+        const html2pdf = (await import('html2pdf.js')).default;
+    
+        // Atur opsi untuk mengatur margin, ukuran halaman, orientasi, dll.
+        const options = {
+          margin: 0.5, // Margin dalam satuan inch
+          filename: 'myDocument.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 }, // Membuat rendering lebih tajam
+          jsPDF: { unit: 'cm', format: 'a4', orientation: 'portrait' } // Mengatur ukuran dan orientasi halaman
+        };
+    
+        // Buat PDF dengan beberapa halaman (jika kontennya panjang)
+        html2pdf().set(options).from(contentRef.current).save();
+      };
     const [inputValue, setInputValue] = useState('');
     const [sortedData, setSortedData] = useState([]);
     const [sortedTalents, setSortedTalents] = useState([]);
@@ -164,23 +181,29 @@ export default function Formst30() {
                                 </button>
                             )}
                         </div>
-                        <Button gradientDuoTone="pinkToOrange" type="submit">
-                            Submit
-                        </Button>
+                        {isSubmitted?
+                        <Button outline gradientDuoTone="pinkToOrange" onClick={generatePdf}>
+                        Download
+                      </Button>
+                            // <button onClick={generatePdf} className='bg-gray-600 p-2 rounded text-gray-400'>Download</button>
+                        :<Button gradientDuoTone="pinkToOrange" type="submit">
+                        Submit
+                    </Button>}
                     </div>
                 </form>
             </div>
+
             {inputDuplikat &&(
             <div className='flex items-center justify-center m-auto'>
-            <div class="flex items-center justify-center max-w-3xl p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                <div class="flex items-center justify-center max-w-3xl p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
                     <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
                     </svg>
                     <span class="sr-only">Info</span>
-                <div>
+                    <div>
                     <span class="font-medium">Warning!</span> Ada data duplikat.
+                    </div>
                 </div>
-            </div>
             </div>
             )}
     {/* Tabel */}
@@ -196,26 +219,27 @@ export default function Formst30() {
             <p className='text-justify'>Untuk mengetahui deskripsi dari tipologi atau aktivitas silahkan klik pada tipologi atau aktivitas tersebut. Deskripsi akan muncul pada halaman bawah.</p>
             </div>
         </div>:
-        <section>
+        <div>
+        <section ref={contentRef}>
             {/* Cluster */}
             {isSubmitted &&
             <div className="flex items-center justify-center max-w-3xl m-auto">
-            <div className="">
+                <div className="">
                 {/* Mengumpulkan data untuk SpiderChart */}
-                <PieChart
+                    <PieChart
                   data={{
                     labels: sortedKelompok.map(([kelompok]) => kelompok), // Mengambil nama kelompok
                     values: sortedKelompok.map(([_, percentage]) => percentage), // Mengambil persentase
                   }}
                   imageSrc={imageSrc}
-                />
+                    />
+                </div>
             </div>
-          </div>
           }
             {/* Rekomendasi Jurusan */}
             <div className="grid grid-cols-1 md:max-w-3xl p-6 m-auto ">
                 <div className=''>
-                    <h1 className='text-center m-3 font-architects bg-purple-200 p-2 rounded-xl' >REKOMENDASI KARIR/JURUSAN</h1>
+                    <div className='flex items-center justify-center m-3 font-architects bg-purple-200 p-2 rounded-xl' >REKOMENDASI KARIR/JURUSAN</div>
                     <div className=''>
                         <Table>
                             <Table.Head>
@@ -247,7 +271,7 @@ export default function Formst30() {
                 </div>
                 </div>
             </div>
-            
+            <div className='break-after-page'></div>
             <div className="flex items-center justify-center max-w-3xl p-6 m-auto">
                 <Table>
                     <Table.Head>
@@ -313,6 +337,9 @@ export default function Formst30() {
                 ))}
             </div> */}
         </section>
+        
+        </div>
+        
         }
 
         </div>
