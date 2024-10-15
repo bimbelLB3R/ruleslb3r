@@ -15,7 +15,7 @@ export default function Formst30() {
         // Atur opsi untuk mengatur margin, ukuran halaman, orientasi, dll.
         const options = {
           margin: 0.5, // Margin dalam satuan inch
-          filename: 'myDocument.pdf',
+          filename: 'Hasil Analisa ST30.pdf',
           image: { type: 'jpeg', quality: 0.98 },
           html2canvas: { scale: 2 }, // Membuat rendering lebih tajam
           jsPDF: { unit: 'cm', format: 'a4', orientation: 'portrait' } // Mengatur ukuran dan orientasi halaman
@@ -158,6 +158,10 @@ export default function Formst30() {
     };
     const imageSrc="/image/iconlb3r.png";
     // console.log(sortedTalents)
+    const limitedSortedData=sortedData.slice(0,4);
+    const limitedSortedData2=sortedData.slice(4,10);
+    console.log(limitedSortedData)
+    console.log(limitedSortedData2)
     return (
         <div>
             
@@ -238,44 +242,8 @@ export default function Formst30() {
                 </div>
             </div>
           }
-            {/* Rekomendasi Jurusan */}
-            <div className="grid grid-cols-1 md:max-w-3xl p-6 m-auto ">
-                <div className=''>
-                    {session && <p className='text-center p-2 uppercase font-bold text-xl'>{session.user.name}</p>}
-                    <div className='flex items-center justify-center m-3 font-architects bg-purple-200 p-2 rounded-xl' >REKOMENDASI KARIR/JURUSAN</div>
-                    <div className=''>
-                        <Table>
-                            <Table.Head>
-                                <Table.HeadCell>Match Tipology</Table.HeadCell>
-                                <Table.HeadCell>Karir/jurusan</Table.HeadCell>
-                                <Table.HeadCell>Persentase</Table.HeadCell>
-                            </Table.Head>
-                            <Table.Body className="divide-y">
-                                {sortedData!==''&& rekomendasiJurusan.filter(item => item.percentageMatch > 0) .map((item, index) =>(
-                                    
-                                    <Table.Row key={index} className="bg-white dark:bg-gray-800" >
-                                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                                            
-                                            <button className="mr-2">
-                                            {item.matchedTalents.join(', ')}
-                                            </button>
-                                        
-                                        </Table.Cell>
-                                        <Table.Cell>
-                                            {item.jurusan.join(', ')} 
-                                        </Table.Cell>
-                                        <Table.Cell>
-                                        {item.percentageMatch.toFixed(2)}%
-                                        </Table.Cell>
-                                    </Table.Row>
-                                ))}
-                            </Table.Body>
-                        </Table>
-                </div>
-                </div>
-            </div>
-            <div className='break-after-page'></div>
-            <div className="flex items-center justify-center max-w-3xl p-6 m-auto">
+            {session && <p className='text-center p-2 uppercase font-bold text-xl'>{session.user.name}</p>}
+            <div className="flex items-center justify-center max-w-3xl p-6 m-auto ">
                 <Table>
                     <Table.Head>
                         <Table.HeadCell>Code</Table.HeadCell>
@@ -285,9 +253,9 @@ export default function Formst30() {
                         <Table.HeadCell>Category</Table.HeadCell>
                     </Table.Head>
                     <Table.Body className="divide-y">
-                        {sortedData!==''&& sortedData.map((item, index) =>(
+                        {limitedSortedData!==''&& limitedSortedData.map((item, index) =>(
                             
-                            <Table.Row key={index} className="bg-white dark:bg-gray-800">
+                            <Table.Row key={index} className="bg-white dark:bg-gray-800 ">
                                 <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                                     
                                     <button className="mr-2" onClick={() => fetchCodeDescription(item.code)} // Fetch description on click
@@ -324,6 +292,49 @@ export default function Formst30() {
                                 </Table.Cell>
                             </Table.Row>
                         ))}
+                        <div className='break-after-page'></div>
+                        {/* data kedua */}
+                        {limitedSortedData2!==''&& limitedSortedData2.map((item, index) =>(
+                            
+                            <Table.Row key={index} className='bg-white dark:bg-gray-800'>
+                                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                                    
+                                    <button className="mr-2" onClick={() => fetchCodeDescription(item.code)} // Fetch description on click
+                                        onMouseLeave={() => setTooltip({ show: false, text: '' })} // Hide tooltip on mouse leave
+                                    >
+                                        {item.code}
+                                    </button>
+                                   
+                                </Table.Cell>
+                                <Table.Cell>
+                                                {item.activities.map((activity, index) => (
+                                                    <div className="relative inline-block active:text-red-500 hover:text-red-800" key={index}>
+                                                        <button
+                                                                className="mr-2"
+                                                                onClick={() => fetchActivityDescription(activity)} // Fetch description on click
+                                                                onMouseLeave={() => setTooltip({ show: false, text: '' })} // Hide tooltip on mouse leave
+                                                            >
+                                                            {activity}
+                                                        </button>
+                                            
+                                                    </div>
+                                            
+                                                ))}
+                                                
+                                </Table.Cell>
+                                <Table.Cell>
+                                    {item.talents.join(', ')}
+                                </Table.Cell>
+                                <Table.Cell>
+                                    {item.roles.join(', ')}
+                                </Table.Cell>
+                                <Table.Cell>
+                                    {item.category}
+                                </Table.Cell>
+                            </Table.Row>
+                        ))}
+                        {limitedSortedData2.length>4?<div className='break-after-page'></div>:''}
+                        
                     </Table.Body>
                 </Table>
             </div>
@@ -332,6 +343,43 @@ export default function Formst30() {
                     <p className="text-center text-xs">{tooltip.text}</p>
                 </div>
             )}
+            
+            
+            {/* Rekomendasi Jurusan */}
+            <div className="grid grid-cols-1 md:max-w-3xl p-6 m-auto ">
+                <div className=''>
+                    <div className='flex items-center justify-center m-3 font-architects bg-purple-200 p-2 rounded-xl' >REKOMENDASI KARIR/JURUSAN</div>
+                    <div className=''>
+                        <Table>
+                            <Table.Head>
+                                <Table.HeadCell>Match Tipology</Table.HeadCell>
+                                <Table.HeadCell>Karir/jurusan</Table.HeadCell>
+                                <Table.HeadCell>Persentase</Table.HeadCell>
+                            </Table.Head>
+                            <Table.Body className="divide-y">
+                                {sortedData!==''&& rekomendasiJurusan.filter(item => item.percentageMatch > 0) .map((item, index) =>(
+                                    
+                                    <Table.Row key={index} className='bg-white dark:bg-gray-800'>
+                                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                                            
+                                            <button className="mr-2">
+                                            {item.matchedTalents.join(', ')}
+                                            </button>
+                                        
+                                        </Table.Cell>
+                                        <Table.Cell>
+                                            {item.jurusan.join(', ')} 
+                                        </Table.Cell>
+                                        <Table.Cell>
+                                        {item.percentageMatch.toFixed(2)}%
+                                        </Table.Cell>
+                                    </Table.Row>
+                                ))}
+                            </Table.Body>
+                        </Table>
+                </div>
+                </div>
+            </div>
             {/* <div className="flex flex-wrap items-center justify-center mb-20">
                 {sortedTalents.map((item,index)=>(
                     <div key={index} className=''>
@@ -340,7 +388,6 @@ export default function Formst30() {
                 ))}
             </div> */}
         </section>
-        
         </div>
         
         }
