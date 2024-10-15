@@ -3,7 +3,7 @@
       "activities": ["Representing", "Relating", "Liaising"],
       "roles": ["Duta Besar","Humas"],
       "talents": ["Relator", "Communication","Responsibility"],
-      "pendukung":"",
+      "bidang_usaha":"Kehumasan",
       "category":"Interpersonal Relating",
       "kelompok":"N"
     },
@@ -11,7 +11,7 @@
       "activities": ["Compliancing", "Filling", "Housekeeping","Organising","Scheduling","Typewriting"],
       "roles": ["Sekretaris","Notaris","Petugas Perpustakaan"],
       "talents": ["Consistency","Discipline"],
-      "pendukung":"",
+      "bidang_usaha":"Administrasi",
       "category":"Individual Striving Indoor",
       "kelompok":"E"
     },
@@ -19,7 +19,7 @@
       "activities": ["Analysing", "Bookeeping", "Programming"],
       "roles": ["Akuntan","Analyst","Engineer","IT Programmer"],
       "talents": ["Analytical"],
-      "pendukung":"",
+      "bidang_usaha":"Analyst",
       "category":"Individual Cognitive",
       "kelompok":"T"
     },
@@ -27,7 +27,7 @@
       "activities": ["Cooperating", "Coordinating", "Dispatching"],
       "roles": ["EO","Manajer","Direktur"],
       "talents": ["Arranger","Maximizer","Command"],
-      "pendukung":"",
+      "bidang_usaha":"Event Organizer",
       "category":"Interpersonal Influencing",
       "kelompok":"H"
     },
@@ -35,7 +35,7 @@
       "activities": ["Caring", "Counseling", "Spiritualizing","Therapies","Volunteering"],
       "roles": ["Perawat","Dokter","Guru TK","Petugas Sosial"],
       "talents": ["Empathy","Belief"],
-      "pendukung":"",
+      "bidang_usaha":"Perawatan",
       "category":"Interpersonal Serving",
       "kelompok":"S"
     },
@@ -43,7 +43,7 @@
       "activities": ["Mediating", "Negotiating", "Purchasing"],
       "roles": ["Debt Collector","Pengacara","Mediator","Sales","Pimpinan"],
       "talents": ["Command","Responsibility"],
-      "pendukung":"",
+      "bidang_usaha":"Sales",
       "category":"Interpersonal Influencing",
       "kelompok":"H"
     },
@@ -51,7 +51,7 @@
       "activities": ["Communicating", "Corresponding", "Entertaining","Presenting"],
       "roles": ["Presenter","Humas","Guru","Sales","Pimpinan"],
       "talents": ["Communication","Significance"],
-      "pendukung":"",
+      "bidang_usaha":"Presenter",
       "category":"Interpersonal Relating",
       "kelompok":"N"
     },
@@ -59,7 +59,7 @@
       "activities": ["Animating", "Ideating", "Creating"],
       "roles": ["Arsitek","Product Designer","Marketing","Business Development"],
       "talents": ["Ideation","Futuristic","Strategic","Responsibility"],
-      "pendukung":"",
+      "bidang_usaha":"Desainer",
       "category":"Individual Generating Idea",
       "kelompok":"Gi"
     },
@@ -67,7 +67,7 @@
       "activities": ["Designing", "Drafting"],
       "roles": ["Juru Gambar (Drafter)","Perancang"],
       "talents": ["Ideation","Analytical"],
-      "pendukung":"",
+      "bidang_usaha":"Juru Gambar",
       "category":"Individual Generating Idea",
       "kelompok":"Gi"
     },
@@ -75,7 +75,7 @@
       "activities": ["Delivering", "Distributing"],
       "roles": ["Kurir","Jasa Pengiriman"],
       "talents": ["Arranger","Responsibility","Achiever"],
-      "pendukung":"",
+      "bidang_usaha":"Logistik",
       "category":"Individual Striving Outdoor",
       "kelompok":"Te"
     },
@@ -83,7 +83,7 @@
       "activities": ["Advising", "Coaching","Consulting","Mentoring","Teaching","Training"],
       "roles": ["Guru","Manajer","Pelatih","Mentor","Coach"],
       "talents": ["Developer","Individualization","Communication","Connectedness"],
-      "pendukung":"",
+      "bidang_usaha":"Pelatihan",
       "category":"Interpersonal Relating",
       "kelompok":"N"
     },
@@ -91,7 +91,7 @@
       "activities": ["Diagnosing", "Identifying","Restoring"],
       "roles": ["Evaluator","Penyidik","Auditor"],
       "talents": ["Analytical","Deliberative","Consistency"],
-      "pendukung":"",
+      "bidang_usaha":"Auditor",
       "category":"Individual Thinking",
       "kelompok":"R"
     },
@@ -99,7 +99,7 @@
       "activities": ["Appraising", "Observing","Researching","Surveying"],
       "roles": ["Penemu","Peneliti","Surveyor"],
       "talents": ["Analytical","Input","Learner"],
-      "pendukung":"",
+      "bidang_usaha":"Penelitian",
       "category":"Individual Thinking",
       "kelompok":"R"
     },
@@ -107,7 +107,7 @@
       "activities": ["Interpreting", "Transcribing","Translating"],
       "roles": ["Penterjemah"],
       "talents": ["Intellection","Communication","Analytical"],
-      "pendukung":"",
+      "bidang_usaha":"Penulis",
       "category":"Individual Striving Indoor",
       "kelompok":"E"
     },
@@ -115,7 +115,7 @@
       "activities": ["Conceptualizing", "Editing","Redacting"],
       "roles": ["Penulis Buku","Wartawan"],
       "talents": ["Adaptability","Command","Communication","Connectedness"],
-      "pendukung":"",
+      "bidang_usaha":"Pemberitaan",
       "category":"Individual Striving Indoor",
       "kelompok":"E"
     },
@@ -123,7 +123,7 @@
       "activities": ["Advertising", "Developing","Marketing","Publicizing"],
       "roles": ["Humas","Marketing","Business Development"],
       "talents": ["Significance","Communication","Strategic","Ideation"],
-      "pendukung":"",
+      "bidang_usaha":"Pemasaran",
       "category":"Individual Generating Idea",
       "kelompok":"Gi"
     },
@@ -131,7 +131,7 @@
       "activities": ["Collecting", "Controlling","Interrogating"],
       "roles": ["Juru Damai","Negosiator"],
       "talents": ["Command","Harmony"],
-      "pendukung":"",
+      "bidang_usaha":"Mediator",
       "category":"Interpersonal Influencing",
       "kelompok":"H"
     },
@@ -139,7 +139,7 @@
       "activities": ["Guiding", "Motivating","Supporting"],
       "roles": ["Motivator","Guru","Pelatih"],
       "talents": ["Developer","Strategic","Positivity","Futuristic"],
-      "pendukung":"",
+      "bidang_usaha":"Motivator",
       "category":"Interpersonal Relating",
       "kelompok":"N"
     },
@@ -147,7 +147,7 @@
       "activities": ["Maintaining", "Operating"],
       "roles": ["Operator","Maintenance Technician"],
       "talents": ["Achiever","Discipline","Belief"],
-      "pendukung":"",
+      "bidang_usaha":"Pemeliharaan",
       "category":"Individual Striving Outdoor",
       "kelompok":"Te"
     },
@@ -155,7 +155,7 @@
       "activities": ["Assembling", "Building","Installing","Producing"],
       "roles": ["Teknisi Instalasi","Teknisi Perakit","Teknisi Produksi"],
       "talents": ["Achiever","Discipline","Activator","Ideation","Responsibility"],
-      "pendukung":"",
+      "bidang_usaha":"Produksi",
       "category":"Individual Striving Outdoor",
       "kelompok":"Te"
     },
@@ -163,7 +163,7 @@
       "activities": ["Monitoring", "Safekeeping","Securing"],
       "roles": ["Teknisi Finishing","Teknisi Quality Control"],
       "talents": ["Consistency","Discipline","Responsibility","Maximizer","Deliberative"],
-      "pendukung":"",
+      "bidang_usaha":"Quality Control",
       "category":"Individual Striving Outdoor",
       "kelompok":"Te"
     },
@@ -171,7 +171,7 @@
       "activities": ["Auditing", "Evaluating","Inspecting","Investigating","Reviewing","Verifying"],
       "roles": ["Teknisi Perbaikan","Dokter","Psikiater","Psikolog"],
       "talents": ["Analytical","Restorative"],
-      "pendukung":"",
+      "bidang_usaha":"Perbaikan",
       "category":"Individual Thinking",
       "kelompok":"R"
     },
@@ -179,7 +179,7 @@
       "activities": ["Finishing", "Testing"],
       "roles": ["Safety Engineer","Investigator","Petugas Pajak","Landing Officer"],
       "talents": ["Deliberative","Responsibility","Discipline"],
-      "pendukung":"",
+      "bidang_usaha":"Safety",
       "category":"Individual Striving Outdoor",
       "kelompok":"Te"
     },
@@ -187,7 +187,7 @@
       "activities": ["Brokering", "Influencing","Selling"],
       "roles": ["Sales","Humas"],
       "talents": ["Relator","Significance","Communication"],
-      "pendukung":"",
+      "bidang_usaha":"Penjualan",
       "category":"Interpersonal Influencing",
       "kelompok":"H"
     },
@@ -195,7 +195,7 @@
       "activities": ["Assisting", "Greeting","Informing","Serving"],
       "roles": ["Customer Service","Account Sales","Humas","Service Engineer"],
       "talents": ["Belief"],
-      "pendukung":"",
+      "bidang_usaha":"Service",
       "category":"Interpersonal Serving",
       "kelompok":"S"
     },
@@ -203,7 +203,7 @@
       "activities": ["Recruiting", "Interviewing"],
       "roles": ["HRD Rekruitmen","Casting"],
       "talents": ["Individualization","Command"],
-      "pendukung":"",
+      "bidang_usaha":"Head Hunter, Rekruitment",
       "category":"Interpersonal Influencing",
       "kelompok":"H"
     },
@@ -211,7 +211,7 @@
       "activities": ["Planing", "Strategizing"],
       "roles": ["Manager Perencanaan","Leader"],
       "talents": ["Strategic","Analytical","Self Assurance"],
-      "pendukung":"",
+      "bidang_usaha":"Perencanaan",
       "category":"Individual Generating Idea",
       "kelompok":"Gi"
     },
@@ -219,7 +219,7 @@
       "activities": ["Synthesizing"],
       "roles": ["Peneliti","Marketing","Business Development","Tools Developer"],
       "talents": ["Arranger","Strategic","Analytical","Discipline","Connectedness"],
-      "pendukung":"",
+      "bidang_usaha":"Periklanan",
       "category":"Individual Generating Idea",
       "kelompok":"Gi"
     },
@@ -227,7 +227,7 @@
       "activities": ["Budgeting","Cashiering","Costing","Estimating"],
       "roles": ["Akunting","Finance","Kasir"],
       "talents": ["Analytical","Deliberative","Discipline"],
-      "pendukung":"",
+      "bidang_usaha":"Keuangan",
       "category":"Individual Cognitive",
       "kelompok":"T"
     },
@@ -235,7 +235,7 @@
       "activities": ["Visioning"],
       "roles": ["Leader","Perencana Jangka Panjang"],
       "talents": ["Futuristic","Self Assurance"],
-      "pendukung":"",
+      "bidang_usaha":"Planer",
       "category":"Individual Generating Idea",
       "kelompok":"Gi"
     }
