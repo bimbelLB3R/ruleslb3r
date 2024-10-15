@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     if (req.method === 'POST') {
         const { codes,talents:userTalents } = req.body; //codes sebagai userset
 
-        if(codes.length>2||codes.length<8){
+        if(codes.length>2||codes.length<8){ //minimal 3 data codes agar keluar rekomendasi jurusan
             const codesSet=new Set(codes); // Konversi input user menjadi set untuk kemudahan perbandingan
             const recommendations=[];
 
@@ -31,8 +31,8 @@ export default async function handler(req, res) {
                 });
             }
         
-        // Urutkan hasil berdasarkan persentase kecocokan tertinggi
-        const sortedRecommendations = recommendations.sort((a, b) => b.percentageMatch - a.percentageMatch);
+        // Urutkan 5 hasil berdasarkan persentase kecocokan tertinggi
+        const sortedRecommendations = recommendations.sort((a, b) => b.percentageMatch - a.percentageMatch).slice(0,5);
         // console.log(sortedRecommendations)
 
         const sortedData = []; //code AMB ADM dll

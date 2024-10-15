@@ -4,6 +4,7 @@ import { useState,useEffect } from 'react';
 import PieChart from './PieChart';
 import { useRef } from 'react';
 import { useSession } from 'next-auth/react';
+import Link from 'next/link';
 
 
 export default function Formst30() {
@@ -24,6 +25,7 @@ export default function Formst30() {
         // Buat PDF dengan beberapa halaman (jika kontennya panjang)
         html2pdf().set(options).from(contentRef.current).save();
       };
+    const [minimalTipologi, setMinimalTipologi] = useState(true);
     const [inputValue, setInputValue] = useState('');
     const [sortedData, setSortedData] = useState([]);
     const [sortedTalents, setSortedTalents] = useState([]);
@@ -123,10 +125,10 @@ export default function Formst30() {
     const handleChange = (e) => {
         const inputValue = e.target.value; // Ambil nilai dari input form
         setInputValue(inputValue); // Simpan input value ke state
-    
+        
         // Pisahkan input berdasarkan spasi dan megatasi kelebihan spasi pada input user
         const inputs = inputValue.split(' ').map(item => item.trim()).filter(item => item !== '');
-    
+        
         const codesArray = [];
         const talentsArray = [];
     
@@ -138,7 +140,10 @@ export default function Formst30() {
                 codesArray.push(item);
             }
         });
-    
+        // console.log(minimalTipologi);
+        if(codesArray.length > 2){
+            setMinimalTipologi(false);
+        }
         // Mengecek duplikat pada codesArray
         const uniqueCodes = new Set(codesArray);
         if (uniqueCodes.size !== codesArray.length) {
@@ -158,10 +163,11 @@ export default function Formst30() {
     };
     const imageSrc="/image/iconlb3r.png";
     // console.log(sortedTalents)
-    const limitedSortedData=sortedData.slice(0,4);
-    const limitedSortedData2=sortedData.slice(4,10);
-    console.log(limitedSortedData)
-    console.log(limitedSortedData2)
+    const limitedSortedData=sortedData.slice(0,5);
+    const limitedSortedData2=sortedData.slice(5,10);
+    // console.log(limitedSortedData)
+    // console.log(limitedSortedData2)
+    
     return (
         <div>
             
@@ -201,13 +207,13 @@ export default function Formst30() {
 
             {inputDuplikat &&(
             <div className='flex items-center justify-center m-auto'>
-                <div class="flex items-center justify-center max-w-3xl p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <div className="flex items-center justify-center max-w-3xl p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                    <svg className="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
                     </svg>
-                    <span class="sr-only">Info</span>
+                    <span className="sr-only">Info</span>
                     <div>
-                    <span class="font-medium">Warning!</span> Ada data duplikat.
+                    <span className="font-medium">Warning!</span> Ada data duplikat.
                     </div>
                 </div>
             </div>
@@ -221,9 +227,13 @@ export default function Formst30() {
             <div className='grid grid-cols-1 gap-2'>
             <p className='font-bold font-architects'>Petunjuk Penggunaan</p>
             <p className='text-justify'>Silahkan masukkan kode Strength Tipology yang berwarna merah pada hasil asessmen Talents Mapping atau hasil asesmen ST-30 Anda. Contoh formatnya, AMB spasi ADM spasi ANA. Anda bisa memasukkan tiga hingga tujuh kode Tipologi.</p>
-            <p className='text-justify'>Jika Anda ingin mengetahui data Tipologi berdasarkan bakat, silahkan ketikkan bakat dengan format : #Bakat (Diawali tanda # dan huruf awal huruf besar), maka semua data tipologi yang memiliki bakat tersebut akan di tampilkan.</p>
+            <p className='text-justify'>Jika Anda ingin mengetahui data Tipologi berdasarkan bakat, silahkan ketikkan bakat dengan format : #Bakat (Diawali tanda # dan huruf awal huruf besar), maka semua data tipologi yang memiliki dominan bakat tersebut akan di tampilkan.</p>
             <p className='text-justify'>Untuk mengetahui deskripsi dari tipologi atau aktivitas silahkan klik pada tipologi atau aktivitas tersebut. Deskripsi akan muncul pada halaman bawah.</p>
+            <Link className='flex items-center justify-center mb-10' href="https://temubakat.com/id/index.php/main/disp/tes">
+                <Button gradientDuoTone="tealToLime" size="lg">Kenali Bakatmu Sekarang</Button>
+            </Link>
             </div>
+            
         </div>:
         <div>
         <section ref={contentRef}>
@@ -243,7 +253,8 @@ export default function Formst30() {
             </div>
           }
             {session && <p className='text-center p-2 uppercase font-bold text-xl'>{session.user.name}</p>}
-            <div className="flex items-center justify-center max-w-3xl p-6 m-auto ">
+            <div className=" max-w-3xl p-6 m-auto">
+                <div>
                 <Table>
                     <Table.Head>
                         <Table.HeadCell>Code</Table.HeadCell>
@@ -255,7 +266,7 @@ export default function Formst30() {
                     <Table.Body className="divide-y">
                         {limitedSortedData!==''&& limitedSortedData.map((item, index) =>(
                             
-                            <Table.Row key={index} className="bg-white dark:bg-gray-800 ">
+                            <Table.Row key={index} className="bg-white dark:bg-gray-800">
                                 <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                                     
                                     <button className="mr-2" onClick={() => fetchCodeDescription(item.code)} // Fetch description on click
@@ -292,51 +303,56 @@ export default function Formst30() {
                                 </Table.Cell>
                             </Table.Row>
                         ))}
-                        <div className='break-after-page'></div>
-                        {/* data kedua */}
-                        {limitedSortedData2!==''&& limitedSortedData2.map((item, index) =>(
-                            
-                            <Table.Row key={index} className='bg-white dark:bg-gray-800'>
-                                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                                    
-                                    <button className="mr-2" onClick={() => fetchCodeDescription(item.code)} // Fetch description on click
-                                        onMouseLeave={() => setTooltip({ show: false, text: '' })} // Hide tooltip on mouse leave
-                                    >
-                                        {item.code}
-                                    </button>
-                                   
-                                </Table.Cell>
-                                <Table.Cell>
-                                                {item.activities.map((activity, index) => (
-                                                    <div className="relative inline-block active:text-red-500 hover:text-red-800" key={index}>
-                                                        <button
-                                                                className="mr-2"
-                                                                onClick={() => fetchActivityDescription(activity)} // Fetch description on click
-                                                                onMouseLeave={() => setTooltip({ show: false, text: '' })} // Hide tooltip on mouse leave
-                                                            >
-                                                            {activity}
-                                                        </button>
-                                            
-                                                    </div>
-                                            
-                                                ))}
-                                                
-                                </Table.Cell>
-                                <Table.Cell>
-                                    {item.talents.join(', ')}
-                                </Table.Cell>
-                                <Table.Cell>
-                                    {item.roles.join(', ')}
-                                </Table.Cell>
-                                <Table.Cell>
-                                    {item.category}
-                                </Table.Cell>
-                            </Table.Row>
-                        ))}
-                        {limitedSortedData2.length>4?<div className='break-after-page'></div>:''}
-                        
                     </Table.Body>
                 </Table>
+                    
+                    {limitedSortedData.length===5?<div className='break-after-page'></div>:''}
+                        {/* data kedua */}
+                <Table>
+                    <Table.Body className="divide-y">
+                        {limitedSortedData2!==''&& limitedSortedData2.map((item, index) =>(
+                            
+                        <Table.Row key={index} className='bg-white dark:bg-gray-800'>
+                            <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                                    
+                                    <button className="mr-2" onClick={() => fetchCodeDescription(item.code)} // Fetch description on click
+                                        onMouseLeave={() => setTooltip({ show: false, text: '' })} // Hide tooltip on mouse leave
+                                    >
+                                        {item.code}
+                                    </button>
+                                   
+                                </Table.Cell>
+                                <Table.Cell>
+                                                {item.activities.map((activity, index) => (
+                                                    <div className="relative inline-block active:text-red-500 hover:text-red-800" key={index}>
+                                                        <button
+                                                                className="mr-2"
+                                                                onClick={() => fetchActivityDescription(activity)} // Fetch description on click
+                                                                onMouseLeave={() => setTooltip({ show: false, text: '' })} // Hide tooltip on mouse leave
+                                                            >
+                                                            {activity}
+                                                        </button>
+                                            
+                                                    </div>
+                                            
+                                                ))}
+                                                
+                                </Table.Cell>
+                                <Table.Cell>
+                                    {item.talents.join(', ')}
+                                </Table.Cell>
+                                <Table.Cell>
+                                    {item.roles.join(', ')}
+                                </Table.Cell>
+                                <Table.Cell>
+                                    {item.category}
+                                </Table.Cell>
+                            </Table.Row>
+                        ))} 
+                    </Table.Body>
+                </Table>
+                {limitedSortedData2.length>6?<div className='break-after-page'></div>:''}
+                </div>
             </div>
             {tooltip.show && (
                 <div className="fixed z-50 bottom-0 p-2 bg-gray-900 text-gray-100 left-0 right-0">
@@ -348,7 +364,7 @@ export default function Formst30() {
             {/* Rekomendasi Jurusan */}
             <div className="grid grid-cols-1 md:max-w-3xl p-6 m-auto ">
                 <div className=''>
-                    <div className='flex items-center justify-center m-3 font-architects bg-purple-200 p-2 rounded-xl' >REKOMENDASI KARIR/JURUSAN</div>
+                    <div className='flex items-center justify-center m-3 font-architects bg-purple-200 p-2 rounded-xl' >5 REKOMENDASI KARIR/JURUSAN</div>
                     <div className=''>
                         <Table>
                             <Table.Head>
@@ -377,6 +393,7 @@ export default function Formst30() {
                                 ))}
                             </Table.Body>
                         </Table>
+                        {minimalTipologi ? <p className='text-center text-red-600 italic text-xs p-4'>---- Input minimal 3 tipologi ----</p>:''}
                 </div>
                 </div>
             </div>
