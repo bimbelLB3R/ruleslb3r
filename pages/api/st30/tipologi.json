@@ -32,7 +32,7 @@
       "kelompok":"H"
     },
     "CAR": {
-      "activities": ["Caring", "Counseling", "Spiritualizing","Therapies","Volunteering"],
+      "activities": ["Caring", "Counselling", "Spiritualizing","Therapies","Volunteering"],
       "roles": ["Perawat","Dokter","Guru TK","Petugas Sosial"],
       "talents": ["Empathy","Belief"],
       "bidang_usaha":"Perawatan",
