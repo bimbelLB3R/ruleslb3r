@@ -3,9 +3,11 @@ import Image from 'next/image';
 import { useState,useEffect } from 'react';
 import PieChart from './PieChart';
 import { useRef } from 'react';
+import { useSession } from 'next-auth/react';
 
 
 export default function Formst30() {
+    const { data: session } = useSession();
     const contentRef = useRef(null);
     const generatePdf = async () => {
         const html2pdf = (await import('html2pdf.js')).default;
@@ -239,6 +241,7 @@ export default function Formst30() {
             {/* Rekomendasi Jurusan */}
             <div className="grid grid-cols-1 md:max-w-3xl p-6 m-auto ">
                 <div className=''>
+                    {session && <p className='text-center p-2 uppercase font-bold text-xl'>{session.user.name}</p>}
                     <div className='flex items-center justify-center m-3 font-architects bg-purple-200 p-2 rounded-xl' >REKOMENDASI KARIR/JURUSAN</div>
                     <div className=''>
                         <Table>

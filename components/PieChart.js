@@ -1,7 +1,5 @@
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { useEffect } from 'react';
-
 // Daftarkan plugin custom
 ChartJS.register(ArcElement, Tooltip, Legend, {
   id: 'customPlugin',
@@ -12,6 +10,7 @@ ChartJS.register(ArcElement, Tooltip, Legend, {
     const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
 
     const img = new Image();
+    
     img.src = '/image/iconlb3r.png'; // Pastikan path gambar benar
 
     img.onload = () => {
