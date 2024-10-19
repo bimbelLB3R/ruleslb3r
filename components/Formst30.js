@@ -230,7 +230,7 @@ export default function Formst30() {
             <p className='text-justify'>Silahkan masukkan kode Strength Tipology yang berwarna merah pada hasil asessmen Talents Mapping atau hasil asesmen ST-30 Anda. Contoh formatnya, AMB spasi ADM spasi ANA. Anda bisa memasukkan tiga hingga tujuh kode Tipologi.</p>
             <p className='text-justify'>Jika Anda ingin mengetahui data Tipologi berdasarkan bakat, silahkan ketikkan bakat dengan format : #Bakat (Diawali tanda # dan huruf awal huruf besar), maka semua data tipologi yang memiliki dominan bakat tersebut akan di tampilkan.</p>
             <p className='text-justify'>Untuk mengetahui deskripsi dari tipologi atau aktivitas silahkan klik pada tipologi atau aktivitas tersebut. Deskripsi akan muncul pada halaman bawah.</p>
-            <Link className='flex items-center justify-center mb-10' href="https://temubakat.com/id/index.php/main/disp/tes">
+            <Link className='flex items-center justify-center mb-10' href="https://www.bimbellb3r.com/layanan/jobfit">
                 <Button gradientDuoTone="tealToLime" size="lg">Kenali Bakatmu Sekarang</Button>
             </Link>
             </div>
