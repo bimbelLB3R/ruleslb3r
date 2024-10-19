@@ -138,6 +138,7 @@ export default function Formst30() {
                 talentsArray.push(item.substring(1)); // Hapus tanda '#'
             } else {
                 codesArray.push(item);
+                
             }
         });
         // console.log(minimalTipologi);
@@ -362,10 +363,12 @@ export default function Formst30() {
             
             
             {/* Rekomendasi Jurusan */}
+            
             <div className="grid grid-cols-1 md:max-w-3xl p-6 m-auto ">
                 <div className=''>
                     <div className='flex items-center justify-center m-3 font-architects bg-purple-200 p-2 rounded-xl' >5 REKOMENDASI KARIR/JURUSAN</div>
                     <div className=''>
+                    
                         <Table>
                             <Table.Head>
                                 <Table.HeadCell>Match Tipology</Table.HeadCell>
@@ -393,10 +396,12 @@ export default function Formst30() {
                                 ))}
                             </Table.Body>
                         </Table>
+                        
                         {minimalTipologi ? <p className='text-center text-red-600 italic text-xs p-4'>---- Input minimal 3 tipologi ----</p>:''}
                 </div>
                 </div>
             </div>
+            
             {/* <div className="flex flex-wrap items-center justify-center mb-20">
                 {sortedTalents.map((item,index)=>(
                     <div key={index} className=''>

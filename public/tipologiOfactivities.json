@@ -1,0 +1,244 @@
+{
+    "AMB": {
+      "activities": ["Representing", "Relating", "Liaising"],
+      "roles": ["Duta Besar","Humas"],
+      "talents": ["Relator", "Communication","Responsibility"],
+      "bidang_usaha":"Kehumasan",
+      "category":"Interpersonal Relating",
+      "kelompok":"N"
+    },
+    "ADM": {
+      "activities": ["Compliancing", "Filling", "Housekeeping","Organising","Scheduling","Typewriting"],
+      "roles": ["Sekretaris","Notaris","Petugas Perpustakaan"],
+      "talents": ["Consistency","Discipline"],
+      "bidang_usaha":"Administrasi",
+      "category":"Individual Striving Indoor",
+      "kelompok":"E"
+    },
+    "ANA": {
+      "activities": ["Analysing", "Bookeeping", "Programming"],
+      "roles": ["Akuntan","Analyst","Engineer","IT Programmer"],
+      "talents": ["Analytical"],
+      "bidang_usaha":"Analyst",
+      "category":"Individual Cognitive",
+      "kelompok":"T"
+    },
+    "ARR": {
+      "activities": ["Cooperating", "Coordinating", "Dispatching"],
+      "roles": ["EO","Manajer","Direktur"],
+      "talents": ["Arranger","Maximizer","Command"],
+      "bidang_usaha":"Event Organizer",
+      "category":"Interpersonal Influencing",
+      "kelompok":"H"
+    },
+    "CAR": {
+      "activities": ["Caring", "Counselling", "Spiritualizing","Therapies","Volunteering"],
+      "roles": ["Perawat","Dokter","Guru TK","Petugas Sosial"],
+      "talents": ["Empathy","Belief"],
+      "bidang_usaha":"Perawatan",
+      "category":"Interpersonal Serving",
+      "kelompok":"S"
+    },
+    "CMD": {
+      "activities": ["Mediating", "Negotiating", "Purchasing"],
+      "roles": ["Debt Collector","Pengacara","Mediator","Sales","Pimpinan"],
+      "talents": ["Command","Responsibility"],
+      "bidang_usaha":"Sales",
+      "category":"Interpersonal Influencing",
+      "kelompok":"H"
+    },
+    "COM": {
+      "activities": ["Communicating", "Corresponding", "Entertaining","Presenting"],
+      "roles": ["Presenter","Humas","Guru","Sales","Pimpinan"],
+      "talents": ["Communication","Significance"],
+      "bidang_usaha":"Presenter",
+      "category":"Interpersonal Relating",
+      "kelompok":"N"
+    },
+    "CRE": {
+      "activities": ["Animating", "Ideating", "Creating"],
+      "roles": ["Arsitek","Product Designer","Marketing","Business Development"],
+      "talents": ["Ideation","Futuristic","Strategic","Responsibility"],
+      "bidang_usaha":"Desainer",
+      "category":"Individual Generating Idea",
+      "kelompok":"Gi"
+    },
+    "DES": {
+      "activities": ["Designing", "Drafting"],
+      "roles": ["Juru Gambar (Drafter)","Perancang"],
+      "talents": ["Ideation","Analytical"],
+      "bidang_usaha":"Juru Gambar",
+      "category":"Individual Generating Idea",
+      "kelompok":"Gi"
+    },
+    "DIS": {
+      "activities": ["Delivering", "Distributing"],
+      "roles": ["Kurir","Jasa Pengiriman"],
+      "talents": ["Arranger","Responsibility","Achiever"],
+      "bidang_usaha":"Logistik",
+      "category":"Individual Striving Outdoor",
+      "kelompok":"Te"
+    },
+    "EDU": {
+      "activities": ["Advising", "Coaching","Consulting","Mentoring","Teaching","Training"],
+      "roles": ["Guru","Manajer","Pelatih","Mentor","Coach"],
+      "talents": ["Developer","Individualization","Communication","Connectedness"],
+      "bidang_usaha":"Pelatihan",
+      "category":"Interpersonal Relating",
+      "kelompok":"N"
+    },
+    "EVA": {
+      "activities": ["Diagnosing", "Identifying","Restoring"],
+      "roles": ["Evaluator","Penyidik","Auditor"],
+      "talents": ["Analytical","Deliberative","Consistency"],
+      "bidang_usaha":"Auditor",
+      "category":"Individual Thinking",
+      "kelompok":"R"
+    },
+    "EXP": {
+      "activities": ["Appraising", "Observing","Researching","Surveying"],
+      "roles": ["Penemu","Peneliti","Surveyor"],
+      "talents": ["Analytical","Input","Learner"],
+      "bidang_usaha":"Penelitian",
+      "category":"Individual Thinking",
+      "kelompok":"R"
+    },
+    "INT": {
+      "activities": ["Interpreting", "Transcribing","Translating"],
+      "roles": ["Penterjemah"],
+      "talents": ["Intellection","Communication","Analytical"],
+      "bidang_usaha":"Penulis",
+      "category":"Individual Striving Indoor",
+      "kelompok":"E"
+    },
+    "JOU": {
+      "activities": ["Conceptualizing", "Editing","Redacting"],
+      "roles": ["Penulis Buku","Wartawan"],
+      "talents": ["Adaptability","Command","Communication","Connectedness"],
+      "bidang_usaha":"Pemberitaan",
+      "category":"Individual Striving Indoor",
+      "kelompok":"E"
+    },
+    "MAR": {
+      "activities": ["Advertising", "Developing","Marketing","Publicizing"],
+      "roles": ["Humas","Marketing","Business Development"],
+      "talents": ["Significance","Communication","Strategic","Ideation"],
+      "bidang_usaha":"Pemasaran",
+      "category":"Individual Generating Idea",
+      "kelompok":"Gi"
+    },
+    "MED": {
+      "activities": ["Collecting", "Controlling","Interrogating"],
+      "roles": ["Juru Damai","Negosiator"],
+      "talents": ["Command","Harmony"],
+      "bidang_usaha":"Mediator",
+      "category":"Interpersonal Influencing",
+      "kelompok":"H"
+    },
+    "MOT": {
+      "activities": ["Guiding", "Motivating","Supporting"],
+      "roles": ["Motivator","Guru","Pelatih"],
+      "talents": ["Developer","Strategic","Positivity","Futuristic"],
+      "bidang_usaha":"Motivator",
+      "category":"Interpersonal Relating",
+      "kelompok":"N"
+    },
+    "OPE": {
+      "activities": ["Maintaining", "Operating"],
+      "roles": ["Operator","Maintenance Technician"],
+      "talents": ["Achiever","Discipline","Belief"],
+      "bidang_usaha":"Pemeliharaan",
+      "category":"Individual Striving Outdoor",
+      "kelompok":"Te"
+    },
+    "PRO": {
+      "activities": ["Assembling", "Building","Installing","Producing"],
+      "roles": ["Teknisi Instalasi","Teknisi Perakit","Teknisi Produksi"],
+      "talents": ["Achiever","Discipline","Activator","Ideation","Responsibility"],
+      "bidang_usaha":"Produksi",
+      "category":"Individual Striving Outdoor",
+      "kelompok":"Te"
+    },
+    "QCA": {
+      "activities": ["Monitoring", "Safekeeping","Securing"],
+      "roles": ["Teknisi Finishing","Teknisi Quality Control"],
+      "talents": ["Consistency","Discipline","Responsibility","Maximizer","Deliberative"],
+      "bidang_usaha":"Quality Control",
+      "category":"Individual Striving Outdoor",
+      "kelompok":"Te"
+    },
+    "RES": {
+      "activities": ["Auditing", "Evaluating","Inspecting","Investigating","Reviewing","Verifying"],
+      "roles": ["Teknisi Perbaikan","Dokter","Psikiater","Psikolog"],
+      "talents": ["Analytical","Restorative"],
+      "bidang_usaha":"Perbaikan",
+      "category":"Individual Thinking",
+      "kelompok":"R"
+    },
+    "SAF": {
+      "activities": ["Finishing", "Testing"],
+      "roles": ["Safety Engineer","Investigator","Petugas Pajak","Landing Officer"],
+      "talents": ["Deliberative","Responsibility","Discipline"],
+      "bidang_usaha":"Safety",
+      "category":"Individual Striving Outdoor",
+      "kelompok":"Te"
+    },
+    "SEL": {
+      "activities": ["Brokering", "Influencing","Selling"],
+      "roles": ["Sales","Humas"],
+      "talents": ["Relator","Significance","Communication"],
+      "bidang_usaha":"Penjualan",
+      "category":"Interpersonal Influencing",
+      "kelompok":"H"
+    },
+    "SER": {
+      "activities": ["Assisting", "Greeting","Informing","Serving"],
+      "roles": ["Customer Service","Account Sales","Humas","Service Engineer"],
+      "talents": ["Belief"],
+      "bidang_usaha":"Service",
+      "category":"Interpersonal Serving",
+      "kelompok":"S"
+    },
+    "SLC": {
+      "activities": ["Recruiting", "Interviewing"],
+      "roles": ["HRD Rekruitmen","Casting"],
+      "talents": ["Individualization","Command"],
+      "bidang_usaha":"Head Hunter, Rekruitment",
+      "category":"Interpersonal Influencing",
+      "kelompok":"H"
+    },
+    "STR": {
+      "activities": ["Planing", "Strategizing"],
+      "roles": ["Manager Perencanaan","Leader"],
+      "talents": ["Strategic","Analytical","Self Assurance"],
+      "bidang_usaha":"Perencanaan",
+      "category":"Individual Generating Idea",
+      "kelompok":"Gi"
+    },
+    "SYN": {
+      "activities": ["Synthesizing"],
+      "roles": ["Peneliti","Marketing","Business Development","Tools Developer"],
+      "talents": ["Arranger","Strategic","Analytical","Discipline","Connectedness"],
+      "bidang_usaha":"Periklanan",
+      "category":"Individual Generating Idea",
+      "kelompok":"Gi"
+    },
+    "TRE": {
+      "activities": ["Budgeting","Cashiering","Costing","Estimating"],
+      "roles": ["Akunting","Finance","Kasir"],
+      "talents": ["Analytical","Deliberative","Discipline"],
+      "bidang_usaha":"Keuangan",
+      "category":"Individual Cognitive",
+      "kelompok":"T"
+    },
+    "VIS": {
+      "activities": ["Visioning"],
+      "roles": ["Leader","Perencana Jangka Panjang"],
+      "talents": ["Futuristic","Self Assurance"],
+      "bidang_usaha":"Planer",
+      "category":"Individual Generating Idea",
+      "kelompok":"Gi"
+    }
+    
+  }
+  
