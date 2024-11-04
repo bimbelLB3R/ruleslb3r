@@ -75,8 +75,9 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
       <div className="flex items-center justify-center  md:p-[50px]">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-screen m-5">
         {allProgram.map((program,index)=>(
-          <div key={index} className="group flex items-center justify-center   h-[250px]   bg-gray-200 hover:bg-yellow-300 rounded-2xl transition duration-500">
+          <div key={index} className="group flex items-center justify-center   h-[250px]   bg-gray-200 hover:bg-yellow-300 rounded-2xl transition duration-500 relative">
             <div className="">
+              {program.diskon>0?<div className="absolute right-0 bg-red-700 text-white p-2 m-2 rounded-xl">PROMO</div>:''}
               <div className="flex items-center justify-center">
               <Image src="/image/topi.png"
                 alt="hat"
@@ -88,7 +89,13 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
               <div className="grid grid-col-1 gap-6">
                 <div>
                 <p className="text-center font-architects">{program.nama}</p>
-                <p className="text-center font-architects">{formatCurrency(program.biaya)}</p>
+                {program.diskon>0?
+                <div>
+                  <p className="text-center font-architects line-through decoration-red-600">{formatCurrency(program.biaya)}</p>
+                  <p className="text-center font-architects ">{formatCurrency(program.diskon)}</p>
+                </div>
+                :<p className="text-center font-architects">{formatCurrency(program.biaya)}</p>}
+                
                 </div>
               
               <Link href={

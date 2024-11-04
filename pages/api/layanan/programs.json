@@ -43,42 +43,24 @@
       ]
     },
     {
-      "idProgram": "SnbtLB3R",
-      "keterangan": "",
-      "nama": "Intensif SNBT",
-      "slug": "program-utbk-snbt",
-      "biaya": 1000000,
-      "diskon":0,
-      "total": 1000000,
-      "rincian": "Biaya Pendaftaran, Les dan FC Soal",
-      "frekuensi": "sekali bayar",
-      "fasilitas": [
-        "Masuk tiap hari selama satu bulan",
-        "Durasi waktu 2 jam per hari",
-        "Mendapatkan FC Soal sesuai aturan SNBT",
-        "Pembahasan langsung di kelas",
-        "Konsultasi Pemilihan Jurusan",
-        "Free T-Shirt senilai 100.000 bagi yang lolos SNBT"
-      ]
-    },
-    {
       "idProgram": "SnbtLB3R-2",
       "keterangan": "Populer",
       "nama": "Eksklusif SNBT",
       "slug": "program-utbk-snbt-eksklusif",
       "biaya": 2000000,
-      "diskon":0,
+      "diskon":1500000,
       "total": 2000000,
-      "rincian": "Biaya Pendaftaran, Les dan FC Soal",
+      "rincian": "Biaya Pendaftaran, Les dan FC Soal, Asesmen Rekomendasi Jurusan",
       "frekuensi": "sekali bayar",
       "fasilitas": [
-        "Masuk selama bulan januari sampai maret",
-        "Masuk 2-4 kali per minggu (tentatif)",
-        "Durasi waktu 2 jam per hari (tentatif)",
-        "Mendapatkan FC Soal sesuai aturan SNBT",
-        "Pembahasan langsung di kelas",
-        "Konsultasi Pemilihan Jurusan",
-        "Pendampingan sampai pengumuman"
+        "Masuk selama 90 hari (Mulai Januari 2025)",
+        "Masuk setiap hari (senin-sabtu)",
+        "Durasi waktu 1 jam per hari",
+        "Mendapatkan Print Out Soal sesuai aturan SNBT 2025",
+        "Latihan dan Pembahasan langsung di kelas",
+        "Mendapat Rekomendasi dan Konsultasi Jurusan (senilai 500.000)",
+        "Pendampingan sampai pengumuman",
+        "Diskon berlaku sampai akhir desember"
       ]
     },
     {

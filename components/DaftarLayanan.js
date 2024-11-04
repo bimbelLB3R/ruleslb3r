@@ -61,12 +61,25 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
   // const [isEmailEmpty, setIsEmailEmpty] = useState(false);
 
   const namaProgram = detailProgram.nama;
+  
   const biayaProgram = detailProgram.total;
+  // console.log(diskon);
 
   const [inputValueProgramName, setInputValueProgramName] =
     useState(namaProgram);
   const [inputValueProgramPrice, setInputValueProgramPrice] =
     useState(biayaProgram);
+
+    useEffect(()=>{
+      const diskon=detailProgram.diskon;
+      if(diskon>0){
+        setInputValueProgramPrice(diskon);
+      }else{
+        setInputValueProgramPrice(biayaProgram);
+      }
+    },[])
+
+    
 
   // const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
