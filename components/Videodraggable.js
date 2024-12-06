@@ -7,7 +7,7 @@ import Link from "next/link";
 import CountdownTimer from "./CountDownTimer";
 
 const VideoDraggable = () => {
-  const targetDate = "2024-12-31T23:59:59"; // Set tanggal tujuan Anda
+  const targetDate = "2024-12-07T23:59:59"; // Set tanggal tujuan Anda
   const [isVisible, setIsVisible] = useState(true);
   // Fungsi untuk menghitung posisi awal agar komponen berada di tengah layar
   const calculateInitialPosition = () => {
@@ -44,7 +44,7 @@ const VideoDraggable = () => {
             <button onClick={handleClose} className="bg-red-600 px-2 text-white font-bold">X</button>
           </div>          
           <p className="text-yellow-200  w-full bg-yellow-900  text-center font-roboto p-1">
-            PROMO DESEMBER 2024
+            PROMO DESEMBER 2024, DISKON 89%
           </p>
           {/* <iframe
             width="280"
@@ -67,12 +67,15 @@ const VideoDraggable = () => {
           <p className="text-gray-50 text-xs  w-full bg-gray-900 text-center p-1">
           “Yuk manfaatkan akhir pekanmu untuk seru-seruan belajar bahasa inggris sekaligus belajar matematika bersama Teacher Emma & Friends.”.
           </p>
-          <div className="flex items-center justify-center p-2 bg-blue-600 ">
-            <div>
-              <div className="font-bold text-white text-center">
+          <div className="flex items-center justify-center p-2 bg-gray-900">
+            <div className="">
+              <div className="">
+              <CountdownTimer targetDate={targetDate} />
+              </div>
+              <div className="font-bold text-white text-center p-2 bg-blue-600">
               <Link href={'/layanan/happy-eng-math'} >DAFTAR SEKARANG</Link>
               </div>
-              <CountdownTimer targetDate={targetDate} />
+              
             </div>
           </div>
           {/* <p className="text-gray-50 text-xs  w-full bg-gray-900 text-center p-1">
