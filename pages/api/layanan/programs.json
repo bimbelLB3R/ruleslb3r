@@ -49,7 +49,7 @@
       "slug": "program-utbk-snbt-eksklusif",
       "biaya": 2000000,
       "diskon":1500000,
-      "total": 2000000,
+      "total": 1500000,
       "rincian": "Biaya Pendaftaran, Les dan FC Soal, Asesmen Rekomendasi Jurusan",
       "frekuensi": "sekali bayar",
       "fasilitas": [
@@ -153,6 +153,23 @@
         "Pembahasan Soal-soal SNBT",
         "Konsultasi Pemilihan Jurusan",
         "Group Eksklusif"
+      ]
+    },
+    {
+      "idProgram": "happyEngMath",
+      "keterangan": "diskon-happy",
+      "nama": "Happy English & Math",
+      "slug": "happy-eng-math",
+      "biaya": 225000,
+      "diskon":25000,
+      "total": 25000,
+      "rincian": "Biaya Les ",
+      "frekuensi": "selama desember 2024",
+      "fasilitas": [
+        "Masuk tiap jum'at dan sabtu",
+        "Belajar bahasa inggris menyenangkan SD",
+        "Belajar matematika untuk SD",
+        "Promo berlaku selama desember 2024"
       ]
     }
   ]

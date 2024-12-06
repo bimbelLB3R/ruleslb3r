@@ -100,7 +100,11 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
               
               <Link href={
                     program.keterangan === "Free/Gratis"
-                      ? `/form/newmember`:program.keterangan==="diskon"?`/form/tmasesmen`
+                      ? `/form/newmember`
+                      :program.keterangan==="diskon"
+                      ?`/form/tmasesmen`
+                      :program.keterangan==="diskon-happy"
+                      ?`/layanan/${program.slug}`
                       : `/layanan/${program.slug}`
                   } className="flex items-center justify-center"><p className="bg-gray-300 p-1 rounded-lg text-center w-[150px] h-[35px] hover:bg-gray-200">Pilih</p></Link>
               </div>
