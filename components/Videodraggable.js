@@ -73,7 +73,7 @@ const VideoDraggable = () => {
               <CountdownTimer targetDate={targetDate} />
               </div>
               <div className="font-bold text-white text-center p-2 bg-blue-600">
-              <Link href={'/layanan/happy-eng-math'} >DAFTAR SEKARANG</Link>
+              <Link href={'/layanan/program-utbk-snbt-eksklusif'} >DAFTAR SEKARANG</Link>
               </div>
               
             </div>
