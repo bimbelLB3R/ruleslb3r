@@ -381,7 +381,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                         </div>
                       </div>
                     </Link>
-                    <Link href="https://talentsmapping.id/practitioner/4b764584-b4d2-4be9-ab12-29e1fe9ab8f3?ref=22093684459">
+                    <Link href="#">
                       <div className="bg-gray-900 p-1 text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
