@@ -121,7 +121,7 @@ export default function Pengajar({ allPengajar,allPost,allPraktisi}) {
               <Medsos facebook={pengajar.facebook} instagram={pengajar.instagram} twitter={pengajar.twitter}/>
               </div>
               
-              <Link href={`https://wa.me/6281392552459?text=${pesan}`} className="flex items-center justify-center"><p className="bg-gray-300 p-1 rounded-lg text-center w-[150px] h-[35px] hover:bg-gray-200">Konsultasi</p></Link>
+              <Link href={`https://wa.me/6285654179908?text=${pesan}`} className="flex items-center justify-center"><p className="bg-gray-300 p-1 rounded-lg text-center w-[150px] h-[35px] hover:bg-gray-200">Konsultasi</p></Link>
               </div>
               </div>
           </div>)
