@@ -6,7 +6,7 @@ const Wa = () => {
     <div>
       <div className="fixed bottom-12 right-8 md:bottom-12 md:right-12 z-50">
         <Link
-          href="https://wa.me/6281392552459"
+          href="https://wa.me/6285654179908"
           target="_blank"
           className="flex items-center space-x-1 bg-slate-100 bg-opacity-50 p-2 text-emerald-700 rounded-full shadow-inner shadow-orange-500/50">
           {/* <svg
