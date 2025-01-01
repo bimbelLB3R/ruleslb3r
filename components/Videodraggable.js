@@ -7,7 +7,7 @@ import Link from "next/link";
 import CountdownTimer from "./CountDownTimer";
 
 const VideoDraggable = () => {
-  const targetDate = "2024-12-31T23:59:59"; // Set tanggal tujuan Anda
+  const targetDate = "2025-04-23T23:59:59"; // Set tanggal tujuan Anda
   const [isVisible, setIsVisible] = useState(true);
   // Fungsi untuk menghitung posisi awal agar komponen berada di tengah layar
   const calculateInitialPosition = () => {
@@ -44,7 +44,7 @@ const VideoDraggable = () => {
             <button onClick={handleClose} className="bg-red-600 px-2 text-white font-bold">X</button>
           </div>          
           <p className="text-yellow-200  w-full bg-yellow-900  text-center font-roboto p-1">
-            PROMO UTBK SNBT 2025
+            DETIK-DETIK 
           </p>
           {/* <iframe
             width="280"
@@ -54,9 +54,9 @@ const VideoDraggable = () => {
             title="YouTube video player"
             allowFullScreen
           ></iframe> */}
-          <Link href="/image/snbt/snbt2025.png">
+          <Link href="/image/snbt/snbt2025baru.png">
           <Image
-            src="/image/snbt/snbt2025.png"
+            src="/image/snbt/snbt2025baru.png"
             alt="snbt image"
             width={1080}
             height={1080}
@@ -65,7 +65,7 @@ const VideoDraggable = () => {
           />
           </Link>
           <p className="text-gray-50 text-xs  w-full bg-gray-900 text-center p-1">
-          “DIkelas ini kita akan banyak latihan soal SNBT terbaru dan tentu kalian bakal dapat pembahasan keren dari para super teacher LB3R. Buruan daftar mumpung masih promo!!”.
+          “Sukses Tembus Kampus Pilihan!”.
           </p>
           <div className="flex items-center justify-center p-2 bg-gray-900">
             <div className="">
