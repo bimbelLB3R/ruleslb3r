@@ -18,6 +18,15 @@ const AllRatingTentor = () => {
   const [pengajarCount, setPengajarCount] = useState({}); // State untuk menyimpan jumlah review per pengajar
   const [loading, setLoading] = useState(true); // State untuk menampilkan loader
   const [maxCount,setMaxCount]=useState();
+  // state untuk ke bulan dan tahun sebelumnya
+  // const [currentMonth, setCurrentMonth] = useState(() => {
+  //   const date = new Date();
+  //   const month = date.getMonth() + 1; // getMonth() menghasilkan nilai 0-11, jadi tambahkan 1
+  //   return month === 1 ? 12 : month - 1; // Jika Januari, set ke Desember; jika tidak, kurangi 1
+  // });
+  // const [currentYear,setCurrentYear]=useState(new Date().getFullYear()-1);
+
+
 
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
   const ambilRatingTentor = async () => {
@@ -34,6 +43,7 @@ const AllRatingTentor = () => {
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth() + 1; // +1 artinya bulan saat ini, -1 artinya bulan lalu. tidak berlaku ketika bulan ini adalah januari.
     const currentYear = currentDate.getFullYear();
+    // console.log(currentMonth);
 
     // Mengumpulkan semua data dari rows3 yang hanya sesuai dengan bulan dan tahun saat ini
     setLoading(true);
@@ -100,6 +110,9 @@ const AllRatingTentor = () => {
     // Set data pengajar ke state
     setPengajarData(pengajarList);
   }, [pengajarCount,pengajarData]); //penggunaan dataRows3 menyebabkan data hanya akan muncul sekali, jika direfresh hilang 
+  
+// console.log(currentYear);
+
   return (
     <div className="max-w-2xl grid grid-cols-1 m-auto mb-4 p-4">
       {loading ? (
