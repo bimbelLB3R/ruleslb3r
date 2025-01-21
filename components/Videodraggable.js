@@ -54,9 +54,9 @@ const VideoDraggable = () => {
             title="YouTube video player"
             allowFullScreen
           ></iframe> */}
-          <Link href="/image/snbt/snbt2025baru.png">
+          <Link href="/image/snbt/snbt2025.png">
           <Image
-            src="/image/snbt/snbt2025baru.png"
+            src="/image/snbt/snbt2025.png"
             alt="snbt image"
             width={1080}
             height={1080}
