@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-export default function Youtube({ videoId, bab, allMath, theme, allEnglish }) {
+export default function Youtube({ videoId, bab, allMath,praktisi,allKonsul, theme, allEnglish }) {
   const [other, setOther] = useState([]);
   const router = useRouter();
   const id = router.query.id;
@@ -12,8 +12,10 @@ export default function Youtube({ videoId, bab, allMath, theme, allEnglish }) {
       setOther(allMath.filter((item) => item.bab === bab));
     } else if (theme) {
       setOther(allEnglish.filter((item) => item.theme === theme));
+    }else if (praktisi){
+      setOther(allKonsul.filter((item) => item.praktisi === praktisi));
     }
-  }, [bab, theme, allMath, allEnglish]);
+  }, [bab, theme,praktisi, allMath, allEnglish,allKonsul]);
   return (
     <div className="mt-10">
       <div className="flex justify-center">
@@ -25,7 +27,7 @@ export default function Youtube({ videoId, bab, allMath, theme, allEnglish }) {
         ></iframe>
       </div>
       <div>
-        <p className="font-bold flex justify-center">Materi Lainnya</p>
+        <p className="font-bold flex justify-center">Video Lainnya bersama {praktisi}</p>
 
         <div>
           {other.map((item, index) => (
@@ -37,10 +39,15 @@ export default function Youtube({ videoId, bab, allMath, theme, allEnglish }) {
                         pathname: `/math/${item.slug}`,
                         query: { bab: item.bab, id: item.id },
                       }
-                    : {
+                    :theme? {
                         pathname: `/pare/${item.slug}`,
                         query: { theme: item.theme, id: item.id },
                       }
+                      :{
+                        pathname: `/konsuljurusan/${item.slug}`,
+                        query: { praktisi: item.praktisi, id: item.id },
+                      }
+                    
                 }
                 className="flex items-center space-x-2 border-b-2 m-3"
               >
@@ -70,7 +77,7 @@ export default function Youtube({ videoId, bab, allMath, theme, allEnglish }) {
                   </svg>
                 </div>
                 <div className={item.id == id ? " text-red-900" : ""}>
-                  {theme ? item.description : item.title}
+                  {theme ? item.description : bab?item.title:item.nama}
                 </div>
               </Link>
             </div>
@@ -79,7 +86,7 @@ export default function Youtube({ videoId, bab, allMath, theme, allEnglish }) {
       </div>
       <div className="mb-10 flex justify-center p-2">
         <Link
-          href={bab ? "/math" : "/pare"}
+          href={bab ? "/math" : theme ? "/pare":"/konsuljurusan"}
           className="bg-blue-600 p-2 text-gray-50 hover:bg-blue-400"
         >
           Kembali ke Halaman Utama
