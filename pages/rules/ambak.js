@@ -97,7 +97,7 @@ const Odb = ({ allPost }) => {
               <tr>
                 <td className="align-top">7.</td>
                 <td className="text-justify">
-                  Up date ketertinggalan materi dan review materi tiap bulannya
+                  Kontrol pembayaran ada di tangan kamu karena sistem pembayaran bulanan.
                 </td>
               </tr>
               <tr>
@@ -115,8 +115,7 @@ const Odb = ({ allPost }) => {
               <tr>
                 <td className="align-top">10.</td>
                 <td className="text-justify">
-                  Reward bagi kamu yang dapat menyelesaikan tantangan bulanan
-                  dari pengajar
+                  Kamu bisa memberikan rating kepada pengajar untuk menilai perfomanya.
                 </td>
               </tr>
               <tr>
@@ -130,7 +129,7 @@ const Odb = ({ allPost }) => {
               <tr>
                 <td className="align-top">12.</td>
                 <td className="text-justify">
-                  Dapatkan Free T-Shirt untuk siswa yang lolos UTBK SNBT
+                  Dapatkan Sesi Konsultasi Eksklusif bagi peserta SNBT.
                 </td>
               </tr>
             </tbody>

@@ -17,9 +17,11 @@ const Welcome = () => {
             secara akademik. Di Bimbel LB3R, kamu bisa lebih mudah mengatur
             jadwal sesuai kebutuhan kamu, apalagi sebagai organisatoris. Ingat
             ya, nilai raport sangat penting untuk mengikuti seleksi masuk kuliah
-            jalur Tanpa Tes (SNBP). Enak lho kalau kamu bisa lolos jalur ini,
+            jalur Tanpa Tes (SNBP) dan Kedinasan. Enak lho kalau kamu bisa lolos jalur ini,
             tidak perlu pusing belajar lagi untuk tes SNBT.
           </p>
+          <br/>
+          <p>Kamu juga berhak mendapatkan bimbingan untuk memilih jurusan serta sesi konsultasi untuk pengembangan diri kamu. Kamu bakal tahu banyak hal tentang kekuatan dan kelemahanmu, gaya kepemimpinan kamu, gaya komunikasi dan lain-lain yang akan berguna saat kamu sudah terjun ke dunia kampus loh...</p>
         </div>
       </div>
     </div>
