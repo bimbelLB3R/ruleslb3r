@@ -21,13 +21,13 @@ export default function Youtube({ videoId, bab, allMath,praktisi,allKonsul, them
       <div className="flex justify-center">
         <iframe
           className="w-[300px] sm:w-[560px] h-[169px] sm:h-[315px] object-cover"
-          src={`https://www.youtube.com/embed/${videoId}`}
+          src={`https://www.youtube.com/embed/${videoId}?rel=0`}
           title="YouTube video player"
           allowFullScreen
         ></iframe>
       </div>
       <div>
-        <p className="font-bold flex justify-center">Video Lainnya bersama {praktisi}</p>
+        <p className="font-bold flex justify-center">Video Lainnya</p>
 
         <div>
           {other.map((item, index) => (

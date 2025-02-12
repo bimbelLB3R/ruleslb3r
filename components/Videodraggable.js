@@ -44,7 +44,7 @@ const VideoDraggable = () => {
             <button onClick={handleClose} className="bg-red-600 px-2 text-white font-bold">X</button>
           </div>          
           <p className="text-yellow-200  w-full bg-yellow-900  text-center font-roboto p-1">
-            DETIK-DETIK 
+            KLIK UNTUK DAFTAR!!
           </p>
           {/* <iframe
             width="280"
@@ -54,9 +54,9 @@ const VideoDraggable = () => {
             title="YouTube video player"
             allowFullScreen
           ></iframe> */}
-          <Link href="/image/snbt/snbt2025.png">
+          <Link href="https://wa.me/6285654179908">
           <Image
-            src="/image/snbt/snbt2025.png"
+            src="/image/snbt/zoominar.png"
             alt="snbt image"
             width={1080}
             height={1080}
@@ -65,15 +65,15 @@ const VideoDraggable = () => {
           />
           </Link>
           <p className="text-gray-50 text-xs  w-full bg-gray-900 text-center p-1">
-          “Sukses Tembus Kampus Pilihan!”.
+          “Tips & Trik Persiapan Menuju Kampus Impian”.
           </p>
           <div className="flex items-center justify-center p-2 bg-gray-900">
             <div className="">
-              <div className="">
+              {/* <div className="">
               <CountdownTimer targetDate={targetDate} />
-              </div>
+              </div> */}
               <div className="font-bold text-white text-center p-2 bg-blue-600">
-              <Link href={'/layanan/program-utbk-snbt-eksklusif'} >DAFTAR SEKARANG</Link>
+              <Link href="https://wa.me/6285654179908" >AKU MAU IKUT</Link>
               </div>
               
             </div>
