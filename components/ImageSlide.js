@@ -66,7 +66,7 @@ export default class ImageSlide extends Component {
             </div>
             <div>
               <Image
-                src="/image/KBM.png"
+                src="/image/kbm.png"
                 alt="Foto Kelas UTBK"
                 width={500}
                 height={500}
