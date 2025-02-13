@@ -33,28 +33,30 @@ const VideoDraggable = () => {
     return null;
   }
   return (
-    <div className="flex items-center justify-center m-auto h-screen">
-      {/* <Draggable
+    <div className="fixed inset-0 z-50">
+      {/* Overlay dengan opacity dan handleClose */}
+      <div 
+        className="absolute inset-0 bg-gray-900 opacity-70"
+        onClick={handleClose} // Klik pada overlay menutup modal
+      ></div>
+
+      {/* Konten utama */}
+      <div 
+        className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg p-1 w-[300px] sm:w-[300px]  shadow-lg"
+        onClick={(e) => e.stopPropagation()} // Mencegah klik dalam modal menutup modal
+      >
+        {/* <div className="flex justify-end items-center p-1">
         
-        onStop={handleClose} 
-      > */}
-      {isVisible&&
-        <div className="fixed top-20  border-4 border-double border-red-900 rounded-lg p-1 cursor-move w-[300px] sm:w-[300px]">
-          <div className="flex justify-end items-center p-1  ">
-            <button onClick={handleClose} className="bg-red-600 px-2 text-white font-bold">X</button>
-          </div>          
-          <p className="text-yellow-200  w-full bg-yellow-900  text-center font-roboto p-1">
-            KLIK UNTUK DAFTAR!!
-          </p>
-          {/* <iframe
-            width="280"
-            height="160"
-            // src="https://www.youtube.com/embed/i5ZflnWyj94?si=s3KfJxQVp_CPNIgl"
-            src="https://www.youtube.com/embed/MphBjycP72g"
-            title="YouTube video player"
-            allowFullScreen
-          ></iframe> */}
-          <Link href="https://wa.me/6285654179908">
+          <button onClick={handleClose} className="bg-red-600 px-2 text-white font-bold">
+            X
+          </button>
+        </div> */}
+
+        {/* <p className="text-yellow-200 w-full bg-yellow-900 text-center font-roboto p-1">
+          KLIK UNTUK DAFTAR!!
+        </p> */}
+
+        <Link href="https://wa.me/6285654179908">
           <Image
             src="/image/snbt/zoominar.png"
             alt="snbt image"
@@ -63,26 +65,22 @@ const VideoDraggable = () => {
             priority={true}
             className=""
           />
-          </Link>
-          <p className="text-gray-50 text-xs  w-full bg-gray-900 text-center p-1">
+        </Link>
+
+        <p className="text-gray-50 text-xs w-full bg-gray-900 text-center p-1">
           “Tips & Trik Persiapan Menuju Kampus Impian”.
-          </p>
-          <div className="flex items-center justify-center p-2 bg-gray-900">
-            <div className="">
-              {/* <div className="">
-              <CountdownTimer targetDate={targetDate} />
-              </div> */}
-              <div className="font-bold text-white text-center p-2 bg-blue-600">
-              <Link href="https://wa.me/6285654179908" >AKU MAU IKUT</Link>
-              </div>
-              
-            </div>
+        </p>
+
+        <div className="flex items-center justify-center p-2 bg-gray-900">
+          <div className="font-bold text-white text-center p-2 bg-blue-600">
+            <Link href="https://wa.me/6285654179908">AKU MAU IKUT</Link>
           </div>
-          {/* <p className="text-gray-50 text-xs  w-full bg-gray-900 text-center p-1">
-          “Kami buka kembali pendaftaran kelas eksklusif SNBT 2025. Promo diskon 25% bagi kalian yang mendaftar di bulan november dan desember 2025.”.
-          </p> */}
-        </div>}
-      {/* </Draggable> */}
+        </div>
+        <div className="p-2 bg-yellow-900 mt-1">
+          <p className="text-center text-white">Detik-detik Menuju SNBT 2025</p>
+        <CountdownTimer targetDate={targetDate} />
+        </div>
+      </div>
     </div>
   );
 };
