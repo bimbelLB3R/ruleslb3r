@@ -47,7 +47,7 @@ export default function Success() {
   // );
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4 ">
-      <div className="bg-[url('/image/card.png')] bg-cover bg-center shadow-lg rounded-lg max-w-md w-full p-6 border-t-8 border-orange-400">
+      {transactionData&&<div className="bg-[url('/image/card.png')] bg-cover bg-center shadow-lg rounded-lg max-w-md w-full p-6 border-t-8 border-orange-400">
         {/* Header */}
         <div className="flex justify-center space-x-4">
         <div className="flex items-center justify-center">
@@ -86,7 +86,7 @@ export default function Success() {
           <p>Semoga transaksi ini membawa berkah untuk Anda.</p>
           <p className="text-red-600">Screenshoot dan kirim bukti ke admin ya...</p>
         </div>
-      </div>
+      </div>}
     </div>
   );
 }
