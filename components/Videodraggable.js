@@ -41,16 +41,17 @@ const VideoDraggable = () => {
       ></div>
 
       {/* Konten utama */}
-      <div 
-        className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg p-1 w-[300px] sm:w-[300px]  shadow-[0_0_15px_5px_rgba(255,140,0,0.7)] animate-glow"
-        onClick={(e) => e.stopPropagation()} // Mencegah klik dalam modal menutup modal
-      >
-        {/* <div className="flex justify-end items-center p-1">
+      <div className="absolute  right-0">
         
           <button onClick={handleClose} className="bg-red-600 px-2 text-white font-bold">
             X
           </button>
-        </div> */}
+        </div>
+      <div 
+        className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg p-1 w-[300px] sm:w-[300px]  shadow-[0_0_15px_5px_rgba(255,140,0,0.7)] animate-glow"
+        onClick={(e) => e.stopPropagation()} // Mencegah klik dalam modal menutup modal
+      >
+        
 
         {/* <p className="text-yellow-200 w-full bg-yellow-900 text-center font-roboto p-1">
           KLIK UNTUK DAFTAR!!
