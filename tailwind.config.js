@@ -25,8 +25,13 @@ module.exports = {
       // },
       animation: {
         blob: "blob 7s infinite",
+        glow: "glowEffect 1.5s infinite alternate ease-in-out",
       },
       keyframes: {
+        glowEffect: {
+          "0%": { boxShadow: "0 0 10px 3px rgba(255,140,0,0.3)" },
+          "100%": { boxShadow: "0 0 20px 7px rgba(255,140,0,0.9)" },
+        },
         blob: {
           "0%": {
             transform: "translate(0px, 0px) scale(1)",
@@ -42,6 +47,7 @@ module.exports = {
           },
         },
       },
+
     },
   },
   plugins: [require("flowbite/plugin")],
