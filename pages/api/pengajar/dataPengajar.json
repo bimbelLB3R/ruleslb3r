@@ -219,6 +219,17 @@
         "facebook":"bimbel.lb3r",
         "instagram":"bimbel_lb3r",
         "twitter":"bimbel_lb3r"
+      },           
+      {
+        "idPengajar": 21,
+        "nama": "Lisa",
+        "mapel": "Bhs. Indonesia",
+        "malam": "ready",
+        "foto": "Bu Lisa",
+        "kampus":"STIKIP",
+        "facebook":"bimbel.lb3r",
+        "instagram":"bimbel_lb3r",
+        "twitter":"bimbel_lb3r"
       }           
     ]
   }

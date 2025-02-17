@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 // from timer
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
+import CountdownTimer from "./CountDownTimer";
 
 dayjs.extend(duration);
 // from timer end
 
 export default function WarningSnbt() {
+  const targetDate = "2025-04-23T23:59:59"; // Set tanggal tujuan Anda
   const [nameKu, setNameKu] = useState("");
   const [linkKu, setLinkku] = useState("");
   const [sisawaktu, setSisaWaktu] = useState("");
@@ -49,12 +51,14 @@ export default function WarningSnbt() {
         </div>
       ) : (
         <div className="w-full grid m-auto p-4 bg-gradient-to-b from-purple-900 via-gray-900 to-purple-900">
-          <a href="https://fitur-lb3r.vercel.app/">
+          {/* <a href="https://fitur-lb3r.vercel.app/">
             <p className="text-center text-yellow-400 underline text-xs md:text-lg">
               Yuk cek apakah bestie kamu sudah pernah les di LB3R!! Klik disini
               ya...!!
             </p>
-          </a>
+          </a> */}
+          <CountdownTimer targetDate={targetDate} />
+          <p className="text-center text-white">Menuju SNBT 2025</p>
         </div>
       )}
     </>
