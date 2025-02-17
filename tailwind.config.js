@@ -26,6 +26,7 @@ module.exports = {
       animation: {
         blob: "blob 7s infinite",
         glow: "glowEffect 1.5s infinite alternate ease-in-out",
+        ripple: "ripple 1.5s infinite ease-out",
       },
       keyframes: {
         glowEffect: {
@@ -45,6 +46,10 @@ module.exports = {
           "100%": {
             transform: "tranlate(0px, 0px) scale(1)",
           },
+        },
+        ripple: {
+          "0%": { transform: "scale(1)", opacity: "0.4" },
+          "100%": { transform: "scale(2.5)", opacity: "0" },
         },
       },
 
