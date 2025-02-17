@@ -22,6 +22,7 @@ import WarningSnbt from "../components/WarningSnbt";
 import CanvaEmbed from "../components/CanvaEmbed1";
 import Link from "next/link";
 import VideoDraggable from "../components/Videodraggable";
+import VoiceControl from "../components/VoiceControl";
 // import Formst30 from "../components/Formst30";
 
 const Home = ({ allPost, dataAlumni }) => {
@@ -145,6 +146,7 @@ const Home = ({ allPost, dataAlumni }) => {
       <Layout>
         {/* <VideoDraggable/> */}
         <BayarLes />
+        <VoiceControl/>
         <WarningSnbt />
         <ImageSlide />
         <ButtonUmum />
