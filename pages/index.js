@@ -143,7 +143,7 @@ const Home = ({ allPost, dataAlumni }) => {
         />
       </Transition>
       <Layout>
-        <VideoDraggable/>
+        {/* <VideoDraggable/> */}
         <BayarLes />
         <WarningSnbt />
         <ImageSlide />
