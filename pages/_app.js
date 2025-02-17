@@ -5,6 +5,7 @@ import { SessionProvider } from "next-auth/react";
 import { useEffect } from "react";
 import Script from "next/script";
 import customHeaders from "../libs/middlewares/setCookieAll";
+import VoiceControl from "../components/VoiceControl";
 
 
 // const montserrat = Montserrat({
@@ -46,6 +47,7 @@ function MyApp({ Component, pageProps, session }) {
 
       <main >
         <Component {...pageProps} />
+        <VoiceControl/>
       </main>
     </SessionProvider>
     // <main>

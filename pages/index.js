@@ -134,7 +134,7 @@ const Home = ({ allPost, dataAlumni }) => {
       <Layout>
         {/* <VideoDraggable/> */}
         <BayarLes />
-        <VoiceControl/>
+        {/* <VoiceControl/> */}
         <WarningSnbt />
         <ImageSlide />
         <ButtonUmum />

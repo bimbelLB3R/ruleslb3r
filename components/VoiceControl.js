@@ -1,29 +1,37 @@
 export default function VoiceControl() {
   const commands = {
     "buka absen": "http://192.168.100.129/aplikasibimbel2/public/data_tentor/",
-    "buka program": "https://www.bimbellb3r.com/layanan",
+    "lihat program les": "https://www.bimbellb3r.com/layanan",
     "coba try out":"https://www.bimbellb3r.com/form/login",
     "tampilkan pengajar":"https://www.bimbellb3r.com/pengajar",
+    "beri rating":"https://www.bimbellb3r.com/feedback",
     "baca artikel":"https://www.bimbellb3r.com/blogs",
     "buat kelas baru":"https://www.bimbellb3r.com/rules/newclass",
+    "sistem pembayaran":"https://www.bimbellb3r.com/rules/payment",
     "mau bayar les":"https://www.bimbellb3r.com/layanan/bayarles",
     "jadwal hari ini":"https://www.bimbellb3r.com/livejadwal",
     "cari teman baru":"https://fitur-lb3r.vercel.app/",
     "cari kampus":"https://www.bimbellb3r.com/kampusku",
-    "hubungi admin":"https://wa.me/6285654179908"
+    "tes modalitas belajar":"https://www.bimbellb3r.com/layanan/diagnostik/login",
+    "hubungi admin":"https://wa.me/6285654179908",
+    "instagram":"https://www.instagram.com/bimbel_lb3r/"
   };
   const perintah = [
-    "buka program",
+    "lihat program les",
     "coba try out",
     "tampilkan pengajar",
+    "beri rating",
     "baca artikel",
     "buat kelas baru",
+    "sistem pembayaran",
     "mau bayar les",
     "jadwal hari ini",
     "cari teman baru",
     "cari kampus",
+    "tes modalitas belajar",
     "hubungi admin",
-    "buka absen"
+    "buka absen",
+    "instagram"
   ];
 
   const startListening = () => {
@@ -49,12 +57,12 @@ export default function VoiceControl() {
   return (
     <div className="fixed bottom-12 left-8 md:bottom-12 md:left-12 z-20">
       {/* Kotak Chat */}
-      <div className="absolute -top-[235px] mb-4 p-4 w-64 bg-white shadow-lg rounded-lg border border-gray-300">
+      <div id="perintah-box" className="absolute -top-[235px] mb-4 p-4 w-64 bg-white shadow-lg rounded-lg border border-gray-300">
         <div className="flex justify-between items-center mb-2">
-          <p className="text-sm font-semibold">Klik Mic & Coba katakan:</p>
+          <p className="text-sm font-semibold">Klik Mic & Ucapkan:</p>
           <button onClick={() => document.getElementById('perintah-box').style.display = 'none'} className="text-red-500 text-lg font-bold">X</button>
         </div>
-        <div id="perintah-box" className="max-h-40 overflow-y-auto">
+        <div  className="max-h-40 overflow-y-auto">
           <ul className="text-sm text-gray-600">
             {perintah.map((cmd, index) => (
               <li key={index} className="py-1 px-2 bg-gray-100 rounded-md mb-1">{cmd}</li>
