@@ -23,84 +23,103 @@ export default function VoiceControl() {
 
   const perintah = Object.keys(commands);
   const [isListening, setIsListening] = useState(false);
-  const [error, setError] = useState(null);
-  const perintahBoxRef = useRef(null);
+  const recognitionRef = useRef(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (window.SpeechRecognition) {
+        recognitionRef.current = new window.SpeechRecognition();
+        recognitionRef.current.lang = "id-ID";
+        recognitionRef.current.continuous = false;
+        recognitionRef.current.interimResults = false;
+
+        recognitionRef.current.onresult = (event) => {
+          const command = event.results[0][0].transcript.toLowerCase();
+          console.log("Perintah:", command);
+
+          for (let key in commands) {
+            if (command.includes(key)) {
+              window.location.href = commands[key];
+              stopListening(); // Hentikan pendengaran setelah menjalankan perintah
+              return;
+            }
+          }
+
+          alert("Perintah tidak dikenali.");
+          stopListening();
+        };
+
+        recognitionRef.current.onerror = () => {
+          stopListening();
+        };
+
+        recognitionRef.current.onend = () => {
+          if (isListening) {
+            recognitionRef.current.start(); // Restart jika user belum mematikan mic
+          } else {
+            stopListening(); // Pastikan tombol kembali ke biru jika sesi berakhir
+          }
+        };
+      }
     }
   }, []);
 
   const startListening = () => {
-    if (!window.SpeechRecognition) {
-      setError("Browser tidak mendukung Speech Recognition.");
+    if (!recognitionRef.current) {
+      alert("Browser tidak mendukung Speech Recognition.");
       return;
     }
-
-    const recognition = new window.SpeechRecognition();
-    recognition.lang = "id-ID";
-    recognition.start();
+    recognitionRef.current.start();
     setIsListening(true);
+  };
 
-    recognition.onresult = (event) => {
-      const command = event.results[0][0].transcript.toLowerCase();
-      console.log("Perintah:", command);
-
-      for (let key in commands) {
-        if (command.includes(key)) {
-          window.location.href = commands[key];
-          setIsListening(false);
-          return;
-        }
-      }
-
-      alert("Perintah tidak dikenali.");
-      setIsListening(false);
-    };
-
-    recognition.onerror = (event) => {
-      // console.error("Speech recognition error:", event.error);
-      setError("Terjadi kesalahan dalam mengenali suara.");
-      setIsListening(false);
-    };
+  const stopListening = () => {
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+    }
+    setIsListening(false);
   };
 
   return (
     <div className="fixed bottom-12 left-8 md:bottom-12 md:left-12 z-20">
       {/* Kotak Chat */}
-      {isListening &&
-      <div
-        ref={perintahBoxRef}
-        className="absolute -top-[235px] mb-4 p-4 w-64 bg-white shadow-lg rounded-lg border border-gray-300"
-      >
-        <div className="flex justify-between items-center mb-2">
-          <p className="text-sm font-semibold">Pilih & ucapkan apa yang kamu inginkan</p>
-          <button
-            onClick={() => (perintahBoxRef.current.style.display = "none")}
-            className="text-red-500 text-lg font-bold"
-          >
-            X
-          </button>
+      {isListening && (
+        <div className="absolute -top-[235px] mb-4 p-4 w-64 bg-white shadow-lg rounded-lg border border-gray-300">
+          <div className="flex justify-between items-center mb-2">
+            <p className="text-sm font-semibold">Pilih & ucapkan apa yang kamu inginkan</p>
+            <button onClick={stopListening} className="text-red-500 text-lg font-bold">
+              X
+            </button>
+          </div>
+          <div className="max-h-40 overflow-y-auto">
+            <ul className="text-sm text-gray-600">
+              {perintah.map((cmd, index) => (
+                <li key={index} className="py-1 px-2 bg-gray-100 rounded-md mb-1">
+                  {cmd}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className="max-h-40 overflow-y-auto">
-          <ul className="text-sm text-gray-600">
-            {perintah.map((cmd, index) => (
-              <li key={index} className="py-1 px-2 bg-gray-100 rounded-md mb-1">
-                {cmd}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>}
+      )}
 
       {/* Wrapper tombol + animasi */}
       <div className="relative flex items-center justify-center">
-        <span className="absolute w-16 h-16 bg-blue-400 opacity-40 rounded-full animate-ping"></span>
-        <span className="absolute w-12 h-12 bg-blue-500 opacity-30 rounded-full animate-ping delay-100"></span>
+        {isListening ? (
+          <>
+            <span className="absolute w-16 h-16 bg-red-400 opacity-40 rounded-full animate-ping"></span>
+            <span className="absolute w-12 h-12 bg-red-500 opacity-30 rounded-full animate-ping delay-100"></span>
+          </>
+        ) : (
+          <>
+            <span className="absolute w-16 h-16 bg-blue-400 opacity-40 rounded-full animate-ping"></span>
+            <span className="absolute w-12 h-12 bg-blue-500 opacity-30 rounded-full animate-ping delay-100"></span>
+          </>
+        )}
 
         <button
-          onClick={startListening}
+          onClick={isListening ? stopListening : startListening}
           className="relative p-4 bg-white rounded-full shadow-lg hover:scale-110 transition-transform"
         >
           {isListening ? (
@@ -112,8 +131,8 @@ export default function VoiceControl() {
               className="bi bi-mic text-red-500 animate-bounce"
               viewBox="0 0 16 16"
             >
-              <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5"/>
-              <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3"/>
+              <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5" />
+              <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3" />
             </svg>
           ) : (
             <svg
@@ -124,17 +143,12 @@ export default function VoiceControl() {
               className="bi bi-mic text-blue-500"
               viewBox="0 0 16 16"
             >
-              <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5"/>
-              <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3"/>
+              <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5" />
+              <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3" />
             </svg>
           )}
         </button>
       </div>
-
-      {/* Notifikasi Error */}
-      {/* {error && (
-        <p className="text-red-500 text-sm mt-2">{error}</p>
-      )} */}
     </div>
   );
 }
