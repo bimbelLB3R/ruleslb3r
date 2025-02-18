@@ -49,7 +49,7 @@ export default function VoiceControl() {
 
       for (let key in commands) {
         if (command.includes(key)) {
-          window.open(commands[key], "_blank");
+          window.location.href = commands[key];
           setIsListening(false);
           return;
         }
