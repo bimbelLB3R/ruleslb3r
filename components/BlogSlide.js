@@ -1,94 +1,78 @@
-import React, { Component } from 'react';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
-import Welcome from './Welcome';
-import Image from 'next/image';
+import { useState } from "react";
+import Image from "next/image";
 
-export default class BlogSlide extends Component {
-  render() {
-    return (
-      <div className="flex items-center justify-center">
-        <div className="md:max-w-2xl  overflow-hidden">
-          {/* <h2>NextJs Carousel - GeeksforGeeks</h2> */}
-          <Carousel
-            showArrows={true}
-            showThumbs={false}
-            autoPlay={true}
-            infiniteLoop={true}>
-            <div>
+const images = [
+  { src: "/image/image1.webp", alt: "Foto Pilih jurusan", caption: "SEMINAR BAKAT DAN PEMILIHAN JURUSAN" },
+  { src: "/image/image2.webp", alt: "Foto Kelas Programming", caption: "KELAS PEMROGRAMAN WEB" },
+  { src: "/image/image3.webp", alt: "Foto Kelas UTBK", caption: "KELAS INTENSIF UTBK SNBT" },
+  { src: "/image/image4.webp", alt: "Foto Kantor Bimbel", caption: "KANTOR UTAMA BIMBEL LB3R" },
+  { src: "/image/image5.webp", alt: "Foto presensi QRcode", caption: "PRESENSI DENGAN QRQODE" },
+  { src: "/image/image6.webp", alt: "Foto Pengajar", caption: "BEBERAPA PENGAJAR PEREMPUAN DI LB3R" },
+  { src: "/image/image7.webp", alt: "Foto Siswa Ultah", caption: "SALAH SATU SISWA MERAYAKAN ULANG TAHUN" },
+];
+
+export default function BlogSlide() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  return (
+    <div className="relative flex items-center justify-center w-full max-w-2xl mx-auto">
+      {/* Slider Container */}
+      <div className="overflow-hidden w-full h-[300px] md:h-[400px] relative">
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {images.map((image, index) => (
+            <div key={index} className="w-full flex-shrink-0 relative">
               <Image
-                src="/image/image1.webp"
-                alt="Foto Pilih jurusan"
+                src={image.src}
+                alt={image.alt}
                 width={500}
-                height={500}
-                priority={true}
+                height={300}
+                className="w-full h-auto object-cover rounded-lg"
               />
-              {/* <img src="image/image1.webp" alt="Foto Seminar Bakat" /> */}
-              <p className="legend">SEMINAR BAKAT DAN PEMILIHAN JURUSAN</p>
+              <p className="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center text-sm p-2">
+                {image.caption}
+              </p>
             </div>
-            <div>
-              <Image
-                src="/image/image2.webp"
-                alt="Foto Kelas Programming"
-                width={500}
-                height={500}
-              />
-              {/* <img src="image/image2.webp" alt="Foto Kelas Programming" /> */}
-              <p className="legend">KELAS PEMROGRAMAN WEB</p>
-            </div>
-            <div>
-              <Image
-                src="/image/image3.webp"
-                alt="Foto Kelas UTBK"
-                width={500}
-                height={500}
-              />
-              {/* <img src="image/image3.webp" alt="Foto Kelas UTBK" /> */}
-              <p className="legend">KELAS INTENSIF UTBK SNBT</p>
-            </div>
-            <div>
-              <Image
-                src="/image/image4.webp"
-                alt="Foto Kantor Bimbel"
-                width={500}
-                height={500}
-              />
-              {/* <img src="image/image4.webp" alt="Foto Kantor Bimbel" /> */}
-              <p className="legend">KANTOR UTAMA BIMBEL LB3R</p>
-            </div>
-            <div>
-              <Image
-                src="/image/image5.webp"
-                alt="Foto presensi QRcode"
-                width={500}
-                height={500}
-              />
-              {/* <img src="image/image5.webp" alt="Foto presensi QRcode" /> */}
-              <p className="legend">PRESENSI DENGAN QRQODE </p>
-            </div>
-            <div>
-              <Image
-                src="/image/image6.webp"
-                alt="Foto Pengajar"
-                width={500}
-                height={500}
-              />
-              {/* <img src="image/image6.webp" alt="Foto Pengajar LB3R" /> */}
-              <p className="legend">BEBERAPA PENGAJAR PEREMPUAN DI LB3R</p>
-            </div>
-            <div className="flex items-center justify-center p-4">
-              <Image
-                src="/image/image7.webp"
-                alt="Foto Siswa Ultah"
-                width={500}
-                height={500}
-              />
-              {/* <img src="image/image7.webp" alt="Foto Siswa LB3R Ultah" /> */}
-              <p className="legend">SALAH SATU SISWA MERAYAKAN ULANG TAHUN</p>
-            </div>
-          </Carousel>
+          ))}
         </div>
       </div>
-    );
-  }
+
+      {/* Navigation Buttons */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-80"
+      >
+        ❮
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-80"
+      >
+        ❯
+      </button>
+
+      {/* Dots Navigation */}
+      <div className="absolute bottom-2 flex justify-center w-full space-x-2">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            className={`w-3 h-3 rounded-full ${
+              index === currentIndex ? "bg-white" : "bg-gray-400"
+            }`}
+            onClick={() => setCurrentIndex(index)}
+          />
+        ))}
+      </div>
+    </div>
+  );
 }
