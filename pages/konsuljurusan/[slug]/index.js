@@ -19,7 +19,7 @@ export default function Detail({ detailKonsul, allKonsul }) {
         />
         <meta
           name="description"
-          content="Program gratis buat memperkuat kemampuan matematikamu"
+          content="Menemukan jurusan kuliah yang sesuai dengan bakat dan minat"
           key="desc"
         />
         <meta
