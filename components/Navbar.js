@@ -14,26 +14,7 @@ import "animate.css";
 
 const Navbar = forwardRef(({ allPost, ...props }, ref) => {
   const { data: session } = useSession();
-  // console.log(session);
-  // console.log(allPost);
-  // const mapPost = allPost.allPost.map((post) => console.log(post.title));
-  // Controling scroll efect
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const scrollPosition = window.scrollY;
-  //     const navChange = document.getElementById('nav');
-  //     // console.log(scrollPosition);
-  //     if (scrollPosition > 120) {
-  //       navChange.style.backgroundColor = '#020617';
-  //     } else {
-  //       navChange.style.backgroundColor = '#f1f5f9';
-  //     }
-  //   };
-  //   window.addEventListener('scroll', handleScroll);
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
+  
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
@@ -90,20 +71,10 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
             </Link> */}
             <DropdownMenu />
             <DropdownMenuSNBT />
-            <DropdownMenuProfile />
+            {/* <DropdownMenuProfile /> */}
           </div>
           <div className="flex space-x-4">
-            {/* <Link href="/form/newmember">
-              <p className="bg-orange-600 text-slate-50 py-2 px-4 text-center rounded">
-                DAFTAR
-              </p>
-            </Link>
-            <Link href="/form/login">
-              <p className="text-center border border-orange-600 text-orange-600 py-2 px-4 rounded">
-                LOGIN
-              </p>
-            </Link> */}
-            {/* <TombolInOut /> */}
+            
             <TombolCari allPost={allPost} />
           </div>
         </div>
@@ -112,16 +83,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
           id="nav"
           className="bg-slate-200 p-3 lg:hidden fixed  top-0 z-40 w-full lg:shadow lg:shadow-slate-400 items-center flex "
         >
-          {/* <div className="absolute right-0 -top-6 ">
-            <Image
-              src="/image/petaindo.png"
-              width={300}
-              height={60}
-              alt="indomap"
-              priority={true}
-              className="opacity-50"
-            />
-          </div> */}
+          
 
           <div className="flex justify-between ">
             <div className="flex items-center space-x-2">
@@ -177,33 +139,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
               </button>
             </div>
           </div>
-          {/* <div className="flex items-center space-x-3">
-            <div className="text-yellow-400">
-              <Link href="https://maps.app.goo.gl/P9qk89mYJ2piQr8j9">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-8 h-8"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M8.161 2.58a1.875 1.875 0 0 1 1.678 0l4.993 2.498c.106.052.23.052.336 0l3.869-1.935A1.875 1.875 0 0 1 21.75 4.82v12.485c0 .71-.401 1.36-1.037 1.677l-4.875 2.437a1.875 1.875 0 0 1-1.676 0l-4.994-2.497a.375.375 0 0 0-.336 0l-3.868 1.935A1.875 1.875 0 0 1 2.25 19.18V6.695c0-.71.401-1.36 1.036-1.677l4.875-2.437ZM9 6a.75.75 0 0 1 .75.75V15a.75.75 0 0 1-1.5 0V6.75A.75.75 0 0 1 9 6Zm6.75 3a.75.75 0 0 0-1.5 0v8.25a.75.75 0 0 0 1.5 0V9Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </Link>
-            </div>
-            <div className="border-l-2 border-yellow-400 pl-1 text-yellow-400">
-              <p className="text-[10px] font-semibold">Kantor Pusat :</p>
-              <p className="text-[10px]">
-                Jalan Ir. P.H.M. Noor RT 10 No. 24 Sulingan
-              </p>
-              <p className="text-[10px]">
-                Kec. Murung Pudak, Kab. Tabalong, KalSel
-              </p>
-            </div>
-          </div> */}
+          
           <div className="md:flex md:items-center md:p-4">
             <div
               className={`${
@@ -427,7 +363,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                     {session ? (
                       <div className="flex items-center justify-end p-2 underline text-slate-50">
                         <div>
-                          <div>
+                          {/* <div>
                             <a
                               target="_blank"
                               rel="noopener noreferrer"
@@ -435,7 +371,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                             >
                               My Account
                             </a>
-                          </div>
+                          </div> */}
                           <button onClick={() => signOut()}>
                             Keluar dari {session.user.name}
                           </button>

@@ -122,7 +122,7 @@ const FeedbackForm = () => {
     // Panggil fungsi ambilJadwal disini
     // const email_user = "ikhwchemist@gmail.com";
     ambilJadwal();
-  }, []);//[session] saya hapus
+  }, [session]);
 
   const [ratings, setRatings] = useState(0);
   const [submitted, setSubmitted] = useState({});
@@ -214,7 +214,7 @@ const FeedbackForm = () => {
       }
     });
     setSubmitedLocal(submitedLocalData);
-  }, []);//[dataJadwal] saya hapus
+  }, [dataJadwal]);
 
   useEffect(() => {
     // Ambil waktu saat ini
