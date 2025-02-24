@@ -11,6 +11,7 @@ import { format } from "date-fns";
 import { id } from "date-fns/locale";
 import { getBlogsData } from "../../utils/blogsApi";
 import { getTutorialData } from "../../utils/TutorialApi";
+import BankLogos from "../../components/BankLogos";
 export async function getStaticProps() {
   const data = getBlogsData();
   const dataTutorial = getTutorialData();
@@ -296,7 +297,8 @@ const BayarLes = ({ allPost }) => {
         />
       </Head>
       <Layout>
-        <div className="flex justify-center items-center  bg-slate-100 text-gray-900">
+        <div className="bg-[url('/image/logos/bg-payment.png')] bg-cover bg-center">
+        <div className="flex justify-center items-center  text-gray-900">
           <form
             className="space-y-3 w-full max-w-lg mx-auto p-5 "
             onSubmit={submitForm}
@@ -567,6 +569,9 @@ const BayarLes = ({ allPost }) => {
               </button>
             )}
           </form>
+        </div>
+        {/* Logo bank */}
+        <BankLogos/>
         </div>
       </Layout>
     </>
