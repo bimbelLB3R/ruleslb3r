@@ -473,6 +473,7 @@ const BayarLes = ({ allPost }) => {
                 <option value="50000">Rp 50.000,-</option>
                 <option value="45000">Rp 45.000,-</option>
                 <option value="40000">Rp 40.000,-</option>
+                <option value="1000">Rp 1.000,-</option>
               </select>
               {isjumlahEmpty && (
                 <p className="text-red-500 text-xs mb-2">Wajib diisi</p>

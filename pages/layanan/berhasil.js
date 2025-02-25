@@ -2,10 +2,11 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
+import Layout from "../../components/Layout";
 
 export default function Success() {
   const router = useRouter();
-  const { order_id, transaction_status } = router.query;
+  const { order_id,status_code, transaction_status } = router.query;
 
   const [transactionData, setTransactionData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -46,6 +47,7 @@ export default function Success() {
   //   </div>
   // );
   return (
+    <Layout>
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4 ">
       {transactionData&&<div className="bg-[url('/image/card.png')] bg-cover bg-center shadow-lg rounded-lg max-w-md w-full p-6 border-t-8 border-orange-400">
         {/* Header */}
@@ -72,9 +74,9 @@ export default function Success() {
 
         {/* Detail Transaksi */}
         <div className="text-gray-700 text-sm space-y-2">
-          <p><span className="font-semibold">Nomor Transaksi:</span> {order_id}</p>
+          <p><span className="font-semibold">Nomor ID Transaksi:</span> {order_id}</p>
           <p><span className="font-semibold">Tanggal Transaksi:</span> {transactionData.transaction_time}</p>
-          <p><span className="font-semibold">Metode Pembayaran:</span> {transactionData.payment_type.replace("_", " ")}({transactionData.va_numbers.map((item)=>item.bank)})</p>
+          <p><span className="font-semibold">Metode Pembayaran:</span> {transactionData.payment_type.replace("_", " ")}</p>
           <p><span className="font-semibold">Jumlah:</span> Rp {parseInt(transactionData.gross_amount).toLocaleString("id-ID")}</p>
         </div>
 
@@ -88,5 +90,6 @@ export default function Success() {
         </div>
       </div>}
     </div>
+    </Layout>
   );
 }
