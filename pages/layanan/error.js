@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Layout from "../../components/Layout";
+import Head from "next/head";
 
 export default function Error() {
   const router = useRouter();
@@ -26,7 +28,18 @@ export default function Error() {
     }
   }, [order_id]);
 
-  return (
+  return <>
+    <Head>
+        <title>{loading?'...':transactionData.transaction_status}</title>
+        <meta name="description" content="Pembayaran Gagal" key="desc" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="4x16"
+          href="/image/logolb3r.png"
+        />
+    </Head>
+    <Layout>
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
       <div className="bg-white shadow-lg rounded-lg p-6 max-w-sm w-full text-center border-t-8 border-red-500">
         {/* Gambar status gagal */}
@@ -79,5 +92,6 @@ export default function Error() {
         </div>
       </div>
     </div>
-  );
+    </Layout>
+  </>;
 }

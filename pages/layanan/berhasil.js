@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 import Layout from "../../components/Layout";
+import Head from "next/head";
 
 export default function Success() {
   const router = useRouter();
@@ -28,7 +29,17 @@ export default function Success() {
     }
   }, [order_id]);
 
-  return (
+  return <>
+  <Head>
+        <title>{loading?'...':transactionData.transaction_status}</title>
+        <meta name="description" content="Pembayaran Berhasil" key="desc" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="4x16"
+          href="/image/logolb3r.png"
+        />
+    </Head>
     <Layout>
       <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
         {loading ? (
@@ -107,5 +118,5 @@ export default function Success() {
         )}
       </div>
     </Layout>
-  );
+  </>;
 }
