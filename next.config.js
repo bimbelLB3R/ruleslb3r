@@ -15,12 +15,12 @@ module.exports = {
   images: {
     domains: [
       "lh3.googleusercontent.com",
-      "https://www.bimbellb3r.com/favicon.ico",
+      "bimbellb3r.com", // hapus "https://www."
       "drive.google.com",
       "unsplash.com",
-      "https://kevin-lehner.com",
+      "kevin-lehner.com", // hapus "https://"
       "scontent.cdninstagram.com",
-      "https://raw.githubusercontent.com",
+      "raw.githubusercontent.com", // hapus "https://"
     ],
   },
   webpack: (config, { isServer }) => {
