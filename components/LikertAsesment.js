@@ -19,6 +19,8 @@ export default function LikertAssessment() {
   const [answerTimes, setAnswerTimes] = useState({});
   const [tombol,setTombol]=useState(true);
   const [eemail,setEemail]=useState();
+  const [showInstructions, setShowInstructions] = useState(true);
+
 
   useEffect(() => {
     const savedAnswers = JSON.parse(localStorage.getItem("answers")) || {};
@@ -29,33 +31,14 @@ export default function LikertAssessment() {
       setSelectedScore(savedAnswers[questions[currentQuestion]?.id]);
     }
     setStartTime(Date.now()); // Mulai hitung waktu untuk soal saat ini
-    // // satu email hanya untuk satu kali asesmen
-    // if(session){
-    //     setEemail(session.user.email);
-    // }
-    // if (session) {
-    //     const mail = session.user.email;
-    //     let emails = JSON.parse(localStorage.getItem("userMails")) || [];
-    
-    //     // Jika email belum ada dalam array, tambahkan
-    //     if (!emails.includes(mail)) {
-    //         emails.push(mail);
-    //         localStorage.setItem("userMails2", JSON.stringify(emails));
-    //     }else{
-    //         setTombol(false);
-    //     }
-    
-    //     // Cek apakah email sudah pernah digunakan
-    //     // if (emails.includes(mail)) {
-    //     //     setTombol(false);
-    //     // }
-    // }
+    // console.log(Date.now());
     
   }, [currentQuestion]);
 
   useEffect(()=>{
     if(session){
         const mail = session.user.email;
+        localStorage.setItem("userEmail",mail)
         setEemail(mail);
         let emails = JSON.parse(localStorage.getItem("userMails")) || [];
         if(emails.includes(mail)){
@@ -99,8 +82,9 @@ export default function LikertAssessment() {
     setSelectedScore(3); // Kembali ke nilai default
     setCurrentQuestion(0); // Kembali ke pertanyaan pertama
     setStartTime(Date.now()); // Mulai ulang waktu
-  
     setIsPopupOpen(false);
+    // Refresh halaman
+    window.location.reload();
   };
 
 
@@ -137,6 +121,14 @@ const handleNext = () => {
     }
   };
 
+  const getCategory = (score) => {
+    if (score >= 4.2) return "Sangat Suka";
+    if (score >= 3.4) return "Suka";
+    if (score >= 2.6) return "Netral";
+    if (score >= 1.8) return "Tidak Suka";
+    return "Sangat Tidak Suka";
+  };
+
   return (
     <div className="">
       {!session ? (
@@ -162,43 +154,73 @@ const handleNext = () => {
         </svg> 
         </button>} */}
         {isPopupOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-            <p className="text-lg mb-4">{questions[currentQuestion].text}</p>
-            <div className="relative w-full">
-              <div
-                className="absolute -top-6 text-lg font-bold text-black transition-transform duration-200"
-                style={{ left: `${((selectedScore - 1) / 4) * 100}%`, transform: "translateX(-50%)" }}
-              >
-                {selectedScore.toFixed(1)}
-              </div>
-              <input
-                type="range"
-                min="1"
-                max="5"
-                step="0.1"
-                value={selectedScore}
-                onChange={(e) => handleScoreChange(parseFloat(e.target.value))}
-                className="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer transition-all duration-200 ease-in-out"
-                style={{ background: `linear-gradient(to right, black 0%, gray 25%, white 50%, yellow 75%, red 100%)` }}
-              />
-            </div>
-            <div className="flex justify-between mt-2">
-              <span className="text-black">1</span>
-              <span className="text-gray-500">2</span>
-              <span className="text-white bg-black p-1 rounded">3</span>
-              <span className="text-yellow-500">4</span>
-              <span className="text-red-500">5</span>
-            </div>
-            <button onClick={handleNext} className="w-full px-4 py-2 bg-blue-500 text-white rounded mt-4">
-              {currentQuestion < questions.length - 1 ? "Lanjut" : "Selesai"}
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+      
+      {/* Jika showInstructions = true, tampilkan petunjuk */}
+      {showInstructions ? (
+        <>
+          <p className="text-lg mb-4 font-bold">Petunjuk Pengisian</p>
+          <ul className="text-sm mb-4 list-disc pl-5">
+            <li>Gunakan slider untuk memberi penilaian dari 1 hingga 5.</li>
+            <li>1 berarti "Sangat Tidak Suka", 5 berarti "Sangat Suka".</li>
+            <li>Setelah memilih nilai, klik tombol "Lanjut".</li>
+          </ul>
+          <button 
+                onClick={() => {
+                    setStartTime(Date.now()); // Simpan waktu saat tombol diklik
+                    setShowInstructions(false);}} 
+                className="w-full px-4 py-2 bg-green-500 text-white rounded">
+                        Mulai
             </button>
-            <button onClick={handleCancel} className="w-full px-4 py-2 bg-red-500 text-white rounded mt-2">
-              Batal
-            </button>
+
+        </>
+      ) : (
+        <>
+        {/* Tampilkan kategori yang dipilih */}
+        <div className="text-center font-bold text-lg mb-2">
+                {getCategory(selectedScore)}
+            </div>
+          {/* Tampilkan pertanyaan setelah petunjuk */}
+          <p className="text-lg mb-4">{questions[currentQuestion].text}</p>
+          <div className="relative w-full">
+            <div
+              className="absolute -top-6 text-lg font-bold text-black transition-transform duration-200"
+              style={{ left: `${((selectedScore - 1) / 4) * 100}%`, transform: "translateX(-50%)" }}
+            >
+              {selectedScore.toFixed(1)}
+            </div>
+            <input
+              type="range"
+              min="1"
+              max="5"
+              step="0.1"
+              value={selectedScore}
+              onChange={(e) => handleScoreChange(parseFloat(e.target.value))}
+              className="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer transition-all duration-200 ease-in-out"
+              style={{ background: `linear-gradient(to right, black 0%, gray 25%, white 50%, yellow 75%, red 100%)` }}
+            />
           </div>
-        </div>
+          <div className="flex justify-between mt-2">
+            <span className="text-black">1</span>
+            <span className="text-gray-500">2</span>
+            <span className="text-white bg-black p-1 rounded">3</span>
+            <span className="text-yellow-500">4</span>
+            <span className="text-red-500">5</span>
+          </div>
+          <button onClick={handleNext} className="w-full px-4 py-2 bg-blue-500 text-white rounded mt-4">
+            {currentQuestion < questions.length - 1 ? "Lanjut" : "Selesai"}
+          </button>
+          <button onClick={handleCancel} className="w-full px-4 py-2 bg-red-500 text-white rounded mt-2">
+            Batal
+          </button>
+        </>
       )}
+      
+    </div>
+  </div>
+)}
+
     </div>
   );
 }
