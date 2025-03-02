@@ -18,6 +18,7 @@ export default function LikertAssessment() {
   const [startTime, setStartTime] = useState(Date.now());
   const [answerTimes, setAnswerTimes] = useState({});
   const [tombol,setTombol]=useState(true);
+  const [email,setEmail]=useState();
 
   useEffect(() => {
     const savedAnswers = JSON.parse(localStorage.getItem("answers")) || {};
@@ -28,10 +29,19 @@ export default function LikertAssessment() {
       setSelectedScore(savedAnswers[questions[currentQuestion]?.id]);
     }
     setStartTime(Date.now()); // Mulai hitung waktu untuk soal saat ini
-    const sudahPernah=localStorage.getItem("pernah");
-    if(sudahPernah){
-        setTombol(false);
+    if(session){
+        const mail=session.user.email;
+        setEmail(mail);
+        localStorage.setItem("userMail",mail);
+        if(session.user.email===email){
+            setTombol(false);
+        }
     }
+    
+    // const sudahPernah=localStorage.getItem("pernah");
+    // if(sudahPernah){
+    //     setTombol(false);
+    // }
   }, [currentQuestion]);
 
 
@@ -87,7 +97,7 @@ const handleNext = () => {
     localStorage.removeItem("answerTimes");
     // sembunyikan tombol /ganti tombol mulai asesmen
     setTombol(false); //masih muncul saat di refresh
-    localStorage.setItem("pernah",true);
+    // localStorage.setItem("pernah",true);
     }
   };
 
@@ -95,7 +105,7 @@ const handleNext = () => {
     <div className="">
       {!session ? (
         <button onClick={() => signIn("google")} className="px-4 py-2 bg-blue-500 text-white rounded">
-          Coba Asesmen Gratis
+          Coba Asesmen Sekarang
         </button>
       ) : (
         <div>
