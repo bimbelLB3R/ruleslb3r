@@ -145,15 +145,17 @@ const handleNext = () => {
             setCurrentQuestion(currentQuestion + 1);
         } else {
             // alert("Pilihan ganda selesai!");
-    // hapus data setelah terkirim
-    // localStorage.removeItem("answers");
-    // localStorage.removeItem("answerTimes");
+    
     // sembunyikan tombol /ganti tombol mulai asesmen
     setTombol(false); //masih muncul saat di refresh
     setTombolPilgan(false);
     addEmailToLocalStorage(eemail);
     // kirim data disini
     // .......
+    // hapus data setelah terkirim
+    localStorage.removeItem("answers");
+    localStorage.removeItem("answerTimes");
+    localStorage.removeItem("selectedAnswers");
         // Refresh halaman
     window.location.reload();
         }
