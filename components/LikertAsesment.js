@@ -37,12 +37,14 @@ export default function LikertAssessment() {
         if (!emails.includes(mail)) {
             emails.push(mail);
             localStorage.setItem("userMails", JSON.stringify(emails));
+        }else{
+            setTombol(false);
         }
     
         // Cek apakah email sudah pernah digunakan
-        if (emails.includes(mail)) {
-            setTombol(false);
-        }
+        // if (emails.includes(mail)) {
+        //     setTombol(false);
+        // }
     }
     
   }, [currentQuestion]);
