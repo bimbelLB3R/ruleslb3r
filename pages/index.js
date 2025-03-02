@@ -142,9 +142,9 @@ const Home = ({ allPost, dataAlumni }) => {
         <Welcome />
         <Service />
         <BluryBg />
-        <Link href={"/form/tmasesmen"}>
+        {/* <Link href={"/form/tmasesmen"}> */}
         <CanvaEmbed/>
-        </Link>
+        {/* </Link> */}
         <PopBerita beritaTerbaru={allPost} />
         <Faq />
         {/* <Formst30/> */}
