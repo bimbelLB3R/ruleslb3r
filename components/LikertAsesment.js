@@ -61,14 +61,24 @@ export default function LikertAssessment() {
         if(emails.includes(mail)){
             setTombol(false);
         }else{
-            setTombol(true)
-            emails.push(mail);
-            localStorage.setItem("userMails", JSON.stringify(emails));
-
+            setTombol(true);
         }
 
     }
-  },[session])
+  },[])
+
+  const addEmailToLocalStorage = (newEmail) => {
+    let emails = JSON.parse(localStorage.getItem("userMails")) || [];
+
+    // Cek apakah email sudah ada dalam array
+    if (!emails.includes(newEmail)) {
+        emails.push(newEmail);
+        localStorage.setItem("userMails", JSON.stringify(emails));
+        console.log("Email ditambahkan:", newEmail);
+    } else {
+        console.log("Email sudah ada:", newEmail);
+    }
+};
 
 
   const handleScoreChange = (score) => {
@@ -123,7 +133,7 @@ const handleNext = () => {
     localStorage.removeItem("answerTimes");
     // sembunyikan tombol /ganti tombol mulai asesmen
     setTombol(false); //masih muncul saat di refresh
-    localStorage.setItem("userMails",[eemail]);
+    addEmailToLocalStorage(eemail);
     }
   };
 
