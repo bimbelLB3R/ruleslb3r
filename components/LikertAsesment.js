@@ -33,7 +33,10 @@ export default function LikertAssessment() {
         const mail=session.user.email;
         setEmail(mail);
         localStorage.setItem("userMail",mail);
-        if(session.user.email===email){
+    }
+    if(session){
+        const takeMail=localStorage.getItem("userMail");
+        if(takeMail===session.user.email){
             setTombol(false);
         }
     }
