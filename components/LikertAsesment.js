@@ -18,6 +18,7 @@ export default function LikertAssessment() {
   const [startTime, setStartTime] = useState(Date.now());
   const [answerTimes, setAnswerTimes] = useState({});
   const [tombol,setTombol]=useState(true);
+  const [eemail,setEemail]=useState();
 
   useEffect(() => {
     const savedAnswers = JSON.parse(localStorage.getItem("answers")) || {};
@@ -28,26 +29,46 @@ export default function LikertAssessment() {
       setSelectedScore(savedAnswers[questions[currentQuestion]?.id]);
     }
     setStartTime(Date.now()); // Mulai hitung waktu untuk soal saat ini
-    // satu email hanya untuk satu kali asesmen
-    if (session) {
-        const mail = session.user.email;
-        let emails = JSON.parse(localStorage.getItem("userMails")) || [];
+    // // satu email hanya untuk satu kali asesmen
+    // if(session){
+    //     setEemail(session.user.email);
+    // }
+    // if (session) {
+    //     const mail = session.user.email;
+    //     let emails = JSON.parse(localStorage.getItem("userMails")) || [];
     
-        // Jika email belum ada dalam array, tambahkan
-        if (!emails.includes(mail)) {
-            emails.push(mail);
-            localStorage.setItem("userMails", JSON.stringify(emails));
-        }else{
-            setTombol(false);
-        }
+    //     // Jika email belum ada dalam array, tambahkan
+    //     if (!emails.includes(mail)) {
+    //         emails.push(mail);
+    //         localStorage.setItem("userMails2", JSON.stringify(emails));
+    //     }else{
+    //         setTombol(false);
+    //     }
     
-        // Cek apakah email sudah pernah digunakan
-        // if (emails.includes(mail)) {
-        //     setTombol(false);
-        // }
-    }
+    //     // Cek apakah email sudah pernah digunakan
+    //     // if (emails.includes(mail)) {
+    //     //     setTombol(false);
+    //     // }
+    // }
     
   }, [currentQuestion]);
+
+  useEffect(()=>{
+    if(session){
+        const mail = session.user.email;
+        setEemail(mail);
+        let emails = JSON.parse(localStorage.getItem("userMails")) || [];
+        if(emails.includes(mail)){
+            setTombol(false);
+        }else{
+            setTombol(true)
+            emails.push(mail);
+            localStorage.setItem("userMails", JSON.stringify(emails));
+
+        }
+
+    }
+  },[session])
 
 
   const handleScoreChange = (score) => {
@@ -102,7 +123,7 @@ const handleNext = () => {
     localStorage.removeItem("answerTimes");
     // sembunyikan tombol /ganti tombol mulai asesmen
     setTombol(false); //masih muncul saat di refresh
-    // localStorage.setItem("pernah",true);
+    localStorage.setItem("userMails",[eemail]);
     }
   };
 
