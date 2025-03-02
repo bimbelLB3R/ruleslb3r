@@ -18,7 +18,6 @@ export default function LikertAssessment() {
   const [startTime, setStartTime] = useState(Date.now());
   const [answerTimes, setAnswerTimes] = useState({});
   const [tombol,setTombol]=useState(true);
-  const [email,setEmail]=useState();
 
   useEffect(() => {
     const savedAnswers = JSON.parse(localStorage.getItem("answers")) || {};
@@ -29,22 +28,23 @@ export default function LikertAssessment() {
       setSelectedScore(savedAnswers[questions[currentQuestion]?.id]);
     }
     setStartTime(Date.now()); // Mulai hitung waktu untuk soal saat ini
-    if(session){
-        const mail=session.user.email;
-        setEmail(mail);
-        localStorage.setItem("userMail",mail);
-    }
-    if(session){
-        const takeMail=localStorage.getItem("userMail");
-        if(takeMail===session.user.email){
+    // satu email hanya untuk satu kali asesmen
+    if (session) {
+        const mail = session.user.email;
+        let emails = JSON.parse(localStorage.getItem("userMails")) || [];
+    
+        // Jika email belum ada dalam array, tambahkan
+        if (!emails.includes(mail)) {
+            emails.push(mail);
+            localStorage.setItem("userMails", JSON.stringify(emails));
+        }
+    
+        // Cek apakah email sudah pernah digunakan
+        if (emails.includes(mail)) {
             setTombol(false);
         }
     }
     
-    // const sudahPernah=localStorage.getItem("pernah");
-    // if(sudahPernah){
-    //     setTombol(false);
-    // }
   }, [currentQuestion]);
 
 
