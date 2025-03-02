@@ -65,7 +65,7 @@ export default function LikertAssessment() {
         }
 
     }
-  },[])
+  },[session])
 
   const addEmailToLocalStorage = (newEmail) => {
     let emails = JSON.parse(localStorage.getItem("userMails")) || [];
