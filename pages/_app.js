@@ -7,6 +7,7 @@ import Script from "next/script";
 import customHeaders from "../libs/middlewares/setCookieAll";
 import VoiceControl from "../components/VoiceControl";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 // const montserrat = Montserrat({
@@ -51,6 +52,7 @@ function MyApp({ Component, pageProps, session }) {
         <VoiceControl/>
         {/* cek di analitik vercel */}
         <Analytics /> 
+        <SpeedInsights />
       </main>
     </SessionProvider>
     // <main>
