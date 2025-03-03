@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import Script from "next/script";
 import customHeaders from "../libs/middlewares/setCookieAll";
 import VoiceControl from "../components/VoiceControl";
+import { Analytics } from "@vercel/analytics/react"
 
 
 // const montserrat = Montserrat({
@@ -48,6 +49,8 @@ function MyApp({ Component, pageProps, session }) {
       <main >
         <Component {...pageProps} />
         <VoiceControl/>
+        {/* cek di analitik vercel */}
+        <Analytics /> 
       </main>
     </SessionProvider>
     // <main>
