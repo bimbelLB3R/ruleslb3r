@@ -66,8 +66,9 @@ const ContactForm = () => {
   // ambil data soal dari supabase
   useEffect(() => {
     async function fetchQuestions() {
+        const katSoal=localStorage.getItem("link");
         const { data, error } = await supabase
-            .from("literasi_indo")
+            .from(katSoal)
             .select("*");
         if (error) {
             console.error("Error fetching questions:", error);
@@ -787,64 +788,30 @@ const ContactForm = () => {
                         </div>
                         {/* Opsi Jawaban */}
                         <div className="pr-4 pl-4">
-                          <Radio.Group
-                            disabled={isRadioButtonDisabled}
-                            onChange={handleChange}
-                            value={selectedValues[`group${item.id}`] || ""}
-                            name={`group${item.id}`}
-                          >
-                            {/* {console.log(selectedValues[`group${item.id}`])}   */}
-                            <div className="flex space-x-1">
-                              <Radio value="A" className="text-justify">
+                        <Radio.Group
+                          disabled={isRadioButtonDisabled}
+                          onChange={handleChange}
+                          value={selectedValues[`group${item.id}`] || ""}
+                          name={`group${item.id}`}
+                        >
+                          {["A", "B", "C", "D", "E"].map((option) => (
+                            <div className="flex space-x-1" key={option}>
+                              <Radio value={option} className="text-justify">
                                 <div className="flex items-center space-x-2 mb-2">
-                                  <p className="font-semibold">A</p>
-                                  <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
-                                    {item.pilihan_a}
+                                  <p className="font-semibold">{option}</p>
+                                  <p
+                                    className={`text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100 ${
+                                      selectedValues[`group${item.id}`] === option ? "bg-green-300" : ""
+                                    }`}
+                                  >
+                                    {item[`pilihan_${option.toLowerCase()}`]}
                                   </p>
                                 </div>
                               </Radio>
                             </div>
-                            <div className="flex space-x-1">
-                              <Radio value="B" className="text-justify ">
-                                <div className="flex items-center space-x-2 mb-2">
-                                  <p className="font-semibold">B</p>
-                                  <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
-                                    {item.pilihan_b}
-                                  </p>
-                                </div>
-                              </Radio>
-                            </div>
-                            <div className="flex space-x-1">
-                              <Radio value="C" className="text-justify ">
-                                <div className="flex items-center space-x-2 mb-2">
-                                  <p className="font-semibold">C</p>
-                                  <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
-                                    {item.pilihan_c}
-                                  </p>
-                                </div>
-                              </Radio>
-                            </div>
-                            <div className="flex space-x-1">
-                              <Radio value="D" className="text-justify ">
-                                <div className="flex items-center space-x-2 mb-2">
-                                  <p className="font-semibold">D</p>
-                                  <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
-                                    {item.pilihan_d}
-                                  </p>
-                                </div>
-                              </Radio>
-                            </div>
-                            <div className="flex space-x-1">
-                              <Radio value="E" className=" flex items-start">
-                                <div className="flex items-center space-x-2">
-                                  <p className="font-semibold">E</p>
-                                  <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
-                                    {item.pilihan_e}
-                                  </p>
-                                </div>
-                              </Radio>
-                            </div>
-                          </Radio.Group>
+                          ))}
+                        </Radio.Group>
+
                         </div>
 
                         <div className="checklist flex flex-col items-center mt-10 mb-10">
