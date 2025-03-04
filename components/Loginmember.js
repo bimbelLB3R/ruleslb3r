@@ -239,7 +239,7 @@ const Loginmember = () => {
                     id="nisn"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="NISN Kamu"
-                    required=""
+                    required
                     onChange={handleChange}
                     autoComplete="off"
                     disabled={isButtonDisabled}
@@ -258,7 +258,7 @@ const Loginmember = () => {
                     id="nama"
                     placeholder="Nama panggilan"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required=""
+                    required
                     onChange={handleChange}
                     autoComplete="off"
                     disabled={isButtonDisabled}
