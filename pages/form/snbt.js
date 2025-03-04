@@ -19,7 +19,51 @@ dayjs.extend(duration);
 
 const ContactForm = () => {
   const [questions, setQuestions] = useState([]);
-  // ambil soal dari supabase
+  const [jumlahSoalSelesai,setJumlahSoalSelesai]=useState();
+  const [jumlahSoal,setJumlahSoal]=useState();
+  const blmdjwb=jumlahSoal-jumlahSoalSelesai;
+  // console.log(blmdjwb);
+  // ganti nama dan tambah key di lokal storage
+  const renameAndAppendLocalStorageKey = (oldKey, newKey) => {
+    // Ambil nilai dari key lama
+    const value = localStorage.getItem(oldKey);
+  
+    if (value !== null) {
+      // Ambil data dari newKey (jika ada)
+      let existingData = JSON.parse(localStorage.getItem(newKey)) || [];
+  
+      // Cek apakah value sudah ada di dalam array
+      if (!existingData.includes(value)) {
+        existingData.push(value);
+      }
+  
+      // Simpan kembali ke localStorage
+      localStorage.setItem(newKey, JSON.stringify(existingData));
+  
+      // Hapus key lama
+      localStorage.removeItem(oldKey);
+    }
+  };
+  // pengecualian penghapusan data localstorage
+  const clearLocalStorageExcept = (keysToKeep) => {
+    // Simpan nilai dari keys yang ingin dipertahankan
+    const savedData = {};
+    keysToKeep.forEach((key) => {
+      const value = localStorage.getItem(key);
+      if (value !== null) {
+        savedData[key] = value;
+      }
+    });
+  
+    // Hapus seluruh localStorage
+    localStorage.clear();
+  
+    // Kembalikan data yang dipertahankan
+    Object.keys(savedData).forEach((key) => {
+      localStorage.setItem(key, savedData[key]);
+    });
+  };
+  // ambil data soal dari supabase
   useEffect(() => {
     async function fetchQuestions() {
         const { data, error } = await supabase
@@ -28,6 +72,8 @@ const ContactForm = () => {
         if (error) {
             console.error("Error fetching questions:", error);
         } else {
+          const jmlSoal=data.length;
+          setJumlahSoal(jmlSoal);
           setQuestions(data);
           const storedName = localStorage.getItem("name");
     if (!storedName) {
@@ -108,16 +154,29 @@ const ContactForm = () => {
       return;
     }
     const interval = setInterval(() => {
+      const newRow = {
+        nisn: form.nisn,
+        ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
+          acc[name] = savedValue;
+          return acc;
+        }, {}),
+      };
       if (timeLeft.asSeconds() <= 0) {
         clearInterval(interval);
         // alert("Time's up!");
+
         Swal.fire({
           title: "Waktu Sudah Habis",
-          text: "Kirim jawabanmu atau tutup dengan klik X",
+          text: "Jawaban akan terkirim otomatis",
           icon: "warning",
           confirmButtonText: "Oke Bos",
         });
         setIsRadioButtonDisabled(true);
+        appendSpreadsheet(newRow);
+        // localStorage.clear();  
+        clearLocalStorageExcept(["link","linkSudah"]);
+        renameAndAppendLocalStorageKey("link", "linkSudah");
+        router.push('/form/login')
       } else {
         // setTimeLeft(timeLeft.subtract(1, "second"));
         setTimeLeft((prevTimeLeft) => prevTimeLeft.subtract(1, "second"));
@@ -289,11 +348,31 @@ const ContactForm = () => {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Mencegah submit form secara langsung
+  
+    Swal.fire({
+      title: "Kirim Jawaban?",
+      text: `Masih ada ${blmdjwb} soal belum kamu jawab, sisa waktu kurang dari : ${timeLeft ? timeLeft.format("mm:ss") : "Loading..."} menit`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Ya, Kirim!",
+      cancelButtonText: "Batal",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Jika user mengonfirmasi, submit form
+        submitForm(e);
+      }
+    });
+  }
+
   const submitForm = async (e, sheet3) => {
     e.preventDefault();
     setIsButtonDisabled(true);
     // cek ricek
-
+    
     let isValid = true;
     // let errorMessage = '';
     function isNumber(value) {
@@ -335,7 +414,10 @@ const ContactForm = () => {
         }, {}),
       };
       setIsLoading(true); // set status loading menjadi true
+      
       appendSpreadsheet(newRow);
+      clearLocalStorageExcept(["link","linkSudah"]);
+        renameAndAppendLocalStorageKey("link", "linkSudah");
       setIsLoading(false); // set status loading menjadi false setelah proses selesai
       // Show a message to indicate that the data has been sent
       // Swal.fire({
@@ -348,7 +430,7 @@ const ContactForm = () => {
       // Reset the form
       setForm({ nisn: "", name: "" });
       setSelectedValues({});
-      localStorage.setItem("tipeSoal", tipeSoal);
+      // localStorage.setItem("tipeSoal", tipeSoal); digunakan ketika lari ke outputsnbt.js
 
       // mengulur waktu saat ambil data dari sheet
       let timerInterval;
@@ -378,10 +460,7 @@ const ContactForm = () => {
       //   pathname: `/form/outputsnbt`,
       //   query: { link },
       // });
-      router.push({
-        pathname: `/form/outputsnbt`,
-        query: { link },
-      });
+      router.push("/form/login");
     } else {
       Swal.fire({
         title: "Error",
@@ -474,6 +553,26 @@ const ContactForm = () => {
   // const text = document.getElementById('textBacaan').innerText;
   // console.log(isLoading);
 
+  // menghitung jumlah soal yang sudah dikerjakan
+  
+  useEffect(()=>{
+    const countGroupKeys = () => {
+      let count = 0;
+      
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key.startsWith("group")) {
+          count++;
+        }
+      }
+      
+      return count;
+    };
+    const hitung=countGroupKeys();
+    // console.log(hitung);
+    setJumlahSoalSelesai(hitung);
+  })
+
   return (
     <div>
       <Head>
@@ -556,7 +655,7 @@ const ContactForm = () => {
         <div className="bg-red-800 p-1 rounded-full">
           {/* <Timer /> */}
           {/* from timer */}
-          <div>{timeLeft ? timeLeft.format("mm:ss") : "Loading..."}</div>
+          <div id="">{timeLeft ? timeLeft.format("mm:ss") : "Loading..."}</div>
           {/* from timer end */}
         </div>
 
@@ -570,7 +669,7 @@ const ContactForm = () => {
         </div>
       ) : (
         <main>
-          <form onSubmit={submitForm} ref={formRef}>
+          <form onSubmit={handleSubmit} ref={formRef} id="myForm">
             <div className="max-w-xl lg:max-w-full  select-none flex items-center justify-center m-auto p-4 bg-gray-300 text-gray-900">
               <div className="mb-4">
                 <p className="fixed left-0 top-0  z-50  text-[8px] md:text-sm text-gray-50 p-2 md:p-3">
