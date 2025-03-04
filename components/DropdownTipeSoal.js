@@ -25,7 +25,7 @@ export default function Dropdown({ disabled }) {
       localStorage.setItem("link", selectedOption);
 
     }
-  });
+  },[selectedOption]);
   return (
     <>
       <label
