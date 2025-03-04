@@ -17,7 +17,7 @@ import { supabase } from "../../libs/supabase";
 dayjs.extend(duration);
 // from timer end
 
-const ContactForm = ({sheetdata}) => {
+const ContactForm = () => {
   const [questions, setQuestions] = useState([]);
   // ambil soal dari supabase
   useEffect(() => {
@@ -871,14 +871,14 @@ const ContactForm = ({sheetdata}) => {
 export default ContactForm;
 
 // ambil data soal
-export async function getServerSideProps({ query }) {
-  const link = query.link;
-  const req = await fetch(`http://localhost:3000/api/soal${link}`);
-  const res = await req.json();
+// export async function getServerSideProps({ query }) {
+//   const link = query.link;
+//   const req = await fetch(`http://localhost:3000/api/soal${link}`);
+//   const res = await req.json();
 
-  return {
-    props: {
-      sheetdata: res.data,
-    },
-  };
-}
+//   return {
+//     props: {
+//       sheetdata: res.data,
+//     },
+//   };
+// }
