@@ -12,14 +12,57 @@ import Timer from "../../components/Timer";
 // from timer
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
+import { supabase } from "../../libs/supabase";
 
 dayjs.extend(duration);
 // from timer end
 
-const ContactForm = ({ sheetdata }) => {
-  const mydata = JSON.stringify(sheetdata);
-  // console.log(mydata);
+const ContactForm = ({sheetdata}) => {
+  const [questions, setQuestions] = useState([]);
+  // ambil soal dari supabase
+  useEffect(() => {
+    async function fetchQuestions() {
+        const { data, error } = await supabase
+            .from("literasi_indo")
+            .select("*");
+        if (error) {
+            console.error("Error fetching questions:", error);
+        } else {
+          setQuestions(data);
+          const storedName = localStorage.getItem("name");
+    if (!storedName) {
+      router.push("/form/login");
+    } else {
+      setStorageName(storedName);
+    }
+    data.forEach((item) => {
+      // console.log(item.id)
+      // cek apakah sudah ada nisn dan nama di local storage
+      const storedNisn = localStorage.getItem("nisn");
+      // console.log(index[0]);
+      if (storedNisn) {
+        setForm({ ...form, nisn: storedNisn });
+      }
+      const savedValue = localStorage.getItem(`group${item.id}`); //group0 untuk nomor 1
 
+      // console.log(item.nomor_soal);
+      // console.log(localStorage.key(index));
+      if (savedValue) {
+        setSelectedValues((selectedValues) => ({
+          ...selectedValues,
+          [`group${item.id}`]: savedValue,
+        }));
+      }
+      // berisi jawaban tersimpan
+      // console.log(paginatedPosts);
+    });
+        }
+    }
+
+    fetchQuestions();
+}, []);
+
+// console.log(questions);
   // from timer
   const [isRadioButtonDisabled, setIsRadioButtonDisabled] = useState(false);
   // console.log(isRadioButtonDisabled);true
@@ -159,40 +202,43 @@ const ContactForm = ({ sheetdata }) => {
   }, []);
 
   // console.log(sheetdata[0][1]);
-  const tipeSoal = sheetdata[0][1];
+  // const tipeSoal = sheetdata[0][1];
+  // const tipeSoal = sheetdata?.[0]?.[1] || "Loading...";
+  const tipeSoal=questions.slice(0, 1).map((item)=>(item.kategori_soal));
   const formRef = useRef(null);
 
   // console.log(sheetdata);
   const [storedName, setStorageName] = useState("Student");
-  useEffect(() => {
-    // cek apakah ada name di local storage
-    const storedName = localStorage.getItem("name");
-    if (!storedName) {
-      router.push("/form/login");
-    } else {
-      setStorageName(storedName);
-    }
-    sheetdata.forEach((index) => {
-      // cek apakah sudah ada nisn dan nama di local storage
-      const storedNisn = localStorage.getItem("nisn");
-      // console.log(index[0]);
-      if (storedNisn) {
-        setForm({ ...form, nisn: storedNisn });
-      }
-      const savedValue = localStorage.getItem(`group${index[0]}`);
+  // useEffect(() => {
+  //   // cek apakah ada name di local storage
+  //   const storedName = localStorage.getItem("name");
+  //   if (!storedName) {
+  //     router.push("/form/login");
+  //   } else {
+  //     setStorageName(storedName);
+  //   }
+  //   questions.forEach((item) => {
+  //     // console.log(item.id)
+  //     // cek apakah sudah ada nisn dan nama di local storage
+  //     const storedNisn = localStorage.getItem("nisn");
+  //     // console.log(index[0]);
+  //     if (storedNisn) {
+  //       setForm({ ...form, nisn: storedNisn });
+  //     }
+  //     const savedValue = localStorage.getItem(`group${item.id}`); //group0 untuk nomor 1
 
-      // console.log(index[0]);
-      // console.log(localStorage.key(index));
-      if (savedValue) {
-        setSelectedValues((selectedValues) => ({
-          ...selectedValues,
-          [`group${index[0]}`]: savedValue,
-        }));
-      }
-      // berisi jawaban tersimpan
-      // console.log(savedValue);
-    });
-  }, []);
+  //     // console.log(item.nomor_soal);
+  //     // console.log(localStorage.key(index));
+  //     if (savedValue) {
+  //       setSelectedValues((selectedValues) => ({
+  //         ...selectedValues,
+  //         [`group${item.id}`]: savedValue,
+  //       }));
+  //     }
+  //     // berisi jawaban tersimpan
+  //     // console.log(paginatedPosts);
+  //   });
+  // }, []);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -361,12 +407,11 @@ const ContactForm = ({ sheetdata }) => {
   const [selectedPage, setSelectedPage] = useState(null);
   const [isChecked, setIsChecked] = useState({});
   const postsPerPage = 1;
-  const paginatedPosts = sheetdata.slice(
-    (currentPage - 1) * postsPerPage,
-    currentPage * postsPerPage
-  );
-  // console.log(jawab);
-  const totalPages = Math.ceil(sheetdata.length / postsPerPage);
+  const paginatedPosts = questions.filter(item => item.id === currentPage-1);
+  // console.log(paginatedPosts);
+  // console.log(currentPage);
+  const totalPages = Math.ceil(questions.length / postsPerPage);
+  // console.log(totalPages)
   // useEffect(() => {
   //   // Simpan nilai currentPage ke localStorage setiap kali berubah
   //   localStorage.setItem("currentPage", currentPage);
@@ -467,7 +512,7 @@ const ContactForm = ({ sheetdata }) => {
       {/* navigasi soal */}
       <div className="sm:flex justify-center fixed bottom-0 z-50 overflow-auto left-0 right-0 ">
         <NavSoal
-          sumSoal={sheetdata}
+          sumSoal={questions}
           tipeSoal={tipeSoal}
           pages={pages}
           totalPages={totalPages}
@@ -475,8 +520,10 @@ const ContactForm = ({ sheetdata }) => {
 
         <div className=" flex flex-row overflow-auto">
           {Array.from(
-            Array(Math.ceil(sheetdata.length / postsPerPage)).keys()
+            Array(Math.ceil(questions.length / postsPerPage)).keys()
           ).map((page) => (
+
+            // tombol navigasi soal
             <button
               key={page}
               className={` ${
@@ -545,17 +592,17 @@ const ContactForm = ({ sheetdata }) => {
 
                 {paginatedPosts.map((item) => (
                   <div
-                    key={item[0]}
+                    key={item.id}
                     className="bg-gray-50 lg:drop-shadow-2xl lg:m-10 p-2"
                   >
-                    {/* {console.log(item[0])} */}
+                    {/* {console.log(item.id)} */}
                     {/* Bacaan */}
                     <div
                       className="lg:flex  lg:p-10 lg:space-x-4 "
                       id="custom-text"
                     >
                       <div
-                        key={item[0]}
+                        key={item.id}
                         id="textBacaan"
                         className={`${
                           link === "kuantitatif" || link === "matematika"
@@ -563,60 +610,61 @@ const ContactForm = ({ sheetdata }) => {
                             : "lg:max-w-1/2 max-h-[500px] overflow-auto"
                         }`}
                       >
+                        {/* judul text tebal*/}
                         <p className="text-center mb-2 indent-8 font-semibold mt-4 lg:mt-0">
-                          {item[2]}
+                          {item.judul_text1}
                         </p>
                         <div className="flex items-center justify-center hover:w-full hover:absolute hover:z-50 hover:right-0 hover:left-0 ">
-                          <img src={item[27]} className="w-full " />
+                          <img src={item.link_gambar} className="w-full " />
                         </div>
                         <p className="text-justify mb-2 indent-8 hover:bg-gray-100">
-                          {item[3]}
+                          {item.bacaan_1}
                         </p>
                         <p className="text-justify mb-2 indent-8 hover:bg-gray-100 ">
-                          <Latex>{item[4]}</Latex>
+                          <Latex>{item.bacaan_2}</Latex>
                         </p>
                         <p className="text-justify mb-2 indent-8 hover:bg-gray-100">
-                          {item[5]}
+                          {item.bacaan_3}
                         </p>
                         <p className="text-justify mb-2 indent-8 hover:bg-gray-100">
-                          <Latex>{item[6]}</Latex>
+                          <Latex>{item.bacaan_4}</Latex>
                         </p>
                         <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                          {item[7]}
+                          {item.bacaan_5}
                         </p>
                         {/* Tambahan bacaan kolom orange */}
                         <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                          {item[14]}
+                          {item.bacaan_6}
                         </p>
                         <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                          {item[15]}
+                          {item.bacaan_7}
                         </p>
                         <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                          {item[16]}
+                          {item.bacaan_8}
                         </p>
                         <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                          {item[17]}
+                          {item.bacaan_9}
                         </p>
                         <p className="text-center mb-4 indent-8 hover:bg-gray-100 font-semibold">
-                          {item[18]}
+                          {item.bacaan_10}
                         </p>
                         <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                          <Latex>{item[19]}</Latex>
+                          <Latex>{item.bacaan_11}</Latex>
                         </p>
                         <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                          {item[20]}
+                          {item.bacaan_12}
                         </p>
                         <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                          {item[21]}
+                          {item.bacaan_13}
                         </p>
                         <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                          {item[22]}
+                          {item.bacaan_14}
                         </p>
                         <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
-                          {item[23]}
+                          {item.bacaan_15}
                         </p>
                         <p className="text-left mb-4 text-xs font-semibold italic">
-                          {item[26]}
+                          {item.bacaan_16}
                         </p>
                       </div>
                       <div
@@ -630,12 +678,12 @@ const ContactForm = ({ sheetdata }) => {
                         <div className="flex space-x-2 p-2">
                           <p
                             className="text-justify mb-2 bg-gray-200 flex items-center p-1 "
-                            id={item[28]}
+                            id={currentPage}
                           >
-                            {item[28]}
+                            {currentPage}
                           </p>
                           <p className="text-left mb-2  bg-gray-50 p-1 border-b-2 border-t-2 border-gray-200">
-                            <Latex>{item[8]}</Latex>
+                            <Latex>{item.soal}</Latex>
                           </p>
                         </div>
                         {/* Opsi Jawaban */}
@@ -643,15 +691,16 @@ const ContactForm = ({ sheetdata }) => {
                           <Radio.Group
                             disabled={isRadioButtonDisabled}
                             onChange={handleChange}
-                            value={selectedValues[`group${item[0]}`]}
-                            name={`group${item[0]}`}
+                            value={selectedValues[`group${item.id}`] || ""}
+                            name={`group${item.id}`}
                           >
+                            {/* {console.log(selectedValues[`group${item.id}`])}   */}
                             <div className="flex space-x-1">
                               <Radio value="A" className="text-justify">
                                 <div className="flex items-center space-x-2 mb-2">
                                   <p className="font-semibold">A</p>
                                   <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
-                                    {item[9]}
+                                    {item.pilihan_a}
                                   </p>
                                 </div>
                               </Radio>
@@ -661,7 +710,7 @@ const ContactForm = ({ sheetdata }) => {
                                 <div className="flex items-center space-x-2 mb-2">
                                   <p className="font-semibold">B</p>
                                   <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
-                                    {item[10]}
+                                    {item.pilihan_b}
                                   </p>
                                 </div>
                               </Radio>
@@ -671,7 +720,7 @@ const ContactForm = ({ sheetdata }) => {
                                 <div className="flex items-center space-x-2 mb-2">
                                   <p className="font-semibold">C</p>
                                   <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
-                                    {item[11]}
+                                    {item.pilihan_c}
                                   </p>
                                 </div>
                               </Radio>
@@ -681,7 +730,7 @@ const ContactForm = ({ sheetdata }) => {
                                 <div className="flex items-center space-x-2 mb-2">
                                   <p className="font-semibold">D</p>
                                   <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
-                                    {item[12]}
+                                    {item.pilihan_d}
                                   </p>
                                 </div>
                               </Radio>
@@ -691,7 +740,7 @@ const ContactForm = ({ sheetdata }) => {
                                 <div className="flex items-center space-x-2">
                                   <p className="font-semibold">E</p>
                                   <p className="text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100">
-                                    {item[13]}
+                                    {item.pilihan_e}
                                   </p>
                                 </div>
                               </Radio>
@@ -710,7 +759,7 @@ const ContactForm = ({ sheetdata }) => {
                             onChange={() => handleCheckbox(currentPage)}
                           />
                           <label
-                            htmlFor={`page-${item[28]}`}
+                            htmlFor={`page-${item.nomor_soal}`}
                             className="text-xs pl-10 pr-10 text-center"
                           >
                             {/* Page {item[28]} */}
@@ -718,7 +767,7 @@ const ContactForm = ({ sheetdata }) => {
                             atau soal mau dilewati dulu
                           </label>
                           <p className="border-b-2 border-gray-400 p-2 text-gray-800 text-xs font-bold">
-                            Soal Nomor-{item[28]}
+                            Soal Nomor-{currentPage}
                           </p>
                         </div>
 
@@ -796,7 +845,7 @@ const ContactForm = ({ sheetdata }) => {
                 className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 sm:hidden right-0 z-50 flex items-center space-x-2 rounded-tl-full lg:rounded-none"
                 onClick={handleNext}
                 disabled={
-                  currentPage >= Math.ceil(sheetdata.length / postsPerPage)
+                  currentPage >= Math.ceil(questions.length / postsPerPage)
                 }
               >
                 <span className="text-xs">Soal Berikutnya</span>
@@ -824,7 +873,7 @@ export default ContactForm;
 // ambil data soal
 export async function getServerSideProps({ query }) {
   const link = query.link;
-  const req = await fetch(`https://www.bimbellb3r.com/api/soal${link}`);
+  const req = await fetch(`http://localhost:3000/api/soal${link}`);
   const res = await req.json();
 
   return {

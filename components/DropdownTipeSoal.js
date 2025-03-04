@@ -8,7 +8,13 @@ export default function Dropdown({ disabled }) {
     setSelectedOption(e.target.value);
   };
   useEffect(() => {
-    localStorage.setItem("link", selectedOption);
+    const cekLokal=localStorage.getItem("link");
+    if(cekLokal){
+      setSelectedOption(cekLokal);
+    }else{
+      localStorage.setItem("link", selectedOption);
+
+    }
   });
   return (
     <>

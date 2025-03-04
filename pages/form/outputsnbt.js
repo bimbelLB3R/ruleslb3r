@@ -37,9 +37,9 @@ const ContactForm = () => {
         // const link = query.link;
         const link = localStorage.getItem("link");
         const req = await fetch(
-          `https://www.bimbellb3r.com/api/analisis${link}`
+          `http://localhost:3000/api/analisis${link}`
         );
-        const req2 = await fetch(`https://www.bimbellb3r.com/api/biodata`);
+        const req2 = await fetch(`http://localhost:3000/api/biodata`);
         const res = await req.json();
         const res2 = await req2.json();
         setStorageName(localStorage.getItem("name"));

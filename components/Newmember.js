@@ -248,7 +248,7 @@ export default function Newmember() {
                     htmlFor="nama"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
-                    Nama Kamu*
+                    Verifikasi Email*
                   </label>
                   <div className="relative">
                     <div className="absolute translate-y-1/2 right-0">
@@ -267,7 +267,7 @@ export default function Newmember() {
                       className={`bg-gray-50 border  text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${
                         adaEmail === true ? "border-red-900" : "border-gray-300"
                       }`}
-                      placeholder="Verifikasi nama via email"
+                      placeholder="Klik disini"
                       onFocus={!session ? handleSignIn : ""}
                       value={session ? session.user.name : ""}
                       readOnly
@@ -295,7 +295,7 @@ export default function Newmember() {
                     type="text"
                     name="nisn"
                     id="nisn"
-                    placeholder="NISN Kamu"
+                    placeholder="Contoh : 0987654321"
                     className={`bg-gray-50 border  text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${
                       adaNisn === true ? "border-red-900" : "border-gray-300"
                     }`}
@@ -328,7 +328,7 @@ export default function Newmember() {
                     type="text"
                     name="asalsekolah"
                     id="asalsekolah"
-                    placeholder="Maks 30 karakter"
+                    placeholder="Contoh : SMAN 1 Jakarta"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
                     onChange={handleChange}
@@ -367,7 +367,7 @@ export default function Newmember() {
                     type="text"
                     name="prodi1"
                     id="prodi1"
-                    placeholder="Maks 30 Karakter"
+                    placeholder="Contoh : Teknik Informatika"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
                     onChange={handleChange}
@@ -386,7 +386,7 @@ export default function Newmember() {
                     type="text"
                     name="kampus1"
                     id="kampus1"
-                    placeholder="Maks 30 Karakter"
+                    placeholder="contoh : Universitas Indonesia"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
                     onChange={handleChange}
@@ -405,7 +405,7 @@ export default function Newmember() {
                     type="text"
                     name="prodi2"
                     id="prodi2"
-                    placeholder="Maks 30 Karakter"
+                    placeholder="contoh : Psikologi"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
                     onChange={handleChange}
@@ -424,7 +424,7 @@ export default function Newmember() {
                     type="text"
                     name="kampus2"
                     id="kampus2"
-                    placeholder="Maks 30 Karakter"
+                    placeholder="Contoh : UNIBRAW"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
                     onChange={handleChange}

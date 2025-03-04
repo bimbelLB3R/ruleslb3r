@@ -32,6 +32,7 @@ export default function NavSoal({ sumSoal, tipeSoal, pages, totalPages }) {
           text: "Kamu bisa login kembali",
           icon: "warning",
         });
+        localStorage.clear();
         router.push("/form/login");
       }
     });

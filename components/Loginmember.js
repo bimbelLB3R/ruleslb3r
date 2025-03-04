@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import Swal from "sweetalert2";
 import Loader from "./Loader";
@@ -10,6 +10,13 @@ import Dropdown from "./DropdownTipeSoal";
 import Head from "next/head";
 import "animate.css";
 import Image from "next/image";
+// from timer
+import dayjs from "dayjs";
+import duration from "dayjs/plugin/duration";
+import CountdownTimer from "./CountDownTimer";
+
+dayjs.extend(duration);
+// from timer end
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -31,19 +38,27 @@ const Loginmember = () => {
   // console.log(form.nisn);
   // cek apakah sudah ada nisn dan nama di local storage
   useEffect(() => {
-    const storedNisn = localStorage.getItem("nisn");
-    localStorage.clear();
-    // if (storedNisn) {
-    //   // router.push('/form/snbt');
-    //   localStorage.clear();
-    // }
-    // if (!session) {
-    //   setForm((prevState) => ({
-    //     ...prevState,
-    //     nisn: "0987",
-    //   }));
-    // }
+    const link = localStorage.getItem("link");
+        const storedMaxTime = localStorage.getItem("maxTime");
+        const maxTimeInSeconds = parseInt(storedMaxTime);
+        const currentTime = dayjs();
+        const startTime = localStorage.getItem("startTime")
+          ? dayjs(localStorage.getItem("startTime"))
+          : currentTime; // Use current time if startTime is not set
+        const elapsedTime = currentTime.diff(startTime, "second");
+        const remainingTime = Math.max(0, maxTimeInSeconds - elapsedTime);
+        // console.log(remainingTime);
+        if(remainingTime>0){
+          router.push({
+            pathname: `/form/snbt`,
+            query: { link },
+          });
+        }else{
+          console.log('Silahkan mulai soal');
+        }
   }, []);
+
+
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
   const appendSpreadsheet = async (row) => {
