@@ -13,6 +13,7 @@ import Timer from "../../components/Timer";
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 import { supabase } from "../../libs/supabase";
+import Paginationsnbt from "../../components/PaginasiSoalSnbt";
 
 dayjs.extend(duration);
 // from timer end
@@ -618,38 +619,16 @@ const ContactForm = () => {
           totalPages={totalPages}
         />
 
-        <div className=" flex flex-row overflow-auto">
-          {Array.from(
-            Array(Math.ceil(questions.length / postsPerPage)).keys()
-          ).map((page) => (
-
-            // tombol navigasi soal
-            <button
-              key={page}
-              className={` ${
-                isChecked[page + 1]
-                  ? " bg-yellow-400 pl-4 pr-4 pt-2 pb-2"
-                  : "bg-gray-800 rounded-none  pl-4 pr-4 pt-2 pb-2 text-gray-50"
-              }`}
-              onClick={() => {
-                setCurrentPage(page + 1);
-                localStorage.setItem("currentPage", page + 1);
-              }}
-            >
-              <p
-                className={`${
-                  currentPage === page + 1
-                    ? "font-bold underline"
-                    : "text-gray-50"
-                }`}
-              >
-                {page + 1}
-                {/* {jawab} */}
-                {selectedValues[`group${page}`]}
-              </p>
-            </button>
-          ))}
-        </div>
+        {/* Tombol Paginasi Soal */}
+        <div>
+      <Paginationsnbt
+        totalPages={Math.ceil(questions.length / postsPerPage)}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        isChecked={isChecked}
+        selectedValues={selectedValues}
+      />
+    </div>
       </div>
       {/* Selamat datang peserta */}
       <div className="flex justify-center items-center fixed top-0 z-50 overflow-auto left-0 right-0 bg-gray-900 text-gray-100 text-[8px] md:text-sm">
@@ -695,7 +674,7 @@ const ContactForm = () => {
                     key={item.id}
                     className="bg-gray-50 lg:drop-shadow-2xl lg:m-10 p-2"
                   >
-                    {/* {console.log(item.id)} */}
+                    {/* {console.log(item.link_gambar)} */}
                     {/* Bacaan */}
                     <div
                       className="lg:flex  lg:p-10 lg:space-x-4 "
