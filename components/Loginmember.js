@@ -177,8 +177,13 @@ const Loginmember = () => {
   return (
     <>
       <Head>
-        <title>Login SNBT</title>
-        <meta name="description" content="Seleksi Masuk PTN Jalur Tes" />
+        <title>Try Out dan Simulai UTBK SNBT</title>
+        <meta name="description" content="Halaman Login Simulasi dan Try Out UTBK SNBT Program SNBT Eksklusif Bimbel LB3R" />
+        <meta
+      property="og:image"
+      itemProp="image"
+      content="https://raw.githubusercontent.com/bimbelLB3R/bimbellb3r.github.io/main/img/slider/og.jpg"
+    />
         <link
           rel="icon"
           type="image/png"
