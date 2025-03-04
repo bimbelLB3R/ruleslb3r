@@ -40,7 +40,7 @@ export default function Dropdown({ disabled }) {
         onChange={handleDrop}
         id="tipesoal"
         disabled={disabled}
-        required
+        
       >
         <option className="text-lg p-2 " value="">
           Pilih
