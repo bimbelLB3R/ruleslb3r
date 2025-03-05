@@ -627,7 +627,7 @@ const ContactForm = () => {
         onLoad={onLoad}
       ></script>
       {/* navigasi soal */}
-      <div className="sm:flex justify-center fixed bottom-0 z-50 overflow-auto left-0 right-0 ">
+      <div className="sm:flex justify-center fixed bottom-0 z-50 overflow-auto left-0 right-0 bg-gray-800">
         {/* <NavSoal
           sumSoal={questions}
           tipeSoal={tipeSoal}
@@ -884,7 +884,7 @@ const ContactForm = () => {
               <button
                 onClick={handlePrevious}
                 disabled={currentPage <= 1}
-                className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 sm:hidden left-0 z-50 flex items-center space-x-2 rounded-tr-full lg:rounded-none"
+                className="bg-gray-600 p-4 text-gray-50 fixed bottom-[1.10rem] sm:hidden left-0 z-50 flex items-center space-x-2 rounded-tr-full rounded-br-full"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -896,20 +896,20 @@ const ContactForm = () => {
                 >
                   <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
                 </svg>
-                <span className="text-xs">Soal Sebelumnya</span>
+                <span className="text-xs">PREVIOUS</span>
               </button>
             )}
             {currentPage == totalPages ? (
               ""
             ) : (
               <button
-                className="bg-gray-800 p-2 text-gray-50 fixed bottom-10 sm:hidden right-0 z-50 flex items-center space-x-2 rounded-tl-full lg:rounded-none"
+                className="bg-gray-600 p-4 text-gray-50 fixed bottom-[1.10rem] sm:hidden right-0 z-50 flex items-center space-x-2 rounded-tl-full rounded-bl-full"
                 onClick={handleNext}
                 disabled={
                   currentPage >= Math.ceil(questions.length / postsPerPage)
                 }
               >
-                <span className="text-xs">Soal Berikutnya</span>
+                <span className="text-xs">NEXT</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"

@@ -9,6 +9,7 @@ import customHeaders from "../libs/middlewares/setCookieAll";
 import VoiceControl from "../components/VoiceControl";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { useRouter } from "next/router";
 
 
 // const montserrat = Montserrat({
@@ -16,6 +17,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 //   variable: '--font-montserrat',
 // });
 function MyApp({ Component, pageProps, session }) {
+  const router=useRouter();
   useEffect(() => {
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
@@ -50,7 +52,7 @@ function MyApp({ Component, pageProps, session }) {
 
       <main >
         <Component {...pageProps} />
-        <VoiceControl/>
+        {!router.pathname.includes("form") && <VoiceControl />}
         {/* cek di analitik vercel */}
         <Analytics /> 
         <SpeedInsights />
