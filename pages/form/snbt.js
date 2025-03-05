@@ -884,7 +884,7 @@ const ContactForm = () => {
               <button
                 onClick={handlePrevious}
                 disabled={currentPage <= 1}
-                className="bg-gray-600 p-4 text-gray-50 fixed bottom-[1.10rem] sm:hidden left-0 z-50 flex items-center space-x-2 rounded-tr-full rounded-br-full"
+                className="bg-gray-600 p-4 text-gray-50 fixed bottom-[1.10rem]  left-0 z-50 flex items-center space-x-2 rounded-tr-full rounded-br-full"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -903,7 +903,7 @@ const ContactForm = () => {
               ""
             ) : (
               <button
-                className="bg-gray-600 p-4 text-gray-50 fixed bottom-[1.10rem] sm:hidden right-0 z-50 flex items-center space-x-2 rounded-tl-full rounded-bl-full"
+                className="bg-gray-600 p-4 text-gray-50 fixed bottom-[1.10rem]  right-0 z-50 flex items-center space-x-2 rounded-tl-full rounded-bl-full"
                 onClick={handleNext}
                 disabled={
                   currentPage >= Math.ceil(questions.length / postsPerPage)
