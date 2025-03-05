@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import "../styles/prism.css";
+import "katex/dist/katex.min.css";
 // import { Montserrat } from 'next/font/google';
 import { SessionProvider } from "next-auth/react";
 import { useEffect } from "react";

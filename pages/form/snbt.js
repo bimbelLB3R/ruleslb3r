@@ -8,6 +8,7 @@ import NavSoal from "../../components/NavSoal";
 import { Radio } from "antd";
 import { Button } from "flowbite-react";
 import Latex from "react-latex";
+import { BlockMath } from "react-katex";
 import Timer from "../../components/Timer";
 // from timer
 import dayjs from "dayjs";
@@ -166,19 +167,34 @@ const ContactForm = () => {
       if (timeLeft.asSeconds() <= 0) {
         clearInterval(interval);
         // alert("Time's up!");
-
+        let timerInterval;
         Swal.fire({
-          title: "Waktu Sudah Habis",
-          text: "Jawaban akan terkirim otomatis",
-          icon: "warning",
-          confirmButtonText: "Oke Bos",
+          title: "Waktu habis!",
+          html: "Menuju soal berikutnya dalam <b></b> milliseconds.",
+          timer: 5000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+            const timer = Swal.getPopup().querySelector("b");
+            timerInterval = setInterval(() => {
+              timer.textContent = `${Swal.getTimerLeft()}`;
+            }, 100);
+          },
+          willClose: () => {
+            clearInterval(timerInterval);
+          },
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log("Menuju soal berikutnya");
+          }
         });
         setIsRadioButtonDisabled(true);
         appendSpreadsheet(newRow);
         // localStorage.clear();  
-        clearLocalStorageExcept(["link","linkSudah"]);
-        renameAndAppendLocalStorageKey("link", "linkSudah");
-        router.push('/form/login')
+        clearLocalStorageExcept(["link","linkSudah","linkBelum","nisn","name","dataSoal"]);
+        // renameAndAppendLocalStorageKey("link", "linkSudah");
+        router.push('/form/transisisoal')
       } else {
         // setTimeLeft(timeLeft.subtract(1, "second"));
         setTimeLeft((prevTimeLeft) => prevTimeLeft.subtract(1, "second"));
@@ -418,8 +434,8 @@ const ContactForm = () => {
       setIsLoading(true); // set status loading menjadi true
       
       appendSpreadsheet(newRow);
-      clearLocalStorageExcept(["link","linkSudah"]);
-        renameAndAppendLocalStorageKey("link", "linkSudah");
+      clearLocalStorageExcept(["link","linkSudah","linkBelum","name","nisn","dataSoal"]);
+        // renameAndAppendLocalStorageKey("link", "linkSudah");
       setIsLoading(false); // set status loading menjadi false setelah proses selesai
       // Show a message to indicate that the data has been sent
       // Swal.fire({
@@ -437,9 +453,9 @@ const ContactForm = () => {
       // mengulur waktu saat ambil data dari sheet
       let timerInterval;
       Swal.fire({
-        title: "Nilai sedang diproses!",
-        html: "I will close in <b></b> milliseconds.",
-        timer: 2000,
+        title: "tunggu ya ..!",
+        html: "Menuju soal berikutnya dalam <b></b> milliseconds.",
+        timer: 5000,
         timerProgressBar: true,
         didOpen: () => {
           Swal.showLoading();
@@ -454,7 +470,7 @@ const ContactForm = () => {
       }).then((result) => {
         /* Read more about handling dismissals below */
         if (result.dismiss === Swal.DismissReason.timer) {
-          console.log("I was closed by the timer");
+          console.log("Menuju soal berikutnya");
         }
       });
       // mengulur waktu saat ambil data dari sheet end
@@ -462,7 +478,7 @@ const ContactForm = () => {
       //   pathname: `/form/outputsnbt`,
       //   query: { link },
       // });
-      router.push("/form/login");
+      router.push("/form/transisisoal");
     } else {
       Swal.fire({
         title: "Error",
@@ -612,12 +628,12 @@ const ContactForm = () => {
       ></script>
       {/* navigasi soal */}
       <div className="sm:flex justify-center fixed bottom-0 z-50 overflow-auto left-0 right-0 ">
-        <NavSoal
+        {/* <NavSoal
           sumSoal={questions}
           tipeSoal={tipeSoal}
           pages={pages}
           totalPages={totalPages}
-        />
+        /> */}
 
         {/* Tombol Paginasi Soal */}
         <div>

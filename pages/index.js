@@ -23,6 +23,7 @@ import CanvaEmbed from "../components/CanvaEmbed1";
 import Link from "next/link";
 import VideoDraggable from "../components/Videodraggable";
 import VoiceControl from "../components/VoiceControl";
+import LatexTester from "../components/LatexTester";
 // import Formst30 from "../components/Formst30";
 
 const Home = ({ allPost, dataAlumni }) => {
@@ -139,6 +140,7 @@ const Home = ({ allPost, dataAlumni }) => {
         <ImageSlide />
         <ButtonUmum />
         {/* <ShortCut /> */}
+        {/* <LatexTester/> */}
         <Welcome />
         <Service />
         <BluryBg />
