@@ -122,7 +122,7 @@ const Loginmember = () => {
         localStorage.setItem("nisn", `1${form.nisn}`);
         localStorage.setItem("dataSoal", JSON.stringify(["snbt", "matematika", "english", "kuantitatif", "bacaan", "penalaran", "pengetahuan"]));
         if (link === "snbt") {
-          localStorage.setItem("maxTime", 60); //30 soal 45 menit
+          localStorage.setItem("maxTime", 2700); //30 soal 45 menit
         } else if (link === "kuantitatif") {
           localStorage.setItem("maxTime", 1200); //15 soal 20 menit
         } else if (link === "matematika") {

@@ -647,17 +647,20 @@ const ContactForm = () => {
     </div>
       </div>
       {/* Selamat datang peserta */}
-      <div className="flex justify-center items-center fixed top-0 z-50 overflow-auto left-0 right-0 bg-gray-900 text-gray-100 text-[8px] md:text-sm">
-        <div className="bg-red-800 p-1 rounded-full">
+      <div className="flex justify-center items-center fixed top-0 z-50 overflow-auto left-0  bg-gray-600 p-2 text-gray-100 text-[12px] md:text-sm">
+        <p>{tipeSoal}</p>
+      </div>
+      <div className="flex justify-center items-center fixed top-0 z-40 overflow-auto left-0 right-0 bg-gray-900 text-gray-100 text-[12px] md:text-sm">
+        <div className=" p-2 rounded-full">
           {/* <Timer /> */}
           {/* from timer */}
-          <div id="">{timeLeft ? timeLeft.format("mm:ss") : "Loading..."}</div>
+          <div id="" className="font-bold">{timeLeft ? timeLeft.format("mm:ss") : "Loading..."}</div>
           {/* from timer end */}
         </div>
 
-        <p className="text-center  p-2 ">
+        {/* <p className="text-center  p-3 ">
           {storedName} is doing {tipeSoal} now...
-        </p>
+        </p> */}
       </div>
       {isLoading ? (
         <div className="flex items-center justify-center mt-[50px]">
@@ -668,9 +671,9 @@ const ContactForm = () => {
           <form onSubmit={handleSubmit} ref={formRef} id="myForm">
             <div className="max-w-xl lg:max-w-full  select-none flex items-center justify-center m-auto p-4 bg-gray-300 text-gray-900">
               <div className="mb-4">
-                <p className="fixed left-0 top-0  z-50  text-[8px] md:text-sm text-gray-50 p-2 md:p-3">
+                {/* <p className="fixed left-0 top-0  z-50  text-[8px] md:text-sm text-gray-50 p-2 md:p-3">
                   {currentPage} dari {totalPages} soal
-                </p>
+                </p> */}
                 <div>
                   {/* <label htmlFor="nisn">NISN:</label> */}
                   <input
@@ -712,50 +715,50 @@ const ContactForm = () => {
                         <div className="flex items-center justify-center hover:w-full hover:absolute hover:z-50 hover:right-0 hover:left-0 ">
                           <img src={item.link_gambar} className="w-full " />
                         </div>
-                        <p className="text-justify mb-2 indent-8 hover:bg-gray-100">
+                        <p className="text-justify mb-2 indent-8 ">
                           {item.bacaan_1}
                         </p>
-                        <p className="text-justify mb-2 indent-8 hover:bg-gray-100 ">
+                        <p className="text-justify mb-2 indent-8  ">
                           <Latex>{item.bacaan_2}</Latex>
                         </p>
-                        <p className="text-justify mb-2 indent-8 hover:bg-gray-100">
+                        <p className="text-justify mb-2 indent-8 ">
                           {item.bacaan_3}
                         </p>
-                        <p className="text-justify mb-2 indent-8 hover:bg-gray-100">
+                        <p className="text-justify mb-2 indent-8 ">
                           <Latex>{item.bacaan_4}</Latex>
                         </p>
-                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                        <p className="text-justify mb-4 indent-8 ">
                           {item.bacaan_5}
                         </p>
                         {/* Tambahan bacaan kolom orange */}
-                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                        <p className="text-justify mb-4 indent-8 ">
                           {item.bacaan_6}
                         </p>
-                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                        <p className="text-justify mb-4 indent-8 ">
                           {item.bacaan_7}
                         </p>
-                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                        <p className="text-justify mb-4 indent-8 ">
                           {item.bacaan_8}
                         </p>
-                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                        <p className="text-justify mb-4 indent-8 ">
                           {item.bacaan_9}
                         </p>
-                        <p className="text-center mb-4 indent-8 hover:bg-gray-100 font-semibold">
+                        <p className="text-center mb-4 indent-8  font-semibold">
                           {item.bacaan_10}
                         </p>
-                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                        <p className="text-justify mb-4 indent-8 ">
                           <Latex>{item.bacaan_11}</Latex>
                         </p>
-                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                        <p className="text-justify mb-4 indent-8 ">
                           {item.bacaan_12}
                         </p>
-                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                        <p className="text-justify mb-4 indent-8 ">
                           {item.bacaan_13}
                         </p>
-                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                        <p className="text-justify mb-4 indent-8 ">
                           {item.bacaan_14}
                         </p>
-                        <p className="text-justify mb-4 indent-8 hover:bg-gray-100">
+                        <p className="text-justify mb-4 indent-8 ">
                           {item.bacaan_15}
                         </p>
                         <p className="text-left mb-4 text-xs font-semibold italic">
@@ -765,19 +768,22 @@ const ContactForm = () => {
                       <div
                         className={`${
                           link === "kuantitatif" || link === "matematika"
-                            ? "lg:max-w-full border-dashed border-l-2 border-yellow-900"
-                            : "lg:max-w-1/2  border-l-2 border-gray-400 border-dashed bg-blue-50 rounded-t-lg"
+                            ? "lg:max-w-full "
+                            : "lg:max-w-1/2   bg-blue-50 rounded-t-lg"
                         }`}
                       >
                         {/* Pertanyaan */}
-                        <div className="flex space-x-2 p-2">
+                        <div className="flex items-center space-x-2 p-2">
+                          <div>
+                            <p className="bg-gray-300 text-gray-900 text-xs text-center font-semibold">Soal</p>
                           <p
-                            className="text-justify mb-2 bg-gray-200 flex items-center p-1 "
+                            className="text-justify mb-2 font-bold flex items-center p-1 bg-gray-900 text-gray-100"
                             id={currentPage}
                           >
-                            {currentPage}
+                            {currentPage}/{totalPages}
                           </p>
-                          <p className="text-left mb-2  bg-gray-50 p-1 border-b-2 border-t-2 border-gray-200">
+                          </div>
+                          <p className="text-left mb-2   p-1 ">
                             <Latex>{item.soal}</Latex>
                           </p>
                         </div>
@@ -791,18 +797,22 @@ const ContactForm = () => {
                         >
                           {["A", "B", "C", "D", "E"].map((option) => (
                             <div className="flex space-x-1" key={option}>
-                              <Radio value={option} className="text-justify">
-                                <div className="flex items-center space-x-2 mb-2">
-                                  <p className="font-semibold">{option}</p>
+                              <div className={` mb-2 p-2 rounded-2xl border    ${
+                                      selectedValues[`group${item.id}`] === option ? "bg-gradient-to-br from-green-400 to-green-100" : ""
+                                    }`}>
+                              <Radio value={option} className="text-justify relative">
+                                <div className="flex items-center justify-center space-x-4 mb-2 ">
+                                  <div className={`bg-green-500 p-1 ml-2 rounded-full absolute -left-[0.60rem] w-[2rem] h-[2rem] ${
+                                      selectedValues[`group${item.id}`] === option ? "border-2" : ""
+                                    }`} ><p className="flex items-center justify-center font-bold text-gray-100">{option}</p></div>
                                   <p
-                                    className={`text-justify border p-1 border-gray-600 rounded-xl hover:bg-gray-100 ${
-                                      selectedValues[`group${item.id}`] === option ? "bg-green-300" : ""
-                                    }`}
+                                    className="text-left"
                                   >
                                     {item[`pilihan_${option.toLowerCase()}`]}
                                   </p>
                                 </div>
                               </Radio>
+                              </div>
                             </div>
                           ))}
                         </Radio.Group>
@@ -811,7 +821,7 @@ const ContactForm = () => {
 
                         <div className="checklist flex flex-col items-center mt-10 mb-10">
                           <input
-                            className="w-4 h-4 text-yellow-400 bg-gray-100 border-gray-300 rounded focus:ring-yellow-500 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            className="w-4 h-4 text-red-400 bg-gray-100 border-gray-300 rounded focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                             type="checkbox"
                             checked={isChecked[currentPage] || false}
                             // id={`page-${item[28]}`}
@@ -821,13 +831,13 @@ const ContactForm = () => {
                           />
                           <label
                             htmlFor={`page-${item.nomor_soal}`}
-                            className="text-xs pl-10 pr-10 text-center"
+                            className="text-xs pl-10 pr-10 text-center text-green-600"
                           >
                             {/* Page {item[28]} */}
                             Tandai jika kamu masih ragu-ragu dengan jawabanmu
                             atau soal mau dilewati dulu
                           </label>
-                          <p className="border-b-2 border-gray-400 p-2 text-gray-800 text-xs font-bold">
+                          <p className="border-b-2 border-gray-400 p-2 text-green-600 text-xs font-bold">
                             Soal Nomor-{currentPage}
                           </p>
                         </div>
@@ -857,7 +867,7 @@ const ContactForm = () => {
                     <button
                       disabled={isButtonDisabled}
                       type="submit"
-                      className="flex space-x-2 items-center justify-end fixed top-2 z-50 overflow-auto  text-blue-300 right-2"
+                      className="flex space-x-2 items-center justify-end fixed top-2 z-50 overflow-auto  text-green-300 right-2"
                     >
                       <p className="text-xs font-bold">Kirim</p>
                       <svg
