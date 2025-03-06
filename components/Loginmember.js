@@ -151,12 +151,12 @@ const Loginmember = () => {
           query: { link },
         });
 
-        Swal.fire({
-          title: "Kamu Berhasil Masuk",
-          text: "Tunggu sebentar soal sedang disiapkan....",
-          icon: "success",
-          confirmButtonText: "Oke",
-        });
+        // Swal.fire({
+        //   title: "Kamu Berhasil Masuk",
+        //   text: "Tunggu sebentar soal sedang disiapkan....",
+        //   icon: "success",
+        //   confirmButtonText: "Oke",
+        // });
       } else {
         Swal.fire({
           title: `${form.nisn} belum terdaftar`,

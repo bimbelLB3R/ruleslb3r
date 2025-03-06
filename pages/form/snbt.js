@@ -374,7 +374,7 @@ const ContactForm = () => {
       text: `Masih ada ${blmdjwb} soal belum kamu jawab, sisa waktu kurang dari : ${timeLeft ? timeLeft.format("mm:ss") : "Loading..."} menit`,
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#15803d",
       cancelButtonColor: "#d33",
       confirmButtonText: "Ya, Kirim!",
       cancelButtonText: "Batal",
@@ -669,7 +669,7 @@ const ContactForm = () => {
       ) : (
         <main>
           <form onSubmit={handleSubmit} ref={formRef} id="myForm">
-            <div className="max-w-xl lg:max-w-full  select-none flex items-center justify-center m-auto p-4 bg-gray-300 text-gray-900">
+            <div className="max-w-xl lg:max-w-full  select-none flex items-center justify-center m-auto p-4 bg-green-50 text-gray-900">
               <div className="mb-4">
                 {/* <p className="fixed left-0 top-0  z-50  text-[8px] md:text-sm text-gray-50 p-2 md:p-3">
                   {currentPage} dari {totalPages} soal
@@ -769,7 +769,7 @@ const ContactForm = () => {
                         className={`${
                           link === "kuantitatif" || link === "matematika"
                             ? "lg:max-w-full "
-                            : "lg:max-w-1/2   bg-blue-50 rounded-t-lg"
+                            : "lg:max-w-1/2   bg-green-50 rounded-t-lg"
                         }`}
                       >
                         {/* Pertanyaan */}
@@ -894,7 +894,7 @@ const ContactForm = () => {
               <button
                 onClick={handlePrevious}
                 disabled={currentPage <= 1}
-                className="bg-gray-600 p-4 text-gray-50 fixed bottom-[1.10rem]  left-0 z-50 flex items-center space-x-2 rounded-tr-full rounded-br-full"
+                className="bg-green-500 p-4 text-gray-50 fixed bottom-[1.10rem]  left-0 z-50 flex items-center space-x-2 rounded-tr-full rounded-br-full"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -913,7 +913,7 @@ const ContactForm = () => {
               ""
             ) : (
               <button
-                className="bg-gray-600 p-4 text-gray-50 fixed bottom-[1.10rem]  right-0 z-50 flex items-center space-x-2 rounded-tl-full rounded-bl-full"
+                className="bg-green-500 p-4 text-gray-50 fixed bottom-[1.10rem]  right-0 z-50 flex items-center space-x-2 rounded-tl-full rounded-bl-full"
                 onClick={handleNext}
                 disabled={
                   currentPage >= Math.ceil(questions.length / postsPerPage)
