@@ -788,24 +788,26 @@ const ContactForm = () => {
                         </div>
                         <div className="flex items-center space-x-2 p-2">
                           <div>
-                            <p className="text-left   p-1 ">
-                              <Latex>{item.bacaan_15}</Latex>
-                            {/* <div dangerouslySetInnerHTML={{ __html: item.soal }}/> */}
-                            {/* <BlockMath>{item.soal}</BlockMath> */}
-                            </p>
-                            <p className="text-left   p-1 ">
-                              <Latex>{item.soal}</Latex>
-                            {/* <div dangerouslySetInnerHTML={{ __html: item.soal }}/> */}
-                            {/* <BlockMath>{item.soal}</BlockMath> */}
-                            </p>
-                          </div>
-                          <div>
-                            <div className="text-left mb-2   p-1 ">
-                            {/* <Latex>{item.soal}</Latex> */}
-                            <div dangerouslySetInnerHTML={{ __html: item.bacaan_16 }}/>
-                            {/* <BlockMath>{item.soal}</BlockMath> */}
+                            <div>
+                              <p className="text-left   p-1 ">
+                                <Latex>{item.bacaan_15}</Latex>
+                              {/* <div dangerouslySetInnerHTML={{ __html: item.soal }}/> */}
+                              {/* <BlockMath>{item.soal}</BlockMath> */}
+                              </p>
+                              <p className="text-left   p-1 ">
+                                <Latex>{item.soal}</Latex>
+                              {/* <div dangerouslySetInnerHTML={{ __html: item.soal }}/> */}
+                              {/* <BlockMath>{item.soal}</BlockMath> */}
+                              </p>
                             </div>
-                          </div>  
+                            <div>
+                              <div className="text-left mb-2   p-1 ">
+                            {/* <Latex>{item.soal}</Latex> */}
+                              <div dangerouslySetInnerHTML={{ __html: item.bacaan_16 }}/>
+                            {/* <BlockMath>{item.soal}</BlockMath> */}
+                              </div>
+                            </div>  
+                          </div>
                         </div>
                         {/* Opsi Jawaban */}
                         <div className="pr-4 pl-4">
