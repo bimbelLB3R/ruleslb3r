@@ -8,7 +8,8 @@ import NavSoal from "../../components/NavSoal";
 import { Radio } from "antd";
 import { Button } from "flowbite-react";
 import Latex from "react-latex";
-import { BlockMath } from "react-katex";
+import { BlockMath,InlineMath } from "react-katex";
+
 import Timer from "../../components/Timer";
 // from timer
 import dayjs from "dayjs";
@@ -704,7 +705,7 @@ const ContactForm = () => {
                         id="textBacaan"
                         className={`${
                           link === "kuantitatif" || link === "matematika"
-                            ? "lg:max-w-1/2"
+                            ? "lg:max-w-1/2 overflow-auto"
                             : "lg:max-w-1/2 max-h-[500px] overflow-auto"
                         }`}
                       >
@@ -731,7 +732,7 @@ const ContactForm = () => {
                           {item.bacaan_5}
                         </p>
                         {/* Tambahan bacaan kolom orange */}
-                        <p className="text-justify mb-4 indent-8 ">
+                        <p className="text-center mb-2 indent-8 font-semibold mt-4 lg:mt-0">
                           {item.bacaan_6}
                         </p>
                         <p className="text-justify mb-4 indent-8 ">
@@ -747,23 +748,24 @@ const ContactForm = () => {
                           {item.bacaan_10}
                         </p>
                         <p className="text-justify mb-4 indent-8 ">
-                          <Latex>{item.bacaan_11}</Latex>
+                          {item.bacaan_11}
                         </p>
                         <p className="text-justify mb-4 indent-8 ">
                           {item.bacaan_12}
                         </p>
+                        {/* bacaan khusu matematika */}
                         <p className="text-justify mb-4 indent-8 ">
                           {item.bacaan_13}
                         </p>
-                        <p className="text-justify mb-4 indent-8 ">
+                        <p className="text-justify mb-4 indent-8 text-xs" >
                           {item.bacaan_14}
                         </p>
-                        <p className="text-justify mb-4 indent-8 ">
+                        {/* <p className="text-left mb-4 indent-8 ">
                           {item.bacaan_15}
-                        </p>
-                        <p className="text-left mb-4 text-xs font-semibold italic">
+                        </p> */}
+                        {/* <p className="text-left mb-4 text-xs ml-0">
                           {item.bacaan_16}
-                        </p>
+                        </p> */}
                       </div>
                       <div
                         className={`${
@@ -773,19 +775,37 @@ const ContactForm = () => {
                         }`}
                       >
                         {/* Pertanyaan */}
+                        <div className="flex items-center justify-center">
+                            <div>
+                              <p className="bg-gray-300 text-gray-900 text-xs text-center font-semibold">Soal</p>
+                              <p
+                                className="text-justify mb-2 font-bold flex items-center p-1 bg-gray-900 text-gray-100"
+                                id={currentPage}
+                              >
+                              {currentPage}/{totalPages}
+                              </p>
+                            </div>
+                        </div>
                         <div className="flex items-center space-x-2 p-2">
                           <div>
-                            <p className="bg-gray-300 text-gray-900 text-xs text-center font-semibold">Soal</p>
-                          <p
-                            className="text-justify mb-2 font-bold flex items-center p-1 bg-gray-900 text-gray-100"
-                            id={currentPage}
-                          >
-                            {currentPage}/{totalPages}
-                          </p>
+                            <p className="text-left   p-1 ">
+                              <Latex>{item.bacaan_15}</Latex>
+                            {/* <div dangerouslySetInnerHTML={{ __html: item.soal }}/> */}
+                            {/* <BlockMath>{item.soal}</BlockMath> */}
+                            </p>
+                            <p className="text-left   p-1 ">
+                              <Latex>{item.soal}</Latex>
+                            {/* <div dangerouslySetInnerHTML={{ __html: item.soal }}/> */}
+                            {/* <BlockMath>{item.soal}</BlockMath> */}
+                            </p>
                           </div>
-                          <p className="text-left mb-2   p-1 ">
-                            <Latex>{item.soal}</Latex>
-                          </p>
+                          <div>
+                            <div className="text-left mb-2   p-1 ">
+                            {/* <Latex>{item.soal}</Latex> */}
+                            <div dangerouslySetInnerHTML={{ __html: item.bacaan_16 }}/>
+                            {/* <BlockMath>{item.soal}</BlockMath> */}
+                            </div>
+                          </div>  
                         </div>
                         {/* Opsi Jawaban */}
                         <div className="pr-4 pl-4">
