@@ -24,7 +24,7 @@ const ContactForm = () => {
   const [questions, setQuestions] = useState([]);
   const [jumlahSoalSelesai,setJumlahSoalSelesai]=useState();
   const [jumlahSoal,setJumlahSoal]=useState();
-  const blmdjwb=jumlahSoal-jumlahSoalSelesai;
+  
   // console.log(blmdjwb)
   // console.log(blmdjwb);
   // ganti nama dan tambah key di lokal storage
@@ -80,6 +80,7 @@ const ContactForm = () => {
           const jmlSoal=data.length;
           setJumlahSoal(jmlSoal);
           setQuestions(data);
+          localStorage.setItem("jumlahSoal",jmlSoal);
           const storedName = localStorage.getItem("name");
     if (!storedName) {
       router.push("/form/login");
@@ -381,7 +382,26 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Mencegah submit form secara langsung
+    // window.location.reload();
+    const cr=localStorage.getItem("jumlahSoal");
+    console.log(cr)
+    const countUniqueGroups = () => {
+      const uniqueGroups = new Set(); // Set untuk menyimpan soal unik
   
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key.startsWith("group")) {
+          const groupId = key.split("_")[0]; // Ambil bagian "groupX" saja
+          uniqueGroups.add(groupId);
+        }
+      }
+  
+      return uniqueGroups.size; // Jumlah soal unik
+    };
+  
+    const hitung = countUniqueGroups();
+    const blmdjwb=jumlahSoal-hitung;
+    console.log(hitung);
     Swal.fire({
       title: "Kirim Jawaban?",
       text: `Masih ada ${blmdjwb} soal belum kamu jawab, sisa waktu kurang dari : ${timeLeft ? timeLeft.format("mm:ss") : "Loading..."} menit`,
