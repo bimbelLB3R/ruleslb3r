@@ -25,6 +25,7 @@ const ContactForm = () => {
   const [jumlahSoalSelesai,setJumlahSoalSelesai]=useState();
   const [jumlahSoal,setJumlahSoal]=useState();
   const blmdjwb=jumlahSoal-jumlahSoalSelesai;
+  // console.log(blmdjwb)
   // console.log(blmdjwb);
   // ganti nama dan tambah key di lokal storage
   const renameAndAppendLocalStorageKey = (oldKey, newKey) => {
@@ -67,7 +68,7 @@ const ContactForm = () => {
     });
   };
   // ambil data soal dari supabase
-  useEffect(() => {
+  useEffect(() => {    
     async function fetchQuestions() {
         const katSoal=localStorage.getItem("link");
         const { data, error } = await supabase
@@ -94,6 +95,16 @@ const ContactForm = () => {
         setForm({ ...form, nisn: storedNisn });
       }
       const savedValue = localStorage.getItem(`group${item.id}`); //group0 untuk nomor 1
+      const statements=["1","2","3","4","5"].filter((index)=>item[`pernyataan_${index}`]);
+      statements.map((statement, index) =>{
+        const savedValueP=localStorage.getItem(`group${item.id}_${index}`);
+        if (savedValueP) {
+          setSelectedValues((selectedValues) => ({
+            ...selectedValues,
+            [`group${item.id}_${index}`]: savedValueP,
+          }));
+        }
+      })
 
       // console.log(item.nomor_soal);
       // console.log(localStorage.key(index));
@@ -283,6 +294,7 @@ const ContactForm = () => {
   // const tipeSoal = sheetdata[0][1];
   // const tipeSoal = sheetdata?.[0]?.[1] || "Loading...";
   const tipeSoal=questions.slice(0, 1).map((item)=>(item.kategori_soal));
+  // console.log(tipeSoal)
   const formRef = useRef(null);
 
   // console.log(sheetdata);
@@ -574,23 +586,25 @@ const ContactForm = () => {
 
   // menghitung jumlah soal yang sudah dikerjakan
   
-  useEffect(()=>{
-    const countGroupKeys = () => {
-      let count = 0;
-      
+  useEffect(() => {
+    const countUniqueGroups = () => {
+      const uniqueGroups = new Set(); // Set untuk menyimpan soal unik
+  
       for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         if (key.startsWith("group")) {
-          count++;
+          const groupId = key.split("_")[0]; // Ambil bagian "groupX" saja
+          uniqueGroups.add(groupId);
         }
       }
-      
-      return count;
+  
+      return uniqueGroups.size; // Jumlah soal unik
     };
-    const hitung=countGroupKeys();
-    // console.log(hitung);
+  
+    const hitung = countUniqueGroups();
     setJumlahSoalSelesai(hitung);
-  })
+  }, []);
+// console.log(jumlahSoalSelesai)  
 
   return (
     <div>
@@ -644,12 +658,13 @@ const ContactForm = () => {
         setCurrentPage={setCurrentPage}
         isChecked={isChecked}
         selectedValues={selectedValues}
+        allData={paginatedPosts}
       />
     </div>
       </div>
       {/* Selamat datang peserta */}
       <div className="flex justify-center items-center fixed top-0 z-50 overflow-auto left-0  bg-gray-600 p-2 text-gray-100 text-[12px] md:text-sm">
-        <p>{tipeSoal}</p>
+        <p className="">{tipeSoal}</p>
       </div>
       <div className="flex justify-center items-center fixed top-0 z-40 overflow-auto left-0 right-0 bg-gray-900 text-gray-100 text-[12px] md:text-sm">
         <div className=" p-2 rounded-full">
@@ -689,13 +704,19 @@ const ContactForm = () => {
                 </div>
                 {/* Timer */}
 
-                {paginatedPosts.map((item) => (
+                {paginatedPosts.map((item) => {
+                  const options = ["A", "B", "C", "D", "E"].filter(
+                    (option) => item[`pilihan_${option.toLowerCase()}`]
+                  );
+                  const statements=["1","2","3","4","5"].filter((statement)=>item[`pernyataan_${statement}`])
+                   return(
                   <div
                     key={item.id}
-                    className="bg-gray-50 lg:drop-shadow-2xl lg:m-10 p-2"
+                    className="bg-gray-50 lg:drop-shadow-2xl lg:m-10 p-2 text-base"
                   >
                     {/* {console.log(item.link_gambar)} */}
                     {/* Bacaan */}
+                    
                     <div
                       className="lg:flex  lg:p-10 lg:space-x-4 "
                       id="custom-text"
@@ -811,33 +832,95 @@ const ContactForm = () => {
                         </div>
                         {/* Opsi Jawaban */}
                         <div className="pr-4 pl-4">
-                        <Radio.Group
-                          disabled={isRadioButtonDisabled}
-                          onChange={handleChange}
-                          value={selectedValues[`group${item.id}`] || ""}
-                          name={`group${item.id}`}
-                        >
-                          {["A", "B", "C", "D", "E"].map((option) => (
-                            <div className="flex space-x-1" key={option}>
-                              <div className={` mb-2 p-2 rounded-2xl border    ${
-                                      selectedValues[`group${item.id}`] === option ? "bg-gradient-to-br from-green-400 to-green-100" : ""
-                                    }`}>
-                              <Radio value={option} className="text-justify relative">
-                                <div className="flex items-center justify-center space-x-4 mb-2 ">
-                                  <div className={`bg-green-500 p-1 ml-2 rounded-full absolute -left-[0.60rem] w-[2rem] h-[2rem] ${
-                                      selectedValues[`group${item.id}`] === option ? "border-2" : ""
-                                    }`} ><p className="flex items-center justify-center font-bold text-gray-100">{option}</p></div>
-                                  <p
-                                    className="text-left"
+                        {/* Jika ada pilihan A-E, tampilkan Radio Button */}
+                          {options.length > 0 ? (
+                            <Radio.Group
+                              disabled={isRadioButtonDisabled}
+                              onChange={handleChange}
+                              value={selectedValues[`group${item.id}`] || ""}
+                              name={`group${item.id}`}
+                            >
+                              {options.map((option) => (
+                                <div className="flex space-x-1" key={option}>
+                                  <div
+                                    className={`mb-2 p-2 rounded-2xl border ${
+                                      selectedValues[`group${item.id}`] === option
+                                        ? "bg-gradient-to-br from-green-400 to-green-100"
+                                        : ""
+                                    }`}
                                   >
-                                    {item[`pilihan_${option.toLowerCase()}`]}
-                                  </p>
+                                    <Radio value={option} className="text-justify relative">
+                                      <div className="flex items-center justify-center space-x-4 mb-2">
+                                        <div
+                                          className={`bg-green-500 p-1 ml-2 rounded-full absolute -left-[0.60rem] w-[2rem] h-[2rem] ${
+                                            selectedValues[`group${item.id}`] === option
+                                              ? "border-2"
+                                              : ""
+                                          }`}
+                                        >
+                                          <p className="flex items-center justify-center font-bold text-gray-100">
+                                            {option}
+                                          </p>
+                                        </div>
+                                        <p className="text-left text-base">
+                                          <Latex>{item[`pilihan_${option.toLowerCase()}`]}</Latex>
+                                        </p>
+                                      </div>
+                                    </Radio>
+                                  </div>
                                 </div>
-                              </Radio>
-                              </div>
+                              ))}
+                            </Radio.Group>
+                          ) : item.typeOpsi === "benarsalah" ? ( 
+                            // Jika tipe soal adalah B/S (Benar/Salah)
+                            <div className="border p-2 rounded-lg">
+                              <table className="w-full border-collapse">
+                                <thead>
+                                  <tr>
+                                    <th className="border p-2">Pernyataan</th>
+                                    <th className="border p-2">B</th>
+                                    <th className="border p-2">S</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {statements.map((statement, index) => (
+                                    <tr key={index}>
+                                      <td className="border p-2">{item[`pernyataan_${statement}`]}</td>
+                                      <td className="border p-2 text-center">
+                                        <input
+                                          type="radio"
+                                          name={`group${item.id}_${index}`}
+                                          value="B"
+                                          checked={selectedValues[`group${item.id}_${index}`] === "B"}
+                                          onChange={(e) => handleChange(e)}
+                                        />
+                                      </td>
+                                      <td className="border p-2 text-center">
+                                        <input
+                                          type="radio"
+                                          name={`group${item.id}_${index}`}
+                                          value="S"
+                                          checked={selectedValues[`group${item.id}_${index}`] === "S"}
+                                          onChange={(e) => handleChange(e)}
+                                        />
+                                      </td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
                             </div>
-                          ))}
-                        </Radio.Group>
+                          ) : (
+                            // Jika tidak ada opsi dan bukan B/S, tampilkan input teks
+                            <input
+                              type="text"
+                              placeholder="Masukkan jawaban singkat..."
+                              className="border rounded-lg p-2 w-full"
+                              value={selectedValues[`group${item.id}`] || ""}
+                              onChange={(e) =>
+                                handleChange({ target: { name: `group${item.id}`, value: e.target.value } })
+                              }
+                            />
+                          )}
 
                         </div>
 
@@ -879,7 +962,7 @@ const ContactForm = () => {
                     </div>
                   </div>
                   // tombol ragu2
-                ))}
+                )})}
                 <div className="flex justify-end">
                   {isButtonDisabled ? (
                     <p className="flex space-x-2 items-center justify-end fixed top-0 z-50 overflow-auto  text-gray-50 right-2">

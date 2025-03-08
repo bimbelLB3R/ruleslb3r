@@ -124,7 +124,7 @@ const Loginmember = () => {
         if (link === "snbt") {
           localStorage.setItem("maxTime", 2700); //30 soal 45 menit
         } else if (link === "kuantitatif") {
-          localStorage.setItem("maxTime", 1200); //15 soal 20 menit
+          localStorage.setItem("maxTime", 1200); //20 soal 20 menit
         } else if (link === "matematika") {
           localStorage.setItem("maxTime", 1800); //20 soal 30 menit
         } else if (link === "english") {
