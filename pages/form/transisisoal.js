@@ -5,6 +5,22 @@ export default function TransitionPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
+  // mencegah back
+  useEffect(() => {
+    const handleBack = () => {
+      history.pushState(null, "", location.href);
+    };
+
+    history.pushState(null, "", location.href);
+    window.addEventListener("popstate", handleBack);
+
+    return () => {
+      window.removeEventListener("popstate", handleBack);
+    };
+  }, []);
+  // mencegah back end
+
+
   // pengecualian penghapusan data localstorage
   const clearLocalStorageExcept = (keysToKeep) => {
     // Simpan nilai dari keys yang ingin dipertahankan

@@ -24,6 +24,32 @@ const ContactForm = () => {
   const [questions, setQuestions] = useState([]);
   const [jumlahSoalSelesai,setJumlahSoalSelesai]=useState();
   const [jumlahSoal,setJumlahSoal]=useState();
+
+  // mencegah back
+  useEffect(() => {
+    const handleBack = () => {
+      history.pushState(null, "", location.href);
+    };
+
+    history.pushState(null, "", location.href);
+    window.addEventListener("popstate", handleBack);
+
+    return () => {
+      window.removeEventListener("popstate", handleBack);
+    };
+  }, []);
+  useEffect(() => {
+    const handleBack = () => {
+      router.replace("/"); // Ganti dengan halaman yang diinginkan
+    };
+
+    window.addEventListener("popstate", handleBack);
+
+    return () => {
+      window.removeEventListener("popstate", handleBack);
+    };
+  }, []);
+  // mencegah back end
   
   // console.log(blmdjwb)
   // console.log(blmdjwb);
@@ -96,16 +122,17 @@ const ContactForm = () => {
         setForm({ ...form, nisn: storedNisn });
       }
       const savedValue = localStorage.getItem(`group${item.id}`); //group0 untuk nomor 1
-      // const statements=["1","2","3","4","5"].filter((index)=>item[`pernyataan_${index}`]);
-      // statements.map((statement, index) =>{
-      //   const savedValueP=localStorage.getItem(`group${item.id}_${index}`);
-      //   if (savedValueP) {
-      //     setSelectedValues((selectedValues) => ({
-      //       ...selectedValues,
-      //       [`group${item.id}_${index}`]: savedValueP,
-      //     }));
-      //   }
-      // })
+      // menghidupak pemanggilan local khusus group0_1 dkk
+      const statements=["1","2","3","4","5"].filter((index)=>item[`pernyataan_${index}`]);
+      statements.map((statement, index) =>{
+        const savedValueP=localStorage.getItem(`group${item.id}_${index}`);
+        if (savedValueP) {
+          setSelectedValues((selectedValues) => ({
+            ...selectedValues,
+            [`group${item.id}_${index}`]: savedValueP,
+          }));
+        }
+      })
 
       // console.log(item.nomor_soal);
       // console.log(localStorage.key(index));
@@ -476,7 +503,7 @@ const ContactForm = () => {
             } else {
               // Untuk data lain, simpan langsung
               acc[name] = savedValue;
-              acc[name] = Array.isArray(savedValue) ? savedValue.join(",") : savedValue;
+              acc[name] = Array.isArray(savedValue) ? savedValue.join("") : savedValue;
             }
         
             return acc;
@@ -985,8 +1012,8 @@ const ContactForm = () => {
                           ) : item.typeOpsi==="inputangka"?(
                             // Jika tidak ada opsi dan bukan B/S, tampilkan input teks
                             <input
-                              type="text"
-                              placeholder="Masukkan jawaban singkat..."
+                              type="number"
+                              placeholder="Masukkan hanya angka"
                               className="border rounded-lg p-2 w-full"
                               value={selectedValues[`group${item.id}`] || ""}
                               onChange={(e) =>
