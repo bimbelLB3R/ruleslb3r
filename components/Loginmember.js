@@ -126,13 +126,13 @@ const Loginmember = () => {
         } else if (link === "kuantitatif") {
           localStorage.setItem("maxTime", 1200); //20 soal 20 menit
         } else if (link === "matematika") {
-          localStorage.setItem("maxTime", 1800); //20 soal 30 menit
+          localStorage.setItem("maxTime", 2250); //20 soal 37,5 menit
         } else if (link === "english") {
           localStorage.setItem("maxTime", 1800); //20 soal 30 menit
         } else if (link === "bacaan") {
           localStorage.setItem("maxTime", 1500); //20 soal 25 menit
         } else if (link === "penalaran") {
-          localStorage.setItem("maxTime", 1800); //30 soal 30 menit
+          localStorage.setItem("maxTime", 7200); //30 soal 30 menit
         } else if (link === "pengetahuan") {
           localStorage.setItem("maxTime", 900); //20 soal 20 menit, rev 20 soal 15 menit
         } else {
@@ -331,3 +331,4 @@ const Loginmember = () => {
 };
 
 export default Loginmember;
+

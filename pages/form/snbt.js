@@ -96,16 +96,16 @@ const ContactForm = () => {
         setForm({ ...form, nisn: storedNisn });
       }
       const savedValue = localStorage.getItem(`group${item.id}`); //group0 untuk nomor 1
-      const statements=["1","2","3","4","5"].filter((index)=>item[`pernyataan_${index}`]);
-      statements.map((statement, index) =>{
-        const savedValueP=localStorage.getItem(`group${item.id}_${index}`);
-        if (savedValueP) {
-          setSelectedValues((selectedValues) => ({
-            ...selectedValues,
-            [`group${item.id}_${index}`]: savedValueP,
-          }));
-        }
-      })
+      // const statements=["1","2","3","4","5"].filter((index)=>item[`pernyataan_${index}`]);
+      // statements.map((statement, index) =>{
+      //   const savedValueP=localStorage.getItem(`group${item.id}_${index}`);
+      //   if (savedValueP) {
+      //     setSelectedValues((selectedValues) => ({
+      //       ...selectedValues,
+      //       [`group${item.id}_${index}`]: savedValueP,
+      //     }));
+      //   }
+      // })
 
       // console.log(item.nomor_soal);
       // console.log(localStorage.key(index));
@@ -384,7 +384,7 @@ const ContactForm = () => {
     e.preventDefault(); // Mencegah submit form secara langsung
     // window.location.reload();
     const cr=localStorage.getItem("jumlahSoal");
-    console.log(cr)
+    // console.log(cr)
     const countUniqueGroups = () => {
       const uniqueGroups = new Set(); // Set untuk menyimpan soal unik
   
@@ -401,7 +401,7 @@ const ContactForm = () => {
   
     const hitung = countUniqueGroups();
     const blmdjwb=jumlahSoal-hitung;
-    console.log(hitung);
+    // console.log(hitung);
     Swal.fire({
       title: "Kirim Jawaban?",
       text: `Masih ada ${blmdjwb} soal belum kamu jawab, sisa waktu kurang dari : ${timeLeft ? timeLeft.format("mm:ss") : "Loading..."} menit`,
@@ -457,13 +457,33 @@ const ContactForm = () => {
       if (nisnAda) {
         setErrorMessage("Jawabanmu sudah di update");
       }
-      const newRow = {
-        nisn: form.nisn,
-        ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
-          acc[name] = savedValue;
-          return acc;
-        }, {}),
-      };
+      // const newRow = {
+      //   nisn: form.nisn,
+      //   ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
+      //     acc[name] = savedValue;
+      //     return acc;
+      //   }, {}),
+      // };
+        const newRow = {
+          nisn: form.nisn,
+          ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
+            if (name.startsWith("group") && name.includes("_")) {//soal benar-salah
+              // Ambil ID unik (misalnya: "group3" dari "group3_1")
+              const groupId = name.split("_")[0];
+        
+              // Gabungkan nilai berdasarkan groupId
+              acc[groupId] = (acc[groupId] || "") + savedValue;
+            } else {
+              // Untuk data lain, simpan langsung
+              acc[name] = savedValue;
+              acc[name] = Array.isArray(savedValue) ? savedValue.join(",") : savedValue;
+            }
+        
+            return acc;
+          }, {}),
+        };
+      
+      
       setIsLoading(true); // set status loading menjadi true
       
       appendSpreadsheet(newRow);
@@ -521,17 +541,46 @@ const ContactForm = () => {
     }
   };
 
+  // const handleChange = (e) => {
+  //   const { name, value,type,checked} = e.target;
+  //   // console.log(name);
+  //   // console.log(value);
+  //   // untuk selain cekbox
+  //   setSelectedValues((selectedValues) => ({
+  //     ...selectedValues,
+  //     [name]: value,
+  //   }));
+    
+  //   // Save the selected value in local storage
+  //   localStorage.setItem(name, value);
+  // };
+  
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    // console.log(name);
-    // console.log(value);
-    setSelectedValues((selectedValues) => ({
-      ...selectedValues,
-      [name]: value,
-    }));
-    // Save the selected value in local storage
-    localStorage.setItem(name, value);
+    const { name, value, type, checked } = e.target;
+  
+    setSelectedValues((prevValues) => {
+      let updatedValues;
+  
+      if (type === "checkbox") {
+        // Jika input checkbox, pastikan value menjadi array
+        const existingValues = prevValues[name] || [];
+        updatedValues = checked
+          ? [...existingValues, value] // Tambahkan jika dicentang
+          : existingValues.filter((v) => v !== value); // Hapus jika tidak dicentang
+          localStorage.setItem(name, updatedValues); // Simpan ke local storage
+      }else {
+        // Jika bukan checkbox (radio atau input teks), langsung set nilainya
+        updatedValues = value;
+        localStorage.setItem(name,updatedValues);
+      }
+  
+      // Simpan ke state
+      const newValues = { ...prevValues, [name]: updatedValues };
+      return newValues;
+    });
   };
+  
+   
 
   const [currentPage, setCurrentPage] = useState();
   const [selectedPage, setSelectedPage] = useState(null);
@@ -754,9 +803,9 @@ const ContactForm = () => {
                         <p className="text-center mb-2 indent-8 font-semibold mt-4 lg:mt-0">
                           {item.judul_text1}
                         </p>
-                        <div className="flex items-center justify-center hover:w-full hover:absolute hover:z-50 hover:right-0 hover:left-0 ">
+                        {/* <div className="flex items-center justify-center hover:w-full hover:absolute hover:z-50 hover:right-0 hover:left-0 ">
                           <img src={item.link_gambar} className="w-full " />
-                        </div>
+                        </div> */}
                         <p className="text-justify mb-2 indent-8 ">
                           {item.bacaan_1}
                         </p>
@@ -812,9 +861,10 @@ const ContactForm = () => {
                         className={`${
                           link === "kuantitatif" || link === "matematika"
                             ? "lg:max-w-full "
-                            : "lg:max-w-1/2   bg-green-50 rounded-t-lg"
+                            : "lg:max-w-3xl   bg-green-50 rounded-t-lg flex items-center justify-center"
                         }`}
                       >
+                        <div>
                         {/* Pertanyaan */}
                         <div className="flex items-center justify-center">
                             <div>
@@ -830,6 +880,9 @@ const ContactForm = () => {
                         <div className="flex items-center space-x-2 p-2">
                           <div>
                             <div>
+                              <div className="flex items-center justify-center hover:w-full hover:absolute hover:z-50 hover:right-0 hover:left-0 ">
+                                <img src={item.link_gambar} className=" " />
+                              </div>
                               <p className="text-left   p-1 ">
                                 <Latex>{item.bacaan_15}</Latex>
                               {/* <div dangerouslySetInnerHTML={{ __html: item.soal }}/> */}
@@ -929,7 +982,7 @@ const ContactForm = () => {
                                 </tbody>
                               </table>
                             </div>
-                          ) : (
+                          ) : item.typeOpsi==="inputangka"?(
                             // Jika tidak ada opsi dan bukan B/S, tampilkan input teks
                             <input
                               type="text"
@@ -940,7 +993,26 @@ const ContactForm = () => {
                                 handleChange({ target: { name: `group${item.id}`, value: e.target.value } })
                               }
                             />
-                          )}
+                          ):
+                          //jika tidak ada opsi, bukan bs,bukan input text, tampilkan ceklis
+                          (<><div className="flex flex-col space-y-2">
+                            {statements.map((statement,index) => (
+                              <div className="flex items-center space-x-2" key={index}>
+                                <input
+                                  type="checkbox"
+                                  id={`checkbox-${item.id}-${index}`}
+                                  name={`group${item.id}`}
+                                  value={statement}
+                                  checked={selectedValues[`group${item.id}`]?.includes(statement) || false}
+                                  onChange={(e) => handleChange(e)}
+                                />
+                                <label htmlFor={`checkbox-${item.id}-${index}`} className="text-left text-base">
+                                  <Latex>{item[`pernyataan_${statement}`]}</Latex>
+                                </label>
+                              </div>
+                            ))}
+                          </div></>)
+                          }
 
                         </div>
 
@@ -966,7 +1038,7 @@ const ContactForm = () => {
                             Soal Nomor-{currentPage}
                           </p>
                         </div>
-
+                      </div>
                         {/* <div>
                       <Button
                         className={`page-button ${
