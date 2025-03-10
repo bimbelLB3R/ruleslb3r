@@ -27,6 +27,7 @@ const GOOGLE_SERVICE_PRIVATE_KEY =
   process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
 
 const Loginmember = () => {
+  const [erorKoneksi,setErorKoneksi]=useState(false);
   const { data: session } = useSession();
   // console.log(session);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
@@ -78,96 +79,112 @@ const Loginmember = () => {
     }
   };
 
-  // cek apakah NISN sudah ada
+  // cek apakah NISN sudah ada+penanganan eror koneksi buruk
   const checkNisn = async (nisn) => {
-    await doc.useServiceAccountAuth({
-      client_email: GOOGLE_CLIENT_EMAIL,
-      private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
-    });
-    await doc.loadInfo(); // tambahkan baris ini untuk memastikan sheet telah terdefinisi
-    const sheet2 = doc.sheetsById[SHEET_ID2]; // tambahkan baris ini untuk mendefinisikan sheet
-    const rows = await sheet2.getRows();
-
-    // console.log(rows);
-    const nisnExists = rows.find((row) => row.nisn === `1${nisn}`); //penulisan row.name , name nya harus sama dengan di google sheet name
-
-    // console.log(nisnExists);
-    if (!nisnExists) {
-      // nisn n name does not exist, form cannt be submitted
-
-      return false;
-    } else {
-      // nisn already exists, form can be submitted
-      return true;
+    try {
+      await doc.useServiceAccountAuth({
+        client_email: GOOGLE_CLIENT_EMAIL,
+        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+      });
+  
+      await doc.loadInfo(); // Pastikan sheet telah terdefinisi
+      const sheet2 = doc.sheetsById[SHEET_ID2];
+      const rows = await sheet2.getRows();
+  
+      if (!rows || rows.length === 0) {
+        throw new Error("Data tidak dapat diambil. Periksa koneksi internet Anda.");
+        setErorKoneksi(true);
+      }
+  
+      const nisnExists = rows.find((row) => row.nisn === `1${nisn}`);
+  
+      return !!nisnExists; // Return true jika ditemukan, false jika tidak
+    } catch (error) {
+      console.error("Terjadi kesalahan:", error.message);
+      return null; // Return null jika terjadi kesalahan (misalnya koneksi buruk)
     }
   };
+  
   // cek apakah nama sudah ada end
 
+  // penanganan submit dan handle eror ketika koneksi buruk atau blm terdaftar
   const submitForm = async (e, sheet3) => {
     setIsButtonDisabled(true);
     e.preventDefault();
-
-    if (form.nisn !== "" && form.nama !== "") {
-      const canSubmit = await checkNisn(form.nisn, sheet3);
-
-      if (canSubmit) {
-        const newRow = {
-          nisn: `1${form.nisn}`,
-          nama: form.nama,
-        };
-
-        const link = localStorage.getItem("link");
-        // await appendSpreadsheet(newRow);
-        localStorage.setItem("name", form.nama);
-        localStorage.setItem("nisn", `1${form.nisn}`);
-        localStorage.setItem("dataSoal", JSON.stringify(["snbt", "matematika", "english", "kuantitatif", "bacaan", "penalaran", "pengetahuan"]));
-        if (link === "snbt") {
-          localStorage.setItem("maxTime", 2700); //30 soal 45 menit
-        } else if (link === "kuantitatif") {
-          localStorage.setItem("maxTime", 1200); //20 soal 20 menit
-        } else if (link === "matematika") {
-          localStorage.setItem("maxTime", 2250); //20 soal 37,5 menit
-        } else if (link === "english") {
-          localStorage.setItem("maxTime", 1800); //20 soal 30 menit
-        } else if (link === "bacaan") {
-          localStorage.setItem("maxTime", 1500); //20 soal 25 menit
-        } else if (link === "penalaran") {
-          localStorage.setItem("maxTime", 7200); //30 soal 30 menit
-        } else if (link === "pengetahuan") {
-          localStorage.setItem("maxTime", 900); //20 soal 20 menit, rev 20 soal 15 menit
-        } else {
-          console.log("link undetect");
+  
+    try {
+      if (form.nisn !== "" && form.nama !== "") {
+        const canSubmit = await checkNisn(form.nisn, sheet3);
+  
+        if (canSubmit === null) {
+          // Jika checkNisn gagal karena error (misalnya jaringan), tampilkan pesan error
+          Swal.fire({
+            title: "Koneksi Bermasalah",
+            text: "Gagal memeriksa NISN. Pastikan koneksi internet stabil dan coba lagi.",
+            icon: "error",
+            confirmButtonText: "Coba Lagi",
+          });
+          return; // Jangan lanjutkan eksekusi
         }
-        // localStorage.setItem('timeLeft', 1800);
-        // localStorage.setItem('remainingTime', 15);
-        // cookie.set('timer', '10');
-        // localStorage.setItem('waktuhabis', false);
-
-        // e.target.reset();
-
-        // router.push(`/form/snbt`);
-        router.push({
-          pathname: `/form/snbt`,
-          query: { link },
-        });
-
-        // Swal.fire({
-        //   title: "Kamu Berhasil Masuk",
-        //   text: "Tunggu sebentar soal sedang disiapkan....",
-        //   icon: "success",
-        //   confirmButtonText: "Oke",
-        // });
-      } else {
-        Swal.fire({
-          title: `${form.nisn} belum terdaftar`,
-          text: "Data gagal dikirim karena NISN kamu belum terdaftar",
-          icon: "warning",
-          confirmButtonText: "Daftar",
-        });
-        router.push("/form/newmember");
+  
+        if (canSubmit) {
+          const newRow = {
+            nisn: `1${form.nisn}`,
+            nama: form.nama,
+          };
+  
+          const link = localStorage.getItem("link");
+  
+          localStorage.setItem("name", form.nama);
+          localStorage.setItem("nisn", `1${form.nisn}`);
+          localStorage.setItem("dataSoal", JSON.stringify(["snbt", "matematika", "english", "kuantitatif", "bacaan", "penalaran", "pengetahuan"]));
+  
+          // Atur waktu sesuai jenis soal
+          const maxTimeMapping = {
+            snbt: 2700, // 45 menit
+            kuantitatif: 1200, // 20 menit
+            matematika: 2250, // 37,5 menit
+            english: 1800, // 30 menit
+            bacaan: 1500, // 25 menit
+            penalaran: 7200, // 30 menit
+            pengetahuan: 900, // 15 menit
+          };
+  
+          if (link in maxTimeMapping) {
+            localStorage.setItem("maxTime", maxTimeMapping[link]);
+          } else {
+            console.log("link undetect");
+          }
+  
+          router.push({
+            pathname: `/form/snbt`,
+            query: { link },
+          });
+        } else {
+          Swal.fire({
+            title: `${form.nisn} belum terdaftar`,
+            text: "Data gagal dikirim karena NISN kamu belum terdaftar",
+            icon: "warning",
+            confirmButtonText: "Daftar",
+          });
+          router.push("/form/newmember");
+        }
       }
+    } catch (error) {
+      console.error("Terjadi kesalahan:", error);
+      Swal.fire({
+        title: "Terjadi Kesalahan",
+        text: "Ada masalah dalam proses pendaftaran. Silakan coba lagi.",
+        icon: "error",
+        confirmButtonText: "Oke",
+      });
+    } finally {
+      // Pastikan tombol tidak tetap dinonaktifkan jika terjadi error
+      setIsButtonDisabled(false);
     }
   };
+  
+  // penanganan submit dan handle eror ketika koneksi buruk atau blm terdaftar end
 
   const handleChange = (e) => {
     setForm({
@@ -175,6 +192,8 @@ const Loginmember = () => {
       [e.target.name]: e.target.value,
     });
   };
+  
+  
   return (
     <>
       <Head>
@@ -227,6 +246,7 @@ const Loginmember = () => {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Simulasi UTBK SNBT
               </h1>
+              <p>{erorKoneksi&&"Koneksi internet kamu kurang bagus..!!"}</p>
               <form
                 className="space-y-4 md:space-y-6"
                 action="#"
@@ -309,7 +329,7 @@ const Loginmember = () => {
                     type="submit"
                     className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   >
-                    Sign in
+                    Masuk
                   </button>
                 )}
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">

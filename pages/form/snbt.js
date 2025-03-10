@@ -38,17 +38,17 @@ const ContactForm = () => {
       window.removeEventListener("popstate", handleBack);
     };
   }, []);
-  useEffect(() => {
-    const handleBack = () => {
-      router.replace("/"); // Ganti dengan halaman yang diinginkan
-    };
+  // useEffect(() => {
+  //   const handleBack = () => {
+  //     router.replace("/"); // Ganti dengan halaman yang diinginkan
+  //   };
 
-    window.addEventListener("popstate", handleBack);
+  //   window.addEventListener("popstate", handleBack);
 
-    return () => {
-      window.removeEventListener("popstate", handleBack);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("popstate", handleBack);
+  //   };
+  // }, []);
   // mencegah back end
   
   // console.log(blmdjwb)
@@ -157,6 +157,24 @@ const ContactForm = () => {
   // console.log(isRadioButtonDisabled);true
   const [timeLeft, setTimeLeft] = useState(dayjs.duration(30, "minute"));
   const [timeStorage, setTimeStorage] = useState(null);
+
+  // agar waktu tetap jalan meski diminimize
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        const storedMaxTime = localStorage.getItem("maxTime");
+        const startTime = localStorage.getItem("startTime") ? dayjs(localStorage.getItem("startTime")) : dayjs();
+        const elapsedTime = dayjs().diff(startTime, "second");
+        const remainingTime = Math.max(0, parseInt(storedMaxTime) - elapsedTime);
+        setTimeLeft(dayjs.duration(remainingTime, "second"));
+      }
+    };
+  
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
+  }, []);
+  
+  // agar waktu tetap jalan meski diminimize end
 
   useEffect(() => {
     // const timeStorage = localStorage.getItem("timeLeft");
@@ -874,9 +892,10 @@ const ContactForm = () => {
                         <p className="text-justify mb-4 indent-8 ">
                           {item.bacaan_13}
                         </p>
-                        <p className="text-justify mb-4 indent-8 text-xs" >
+                        <div dangerouslySetInnerHTML={{ __html: item.bacaan_14 }}/>
+                        {/* <p className="text-justify mb-4 indent-8 text-xs" >
                           {item.bacaan_14}
-                        </p>
+                        </p> */}
                         {/* <p className="text-left mb-4 indent-8 ">
                           {item.bacaan_15}
                         </p> */}
