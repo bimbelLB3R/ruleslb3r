@@ -192,7 +192,9 @@ const Loginmember = () => {
       [e.target.name]: e.target.value,
     });
   };
-  
+  const handleReset=()=>{
+    localStorage.clear();
+  }
   
   return (
     <>
@@ -332,15 +334,16 @@ const Loginmember = () => {
                     Masuk
                   </button>
                 )}
-                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                <div className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Don’t have an account yet?{" "}
                   <a
                     href="/form/newmember"
                     className="font-medium text-blue-600 hover:underline dark:text-blue-500"
                   >
                     Sign up
-                  </a>
-                </p>
+                  </a> or {" "}
+                  <button className="underline" onClick={handleReset}>Reset</button>
+                </div>
               </form>
             </div>
           </div>
