@@ -141,12 +141,12 @@ const Loginmember = () => {
   
           // Atur waktu sesuai jenis soal
           const maxTimeMapping = {
-            snbt: 2700, // 45 menit
+            snbt: 2250, // 37,5 menit
             kuantitatif: 1200, // 20 menit
             matematika: 2250, // 37,5 menit
             english: 1800, // 30 menit
             bacaan: 1500, // 25 menit
-            penalaran: 7200, // 30 menit
+            penalaran: 1800, // 30 menit
             pengetahuan: 900, // 15 menit
           };
   

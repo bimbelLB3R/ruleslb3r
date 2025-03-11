@@ -38,17 +38,6 @@ const ContactForm = () => {
       window.removeEventListener("popstate", handleBack);
     };
   }, []);
-  // useEffect(() => {
-  //   const handleBack = () => {
-  //     router.replace("/"); // Ganti dengan halaman yang diinginkan
-  //   };
-
-  //   window.addEventListener("popstate", handleBack);
-
-  //   return () => {
-  //     window.removeEventListener("popstate", handleBack);
-  //   };
-  // }, []);
   // mencegah back end
   
   // console.log(blmdjwb)
@@ -122,7 +111,7 @@ const ContactForm = () => {
         setForm({ ...form, nisn: storedNisn });
       }
       const savedValue = localStorage.getItem(`group${item.id}`); //group0 untuk nomor 1
-      // menghidupak pemanggilan local khusus group0_1 dkk
+      // menghidupak pemanggilan local khusus group0_1 dkk untuk aktifkan radio dan cekbox saat refresh
       const statements=["1","2","3","4","5"].filter((index)=>item[`pernyataan_${index}`]);
       statements.map((statement, index) =>{
         const savedValueP=localStorage.getItem(`group${item.id}_${index}`);
@@ -523,7 +512,7 @@ const ContactForm = () => {
             } else {
               // Untuk data lain, simpan langsung
               acc[name] = savedValue;
-              acc[name] = Array.isArray(savedValue) ? savedValue.join("") : savedValue;
+              acc[name] = Array.isArray(savedValue) ? savedValue.join("") : savedValue;//soal cekbox
             }
         
             return acc;
@@ -1015,8 +1004,8 @@ const ContactForm = () => {
                                         <input
                                           type="radio"
                                           name={`group${item.id}_${index}`}
-                                          value="B"
-                                          checked={selectedValues[`group${item.id}_${index}`] === "B"}
+                                          value={`${statement}B`}
+                                          checked={selectedValues[`group${item.id}_${index}`] === `${statement}B`}
                                           onChange={(e) => handleChange(e)}
                                         />
                                       </td>
@@ -1024,8 +1013,8 @@ const ContactForm = () => {
                                         <input
                                           type="radio"
                                           name={`group${item.id}_${index}`}
-                                          value="S"
-                                          checked={selectedValues[`group${item.id}_${index}`] === "S"}
+                                          value={`${statement}S`}
+                                          checked={selectedValues[`group${item.id}_${index}`] === `${statement}S`}
                                           onChange={(e) => handleChange(e)}
                                         />
                                       </td>
