@@ -982,7 +982,11 @@ const ContactForm = () => {
                                           </p>
                                         </div>
                                         <p className="text-left text-base">
+                                          {item.inner_html==="yes"?
+                                          <div dangerouslySetInnerHTML={{ __html: item[`pilihan_${option.toLowerCase()}`] }}/>
+                                          :
                                           <Latex>{item[`pilihan_${option.toLowerCase()}`]}</Latex>
+                                          }
                                         </p>
                                       </div>
                                     </Radio>
