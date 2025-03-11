@@ -194,6 +194,7 @@ const Loginmember = () => {
   };
   const handleReset=()=>{
     localStorage.clear();
+    window.location.reload(); // Refresh halaman jika perlu
   }
   
   return (

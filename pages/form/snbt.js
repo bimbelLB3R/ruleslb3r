@@ -435,7 +435,9 @@ const ContactForm = () => {
   
       for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
-        if (key.startsWith("group")) {
+        const value = localStorage.getItem(key); // Ambil nilai dari key
+        // Cek apakah key dimulai dengan "group" DAN memiliki value yang tidak kosong/null
+        if (key.startsWith("group")&&value) {
           const groupId = key.split("_")[0]; // Ambil bagian "groupX" saja
           uniqueGroups.add(groupId);
         }
