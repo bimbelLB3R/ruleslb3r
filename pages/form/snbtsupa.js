@@ -239,34 +239,61 @@ const ContactForm = () => {
   // console.log(tipeSoal)
 
 //   kirim jawaban ke supa
-    const kirimJawaban=async(data)=>{
-        if (!data) return;
-        const link=localStorage.getItem("link");
-        const lembarJawab = {
-            snbt: "jwb_snbt", // 37,5 menit
-            kuantitatif: "jwb_kuantitatif", // 20 menit
-            matematika: "jwb_matematika", // 37,5 menit
-            english: "jwb_english", // 30 menit
-            bacaan: "jwb_bacaan", // 25 menit
-            penalaran: "jwb_penalaran", // 30 menit
-            pengetahuan: "jwb_pengetahuan", // 15 menit
-          };
+const kirimJawaban = async (data) => {
+    if (!data || !data.nisn) return; // Pastikan data dan nisn tersedia
 
-          if (link in lembarJawab) {
-            try {
-              const { error } = await supabase.from(lembarJawab[link]).insert([data]);
-              if (error) {
-                throw error;
-              }
-              console.log("Data berhasil dikirim ke tabel:", lembarJawab[link]);
-            } catch (error) {
-              console.error("Error inserting data:", error);
+    const link = localStorage.getItem("link");
+    const lembarJawab = {
+        snbt: "jwb_snbt",
+        kuantitatif: "jwb_kuantitatif",
+        matematika: "jwb_matematika",
+        english: "jwb_english",
+        bacaan: "jwb_bacaan",
+        penalaran: "jwb_penalaran",
+        pengetahuan: "jwb_pengetahuan",
+    };
+
+    if (link in lembarJawab) {
+        const tableName = lembarJawab[link];
+
+        try {
+            // 1. Cek apakah siswa sudah mengerjakan berdasarkan NISN
+            const { data: existingData, error: fetchError } = await supabase
+                .from(tableName)
+                .select("nisn")
+                .eq("nisn", data.nisn)
+                .single();
+
+            if (fetchError && fetchError.code !== "PGRST116") {
+                throw fetchError;
             }
-          } else {
-            console.log("link undetect");
-          }
-        
+
+            if (existingData) {
+                // 2. Jika NISN sudah ada, lakukan update
+                const { error: updateError } = await supabase
+                    .from(tableName)
+                    .update(data)
+                    .eq("nisn", data.nisn);
+
+                if (updateError) throw updateError;
+                console.log("Jawaban diperbarui untuk NISN:", data.nisn);
+            } else {
+                // 3. Jika NISN belum ada, lakukan insert
+                const { error: insertError } = await supabase
+                    .from(tableName)
+                    .insert([data]);
+
+                if (insertError) throw insertError;
+                console.log("Jawaban dikirim baru untuk NISN:", data.nisn);
+            }
+        } catch (error) {
+            console.error("Error mengirim jawaban:", error);
+        }
+    } else {
+        console.log("link undetect");
     }
+};
+
     //   kirim jawaban ke supa end
 
   const handleSubmit = (e) => {
