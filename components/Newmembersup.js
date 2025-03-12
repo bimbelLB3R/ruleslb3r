@@ -36,8 +36,18 @@ async function createPeserta(data) {
     if (error) {
       console.error('Error inserting data:', error.message);
       return null;
+    }else{
+        e.target.reset();
+        Swal.fire({
+          title: "Kamu Berhasil Terdaftar",
+          text: "Terima kasih telah bergabung program SNBT LB3R",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+        router.push("/");
+      
     }
-    return result;
+    
   }
 
 export default function Newmembersup() {
@@ -109,18 +119,8 @@ export default function Newmembersup() {
           foto: session.user.image,
           // subscription: subscription,
         }
-        const insertedData = await createPeserta(newRowSupa);
-        if (insertedData) {
-            e.target.reset();
-    
-            Swal.fire({
-              title: "Kamu Berhasil Terdaftar",
-              text: "Terima kasih telah bergabung program SNBT LB3R",
-              icon: "success",
-              confirmButtonText: "Ok",
-            });
-            router.push("/");
-          }
+        await createPeserta(newRowSupa);
+        
         } else {
           Swal.fire({
             title: `Cek lagi datamu ya...`,
