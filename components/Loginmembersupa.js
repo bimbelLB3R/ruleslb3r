@@ -114,7 +114,7 @@ const Loginmembersupa = () => {
           }
   
           router.push({
-            pathname: `/form/snbt`,
+            pathname: `/form/snbtsupa`,
             query: { link },
           });
         } else {

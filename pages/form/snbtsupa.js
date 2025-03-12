@@ -216,7 +216,7 @@ const ContactForm = () => {
         // localStorage.clear();  
         clearLocalStorageExcept(["link","linkSudah","linkBelum","nisn","name","dataSoal"]);
         // renameAndAppendLocalStorageKey("link", "linkSudah");
-        router.push('/form/transisisoal')
+        router.push('/form/transisisoalsupa')
       } else {
         // setTimeLeft(timeLeft.subtract(1, "second"));
         setTimeLeft((prevTimeLeft) => prevTimeLeft.subtract(1, "second"));
@@ -357,7 +357,7 @@ const ContactForm = () => {
           console.log("Menuju soal berikutnya");
         }
       });
-      router.push("/form/transisisoal");
+      router.push("/form/transisisoalsupa");
     }
   
   
