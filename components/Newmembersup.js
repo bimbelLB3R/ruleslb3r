@@ -28,7 +28,7 @@ async function cekPeserta(nisn) {
     return !!data;
   }
 
-async function createPeserta(data) {
+async function createPeserta(data,e) {
     const { data: result, error } = await supabase
       .from('peserta_snbt')
       .insert([data]);
@@ -119,7 +119,7 @@ export default function Newmembersup() {
           foto: session.user.image,
           // subscription: subscription,
         }
-        await createPeserta(newRowSupa);
+        await createPeserta(newRowSupa,e);
         
         } else {
           Swal.fire({
