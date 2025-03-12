@@ -15,45 +15,57 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 async function cekPeserta(nisn) {
+  try {
     const { data, error } = await supabase
-      .from('peserta_snbt')
-      .select('nisn')
-      .eq('nisn', nisn)
+      .from("peserta_snbt")
+      .select("nisn")
+      .eq("nisn", nisn)
       .maybeSingle();
-  
-    if (error) {
-      console.error('Error fetching data:', error.message);
-      return false;
-    }
-    return !!data;
-  }
 
-async function createPeserta(data,e) {
-  const router = useRouter();
-    const { data: result, error } = await supabase
-      .from('peserta_snbt')
-      .insert([data]);
-  
-    if (error) {
-      console.error('Error inserting data:', error.message);
-      return null;
-    }else{
-        e.target.reset();
-        Swal.fire({
-          title: "Kamu Berhasil Terdaftar",
-          text: "Terima kasih telah bergabung program SNBT LB3R",
-          icon: "success",
-          confirmButtonText: "Ok",
-        });
-        router.push("/");
-      
-    }
+    if (error) throw new Error(error.message);
     
+    return !!data;
+  } catch (error) {
+    console.error("Error fetching data:", error.message);
+    return false;
   }
+}
+
+
 
 export default function Newmembersup() {
   const [isChecked, setIsChecked] = useState(false);
   const [subscription, setSubscription] = useState({});
+  const router = useRouter();
+  
+  const createPeserta = async (data, e) => {
+    if (!data) return;
+  
+    try {
+      const { error } = await supabase.from("peserta_snbt").insert([data]);
+  
+      if (error) throw new Error(error.message);
+  
+      e.target.reset();
+      Swal.fire({
+        title: "Kamu Berhasil Terdaftar",
+        text: "Terima kasih telah bergabung program SNBT LB3R",
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
+  
+      router.push("/");
+    } catch (error) {
+      console.error("Error inserting data:", error);
+      Swal.fire({
+        title: "Gagal Mendaftar",
+        text: "Terjadi kesalahan saat menyimpan data.",
+        icon: "error",
+        confirmButtonText: "Coba Lagi",
+      });
+    }
+  };
+
   useEffect(() => {
     const dataSubscription = localStorage.getItem("subscription");
     setSubscription(dataSubscription ? JSON.parse(dataSubscription) : {});
@@ -72,7 +84,6 @@ export default function Newmembersup() {
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [showButton, setShowButton] = useState(false);
-  const router = useRouter();
   const [form, setForm] = useState({
     nama: "",
     nisn: "",
