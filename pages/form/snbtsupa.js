@@ -195,7 +195,7 @@ const ContactForm = () => {
         Swal.fire({
           title: "Waktu habis!",
           html: "Menuju soal berikutnya dalam <b></b> milliseconds.",
-          timer: 5000,
+          timer: 2000,
           timerProgressBar: true,
           didOpen: () => {
             Swal.showLoading();
@@ -345,7 +345,7 @@ const ContactForm = () => {
       Swal.fire({
         title: "tunggu ya ..!",
         html: "Menuju soal berikutnya dalam <b></b> milliseconds.",
-        timer: 5000,
+        timer: 2000,
         timerProgressBar: true,
         didOpen: () => {
           Swal.showLoading();
