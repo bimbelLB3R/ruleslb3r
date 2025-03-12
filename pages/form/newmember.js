@@ -1,5 +1,6 @@
 import Newmember from '../../components/Newmember';
 import Head from 'next/head';
+import RedirectPage from '../../components/RedirectPage';
 
 const newmember = () => {
   return (
@@ -18,7 +19,8 @@ const newmember = () => {
           href="image/logolb3r.png"
         />
       </Head>
-      <Newmember />
+      {/* <Newmember /> */}
+      <RedirectPage to="/form/newmembersup"/>
     </div>
   );
 };

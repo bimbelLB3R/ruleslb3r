@@ -1,5 +1,6 @@
 import Loginmember from "../../components/Loginmember";
 import Head from "next/head";
+import RedirectPage from "../../components/RedirectPage";
 const login = () => {
   return (
     <div>
@@ -17,7 +18,8 @@ const login = () => {
           href="image/logolb3r.png"
         />
       </Head>
-      <Loginmember />
+      {/* <Loginmember /> */}
+      <RedirectPage to="/form/loginsupa"/>
     </div>
   );
 };
