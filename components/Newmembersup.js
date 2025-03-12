@@ -29,6 +29,7 @@ async function cekPeserta(nisn) {
   }
 
 async function createPeserta(data,e) {
+  const router = useRouter();
     const { data: result, error } = await supabase
       .from('peserta_snbt')
       .insert([data]);
