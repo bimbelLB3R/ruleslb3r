@@ -8,20 +8,44 @@ import Link from "next/link";
 import { signIn, useSession, signOut } from "next-auth/react";
 import "animate.css";
 import PushNotif from "./PushNotif";
+import { createClient } from '@supabase/supabase-js';
 
-// Config variables
-const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
-const SHEET_ID = process.env.NEXT_PUBLIC_SHEET_ID2;
-const GOOGLE_CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
-const GOOGLE_SERVICE_PRIVATE_KEY =
-  process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+async function cekPeserta(nisn) {
+    const { data, error } = await supabase
+      .from('peserta_snbt')
+      .select('nisn')
+      .eq('nisn', nisn)
+      .maybeSingle();
+  
+    if (error) {
+      console.error('Error fetching data:', error.message);
+      return false;
+    }
+    return !!data;
+  }
+
+async function createPeserta(data) {
+    const { data: result, error } = await supabase
+      .from('peserta_snbt')
+      .insert([data]);
+  
+    if (error) {
+      console.error('Error inserting data:', error.message);
+      return null;
+    }
+    return result;
+  }
 
 export default function Newmember() {
   const [isChecked, setIsChecked] = useState(false);
   const [subscription, setSubscription] = useState({});
   useEffect(() => {
     const dataSubscription = localStorage.getItem("subscription");
-    setSubscription(dataSubscription);
+    setSubscription(dataSubscription ? JSON.parse(dataSubscription) : {});
   }, []);
   // console.log(subscription);
   const [adaEmail, setAdaEmail] = useState(false);
@@ -49,58 +73,6 @@ export default function Newmember() {
     kampus2: "",
     cekaja: "",
   });
-
-  
-  // console.log(isChecked);
-  const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
-
-  const appendSpreadsheet = async (row) => {
-    try {
-      await doc.useServiceAccountAuth({
-        client_email: GOOGLE_CLIENT_EMAIL,
-        // private_key: GOOGLE_SERVICE_PRIVATE_KEY,
-        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
-      });
-      // loads document properties and worksheets
-      await doc.loadInfo();
-
-      const sheet = doc.sheetsById[SHEET_ID];
-      await sheet.addRow(row);
-    } catch (e) {
-      console.error("Error: ", e);
-    }
-  };
-
-  // cek apakah NISN sudah ada
-  const checkNisn = async (nisn, email) => {
-    await doc.useServiceAccountAuth({
-      client_email: GOOGLE_CLIENT_EMAIL,
-      private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
-    });
-    await doc.loadInfo(); // tambahkan baris ini untuk memastikan sheet telah terdefinisi
-    const sheet = doc.sheetsById[SHEET_ID]; // tambahkan baris ini untuk mendefinisikan sheet
-    const rows = await sheet.getRows();
-
-    // console.log(rows);
-    const nisnExists = rows.find((row) => row.nisn === nisn); //penulisan row.name , name nya harus sama dengan di google sheet name
-    const emailExists = rows.find((row) => row.email === email);
-    // console.log(emailExists);
-    if (nisnExists) {
-      setAdaNisn(true);
-    } else if (emailExists) {
-      setAdaEmail(true);
-    }
-    if (!nisnExists && !emailExists) {
-      // Name does not exist, form can be submitted
-      return true;
-    } else {
-      // Name already exists, form cannot be submitted
-
-      return false;
-    }
-  };
-  // cek apakah nama sudah ada end
-
   const submitForm = async (e, sheet) => {
     setIsButtonDisabled(true);
     e.preventDefault();
@@ -121,13 +93,10 @@ export default function Newmember() {
       form.kampus2 !== "" &&
       form.kampus2.length < 31
     ) {
-      
-      // kirim ke spreadsheet
-      const canSubmit = await checkNisn(`1${form.nisn}`, session.user.email);
-
-      // if (canSubmit && subscription !== null) {
-      if (canSubmit) {
-        const newRow = {
+      // kirim ke supabase
+      const isPesertaExist=await cekPeserta(`1${form.nisn}`) ;
+      if (!isPesertaExist) {
+        const newRowSupa = {
           nama: session.user.name,
           nisn: `1${form.nisn}`,
           asalsekolah: form.asalsekolah,
@@ -139,31 +108,30 @@ export default function Newmember() {
           email: session.user.email,
           foto: session.user.image,
           // subscription: subscription,
-        };
-
-        // setIsLoading(true); // set status loading menjadi true
-        await appendSpreadsheet(newRow);
-        // setIsLoading(false); // set status loading menjadi false setelah proses selesai
-        e.target.reset();
-
-        Swal.fire({
-          title: "Kamu Berhasil Terdaftar",
-          text: "Terima kasih telah bergabung program SNBT LB3R",
-          icon: "success",
-          confirmButtonText: "Ok",
-        });
-        router.push("/");
-      } else {
-        Swal.fire({
-          title: `Cek lagi datamu ya...`,
-          text: "Data gagal dikirim",
-          icon: "warning",
-          confirmButtonText: "Koreksi Datamu",
-        });
-
-        setIsButtonDisabled(false);
-        setShowButton(true);
-      }
+        }
+        const insertedData = await createPeserta(newRowSupa);
+        if (insertedData) {
+            e.target.reset();
+    
+            Swal.fire({
+              title: "Kamu Berhasil Terdaftar",
+              text: "Terima kasih telah bergabung program SNBT LB3R",
+              icon: "success",
+              confirmButtonText: "Ok",
+            });
+            router.push("/");
+          }
+        } else {
+          Swal.fire({
+            title: `Cek lagi datamu ya...`,
+            text: "Data gagal dikirim, NISN sudah terdaftar",
+            icon: "warning",
+            confirmButtonText: "Koreksi Datamu",
+          });
+    
+          setIsButtonDisabled(false);
+          setShowButton(true);
+        }
     }
   };
 

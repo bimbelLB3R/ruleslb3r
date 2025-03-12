@@ -25,6 +25,8 @@ const ContactForm = () => {
   const [jumlahSoalSelesai,setJumlahSoalSelesai]=useState();
   const [jumlahSoal,setJumlahSoal]=useState();
 
+  
+
   // mencegah back
   useEffect(() => {
     const handleBack = () => {
