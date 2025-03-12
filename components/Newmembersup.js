@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { GoogleSpreadsheet } from "google-spreadsheet";
 import Swal from "sweetalert2";
 import Loader from "./Loader";
 import { useRouter } from "next/router";
@@ -7,7 +6,6 @@ import Head from "next/head";
 import Link from "next/link";
 import { signIn, useSession, signOut } from "next-auth/react";
 import "animate.css";
-import PushNotif from "./PushNotif";
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -32,10 +30,9 @@ async function cekPeserta(nisn) {
 }
 
 
-
 export default function Newmembersup() {
   const [isChecked, setIsChecked] = useState(false);
-  const [subscription, setSubscription] = useState({});
+  // const [subscription, setSubscription] = useState({});
   const router = useRouter();
   
   const createPeserta = async (data, e) => {
@@ -66,17 +63,10 @@ export default function Newmembersup() {
     }
   };
 
-  useEffect(() => {
-    const dataSubscription = localStorage.getItem("subscription");
-    setSubscription(dataSubscription ? JSON.parse(dataSubscription) : {});
-  }, []);
   // console.log(subscription);
   const [adaEmail, setAdaEmail] = useState(false);
   const [adaNisn, setAdaNisn] = useState(false);
-  // console.log(adaEmail);
-  // console.log(adaNisn);
   const { data: session } = useSession();
-
   const [isDisable, setIsDisable] = useState(
     typeof session === "undefined" || session ? false : true
   );
@@ -170,7 +160,7 @@ export default function Newmembersup() {
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
-    setSubscription(localStorage.getItem("subscription"));
+    // setSubscription(localStorage.getItem("subscription"));
   };
   const handleSignIn = async () => {
     try {

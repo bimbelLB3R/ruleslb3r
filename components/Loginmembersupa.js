@@ -1,5 +1,4 @@
 import React, { useEffect, useState} from "react";
-import { GoogleSpreadsheet } from "google-spreadsheet";
 import Swal from "sweetalert2";
 import Loader from "./Loader";
 import { useRouter } from "next/router";
@@ -13,20 +12,16 @@ import Image from "next/image";
 // from timer
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
-import CountdownTimer from "./CountDownTimer";
+import { createClient } from "@supabase/supabase-js";
+
 
 dayjs.extend(duration);
 // from timer end
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-// Config variables
-const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
-const SHEET_ID2 = process.env.NEXT_PUBLIC_SHEET_ID2;
-const SHEET_ID3 = process.env.NEXT_PUBLIC_SHEET_ID3;
-const GOOGLE_CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
-const GOOGLE_SERVICE_PRIVATE_KEY =
-  process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
-
-const Loginmember = () => {
+const Loginmembersupa = () => {
   const [erorKoneksi,setErorKoneksi]=useState(false);
   const { data: session } = useSession();
   // console.log(session);
@@ -57,64 +52,32 @@ const Loginmember = () => {
         }else{
           console.log('Silahkan mulai soal');
         }
-  }, []);
-
-
-  const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
-
-  const appendSpreadsheet = async (row) => {
-    try {
-      await doc.useServiceAccountAuth({
-        client_email: GOOGLE_CLIENT_EMAIL,
-        // private_key: GOOGLE_SERVICE_PRIVATE_KEY,
-        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
-      });
-      // loads document properties and worksheets
-      await doc.loadInfo();
-
-      const sheet3 = doc.sheetsById[SHEET_ID3];
-      await sheet3.addRow(row);
-    } catch (e) {
-      console.error("Error: ", e);
-    }
-  };
-
+  }, [router]);
   // cek apakah NISN sudah ada+penanganan eror koneksi buruk
-  const checkNisn = async (nisn) => {
+  const cekPeserta=async(nisn)=>{
     try {
-      await doc.useServiceAccountAuth({
-        client_email: GOOGLE_CLIENT_EMAIL,
-        private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n"),
-      });
-  
-      await doc.loadInfo(); // Pastikan sheet telah terdefinisi
-      const sheet2 = doc.sheetsById[SHEET_ID2];
-      const rows = await sheet2.getRows();
-  
-      if (!rows || rows.length === 0) {
-        throw new Error("Data tidak dapat diambil. Periksa koneksi internet Anda.");
-        setErorKoneksi(true);
+        const { data, error } = await supabase
+          .from("peserta_snbt")
+          .select("nisn")
+          .eq("nisn", nisn)
+          .maybeSingle();
+    
+        if (error) throw new Error(error.message);
+        
+        return !!data;
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+        return false;
       }
-  
-      const nisnExists = rows.find((row) => row.nisn === `1${nisn}`);
-  
-      return !!nisnExists; // Return true jika ditemukan, false jika tidak
-    } catch (error) {
-      console.error("Terjadi kesalahan:", error.message);
-      return null; // Return null jika terjadi kesalahan (misalnya koneksi buruk)
-    }
-  };
-  
-  // cek apakah nama sudah ada end
-
+  }
   // penanganan submit dan handle eror ketika koneksi buruk atau blm terdaftar
-  const submitForm = async (e, sheet3) => {
+  const submitForm = async (e) => {
     setIsButtonDisabled(true);
     e.preventDefault();
   
     try {
       if (form.nisn !== "" && form.nama !== "") {
-        const canSubmit = await checkNisn(form.nisn, sheet3);
+        const canSubmit = await cekPeserta(form.nisn);
   
         if (canSubmit === null) {
           // Jika checkNisn gagal karena error (misalnya jaringan), tampilkan pesan error
@@ -128,13 +91,7 @@ const Loginmember = () => {
         }
   
         if (canSubmit) {
-          const newRow = {
-            nisn: `1${form.nisn}`,
-            nama: form.nama,
-          };
-  
-          const link = localStorage.getItem("link");
-  
+          const link = localStorage.getItem("link");  
           localStorage.setItem("name", form.nama);
           localStorage.setItem("nisn", `1${form.nisn}`);
           localStorage.setItem("dataSoal", JSON.stringify(["snbt", "matematika", "english", "kuantitatif", "bacaan", "penalaran", "pengetahuan"]));
@@ -167,7 +124,7 @@ const Loginmember = () => {
             icon: "warning",
             confirmButtonText: "Daftar",
           });
-          router.push("/form/newmember");
+          router.push("/form/newmembersupa");
         }
       }
     } catch (error) {
@@ -253,7 +210,7 @@ const Loginmember = () => {
               <form
                 className="space-y-4 md:space-y-6"
                 action="#"
-                onSubmit={submitForm}
+                onSubmit={(e) => submitForm(e)}
               >
                 <div>
                   <label
@@ -343,13 +300,7 @@ const Loginmember = () => {
                   >
                     Sign up
                   </a> or {" "}
-                  <button className="underline" onClick={handleReset}>Reset</button> or {" "}
-                  <a
-                    href="/form/loginsupa"
-                    className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-                  >
-                    Login Via Supa
-                  </a>
+                  <button className="underline" onClick={handleReset}>Reset</button>
                 </div>
               </form>
             </div>
@@ -360,5 +311,5 @@ const Loginmember = () => {
   );
 };
 
-export default Loginmember;
+export default Loginmembersupa;
 
