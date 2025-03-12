@@ -488,6 +488,13 @@ export default function Newmember() {
                   >
                     Login here
                   </Link>
+                  or {" "}
+                  <Link
+                    href="/form/newmembersup"
+                    className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+                  >
+                    Sign Up via Supa
+                  </Link>
                 </p>
               </form>
             </div>

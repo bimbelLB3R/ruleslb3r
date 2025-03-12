@@ -40,7 +40,7 @@ async function createPeserta(data) {
     return result;
   }
 
-export default function Newmember() {
+export default function Newmembersup() {
   const [isChecked, setIsChecked] = useState(false);
   const [subscription, setSubscription] = useState({});
   useEffect(() => {
