@@ -46,7 +46,7 @@ const Loginmembersupa = () => {
         // console.log(remainingTime);
         if(remainingTime>0){
           router.push({
-            pathname: `/form/snbt`,
+            pathname: `/form/snbtsupa`,
             query: { link },
           });
         }else{
