@@ -35,6 +35,8 @@ const ContactForm = () => {
   const [form, setForm] = useState({
     nisn: "",
   });
+  const [jumlahSoalSelesai,setJumlahSoalSelesai]=useState();
+  const [storedName, setStorageName] = useState("Student");
   // mencegah back
   useEffect(() => {
     const handleBack = () => {
@@ -249,16 +251,20 @@ const ContactForm = () => {
             penalaran: "jwb_penalaran", // 30 menit
             pengetahuan: "jwb_pengetahuan", // 15 menit
           };
+
           if (link in lembarJawab) {
             try {
-                const { error } = await supabase.from(link).insert([data]);
-                if (error) throw new Error(error.message);
+              const { error } = await supabase.from(lembarJawab[link]).insert([data]);
+              if (error) {
+                throw error;
+              }
+              console.log("Data berhasil dikirim ke tabel:", lembarJawab[link]);
             } catch (error) {
-                console.error("Error inserting data:", error);
+              console.error("Error inserting data:", error);
             }
           } else {
             console.log("link undetect");
-          } 
+          }
         
     }
     //   kirim jawaban ke supa end
