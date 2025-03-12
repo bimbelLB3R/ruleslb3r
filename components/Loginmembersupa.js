@@ -59,7 +59,7 @@ const Loginmembersupa = () => {
         const { data, error } = await supabase
           .from("peserta_snbt")
           .select("nisn")
-          .eq("nisn", nisn)
+          .eq("nisn", `1${nisn}`)
           .maybeSingle();
     
         if (error) throw new Error(error.message);
@@ -124,7 +124,7 @@ const Loginmembersupa = () => {
             icon: "warning",
             confirmButtonText: "Daftar",
           });
-          router.push("/form/newmembersupa");
+          router.push("/form/newmembersup");
         }
       }
     } catch (error) {
