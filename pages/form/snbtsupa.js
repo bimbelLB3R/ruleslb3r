@@ -74,59 +74,53 @@ const ContactForm = () => {
     });
   };
   // ambil data soal dari supabase
-  useEffect(() => {    
+  useEffect(() => {
+    let isMounted = true; // Gunakan flag untuk menghindari pemanggilan ulang jika komponen unmount
+
     async function fetchQuestions() {
-        const katSoal=localStorage.getItem("link");
+        const katSoal = localStorage.getItem("link");
         const { data, error } = await supabase
             .from(katSoal)
             .select("*");
+
         if (error) {
             console.error("Error fetching questions:", error);
-        } else {
-          const jmlSoal=data.length;
-          setJumlahSoal(jmlSoal);
-          setQuestions(data);
-          localStorage.setItem("jumlahSoal",jmlSoal);
-          const storedName = localStorage.getItem("name");
-    if (!storedName) {
-      router.push("/form/login");
-    } else {
-      setStorageName(storedName);
-    }
-    data.forEach((item) => {
-      // console.log(item.id)
-      // cek apakah sudah ada nisn dan nama di local storage
-      const storedNisn = localStorage.getItem("nisn");
-      // console.log(index[0]);
-      if (storedNisn) {
-        setForm({ ...form, nisn: storedNisn });
-      }
-      const savedValue = localStorage.getItem(`group${item.id}`); //group0 untuk nomor 1
-      // menghidupak pemanggilan local khusus group0_1 dkk untuk aktifkan radio dan cekbox saat refresh
-      const statements=["1","2","3","4","5"].filter((index)=>item[`pernyataan_${index}`]);
-      statements.map((statement, index) =>{
-        const savedValueP=localStorage.getItem(`group${item.id}_${index}`);
-        if (savedValueP) {
-          setSelectedValues((selectedValues) => ({
-            ...selectedValues,
-            [`group${item.id}_${index}`]: savedValueP,
-          }));
-        }
-      })
-      if (savedValue) {
-        setSelectedValues((selectedValues) => ({
-          ...selectedValues,
-          [`group${item.id}`]: savedValue,
-        }));
-      }
-      // berisi jawaban tersimpan
-      // console.log(paginatedPosts);
-    });
+        } else if (isMounted) {
+            const jmlSoal = data.length;
+            setJumlahSoal(jmlSoal);
+            setQuestions(data);
+            localStorage.setItem("jumlahSoal", jmlSoal);
+
+            const storedName = localStorage.getItem("name");
+            if (!storedName) {
+                router.push("/form/loginsupa");
+            } else {
+                setStorageName(storedName);
+            }
+
+            data.forEach((item) => {
+                const storedNisn = localStorage.getItem("nisn");
+                if (storedNisn) {
+                    setForm((prevForm) => ({ ...prevForm, nisn: storedNisn }));
+                }
+
+                const savedValue = localStorage.getItem(`group${item.id}`);
+                if (savedValue) {
+                    setSelectedValues((prevValues) => ({
+                        ...prevValues,
+                        [`group${item.id}`]: savedValue,
+                    }));
+                }
+            });
         }
     }
 
     fetchQuestions();
-}, []);
+
+    return () => {
+        isMounted = false; // Cleanup untuk mencegah setState pada komponen yang sudah unmount
+    };
+}, []); // Gunakan array dependency agar tidak dipanggil terus-menerus
 
 // console.log(questions);
   // from timer
