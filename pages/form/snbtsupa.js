@@ -8,14 +8,14 @@ import Latex from "react-latex";
 // from timer
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
-// import { supabase } from "../../libs/supabase";
+import { supabase } from "../../libs/supabase";
 import Paginationsnbt from "../../components/PaginasiSoalSnbt";
-import { createClient } from '@supabase/supabase-js';
+// import { createClient } from '@supabase/supabase-js';
 import QuestionNavigation from "../../components/QuestionsNavigation";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+// const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+// const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 dayjs.extend(duration);
 // from timer end
