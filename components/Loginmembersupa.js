@@ -12,14 +12,15 @@ import Image from "next/image";
 // from timer
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
-import { createClient } from "@supabase/supabase-js";
+// import { createClient } from "@supabase/supabase-js";
+import { supabase } from "../libs/supabase";
 
 
 dayjs.extend(duration);
 // from timer end
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+// const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+// const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const Loginmembersupa = () => {
   const [erorKoneksi,setErorKoneksi]=useState(false);
