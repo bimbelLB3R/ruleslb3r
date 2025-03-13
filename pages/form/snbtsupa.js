@@ -264,7 +264,7 @@ const kirimJawaban = async (data) => {
                 .from(tableName)
                 .select("nisn")
                 .eq("nisn", data.nisn)
-                .maybesingle();
+                .single();
 
             if (fetchError && fetchError.code !== "PGRST116") {
                 throw fetchError;
