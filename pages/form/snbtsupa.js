@@ -11,6 +11,7 @@ import duration from "dayjs/plugin/duration";
 // import { supabase } from "../../libs/supabase";
 import Paginationsnbt from "../../components/PaginasiSoalSnbt";
 import { createClient } from '@supabase/supabase-js';
+import QuestionNavigation from "../../components/QuestionsNavigation";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -37,6 +38,7 @@ const ContactForm = () => {
   });
   const [jumlahSoalSelesai,setJumlahSoalSelesai]=useState();
   const [storedName, setStorageName] = useState("Student");
+  const [showNav, setShowNav] = useState(false);
   // mencegah back
   useEffect(() => {
     const handleBack = () => {
@@ -262,7 +264,7 @@ const kirimJawaban = async (data) => {
                 .from(tableName)
                 .select("nisn")
                 .eq("nisn", data.nisn)
-                .single();
+                .maybesingle();
 
             if (fetchError && fetchError.code !== "PGRST116") {
                 throw fetchError;
@@ -542,7 +544,7 @@ const kirimJawaban = async (data) => {
     </div>
       </div>
       {/* Selamat datang peserta */}
-      <div className="flex justify-center items-center fixed top-0 z-50 overflow-auto left-0  bg-gray-600 p-2 text-gray-100 text-[12px] md:text-sm">
+      <div className="flex justify-center items-center fixed top-0 z-50 overflow-auto left-0  bg-gray-600 p-2 text-gray-100 text-[12px] md:text-sm rounded-tr-full rounded-br-full">
         <p className="">{tipeSoal}</p>
       </div>
       <div className="flex justify-center items-center fixed top-0 z-40 overflow-auto left-0 right-0 bg-gray-900 text-gray-100 text-[12px] md:text-sm">
@@ -871,29 +873,29 @@ const kirimJawaban = async (data) => {
                   // tombol ragu2
                 )})}
                 <div className="flex justify-end">
-                  {isButtonDisabled ? (
-                    <p className="flex space-x-2 items-center justify-end fixed top-0 z-50 overflow-auto  text-gray-50 right-2">
-                      <Loader />
-                    </p>
-                  ) : (
-                    <button
-                      disabled={isButtonDisabled}
-                      type="submit"
-                      className="flex space-x-2 items-center justify-end fixed top-2 z-50 overflow-auto  text-green-300 right-2"
-                    >
-                      <p className="text-xs font-bold">Kirim</p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        fill="currentColor"
-                        className="bi bi-send"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
-                      </svg>
-                    </button>
-                  )}
+                          {isButtonDisabled ? (
+                          <p className="flex space-x-2 items-center justify-end fixed top-0 z-50 overflow-auto  text-gray-50 right-2">
+                            <Loader />
+                          </p>
+                        ) : (
+                          <button
+                            disabled={isButtonDisabled}
+                            type="submit"
+                            className="flex space-x-2 items-center justify-end fixed top-2 z-50 overflow-auto  text-green-300 right-2"
+                          >
+                            <p className="text-xs font-bold">Kirim</p>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="18"
+                              height="18"
+                              fill="currentColor"
+                              className="bi bi-send"
+                              viewBox="0 0 16 16"
+                            >
+                              <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
+                            </svg>
+                          </button>
+                        )}
                 </div>
               </div>
             </div>
@@ -945,6 +947,23 @@ const kirimJawaban = async (data) => {
               </button>
             )}
           </div>
+          <div className="fixed top-[0.4rem] z-50 right-[5rem] ">
+            <div>
+            <button className="text-white" onClick={() => setShowNav(true)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-grid-3x3-gap-fill" viewBox="0 0 16 16">
+                            <path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z"/>
+                      </svg>
+                  </button>
+            </div>
+               <div>
+                  {showNav && <QuestionNavigation 
+                  totalQuestions={jumlahSoal}
+                  totalPages={Math.ceil(questions.length / postsPerPage)}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                   onClose={() => setShowNav(false)} />}
+                </div>
+            </div>
         </main>
       )}
     </div>
@@ -953,15 +972,4 @@ const kirimJawaban = async (data) => {
 
 export default ContactForm;
 
-// ambil data soal
-// export async function getServerSideProps({ query }) {
-//   const link = query.link;
-//   const req = await fetch(`http://localhost:3000/api/soal${link}`);
-//   const res = await req.json();
 
-//   return {
-//     props: {
-//       sheetdata: res.data,
-//     },
-//   };
-// }

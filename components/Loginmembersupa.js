@@ -99,6 +99,7 @@ const Loginmembersupa = () => {
           // Atur waktu sesuai jenis soal
           const maxTimeMapping = {
             snbt: 2250, // 37,5 menit
+            // snbt: 3600, // 37,5 menit
             kuantitatif: 1200, // 20 menit
             matematika: 2250, // 37,5 menit
             english: 1800, // 30 menit
