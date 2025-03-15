@@ -116,6 +116,7 @@ export default function Newmembersup() {
                     icon: "error",
                     confirmButtonText: "Coba Lagi",
                   });
+                  setIsButtonDisabled(false);
                   return; // Jangan lanjutkan eksekusi
       }
       if (!isPesertaExist) {
