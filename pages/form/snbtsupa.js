@@ -182,7 +182,8 @@ const ContactForm = () => {
     if (!timeLeft) {
       return;
     }
-    const interval = setInterval(() => {
+  
+    const interval = setInterval(async () => {
       const newRow = {
         nisn: form.nisn,
         ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
@@ -190,11 +191,14 @@ const ContactForm = () => {
           return acc;
         }, {}),
       };
+  
       if (timeLeft.asSeconds() <= 0) {
         clearInterval(interval);
-        // alert("Time's up!");
+  
         let timerInterval;
-        Swal.fire({
+  
+        // Tampilkan Swal Fire dan tunggu sampai selesai sebelum kirim jawaban
+        await Swal.fire({
           title: "Waktu habis!",
           html: "Menuju soal berikutnya dalam <b></b> milliseconds.",
           timer: 2000,
@@ -209,26 +213,30 @@ const ContactForm = () => {
           willClose: () => {
             clearInterval(timerInterval);
           },
-        }).then((result) => {
-          /* Read more about handling dismissals below */
-          if (result.dismiss === Swal.DismissReason.timer) {
-            console.log("Menuju soal berikutnya");
-          }
         });
-        kirimJawaban(newRow);
+  
+        // Kirim jawaban dan tunggu hingga selesai sebelum pindah halaman
+        try {
+          await kirimJawaban(newRow);
+        } catch (error) {
+          console.error("Gagal mengirim jawaban:", error);
+        }
+  
         setIsRadioButtonDisabled(true);
-        // localStorage.clear();  
-        clearLocalStorageExcept(["link","linkSudah","linkBelum","nisn","name","dataSoal"]);
-        // renameAndAppendLocalStorageKey("link", "linkSudah");
-        router.push('/form/transisisoalsupa')
+  
+        // Bersihkan localStorage kecuali data penting
+        clearLocalStorageExcept(["link", "linkSudah", "linkBelum", "nisn", "name", "dataSoal"]);
+  
+        // Pindah ke halaman berikutnya setelah semuanya selesai
+        router.push("/form/transisisoalsupa");
       } else {
-        // setTimeLeft(timeLeft.subtract(1, "second"));
         setTimeLeft((prevTimeLeft) => prevTimeLeft.subtract(1, "second"));
       }
     }, 1000);
-
+  
     return () => clearInterval(interval);
   }, [timeLeft, setIsRadioButtonDisabled]);
+  
   // from timer end
 
   const onLoad = () => {

@@ -18,7 +18,7 @@ async function cekPeserta(nisn) {
     const { data, error } = await supabase
       .from("peserta_snbt")
       .select("nisn")
-      .eq("nisn", nisn)
+      .eq("nisn", `1${nisn}`)
       .maybeSingle();
 
     if (error) throw new Error(error.message);
@@ -106,7 +106,7 @@ export default function Newmembersup() {
       form.kampus2.length < 31
     ) {
       // kirim ke supabase
-      const isPesertaExist=await cekPeserta(`1${form.nisn}`) ;
+      const isPesertaExist=await cekPeserta(form.nisn) ;
       if(isPesertaExist===null){
         // Jika checkNisn gagal karena error (misalnya jaringan), tampilkan pesan error
                   Swal.fire({
