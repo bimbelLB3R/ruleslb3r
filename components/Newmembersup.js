@@ -6,11 +6,12 @@ import Head from "next/head";
 import Link from "next/link";
 import { signIn, useSession, signOut } from "next-auth/react";
 import "animate.css";
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from "../libs/supabase";
+// import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+// const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+// const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 async function cekPeserta(nisn) {
   try {
@@ -85,7 +86,7 @@ export default function Newmembersup() {
     kampus2: "",
     cekaja: "",
   });
-  const submitForm = async (e, sheet) => {
+  const submitForm = async (e) => {
     setIsButtonDisabled(true);
     e.preventDefault();
 
@@ -215,7 +216,7 @@ export default function Newmembersup() {
               <form
                 className="space-y-4 md:space-y-6"
                 action="#"
-                onSubmit={submitForm}
+                onSubmit={(e) => submitForm(e)}
               >
                 <div className="relative">
                   <label
