@@ -195,40 +195,59 @@ const ContactForm = () => {
       if (timeLeft.asSeconds() <= 0) {
         clearInterval(interval);
   
-        let timerInterval;
-  
-        // Tampilkan Swal Fire dan tunggu sampai selesai sebelum kirim jawaban
-        await Swal.fire({
-          title: "Waktu habis!",
-          html: "Menuju soal berikutnya dalam <b></b> milliseconds.",
-          timer: 2000,
-          timerProgressBar: true,
-          didOpen: () => {
-            Swal.showLoading();
-            const timer = Swal.getPopup().querySelector("b");
-            timerInterval = setInterval(() => {
-              timer.textContent = `${Swal.getTimerLeft()}`;
-            }, 100);
-          },
-          willClose: () => {
-            clearInterval(timerInterval);
-          },
-        });
-  
-        // Kirim jawaban dan tunggu hingga selesai sebelum pindah halaman
         try {
+          // Kirim jawaban dulu
           await kirimJawaban(newRow);
+  
+          setIsRadioButtonDisabled(true);
+  
+          // Bersihkan localStorage kecuali data penting
+          clearLocalStorageExcept(["link", "linkSudah", "linkBelum", "nisn", "name", "dataSoal"]);
+  
+          let timerInterval;
+  
+          // Jika sukses, tampilkan Swal dan tunggu hingga selesai sebelum pindah halaman
+          await Swal.fire({
+            title: "Waktu habis!",
+            html: "Menuju soal berikutnya dalam <b></b> milliseconds.",
+            timer: 5000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+              const timer = Swal.getPopup().querySelector("b");
+              timerInterval = setInterval(() => {
+                timer.textContent = `${Swal.getTimerLeft()}`;
+              }, 100);
+            },
+            willClose: () => {
+              clearInterval(timerInterval);
+            },
+          });
+  
+          // Pindah ke halaman berikutnya setelah Swal selesai
+          router.push("/form/transisisoalsupa");
+  
         } catch (error) {
           console.error("Gagal mengirim jawaban:", error);
+  
+          // Jika gagal, tampilkan alert konfirmasi untuk kirim manual
+          Swal.fire({
+            title: "Gagal mengirim jawaban!",
+            text: "Apakah Anda ingin mencoba mengirim ulang secara manual?",
+            icon: "error",
+            showCancelButton: true,
+            confirmButtonText: "Kirim Ulang",
+            cancelButtonText: "Lewati",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Panggil fungsi kirim manual jika user setuju
+              kirimJawaban(newRow);
+            } else {
+              // Tetap lanjut ke soal berikutnya jika user memilih 'Lewati'
+              router.push("/form/transisisoalsupa");
+            }
+          });
         }
-  
-        setIsRadioButtonDisabled(true);
-  
-        // Bersihkan localStorage kecuali data penting
-        clearLocalStorageExcept(["link", "linkSudah", "linkBelum", "nisn", "name", "dataSoal"]);
-  
-        // Pindah ke halaman berikutnya setelah semuanya selesai
-        router.push("/form/transisisoalsupa");
       } else {
         setTimeLeft((prevTimeLeft) => prevTimeLeft.subtract(1, "second"));
       }
@@ -236,6 +255,7 @@ const ContactForm = () => {
   
     return () => clearInterval(interval);
   }, [timeLeft, setIsRadioButtonDisabled]);
+  
   
   // from timer end
 
