@@ -108,6 +108,16 @@ export default function Newmembersup() {
     ) {
       // kirim ke supabase
       const isPesertaExist=await cekPeserta(`1${form.nisn}`) ;
+      if(isPesertaExist===null){
+        // Jika checkNisn gagal karena error (misalnya jaringan), tampilkan pesan error
+                  Swal.fire({
+                    title: "Koneksi Bermasalah",
+                    text: "Gagal memeriksa NISN. Pastikan koneksi internet stabil dan coba lagi.",
+                    icon: "error",
+                    confirmButtonText: "Coba Lagi",
+                  });
+                  return; // Jangan lanjutkan eksekusi
+      }
       if (!isPesertaExist) {
         const newRowSupa = {
           nama: session.user.name,
