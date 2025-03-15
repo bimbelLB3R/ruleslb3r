@@ -93,17 +93,17 @@ export default function Newmembersup() {
       // form.nama !== "" &&
       form.nisn !== "" &&
       form.asalsekolah !== "" &&
-      form.asalsekolah.length < 31 &&
+      form.asalsekolah.length < 100 &&
       form.wa !== "" &&
       form.wa.length < 14 &&
       form.prodi1 !== "" &&
-      form.prodi1.length < 31 &&
+      form.prodi1.length < 100 &&
       form.kampus1 !== "" &&
-      form.kampus1.length < 31 &&
+      form.kampus1.length < 100 &&
       form.prodi2 !== "" &&
-      form.prodi2.length < 31 &&
+      form.prodi2.length < 100 &&
       form.kampus2 !== "" &&
-      form.kampus2.length < 31
+      form.kampus2.length < 100
     ) {
       // kirim ke supabase
       const isPesertaExist=await cekPeserta(form.nisn) ;
