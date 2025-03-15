@@ -30,40 +30,39 @@ async function cekPeserta(nisn) {
   }
 }
 
+const createPeserta = async (data, e) => {
+  if (!data) return;
+
+  try {
+    const { error } = await supabase.from("peserta_snbt").insert([data]);
+
+    if (error) throw new Error(error.message);
+
+    e.target.reset();
+    Swal.fire({
+      title: "Kamu Berhasil Terdaftar",
+      text: "Terima kasih telah bergabung program SNBT LB3R",
+      icon: "success",
+      confirmButtonText: "Ok",
+    });
+
+    // router.push("/");
+  } catch (error) {
+    console.error("Error inserting data:", error);
+    Swal.fire({
+      title: "Gagal Mendaftar",
+      text: "Terjadi kesalahan saat menyimpan data.",
+      icon: "error",
+      confirmButtonText: "Coba Lagi",
+    });
+  }
+};
+
 
 export default function Newmembersup() {
   const [isChecked, setIsChecked] = useState(false);
   // const [subscription, setSubscription] = useState({});
   const router = useRouter();
-  
-  const createPeserta = async (data, e) => {
-    if (!data) return;
-  
-    try {
-      const { error } = await supabase.from("peserta_snbt").insert([data]);
-  
-      if (error) throw new Error(error.message);
-  
-      e.target.reset();
-      Swal.fire({
-        title: "Kamu Berhasil Terdaftar",
-        text: "Terima kasih telah bergabung program SNBT LB3R",
-        icon: "success",
-        confirmButtonText: "Ok",
-      });
-  
-      router.push("/");
-    } catch (error) {
-      console.error("Error inserting data:", error);
-      Swal.fire({
-        title: "Gagal Mendaftar",
-        text: "Terjadi kesalahan saat menyimpan data.",
-        icon: "error",
-        confirmButtonText: "Coba Lagi",
-      });
-    }
-  };
-
   // console.log(subscription);
   const [adaEmail, setAdaEmail] = useState(false);
   const [adaNisn, setAdaNisn] = useState(false);
@@ -134,6 +133,7 @@ export default function Newmembersup() {
           // subscription: subscription,
         }
         await createPeserta(newRowSupa,e);
+        router.push("/");
         
         } else {
           Swal.fire({
