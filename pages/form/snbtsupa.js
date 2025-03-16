@@ -178,112 +178,32 @@ const ContactForm = () => {
     }
   }, []);
 
-  // kirim jawaban otomatis
-  useEffect(() => {
-    let swalInstance;
-
-    if (isLoading) {
-        swalInstance = Swal.fire({
-            title: "Mengirim Jawaban...",
-            text: "Harap tunggu sementara data sedang dikirim.",
-            allowOutsideClick: false,
-            didOpen: () => {
-                Swal.showLoading();
-            },
-        });
-    } else {
-        Swal.close(); // Tutup Swal saat isLoading menjadi false
-    }
-
-    return () => {
-        if (swalInstance) {
-            Swal.close();
-        }
-    };
-}, [isLoading]);
-
+//  menyederhanakan waktu habis
   useEffect(() => {
     if (!timeLeft) return;
 
-    const interval = setInterval(async () => {
-        
-
+    const interval = setInterval(() => {    
         if (timeLeft.asSeconds() <= 0) {
-          
-            clearInterval(interval);
-            setIsLoading(true); // ✅ Aktifkan loading sebelum mengirim jawaban
-
-            try {
-              const newRow = {
-                nisn: form.nisn,
-                ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
-                    if (name.startsWith("group") && name.includes("_")) {
-                        const groupId = name.split("_")[0];
-                        acc[groupId] = (acc[groupId] || "") + savedValue;
-                    } else {
-                        acc[name] = Array.isArray(savedValue) ? savedValue.join("") : savedValue;
-                    }
-                    return acc;
-                }, {}),
-            };
-                await kirimJawaban(newRow); // Kirim jawaban ke server
-                
-                setIsLoading(false); // ✅ Matikan loading setelah sukses
-                setIsRadioButtonDisabled(true);
-
-                let timerInterval;
-
-                await Swal.fire({
-                    title: "Waktu habis!",
-                    html: "Menuju soal berikutnya dalam <b></b> milliseconds.",
-                    timer: 5000,
-                    timerProgressBar: true,
-                    didOpen: () => {
-                        Swal.showLoading();
-                        const timer = Swal.getPopup().querySelector("b");
-                        timerInterval = setInterval(() => {
-                            timer.textContent = `${Swal.getTimerLeft()}`;
-                        }, 1000);
-                    },
-                    willClose: () => {
-                        clearInterval(timerInterval);
-                    },
-                });
-
-                clearLocalStorageExcept(["link", "linkSudah", "linkBelum", "nisn", "name", "dataSoal"]);
-                router.push("/form/transisisoalsupa");
-
-            } catch (error) {
-                console.error("Gagal mengirim jawaban:", error);
-                setIsLoading(false); // ✅ Matikan loading jika gagal
-
-                Swal.fire({
-                    title: "Gagal mengirim jawaban!",
-                    text: "Apakah Anda ingin mencoba mengirim ulang secara manual?",
-                    icon: "error",
-                    showCancelButton: true,
-                    confirmButtonText: "Kirim Ulang",
-                    cancelButtonText: "Lewati",
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        setIsLoading(true);
-                        kirimJawaban(newRow).finally(() => setIsLoading(false)); // ✅ Aktifkan & matikan loading saat pengiriman ulang
-                    } else {
-                        router.push("/form/transisisoalsupa");
-                    }
-                });
-            }
+            clearInterval(interval); // Hentikan interval agar Swal tidak muncul terus
+            setIsButtonDisabled(false);
+            Swal.fire({
+              title: "Waktu Habis ... !",
+              text: "Kirim Jawabanmu ya",
+              icon: "info",
+              confirmButtonText: "OK"
+          }).then(() => {
+              // ✅ Set button disabled setelah user klik OK
+              setIsRadioButtonDisabled(true)
+          });
+            
         } else {
             setTimeLeft((prevTimeLeft) => prevTimeLeft.subtract(1, "second"));
         }
     }, 1000);
 
-    return () => clearInterval(interval);
-}, [timeLeft, setIsRadioButtonDisabled]);
+    return () => clearInterval(interval); // Bersihkan interval saat komponen unmount
+}, [timeLeft]);
 
-  // kirim jawaban otomatis end
-  
-  
   // from timer end
 
   const onLoad = () => {
@@ -838,6 +758,7 @@ const kirimJawaban = async (data) => {
                                           value={`${statement}B`}
                                           checked={selectedValues[`group${item.id}_${index}`] === `${statement}B`}
                                           onChange={(e) => handleChange(e)}
+                                          disabled={isRadioButtonDisabled}
                                         />
                                       </td>
                                       <td className="border p-2 text-center">
@@ -847,6 +768,7 @@ const kirimJawaban = async (data) => {
                                           value={`${statement}S`}
                                           checked={selectedValues[`group${item.id}_${index}`] === `${statement}S`}
                                           onChange={(e) => handleChange(e)}
+                                          disabled={isRadioButtonDisabled}
                                         />
                                       </td>
                                     </tr>
@@ -858,6 +780,7 @@ const kirimJawaban = async (data) => {
                             // Jika tidak ada opsi dan bukan B/S, tampilkan input teks
                             <input
                               type="number"
+                              disabled={isRadioButtonDisabled}
                               placeholder="Masukkan hanya angka"
                               className="border rounded-lg p-2 w-full"
                               value={selectedValues[`group${item.id}`] || ""}
@@ -872,6 +795,7 @@ const kirimJawaban = async (data) => {
                               <div className="flex items-center space-x-2" key={index}>
                                 <input
                                   type="checkbox"
+                                  disabled={isRadioButtonDisabled}
                                   id={`checkbox-${item.id}-${index}`}
                                   name={`group${item.id}`}
                                   value={statement}
