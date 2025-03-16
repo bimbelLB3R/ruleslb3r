@@ -13,6 +13,7 @@ import Paginationsnbt from "../../components/PaginasiSoalSnbt";
 // import { createClient } from '@supabase/supabase-js';
 import QuestionNavigation from "../../components/QuestionsNavigation";
 import JawabanSiswa from "../../components/JawabanSiswa";
+import Link from "next/link";
 
 // const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 // const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -86,7 +87,7 @@ useEffect(()=>{
                   .from(`jwb_${katSoal}`)
                   .select("*")
                   .eq("nisn", storedNisn)
-                  .single();
+                  .maybeSingle();
                   if (error) {
                     console.error("Error fetching questions:", error);
                     } else {
@@ -95,7 +96,7 @@ useEffect(()=>{
                     }
     }
     fetchAnswers();
-})
+},[])
   // ambil data soal dari supabase
   useEffect(() => {    
     async function fetchQuestions() {
@@ -202,30 +203,30 @@ useEffect(()=>{
   }, []);
 
 //  menyederhanakan waktu habis
-  useEffect(() => {
-    if (!timeLeft) return;
+//   useEffect(() => {
+//     if (!timeLeft) return;
 
-    const interval = setInterval(() => {    
-        if (timeLeft.asSeconds() <= 0) {
-            clearInterval(interval); // Hentikan interval agar Swal tidak muncul terus
-            setIsButtonDisabled(false);
-            Swal.fire({
-              title: "Waktu Habis ... !",
-              text: "Kirim Jawabanmu ya",
-              icon: "info",
-              confirmButtonText: "OK"
-          }).then(() => {
-              // ✅ Set button disabled setelah user klik OK
-              setIsRadioButtonDisabled(true)
-          });
+//     const interval = setInterval(() => {    
+//         if (timeLeft.asSeconds() <= 0) {
+//             clearInterval(interval); // Hentikan interval agar Swal tidak muncul terus
+//             setIsButtonDisabled(false);
+//             Swal.fire({
+//               title: "Waktu Habis ... !",
+//               text: "Kirim Jawabanmu ya",
+//               icon: "info",
+//               confirmButtonText: "OK"
+//           }).then(() => {
+//               // ✅ Set button disabled setelah user klik OK
+//               setIsRadioButtonDisabled(true)
+//           });
             
-        } else {
-            setTimeLeft((prevTimeLeft) => prevTimeLeft.subtract(1, "second"));
-        }
-    }, 1000);
+//         } else {
+//             setTimeLeft((prevTimeLeft) => prevTimeLeft.subtract(1, "second"));
+//         }
+//     }, 1000);
 
-    return () => clearInterval(interval); // Bersihkan interval saat komponen unmount
-}, [timeLeft]);
+//     return () => clearInterval(interval); // Bersihkan interval saat komponen unmount
+// }, [timeLeft]);
 
   // from timer end
 
@@ -542,14 +543,14 @@ const kirimJawaban = async (data) => {
     </div>
       </div>
       {/* Selamat datang peserta */}
-      <div className="flex justify-center items-center fixed top-0 z-50 overflow-auto left-0  bg-gray-600 p-2 text-gray-100 text-[12px] md:text-sm rounded-tr-full rounded-br-full">
-        <p className="">{tipeSoal}</p>
+      <div className="bg-orange-900 flex justify-center items-center fixed top-0 z-50 overflow-auto left-0   p-2 text-gray-100 text-[12px] md:text-sm rounded-tr-full rounded-br-full">
+        <p className="">Pembahasan {tipeSoal}</p>
       </div>
       <div className="flex justify-center items-center fixed top-0 z-40 overflow-auto left-0 right-0 bg-gray-900 text-gray-100 text-[12px] md:text-sm">
         <div className=" p-2 rounded-full">
           {/* <Timer /> */}
           {/* from timer */} 
-          <div id="" className="font-bold">{timeLeft ? timeLeft.format("mm:ss") : "Loading..."}</div>
+          {/* <div id="" className="font-bold">{timeLeft ? timeLeft.format("mm:ss") : "Loading..."}</div> */}
           {/* from timer end */}
         </div>
 
@@ -720,7 +721,6 @@ const kirimJawaban = async (data) => {
                           {options.length > 0 ? (
                             <Radio.Group
                               disabled={isRadioButtonDisabled}
-                              onChange={handleChange}
                               value={selectedValues[`group${item.id}`] || ""}
                               name={`group${item.id}`}
                             >
@@ -746,13 +746,13 @@ const kirimJawaban = async (data) => {
                                             {option}
                                           </p>
                                         </div>
-                                        <p className="text-left text-base">
+                                        <div className="text-left text-base">
                                           {item.inner_html==="yes"?
                                           <div dangerouslySetInnerHTML={{ __html: item[`pilihan_${option.toLowerCase()}`] }}/>
                                           :
                                           <Latex>{item[`pilihan_${option.toLowerCase()}`]}</Latex>
                                           }
-                                        </p>
+                                        </div>
                                       </div>
                                     </Radio>
                                   </div>
@@ -780,7 +780,7 @@ const kirimJawaban = async (data) => {
                                           name={`group${item.id}_${index}`}
                                           value={`${statement}B`}
                                           checked={selectedValues[`group${item.id}_${index}`] === `${statement}B`}
-                                          onChange={(e) => handleChange(e)}
+                                          
                                           disabled={isRadioButtonDisabled}
                                         />
                                       </td>
@@ -790,7 +790,7 @@ const kirimJawaban = async (data) => {
                                           name={`group${item.id}_${index}`}
                                           value={`${statement}S`}
                                           checked={selectedValues[`group${item.id}_${index}`] === `${statement}S`}
-                                          onChange={(e) => handleChange(e)}
+                                          
                                           disabled={isRadioButtonDisabled}
                                         />
                                       </td>
@@ -807,9 +807,7 @@ const kirimJawaban = async (data) => {
                               placeholder="Masukkan hanya angka"
                               className="border rounded-lg p-2 w-full"
                               value={selectedValues[`group${item.id}`] || ""}
-                              onChange={(e) =>
-                                handleChange({ target: { name: `group${item.id}`, value: e.target.value } })
-                              }
+                              
                             />
                           ):
                           //jika tidak ada opsi, bukan bs,bukan input text, tampilkan ceklis
@@ -823,7 +821,7 @@ const kirimJawaban = async (data) => {
                                   name={`group${item.id}`}
                                   value={statement}
                                   checked={selectedValues[`group${item.id}`]?.includes(statement) || false}
-                                  onChange={(e) => handleChange(e)}
+                                  readOnly
                                 />
                                 <label htmlFor={`checkbox-${item.id}-${index}`} className="text-left text-base">
                                   <Latex>{item[`pernyataan_${statement}`]}</Latex>
@@ -842,10 +840,7 @@ const kirimJawaban = async (data) => {
                             className="w-4 h-4 text-red-400 bg-gray-100 border-gray-300 rounded focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                             type="checkbox"
                             checked={isChecked[currentPage] || false}
-                            // id={`page-${item[28]}`}
-                            // nilai cek (ischecked) pada nomor sekian tru/false
-                            // checked={isChecked[item[28]]}
-                            onChange={() => handleCheckbox(currentPage)}
+                            readOnly
                             disabled={isRadioButtonDisabled}
                           />
                           <label
@@ -877,7 +872,7 @@ const kirimJawaban = async (data) => {
                   </div>
                   // tombol ragu2
                 )})}
-                <div className="flex justify-end">
+                {/* <div className="flex justify-end">
                           {isButtonDisabled ? (
                           <p className="flex space-x-2 items-center justify-end fixed top-0 z-50 overflow-auto  text-gray-50 right-2">
                             <Loader />
@@ -901,7 +896,7 @@ const kirimJawaban = async (data) => {
                             </svg>
                           </button>
                         )}
-                </div>
+                </div> */}
               </div>
             </div>
           </form>
@@ -952,7 +947,18 @@ const kirimJawaban = async (data) => {
               </button>
             )}
           </div>
-          <div className="fixed top-[0.4rem] z-50 right-[5rem] ">
+          <div className="bg-orange-900 flex justify-center items-center fixed top-0 z-50 overflow-auto right-0   p-2 text-gray-100 text-[12px] md:text-sm rounded-tl-full rounded-bl-full">
+          <button 
+            onClick={() => {
+                localStorage.clear();
+                router.push("/");
+            }} 
+            className="text-center"
+        >
+            X Close
+        </button>
+          </div>
+          {/* <div className="fixed top-[0.4rem] z-50 right-[5rem] ">
             <div>
             <button className="text-white" onClick={() => setShowNav(true)}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-grid-3x3-gap-fill" viewBox="0 0 16 16">
@@ -968,7 +974,7 @@ const kirimJawaban = async (data) => {
                   setCurrentPage={setCurrentPage}
                    onClose={() => setShowNav(false)} />}
                 </div>
-            </div>
+            </div> */}
         </main>
       )}
     </div>
