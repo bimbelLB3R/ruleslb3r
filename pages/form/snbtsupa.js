@@ -178,95 +178,108 @@ const ContactForm = () => {
     }
   }, []);
 
+  // kirim jawaban otomatis
   useEffect(() => {
-    if (!timeLeft) {
-      return;
-    }
-  
-    const interval = setInterval(async () => {
-      const newRow = {
-        nisn: form.nisn,
-        ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
-          if (name.startsWith("group") && name.includes("_")) {//soal benar-salah
-            // Ambil ID unik (misalnya: "group3" dari "group3_1")
-            const groupId = name.split("_")[0];
-      
-            // Gabungkan nilai berdasarkan groupId
-            acc[groupId] = (acc[groupId] || "") + savedValue;
-          } else {
-            // Untuk data lain, simpan langsung
-            acc[name] = savedValue;
-            acc[name] = Array.isArray(savedValue) ? savedValue.join("") : savedValue;//soal cekbox
-          }
-      
-          return acc;
-        }, {}),
-      };
-  
-      if (timeLeft.asSeconds() <= 0) {
-        clearInterval(interval);
-  
-        try {
-          // Kirim jawaban dulu
-          await kirimJawaban(newRow);
-  
-          setIsRadioButtonDisabled(true);
-  
-          
-  
-          let timerInterval;
-  
-          // Jika sukses, tampilkan Swal dan tunggu hingga selesai sebelum pindah halaman
-          await Swal.fire({
-            title: "Waktu habis!",
-            html: "Menuju soal berikutnya dalam <b></b> milliseconds",
-            timer: 20000,
-            timerProgressBar: true,
+    let swalInstance;
+
+    if (isLoading) {
+        swalInstance = Swal.fire({
+            title: "Mengirim Jawaban...",
+            text: "Harap tunggu sementara data sedang dikirim.",
+            allowOutsideClick: false,
             didOpen: () => {
-              Swal.showLoading();
-              const timer = Swal.getPopup().querySelector("b");
-              timerInterval = setInterval(() => {
-                timer.textContent = `${Swal.getTimerLeft()}`;
-              }, 100);
+                Swal.showLoading();
             },
-            willClose: () => {
-              clearInterval(timerInterval);
-            },
-          });
-  
-          // Bersihkan localStorage kecuali data penting
-          clearLocalStorageExcept(["link", "linkSudah", "linkBelum", "nisn", "name", "dataSoal"]);
-          // Pindah ke halaman berikutnya setelah Swal selesai
-          router.push("/form/transisisoalsupa");
-  
-        } catch (error) {
-          console.error("Gagal mengirim jawaban:", error);
-  
-          // Jika gagal, tampilkan alert konfirmasi untuk kirim manual
-          Swal.fire({
-            title: "Gagal mengirim jawaban!",
-            text: "Apakah Anda ingin mencoba mengirim ulang secara manual?",
-            icon: "error",
-            showCancelButton: true,
-            confirmButtonText: "Kirim Ulang",
-            cancelButtonText: "Lewati",
-          }).then((result) => {
-            if (result.isConfirmed) {
-              // Panggil fungsi kirim manual jika user setuju
-              kirimJawaban(newRow);
-            } else {
-              // Tetap lanjut ke soal berikutnya jika user memilih 'Lewati'
-              router.push("/form/transisisoalsupa");
-            }
-          });
+        });
+    } else {
+        Swal.close(); // Tutup Swal saat isLoading menjadi false
+    }
+
+    return () => {
+        if (swalInstance) {
+            Swal.close();
         }
-      } else {
-        setTimeLeft((prevTimeLeft) => prevTimeLeft.subtract(1, "second"));
-      }
+    };
+}, [isLoading]);
+
+  useEffect(() => {
+    if (!timeLeft) return;
+
+    const interval = setInterval(async () => {
+        const newRow = {
+            nisn: form.nisn,
+            ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
+                if (name.startsWith("group") && name.includes("_")) {
+                    const groupId = name.split("_")[0];
+                    acc[groupId] = (acc[groupId] || "") + savedValue;
+                } else {
+                    acc[name] = Array.isArray(savedValue) ? savedValue.join("") : savedValue;
+                }
+                return acc;
+            }, {}),
+        };
+
+        if (timeLeft.asSeconds() <= 0) {
+            clearInterval(interval);
+            setIsLoading(true); // ✅ Aktifkan loading sebelum mengirim jawaban
+
+            try {
+                await kirimJawaban(newRow); // Kirim jawaban ke server
+                
+                setIsLoading(false); // ✅ Matikan loading setelah sukses
+                setIsRadioButtonDisabled(true);
+
+                let timerInterval;
+
+                await Swal.fire({
+                    title: "Waktu habis!",
+                    html: "Menuju soal berikutnya dalam <b></b> milliseconds.",
+                    timer: 5000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                        const timer = Swal.getPopup().querySelector("b");
+                        timerInterval = setInterval(() => {
+                            timer.textContent = `${Swal.getTimerLeft()}`;
+                        }, 1000);
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval);
+                    },
+                });
+
+                clearLocalStorageExcept(["link", "linkSudah", "linkBelum", "nisn", "name", "dataSoal"]);
+                router.push("/form/transisisoalsupa");
+
+            } catch (error) {
+                console.error("Gagal mengirim jawaban:", error);
+                setIsLoading(false); // ✅ Matikan loading jika gagal
+
+                Swal.fire({
+                    title: "Gagal mengirim jawaban!",
+                    text: "Apakah Anda ingin mencoba mengirim ulang secara manual?",
+                    icon: "error",
+                    showCancelButton: true,
+                    confirmButtonText: "Kirim Ulang",
+                    cancelButtonText: "Lewati",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        setIsLoading(true);
+                        kirimJawaban(newRow).finally(() => setIsLoading(false)); // ✅ Aktifkan & matikan loading saat pengiriman ulang
+                    } else {
+                        router.push("/form/transisisoalsupa");
+                    }
+                });
+            }
+        } else {
+            setTimeLeft((prevTimeLeft) => prevTimeLeft.subtract(1, "second"));
+        }
     }, 1000);
-  
+
     return () => clearInterval(interval);
-  }, [timeLeft, setIsRadioButtonDisabled]);
+}, [timeLeft, setIsRadioButtonDisabled]);
+
+  // kirim jawaban otomatis end
   
   
   // from timer end
