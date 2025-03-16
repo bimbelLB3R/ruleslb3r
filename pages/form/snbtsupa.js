@@ -212,16 +212,15 @@ const ContactForm = () => {
   
           setIsRadioButtonDisabled(true);
   
-          // Bersihkan localStorage kecuali data penting
-          clearLocalStorageExcept(["link", "linkSudah", "linkBelum", "nisn", "name", "dataSoal"]);
+          
   
           let timerInterval;
   
           // Jika sukses, tampilkan Swal dan tunggu hingga selesai sebelum pindah halaman
           await Swal.fire({
             title: "Waktu habis!",
-            html: "Menuju soal berikutnya dalam <b></b> milliseconds.",
-            timer: 5000,
+            html: "Menuju soal berikutnya dalam <b></b> milliseconds",
+            timer: 20000,
             timerProgressBar: true,
             didOpen: () => {
               Swal.showLoading();
@@ -235,6 +234,8 @@ const ContactForm = () => {
             },
           });
   
+          // Bersihkan localStorage kecuali data penting
+          clearLocalStorageExcept(["link", "linkSudah", "linkBelum", "nisn", "name", "dataSoal"]);
           // Pindah ke halaman berikutnya setelah Swal selesai
           router.push("/form/transisisoalsupa");
   
