@@ -206,24 +206,26 @@ const ContactForm = () => {
     if (!timeLeft) return;
 
     const interval = setInterval(async () => {
-        const newRow = {
-            nisn: form.nisn,
-            ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
-                if (name.startsWith("group") && name.includes("_")) {
-                    const groupId = name.split("_")[0];
-                    acc[groupId] = (acc[groupId] || "") + savedValue;
-                } else {
-                    acc[name] = Array.isArray(savedValue) ? savedValue.join("") : savedValue;
-                }
-                return acc;
-            }, {}),
-        };
+        
 
         if (timeLeft.asSeconds() <= 0) {
+          
             clearInterval(interval);
             setIsLoading(true); // ✅ Aktifkan loading sebelum mengirim jawaban
 
             try {
+              const newRow = {
+                nisn: form.nisn,
+                ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
+                    if (name.startsWith("group") && name.includes("_")) {
+                        const groupId = name.split("_")[0];
+                        acc[groupId] = (acc[groupId] || "") + savedValue;
+                    } else {
+                        acc[name] = Array.isArray(savedValue) ? savedValue.join("") : savedValue;
+                    }
+                    return acc;
+                }, {}),
+            };
                 await kirimJawaban(newRow); // Kirim jawaban ke server
                 
                 setIsLoading(false); // ✅ Matikan loading setelah sukses
