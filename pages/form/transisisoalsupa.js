@@ -86,7 +86,7 @@ export default function TransitionPage() {
       kuantitatif: 1200, // 15 soal 20 menit
       matematika: 1800, // 20 soal 30 menit
       english: 1800, // 20 soal 30 menit
-      bacaan: 1500, // 20 soal 25 menit
+      bacaan: 5200, // 20 soal 25 menit
       penalaran: 1800, // 30 soal 30 menit
       pengetahuan: 900, // 20 soal 15 menit
     };
@@ -104,7 +104,7 @@ export default function TransitionPage() {
 
     // Arahkan ke halaman soal setelah delay singkat (agar efek transisi terasa)
     setTimeout(() => {
-      router.push(`/form/snbtsupa?link=${link}`);
+      router.push(`/form/snbtsupaplus?link=${link}`);
     }, 2000);
 
   }, [router]);

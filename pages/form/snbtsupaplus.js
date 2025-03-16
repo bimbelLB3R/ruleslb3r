@@ -12,6 +12,7 @@ import { supabase } from "../../libs/supabase";
 import Paginationsnbt from "../../components/PaginasiSoalSnbt";
 // import { createClient } from '@supabase/supabase-js';
 import QuestionNavigation from "../../components/QuestionsNavigation";
+import JawabanSiswa from "../../components/JawabanSiswa";
 
 // const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 // const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -39,6 +40,7 @@ const ContactForm = () => {
   const [jumlahSoalSelesai,setJumlahSoalSelesai]=useState();
   const [storedName, setStorageName] = useState("Student");
   const [showNav, setShowNav] = useState(false);
+  const [answers,setAnswers]=useState({});
   
   // mencegah back
   useEffect(() => {
@@ -54,6 +56,7 @@ const ContactForm = () => {
     };
   }, []);
   // mencegah back end
+//   console.log(answers);
   
   // pengecualian penghapusan data localstorage
   const clearLocalStorageExcept = (keysToKeep) => {
@@ -74,7 +77,25 @@ const ContactForm = () => {
       localStorage.setItem(key, savedData[key]);
     });
   };
-  
+//   ambil jawban dari supa
+useEffect(()=>{
+    async function fetchAnswers() {
+        const katSoal=localStorage.getItem("link");
+        const storedNisn = localStorage.getItem("nisn");
+        const { data, error } = await supabase
+                  .from(`jwb_${katSoal}`)
+                  .select("*")
+                  .eq("nisn", storedNisn)
+                  .single();
+                  if (error) {
+                    console.error("Error fetching questions:", error);
+                    } else {
+                         setAnswers(data);   
+                         setIsRadioButtonDisabled(true)
+                    }
+    }
+    fetchAnswers();
+})
   // ambil data soal dari supabase
   useEffect(() => {    
     async function fetchQuestions() {
@@ -813,7 +834,9 @@ const kirimJawaban = async (data) => {
                           }
 
                         </div>
-
+                          <div className="checklist flex flex-col items-center mt-2 mb-2">
+                            <JawabanSiswa currentPage={currentPage} answers={answers}/>
+                          </div>
                         <div className="checklist flex flex-col items-center mt-10 mb-10">
                           <input
                             className="w-4 h-4 text-red-400 bg-gray-100 border-gray-300 rounded focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"

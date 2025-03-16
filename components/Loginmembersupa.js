@@ -14,6 +14,7 @@ import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 // import { createClient } from "@supabase/supabase-js";
 import { supabase } from "../libs/supabase";
+import Link from "next/link";
 
 
 dayjs.extend(duration);
@@ -47,7 +48,7 @@ const Loginmembersupa = () => {
         // console.log(remainingTime);
         if(remainingTime>0){
           router.push({
-            pathname: `/form/snbtsupa`,
+            pathname: `/form/snbtsupaplus`,
             query: { link },
           });
         }else{
@@ -104,7 +105,7 @@ const Loginmembersupa = () => {
             kuantitatif: 1200, // 20 menit
             matematika: 2250, // 37,5 menit
             english: 1800, // 30 menit
-            bacaan: 1500, // 25 menit
+            bacaan: 10000, // 25 menit
             penalaran: 1800, // 30 menit
             pengetahuan: 900, // 15 menit
           };
@@ -116,7 +117,7 @@ const Loginmembersupa = () => {
           }
   
           router.push({
-            pathname: `/form/snbtsupa`,
+            pathname: `/form/snbtsupaplus`,
             query: { link },
           });
         } else {
@@ -176,17 +177,25 @@ const Loginmembersupa = () => {
 
       <div className="bg-gray-50 dark:bg-gray-900 h-screen ">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-full lg:py-0 animate__animated  animate__slideInDown ">
-          <a
+          <Link
             href="/"
             className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white "
           >
-            <img
+            {/* <img
               className="w-18 h-12 mr-2"
               src="/image/logolb3r.png"
               alt="logo"
+            /> */}
+            <Image
+            src="/image/logolb3r.png"
+            width={72}
+            height={48}
+            alt="logo"
+            priority={true}
+            className="mr-2"
             />
             Premium Member
-          </a>
+          </Link>
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               {session ? (
@@ -291,7 +300,7 @@ const Loginmembersupa = () => {
                     type="submit"
                     className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   >
-                    Masuk
+                    Pembahasan
                   </button>
                 )}
                 <div className="text-sm font-light text-gray-500 dark:text-gray-400">
@@ -302,7 +311,7 @@ const Loginmembersupa = () => {
                   >
                     Sign up
                   </a> or {" "}
-                  <button className="underline" onClick={handleReset}>Reset</button>
+                  <button className="underline" onClick={handleReset}>Reset</button> 
                 </div>
               </form>
             </div>
