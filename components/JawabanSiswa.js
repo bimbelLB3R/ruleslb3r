@@ -3,7 +3,7 @@ import React from "react";
 const JawabanSiswa = ({ answers, currentPage }) => {
     // console.log(answers)
     if (!answers || typeof answers !== "object") {
-      return <p className="text-red-500">Kamu belum menjawab soal ini.</p>;
+      return <p className="text-red-500">Kamu belum menjawab soal ini, namun tetap tulis kunci dan pembahasan dari pengajar LB3R ya...nanti kami printkan soalnya.</p>;
     }
   
     const jawabanKey = `group${currentPage - 1}`; // Menentukan kunci jawaban
