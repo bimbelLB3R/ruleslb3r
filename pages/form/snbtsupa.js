@@ -187,7 +187,18 @@ const ContactForm = () => {
       const newRow = {
         nisn: form.nisn,
         ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
-          acc[name] = savedValue;
+          if (name.startsWith("group") && name.includes("_")) {//soal benar-salah
+            // Ambil ID unik (misalnya: "group3" dari "group3_1")
+            const groupId = name.split("_")[0];
+      
+            // Gabungkan nilai berdasarkan groupId
+            acc[groupId] = (acc[groupId] || "") + savedValue;
+          } else {
+            // Untuk data lain, simpan langsung
+            acc[name] = savedValue;
+            acc[name] = Array.isArray(savedValue) ? savedValue.join("") : savedValue;//soal cekbox
+          }
+      
           return acc;
         }, {}),
       };
