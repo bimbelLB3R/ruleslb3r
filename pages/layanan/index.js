@@ -106,7 +106,7 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
                       :program.keterangan==="diskon-happy"
                       ?`/layanan/${program.slug}`
                       : `/layanan/${program.slug}`
-                  } className="flex items-center justify-center"><p className="bg-gray-300 p-1 rounded-lg text-center w-[150px] h-[35px] hover:bg-gray-200">Pilih</p></Link>
+                  } className="flex items-center justify-center"><p className="bg-gray-300 p-1 rounded-lg text-center w-[150px] h-[35px] hover:bg-gray-200">Lihat Detail</p></Link>
               </div>
               </div>
           </div>
