@@ -432,14 +432,46 @@ const kirimJawaban = async (data) => {
     }
   }, []);
 
-  const handlePrevious = () => {
-    setCurrentPage(currentPage - 1);
-    localStorage.setItem("currentPage", currentPage - 1);
-  };
-  const handleNext = () => {
-    setCurrentPage(currentPage + 1);
-    localStorage.setItem("currentPage", currentPage + 1);
-  };
+  // const handlePrevious = () => {
+  //   setCurrentPage(currentPage - 1);
+  //   localStorage.setItem("currentPage", currentPage - 1);
+  // };
+  // const handleNext = () => {
+  //   setCurrentPage(currentPage + 1);
+  //   localStorage.setItem("currentPage", currentPage + 1);
+  // };
+// Fungsi untuk ke halaman sebelumnya
+const handlePrevious = () => {
+  setCurrentPage((prevPage) => {
+    const newPage = Math.max(prevPage - 1, 1);
+    localStorage.setItem("currentPage", newPage);
+    return newPage;
+  });
+};
+
+// Fungsi untuk ke halaman berikutnya
+const handleNext = () => {
+  setCurrentPage((prevPage) => {
+    const newPage = Math.min(prevPage + 1, totalPages);
+    localStorage.setItem("currentPage", newPage);
+    return newPage;
+  });
+};
+  // gunakan keyboard
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "ArrowRight") {
+        handleNext();
+      } else if (event.key === "ArrowLeft") {
+        handlePrevious();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleNext, handlePrevious]);
+
+  
   // page dalam handle checkbox mendeteksi perubahan page pada input dan mengirimnya ke local storage. page disini hanay sbg argumen yg menerima currentpage dari input checkbox yg dipilih
   const handleCheckbox = (page) => {
     // setSelectedPage(page);
@@ -514,7 +546,7 @@ const kirimJawaban = async (data) => {
         onLoad={onLoad}
       ></script>
       {/* navigasi soal */}
-      <div className="sm:flex justify-center fixed bottom-0 z-50 overflow-auto left-0 right-0 bg-gray-800">
+      <div className="sm:flex justify-center fixed bottom-0 z-50 overflow-auto left-0 right-0 bg-gradient-to-bl from-gray-800 to-green-800">
         {/* <NavSoal
           sumSoal={questions}
           tipeSoal={tipeSoal}
@@ -535,7 +567,7 @@ const kirimJawaban = async (data) => {
     </div>
       </div>
       {/* Selamat datang peserta */}
-      <div className={`flex justify-center items-center fixed top-0 z-50 overflow-auto left-0  bg-gray-600 p-2 text-gray-100 text-[12px] md:text-sm transition-all duration-700 ease-in-out  ${
+      <div className={`flex justify-center items-center fixed top-[0.8rem] z-50 overflow-auto left-0 pl-2 text-gray-100  md:text-sm transition-all duration-700 ease-in-out  ${
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       }`}>
         <p className="">{tipeSoal} | {currentPage}/{totalPages}</p>
@@ -543,10 +575,10 @@ const kirimJawaban = async (data) => {
       <div className={`flex justify-center items-center fixed top-0 z-40 overflow-auto left-0 right-0  text-gray-100 text-[12px] md:text-sm transition-all duration-700 ease-in-out  ${
         isVisible ? "translate-y-0 bg-gray-900 opacity-100" : "-translate-y-full opacity-0"
       }`}>
-        <div className=" p-2 rounded-full">
+        <div className=" p-2 rounded-full h-12">
           {/* <Timer /> */}
           {/* from timer */} 
-          <div id="" className="font-bold">{timeLeft ? timeLeft.format("mm:ss") : "Loading..."}</div>
+          {/* <div id="" className="font-bold">{timeLeft ? timeLeft.format("mm:ss") : "Loading..."}</div> */}
           {/* from timer end */}
         </div>
 
@@ -588,7 +620,7 @@ const kirimJawaban = async (data) => {
                    return(
                   <div
                     key={item.id}
-                    className="bg-white lg:drop-shadow-2xl lg:m-10 p-2 text-base"
+                    className="bg-white  lg:m-10 p-2 text-base"
                   >
                     {/* {console.log(item.link_gambar)} */}
                     {/* Bacaan */}
@@ -875,11 +907,11 @@ const kirimJawaban = async (data) => {
                           <button
                             disabled={isButtonDisabled}
                             type="submit"
-                            className={`flex space-x-2 items-center justify-end fixed top-2 z-50 overflow-auto transition-all duration-700 ease-in-out   right-2 ${
+                            className={`flex space-x-2 items-center justify-end fixed top-[0.8rem] z-50 overflow-auto transition-all duration-700 ease-in-out   right-2 ${
                               isVisible ? "translate-y-0 text-green-300 opacity-100" : "-translate-y-full hidden opacity-0"
                             }`}
                           >
-                            <p className="text-xs font-bold">Kirim</p>
+                            <p className="font-bold">Kirim</p>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="18"
@@ -945,12 +977,13 @@ const kirimJawaban = async (data) => {
               </button>
             )}
           </div>
-          <div className={`fixed top-[0.4rem] z-50 right-[5rem] `}>
-            <div>
-            <button className={`text-white ${
-        isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
-      }`} onClick={() => setShowNav(true)}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-grid-3x3-gap-fill" viewBox="0 0 16 16">
+          <div className={`fixed top-[0.8rem] z-50 right-[6rem] `}>
+            <div className="flex space-x-4 text-white">
+              <div id="" className={`font-bold ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`}>
+                {timeLeft ? timeLeft.format("mm:ss") : "Loading..."}
+              </div>
+            <button className={` ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`} onClick={() => setShowNav(true)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-grid-3x3-gap-fill" viewBox="0 0 16 16">
                             <path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z"/>
                       </svg>
                   </button>

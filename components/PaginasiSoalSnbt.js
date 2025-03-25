@@ -23,8 +23,8 @@ export default function Paginationsnbt({ totalPages, currentPage, setCurrentPage
           ref={(el) => (buttonRefs.current[page] = el)}
           className={`${
             isChecked[page + 1]
-              ? " bg-gray-800 rounded-none p-3 text-red-600"
-              : "bg-gray-800 rounded-none p-3 text-gray-50"
+              ? " rounded-none p-3 text-red-600"
+              : "rounded-none p-3 text-gray-50"
           }`}
           onClick={() => {
             setCurrentPage(page + 1);
