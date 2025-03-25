@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import SoalStatus from './SoalStatus';
 
 export default function QuestionNavigation({ totalQuestions, onClose,setCurrentPage }) {
   const [answeredQuestions, setAnsweredQuestions] = useState(new Set());
@@ -34,6 +35,7 @@ export default function QuestionNavigation({ totalQuestions, onClose,setCurrentP
         <button className="absolute top-2 right-2 text-gray-500" onClick={onClose}>
           ✖
         </button>
+        <SoalStatus/>
         <h2 className="text-lg font-bold mb-4">Navigasi Soal</h2>
 
         {/* Daftar Soal */}

@@ -39,6 +39,20 @@ const ContactForm = () => {
   const [jumlahSoalSelesai,setJumlahSoalSelesai]=useState();
   const [storedName, setStorageName] = useState("Student");
   const [showNav, setShowNav] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  // kontrol scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setIsVisible(currentScrollY < lastScrollY); // Munculkan jika scroll ke atas
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
   
   // mencegah back
   useEffect(() => {
@@ -214,8 +228,8 @@ const ContactForm = () => {
   
   const [link, setLink] = useState();
 
-  const tipeSoal=questions.slice(0, 1).map((item)=>(item.kategori_soal));
-  // console.log(tipeSoal)
+  const tipeSoal=questions.find((item) => item.id === 0)?.kategori_soal;
+  // console.log(questions)
 
 //   kirim jawaban ke supa
 const kirimJawaban = async (data) => {
@@ -521,10 +535,14 @@ const kirimJawaban = async (data) => {
     </div>
       </div>
       {/* Selamat datang peserta */}
-      <div className="flex justify-center items-center fixed top-0 z-50 overflow-auto left-0  bg-gray-600 p-2 text-gray-100 text-[12px] md:text-sm rounded-tr-full rounded-br-full">
-        <p className="">{tipeSoal}</p>
+      <div className={`flex justify-center items-center fixed top-0 z-50 overflow-auto left-0  bg-gray-600 p-2 text-gray-100 text-[12px] md:text-sm transition-all duration-700 ease-in-out  ${
+        isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+      }`}>
+        <p className="">{tipeSoal} | {currentPage}/{totalPages}</p>
       </div>
-      <div className="flex justify-center items-center fixed top-0 z-40 overflow-auto left-0 right-0 bg-gray-900 text-gray-100 text-[12px] md:text-sm">
+      <div className={`flex justify-center items-center fixed top-0 z-40 overflow-auto left-0 right-0  text-gray-100 text-[12px] md:text-sm transition-all duration-700 ease-in-out  ${
+        isVisible ? "translate-y-0 bg-gray-900 opacity-100" : "-translate-y-full opacity-0"
+      }`}>
         <div className=" p-2 rounded-full">
           {/* <Timer /> */}
           {/* from timer */} 
@@ -543,7 +561,7 @@ const kirimJawaban = async (data) => {
       ) : (
         <main>
           <form onSubmit={handleSubmit} ref={formRef} id="myForm">
-            <div className="max-w-xl lg:max-w-full  select-none flex items-center justify-center m-auto p-4 bg-green-50 text-gray-900">
+            <div className="max-w-xl lg:max-w-full  select-none flex items-center justify-center m-auto p-4 bg-white  text-gray-900 ">
               <div className="mb-4">
                 {/* <p className="fixed left-0 top-0  z-50  text-[8px] md:text-sm text-gray-50 p-2 md:p-3">
                   {currentPage} dari {totalPages} soal
@@ -570,7 +588,7 @@ const kirimJawaban = async (data) => {
                    return(
                   <div
                     key={item.id}
-                    className="bg-gray-50 lg:drop-shadow-2xl lg:m-10 p-2 text-base"
+                    className="bg-white lg:drop-shadow-2xl lg:m-10 p-2 text-base"
                   >
                     {/* {console.log(item.link_gambar)} */}
                     {/* Bacaan */}
@@ -585,7 +603,7 @@ const kirimJawaban = async (data) => {
                         className={`${
                           link === "kuantitatif" || link === "matematika"
                             ? "lg:max-w-1/2 overflow-auto"
-                            : "lg:max-w-1/2 max-h-[500px] overflow-auto"
+                            : "lg:max-w-1/2 max-h-[500px]  overflow-auto"
                         }`}
                       >
                         {/* judul text tebal*/}
@@ -632,31 +650,25 @@ const kirimJawaban = async (data) => {
                         <p className="text-justify mb-4 indent-8 ">
                           {item.bacaan_12}
                         </p>
-                        {/* bacaan khusu matematika */}
+                        {/* bacaan kolom kiri */}
                         <p className="text-justify mb-4 indent-8 ">
                           {item.bacaan_13}
                         </p>
-                        <div dangerouslySetInnerHTML={{ __html: item.bacaan_14 }}/>
-                        {/* <p className="text-justify mb-4 indent-8 text-xs" >
-                          {item.bacaan_14}
-                        </p> */}
-                        {/* <p className="text-left mb-4 indent-8 ">
-                          {item.bacaan_15}
-                        </p> */}
-                        {/* <p className="text-left mb-4 text-xs ml-0">
-                          {item.bacaan_16}
-                        </p> */}
+                        <div className="mb-4">
+                          <div dangerouslySetInnerHTML={{ __html: item.bacaan_14 }} />
+                        </div>
+                        
                       </div>
                       <div
                         className={`${
                           link === "kuantitatif" || link === "matematika"
                             ? "lg:max-w-full "
-                            : "lg:max-w-3xl   bg-green-50 rounded-t-lg flex items-center justify-center"
+                            : "lg:max-w-3xl rounded-t-lg flex items-center justify-center"
                         }`}
                       >
                         <div>
                         {/* Pertanyaan */}
-                        <div className="flex items-center justify-center">
+                        <div className="flex items-center justify-center ">
                             <div>
                               <p className="bg-gray-300 text-gray-900 text-xs text-center font-semibold">Soal</p>
                               <p
@@ -715,10 +727,10 @@ const kirimJawaban = async (data) => {
                                     <Radio value={option} className="text-justify relative">
                                       <div className="flex items-center justify-center space-x-4 mb-2">
                                         <div
-                                          className={`bg-green-500 p-1 ml-2 rounded-full absolute -left-[0.60rem] w-[2rem] h-[2rem] ${
+                                          className={` p-1 ml-2 rounded-full absolute -left-[0.60rem] w-[2rem] h-[2rem] ${
                                             selectedValues[`group${item.id}`] === option
-                                              ? "border-2"
-                                              : ""
+                                              ? "border-2 bg-green-500"
+                                              : "bg-gray-500"
                                           }`}
                                         >
                                           <p className="flex items-center justify-center font-bold text-gray-100">
@@ -854,7 +866,7 @@ const kirimJawaban = async (data) => {
                   </div>
                   // tombol ragu2
                 )})}
-                <div className="flex justify-end">
+                <div className={`flex justify-end `}>
                           {isButtonDisabled ? (
                           <p className="flex space-x-2 items-center justify-end fixed top-0 z-50 overflow-auto  text-gray-50 right-2">
                             <Loader />
@@ -863,7 +875,9 @@ const kirimJawaban = async (data) => {
                           <button
                             disabled={isButtonDisabled}
                             type="submit"
-                            className="flex space-x-2 items-center justify-end fixed top-2 z-50 overflow-auto  text-green-300 right-2"
+                            className={`flex space-x-2 items-center justify-end fixed top-2 z-50 overflow-auto transition-all duration-700 ease-in-out   right-2 ${
+                              isVisible ? "translate-y-0 text-green-300 opacity-100" : "-translate-y-full hidden opacity-0"
+                            }`}
                           >
                             <p className="text-xs font-bold">Kirim</p>
                             <svg
@@ -890,7 +904,7 @@ const kirimJawaban = async (data) => {
               <button
                 onClick={handlePrevious}
                 disabled={currentPage <= 1}
-                className="bg-green-500 p-4 text-gray-50 fixed bottom-[1.10rem]  left-0 z-50 flex items-center space-x-2 rounded-tr-full rounded-br-full"
+                className="bg-green-500 p-4 text-gray-50 fixed bottom-[1.10rem]  left-0 z-50 flex items-center space-x-2 rounded-tr-full rounded-br-full transition duration-300 overflow-hidden"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -903,13 +917,14 @@ const kirimJawaban = async (data) => {
                   <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
                 </svg>
                 <span className="text-xs">PREVIOUS</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 blur-md animate-glow2"></span>
               </button>
             )}
             {currentPage == totalPages ? (
               ""
             ) : (
               <button
-                className="bg-green-500 p-4 text-gray-50 fixed bottom-[1.10rem]  right-0 z-50 flex items-center space-x-2 rounded-tl-full rounded-bl-full"
+                className="bg-green-500 p-4 text-gray-50 fixed bottom-[1.10rem]  right-0 z-50 flex items-center space-x-2 rounded-tl-full rounded-bl-full transition duration-300 overflow-hidden"
                 onClick={handleNext}
                 disabled={
                   currentPage >= Math.ceil(questions.length / postsPerPage)
@@ -926,12 +941,15 @@ const kirimJawaban = async (data) => {
                 >
                   <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z" />
                 </svg>
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 blur-md animate-glow2"></span>
               </button>
             )}
           </div>
-          <div className="fixed top-[0.4rem] z-50 right-[5rem] ">
+          <div className={`fixed top-[0.4rem] z-50 right-[5rem] `}>
             <div>
-            <button className="text-white" onClick={() => setShowNav(true)}>
+            <button className={`text-white ${
+        isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+      }`} onClick={() => setShowNav(true)}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-grid-3x3-gap-fill" viewBox="0 0 16 16">
                             <path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z"/>
                       </svg>

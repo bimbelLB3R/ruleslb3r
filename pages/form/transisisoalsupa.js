@@ -104,7 +104,7 @@ export default function TransitionPage() {
 
     // Arahkan ke halaman soal setelah delay singkat (agar efek transisi terasa)
     setTimeout(() => {
-      router.push(`/form/snbtsupaplus?link=${link}`);
+      router.push(`/form/snbtsupa?link=${link}`);
     }, 2000);
 
   }, [router]);
