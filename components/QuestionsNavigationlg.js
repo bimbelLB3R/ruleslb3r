@@ -25,7 +25,7 @@ export default function QuestionNavigationlg({ totalQuestions, onClose,setCurren
     });
 
     setAnsweredQuestions(answeredSet);
-  }, [answeredQuestions]);
+  }, []);//kalau diberi ketergantungan pada answeredQuestions maka eror
 
   
 

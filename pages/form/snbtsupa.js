@@ -518,7 +518,7 @@ useEffect(() => {
 
     const handleResize = () => {
       const isLgScreen = mediaQuery.matches;
-      const link=localStorage.getItem("link");
+      const link=localStorage.getItem("link")||"";//menghindari null
       const isTargetLink = link === "kuantitatif" || link === "matematika" || link === "penalaran";
       // console.log(isTargetLink)
       setQuestionNav(isLgScreen && isTargetLink);
@@ -533,7 +533,7 @@ useEffect(() => {
     // Cleanup event listener saat unmount
     return () => mediaQuery.removeEventListener("change", handleResize);
   }
-}, [link]); // useEffect akan berjalan ulang jika `link` berubah
+},[]); // useEffect akan berjalan sekali saja
 
   return (
     <div>
@@ -660,8 +660,8 @@ useEffect(() => {
                         id="textBacaan"
                         className={`${
                           link === "kuantitatif" || link === "matematika"|| link === "penalaran"
-                            ? "lg:w-1/2 overflow-auto"
-                            : "lg:max-w-1/2 max-h-[500px]  overflow-auto"
+                            ? "lg:w-1/2 "
+                            : "lg:w-1/2 rounded-t-lg flex mt-8 justify-center"
                         }`}
                       >     
                         {questionnav?<QuestionNavigationlg 
@@ -726,7 +726,7 @@ useEffect(() => {
                         className={`${
                           link === "kuantitatif" || link === "matematika"|| link === "penalaran"
                             ? "lg:w-1/2 "
-                            : "lg:max-w-3xl rounded-t-lg flex items-center justify-center"
+                            : "lg:w-1/2 rounded-t-lg flex  justify-center"
                         }`}
                       >
                         <div>
