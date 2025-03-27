@@ -312,7 +312,7 @@ const Loginmembersupa = () => {
                   >
                     Sign up
                   </a> or {" "}
-                  <button className="underline" onClick={handleReset}>Reset</button> 
+                  <button type="button" className="underline" onClick={handleReset}>Reset</button> 
                 </div>
               </form>
             </div>
