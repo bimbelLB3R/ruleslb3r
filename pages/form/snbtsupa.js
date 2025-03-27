@@ -43,7 +43,7 @@ const ContactForm = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [questionnav,setQuestionNav]=useState(false);
-
+  const [refreshKey, setRefreshKey] = useState(0); // State untuk trigger useEffect
   // kontrol scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -390,6 +390,7 @@ const kirimJawaban = async (data) => {
   
   
   const handleChange = (e) => {
+    setRefreshKey((prev) => prev + 1);
     const { name, value, type, checked } = e.target;
   
     setSelectedValues((prevValues) => {
@@ -668,6 +669,7 @@ useEffect(() => {
                           totalQuestions={jumlahSoal}
                           totalPages={Math.ceil(questions.length / postsPerPage)}
                           currentPage={currentPage}
+                          refreshKey={refreshKey}
                           setCurrentPage={setCurrentPage}/>:""}                               
                         {/* judul text tebal*/}
                         <p className="text-center mb-2 indent-8 font-semibold mt-8 lg:mt-0">

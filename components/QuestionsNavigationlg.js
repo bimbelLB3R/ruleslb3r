@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import SoalStatus from './SoalStatus';
 
-export default function QuestionNavigationlg({ totalQuestions, onClose,setCurrentPage }) {
+export default function QuestionNavigationlg({ totalQuestions, refreshKey,setCurrentPage }) {
   const [answeredQuestions, setAnsweredQuestions] = useState(new Set());
   const router = useRouter();
 
@@ -25,7 +25,7 @@ export default function QuestionNavigationlg({ totalQuestions, onClose,setCurren
     });
 
     setAnsweredQuestions(answeredSet);
-  }, []);//kalau diberi ketergantungan pada answeredQuestions maka eror
+  }, [refreshKey]);//kalau diberi ketergantungan pada answeredQuestions maka eror
 
   
 
