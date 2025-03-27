@@ -661,7 +661,7 @@ useEffect(() => {
                         className={`${
                           link === "kuantitatif" || link === "matematika"|| link === "penalaran"
                             ? "lg:w-1/2 "
-                            : "lg:w-1/2 rounded-t-lg flex mt-8 justify-center"
+                            : "lg:w-1/2 overflow-auto max-h-[500px] rounded-t-lg flex mt-8 justify-center mb-4"
                         }`}
                       >     
                         {questionnav?<QuestionNavigationlg 
