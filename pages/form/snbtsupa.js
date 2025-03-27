@@ -519,6 +519,7 @@ const handleNext = () => {
           content="Bimbel LB3R menyelenggarakan bimbingan UTBK SNBT dan memberikan latihan soal dengan metode Item Response Theory (IRT)"
           key="desc"
         />
+        <meta name="theme-color" content="#166534" />
         <link
           rel="icon"
           type="image/png"
