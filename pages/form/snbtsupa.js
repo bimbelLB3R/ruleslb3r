@@ -662,7 +662,7 @@ useEffect(() => {
                         className={`${
                           link === "kuantitatif" || link === "matematika"|| link === "penalaran"
                             ? "lg:w-1/2 "
-                            : "lg:w-1/2 overflow-auto max-h-[500px] rounded-t-lg flex mt-8 justify-center mb-4"
+                            : "lg:w-1/2 overflow-auto max-h-[500px] rounded-t-lg flex mt-8 justify-center mb-4 p-1"
                         }`}
                       >     
                         {questionnav?<QuestionNavigationlg 
@@ -672,51 +672,51 @@ useEffect(() => {
                           refreshKey={refreshKey}
                           setCurrentPage={setCurrentPage}/>:""}                               
                         {/* judul text tebal*/}
-                        <p className="text-center mb-2 indent-8 font-semibold mt-8 lg:mt-0">
+                        <p className="text-center mb-2 font-semibold mt-8 lg:mt-0">
                           {item.judul_text1}
                         </p>
                         {/* <div className="flex items-center justify-center hover:w-full hover:absolute hover:z-50 hover:right-0 hover:left-0 ">
                           <img src={item.link_gambar} className="w-full " />
                         </div> */}
-                        <p className="text-justify mb-2 indent-8 ">
+                        <p className="text-justify mb-2 ">
                           {item.bacaan_1}
                         </p>
-                        <p className="text-justify mb-2 indent-8  ">
+                        <p className="text-justify mb-2  ">
                           <Latex>{item.bacaan_2}</Latex>
                         </p>
-                        <p className="text-justify mb-2 indent-8 ">
+                        <p className="text-justify mb-2 ">
                           {item.bacaan_3}
                         </p>
-                        <p className="text-justify mb-2 indent-8 ">
+                        <p className="text-justify mb-2 ">
                           <Latex>{item.bacaan_4}</Latex>
                         </p>
-                        <p className="text-justify mb-4 indent-8 ">
+                        <p className="text-justify mb-4 ">
                           {item.bacaan_5}
                         </p>
                         {/* Tambahan bacaan kolom orange */}
-                        <p className="text-center mb-2 indent-8 font-semibold mt-4 lg:mt-0">
+                        <p className="text-center mb-2 font-semibold mt-4 lg:mt-0">
                           {item.bacaan_6}
                         </p>
-                        <p className="text-justify mb-4 indent-8 ">
+                        <p className="text-justify mb-4 ">
                           {item.bacaan_7}
                         </p>
-                        <p className="text-justify mb-4 indent-8 ">
+                        <p className="text-justify mb-4 ">
                           {item.bacaan_8}
                         </p>
-                        <p className="text-justify mb-4 indent-8 ">
+                        <p className="text-justify mb-4 ">
                           {item.bacaan_9}
                         </p>
-                        <p className="text-center mb-4 indent-8  font-semibold">
+                        <p className="text-center mb-4  font-semibold">
                           {item.bacaan_10}
                         </p>
-                        <p className="text-justify mb-4 indent-8 ">
+                        <p className="text-justify mb-4 ">
                           {item.bacaan_11}
                         </p>
-                        <p className="text-justify mb-4 indent-8 ">
+                        <p className="text-justify mb-4 ">
                           {item.bacaan_12}
                         </p>
                         {/* bacaan kolom kiri */}
-                        <p className="text-justify mb-4 indent-8 ">
+                        <p className="text-justify mb-4 ">
                           {item.bacaan_13}
                         </p>
                         <div className="mb-4">
