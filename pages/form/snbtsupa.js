@@ -12,6 +12,7 @@ import { supabase } from "../../libs/supabase";
 import Paginationsnbt from "../../components/PaginasiSoalSnbt";
 // import { createClient } from '@supabase/supabase-js';
 import QuestionNavigation from "../../components/QuestionsNavigation";
+import QuestionNavigationlg from "../../components/QuestionsNavigationlg";
 
 // const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 // const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -41,6 +42,7 @@ const ContactForm = () => {
   const [showNav, setShowNav] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [questionnav,setQuestionNav]=useState(false);
 
   // kontrol scroll
   useEffect(() => {
@@ -508,7 +510,30 @@ const handleNext = () => {
     const hitung = countUniqueGroups();
     setJumlahSoalSelesai(hitung);
   }, []);
-// console.log(answers)  
+// console.log(answers) 
+useEffect(() => {
+  if (typeof window !== "undefined") {
+    // Pastikan hanya dijalankan di client-side
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
+
+    const handleResize = () => {
+      const isLgScreen = mediaQuery.matches;
+      const link=localStorage.getItem("link");
+      const isTargetLink = link === "kuantitatif" || link === "matematika" || link === "penalaran";
+      // console.log(isTargetLink)
+      setQuestionNav(isLgScreen && isTargetLink);
+    };
+
+    // Jalankan sekali saat komponen pertama kali di-mount
+    handleResize();
+
+    // Tambahkan event listener untuk perubahan media query
+    mediaQuery.addEventListener("change", handleResize);
+
+    // Cleanup event listener saat unmount
+    return () => mediaQuery.removeEventListener("change", handleResize);
+  }
+}, [link]); // useEffect akan berjalan ulang jika `link` berubah
 
   return (
     <div>
@@ -627,18 +652,23 @@ const handleNext = () => {
                     {/* Bacaan */}
                     
                     <div
-                      className="lg:flex  lg:p-10 lg:space-x-4 "
+                      className="lg:flex lg:p-10 lg:space-x-4 lg:w-full"
                       id="custom-text"
                     >
                       <div
                         key={item.id}
                         id="textBacaan"
                         className={`${
-                          link === "kuantitatif" || link === "matematika"
-                            ? "lg:max-w-1/2 overflow-auto"
+                          link === "kuantitatif" || link === "matematika"|| link === "penalaran"
+                            ? "lg:w-1/2 overflow-auto"
                             : "lg:max-w-1/2 max-h-[500px]  overflow-auto"
                         }`}
-                      >
+                      >     
+                        {questionnav?<QuestionNavigationlg 
+                          totalQuestions={jumlahSoal}
+                          totalPages={Math.ceil(questions.length / postsPerPage)}
+                          currentPage={currentPage}
+                          setCurrentPage={setCurrentPage}/>:""}                               
                         {/* judul text tebal*/}
                         <p className="text-center mb-2 indent-8 font-semibold mt-8 lg:mt-0">
                           {item.judul_text1}
@@ -694,8 +724,8 @@ const handleNext = () => {
                       </div>
                       <div
                         className={`${
-                          link === "kuantitatif" || link === "matematika"
-                            ? "lg:max-w-full "
+                          link === "kuantitatif" || link === "matematika"|| link === "penalaran"
+                            ? "lg:w-1/2 "
                             : "lg:max-w-3xl rounded-t-lg flex items-center justify-center"
                         }`}
                       >
