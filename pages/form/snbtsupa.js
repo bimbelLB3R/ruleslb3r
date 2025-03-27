@@ -639,7 +639,7 @@ const handleNext = () => {
                         }`}
                       >
                         {/* judul text tebal*/}
-                        <p className="text-center mb-2 indent-8 font-semibold mt-4 lg:mt-0">
+                        <p className="text-center mb-2 indent-8 font-semibold mt-8 lg:mt-0">
                           {item.judul_text1}
                         </p>
                         {/* <div className="flex items-center justify-center hover:w-full hover:absolute hover:z-50 hover:right-0 hover:left-0 ">
