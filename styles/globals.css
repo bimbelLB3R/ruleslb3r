@@ -9,6 +9,8 @@
 @import url("./sweatAlert.css");
 body {
   /* background: #f1f5f9; */
+  font-family: 'Roboto', sans-serif !important;
+  font-display: swap;
 }
 
 @layer utilities {
