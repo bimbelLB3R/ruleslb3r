@@ -484,7 +484,7 @@ const kirimJawaban = async (data) => {
     const hitung = countUniqueGroups();
     setJumlahSoalSelesai(hitung);
   }, []);
-// console.log(answers)  
+// console.log(link)  
 
   return (
     <div>
@@ -543,10 +543,10 @@ const kirimJawaban = async (data) => {
     </div>
       </div>
       {/* Selamat datang peserta */}
-      <div className="bg-orange-900 flex justify-center items-center fixed top-0 z-50 overflow-auto left-0   p-2 text-gray-100 text-[12px] md:text-sm rounded-tr-full rounded-br-full">
-        <p className="">Pembahasan {tipeSoal}</p>
+      <div className=" flex justify-center items-center fixed top-0 z-50 overflow-auto left-0   p-2 text-gray-100 text-[12px] md:text-sm ">
+        <p className="">Pembahasan {link}</p>
       </div>
-      <div className="flex justify-center items-center fixed top-0 z-40 overflow-auto left-0 right-0 bg-gray-900 text-gray-100 text-[12px] md:text-sm">
+      <div className="flex justify-center items-center fixed top-0 z-40 overflow-auto left-0 right-0 bg-gray-900 text-gray-100 text-[12px] md:text-sm h-[35px]">
         <div className=" p-2 rounded-full">
           {/* <Timer /> */}
           {/* from timer */} 
