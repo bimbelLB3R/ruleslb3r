@@ -41,10 +41,9 @@ export default function WarningSnbt() {
               {nameKu}, kamu masih punya sisa waktu mengerjakan Tes Diagnostik
               klik disini.
             </p>
-          </Link>:<Link href={`/form/snbtsupa?link=${linkKu}`}>
+          </Link>:<Link href={`/form/snbtsupaplus?link=${linkKu}`}>
             <p className="text-center text-gray-100 text-xs md:text-lg">
-              {nameKu}, kamu masih punya sisa waktu mengerjakan soal TO SNBT
-              klik disini.
+              {nameKu}, yuk lanjutkan pembahasan dan cek jawabanmu.
             </p>
           </Link>}
           

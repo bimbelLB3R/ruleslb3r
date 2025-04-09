@@ -236,7 +236,7 @@ useEffect(()=>{
   
   const [link, setLink] = useState();
 
-  const tipeSoal=questions.slice(0, 1).map((item)=>(item.kategori_soal));
+  const tipeSoal=questions.find((item) => item.id === 0)?.kategori_soal;
   // console.log(tipeSoal)
 
 //   kirim jawaban ke supa
@@ -489,7 +489,7 @@ const kirimJawaban = async (data) => {
   return (
     <div>
       <Head>
-        <title>Latihan Soal UTBK SNBT | Bimbel LB3R</title>
+        <title>Pembahasan Soal UTBK SNBT | Bimbel LB3R</title>
         <meta
           name="description"
           content="Bimbel LB3R menyelenggarakan bimbingan UTBK SNBT dan memberikan latihan soal dengan metode Item Response Theory (IRT)"
@@ -544,7 +544,7 @@ const kirimJawaban = async (data) => {
       </div>
       {/* Selamat datang peserta */}
       <div className=" flex justify-center items-center fixed top-0 z-50 overflow-auto left-0   p-2 text-gray-100 text-[12px] md:text-sm ">
-        <p className="">Pembahasan {link}</p>
+        <p className="">Pembahasan {tipeSoal}</p>
       </div>
       <div className="flex justify-center items-center fixed top-0 z-40 overflow-auto left-0 right-0 bg-gray-900 text-gray-100 text-[12px] md:text-sm h-[35px]">
         <div className=" p-2 rounded-full">
@@ -947,7 +947,7 @@ const kirimJawaban = async (data) => {
               </button>
             )}
           </div>
-          <div className="bg-orange-900 flex justify-center items-center fixed top-0 z-50 overflow-auto right-0   p-2 text-gray-100 text-[12px] md:text-sm rounded-tl-full rounded-bl-full">
+          <div className="flex justify-center items-center fixed top-0 z-50 overflow-auto right-0   p-2 text-gray-100 text-[12px] md:text-sm ">
           <button 
             onClick={() => {
                 localStorage.clear();
