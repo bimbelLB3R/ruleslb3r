@@ -56,8 +56,8 @@ export default function WarningSnbt() {
               ya...!!
             </p>
           </a> */}
-          <CountdownTimer targetDate={targetDate} />
-          <p className="text-center text-white">Menuju SNBT 2025</p>
+          {/* <CountdownTimer targetDate={targetDate} /> */}
+          {/* <p className="text-center text-white">Menuju SNBT 2025</p> */}
         </div>
       )}
     </>
