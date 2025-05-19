@@ -11,17 +11,10 @@ const Welcome = () => {
         <div className="leading-tight p-4 text-gray-600 text-center">
           {/* <h2 className="mb-4 text-[52px] font-gasok font-bold">LB3R</h2> */}
           <p>
-            Makin kamu banyak kegiatan di sekolah, makin perlu kamu ikut
-            bimbingan belajar supaya bisa mengejar ketertinggalan materi. Kamu
-            tetap bisa eksis di organisasi sekolah dan kamu tetap berprestasi
-            secara akademik. Di Bimbel LB3R, kamu bisa lebih mudah mengatur
-            jadwal sesuai kebutuhan kamu, apalagi sebagai organisatoris. Ingat
-            ya, nilai raport sangat penting untuk mengikuti seleksi masuk kuliah
-            jalur Tanpa Tes (SNBP) dan Kedinasan. Enak lho kalau kamu bisa lolos jalur ini,
-            tidak perlu pusing belajar lagi untuk tes SNBT.
+            Bimbel LB3R sudah hadir di kabupaten Tabalong sejak tahun 2012 dan telah mendampingi ribuan siswa dari jenjang TK, SD, SMP, SMA hingga ALumni. LB3R selalu mengikuti perubahan kurikulum sehingga pembelajarannya selalu up date sesuai kebutuhan kamu. Di LB3R kamu bisa membuat kelas kamu sendiri dan mengatur jadwal secara fleksibel menyesuaikan waktu antara belajar di sekolah, berorganisasi, dan belajar di bimbel sehingga kamu bisa belajar dengan efektif dan efisien. Selain waktu belajar yang fleksibel, sistem pembayaran juga mudah dan terjangkau untuk semua kalangan. Orang tua juga akan mendapatkan laporan riwayat kehadiran dan pembayaran siswa serta bisa secara langsung berdiskusi tentang perkembangan anak.
           </p>
           <br/>
-          <p>Kamu juga berhak mendapatkan bimbingan untuk memilih jurusan serta sesi konsultasi untuk pengembangan diri kamu. Kamu bakal tahu banyak hal tentang kekuatan dan kelemahanmu, gaya kepemimpinan kamu, gaya komunikasi dan lain-lain yang akan berguna saat kamu sudah terjun ke dunia kampus loh...</p>
+          <p>Ada beberapa program di LB3R yang bertujuan untuk menambah ketrampilan anak seperti ketrampilan berbahasa asing dan koding. Selain itu, LB3R juga memberikan layanan asesmen bakat dan minat menggunakan talents mapping dan talents tracker untuk pemilihan jurusan serta pengembangan karir anak. Talents mapping dan talenta tracker juga bisa digunakan untuk mengatasi masalah kepribadian anak dan masalah-masalah lain terkait psikologis anak dalam hubungan keluarga dan sosial.</p>
         </div>
       </div>
     </div>
