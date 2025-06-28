@@ -61,9 +61,10 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
   // const [isEmailEmpty, setIsEmailEmpty] = useState(false);
 
   const namaProgram = detailProgram.nama;
-  
   const biayaProgram = detailProgram.total;
   // console.log(diskon);
+const now = new Date();
+const timestamp = now.toLocaleString('id-ID', { timeZone: 'Asia/Makassar' });
 
   const [inputValueProgramName, setInputValueProgramName] =
     useState(namaProgram);
@@ -268,6 +269,7 @@ const DaftarLayanan = ({ detailProgram, allPost }) => {
           program: form.program,
           biaya: form.biaya,
           redirectUrl: transactionRedirectUrl,
+          timestamp:timestamp
         };
         const sendContactForm = async (newRowWithRedirect) => {
           try {
