@@ -2,7 +2,7 @@
   "programs": [
     {
       "idProgram": "TKA-1",
-      "keterangan": "diskon",
+      "keterangan": "diskon-tka",
       "nama": "Fokus TKA",
       "slug": "siap-tka",
       "biaya": 250000,
