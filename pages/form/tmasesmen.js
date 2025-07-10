@@ -7,7 +7,7 @@ export async function getStaticProps() {
     const allProgram = data.programs;
     // Find the post with a matching id
     const detailProgram = allProgram.find(
-      (program) => program.keterangan === 'diskon'
+      (program) => program.keterangan === 'tma'
     );
   
     return {
