@@ -1,6 +1,27 @@
 {
   "programs": [
     {
+      "idProgram": "TKA-1",
+      "keterangan": "diskon",
+      "nama": "Fokus TKA",
+      "slug": "siap-tka",
+      "biaya": 250000,
+      "diskon":225000,
+      "total": 375000,
+      "rincian": "Biaya Pendaftaran dan Les Bulan Pertama",
+      "frekuensi": "per bulan",
+      "fasilitas": [
+        "Masuk 2-3 kali dalam seminggu",
+        "Biaya Awal Masuk: Pendaftaran 150k (Sekali bayar)+ 225k (bea les bln pertama)",
+        "Mendapatkan Layanan ODB",
+        "Materi TKA dan materi sekolah",
+        "Free Konsultasi dengan tentor favorit",
+        "Laporan Kehadiran, Pembayaran dan Keaktifan",
+        "Laporan Perkembangan Materi",
+        "Program ini untuk jenjang 6 SD, 9 SMP dan 12 SMA"
+      ]
+    },
+    {
       "idProgram": "RegLB3R",
       "keterangan": "Best Seller",
       "nama": "Reguler SD/SMP",
@@ -32,11 +53,10 @@
       "rincian": "Biaya Pendaftaran dan Les Bulan Pertama",
       "frekuensi": "per bulan",
       "fasilitas": [
-        "Masuk 2-4 kali dalam seminggu*",
+        "Masuk 2-3 kali dalam seminggu*",
         "Biaya Pendaftaran 150.000 (Sekali bayar)",
-        "Materi Pengembangan Diri (Bakat,Manajemen diri dll)",
         "Mendapatkan Layanan ODB",
-        "Tes ST-30",
+        "Materi sesuai materi di sekolah",
         "Free Konsultasi dengan tentor favorit",
         "Laporan Kehadiran, Pembayaran dan Keaktivan",
         "Laporan Perkembangan Materi"
@@ -71,7 +91,7 @@
       "biaya": 200000,
       "diskon":0,
       "total": 350000,
-      "rincian": "Biaya Pendaftaran dan deposit awal",
+      "rincian": "Biaya: Pendaftaran 150k + deposit awal 200k",
       "frekuensi": "deposit awal",
       "fasilitas": [
         "Biaya pendaftaran 150.000 (sekali bayar)",
@@ -109,7 +129,7 @@
       "biaya": 200000,
       "diskon":0,
       "total": 350000,
-      "rincian": "Biaya Pendaftaran dan biaya les ",
+      "rincian": "Biaya : Pendaftaran 150k + biaya les bln pertama 200k",
       "frekuensi": "per bulan",
       "fasilitas": [
         "Biaya pendaftaran 150.000 (sekali bayar)",
@@ -122,12 +142,12 @@
     },
     {
       "idProgram": "TM",
-      "keterangan": "diskon",
+      "keterangan": "",
       "nama": "Asesmen Talents Mapping",
       "slug": "konsultasi-jurusan",
       "biaya": 500000,
-      "diskon":300000,
-      "total": 300000,
+      "diskon":0,
+      "total": 500000,
       "rincian": "Hasil Tes Bakat dan Konsultasinya",
       "frekuensi": "per orang",
       "fasilitas": [
@@ -135,41 +155,6 @@
         "Penjelasan hasil Talents Mapping",
         "Konsultasi Pemilihan Karir dan Jurusan",
         "Diskon berlaku hingga akhir oktober 2024"
-      ]
-    },
-    {
-      "idProgram": "FreeSNBT",
-      "keterangan": "Free/Gratis",
-      "nama": "Group SNBT",
-      "slug": "group-snbt",
-      "biaya": 0,
-      "diskon":0,
-      "total": 0,
-      "rincian": "Gratis",
-      "frekuensi": "Selamanya",
-      "fasilitas": [
-        "Warming Up / Pemanasan 7 Subtes SNBT",
-        "Cek Keketatan Program Studi dan Peluang Karir",
-        "Pembahasan Soal-soal SNBT",
-        "Konsultasi Pemilihan Jurusan",
-        "Group Eksklusif"
-      ]
-    },
-    {
-      "idProgram": "happyEngMath",
-      "keterangan": "diskon-happy",
-      "nama": "Happy English & Math",
-      "slug": "happy-eng-math",
-      "biaya": 225000,
-      "diskon":25000,
-      "total": 25000,
-      "rincian": "Biaya Les ",
-      "frekuensi": "selama desember 2024",
-      "fasilitas": [
-        "Masuk tiap jum'at dan sabtu",
-        "Belajar bahasa inggris menyenangkan SD",
-        "Belajar matematika untuk SD",
-        "Promo berlaku selama desember 2024"
       ]
     }
   ]
