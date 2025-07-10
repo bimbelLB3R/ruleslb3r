@@ -139,23 +139,6 @@
         "Super Grammar",
         "Easy Speaking"
       ]
-    },
-    {
-      "idProgram": "TM",
-      "keterangan": "tma",
-      "nama": "Asesmen Talents Mapping",
-      "slug": "konsultasi-jurusan",
-      "biaya": 500000,
-      "diskon":0,
-      "total": 500000,
-      "rincian": "Hasil Tes Bakat dan Konsultasinya",
-      "frekuensi": "per orang",
-      "fasilitas": [
-        "Hasil tes Talents Mapping (Print Out)",
-        "Penjelasan hasil Talents Mapping",
-        "Konsultasi Pemilihan Karir dan Jurusan",
-        "Diskon berlaku hingga akhir oktober 2024"
-      ]
     }
   ]
 }

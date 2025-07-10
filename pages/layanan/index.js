@@ -98,10 +98,7 @@ export default function Layanan({ allProgram, allPost, allTutorial }) {
                 
                 </div>
               
-              <Link href={
-                    program.keterangan ==="tma"
-                      ?`/form/tmasesmen`
-                      : `/layanan/${program.slug}`
+              <Link href={`/layanan/${program.slug}`
                   } className="flex items-center justify-center"><p className="bg-gray-300 p-1 rounded-lg text-center w-[150px] h-[35px] hover:bg-gray-200">Lihat Detail</p></Link>
               </div>
               </div>
