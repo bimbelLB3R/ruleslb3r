@@ -274,7 +274,7 @@ const Loginmembertka = () => {
                 ""
               )}
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                Premium Member
+                UJI COBA SOAL TKA
               </h1>
               <p>{erorKoneksi&&"Koneksi internet kamu kurang bagus..!!"}</p>
               <form

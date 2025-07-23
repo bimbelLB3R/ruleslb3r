@@ -41,7 +41,7 @@ const createPeserta = async (data, e) => {
     e.target.reset();
     Swal.fire({
       title: "Kamu Berhasil Terdaftar",
-      text: "Terima kasih telah bergabung program SNBT LB3R",
+      text: "Silahkan Coba Try Out-nya",
       icon: "success",
       confirmButtonText: "Ok",
     });
@@ -75,6 +75,7 @@ export default function Newmembersup() {
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const [jenjang, setJenjang] = useState("");
   const [form, setForm] = useState({
     nama: "",
     nisn: "",
@@ -86,6 +87,20 @@ export default function Newmembersup() {
     kampus2: "",
     cekaja: "",
   });
+
+  const handleJenjangChange = (e) => {
+    const value = e.target.value;
+    setJenjang(value);
+
+    if (value === "sd" || value === "smp") {
+      setForm((prev) => ({
+        ...prev,
+        kampus1: "kosong",
+        prodi2: "kosong",
+        kampus2: "kosong",
+      }));
+    }
+  };
   
   const validateForm = (form) => {
   return (
@@ -176,7 +191,7 @@ const submitForm = async (e) => {
   if (jenisujian === "tka") {
     router.push("/form/logintka");
   } else if (jenisujian === "snbt") {
-    router.push("/form/snbt");
+    router.push("/form/loginsupa");
   } else {
     router.push("/");
   }
@@ -375,26 +390,43 @@ const submitForm = async (e) => {
                     disabled={isDisable}
                   />
                 </div>
+                {/* Pilih Jenjang */}
+                <div>
+                  <label htmlFor="jenjang" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pilih Jenjang*</label>
+                  <select
+                    id="jenjang"
+                    name="jenjang"
+                    value={jenjang}
+                    onChange={handleJenjangChange}
+                    required
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600"
+                  >
+                    <option value="">-- Pilih Jenjang --</option>
+                    <option value="sd">SD</option>
+                    <option value="smp">SMP</option>
+                    <option value="sma">SMA</option>
+                  </select>
+                </div>
                 {/* Penjurusan */}
                 <div>
-                  <label
-                    htmlFor="prodi1"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    Pilihan Jurusan 1*
+                  <label htmlFor="prodi1" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    {jenjang === "sma" ? "Pilihan Jurusan 1*" : "Sekolah Lanjutan*"}
                   </label>
                   <input
                     type="text"
                     name="prodi1"
                     id="prodi1"
-                    placeholder="Contoh : Teknik Informatika"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required=""
+                    placeholder={jenjang === "sma" ? "Contoh : Teknik Informatika" : "Kamu mau lanjutin sekolah dimana?"}
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600"
+                    required
                     onChange={handleChange}
                     autoComplete="off"
                     disabled={isDisable}
                   />
                 </div>
+                {/* jika jenjang sma */}
+                {jenjang==='sma'&&(
+                <>
                 <div>
                   <label
                     htmlFor="kampus1"
@@ -452,6 +484,8 @@ const submitForm = async (e) => {
                     disabled={isDisable}
                   />
                 </div>
+                </>
+                )}
                 {/* Penjurusan end */}
                 <div className="flex items-start">
                   <div className="flex items-center h-5">

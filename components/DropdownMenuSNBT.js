@@ -28,7 +28,7 @@ export default function DropdownMenuSNBT() {
             aria-expanded="true"
             aria-haspopup="true"
           >
-            SNBT
+            TRY OUT
             <svg
               className="-mr-1 h-5 w-5 text-gray-400"
               viewBox="0 0 20 20"
@@ -68,7 +68,7 @@ export default function DropdownMenuSNBT() {
           <div className="py-1" role="none">
             {/* <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --> */}
             <Link
-              href="/form/newmember"
+              href="/form/newmembersup"
               className="text-gray-700 block px-4 py-2 text-sm hover:bg-slate-200"
               role="menuitem"
               tabIndex="-1"
@@ -77,13 +77,22 @@ export default function DropdownMenuSNBT() {
               Daftar
             </Link>
             <Link
-              href="/form/login"
+              href="/form/loginsupa"
               className="text-gray-700 block px-4 py-2 text-sm hover:bg-slate-200"
               role="menuitem"
               tabIndex="-1"
               // id="menu-item-1"
             >
-              Mulai Try Out
+              try Out SNBT
+            </Link>
+            <Link
+              href="/form/logintka"
+              className="text-gray-700 block px-4 py-2 text-sm hover:bg-slate-200"
+              role="menuitem"
+              tabIndex="-1"
+              // id="menu-item-1"
+            >
+              try Out TKA
             </Link>
           </div>
         </div>
