@@ -597,7 +597,7 @@ useEffect(() => {
       <div className={`flex justify-center items-center fixed top-[0.8rem] z-50 overflow-auto left-0 pl-2 text-gray-100  md:text-sm transition-all duration-700 ease-in-out  ${
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       }`}>
-        <p className="">{tipeSoal} | {currentPage}/{totalPages}</p>
+        <p className="">SNBT-{tipeSoal} | {currentPage}/{totalPages}</p>
       </div>
       <div className={`flex justify-center items-center fixed top-0 z-40 overflow-auto left-0 right-0  text-gray-100 text-[12px] md:text-sm transition-all duration-700 ease-in-out  ${
         isVisible ? "translate-y-0 bg-gray-900 opacity-100" : "-translate-y-full opacity-0"

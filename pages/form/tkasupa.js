@@ -523,7 +523,7 @@ useEffect(() => {
     const handleResize = () => {
       const isLgScreen = mediaQuery.matches;
       const link=localStorage.getItem("link")||"";//menghindari null
-      const isTargetLink = link === "kuantitatif" || link === "matematika" || link === "penalaran";
+      const isTargetLink = link === "fisika" || link === "mattka" || link === "kimia";
       // console.log(isTargetLink)
       setQuestionNav(isLgScreen && isTargetLink);
     };
@@ -542,10 +542,10 @@ useEffect(() => {
   return (
     <div>
       <Head>
-        <title>Latihan Soal UTBK SNBT | Bimbel LB3R</title>
+        <title>Latihan Soal TKA | Bimbel LB3R</title>
         <meta
           name="description"
-          content="Bimbel LB3R menyelenggarakan bimbingan UTBK SNBT dan memberikan latihan soal dengan metode Item Response Theory (IRT)"
+          content="Try Out dan Simulasi Tes Kemampuan Akademik TKA"
           key="desc"
         />
         <meta name="theme-color" content="#166534" />
@@ -600,7 +600,7 @@ useEffect(() => {
       <div className={`flex justify-center items-center fixed top-[0.8rem] z-50 overflow-auto left-0 pl-2 text-gray-100  md:text-sm transition-all duration-700 ease-in-out  ${
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       }`}>
-        <p className="">{tipeSoal} | {currentPage}/{totalPages}</p>
+        <p className="">TKA-{tipeSoal} | {currentPage}/{totalPages}</p>
       </div>
       <div className={`flex justify-center items-center fixed top-0 z-40 overflow-auto left-0 right-0  text-gray-100 text-[12px] md:text-sm transition-all duration-700 ease-in-out  ${
         isVisible ? "translate-y-0 bg-gray-900 opacity-100" : "-translate-y-full opacity-0"
