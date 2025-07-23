@@ -89,6 +89,7 @@ const Logindiagnostik = () => {
       const canSubmit = await checkNisn(form.wa, sheet3);
 
       if (canSubmit) {
+        localStorage.setItem("jenisUjian","diagnostik");
         const newRow = {
           wa: form.wa,
           nama: form.nama,

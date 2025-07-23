@@ -63,6 +63,7 @@ export default function Newmembersup() {
   const [isChecked, setIsChecked] = useState(false);
   // const [subscription, setSubscription] = useState({});
   const router = useRouter();
+  const { jenisujian } = router.query;
   // console.log(subscription);
   const [adaEmail, setAdaEmail] = useState(false);
   const [adaNisn, setAdaNisn] = useState(false);
@@ -85,69 +86,102 @@ export default function Newmembersup() {
     kampus2: "",
     cekaja: "",
   });
-  const submitForm = async (e) => {
-    setIsButtonDisabled(true);
-    e.preventDefault();
+  
+  const validateForm = (form) => {
+  return (
+    form.nisn !== "" &&
+    form.asalsekolah !== "" &&
+    form.asalsekolah.length < 100 &&
+    form.wa !== "" &&
+    form.wa.length < 14 &&
+    form.prodi1 !== "" &&
+    form.prodi1.length < 100 &&
+    form.kampus1 !== "" &&
+    form.kampus1.length < 100 &&
+    form.prodi2 !== "" &&
+    form.prodi2.length < 100 &&
+    form.kampus2 !== "" &&
+    form.kampus2.length < 100
+  );
+};
 
-    if (
-      // form.nama !== "" &&
-      form.nisn !== "" &&
-      form.asalsekolah !== "" &&
-      form.asalsekolah.length < 100 &&
-      form.wa !== "" &&
-      form.wa.length < 14 &&
-      form.prodi1 !== "" &&
-      form.prodi1.length < 100 &&
-      form.kampus1 !== "" &&
-      form.kampus1.length < 100 &&
-      form.prodi2 !== "" &&
-      form.prodi2.length < 100 &&
-      form.kampus2 !== "" &&
-      form.kampus2.length < 100
-    ) {
-      // kirim ke supabase
-      const isPesertaExist=await cekPeserta(form.nisn) ;
-      if(isPesertaExist===null){
-        // Jika checkNisn gagal karena error (misalnya jaringan), tampilkan pesan error
-                  Swal.fire({
-                    title: "Koneksi Bermasalah",
-                    text: "Gagal memeriksa NISN. Pastikan koneksi internet stabil dan coba lagi.",
-                    icon: "error",
-                    confirmButtonText: "Coba Lagi",
-                  });
-                  setIsButtonDisabled(false);
-                  return; // Jangan lanjutkan eksekusi
-      }
-      if (!isPesertaExist) {
-        const newRowSupa = {
-          nama: session.user.name,
-          nisn: `1${form.nisn}`,
-          asalsekolah: form.asalsekolah,
-          wa: form.wa,
-          prodi1: form.prodi1,
-          kampus1: form.kampus1,
-          prodi2: form.prodi2,
-          kampus2: form.kampus2,
-          email: session.user.email,
-          foto: session.user.image,
-          // subscription: subscription,
-        }
-        await createPeserta(newRowSupa,e);
-        router.push("/");
-        
-        } else {
-          Swal.fire({
-            title: `Cek lagi datamu ya...`,
-            text: "Data gagal dikirim, NISN sudah terdaftar",
-            icon: "warning",
-            confirmButtonText: "Koreksi Datamu",
-          });
-    
-          setIsButtonDisabled(false);
-          setShowButton(true);
-        }
-    }
+const submitForm = async (e) => {
+  setIsButtonDisabled(true);
+  e.preventDefault();
+
+  if (!validateForm(form)) {
+    Swal.fire({
+      title: "Data Belum Lengkap",
+      text: "Pastikan semua data terisi dengan benar.",
+      icon: "warning",
+    });
+    setIsButtonDisabled(false);
+    return;
+  }
+
+  let isPesertaExist = null;
+  try {
+    isPesertaExist = await cekPeserta(form.nisn);
+  } catch (error) {
+    console.error(error);
+    Swal.fire({
+      title: "Koneksi Bermasalah",
+      text: "Gagal memeriksa NISN. Pastikan koneksi internet stabil dan coba lagi.",
+      icon: "error",
+      confirmButtonText: "Coba Lagi",
+    });
+    setIsButtonDisabled(false);
+    return;
+  }
+
+  if (isPesertaExist === null) {
+    // jaga-jaga kalau `cekPeserta` return null (bukan error throw)
+    Swal.fire({
+      title: "Cek Koneksi",
+      text: "Tidak bisa memeriksa NISN, coba lagi.",
+      icon: "error",
+    });
+    setIsButtonDisabled(false);
+    return;
+  }
+
+  if (isPesertaExist) {
+    Swal.fire({
+      title: "NISN Sudah Terdaftar",
+      text: "Data gagal dikirim, NISN sudah terdaftar.",
+      icon: "warning",
+      confirmButtonText: "Koreksi Datamu",
+    });
+    setIsButtonDisabled(false);
+    setShowButton(true);
+    return;
+  }
+
+  // Jika belum terdaftar: Insert ke supabase
+  const newRowSupa = {
+    nama: session.user.name,
+    nisn: `1${form.nisn}`,
+    asalsekolah: form.asalsekolah,
+    wa: form.wa,
+    prodi1: form.prodi1,
+    kampus1: form.kampus1,
+    prodi2: form.prodi2,
+    kampus2: form.kampus2,
+    email: session.user.email,
+    foto: session.user.image,
   };
+
+  await createPeserta(newRowSupa, e);
+
+  if (jenisujian === "tka") {
+    router.push("/form/logintka");
+  } else if (jenisujian === "snbt") {
+    router.push("/form/snbt");
+  } else {
+    router.push("/");
+  }
+};
+
 
   const handleChange = (e) => {
     setForm({
@@ -214,7 +248,7 @@ export default function Newmembersup() {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Buat Akun Baru
               </h1>
-              <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+              {/* <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Sudah punya akun?{" "}
                 <Link
                   href="/form/login"
@@ -222,7 +256,7 @@ export default function Newmembersup() {
                 >
                   Login disini !
                 </Link>
-              </p>
+              </p> */}
               {/* <PushNotif /> */}
               <form
                 className="space-y-4 md:space-y-6"
@@ -462,7 +496,7 @@ export default function Newmembersup() {
                     </button>
                   )
                 )}
-                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                {/* <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Already have an account?{" "}
                   <Link
                     href="/form/login"
@@ -470,7 +504,7 @@ export default function Newmembersup() {
                   >
                     Login here
                   </Link>
-                </p>
+                </p> */}
               </form>
             </div>
           </div>

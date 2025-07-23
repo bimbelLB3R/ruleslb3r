@@ -4,8 +4,6 @@ import Loader from "./Loader";
 import { useRouter } from "next/router";
 // import session from 'express-session';
 import { signIn, signOut, useSession } from "next-auth/react";
-import cookie from "js-cookie";
-import Dropdown from "./DropdownTipeSoal";
 import Head from "next/head";
 import "animate.css";
 import Image from "next/image";
@@ -15,6 +13,8 @@ import duration from "dayjs/plugin/duration";
 // import { createClient } from "@supabase/supabase-js";
 import { supabase } from "../libs/supabase";
 import Link from "next/link";
+import Dropdowntka from "./DropdownTipeSoalTka";
+import Dropdownjenjang from "./DropdownJenjang";
 
 
 dayjs.extend(duration);
@@ -23,7 +23,7 @@ dayjs.extend(duration);
 // const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 // const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-const Loginmembersupa = () => {
+const Loginmembertka = () => {
   const [erorKoneksi,setErorKoneksi]=useState(false);
   const { data: session } = useSession();
   // console.log(session);
@@ -36,41 +36,42 @@ const Loginmembersupa = () => {
   // console.log(form.nisn);
   // cek apakah sudah ada nisn dan nama di local storage
         useEffect(() => {
-          const link = localStorage.getItem("link");
-          const storedMaxTime = localStorage.getItem("maxTime");
-          const jenisUjian = localStorage.getItem("jenisUjian");
-  
-          const maxTimeInSeconds = parseInt(storedMaxTime);
-          const currentTime = dayjs();
-          const startTime = localStorage.getItem("startTime")
-            ? dayjs(localStorage.getItem("startTime"))
-            : currentTime;
-  
-          const elapsedTime = currentTime.diff(startTime, "second");
-          const remainingTime = Math.max(0, maxTimeInSeconds - elapsedTime);
-  
-          if (remainingTime > 0) {
-            let pathname = "";
-  
-            if (jenisUjian === "tka") {
-              pathname = `/form/tkasupa`;
-            } else if (jenisUjian === "snbt") {
-              pathname = `/form/snbtsupa`;
-            } else if (jenisUjian === "diagnostik") {
-              pathname = `/layanan/diagnostik/diagnostiktes`;
-            } else {
-              console.log("Jenis ujian tidak terdeteksi, silahkan mulai soal");
-              return; // stop push kalau tidak valid
-            }
-  
-            router.push({
-              pathname: pathname,
-              query: { link },
-            });
+        const link = localStorage.getItem("link");
+        const storedMaxTime = localStorage.getItem("maxTime");
+        const jenisUjian = localStorage.getItem("jenisUjian");
+
+        const maxTimeInSeconds = parseInt(storedMaxTime);
+        const currentTime = dayjs();
+        const startTime = localStorage.getItem("startTime")
+          ? dayjs(localStorage.getItem("startTime"))
+          : currentTime;
+
+        const elapsedTime = currentTime.diff(startTime, "second");
+        const remainingTime = Math.max(0, maxTimeInSeconds - elapsedTime);
+
+        if (remainingTime > 0) {
+          let pathname = "";
+
+          if (jenisUjian === "tka") {
+            pathname = `/form/tkasupa`;
+          } else if (jenisUjian === "snbt") {
+            pathname = `/form/snbtsupa`;
+          } else if (jenisUjian === "diagnostik") {
+            pathname = `/layanan/diagnostik/diagnostiktes`;
           } else {
-            console.log("Silahkan mulai soal");
+            console.log("Jenis ujian tidak terdeteksi, silahkan mulai soal");
+            return; // stop push kalau tidak valid
           }
-        }, [router]);
+
+          router.push({
+            pathname: pathname,
+            query: { link },
+          });
+        } else {
+          console.log("Silahkan mulai soal");
+        }
+      }, [router]);
+
   // cek apakah NISN sudah ada+penanganan eror koneksi buruk
   const cekPeserta=async(nisn)=>{
     try {
@@ -108,36 +109,74 @@ const Loginmembersupa = () => {
           return; // Jangan lanjutkan eksekusi
         }
   
-        if (canSubmit) {
-          localStorage.setItem("jenisUjian","snbt");
-          const link = localStorage.getItem("link");  
+      if (canSubmit) {
+          localStorage.setItem("jenisUjian","tka");
+          const link = localStorage.getItem("link");
+          const jenjang = localStorage.getItem("jenjang");
           localStorage.setItem("name", form.nama);
           localStorage.setItem("nisn", `1${form.nisn}`);
-          localStorage.setItem("dataSoal", JSON.stringify(["snbt", "matematika", "english", "kuantitatif", "bacaan", "penalaran", "pengetahuan"]));
-  
-          // Atur waktu sesuai jenis soal
-          const maxTimeMapping = {
-            snbt: 2250, // 37,5 menit
-            // snbt: 3600, // 37,5 menit
-            kuantitatif: 1200, // 20 menit
-            matematika: 2250, // 37,5 menit
-            english: 1800, // 30 menit
-            bacaan: 1500, // 25 menit
-            penalaran: 1800, // 30 menit
-            pengetahuan: 900, // 15 menit
+
+          // 1. Definisi dataSoal per jenjang (wajib)
+          const soalPerJenjang = {
+            sd: ["matsd", "bindosd"],
+            smp: ["matsmp", "bindosmp"],
+            sma: ["mattka", "indtka", "engtka"],
           };
-  
+
+          // 2. Definisi maxTimeMapping per jenjang
+          const maxTimeMappingPerJenjang = {
+            sd: {
+              matsd: 1200,
+              bindosd: 1500,
+            },
+            smp: {
+              matsmp: 1500,
+              bindosmp: 1800,
+            },
+            sma: {
+              mattka: 1200,
+              indtka: 2250,
+              engtka: 1800,
+              bindolanjut: 1800,
+              binglanjut: 1800,
+              fisika: 1500,
+              kimia: 1500,
+              biologi: 1500,
+              ekonomi: 1500,
+              geografi: 1500,
+              sosiologi: 1500,
+              sejarah: 1500,
+              jepang: 1500,
+            },
+          };
+
+          // 3. Ambil mapel wajib sesuai jenjang
+          let dataSoal = soalPerJenjang[jenjang] || [];
+
+          // 4. Kalau jenjang SMA → ambil mapelPilihanSiswa dari localStorage
+          if (jenjang === "sma") {
+            const mapelPilihanSiswa = JSON.parse(localStorage.getItem("mapelPilihanSiswa")) || [];
+            // Pastikan hanya max 2
+            const duaMapel = mapelPilihanSiswa.slice(0, 2);
+            dataSoal = [...dataSoal, ...duaMapel];
+          }
+
+          // 5. Simpan final dataSoal
+          localStorage.setItem("dataSoal", JSON.stringify(dataSoal));
+
+          // 6. Atur maxTime sesuai link
+          const maxTimeMapping = maxTimeMappingPerJenjang[jenjang] || {};
           if (link in maxTimeMapping) {
             localStorage.setItem("maxTime", maxTimeMapping[link]);
           } else {
-            console.log("link undetect");
+            console.log("Link undetect atau waktu tidak tersedia");
           }
-  
+
           router.push({
-            pathname: `/form/snbtsupa`,
-            // pathname: `/form/snbtsupaplus`,
+            pathname: `/form/tkasupa`,
             query: { link },
           });
+
         } else {
           Swal.fire({
             title: `${form.nisn} belum terdaftar`,
@@ -147,6 +186,8 @@ const Loginmembersupa = () => {
           });
           router.push("/form/newmembersup");
         }
+
+
       }
     } catch (error) {
       console.error("Terjadi kesalahan:", error);
@@ -178,8 +219,8 @@ const Loginmembersupa = () => {
   return (
     <>
       <Head>
-        <title>Try Out dan Simulai UTBK SNBT</title>
-        <meta name="description" content="Halaman Login Simulasi dan Try Out UTBK SNBT Program SNBT Eksklusif Bimbel LB3R" />
+        <title>Try Out dan Simulai TKA</title>
+        <meta name="description" content="Halaman Login Simulasi dan Try Out Program TKA Bimbel LB3R" />
         <meta
       property="og:image"
       itemProp="image"
@@ -280,8 +321,11 @@ const Loginmembersupa = () => {
                   />
                 </div>
                 <div>
-                  <Dropdown disabled={isButtonDisabled} />
+                  <Dropdownjenjang disabled={isButtonDisabled} />
                 </div>
+                {/* <div>
+                  <Dropdowntka disabled={isButtonDisabled} />
+                </div> */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-start">
                     <div className="flex items-center h-5">
@@ -325,7 +369,7 @@ const Loginmembersupa = () => {
                 <div className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Don’t have an account yet?{" "}
                   <a
-                    href="/form/newmembersup?jenisujian=snbt"
+                    href="/form/newmembersup?jenisujian=tka"
                     className="font-medium text-blue-600 hover:underline dark:text-blue-500"
                   >
                     Sign up
@@ -341,5 +385,5 @@ const Loginmembersupa = () => {
   );
 };
 
-export default Loginmembersupa;
+export default Loginmembertka;
 
