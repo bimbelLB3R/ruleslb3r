@@ -102,6 +102,7 @@ const ContactForm = () => {
             .select("*");
         if (error) {
             console.error("Error fetching questions:", error);
+            alert("Soal masih dalam proses penyelesaian!!")
         } else {
           const jmlSoal=data.length;
           setJumlahSoal(jmlSoal);
@@ -243,12 +244,18 @@ const kirimJawaban = async (data) => {
     const link = localStorage.getItem("link");
     const lembarJawab = {
         indtka: "jwb_indtka",
-        kuantitatif: "jwb_kuantitatif",
-        matematika: "jwb_matematika",
-        english: "jwb_english",
-        bacaan: "jwb_bacaan",
-        penalaran: "jwb_penalaran",
-        pengetahuan: "jwb_pengetahuan",
+       mattka: "jwb_mattka",
+              engtka: "jwb_engtka",
+              bindolanjut: "jwb_bindolanjut",
+              binglanjut: "jwb_binglanjut",
+              fisika: "jwb_fisika",
+              kimia: "jwb_kimia",
+              biologi: "jwb_biologi",
+              ekonomi: "jwb_ekonomi",
+              geografi: "jwb_geografi",
+              sosiologi: "jwb_sosiologi",
+              sejarah: "jwb_sejarah",
+              jepang: "jwb_jepang",
     };
 
     if (link in lembarJawab) {

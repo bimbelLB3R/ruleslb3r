@@ -8,7 +8,7 @@ import CountdownTimer from "./CountDownTimer";
 dayjs.extend(duration);
 
 export default function WarningSnbt() {
-  const targetDate = "2025-04-23T23:59:59";
+  const targetDate = "2026-04-23T23:59:59";
   const [nameKu, setNameKu] = useState("");
   const [linkKu, setLinkKu] = useState("");
   const [jenisUjian, setJenisUjian] = useState("");
@@ -80,7 +80,7 @@ export default function WarningSnbt() {
         </div>
       ) : (
         <div className="w-full grid m-auto p-4 bg-gradient-to-b from-purple-900 via-gray-900 to-purple-900">
-          {/* <CountdownTimer targetDate={targetDate} /> */}
+          <CountdownTimer targetDate={targetDate} />
         </div>
       )}
     </>

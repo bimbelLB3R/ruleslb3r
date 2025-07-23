@@ -64,6 +64,9 @@ const CountdownTimer = ({ targetDate }) => {
           </div>
         </div>
       </div>
+      <div>
+        <p className="text-sm text-white text-center">Menuju UTBK SNBT</p>
+      </div>
     </div>
   );
 };
