@@ -188,7 +188,7 @@ const submitForm = async (e) => {
 
   await createPeserta(newRowSupa, e);
 
-  if (jenisujian === "tka") {
+  if (jenisujian === "tka" || jenjang==='sd'||jenjang==='smp') {
     router.push("/form/logintka");
   } else if (jenisujian === "snbt") {
     router.push("/form/loginsupa");
