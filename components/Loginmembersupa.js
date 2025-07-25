@@ -117,14 +117,14 @@ const Loginmembersupa = () => {
   
           // Atur waktu sesuai jenis soal
           const maxTimeMapping = {
-            snbt: 2250, // 37,5 menit
+            snbt: 2250, // 42,5 menit 30 soal
             // snbt: 3600, // 37,5 menit
-            kuantitatif: 1200, // 20 menit
-            matematika: 2250, // 37,5 menit
-            english: 1800, // 30 menit
-            bacaan: 1500, // 25 menit
-            penalaran: 1800, // 30 menit
-            pengetahuan: 900, // 15 menit
+            kuantitatif: 1200, // 20 menit 20 soal
+            matematika: 2550, // 42,5 menit 20 soal
+            english: 1200, // 20 menit 20 soal
+            bacaan: 1500, // 25 menit 20 soal
+            penalaran: 1800, // 30 menit 30 soal
+            pengetahuan: 900, // 15 menit 20 soal
           };
   
           if (link in maxTimeMapping) {

@@ -332,23 +332,49 @@ const kirimJawaban = async (data) => {
   const submitForm = async (e) => {
     e.preventDefault();
     setIsButtonDisabled(true);
+    const reduced = Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
+      if (name.startsWith("group") && name.includes("_")) {
+        const groupId = name.split("_")[0];
+        acc[groupId] = (acc[groupId] || "") + savedValue;
+      } else {
+        if (typeof savedValue === "string" && savedValue.includes(",")) {
+          acc[name] = savedValue.split(",").map(Number).sort((a,b)=>a-b).join("");
+        } else if (Array.isArray(savedValue)) {
+          acc[name] = savedValue.map(Number).sort((a,b)=>a-b).join("");
+        } else {
+          acc[name] = savedValue;
+        }
+      }
+      return acc;
+    }, {});
+
+    // Urutkan benar-salah
+    Object.keys(reduced).forEach(key => {
+      if (key.startsWith("group")) {
+        reduced[key] = reduced[key]
+          .match(/\d\S/g)
+          .sort((a,b)=>parseInt(a) - parseInt(b))
+          .join("");
+      }
+    });
    const newRow = {
           nisn: form.nisn,
-          ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
-            if (name.startsWith("group") && name.includes("_")) {//soal benar-salah
-              // Ambil ID unik (misalnya: "group3" dari "group3_1")
-              const groupId = name.split("_")[0];
+          // ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
+          //   if (name.startsWith("group") && name.includes("_")) {//soal benar-salah
+          //     // Ambil ID unik (misalnya: "group3" dari "group3_1")
+          //     const groupId = name.split("_")[0];
         
-              // Gabungkan nilai berdasarkan groupId
-              acc[groupId] = (acc[groupId] || "") + savedValue;
-            } else {
-              // Untuk data lain, simpan langsung
-              acc[name] = savedValue;
-              acc[name] = Array.isArray(savedValue) ? savedValue.join("") : savedValue;//soal cekbox
-            }
+          //     // Gabungkan nilai berdasarkan groupId
+          //     acc[groupId] = (acc[groupId] || "") + savedValue;
+          //   } else {
+          //     // Untuk data lain, simpan langsung
+          //     acc[name] = savedValue;
+          //     acc[name] = Array.isArray(savedValue) ? savedValue.join("") : savedValue;//soal cekbox
+          //   }
         
-            return acc;
-          }, {}),
+          //   return acc;
+          // }, {}),
+          ...reduced,
         };
       
       
