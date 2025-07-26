@@ -124,7 +124,7 @@ const ContactForm = () => {
           rel="icon"
           type="image/png"
           sizes="4x16"
-          href="image/logolb3r.png"
+          href="/image/logolb3r.png"
         />
       </Head>
       <div className="flex justify-center items-center min-h-screen bg-gray-400 text-gray-900">

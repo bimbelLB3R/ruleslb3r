@@ -230,7 +230,18 @@
         "facebook":"bimbel.lb3r",
         "instagram":"bimbel_lb3r",
         "twitter":"bimbel_lb3r"
-      }           
+      },
+      {
+        "idPengajar": 22,
+        "nama": "Uswatun",
+        "mapel": "Bhs. Indonesia",
+        "malam": "ready",
+        "foto": "Bu Uswatun",
+        "kampus":"ULM",
+        "facebook":"bimbel.lb3r",
+        "instagram":"bimbel_lb3r",
+        "twitter":"bimbel_lb3r"
+      }            
     ]
   }
   
