@@ -137,7 +137,7 @@ const Home = ({ allPost, dataAlumni }) => {
         <BayarLes />
         {/* <VoiceControl/> */}
         <WarningSnbt />
-        {/* <ImageSlide /> */}
+        <ImageSlide />
         <ButtonUmum />
         {/* <ShortCut /> */}
         {/* <LatexTester/> */}
