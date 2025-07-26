@@ -79,10 +79,10 @@ export default function WarningSnbt() {
           </Link>
         </div>
       ) : (
-        // <div className="w-full grid m-auto p-4 bg-gradient-to-b from-purple-900 via-gray-900 to-purple-900">
-        //   <CountdownTimer targetDate={targetDate} />
-        // </div>
-        ''
+        <div className="w-full grid m-auto p-4 bg-gradient-to-b from-purple-900 via-gray-900 to-purple-900">
+          <CountdownTimer targetDate={targetDate} />
+        </div>
+      
       )}
     </>
   );
