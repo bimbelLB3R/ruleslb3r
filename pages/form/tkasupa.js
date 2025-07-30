@@ -342,23 +342,67 @@ const kirimJawaban = async (data) => {
   const submitForm = async (e) => {
     e.preventDefault();
     setIsButtonDisabled(true);
+      const reduced = Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
+      if (name.startsWith("group") && name.includes("_")) {
+        const groupId = name.split("_")[0];
+        acc[groupId] = (acc[groupId] || "");
+
+        if (typeof savedValue === "string" && /^[0-9]+[A-Z]$/i.test(savedValue)) {
+          // untuk benar-salah seperti '2S', '3B'
+          acc[groupId] += savedValue;
+        } else {
+          // fallback, jika bukan pola benar-salah
+          acc[groupId] += savedValue;
+        }
+      } else {
+        // Ceklist (comma-separated string atau array)
+        if (typeof savedValue === "string" && savedValue.includes(",")) {
+          acc[name] = savedValue.split(",").map(Number).sort((a,b)=>a-b).join("");
+        } else if (Array.isArray(savedValue)) {
+          acc[name] = savedValue.map(Number).sort((a,b)=>a-b).join("");
+        } else {
+          // Pilihan ganda atau jawaban singkat langsung
+          acc[name] = savedValue;
+        }
+      }
+      return acc;
+    }, {});
+
+    // Langkah kedua: khusus untuk group benar/salah, urutkan dan gabungkan
+    const bsGroups = Object.keys(reduced).filter(key => {
+      // Deteksi apakah ini tipe benar-salah: isinya mengandung pola 2S, 3B, dll.
+      const val = reduced[key];
+      return typeof val === "string" && /\d+[A-Z]/i.test(val);
+    });
+
+    bsGroups.forEach(key => {
+      const matches = reduced[key].match(/\d+[A-Z]/gi);
+      if (matches) {
+        reduced[key] = matches
+          .sort((a, b) => parseInt(a) - parseInt(b))
+          .join("");
+      }
+    });
+
+
    const newRow = {
           nisn: form.nisn,
-          ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
-            if (name.startsWith("group") && name.includes("_")) {//soal benar-salah
-              // Ambil ID unik (misalnya: "group3" dari "group3_1")
-              const groupId = name.split("_")[0];
+          // ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
+          //   if (name.startsWith("group") && name.includes("_")) {//soal benar-salah
+          //     // Ambil ID unik (misalnya: "group3" dari "group3_1")
+          //     const groupId = name.split("_")[0];
         
-              // Gabungkan nilai berdasarkan groupId
-              acc[groupId] = (acc[groupId] || "") + savedValue;
-            } else {
-              // Untuk data lain, simpan langsung
-              acc[name] = savedValue;
-              acc[name] = Array.isArray(savedValue) ? savedValue.join("") : savedValue;//soal cekbox
-            }
+          //     // Gabungkan nilai berdasarkan groupId
+          //     acc[groupId] = (acc[groupId] || "") + savedValue;
+          //   } else {
+          //     // Untuk data lain, simpan langsung
+          //     acc[name] = savedValue;
+          //     acc[name] = Array.isArray(savedValue) ? savedValue.join("") : savedValue;//soal cekbox
+          //   }
         
-            return acc;
-          }, {}),
+          //   return acc;
+          // }, {}),
+          ...reduced,
         };
       
       

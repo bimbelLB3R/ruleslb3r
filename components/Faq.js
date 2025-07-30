@@ -166,7 +166,7 @@ const Faq = () => {
               <p className="text-gray-900 dark:text-gray-400 text-left">
                 pertama{" "}
                 <a
-                  href="http://192.168.100.129/aplikasibimbel2/public/data_tentor/"
+                  href="http://192.168.100.92/aplikasibimbel2/public/data_tentor/"
                   className="text-blue-600 hover:underline dark:text-blue-500"
                 >
                   Login Dengan Wifi Di Kantor

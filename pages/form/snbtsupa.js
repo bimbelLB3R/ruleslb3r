@@ -335,28 +335,46 @@ const kirimJawaban = async (data) => {
     const reduced = Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
       if (name.startsWith("group") && name.includes("_")) {
         const groupId = name.split("_")[0];
-        acc[groupId] = (acc[groupId] || "") + savedValue;
+        acc[groupId] = (acc[groupId] || "");
+
+        if (typeof savedValue === "string" && /^[0-9]+[A-Z]$/i.test(savedValue)) {
+          // untuk benar-salah seperti '2S', '3B'
+          acc[groupId] += savedValue;
+        } else {
+          // fallback, jika bukan pola benar-salah
+          acc[groupId] += savedValue;
+        }
       } else {
+        // Ceklist (comma-separated string atau array)
         if (typeof savedValue === "string" && savedValue.includes(",")) {
           acc[name] = savedValue.split(",").map(Number).sort((a,b)=>a-b).join("");
         } else if (Array.isArray(savedValue)) {
           acc[name] = savedValue.map(Number).sort((a,b)=>a-b).join("");
         } else {
+          // Pilihan ganda atau jawaban singkat langsung
           acc[name] = savedValue;
         }
       }
       return acc;
     }, {});
 
-    // Urutkan benar-salah
-    Object.keys(reduced).forEach(key => {
-      if (key.startsWith("group")) {
-        reduced[key] = reduced[key]
-          .match(/\d\S/g)
-          .sort((a,b)=>parseInt(a) - parseInt(b))
+    // Langkah kedua: khusus untuk group benar/salah, urutkan dan gabungkan
+    const bsGroups = Object.keys(reduced).filter(key => {
+      // Deteksi apakah ini tipe benar-salah: isinya mengandung pola 2S, 3B, dll.
+      const val = reduced[key];
+      return typeof val === "string" && /\d+[A-Z]/i.test(val);
+    });
+
+    bsGroups.forEach(key => {
+      const matches = reduced[key].match(/\d+[A-Z]/gi);
+      if (matches) {
+        reduced[key] = matches
+          .sort((a, b) => parseInt(a) - parseInt(b))
           .join("");
       }
     });
+
+
    const newRow = {
           nisn: form.nisn,
           // ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
@@ -379,7 +397,7 @@ const kirimJawaban = async (data) => {
       
       
       setIsLoading(true); // set status loading menjadi true
-      
+      console.log(newRow);
       kirimJawaban(newRow);
       clearLocalStorageExcept(["link","linkSudah","linkBelum","name","nisn","dataSoal"]);
         // renameAndAppendLocalStorageKey("link", "linkSudah");
