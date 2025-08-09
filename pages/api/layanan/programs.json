@@ -1,6 +1,26 @@
 {
   "programs": [
     {
+      "idProgram": "siap-um",
+      "keterangan": "",
+      "nama": "Tembus PTN/S Jalur Ujian Mandiri",
+      "slug": "siap-mandiri",
+      "biaya": 75000,
+      "diskon":50000,
+      "total": 200000,
+      "rincian": "Biaya pertemuan pertama (50k) dan pendaftaran (150k)",
+      "frekuensi": "per jam",
+      "fasilitas": [
+        "Masuk sesuai kebutuhan",
+        "Biaya Awal Masuk: Pendaftaran 150k (Sekali bayar)+ 50k (bea les pertemuan pertama)",
+        "Belum termasuk FC soal",
+        "Materi disesuaikan dengan UM",
+        "Lebih fokus dengan jumlah siswa terbatas",
+        "Konsultasi seputar kampus dan jurusan",
+        "Program ini untuk jenjang  12 SMA"
+      ]
+    },
+    {
       "idProgram": "TKA-1",
       "keterangan": "diskon-tka",
       "nama": "Fokus TKA",
