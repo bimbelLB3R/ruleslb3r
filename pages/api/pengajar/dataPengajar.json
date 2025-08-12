@@ -241,7 +241,18 @@
         "facebook":"bimbel.lb3r",
         "instagram":"bimbel_lb3r",
         "twitter":"bimbel_lb3r"
-      }            
+      },
+      {
+        "idPengajar": 23,
+        "nama": "Devi",
+        "mapel": "Bhs. Inggris",
+        "malam": "ready",
+        "foto": "Bu Devi",
+        "kampus":"UMM",
+        "facebook":"bimbel.lb3r",
+        "instagram":"bimbel_lb3r",
+        "twitter":"bimbel_lb3r"
+      }                
     ]
   }
   
