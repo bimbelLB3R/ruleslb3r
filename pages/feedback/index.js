@@ -366,12 +366,22 @@ const FeedbackForm = () => {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-center p-3">
-                    Jadwal belum tersedia,
-                    <button onClick={() => signOut()} className="underline">
-                      ganti email?
-                    </button>
-                  </p>
+                <p className="text-center p-3">
+                  Jadwal belum tersedia.{" "}
+                  <button onClick={() => signOut()} className="underline">
+                    Ganti email
+                  </button>{" "}
+                  atau{" "}
+                    <a
+                      href={`https://api.whatsapp.com/send?phone=6285654179908&text=Kak, daftarkan email ini ${session.user.email} untuk kasih rating.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline"
+                    >
+                      daftarkan email {session.user.email}
+                    </a>
+                </p>
+
                 )}
 
                 <div className="flex items-center justify-center m-6">
