@@ -75,13 +75,16 @@ const FeedbackForm = () => {
           showDenyButton: true,
           // showCancelButton: true,
           confirmButtonText: "Ya",
-          denyButtonText: `Tidak`,
+          denyButtonText: `Tidak, daftarkan email ini`,
         }).then((result) => {
           /* Read more about isConfirmed, isDenied below */
           if (result.isConfirmed) {
             handleSignIn();
           } else if (result.isDenied) {
-            // router.push("/");
+              window.open(
+              `https://api.whatsapp.com/send?phone=6285654179908&text=Kak, daftarkan email ini ${session?.user?.email} untuk kasih rating.`,
+              "_blank"
+            );
             setIsLoading(false);
           }
         });
