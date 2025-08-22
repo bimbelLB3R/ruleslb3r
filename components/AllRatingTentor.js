@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import Loader from "./Loader";
 import Image from "next/image";
+import Link from "next/link";
 
 // Config variables
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID_RATING;
@@ -136,7 +137,8 @@ const AllRatingTentor = () => {
                 <div className="flex items-center w-full space-x-2 absolute inset-y-0 -left-14">
                   <div >
                     <div className="flex justify-center items-center space-x-1">
-                    <Image
+                    <Link href={`/image/tentor/${pengajar.rating_pengajar}.png`}>
+                      <Image
                     src={`/image/tentor/${pengajar.rating_pengajar}.png`}
                     width={15}
                     height={15}
@@ -144,6 +146,8 @@ const AllRatingTentor = () => {
                     className="rounded-full"
                     priority
                     />
+                    </Link>
+                    
                     <p className="text-[8px]">{pengajar.rataRating.toFixed(2)}</p>
                     <span
                       style={{
