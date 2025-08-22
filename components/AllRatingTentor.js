@@ -134,20 +134,21 @@ const AllRatingTentor = () => {
                   marginTop: "10px",
                 }}
               >
-                <div className="flex items-center w-full space-x-2 absolute inset-y-0 -left-14">
+                <div className="flex items-center w-full space-x-2 absolute inset-y-0 -left-16">
                   <div >
                     <div className="flex justify-center items-center space-x-1">
-                    <Link href={`/image/tentor/${pengajar.rating_pengajar}.png`}>
-                      <Image
-                    src={`/image/tentor/${pengajar.rating_pengajar}.png`}
-                    width={15}
-                    height={15}
-                    alt="No Image"
-                    className="rounded-full"
-                    priority
-                    />
-                    </Link>
-                    
+                      <Link href={`/image/tentor/${pengajar.rating_pengajar}.png`}>
+                        <div className="relative w-5 h-5">
+                          <Image
+                            src={`/image/tentor/${pengajar.rating_pengajar}.png`}
+                            alt="No Image"
+                            className="rounded-full"
+                            fill
+                            priority
+                            title={pengajar.rating_pengajar}
+                          />
+                        </div>
+                      </Link>                    
                     <p className="text-[8px]">{pengajar.rataRating.toFixed(2)}</p>
                     <span
                       style={{
