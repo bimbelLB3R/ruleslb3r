@@ -45,28 +45,6 @@
         "twitter":"bimbel_lb3r"
       },
       {
-        "idPengajar": 5,
-        "nama": "Feny",
-        "mapel": "Tematik",
-        "malam": "ready",
-        "foto": "Bu Feny",
-        "kampus":"ULM",
-        "facebook":"bimbel.lb3r",
-        "instagram":"bimbel_lb3r",
-        "twitter":"bimbel_lb3r"
-      },
-      {
-        "idPengajar": 6,
-        "nama": "Heny",
-        "mapel": "Biologi",
-        "malam": "ready",
-        "foto": "Bu Heny",
-        "kampus":"ULM",
-        "facebook":"bimbel.lb3r",
-        "instagram":"bimbel_lb3r",
-        "twitter":"bimbel_lb3r"
-      },
-      {
         "idPengajar": 7,
         "nama": "Herni",
         "mapel": "Matematika",
@@ -80,7 +58,7 @@
       {
         "idPengajar": 8,
         "nama": "Inayah",
-        "mapel": "Ekonomi",
+        "mapel": "Ekonomi/English",
         "malam": "ready",
         "foto": "Bu Inayah",
         "kampus":"ULM",
@@ -91,7 +69,7 @@
       {
         "idPengajar": 9,
         "nama": "Jannah",
-        "mapel": "Sejarah",
+        "mapel": "SosAnt",
         "malam": "ready",
         "foto": "Bu Jannah",
         "kampus":"ULM",
@@ -134,17 +112,6 @@
       },
       {
         "idPengajar": 13,
-        "nama": "Nugraheni",
-        "mapel": "Tematik",
-        "malam": "ready",
-        "foto": "Bu Nugraheni",
-        "kampus":"ULM",
-        "facebook":"bimbel.lb3r",
-        "instagram":"bimbel_lb3r",
-        "twitter":"bimbel_lb3r"
-      } ,
-      {
-        "idPengajar": 14,
         "nama": "Tarisa",
         "mapel": "Matematika",
         "malam": "ready",
@@ -155,18 +122,7 @@
         "twitter":"bimbel_lb3r"
       },
       {
-        "idPengajar": 15,
-        "nama": "Yessy",
-        "mapel": "Bhs. Indonesia",
-        "malam": "ready",
-        "foto": "Bu Yessy",
-        "kampus":"ULM",
-        "facebook":"bimbel.lb3r",
-        "instagram":"bimbel_lb3r",
-        "twitter":"bimbel_lb3r"
-      },
-      {
-        "idPengajar": 16,
+        "idPengajar": 14,
         "nama": "Hendra",
         "mapel": "Matematika",
         "malam": "ready",
@@ -177,7 +133,7 @@
         "twitter":"bimbel_lb3r"
       },
       {
-        "idPengajar": 17,
+        "idPengajar": 15,
         "nama": "Karim",
         "mapel": "Fisika",
         "malam": "ready",
@@ -188,7 +144,7 @@
         "twitter":"bimbel_lb3r"
       },
       {
-        "idPengajar": 18,
+        "idPengajar": 16,
         "nama": "Kuswanto",
         "mapel": "English",
         "malam": "ready",
@@ -199,7 +155,7 @@
         "twitter":"bimbel_lb3r"
       },           
       {
-        "idPengajar": 19,
+        "idPengajar": 17,
         "nama": "Firda",
         "mapel": "Biologi",
         "malam": "ready",
@@ -210,7 +166,7 @@
         "twitter":"bimbel_lb3r"
       },           
       {
-        "idPengajar": 20,
+        "idPengajar": 18,
         "nama": "Ikadiani",
         "mapel": "Bhs. Indonesia",
         "malam": "ready",
@@ -221,18 +177,18 @@
         "twitter":"bimbel_lb3r"
       },           
       {
-        "idPengajar": 21,
-        "nama": "Lisa",
-        "mapel": "Bhs. Indonesia",
+        "idPengajar": 19,
+        "nama": "Hafis",
+        "mapel": "Biologi/SKD",
         "malam": "ready",
-        "foto": "Bu Lisa",
-        "kampus":"STIKIP",
+        "foto": "Pak Hafis",
+        "kampus":"ULM",
         "facebook":"bimbel.lb3r",
         "instagram":"bimbel_lb3r",
         "twitter":"bimbel_lb3r"
       },
       {
-        "idPengajar": 22,
+        "idPengajar": 20,
         "nama": "Uswatun",
         "mapel": "Bhs. Indonesia",
         "malam": "ready",
@@ -243,7 +199,7 @@
         "twitter":"bimbel_lb3r"
       },
       {
-        "idPengajar": 23,
+        "idPengajar": 21,
         "nama": "Devi",
         "mapel": "Bhs. Inggris",
         "malam": "ready",
