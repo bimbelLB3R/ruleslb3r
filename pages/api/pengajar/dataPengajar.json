@@ -208,6 +208,17 @@
         "facebook":"bimbel.lb3r",
         "instagram":"bimbel_lb3r",
         "twitter":"bimbel_lb3r"
+      },                
+      {
+        "idPengajar": 22,
+        "nama": "Nugraheni",
+        "mapel": "Tematik",
+        "malam": "ready",
+        "foto": "Bu Nugraheni",
+        "kampus":"ULM",
+        "facebook":"bimbel.lb3r",
+        "instagram":"bimbel_lb3r",
+        "twitter":"bimbel_lb3r"
       }                
     ]
   }
