@@ -6,37 +6,49 @@ import Head from "next/head";
 import Link from "next/link";
 import { signIn, useSession, signOut } from "next-auth/react";
 import "animate.css";
-import { supabase } from "../libs/supabase";
-// import { createClient } from '@supabase/supabase-js';
 
-// const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-// const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-// const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
+// Fungsi untuk cek peserta via API
 async function cekPeserta(nisn) {
   try {
-    const { data, error } = await supabase
-      .from("peserta_snbt")
-      .select("nisn")
-      .eq("nisn", `1${nisn}`)
-      .maybeSingle();
+    const response = await fetch('/api/peserta/check', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ nisn: `1${nisn}` }),
+    });
 
-    if (error) throw new Error(error.message);
+    const data = await response.json();
     
-    return !!data;
+    if (!response.ok) {
+      throw new Error(data.error || 'Error checking participant');
+    }
+    
+    return data.exists;
   } catch (error) {
     console.error("Error fetching data:", error.message);
-    return false;
+    throw error;
   }
 }
 
+// Fungsi untuk membuat peserta via API
 const createPeserta = async (data, e) => {
   if (!data) return;
 
   try {
-    const { error } = await supabase.from("peserta_snbt").insert([data]);
+    const response = await fetch('/api/peserta/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
 
-    if (error) throw new Error(error.message);
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.error || 'Error creating participant');
+    }
 
     e.target.reset();
     Swal.fire({
@@ -46,32 +58,29 @@ const createPeserta = async (data, e) => {
       confirmButtonText: "Ok",
     });
 
-    // router.push("/");
+    return true;
   } catch (error) {
     console.error("Error inserting data:", error);
     Swal.fire({
       title: "Gagal Mendaftar",
-      text: "Terjadi kesalahan saat menyimpan data.",
+      text: error.message || "Terjadi kesalahan saat menyimpan data.",
       icon: "error",
       confirmButtonText: "Coba Lagi",
     });
+    return false;
   }
 };
 
-
 export default function Newmembersup() {
   const [isChecked, setIsChecked] = useState(false);
-  // const [subscription, setSubscription] = useState({});
   const router = useRouter();
   const { jenisujian } = router.query;
-  // console.log(subscription);
   const [adaEmail, setAdaEmail] = useState(false);
   const [adaNisn, setAdaNisn] = useState(false);
   const { data: session } = useSession();
   const [isDisable, setIsDisable] = useState(
     typeof session === "undefined" || session ? false : true
   );
-  // console.log(isDisable);
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [showButton, setShowButton] = useState(false);
@@ -103,109 +112,111 @@ export default function Newmembersup() {
   };
   
   const validateForm = (form) => {
-  return (
-    form.nisn !== "" &&
-    form.asalsekolah !== "" &&
-    form.asalsekolah.length < 100 &&
-    form.wa !== "" &&
-    form.wa.length < 14 &&
-    form.prodi1 !== "" &&
-    form.prodi1.length < 100 &&
-    form.kampus1 !== "" &&
-    form.kampus1.length < 100 &&
-    form.prodi2 !== "" &&
-    form.prodi2.length < 100 &&
-    form.kampus2 !== "" &&
-    form.kampus2.length < 100
-  );
-};
-
-const submitForm = async (e) => {
-  setIsButtonDisabled(true);
-  e.preventDefault();
-
-  if (!validateForm(form)) {
-    Swal.fire({
-      title: "Data Belum Lengkap",
-      text: "Pastikan semua data terisi dengan benar.",
-      icon: "warning",
-    });
-    setIsButtonDisabled(false);
-    return;
-  }
-
-  let isPesertaExist = null;
-  try {
-    isPesertaExist = await cekPeserta(form.nisn);
-  } catch (error) {
-    console.error(error);
-    Swal.fire({
-      title: "Koneksi Bermasalah",
-      text: "Gagal memeriksa NISN. Pastikan koneksi internet stabil dan coba lagi.",
-      icon: "error",
-      confirmButtonText: "Coba Lagi",
-    });
-    setIsButtonDisabled(false);
-    return;
-  }
-
-  if (isPesertaExist === null) {
-    // jaga-jaga kalau `cekPeserta` return null (bukan error throw)
-    Swal.fire({
-      title: "Cek Koneksi",
-      text: "Tidak bisa memeriksa NISN, coba lagi.",
-      icon: "error",
-    });
-    setIsButtonDisabled(false);
-    return;
-  }
-
-  if (isPesertaExist) {
-    Swal.fire({
-      title: "NISN Sudah Terdaftar",
-      text: "Data gagal dikirim, NISN sudah terdaftar.",
-      icon: "warning",
-      confirmButtonText: "Koreksi Datamu",
-    });
-    setIsButtonDisabled(false);
-    setShowButton(true);
-    return;
-  }
-
-  // Jika belum terdaftar: Insert ke supabase
-  const newRowSupa = {
-    nama: session.user.name,
-    nisn: `1${form.nisn}`,
-    asalsekolah: form.asalsekolah,
-    wa: form.wa,
-    prodi1: form.prodi1,
-    kampus1: form.kampus1,
-    prodi2: form.prodi2,
-    kampus2: form.kampus2,
-    email: session.user.email,
-    foto: session.user.image,
+    return (
+      form.nisn !== "" &&
+      form.asalsekolah !== "" &&
+      form.asalsekolah.length < 100 &&
+      form.wa !== "" &&
+      form.wa.length < 14 &&
+      form.prodi1 !== "" &&
+      form.prodi1.length < 100 &&
+      form.kampus1 !== "" &&
+      form.kampus1.length < 100 &&
+      form.prodi2 !== "" &&
+      form.prodi2.length < 100 &&
+      form.kampus2 !== "" &&
+      form.kampus2.length < 100
+    );
   };
 
-  await createPeserta(newRowSupa, e);
+  const submitForm = async (e) => {
+    setIsButtonDisabled(true);
+    e.preventDefault();
 
-  if (jenisujian === "tka" || jenjang==='sd'||jenjang==='smp') {
-    router.push("/form/logintka");
-  } else if (jenisujian === "snbt") {
-    router.push("/form/loginsupa");
-  } else {
-    router.push("/");
-  }
-};
+    if (!validateForm(form)) {
+      Swal.fire({
+        title: "Data Belum Lengkap",
+        text: "Pastikan semua data terisi dengan benar.",
+        icon: "warning",
+      });
+      setIsButtonDisabled(false);
+      return;
+    }
 
+    let isPesertaExist = null;
+    try {
+      isPesertaExist = await cekPeserta(form.nisn);
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        title: "Koneksi Bermasalah",
+        text: "Gagal memeriksa NISN. Pastikan koneksi internet stabil dan coba lagi.",
+        icon: "error",
+        confirmButtonText: "Coba Lagi",
+      });
+      setIsButtonDisabled(false);
+      return;
+    }
+
+    if (isPesertaExist === null) {
+      Swal.fire({
+        title: "Cek Koneksi",
+        text: "Tidak bisa memeriksa NISN, coba lagi.",
+        icon: "error",
+      });
+      setIsButtonDisabled(false);
+      return;
+    }
+
+    if (isPesertaExist) {
+      Swal.fire({
+        title: "NISN Sudah Terdaftar",
+        text: "Data gagal dikirim, NISN sudah terdaftar.",
+        icon: "warning",
+        confirmButtonText: "Koreksi Datamu",
+      });
+      setIsButtonDisabled(false);
+      setShowButton(true);
+      return;
+    }
+
+    // Jika belum terdaftar: Insert ke database
+    const newRowData = {
+      nama: session.user.name,
+      nisn: `1${form.nisn}`,
+      asalsekolah: form.asalsekolah,
+      wa: form.wa,
+      prodi1: form.prodi1,
+      kampus1: form.kampus1,
+      prodi2: form.prodi2,
+      kampus2: form.kampus2,
+      email: session.user.email,
+      foto: session.user.image,
+    };
+
+    const success = await createPeserta(newRowData, e);
+
+    if (success) {
+      if (jenisujian === "tka" || jenjang === 'sd' || jenjang === 'smp') {
+        router.push("/form/logintka");
+      } else if (jenisujian === "snbt") {
+        router.push("/form/loginsupa");
+      } else {
+        router.push("/");
+      }
+    } else {
+      setIsButtonDisabled(false);
+    }
+  };
 
   const handleChange = (e) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
+    
     // memeriksa apakah semua form telah terisi
     if (
-      // form.nama &&
       session &&
       form.nisn !== "" &&
       form.asalsekolah !== "" &&
@@ -215,22 +226,22 @@ const submitForm = async (e) => {
       form.prodi2 !== "" &&
       form.kampus2 !== ""
     ) {
-      setShowButton(true); // menampilkan tombol
+      setShowButton(true);
     }
   };
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
-    // setSubscription(localStorage.getItem("subscription"));
   };
+
   const handleSignIn = async () => {
     try {
-      // Menetapkan prompt ke 'select_account' saat memanggil signIn
       await signIn("google", { prompt: "select_account" });
     } catch (error) {
       console.error("Error signing in:", error);
     }
   };
+
   return (
     <>
       <Head>
@@ -245,7 +256,7 @@ const submitForm = async (e) => {
         />
       </Head>
 
-      <div className="bg-gray-50 dark:bg-gray-900 animate__animated  animate__slideInDown">
+      <div className="bg-gray-50 dark:bg-gray-900 animate__animated animate__slideInDown">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-full lg:py-0">
           <Link
             href="/"
@@ -263,16 +274,7 @@ const submitForm = async (e) => {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Buat Akun Baru
               </h1>
-              {/* <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                Sudah punya akun?{" "}
-                <Link
-                  href="/form/login"
-                  className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-                >
-                  Login disini !
-                </Link>
-              </p> */}
-              {/* <PushNotif /> */}
+              
               <form
                 className="space-y-4 md:space-y-6"
                 action="#"
@@ -299,7 +301,7 @@ const submitForm = async (e) => {
                       type="text"
                       name="nama"
                       id="nama"
-                      className={`bg-gray-50 border  text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${
+                      className={`bg-gray-50 border text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${
                         adaEmail === true ? "border-red-900" : "border-gray-300"
                       }`}
                       placeholder="Klik disini"
@@ -319,6 +321,7 @@ const submitForm = async (e) => {
                     )}
                   </div>
                 </div>
+                
                 <div>
                   <label
                     htmlFor="nisn"
@@ -331,7 +334,7 @@ const submitForm = async (e) => {
                     name="nisn"
                     id="nisn"
                     placeholder="Contoh : 0987654321"
-                    className={`bg-gray-50 border  text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${
+                    className={`bg-gray-50 border text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${
                       adaNisn === true ? "border-red-900" : "border-gray-300"
                     }`}
                     onChange={handleChange}
@@ -347,11 +350,8 @@ const submitForm = async (e) => {
                   ) : (
                     ""
                   )}
-                  {/* <p className="text-[10px] text-red-600">
-                    Jika NISN kamu dimulai angka 0, misal 012345, maka tambahkan
-                    angka 1 didepannya menjadi 1012345
-                  </p> */}
                 </div>
+                
                 <div>
                   <label
                     htmlFor="asalsekolah"
@@ -371,6 +371,7 @@ const submitForm = async (e) => {
                     disabled={isDisable}
                   />
                 </div>
+                
                 <div>
                   <label
                     htmlFor="wa"
@@ -390,9 +391,12 @@ const submitForm = async (e) => {
                     disabled={isDisable}
                   />
                 </div>
+                
                 {/* Pilih Jenjang */}
                 <div>
-                  <label htmlFor="jenjang" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pilih Jenjang*</label>
+                  <label htmlFor="jenjang" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Pilih Jenjang*
+                  </label>
                   <select
                     id="jenjang"
                     name="jenjang"
@@ -407,6 +411,7 @@ const submitForm = async (e) => {
                     <option value="sma">SMA</option>
                   </select>
                 </div>
+                
                 {/* Penjurusan */}
                 <div>
                   <label htmlFor="prodi1" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -424,69 +429,70 @@ const submitForm = async (e) => {
                     disabled={isDisable}
                   />
                 </div>
-                {/* jika jenjang sma */}
-                {jenjang==='sma'&&(
-                <>
-                <div>
-                  <label
-                    htmlFor="kampus1"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    Kampus Pilihan Jurusan 1*
-                  </label>
-                  <input
-                    type="text"
-                    name="kampus1"
-                    id="kampus1"
-                    placeholder="contoh : Universitas Indonesia"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required=""
-                    onChange={handleChange}
-                    autoComplete="off"
-                    disabled={isDisable}
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="prodi2"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    Pilihan Jurusan 2*
-                  </label>
-                  <input
-                    type="text"
-                    name="prodi2"
-                    id="prodi2"
-                    placeholder="contoh : Psikologi"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required=""
-                    onChange={handleChange}
-                    autoComplete="off"
-                    disabled={isDisable}
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="kampus2"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    Kampus Pilihan Jurusan 2*
-                  </label>
-                  <input
-                    type="text"
-                    name="kampus2"
-                    id="kampus2"
-                    placeholder="Contoh : UNIBRAW"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required=""
-                    onChange={handleChange}
-                    autoComplete="off"
-                    disabled={isDisable}
-                  />
-                </div>
-                </>
+                
+                {/* Jika jenjang SMA */}
+                {jenjang === 'sma' && (
+                  <>
+                    <div>
+                      <label
+                        htmlFor="kampus1"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      >
+                        Kampus Pilihan Jurusan 1*
+                      </label>
+                      <input
+                        type="text"
+                        name="kampus1"
+                        id="kampus1"
+                        placeholder="contoh : Universitas Indonesia"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        required=""
+                        onChange={handleChange}
+                        autoComplete="off"
+                        disabled={isDisable}
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="prodi2"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      >
+                        Pilihan Jurusan 2*
+                      </label>
+                      <input
+                        type="text"
+                        name="prodi2"
+                        id="prodi2"
+                        placeholder="contoh : Psikologi"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        required=""
+                        onChange={handleChange}
+                        autoComplete="off"
+                        disabled={isDisable}
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="kampus2"
+                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      >
+                        Kampus Pilihan Jurusan 2*
+                      </label>
+                      <input
+                        type="text"
+                        name="kampus2"
+                        id="kampus2"
+                        placeholder="Contoh : UNIBRAW"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        required=""
+                        onChange={handleChange}
+                        autoComplete="off"
+                        disabled={isDisable}
+                      />
+                    </div>
+                  </>
                 )}
-                {/* Penjurusan end */}
+                
                 <div className="flex items-start">
                   <div className="flex items-center h-5">
                     <input
@@ -518,7 +524,7 @@ const submitForm = async (e) => {
                 </div>
 
                 {isButtonDisabled ? (
-                  <Loader /> // tampilkan komponen loader jika proses append sedang berlangsung
+                  <Loader />
                 ) : (
                   showButton && (
                     <button
@@ -530,15 +536,6 @@ const submitForm = async (e) => {
                     </button>
                   )
                 )}
-                {/* <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Already have an account?{" "}
-                  <Link
-                    href="/form/login"
-                    className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-                  >
-                    Login here
-                  </Link>
-                </p> */}
               </form>
             </div>
           </div>
