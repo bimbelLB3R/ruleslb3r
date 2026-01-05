@@ -1,6 +1,6 @@
 // libs/mysql.js
 import mysql from 'mysql2/promise';
-
+// koneksi ke RDS
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
