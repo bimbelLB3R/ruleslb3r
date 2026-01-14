@@ -5,29 +5,21 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { Radio } from "antd";
 import Latex from "react-latex";
-// from timer
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
-import { supabase } from "../../libs/supabase";
 import Paginationsnbt from "../../components/PaginasiSoalSnbt";
-// import { createClient } from '@supabase/supabase-js';
 import QuestionNavigation from "../../components/QuestionsNavigation";
 import QuestionNavigationlg from "../../components/QuestionsNavigationlg";
 
-// const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-// const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-// const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
 dayjs.extend(duration);
-// from timer end
 
 const ContactForm = () => {
   const [questions, setQuestions] = useState([]);
-  const [jumlahSoal,setJumlahSoal]=useState();
+  const [jumlahSoal, setJumlahSoal] = useState();
   const [currentPage, setCurrentPage] = useState();
   const [isChecked, setIsChecked] = useState({});
   const postsPerPage = 1;
-  const paginatedPosts = questions.filter(item => item.id === currentPage-1);
+  const paginatedPosts = questions.filter(item => item.id === currentPage);
   const totalPages = Math.ceil(questions.length / postsPerPage);
   const formRef = useRef(null);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
@@ -37,26 +29,31 @@ const ContactForm = () => {
   const [form, setForm] = useState({
     nisn: "",
   });
-  const [jumlahSoalSelesai,setJumlahSoalSelesai]=useState();
+  const [jumlahSoalSelesai, setJumlahSoalSelesai] = useState();
   const [storedName, setStorageName] = useState("Student");
   const [showNav, setShowNav] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [questionnav,setQuestionNav]=useState(false);
-  const [refreshKey, setRefreshKey] = useState(0); // State untuk trigger useEffect
-  // kontrol scroll
+  const [questionnav, setQuestionNav] = useState(false);
+  const [refreshKey, setRefreshKey] = useState(0);
+  const [isRadioButtonDisabled, setIsRadioButtonDisabled] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(dayjs.duration(30, "minute"));
+  const [timeStorage, setTimeStorage] = useState(null);
+  const [link, setLink] = useState();
+
+  // Kontrol scroll
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setIsVisible(currentScrollY < lastScrollY); // Munculkan jika scroll ke atas
+      setIsVisible(currentScrollY < lastScrollY);
       setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
-  
-  // mencegah back
+
+  // Mencegah back
   useEffect(() => {
     const handleBack = () => {
       history.pushState(null, "", location.href);
@@ -69,11 +66,9 @@ const ContactForm = () => {
       window.removeEventListener("popstate", handleBack);
     };
   }, []);
-  // mencegah back end
-  
-  // pengecualian penghapusan data localstorage
+
+  // Pengecualian penghapusan data localstorage
   const clearLocalStorageExcept = (keysToKeep) => {
-    // Simpan nilai dari keys yang ingin dipertahankan
     const savedData = {};
     keysToKeep.forEach((key) => {
       const value = localStorage.getItem(key);
@@ -81,114 +76,126 @@ const ContactForm = () => {
         savedData[key] = value;
       }
     });
-  
-    // Hapus seluruh localStorage
+
     localStorage.clear();
-  
-    // Kembalikan data yang dipertahankan
+
     Object.keys(savedData).forEach((key) => {
       localStorage.setItem(key, savedData[key]);
     });
   };
-  
-  // ambil data soal dari supabase
-  useEffect(() => {    
+
+  // Ambil data soal dari API (bukan Supabase)
+  useEffect(() => {
     async function fetchQuestions() {
-        const katSoal=localStorage.getItem("link");
-        const { data, error } = await supabase
-            .from(katSoal)
-            .select("*");
-        if (error) {
-            console.error("Error fetching questions:", error);
+      const katSoal = localStorage.getItem("link");
+      
+      if (!katSoal) {
+        router.push("/form/loginsupa");
+        return;
+      }
+
+      try {
+        const response = await fetch(`/api/soal/${katSoal}`);
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch questions');
+        }
+
+        const result = await response.json();
+        const data = result.data;
+        // console.log(data);
+        const jmlSoal = data.length;
+        setJumlahSoal(jmlSoal);
+        setQuestions(data);
+        localStorage.setItem("jumlahSoal", jmlSoal);
+
+        const storedName = localStorage.getItem("name");
+        if (!storedName) {
+          router.push("/form/loginsupa");
         } else {
-          const jmlSoal=data.length;
-          setJumlahSoal(jmlSoal);
-          setQuestions(data);
-          localStorage.setItem("jumlahSoal",jmlSoal);
-          const storedName = localStorage.getItem("name");
-    if (!storedName) {
-      router.push("/form/loginsupa");
-    } else {
-      setStorageName(storedName);
-    }
-    data.forEach((item) => {
-      // console.log(item.id)
-      // cek apakah sudah ada nisn dan nama di local storage
-      const storedNisn = localStorage.getItem("nisn");
-      // console.log(index[0]);
-      if (storedNisn) {
-        setForm({ ...form, nisn: storedNisn });
-      }
-      const savedValue = localStorage.getItem(`group${item.id}`); //group0 untuk nomor 1
-      // menghidupak pemanggilan local khusus group0_1 dkk untuk aktifkan radio dan cekbox saat refresh
-      const statements=["1","2","3","4","5"].filter((index)=>item[`pernyataan_${index}`]);
-      statements.map((statement, index) =>{
-        const savedValueP=localStorage.getItem(`group${item.id}_${index}`);
-        if (savedValueP) {
-          setSelectedValues((selectedValues) => ({
-            ...selectedValues,
-            [`group${item.id}_${index}`]: savedValueP,
-          }));
+          setStorageName(storedName);
         }
-      })
-      if (savedValue) {
-        setSelectedValues((selectedValues) => ({
-          ...selectedValues,
-          [`group${item.id}`]: savedValue,
-        }));
+
+        data.forEach((item) => {
+          const storedNisn = localStorage.getItem("nisn");
+          if (storedNisn) {
+            setForm({ ...form, nisn: storedNisn });
+          }
+
+          const savedValue = localStorage.getItem(`group${item.id}`);
+          const statements = ["1", "2", "3", "4", "5"].filter(
+            (index) => item[`pernyataan_${index}`]
+          );
+
+          statements.map((statement, index) => {
+            const savedValueP = localStorage.getItem(`group${item.id}_${index}`);
+            if (savedValueP) {
+              setSelectedValues((selectedValues) => ({
+                ...selectedValues,
+                [`group${item.id}_${index}`]: savedValueP,
+              }));
+            }
+          });
+
+          if (savedValue) {
+            setSelectedValues((selectedValues) => ({
+              ...selectedValues,
+              [`group${item.id}`]: savedValue,
+            }));
+          }
+        });
+      } catch (error) {
+        console.error("Error fetching questions:", error);
+        Swal.fire({
+          title: "Gagal Memuat Soal",
+          text: "Terjadi kesalahan saat memuat soal. Silakan coba lagi.",
+          icon: "error",
+        });
       }
-      // berisi jawaban tersimpan
-      // console.log(paginatedPosts);
-    });
-        }
     }
 
     fetchQuestions();
-}, []);
+  }, []);
 
-// console.log(questions);
-  // from timer
-  const [isRadioButtonDisabled, setIsRadioButtonDisabled] = useState(false);
-  // console.log(isRadioButtonDisabled);true
-  const [timeLeft, setTimeLeft] = useState(dayjs.duration(30, "minute"));
-  const [timeStorage, setTimeStorage] = useState(null);
-
-  // agar waktu tetap jalan meski diminimize
+  const tipeSoal = questions.find((item) => item.id === 1)?.kategori_soal;
+  // console.log(questions);
+  // Agar waktu tetap jalan meski diminimize
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.visibilityState === "visible") {
         const storedMaxTime = localStorage.getItem("maxTime");
-        const startTime = localStorage.getItem("startTime") ? dayjs(localStorage.getItem("startTime")) : dayjs();
+        const startTime = localStorage.getItem("startTime")
+          ? dayjs(localStorage.getItem("startTime"))
+          : dayjs();
         const elapsedTime = dayjs().diff(startTime, "second");
         const remainingTime = Math.max(0, parseInt(storedMaxTime) - elapsedTime);
         setTimeLeft(dayjs.duration(remainingTime, "second"));
       }
     };
-  
+
     document.addEventListener("visibilitychange", handleVisibilityChange);
     return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, []);
-  
-  // agar waktu tetap jalan meski diminimize end
 
   useEffect(() => {
-    // const timeStorage = localStorage.getItem("timeLeft");
     const storedMaxTime = localStorage.getItem("maxTime");
     setCurrentPage(1);
+    
     if (storedMaxTime) {
       const maxTimeInSeconds = parseInt(storedMaxTime);
       const currentTime = dayjs();
       const startTime = localStorage.getItem("startTime")
         ? dayjs(localStorage.getItem("startTime"))
-        : currentTime; // Use current time if startTime is not set
+        : currentTime;
       const elapsedTime = currentTime.diff(startTime, "second");
       const remainingTime = Math.max(0, maxTimeInSeconds - elapsedTime);
       setTimeLeft(dayjs.duration(remainingTime, "second"));
+      
       if (!localStorage.getItem("startTime")) {
         localStorage.setItem("startTime", currentTime.toISOString());
       }
     } else {
-      const defaultMaxTimeInSeconds = storedMaxTime; // 20 minutes in seconds
+      const defaultMaxTimeInSeconds = storedMaxTime;
       localStorage.setItem("maxTime", defaultMaxTimeInSeconds);
       const currentTime = dayjs();
       localStorage.setItem("startTime", currentTime.toISOString());
@@ -196,125 +203,96 @@ const ContactForm = () => {
     }
   }, []);
 
-//  menyederhanakan waktu habis
+  // Timer countdown
   useEffect(() => {
     if (!timeLeft) return;
 
-    const interval = setInterval(() => {    
-        if (timeLeft.asSeconds() <= 0) {
-            clearInterval(interval); // Hentikan interval agar Swal tidak muncul terus
-            setIsButtonDisabled(false);
-            Swal.fire({
-              title: "Waktu Habis ... !",
-              text: "Kirim Jawabanmu ya",
-              icon: "info",
-              confirmButtonText: "OK"
-          }).then(() => {
-              // ✅ Set button disabled setelah user klik OK
-              setIsRadioButtonDisabled(true)
-          });
-            
-        } else {
-            setTimeLeft((prevTimeLeft) => prevTimeLeft.subtract(1, "second"));
-        }
+    const interval = setInterval(() => {
+      if (timeLeft.asSeconds() <= 0) {
+        clearInterval(interval);
+        setIsButtonDisabled(false);
+        Swal.fire({
+          title: "Waktu Habis ... !",
+          text: "Kirim Jawabanmu ya",
+          icon: "info",
+          confirmButtonText: "OK",
+        }).then(() => {
+          setIsRadioButtonDisabled(true);
+        });
+      } else {
+        setTimeLeft((prevTimeLeft) => prevTimeLeft.subtract(1, "second"));
+      }
     }, 1000);
 
-    return () => clearInterval(interval); // Bersihkan interval saat komponen unmount
-}, [timeLeft]);
-
-  // from timer end
+    return () => clearInterval(interval);
+  }, [timeLeft]);
 
   const onLoad = () => {
     renderMathInElement(document.body);
   };
-  
-  const [link, setLink] = useState();
 
-  const tipeSoal=questions.find((item) => item.id === 0)?.kategori_soal;
-  // console.log(questions)
-
-//   kirim jawaban ke supa
-const kirimJawaban = async (data) => {
-    if (!data || !data.nisn) return; // Pastikan data dan nisn tersedia
+  // Kirim jawaban ke API (bukan Supabase)
+  const kirimJawaban = async (data) => {
+    if (!data || !data.nisn) return;
 
     const link = localStorage.getItem("link");
-    const lembarJawab = {
-        snbt: "jwb_snbt",
-        kuantitatif: "jwb_kuantitatif",
-        matematika: "jwb_matematika",
-        english: "jwb_english",
-        bacaan: "jwb_bacaan",
-        penalaran: "jwb_penalaran",
-        pengetahuan: "jwb_pengetahuan",
-    };
 
-    if (link in lembarJawab) {
-        const tableName = lembarJawab[link];
+    try {
+      const response = await fetch('/api/jawaban/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          kategori: link,
+          ...data,
+        }),
+      });
 
-        try {
-            // 1. Cek apakah siswa sudah mengerjakan berdasarkan NISN
-            const { data: existingData, error: fetchError } = await supabase
-                .from(tableName)
-                .select("nisn")
-                .eq("nisn", data.nisn)
-                .single();
+      const result = await response.json();
 
-            if (fetchError && fetchError.code !== "PGRST116") {
-                throw fetchError;
-            }
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit answer');
+      }
 
-            if (existingData) {
-                // 2. Jika NISN sudah ada, lakukan update
-                const { error: updateError } = await supabase
-                    .from(tableName)
-                    .update(data)
-                    .eq("nisn", data.nisn);
-
-                if (updateError) throw updateError;
-                console.log("Jawaban diperbarui untuk NISN:", data.nisn);
-            } else {
-                // 3. Jika NISN belum ada, lakukan insert
-                const { error: insertError } = await supabase
-                    .from(tableName)
-                    .insert([data]);
-
-                if (insertError) throw insertError;
-                console.log("Jawaban dikirim baru untuk NISN:", data.nisn);
-            }
-        } catch (error) {
-            console.error("Error mengirim jawaban:", error);
-        }
-    } else {
-        console.log("link undetect");
+      console.log(result.message);
+    } catch (error) {
+      console.error("Error mengirim jawaban:", error);
+      Swal.fire({
+        title: "Gagal Mengirim Jawaban",
+        text: "Terjadi kesalahan saat mengirim jawaban. Silakan coba lagi.",
+        icon: "error",
+      });
     }
-};
-
-    //   kirim jawaban ke supa end
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Mencegah submit form secara langsung
+    e.preventDefault();
+    
     const countUniqueGroups = () => {
-    const uniqueGroups = new Set(); // Set untuk menyimpan soal unik
-  
+      const uniqueGroups = new Set();
+
       for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
-        const value = localStorage.getItem(key); // Ambil nilai dari key
-        // Cek apakah key dimulai dengan "group" DAN memiliki value yang tidak kosong/null
-        if (key.startsWith("group")&&value) {
-          const groupId = key.split("_")[0]; // Ambil bagian "groupX" saja
+        const value = localStorage.getItem(key);
+        
+        if (key.startsWith("group") && value) {
+          const groupId = key.split("_")[0];
           uniqueGroups.add(groupId);
         }
       }
-  
-      return uniqueGroups.size; // Jumlah soal unik
+
+      return uniqueGroups.size;
     };
-  
+
     const hitung = countUniqueGroups();
-    const blmdjwb=jumlahSoal-hitung;
-    // console.log(hitung);
+    const blmdjwb = jumlahSoal - hitung;
+
     Swal.fire({
       title: "Kirim Jawaban?",
-      text: `Masih ada ${blmdjwb} soal belum kamu jawab, sisa waktu kurang dari : ${timeLeft ? timeLeft.format("mm:ss") : "Loading..."} menit`,
+      text: `Masih ada ${blmdjwb} soal belum kamu jawab, sisa waktu kurang dari : ${
+        timeLeft ? timeLeft.format("mm:ss") : "Loading..."
+      } menit`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#15803d",
@@ -323,49 +301,50 @@ const kirimJawaban = async (data) => {
       cancelButtonText: "Batal",
     }).then((result) => {
       if (result.isConfirmed) {
-        // Jika user mengonfirmasi, submit form
         submitForm(e);
       }
     });
-  }
+  };
 
   const submitForm = async (e) => {
     e.preventDefault();
     setIsButtonDisabled(true);
+
     const reduced = Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
       if (name.startsWith("group") && name.includes("_")) {
         const groupId = name.split("_")[0];
-        acc[groupId] = (acc[groupId] || "");
+        acc[groupId] = acc[groupId] || "";
 
         if (typeof savedValue === "string" && /^[0-9]+[A-Z]$/i.test(savedValue)) {
-          // untuk benar-salah seperti '2S', '3B'
           acc[groupId] += savedValue;
         } else {
-          // fallback, jika bukan pola benar-salah
           acc[groupId] += savedValue;
         }
       } else {
-        // Ceklist (comma-separated string atau array)
         if (typeof savedValue === "string" && savedValue.includes(",")) {
-          acc[name] = savedValue.split(",").map(Number).sort((a,b)=>a-b).join("");
+          acc[name] = savedValue
+            .split(",")
+            .map(Number)
+            .sort((a, b) => a - b)
+            .join("");
         } else if (Array.isArray(savedValue)) {
-          acc[name] = savedValue.map(Number).sort((a,b)=>a-b).join("");
+          acc[name] = savedValue
+            .map(Number)
+            .sort((a, b) => a - b)
+            .join("");
         } else {
-          // Pilihan ganda atau jawaban singkat langsung
           acc[name] = savedValue;
         }
       }
       return acc;
     }, {});
 
-    // Langkah kedua: khusus untuk group benar/salah, urutkan dan gabungkan
-    const bsGroups = Object.keys(reduced).filter(key => {
-      // Deteksi apakah ini tipe benar-salah: isinya mengandung pola 2S, 3B, dll.
+    const bsGroups = Object.keys(reduced).filter((key) => {
       const val = reduced[key];
       return typeof val === "string" && /\d+[A-Z]/i.test(val);
     });
 
-    bsGroups.forEach(key => {
+    bsGroups.forEach((key) => {
       const matches = reduced[key].match(/\d+[A-Z]/gi);
       if (matches) {
         reduced[key] = matches
@@ -374,137 +353,105 @@ const kirimJawaban = async (data) => {
       }
     });
 
+    const newRow = {
+      nisn: form.nisn,
+      ...reduced,
+    };
 
-   const newRow = {
-          nisn: form.nisn,
-          // ...Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
-          //   if (name.startsWith("group") && name.includes("_")) {//soal benar-salah
-          //     // Ambil ID unik (misalnya: "group3" dari "group3_1")
-          //     const groupId = name.split("_")[0];
-        
-          //     // Gabungkan nilai berdasarkan groupId
-          //     acc[groupId] = (acc[groupId] || "") + savedValue;
-          //   } else {
-          //     // Untuk data lain, simpan langsung
-          //     acc[name] = savedValue;
-          //     acc[name] = Array.isArray(savedValue) ? savedValue.join("") : savedValue;//soal cekbox
-          //   }
-        
-          //   return acc;
-          // }, {}),
-          ...reduced,
-        };
-      
-      
-      setIsLoading(true); // set status loading menjadi true
-      console.log(newRow);
-      kirimJawaban(newRow);
-      clearLocalStorageExcept(["link","linkSudah","linkBelum","name","nisn","dataSoal"]);
-        // renameAndAppendLocalStorageKey("link", "linkSudah");
-      setIsLoading(false); // set status loading menjadi false setelah proses selesai
-      setForm({ nisn: "", name: "" });
-      setSelectedValues({});
-      // localStorage.setItem("tipeSoal", tipeSoal); digunakan ketika lari ke outputsnbt.js
+    setIsLoading(true);
+    console.log(newRow);
+    await kirimJawaban(newRow);
+    clearLocalStorageExcept([
+      "link",
+      "linkSudah",
+      "linkBelum",
+      "name",
+      "nisn",
+      "dataSoal",
+    ]);
 
-      // mengulur waktu saat ambil data dari sheet
-      let timerInterval;
-      Swal.fire({
-        title: "tunggu ya ..!",
-        html: "Menuju soal berikutnya dalam <b></b> milliseconds.",
-        timer: 2000,
-        timerProgressBar: true,
-        didOpen: () => {
-          Swal.showLoading();
-          const timer = Swal.getPopup().querySelector("b");
-          timerInterval = setInterval(() => {
-            timer.textContent = `${Swal.getTimerLeft()}`;
-          }, 100);
-        },
-        willClose: () => {
-          clearInterval(timerInterval);
-        },
-      }).then((result) => {
-        /* Read more about handling dismissals below */
-        if (result.dismiss === Swal.DismissReason.timer) {
-          console.log("Menuju soal berikutnya");
-        }
-      });
-      router.push("/form/transisisoalsupa");
-    }
-  
-  
+    setIsLoading(false);
+    setForm({ nisn: "", name: "" });
+    setSelectedValues({});
+
+    let timerInterval;
+    Swal.fire({
+      title: "tunggu ya ..!",
+      html: "Menuju soal berikutnya dalam <b></b> milliseconds.",
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+        const timer = Swal.getPopup().querySelector("b");
+        timerInterval = setInterval(() => {
+          timer.textContent = `${Swal.getTimerLeft()}`;
+        }, 100);
+      },
+      willClose: () => {
+        clearInterval(timerInterval);
+      },
+    }).then((result) => {
+      if (result.dismiss === Swal.DismissReason.timer) {
+        console.log("Menuju soal berikutnya");
+      }
+    });
+    
+    router.push("/form/transisisoalsupa");
+  };
+
   const handleChange = (e) => {
     setRefreshKey((prev) => prev + 1);
     const { name, value, type, checked } = e.target;
-  
+
     setSelectedValues((prevValues) => {
       let updatedValues;
-  
+
       if (type === "checkbox") {
-        // Jika input checkbox, pastikan value menjadi array
         const existingValues = prevValues[name] || [];
         updatedValues = checked
-          ? [...existingValues, value] // Tambahkan jika dicentang
-          : existingValues.filter((v) => v !== value); // Hapus jika tidak dicentang
-          localStorage.setItem(name, updatedValues); // Simpan ke local storage
-      }else {
-        // Jika bukan checkbox (radio atau input teks), langsung set nilainya
+          ? [...existingValues, value]
+          : existingValues.filter((v) => v !== value);
+        localStorage.setItem(name, updatedValues);
+      } else {
         updatedValues = value;
-        localStorage.setItem(name,updatedValues);
+        localStorage.setItem(name, updatedValues);
       }
-  
-      // Simpan ke state
+
       const newValues = { ...prevValues, [name]: updatedValues };
       return newValues;
     });
   };
-  
+
   useEffect(() => {
-    // Saat komponen dimuat, cek apakah ada nilai currentPage yang disimpan di localStorage
     const savedCurrentPage = localStorage.getItem("currentPage");
     if (savedCurrentPage) {
-      // Set status loading menjadi true saat proses pengecekan sedang berlangsung
       setIsLoading(true);
-      // Simulasikan penundaan untuk menampilkan efek loading (opsional)
       const delay = setTimeout(() => {
         setCurrentPage(Number(savedCurrentPage));
-        // Setelah pengecekan selesai, atur status loading menjadi false
         setIsLoading(false);
-      }, 1000); // Contoh penundaan 1 detik
-      // Membersihkan timeout pada unmount atau saat efek berubah
+      }, 1000);
       return () => clearTimeout(delay);
     } else {
-      // Jika tidak ada nilai currentPage di localStorage, atur status loading menjadi false
       setIsLoading(false);
     }
   }, []);
 
-  // const handlePrevious = () => {
-  //   setCurrentPage(currentPage - 1);
-  //   localStorage.setItem("currentPage", currentPage - 1);
-  // };
-  // const handleNext = () => {
-  //   setCurrentPage(currentPage + 1);
-  //   localStorage.setItem("currentPage", currentPage + 1);
-  // };
-// Fungsi untuk ke halaman sebelumnya
-const handlePrevious = () => {
-  setCurrentPage((prevPage) => {
-    const newPage = Math.max(prevPage - 1, 1);
-    localStorage.setItem("currentPage", newPage);
-    return newPage;
-  });
-};
+  const handlePrevious = () => {
+    setCurrentPage((prevPage) => {
+      const newPage = Math.max(prevPage - 1, 1);
+      localStorage.setItem("currentPage", newPage);
+      return newPage;
+    });
+  };
 
-// Fungsi untuk ke halaman berikutnya
-const handleNext = () => {
-  setCurrentPage((prevPage) => {
-    const newPage = Math.min(prevPage + 1, totalPages);
-    localStorage.setItem("currentPage", newPage);
-    return newPage;
-  });
-};
-  // gunakan keyboard
+  const handleNext = () => {
+    setCurrentPage((prevPage) => {
+      const newPage = Math.min(prevPage + 1, totalPages);
+      localStorage.setItem("currentPage", newPage);
+      return newPage;
+    });
+  };
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "ArrowRight") {
@@ -518,67 +465,56 @@ const handleNext = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleNext, handlePrevious]);
 
-  
-  // page dalam handle checkbox mendeteksi perubahan page pada input dan mengirimnya ke local storage. page disini hanay sbg argumen yg menerima currentpage dari input checkbox yg dipilih
   const handleCheckbox = (page) => {
-    // setSelectedPage(page);
     const updatedIsChecked = { ...isChecked, [page]: !isChecked[page] };
     setIsChecked(updatedIsChecked);
     localStorage.setItem("isChecked", JSON.stringify(updatedIsChecked));
   };
 
   useEffect(() => {
-    // Mengambil data dari Local Storage
     const savedData = localStorage.getItem("isChecked");
-
-    // Jika ada data yang tersimpan di Local Storage
     if (savedData) {
       setIsChecked(JSON.parse(savedData));
     }
   }, []);
-  
+
   useEffect(() => {
     const countUniqueGroups = () => {
-      const uniqueGroups = new Set(); // Set untuk menyimpan soal unik
-  
+      const uniqueGroups = new Set();
+
       for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         if (key.startsWith("group")) {
-          const groupId = key.split("_")[0]; // Ambil bagian "groupX" saja
+          const groupId = key.split("_")[0];
           uniqueGroups.add(groupId);
         }
       }
-  
-      return uniqueGroups.size; // Jumlah soal unik
+
+      return uniqueGroups.size;
     };
-  
+
     const hitung = countUniqueGroups();
     setJumlahSoalSelesai(hitung);
   }, []);
-// console.log(answers) 
-useEffect(() => {
-  if (typeof window !== "undefined") {
-    // Pastikan hanya dijalankan di client-side
-    const mediaQuery = window.matchMedia("(min-width: 1024px)");
 
-    const handleResize = () => {
-      const isLgScreen = mediaQuery.matches;
-      const link=localStorage.getItem("link")||"";//menghindari null
-      const isTargetLink = link === "kuantitatif" || link === "matematika" || link === "penalaran";
-      // console.log(isTargetLink)
-      setQuestionNav(isLgScreen && isTargetLink);
-    };
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const mediaQuery = window.matchMedia("(min-width: 1024px)");
 
-    // Jalankan sekali saat komponen pertama kali di-mount
-    handleResize();
+      const handleResize = () => {
+        const isLgScreen = mediaQuery.matches;
+        const link = localStorage.getItem("link") || "";
+        const isTargetLink =
+          link === "kuantitatif" || link === "matematika" || link === "penalaran";
+        setQuestionNav(isLgScreen && isTargetLink);
+      };
 
-    // Tambahkan event listener untuk perubahan media query
-    mediaQuery.addEventListener("change", handleResize);
+      handleResize();
+      mediaQuery.addEventListener("change", handleResize);
 
-    // Cleanup event listener saat unmount
-    return () => mediaQuery.removeEventListener("change", handleResize);
-  }
-},[]); // useEffect akan berjalan sekali saja
+      return () => mediaQuery.removeEventListener("change", handleResize);
+    }
+  }, []);
 
   return (
     <div>
@@ -706,7 +642,7 @@ useEffect(() => {
                         className={`${
                           link === "kuantitatif" || link === "matematika"|| link === "penalaran"
                             ? "lg:w-1/2 "
-                            : "lg:w-1/2 overflow-auto max-h-[500px] rounded-t-lg flex mt-8 justify-center mb-4 p-1"
+                            : "lg:w-1/2 overflow-auto max-h-[500px] rounded-t-lg  mt-8 justify-center mb-4 p-1"
                         }`}
                       >     
                         {questionnav?<QuestionNavigationlg 
@@ -791,7 +727,7 @@ useEffect(() => {
                         <div className="flex items-center space-x-2 p-2">
                           <div>
                             <div>
-                              <div className="flex items-center justify-center hover:w-full hover:absolute hover:z-50 hover:right-0 hover:left-0 ">
+                              <div className="flex items-center justify-center ">
                                 <img src={item.link_gambar} className=" " />
                               </div>
                               <p className="text-left   p-1 ">
@@ -814,9 +750,8 @@ useEffect(() => {
                             </div>  
                           </div>
                         </div>
-                        {/* Opsi Jawaban */}
+                        {/* Opsi Jawaban dengan Support Gambar */}
                         <div className="pr-4 pl-4">
-                        {/* Jika ada pilihan A-E, tampilkan Radio Button */}
                           {options.length > 0 ? (
                             <Radio.Group
                               disabled={isRadioButtonDisabled}
@@ -824,42 +759,131 @@ useEffect(() => {
                               value={selectedValues[`group${item.id}`] || ""}
                               name={`group${item.id}`}
                             >
-                              {options.map((option) => (
-                                <div className="flex space-x-1" key={option}>
-                                  <div
-                                    className={`mb-2 p-2 rounded-2xl border ${
-                                      selectedValues[`group${item.id}`] === option
-                                        ? "bg-gradient-to-br from-green-400 to-green-100"
-                                        : ""
-                                    }`}
-                                  >
-                                    <Radio value={option} className="text-justify relative">
-                                      <div className="flex items-center justify-center space-x-4 mb-2">
-                                        <div
-                                          className={` p-1 ml-2 rounded-full absolute -left-[0.60rem] w-[2rem] h-[2rem] ${
-                                            selectedValues[`group${item.id}`] === option
-                                              ? "border-2 bg-green-500"
-                                              : "bg-gray-500"
-                                          }`}
-                                        >
-                                          <p className="flex items-center justify-center font-bold text-gray-100">
-                                            {option}
-                                          </p>
+                              {options.map((option) => {
+                                const hasImage = item[`pilihan_${option.toLowerCase()}_img`];
+                                const textContent = item[`pilihan_${option.toLowerCase()}`];
+                                
+                                return (
+                                  <div className="flex space-x-1" key={option}>
+                                    <div
+                                      className={`mb-2 p-2 rounded-2xl border ${
+                                        selectedValues[`group${item.id}`] === option
+                                          ? "bg-gradient-to-br from-green-400 to-green-100"
+                                          : ""
+                                      }`}
+                                    >
+                                      <Radio value={option} className="text-justify relative">
+                                        <div className="flex items-start space-x-4 mb-2">
+                                          <div
+                                            className={`p-1 rounded-full w-[2rem] h-[2rem] flex-shrink-0 ${
+                                              selectedValues[`group${item.id}`] === option
+                                                ? "border-2 bg-green-500"
+                                                : "bg-gray-500"
+                                            }`}
+                                          >
+                                            <p className="flex items-center justify-center font-bold text-gray-100">
+                                              {option}
+                                            </p>
+                                          </div>
+                                          
+                                          <div className="flex-1">
+                                            {/* Tampilkan Gambar jika ada */}
+                                            {hasImage && (
+                                              <img
+                                                src={hasImage}
+                                                alt={`Pilihan ${option}`}
+                                                className="max-w-full h-auto mb-2 rounded border cursor-pointer hover:scale-105 transition"
+                                                onClick={(e) => {
+                                                  // Zoom gambar saat diklik
+                                                  Swal.fire({
+                                                    imageUrl: hasImage,
+                                                    imageAlt: `Pilihan ${option}`,
+                                                    showConfirmButton: false,
+                                                    showCloseButton: true,
+                                                  });
+                                                }}
+                                              />
+                                            )}
+                                            
+                                            {/* Tampilkan Text jika ada */}
+                                            {textContent && (
+                                              <div className="text-left text-base">
+                                                {item.inner_html === "yes" ? (
+                                                  <div dangerouslySetInnerHTML={{ __html: textContent }} />
+                                                ) : (
+                                                  <Latex>{textContent}</Latex>
+                                                )}
+                                              </div>
+                                            )}
+                                          </div>
                                         </div>
-                                        <div className="text-left text-base">
-                                          {item.inner_html==="yes"?
-                                          <div dangerouslySetInnerHTML={{ __html: item[`pilihan_${option.toLowerCase()}`] }}/>
-                                          :
-                                          <Latex>{item[`pilihan_${option.toLowerCase()}`]}</Latex>
-                                          }
-                                        </div>
-                                      </div>
-                                    </Radio>
+                                      </Radio>
+                                    </div>
                                   </div>
-                                </div>
-                              ))}
+                                );
+                              })}
                             </Radio.Group>
-                          ) : item.typeOpsi === "benarsalah" ? ( 
+                          ) : item.typeOpsi === "benarsalah" ? (
+                            <div className="border p-2 rounded-lg">
+                              <table className="w-full border-collapse">
+                                <thead>
+                                  <tr>
+                                    <th className="border p-2">Pernyataan</th>
+                                    <th className="border p-2">B</th>
+                                    <th className="border p-2">S</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {statements.map((statement, index) => {
+                                    const hasImage = item[`pernyataan_${statement}_img`];
+                                    const textContent = item[`pernyataan_${statement}`];
+                                    
+                                    return (
+                                      <tr key={index}>
+                                        <td className="border p-2">
+                                          {hasImage && (
+                                            <img
+                                              src={hasImage}
+                                              alt={`Pernyataan ${statement}`}
+                                              className="max-w-xs h-auto mb-2 rounded cursor-pointer"
+                                              onClick={() => {
+                                                Swal.fire({
+                                                  imageUrl: hasImage,
+                                                  showConfirmButton: false,
+                                                  showCloseButton: true,
+                                                });
+                                              }}
+                                            />
+                                          )}
+                                          {textContent}
+                                        </td>
+                                        <td className="border p-2 text-center">
+                                          <input
+                                            type="radio"
+                                            name={`group${item.id}_${index}`}
+                                            value={`${statement}B`}
+                                            checked={selectedValues[`group${item.id}_${index}`] === `${statement}B`}
+                                            onChange={(e) => handleChange(e)}
+                                            disabled={isRadioButtonDisabled}
+                                          />
+                                        </td>
+                                        <td className="border p-2 text-center">
+                                          <input
+                                            type="radio"
+                                            name={`group${item.id}_${index}`}
+                                            value={`${statement}S`}
+                                            checked={selectedValues[`group${item.id}_${index}`] === `${statement}S`}
+                                            onChange={(e) => handleChange(e)}
+                                            disabled={isRadioButtonDisabled}
+                                          />
+                                        </td>
+                                      </tr>
+                                    );
+                                  })}
+                                </tbody>
+                              </table>
+                            </div>
+                          )  : item.typeOpsi === "benarsalah" ? ( 
                             // Jika tipe soal adalah B/S (Benar/Salah)
                             <div className="border p-2 rounded-lg">
                               <table className="w-full border-collapse">
