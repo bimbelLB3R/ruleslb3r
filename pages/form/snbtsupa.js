@@ -122,17 +122,17 @@ const MainPageSoal = () => {
             setForm({ ...form, nisn: storedNisn });
           }
 
-          const savedValue = localStorage.getItem(`group${item.id}`);
+          const savedValue = localStorage.getItem(`group${item.nomor_soal}`);
           const statements = ["1", "2", "3", "4", "5"].filter(
             (index) => item[`pernyataan_${index}`]
           );
 
           statements.map((statement, index) => {
-            const savedValueP = localStorage.getItem(`group${item.id}_${index}`);
+            const savedValueP = localStorage.getItem(`group${item.nomor_soal}_${index}`);
             if (savedValueP) {
               setSelectedValues((selectedValues) => ({
                 ...selectedValues,
-                [`group${item.id}_${index}`]: savedValueP,
+                [`group${item.nomor_soal}_${index}`]: savedValueP,
               }));
             }
           });
@@ -140,7 +140,7 @@ const MainPageSoal = () => {
           if (savedValue) {
             setSelectedValues((selectedValues) => ({
               ...selectedValues,
-              [`group${item.id}`]: savedValue,
+              [`group${item.nomor_soal}`]: savedValue,
             }));
           }
         });
@@ -769,8 +769,8 @@ const MainPageSoal = () => {
                           <Radio.Group
                             disabled={isRadioButtonDisabled}
                             onChange={handleChange}
-                            value={selectedValues[`group${item.id}`] || ""}
-                            name={`group${item.id}`}
+                            value={selectedValues[`group${item.nomor_soal}`] || ""}
+                            name={`group${item.nomor_soal}`}
                           >
                             {options.map((option) => {
                               const hasImage = item[`pilihan_${option.toLowerCase()}_img`];
@@ -782,7 +782,7 @@ const MainPageSoal = () => {
                                 <div className="flex space-x-1" key={option}>
                                   <div
                                     className={`mb-2 p-2 rounded-2xl border w-full ${
-                                      selectedValues[`group${item.id}`] === option
+                                      selectedValues[`group${item.nomor_soal}`] === option
                                         ? "bg-gradient-to-br from-green-400 to-green-100"
                                         : ""
                                     }`}
@@ -792,7 +792,7 @@ const MainPageSoal = () => {
                                         {/* Label Opsi (A, B, C, D, E) */}
                                         <div
                                           className={`p-1 rounded-full w-[2rem] h-[2rem] flex-shrink-0 ${
-                                            selectedValues[`group${item.id}`] === option
+                                            selectedValues[`group${item.nomor_soal}`] === option
                                               ? "border-2 bg-green-500"
                                               : "bg-gray-500"
                                           }`}
@@ -889,9 +889,9 @@ const MainPageSoal = () => {
                                       <td className="border p-2 text-center">
                                         <input
                                           type="radio"
-                                          name={`group${item.id}_${index}`}
+                                          name={`group${item.nomor_soal}_${index}`}
                                           value={`${statement}B`}
-                                          checked={selectedValues[`group${item.id}_${index}`] === `${statement}B`}
+                                          checked={selectedValues[`group${item.nomor_soal}_${index}`] === `${statement}B`}
                                           onChange={(e) => handleChange(e)}
                                           disabled={isRadioButtonDisabled}
                                         />
@@ -899,9 +899,9 @@ const MainPageSoal = () => {
                                       <td className="border p-2 text-center">
                                         <input
                                           type="radio"
-                                          name={`group${item.id}_${index}`}
+                                          name={`group${item.nomor_soal}_${index}`}
                                           value={`${statement}S`}
-                                          checked={selectedValues[`group${item.id}_${index}`] === `${statement}S`}
+                                          checked={selectedValues[`group${item.nomor_soal}_${index}`] === `${statement}S`}
                                           onChange={(e) => handleChange(e)}
                                           disabled={isRadioButtonDisabled}
                                         />
@@ -918,9 +918,9 @@ const MainPageSoal = () => {
                             disabled={isRadioButtonDisabled}
                             placeholder="Masukkan hanya angka"
                             className="border rounded-lg p-2 w-full"
-                            value={selectedValues[`group${item.id}`] || ""}
+                            value={selectedValues[`group${item.nomor_soal}`] || ""}
                             onChange={(e) =>
-                              handleChange({ target: { name: `group${item.id}`, value: e.target.value } })
+                              handleChange({ target: { name: `group${item.nomor_soal}`, value: e.target.value } })
                             }
                           />
                         ) : (
@@ -931,9 +931,9 @@ const MainPageSoal = () => {
                                   type="checkbox"
                                   disabled={isRadioButtonDisabled}
                                   id={`checkbox-${item.id}-${index}`}
-                                  name={`group${item.id}`}
+                                  name={`group${item.nomor_soal}`}
                                   value={statement}
-                                  checked={selectedValues[`group${item.id}`]?.includes(statement) || false}
+                                  checked={selectedValues[`group${item.nomor_soal}`]?.includes(statement) || false}
                                   onChange={(e) => handleChange(e)}
                                 />
                                 <label htmlFor={`checkbox-${item.id}-${index}`} className="text-left text-base">
