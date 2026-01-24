@@ -36,6 +36,7 @@ export default function SoalList({ kategori, onEdit, refreshTrigger}) {
     Swal.fire("Error", "ID atau kategori tidak valid", "error");
     return;
   }
+  
     const result = await Swal.fire({
       title: "Hapus Soal?",
       text: "Data tidak bisa dikembalikan!",
@@ -66,6 +67,28 @@ export default function SoalList({ kategori, onEdit, refreshTrigger}) {
       }
     }
   };
+
+  const handleDuplicate = async (id) => {
+  if (!confirm("Duplikat soal ini?")) return;
+
+  const res = await fetch("/api/admin/soal/duplicate", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      id,
+      kategori,
+    }),
+  });
+
+  const data = await res.json();
+
+  if (data.success) {
+    alert("Soal berhasil diduplikat");
+    fetchSoalList(); // reload list
+  } else {
+    alert("Gagal duplikat soal");
+  }
+};
 
   const filteredSoal = soalList.filter((soal) =>
     soal.soal?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -176,6 +199,12 @@ export default function SoalList({ kategori, onEdit, refreshTrigger}) {
                         className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition text-xs"
                       >
                         Hapus
+                      </button>
+                      <button
+                        onClick={() => handleDuplicate(soal.id)}
+                        className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition text-xs"
+                      >
+                        Duplikat
                       </button>
                     </div>
                   </td>

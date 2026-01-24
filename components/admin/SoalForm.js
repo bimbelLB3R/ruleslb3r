@@ -5,7 +5,8 @@ import ImageUpload from "./ImageUpload";
 
 export default function SoalForm({ kategori, editData, onSuccess, onCancel }) {
   const [loading, setLoading] = useState(false);
-  const [activeSection, setActiveSection] = useState("basic"); // basic, bacaan, opsi
+  const [activeSection, setActiveSection] = useState("basic");
+  const [useImageUpload, setUseImageUpload] = useState(false);
   
   const [formData, setFormData] = useState(
     editData || {
@@ -44,15 +45,15 @@ export default function SoalForm({ kategori, editData, onSuccess, onCancel }) {
       pernyataan_5: "",
       kunci_jawaban: "",
       pilihan_a_img: "",
-    pilihan_b_img: "",
-    pilihan_c_img: "",
-    pilihan_d_img: "",
-    pilihan_e_img: "",
-    pernyataan_1_img: "",
-    pernyataan_2_img: "",
-    pernyataan_3_img: "",
-    pernyataan_4_img: "",
-    pernyataan_5_img: "",
+      pilihan_b_img: "",
+      pilihan_c_img: "",
+      pilihan_d_img: "",
+      pilihan_e_img: "",
+      pernyataan_1_img: "",
+      pernyataan_2_img: "",
+      pernyataan_3_img: "",
+      pernyataan_4_img: "",
+      pernyataan_5_img: "",
     }
   );
 
@@ -62,55 +63,48 @@ export default function SoalForm({ kategori, editData, onSuccess, onCancel }) {
       [e.target.name]: e.target.value,
     });
   };
-// console.log(formData)
+
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true);
+    e.preventDefault();
+    setLoading(true);
 
-  try {
-    const url = editData
-      ? "/api/admin/soal/update"
-      : "/api/admin/soal/create";
-
-    const method = editData ? "PUT" : "POST";
-
-    const response = await fetch(url, {
-      method,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...(editData ? { id: editData.id } : {}),
-        kategori,
-        ...formData,
-      }),
-    });
-
-    let data = null;
     try {
-      data = await response.json();
-    } catch {
-      data = null;
-    }
-console.log("STATUS:", response.status);
-    if (response.ok) {
-  Swal.fire("Berhasil", data.message, "success");
-  onSuccess?.();
-  console.log("onSuccess:", onSuccess);
+      const url = editData
+        ? "/api/admin/soal/update"
+        : "/api/admin/soal/create";
 
-    } else {
-      Swal.fire(
-        "Gagal",
-        data?.error || "Terjadi kesalahan",
-        "error"
-      );
-    }
-  } catch (error) {
-    console.error("FETCH ERROR:", error);
-    Swal.fire("Error", "Terjadi kesalahan sistem", "error");
-  } finally {
-    setLoading(false);
-  }
-};
+      const method = editData ? "PUT" : "POST";
 
+      const response = await fetch(url, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...(editData ? { id: editData.id } : {}),
+          kategori,
+          ...formData,
+        }),
+      });
+
+      let data = null;
+      try {
+        data = await response.json();
+      } catch {
+        data = null;
+      }
+
+      if (response.ok) {
+        Swal.fire("Berhasil", data.message, "success");
+        onSuccess?.();
+      } else {
+        Swal.fire("Gagal", data?.error || "Terjadi kesalahan", "error");
+      }
+    } catch (error) {
+      console.error("FETCH ERROR:", error);
+      Swal.fire("Error", "Terjadi kesalahan sistem", "error");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="bg-white rounded-lg shadow">
@@ -118,12 +112,9 @@ console.log("STATUS:", response.status);
         <h2 className="text-xl font-bold">
           {editData ? "Edit Soal" : "Tambah Soal Baru"}
         </h2>
-        <p className="text-sm text-gray-500 mt-1">
-          Kategori: {kategori}
-        </p>
+        <p className="text-sm text-gray-500 mt-1">Kategori: {kategori}</p>
       </div>
 
-      {/* Section Tabs */}
       <div className="flex border-b">
         <button
           className={`px-6 py-3 ${
@@ -158,22 +149,23 @@ console.log("STATUS:", response.status);
       </div>
 
       <form onSubmit={handleSubmit} className="p-6">
-        {/* SECTION: Basic Info */}
         {activeSection === "basic" && (
-          <BasicInfoSection formData={formData} handleChange={handleChange} />
+          <BasicInfoSection 
+            formData={formData} 
+            handleChange={handleChange}
+            useImageUpload={useImageUpload}
+            setUseImageUpload={setUseImageUpload}
+          />
         )}
 
-        {/* SECTION: Bacaan */}
         {activeSection === "bacaan" && (
           <BacaanSection formData={formData} handleChange={handleChange} />
         )}
 
-        {/* SECTION: Soal & Opsi */}
         {activeSection === "opsi" && (
           <SoalOpsiSection formData={formData} handleChange={handleChange} />
         )}
 
-        {/* Action Buttons */}
         <div className="mt-6 flex justify-end space-x-3 pt-6 border-t">
           <button
             type="button"
@@ -195,8 +187,11 @@ console.log("STATUS:", response.status);
   );
 }
 
-// Sub-component: Basic Info
-function BasicInfoSection({ formData, handleChange }) {
+function BasicInfoSection({ formData, handleChange, useImageUpload, setUseImageUpload }) {
+  const handleImageUpload = (url) => {
+    handleChange({ target: { name: "link_gambar", value: url } });
+  };
+
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -226,26 +221,47 @@ function BasicInfoSection({ formData, handleChange }) {
         </div>
       </div>
 
-      <div>
-        <label className="block font-medium mb-2">Link Gambar (URL)</label>
-        <input
-          type="text"
-          name="link_gambar"
-          className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          value={formData.link_gambar}
-          onChange={handleChange}
-          placeholder="https://example.com/image.png"
-        />
-        {formData.link_gambar && (
-          <div className="mt-2">
-            <img
-              src={formData.link_gambar}
-              alt="Preview"
-              className="max-w-xs border rounded"
-              onError={(e) => {
-                e.target.style.display = "none";
-              }}
+      <div className="border rounded-lg p-4 bg-gray-50">
+        <div className="flex items-center justify-between mb-3">
+          <label className="block font-medium">Link Gambar</label>
+          <button
+            type="button"
+            onClick={() => setUseImageUpload(!useImageUpload)}
+            className="text-sm text-blue-600 hover:text-blue-800 font-medium"
+          >
+            {useImageUpload ? "🔗 Input URL Manual" : "🖼️ Upload Gambar"}
+          </button>
+        </div>
+
+        {useImageUpload ? (
+          <ImageUpload
+            currentImage={formData.link_gambar}
+            onImageUploaded={handleImageUpload}
+            label="Upload Gambar Soal"
+          />
+        ) : (
+          <div>
+            <input
+              type="text"
+              name="link_gambar"
+              className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={formData.link_gambar}
+              onChange={handleChange}
+              placeholder="https://example.com/image.png"
             />
+            {formData.link_gambar && (
+              <div className="mt-3">
+                <p className="text-xs text-gray-500 mb-2">Preview:</p>
+                <img
+                  src={formData.link_gambar}
+                  alt="Preview"
+                  className="max-w-xs border rounded shadow-sm"
+                  onError={(e) => {
+                    e.target.style.display = "none";
+                  }}
+                />
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -253,7 +269,6 @@ function BasicInfoSection({ formData, handleChange }) {
   );
 }
 
-// Sub-component: Bacaan
 function BacaanSection({ formData, handleChange }) {
   return (
     <div className="space-y-4">
@@ -270,7 +285,9 @@ function BacaanSection({ formData, handleChange }) {
 
       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map((num) => (
         <div key={num}>
-          <label className="block font-medium mb-2">Bacaan {num}</label>
+          <label className="block font-medium mb-2">
+            Bacaan {num} {(num === 10 || num === 16) && "(bold)"}
+          </label>
           <textarea
             name={`bacaan_${num}`}
             className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -291,32 +308,23 @@ function BacaanSection({ formData, handleChange }) {
   );
 }
 
-// Sub-component: Soal & Opsi
 function SoalOpsiSection({ formData, handleChange }) {
-    const [showImageUpload, setShowImageUpload] = useState({
-    a: false,
-    b: false,
-    c: false,
-    d: false,
-    e: false,
-  });
+  const [showImageUpload, setShowImageUpload] = useState({});
 
   const handleImageUpload = (field, url) => {
     handleChange({ target: { name: field, value: url } });
   };
+
   return (
     <div className="space-y-4">
       <div>
-        <label className="block font-medium mb-2">
-          Soal <span className="text-red-500">*</span>
-        </label>
+        <label className="block font-medium mb-2">Soal</label>
         <textarea
           name="soal"
           className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           rows="4"
           value={formData.soal}
           onChange={handleChange}
-          required
           placeholder="Ketik soal di sini. Gunakan LaTeX untuk formula: $\frac{a}{b}$"
         ></textarea>
         {formData.soal && (
@@ -356,7 +364,6 @@ function SoalOpsiSection({ formData, handleChange }) {
         </div>
       </div>
 
-      {/* Pilihan Ganda dengan Upload Gambar */}
       {formData.typeOpsi === "pilgan" && (
         <div className="space-y-4">
           <p className="font-medium">Pilihan Jawaban:</p>
@@ -403,7 +410,6 @@ function SoalOpsiSection({ formData, handleChange }) {
         </div>
       )}
 
-      {/* Pernyataan dengan Upload Gambar */}
       {(formData.typeOpsi === "benarsalah" || formData.typeOpsi === "checkbox") && (
         <div className="space-y-4">
           <p className="font-medium">Pernyataan:</p>

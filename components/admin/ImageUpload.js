@@ -21,7 +21,7 @@ export default function ImageUpload({ currentImage, onImageUploaded, label }) {
       const formData = new FormData();
       formData.append("file", file);
 
-      const response = await fetch("/api/admin/upload-image", {
+      const response = await fetch("/api/admin/upload-imager2", {
         method: "POST",
         body: formData,
       });

@@ -3,14 +3,17 @@ import React, { useEffect, useState } from "react";
 const SoalStatus = () => {
   const [dataSoal, setDataSoal] = useState([]);
   const [linkSudah, setLinkSudah] = useState([]);
+  const [linkNow, setLinkNow] = useState();
 
   useEffect(() => {
     // Ambil data dari localStorage
     const storedDataSoal = JSON.parse(localStorage.getItem("dataSoal")) || [];
     const storedLinkSudah = JSON.parse(localStorage.getItem("linkSudah")) || [];
+    const storedLinkNow = localStorage.getItem("link");
     
     setDataSoal(storedDataSoal);
     setLinkSudah(storedLinkSudah);
+    setLinkNow(storedLinkNow);
   }, []);
 
   return (
@@ -19,7 +22,9 @@ const SoalStatus = () => {
         <div
           key={index}
           className={`px-2 py-1 rounded-md text-white text-xs ${
-            linkSudah.includes(soal) ? "bg-green-500" : "bg-gray-400"
+            linkNow.includes(soal)||linkSudah.includes(soal) ? "bg-green-500" : "bg-gray-400"
+          } ${
+            linkNow.includes(soal) ? "animate animate-pulse" : ""
           }`}
         >
           {soal}

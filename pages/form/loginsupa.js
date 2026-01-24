@@ -19,8 +19,8 @@ const login = () => {
         />
       </Head>
       {/* <Loginmember /> */}
-      {/* <Loginmembersupa/> */}
-      <p className="flex items-center justify-center m-auto h-screen">On Development ...</p>
+      <Loginmembersupa/>
+      {/* <p className="flex items-center justify-center m-auto h-screen">On Development ...</p> */}
     </div>
   );
 };

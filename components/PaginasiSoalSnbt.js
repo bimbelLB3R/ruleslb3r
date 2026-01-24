@@ -16,7 +16,7 @@ export default function Paginationsnbt({ totalPages, currentPage, setCurrentPage
   }, [currentPage]);
 
   return (
-    <div className="flex flex-row overflow-x-auto w-1/2 mx-auto" ref={containerRef}>
+    <div className="flex flex-row overflow-x-auto w-1/2 md:w-full mx-auto" ref={containerRef}>
       {Array.from(Array(totalPages).keys()).map((page) => (
         <button
           key={page}

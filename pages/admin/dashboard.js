@@ -71,10 +71,11 @@ export default function AdminDashboard() {
   };
 
   const handleEdit = (soal) => {
-    setEditData(soal);
-    setActiveTab("edit");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const { created_at, updated_at, ...cleanSoal } = soal;
+  setEditData(cleanSoal);
+  setActiveTab("edit");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
   const handleFormSuccess = () => {
     setActiveTab("list");

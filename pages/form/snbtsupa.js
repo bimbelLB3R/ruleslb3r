@@ -13,13 +13,13 @@ import QuestionNavigationlg from "../../components/QuestionsNavigationlg";
 
 dayjs.extend(duration);
 
-const ContactForm = () => {
+const MainPageSoal = () => {
   const [questions, setQuestions] = useState([]);
   const [jumlahSoal, setJumlahSoal] = useState();
   const [currentPage, setCurrentPage] = useState();
   const [isChecked, setIsChecked] = useState({});
   const postsPerPage = 1;
-  const paginatedPosts = questions.filter(item => item.id === currentPage);
+  const paginatedPosts = questions.filter(item => item.nomor_soal === currentPage);
   const totalPages = Math.ceil(questions.length / postsPerPage);
   const formRef = useRef(null);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
@@ -34,7 +34,7 @@ const ContactForm = () => {
   const [showNav, setShowNav] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [questionnav, setQuestionNav] = useState(false);
+  const [questionnav, setQuestionNav] = useState(true);
   const [refreshKey, setRefreshKey] = useState(0);
   const [isRadioButtonDisabled, setIsRadioButtonDisabled] = useState(false);
   const [timeLeft, setTimeLeft] = useState(dayjs.duration(30, "minute"));
@@ -157,8 +157,10 @@ const ContactForm = () => {
     fetchQuestions();
   }, []);
 
-  const tipeSoal = questions.find((item) => item.id === 1)?.kategori_soal;
+  const tipeSoal = questions.find((item) => item.id > 0)?.kategori_soal;
+  // console.log(tipeSoal)
   // console.log(questions);
+  // console.log(paginatedPosts)
   // Agar waktu tetap jalan meski diminimize
   useEffect(() => {
     const handleVisibilityChange = () => {
@@ -357,9 +359,9 @@ const ContactForm = () => {
       nisn: form.nisn,
       ...reduced,
     };
-
+    console.log(newRow)
     setIsLoading(true);
-    console.log(newRow);
+    // console.log(newRow);
     await kirimJawaban(newRow);
     clearLocalStorageExcept([
       "link",
@@ -497,6 +499,8 @@ const ContactForm = () => {
     setJumlahSoalSelesai(hitung);
   }, []);
 
+  const hasNoBacaan=paginatedPosts.map((item)=>item.bacaan_1==="")[0]
+      // console.log(hasNoBacaan)
   useEffect(() => {
     if (typeof window !== "undefined") {
       const mediaQuery = window.matchMedia("(min-width: 1024px)");
@@ -504,9 +508,10 @@ const ContactForm = () => {
       const handleResize = () => {
         const isLgScreen = mediaQuery.matches;
         const link = localStorage.getItem("link") || "";
+        
         const isTargetLink =
           link === "kuantitatif" || link === "matematika" || link === "penalaran";
-        setQuestionNav(isLgScreen && isTargetLink);
+        setQuestionNav(hasNoBacaan);
       };
 
       handleResize();
@@ -533,12 +538,12 @@ const ContactForm = () => {
           href="/image/logolb3r.png"
         />
       </Head>
-      <link
+      {/* <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
         integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
         crossOrigin="anonymous"
-      ></link>
+      ></link> */}
       <script
         defer
         src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
@@ -621,9 +626,17 @@ const ContactForm = () => {
 
                 {paginatedPosts.map((item) => {
                   const options = ["A", "B", "C", "D", "E"].filter(
-                    (option) => item[`pilihan_${option.toLowerCase()}`]
+                    (option) => 
+                      item[`pilihan_${option.toLowerCase()}`] || 
+                      item[`pilihan_${option.toLowerCase()}_img`]
                   );
-                  const statements=["1","2","3","4","5"].filter((statement)=>item[`pernyataan_${statement}`])
+                   const statements = ["1", "2", "3", "4", "5"].filter(
+                    (statement) => 
+                      item[`pernyataan_${statement}`] || 
+                      item[`pernyataan_${statement}_img`]
+                  );
+                  const hasBacaan=item[`bacaan_1`].length>0;
+                  // console.log(hasBacaan)
                    return(
                   <div
                     key={item.id}
@@ -640,10 +653,10 @@ const ContactForm = () => {
                         key={item.id}
                         id="textBacaan"
                         className={`${
-                          link === "kuantitatif" || link === "matematika"|| link === "penalaran"
-                            ? "lg:w-1/2 "
-                            : "lg:w-1/2 overflow-auto max-h-[500px] rounded-t-lg  mt-8 justify-center mb-4 p-1"
-                        }`}
+                        hasBacaan
+                          ? "lg:w-1/2 overflow-auto max-h-[500px] rounded-t-lg mt-8 mb-4 p-4 border"
+                          : "hidden"
+                      }`}
                       >     
                         {questionnav?<QuestionNavigationlg 
                           totalQuestions={jumlahSoal}
@@ -659,7 +672,7 @@ const ContactForm = () => {
                           <img src={item.link_gambar} className="w-full " />
                         </div> */}
                         <p className="text-justify mb-2 ">
-                          {item.bacaan_1}
+                          <Latex>{item.bacaan_1}</Latex>
                         </p>
                         <p className="text-justify mb-2  ">
                           <Latex>{item.bacaan_2}</Latex>
@@ -678,7 +691,7 @@ const ContactForm = () => {
                           {item.bacaan_6}
                         </p>
                         <p className="text-justify mb-4 ">
-                          {item.bacaan_7}
+                          <Latex>{item.bacaan_7}</Latex>
                         </p>
                         <p className="text-justify mb-4 ">
                           {item.bacaan_8}
@@ -690,7 +703,7 @@ const ContactForm = () => {
                           {item.bacaan_10}
                         </p>
                         <p className="text-justify mb-4 ">
-                          {item.bacaan_11}
+                          <Latex>{item.bacaan_11}</Latex>
                         </p>
                         <p className="text-justify mb-4 ">
                           {item.bacaan_12}
@@ -706,21 +719,21 @@ const ContactForm = () => {
                       </div>
                       <div
                         className={`${
-                          link === "kuantitatif" || link === "matematika"|| link === "penalaran"
-                            ? "lg:w-1/2 "
-                            : "lg:w-1/2 rounded-t-lg flex  justify-center"
-                        }`}
+                        hasBacaan
+                          ? "lg:w-1/2 rounded-t-lg mt-10"
+                          : "lg:max-w-2xl lg:mx-auto w-full"
+                      }`}
                       >
                         <div>
                         {/* Pertanyaan */}
                         <div className="flex items-center justify-center ">
-                            <div>
+                            <div className={hasNoBacaan&&'mt-10'}>
                               <p className="bg-gray-300 text-gray-900 text-xs text-center font-semibold">Soal</p>
                               <p
                                 className="text-justify mb-2 font-bold flex items-center p-1 bg-gray-900 text-gray-100"
                                 id={currentPage}
                               >
-                              {currentPage}/{totalPages}
+                              Nomor {currentPage}
                               </p>
                             </div>
                         </div>
@@ -752,152 +765,127 @@ const ContactForm = () => {
                         </div>
                         {/* Opsi Jawaban dengan Support Gambar */}
                         <div className="pr-4 pl-4">
-                          {options.length > 0 ? (
-                            <Radio.Group
-                              disabled={isRadioButtonDisabled}
-                              onChange={handleChange}
-                              value={selectedValues[`group${item.id}`] || ""}
-                              name={`group${item.id}`}
-                            >
-                              {options.map((option) => {
-                                const hasImage = item[`pilihan_${option.toLowerCase()}_img`];
-                                const textContent = item[`pilihan_${option.toLowerCase()}`];
-                                
-                                return (
-                                  <div className="flex space-x-1" key={option}>
-                                    <div
-                                      className={`mb-2 p-2 rounded-2xl border ${
-                                        selectedValues[`group${item.id}`] === option
-                                          ? "bg-gradient-to-br from-green-400 to-green-100"
-                                          : ""
-                                      }`}
-                                    >
-                                      <Radio value={option} className="text-justify relative">
-                                        <div className="flex items-start space-x-4 mb-2">
-                                          <div
-                                            className={`p-1 rounded-full w-[2rem] h-[2rem] flex-shrink-0 ${
-                                              selectedValues[`group${item.id}`] === option
-                                                ? "border-2 bg-green-500"
-                                                : "bg-gray-500"
-                                            }`}
-                                          >
-                                            <p className="flex items-center justify-center font-bold text-gray-100">
-                                              {option}
-                                            </p>
-                                          </div>
-                                          
-                                          <div className="flex-1">
-                                            {/* Tampilkan Gambar jika ada */}
-                                            {hasImage && (
-                                              <img
-                                                src={hasImage}
-                                                alt={`Pilihan ${option}`}
-                                                className="max-w-full h-auto mb-2 rounded border cursor-pointer hover:scale-105 transition"
-                                                onClick={(e) => {
-                                                  // Zoom gambar saat diklik
-                                                  Swal.fire({
-                                                    imageUrl: hasImage,
-                                                    imageAlt: `Pilihan ${option}`,
-                                                    showConfirmButton: false,
-                                                    showCloseButton: true,
-                                                  });
-                                                }}
-                                              />
-                                            )}
-                                            
-                                            {/* Tampilkan Text jika ada */}
-                                            {textContent && (
-                                              <div className="text-left text-base">
-                                                {item.inner_html === "yes" ? (
-                                                  <div dangerouslySetInnerHTML={{ __html: textContent }} />
-                                                ) : (
-                                                  <Latex>{textContent}</Latex>
-                                                )}
-                                              </div>
-                                            )}
-                                          </div>
+                        {options.length > 0 ? (
+                          <Radio.Group
+                            disabled={isRadioButtonDisabled}
+                            onChange={handleChange}
+                            value={selectedValues[`group${item.id}`] || ""}
+                            name={`group${item.id}`}
+                          >
+                            {options.map((option) => {
+                              const hasImage = item[`pilihan_${option.toLowerCase()}_img`];
+                              // console.log(hasImage);
+                              const textContent = item[`pilihan_${option.toLowerCase()}`];
+                              // console.log(textContent)
+                              
+                              return (
+                                <div className="flex space-x-1" key={option}>
+                                  <div
+                                    className={`mb-2 p-2 rounded-2xl border w-full ${
+                                      selectedValues[`group${item.id}`] === option
+                                        ? "bg-gradient-to-br from-green-400 to-green-100"
+                                        : ""
+                                    }`}
+                                  >
+                                    <Radio value={option} className="text-justify relative w-full">
+                                      <div className="flex items-start space-x-4">
+                                        {/* Label Opsi (A, B, C, D, E) */}
+                                        <div
+                                          className={`p-1 rounded-full w-[2rem] h-[2rem] flex-shrink-0 ${
+                                            selectedValues[`group${item.id}`] === option
+                                              ? "border-2 bg-green-500"
+                                              : "bg-gray-500"
+                                          }`}
+                                        >
+                                          <p className="flex items-center justify-center font-bold text-gray-100">
+                                            {option}
+                                          </p>
                                         </div>
-                                      </Radio>
-                                    </div>
-                                  </div>
-                                );
-                              })}
-                            </Radio.Group>
-                          ) : item.typeOpsi === "benarsalah" ? (
-                            <div className="border p-2 rounded-lg">
-                              <table className="w-full border-collapse">
-                                <thead>
-                                  <tr>
-                                    <th className="border p-2">Pernyataan</th>
-                                    <th className="border p-2">B</th>
-                                    <th className="border p-2">S</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  {statements.map((statement, index) => {
-                                    const hasImage = item[`pernyataan_${statement}_img`];
-                                    const textContent = item[`pernyataan_${statement}`];
-                                    
-                                    return (
-                                      <tr key={index}>
-                                        <td className="border p-2">
+                                        
+                                        {/* Konten Opsi (Gambar dan/atau Teks) */}
+                                        <div className="flex-1">
+                                          {/* Tampilkan Gambar jika ada */}
                                           {hasImage && (
                                             <img
                                               src={hasImage}
-                                              alt={`Pernyataan ${statement}`}
-                                              className="max-w-xs h-auto mb-2 rounded cursor-pointer"
-                                              onClick={() => {
+                                              alt={`Pilihan ${option}`}
+                                              className="max-w-full h-auto mb-2 rounded border cursor-pointer hover:scale-105 transition-transform"
+                                              onClick={(e) => {
+                                                e.stopPropagation(); // Prevent radio selection
                                                 Swal.fire({
                                                   imageUrl: hasImage,
+                                                  imageAlt: `Pilihan ${option}`,
                                                   showConfirmButton: false,
                                                   showCloseButton: true,
+                                                  width: 'auto',
+                                                  padding: '1rem'
                                                 });
                                               }}
                                             />
                                           )}
-                                          {textContent}
-                                        </td>
-                                        <td className="border p-2 text-center">
-                                          <input
-                                            type="radio"
-                                            name={`group${item.id}_${index}`}
-                                            value={`${statement}B`}
-                                            checked={selectedValues[`group${item.id}_${index}`] === `${statement}B`}
-                                            onChange={(e) => handleChange(e)}
-                                            disabled={isRadioButtonDisabled}
-                                          />
-                                        </td>
-                                        <td className="border p-2 text-center">
-                                          <input
-                                            type="radio"
-                                            name={`group${item.id}_${index}`}
-                                            value={`${statement}S`}
-                                            checked={selectedValues[`group${item.id}_${index}`] === `${statement}S`}
-                                            onChange={(e) => handleChange(e)}
-                                            disabled={isRadioButtonDisabled}
-                                          />
-                                        </td>
-                                      </tr>
-                                    );
-                                  })}
-                                </tbody>
-                              </table>
-                            </div>
-                          )  : item.typeOpsi === "benarsalah" ? ( 
-                            // Jika tipe soal adalah B/S (Benar/Salah)
-                            <div className="border p-2 rounded-lg">
-                              <table className="w-full border-collapse">
-                                <thead>
-                                  <tr>
-                                    <th className="border p-2">Pernyataan</th>
-                                    <th className="border p-2">B</th>
-                                    <th className="border p-2">S</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  {statements.map((statement, index) => (
+                                          
+                                          {/* Tampilkan Text jika ada */}
+                                          {textContent && (
+                                            <div className="text-left text-base">
+                                              {item.inner_html === "yes" ? (
+                                                <div dangerouslySetInnerHTML={{ __html: textContent }} />
+                                              ) : (
+                                                <Latex>{textContent}</Latex>
+                                              )}
+                                            </div>
+                                          )}
+                                        </div>
+                                      </div>
+                                    </Radio>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </Radio.Group>
+                        ) : item.typeOpsi === "benarsalah" ? (
+                          <div className="border p-2 rounded-lg">
+                            <table className="w-full border-collapse">
+                              <thead>
+                                <tr>
+                                  <th className="border p-2">Pernyataan</th>
+                                  <th className="border p-2">B</th>
+                                  <th className="border p-2">S</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {statements.map((statement, index) => {
+                                  const hasImage = item[`pernyataan_${statement}_img`];
+                                  const textContent = item[`pernyataan_${statement}`];
+                                  
+                                  return (
                                     <tr key={index}>
-                                      <td className="border p-2">{item[`pernyataan_${statement}`]}</td>
+                                      <td className="border p-2">
+                                        {hasImage && (
+                                          <img
+                                            src={hasImage}
+                                            alt={`Pernyataan ${statement}`}
+                                            className="max-w-xs h-auto mb-2 rounded cursor-pointer hover:opacity-80 transition-opacity"
+                                            onClick={() => {
+                                              Swal.fire({
+                                                imageUrl: hasImage,
+                                                showConfirmButton: false,
+                                                showCloseButton: true,
+                                                width: 'auto',
+                                                padding: '1rem'
+                                              });
+                                            }}
+                                          />
+                                        )}
+                                        {textContent && (
+                                          <div className="text-left">
+                                            {item.inner_html === "yes" ? (
+                                              <div dangerouslySetInnerHTML={{ __html: textContent }} />
+                                            ) : (
+                                              <Latex>{textContent}</Latex>
+                                            )}
+                                          </div>
+                                        )}
+                                      </td>
                                       <td className="border p-2 text-center">
                                         <input
                                           type="radio"
@@ -919,26 +907,25 @@ const ContactForm = () => {
                                         />
                                       </td>
                                     </tr>
-                                  ))}
-                                </tbody>
-                              </table>
-                            </div>
-                          ) : item.typeOpsi==="inputangka"?(
-                            // Jika tidak ada opsi dan bukan B/S, tampilkan input teks
-                            <input
-                              type="number"
-                              disabled={isRadioButtonDisabled}
-                              placeholder="Masukkan hanya angka"
-                              className="border rounded-lg p-2 w-full"
-                              value={selectedValues[`group${item.id}`] || ""}
-                              onChange={(e) =>
-                                handleChange({ target: { name: `group${item.id}`, value: e.target.value } })
-                              }
-                            />
-                          ):
-                          //jika tidak ada opsi, bukan bs,bukan input text, tampilkan ceklis
-                          (<><div className="flex flex-col space-y-2">
-                            {statements.map((statement,index) => (
+                                  );
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        ) : item.typeOpsi === "inputangka" ? (
+                          <input
+                            type="number"
+                            disabled={isRadioButtonDisabled}
+                            placeholder="Masukkan hanya angka"
+                            className="border rounded-lg p-2 w-full"
+                            value={selectedValues[`group${item.id}`] || ""}
+                            onChange={(e) =>
+                              handleChange({ target: { name: `group${item.id}`, value: e.target.value } })
+                            }
+                          />
+                        ) : (
+                          <div className="flex flex-col space-y-2">
+                            {statements.map((statement, index) => (
                               <div className="flex items-center space-x-2" key={index}>
                                 <input
                                   type="checkbox"
@@ -954,10 +941,9 @@ const ContactForm = () => {
                                 </label>
                               </div>
                             ))}
-                          </div></>)
-                          }
-
-                        </div>
+                          </div>
+                        )}
+                      </div>
 
                         <div className="checklist flex flex-col items-center mt-10 mb-10">
                           <input
@@ -1104,6 +1090,6 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default MainPageSoal;
 
 

@@ -5,27 +5,33 @@ import { useRouter } from 'next/navigation';
 import SoalStatus from './SoalStatus';
 
 export default function QuestionNavigation({ totalQuestions, onClose,setCurrentPage }) {
-  const [answeredQuestions, setAnsweredQuestions] = useState(new Set());
+  const [answers, setAnswers] = useState({});
+
   const router = useRouter();
 
   useEffect(() => {
-    const storedKeys = Object.keys(localStorage);
-    const answeredSet = new Set();
+  const storedKeys = Object.keys(localStorage);
+  const answersObj = {};
 
-    storedKeys.forEach((key) => {
-      if (key.startsWith('group')) {
+  storedKeys.forEach((key) => {
+    if (key.startsWith('group')) {
+      const match = key.match(/^group(\d+)/);
+      if (match) {
+        const number = parseInt(match[1]); // ⬅️ SUDAH NOMOR SOAL
         const value = localStorage.getItem(key);
+
         if (value && value.trim() !== '') {
-          const match = key.match(/^group(\d+)/);
-          if (match) {
-            answeredSet.add(parseInt(match[1]));
-          }
+          answersObj[number] = value; // ⬅️ SIMPAN APA ADANYA
         }
       }
-    });
+    }
+  });
 
-    setAnsweredQuestions(answeredSet);
-  }, []);
+  setAnswers(answersObj);
+}, []);
+
+
+
 
   
 
@@ -40,17 +46,23 @@ export default function QuestionNavigation({ totalQuestions, onClose,setCurrentP
 
         {/* Daftar Soal */}
         <div className="grid grid-cols-4 gap-2">
-          {Array.from({ length: totalQuestions }, (_, index) => {
-            const isAnswered = answeredQuestions.has(index);
+            {Array.from({ length: totalQuestions }, (_, index) => {
+            const questionNumber = index + 1;
+            const answer = answers[questionNumber];
+
             return (
               <button
                 key={index}
-                className={`px-3 py-1 rounded text-white font-bold 
-                  ${isAnswered ? 'bg-green-600' : 'bg-gray-600'}`}
-                  onClick={() => {
-                    setCurrentPage(index + 1);}}
+                className={`px-3 py-1 rounded text-white font-bold flex justify-between items-center gap-2
+                  ${answer ? 'bg-green-600' : 'bg-gray-600'}`}
+                onClick={() => setCurrentPage(questionNumber)}
               >
-                {index + 1}
+                <span>{questionNumber}</span>
+                {answer && (
+                  <span className="bg-white text-black px-2 rounded text-sm">
+                    {answer}
+                  </span>
+                )}
               </button>
             );
           })}
