@@ -268,138 +268,147 @@ const MainPageSoal = () => {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    const countUniqueGroups = () => {
-      const uniqueGroups = new Set();
+ const handleSubmit = (e) => {
+  e.preventDefault();
+  
+  const countUniqueGroups = () => {
+    const uniqueGroups = new Set();
 
-      for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        const value = localStorage.getItem(key);
-        
-        if (key.startsWith("group") && value) {
-          const groupId = key.split("_")[0];
-          uniqueGroups.add(groupId);
-        }
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      const value = localStorage.getItem(key);
+      
+      if (key.startsWith("group") && value) {
+        const groupId = key.split("_")[0];
+        uniqueGroups.add(groupId);
       }
+    }
 
-      return uniqueGroups.size;
-    };
-
-    const hitung = countUniqueGroups();
-    const blmdjwb = jumlahSoal - hitung;
-
-    Swal.fire({
-      title: "Kirim Jawaban?",
-      text: `Masih ada ${blmdjwb} soal belum kamu jawab, sisa waktu kurang dari : ${
-        timeLeft ? timeLeft.format("mm:ss") : "Loading..."
-      } menit`,
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#15803d",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Ya, Kirim!",
-      cancelButtonText: "Batal",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        submitForm(e);
-      }
-    });
+    return uniqueGroups.size;
   };
 
-  const submitForm = async (e) => {
-    e.preventDefault();
-    setIsButtonDisabled(true);
+  const hitung = countUniqueGroups();
+  const blmdjwb = jumlahSoal - hitung;
 
-    const reduced = Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
-      if (name.startsWith("group") && name.includes("_")) {
-        const groupId = name.split("_")[0];
-        acc[groupId] = acc[groupId] || "";
+  Swal.fire({
+    title: "Kirim Jawaban?",
+    text: `Masih ada ${blmdjwb} soal belum kamu jawab, sisa waktu kurang dari : ${
+      timeLeft ? timeLeft.format("mm:ss") : "Loading..."
+    } menit`,
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#15803d",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Ya, Kirim!",
+    cancelButtonText: "Batal",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      submitForm(e);
+    }
+  });
+};
 
-        if (typeof savedValue === "string" && /^[0-9]+[A-Z]$/i.test(savedValue)) {
-          acc[groupId] += savedValue;
-        } else {
-          acc[groupId] += savedValue;
-        }
-      } else {
-        if (typeof savedValue === "string" && savedValue.includes(",")) {
-          acc[name] = savedValue
-            .split(",")
-            .map(Number)
-            .sort((a, b) => a - b)
-            .join("");
-        } else if (Array.isArray(savedValue)) {
-          acc[name] = savedValue
-            .map(Number)
-            .sort((a, b) => a - b)
-            .join("");
-        } else {
-          acc[name] = savedValue;
-        }
+const submitForm = async (e) => {
+  e.preventDefault();
+  setIsButtonDisabled(true);
+
+  const reduced = Object.entries(selectedValues).reduce((acc, [name, savedValue]) => {
+    // ✅ Cek apakah key mengandung underscore (tipe BENAR/SALAH)
+    if (name.startsWith("group") && name.includes("_")) {
+      const groupId = name.split("_")[0];
+      const subIndex = parseInt(name.split("_")[1]);
+      
+      // ✅ Simpan sebagai array object dengan index
+      if (!acc[groupId]) {
+        acc[groupId] = [];
       }
-      return acc;
-    }, {});
-
-    const bsGroups = Object.keys(reduced).filter((key) => {
-      const val = reduced[key];
-      return typeof val === "string" && /\d+[A-Z]/i.test(val);
-    });
-
-    bsGroups.forEach((key) => {
-      const matches = reduced[key].match(/\d+[A-Z]/gi);
-      if (matches) {
-        reduced[key] = matches
-          .sort((a, b) => parseInt(a) - parseInt(b))
+      
+      acc[groupId].push({
+        index: subIndex,
+        value: savedValue
+      });
+    } else {
+      // ✅ Tipe CHECKBOX - urutkan angka tanpa koma
+      if (typeof savedValue === "string" && savedValue.includes(",")) {
+        acc[name] = savedValue
+          .split(",")
+          .map(Number)
+          .sort((a, b) => a - b)
           .join("");
+      } 
+      // ✅ Tipe CHECKBOX array
+      else if (Array.isArray(savedValue)) {
+        acc[name] = savedValue
+          .map(Number)
+          .sort((a, b) => a - b)
+          .join("");
+      } 
+      // ✅ Tipe PILIHAN GANDA atau INPUT ANGKA
+      else {
+        acc[name] = savedValue;
       }
-    });
+    }
+    return acc;
+  }, {});
 
-    const newRow = {
-      nisn: form.nisn,
-      ...reduced,
-    };
-    console.log(newRow)
-    setIsLoading(true);
-    // console.log(newRow);
-    await kirimJawaban(newRow);
-    clearLocalStorageExcept([
-      "link",
-      "linkSudah",
-      "linkBelum",
-      "name",
-      "nisn",
-      "dataSoal",
-    ]);
+  // ✅ Format jawaban tipe BENAR/SALAH
+  Object.keys(reduced).forEach((key) => {
+    if (Array.isArray(reduced[key])) {
+      // ✅ Urutkan berdasarkan index, lalu gabung tanpa koma
+      reduced[key] = reduced[key]
+        .sort((a, b) => a.index - b.index)
+        .map(item => item.value)
+        .join("");
+    }
+  });
 
-    setIsLoading(false);
-    setForm({ nisn: "", name: "" });
-    setSelectedValues({});
-
-    let timerInterval;
-    Swal.fire({
-      title: "tunggu ya ..!",
-      html: "Menuju soal berikutnya dalam <b></b> milliseconds.",
-      timer: 2000,
-      timerProgressBar: true,
-      didOpen: () => {
-        Swal.showLoading();
-        const timer = Swal.getPopup().querySelector("b");
-        timerInterval = setInterval(() => {
-          timer.textContent = `${Swal.getTimerLeft()}`;
-        }, 100);
-      },
-      willClose: () => {
-        clearInterval(timerInterval);
-      },
-    }).then((result) => {
-      if (result.dismiss === Swal.DismissReason.timer) {
-        console.log("Menuju soal berikutnya");
-      }
-    });
-    
-    router.push("/form/transisisoalsupa");
+  const newRow = {
+    nisn: form.nisn,
+    ...reduced,
   };
+  
+  console.log(newRow);
+  setIsLoading(true);
+  
+  await kirimJawaban(newRow);
+  
+  clearLocalStorageExcept([
+    "link",
+    "linkSudah",
+    "linkBelum",
+    "name",
+    "nisn",
+    "dataSoal",
+  ]);
+
+  setIsLoading(false);
+  setForm({ nisn: "", name: "" });
+  setSelectedValues({});
+
+  let timerInterval;
+  Swal.fire({
+    title: "tunggu ya ..!",
+    html: "Menuju soal berikutnya dalam <b></b> milliseconds.",
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: () => {
+      Swal.showLoading();
+      const timer = Swal.getPopup().querySelector("b");
+      timerInterval = setInterval(() => {
+        timer.textContent = `${Swal.getTimerLeft()}`;
+      }, 100);
+    },
+    willClose: () => {
+      clearInterval(timerInterval);
+    },
+  }).then((result) => {
+    if (result.dismiss === Swal.DismissReason.timer) {
+      console.log("Menuju soal berikutnya");
+    }
+  });
+  
+  router.push("/form/transisisoalsupa");
+};
 
   const handleChange = (e) => {
     setRefreshKey((prev) => prev + 1);
@@ -630,6 +639,7 @@ const MainPageSoal = () => {
                       item[`pilihan_${option.toLowerCase()}`] || 
                       item[`pilihan_${option.toLowerCase()}_img`]
                   );
+                  // console.log(options)
                    const statements = ["1", "2", "3", "4", "5"].filter(
                     (statement) => 
                       item[`pernyataan_${statement}`] || 
@@ -637,6 +647,8 @@ const MainPageSoal = () => {
                   );
                   const hasBacaan=item[`bacaan_1`].length>0;
                   // console.log(hasBacaan)
+                  console.log('typeOpsi:', item.typeOpsi);
+                  console.log('statements:', statements);
                    return(
                   <div
                     key={item.id}
@@ -763,86 +775,10 @@ const MainPageSoal = () => {
                             </div>  
                           </div>
                         </div>
-                        {/* Opsi Jawaban dengan Support Gambar */}
+                        
                         <div className="pr-4 pl-4">
-                        {options.length > 0 ? (
-                          <Radio.Group
-                            disabled={isRadioButtonDisabled}
-                            onChange={handleChange}
-                            value={selectedValues[`group${item.nomor_soal}`] || ""}
-                            name={`group${item.nomor_soal}`}
-                          >
-                            {options.map((option) => {
-                              const hasImage = item[`pilihan_${option.toLowerCase()}_img`];
-                              // console.log(hasImage);
-                              const textContent = item[`pilihan_${option.toLowerCase()}`];
-                              // console.log(textContent)
-                              
-                              return (
-                                <div className="flex space-x-1" key={option}>
-                                  <div
-                                    className={`mb-2 p-2 rounded-2xl border w-full ${
-                                      selectedValues[`group${item.nomor_soal}`] === option
-                                        ? "bg-gradient-to-br from-green-400 to-green-100"
-                                        : ""
-                                    }`}
-                                  >
-                                    <Radio value={option} className="text-justify relative w-full">
-                                      <div className="flex items-start space-x-4">
-                                        {/* Label Opsi (A, B, C, D, E) */}
-                                        <div
-                                          className={`p-1 rounded-full w-[2rem] h-[2rem] flex-shrink-0 ${
-                                            selectedValues[`group${item.nomor_soal}`] === option
-                                              ? "border-2 bg-green-500"
-                                              : "bg-gray-500"
-                                          }`}
-                                        >
-                                          <p className="flex items-center justify-center font-bold text-gray-100">
-                                            {option}
-                                          </p>
-                                        </div>
-                                        
-                                        {/* Konten Opsi (Gambar dan/atau Teks) */}
-                                        <div className="flex-1">
-                                          {/* Tampilkan Gambar jika ada */}
-                                          {hasImage && (
-                                            <img
-                                              src={hasImage}
-                                              alt={`Pilihan ${option}`}
-                                              className="max-w-full h-auto mb-2 rounded border cursor-pointer hover:scale-105 transition-transform"
-                                              onClick={(e) => {
-                                                e.stopPropagation(); // Prevent radio selection
-                                                Swal.fire({
-                                                  imageUrl: hasImage,
-                                                  imageAlt: `Pilihan ${option}`,
-                                                  showConfirmButton: false,
-                                                  showCloseButton: true,
-                                                  width: 'auto',
-                                                  padding: '1rem'
-                                                });
-                                              }}
-                                            />
-                                          )}
-                                          
-                                          {/* Tampilkan Text jika ada */}
-                                          {textContent && (
-                                            <div className="text-left text-base">
-                                              {item.inner_html === "yes" ? (
-                                                <div dangerouslySetInnerHTML={{ __html: textContent }} />
-                                              ) : (
-                                                <Latex>{textContent}</Latex>
-                                              )}
-                                            </div>
-                                          )}
-                                        </div>
-                                      </div>
-                                    </Radio>
-                                  </div>
-                                </div>
-                              );
-                            })}
-                          </Radio.Group>
-                        ) : item.typeOpsi === "benarsalah" ? (
+                        {item.typeOpsi === "benarsalah" ? (
+                          // Tabel Benar/Salah
                           <div className="border p-2 rounded-lg">
                             <table className="w-full border-collapse">
                               <thead>
@@ -913,6 +849,7 @@ const MainPageSoal = () => {
                             </table>
                           </div>
                         ) : item.typeOpsi === "inputangka" ? (
+                          // Input Angka
                           <input
                             type="number"
                             disabled={isRadioButtonDisabled}
@@ -923,7 +860,8 @@ const MainPageSoal = () => {
                               handleChange({ target: { name: `group${item.nomor_soal}`, value: e.target.value } })
                             }
                           />
-                        ) : (
+                        ) : item.typeOpsi === "checkbox" ? (
+                          // Checkbox - TAMBAHKAN KONDISI INI
                           <div className="flex flex-col space-y-2">
                             {statements.map((statement, index) => (
                               <div className="flex items-center space-x-2" key={index}>
@@ -942,7 +880,79 @@ const MainPageSoal = () => {
                               </div>
                             ))}
                           </div>
-                        )}
+                        ) : options.length > 0 ? (
+                          // Radio Button (A, B, C, D, E)
+                          <Radio.Group
+                            disabled={isRadioButtonDisabled}
+                            onChange={handleChange}
+                            value={selectedValues[`group${item.nomor_soal}`] || ""}
+                            name={`group${item.nomor_soal}`}
+                          >
+                            {options.map((option) => {
+                              const hasImage = item[`pilihan_${option.toLowerCase()}_img`];
+                              const textContent = item[`pilihan_${option.toLowerCase()}`];
+                              
+                              return (
+                                <div className="flex space-x-1" key={option}>
+                                  <div
+                                    className={`mb-2 p-2 rounded-2xl border w-full ${
+                                      selectedValues[`group${item.nomor_soal}`] === option
+                                        ? "bg-gradient-to-br from-green-400 to-green-100"
+                                        : ""
+                                    }`}
+                                  >
+                                    <Radio value={option} className="text-justify relative w-full">
+                                      <div className="flex items-start space-x-4">
+                                        <div
+                                          className={`p-1 rounded-full w-[2rem] h-[2rem] flex-shrink-0 ${
+                                            selectedValues[`group${item.nomor_soal}`] === option
+                                              ? "border-2 bg-green-500"
+                                              : "bg-gray-500"
+                                          }`}
+                                        >
+                                          <p className="flex items-center justify-center font-bold text-gray-100">
+                                            {option}
+                                          </p>
+                                        </div>
+                                        
+                                        <div className="flex-1">
+                                          {hasImage && (
+                                            <img
+                                              src={hasImage}
+                                              alt={`Pilihan ${option}`}
+                                              className="max-w-full h-auto mb-2 rounded border cursor-pointer hover:scale-105 transition-transform"
+                                              onClick={(e) => {
+                                                e.stopPropagation();
+                                                Swal.fire({
+                                                  imageUrl: hasImage,
+                                                  imageAlt: `Pilihan ${option}`,
+                                                  showConfirmButton: false,
+                                                  showCloseButton: true,
+                                                  width: 'auto',
+                                                  padding: '1rem'
+                                                });
+                                              }}
+                                            />
+                                          )}
+                                          
+                                          {textContent && (
+                                            <div className="text-left text-base">
+                                              {item.inner_html === "yes" ? (
+                                                <div dangerouslySetInnerHTML={{ __html: textContent }} />
+                                              ) : (
+                                                <Latex>{textContent}</Latex>
+                                              )}
+                                            </div>
+                                          )}
+                                        </div>
+                                      </div>
+                                    </Radio>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </Radio.Group>
+                        ) : null}
                       </div>
 
                         <div className="checklist flex flex-col items-center mt-10 mb-10">

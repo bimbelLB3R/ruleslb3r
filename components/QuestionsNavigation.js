@@ -4,36 +4,62 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import SoalStatus from './SoalStatus';
 
-export default function QuestionNavigation({ totalQuestions, onClose,setCurrentPage }) {
+export default function QuestionNavigation({ totalQuestions, onClose, setCurrentPage }) {
   const [answers, setAnswers] = useState({});
 
   const router = useRouter();
 
   useEffect(() => {
-  const storedKeys = Object.keys(localStorage);
-  const answersObj = {};
+    const storedKeys = Object.keys(localStorage);
+    const answersObj = {};
 
-  storedKeys.forEach((key) => {
-    if (key.startsWith('group')) {
-      const match = key.match(/^group(\d+)/);
-      if (match) {
-        const number = parseInt(match[1]); // ⬅️ SUDAH NOMOR SOAL
-        const value = localStorage.getItem(key);
+    storedKeys.forEach((key) => {
+      if (key.startsWith('group')) {
+        const match = key.match(/^group(\d+)(_(\d+))?$/);
+        if (match) {
+          const questionNumber = parseInt(match[1]);
+          const subIndex = match[3]; // untuk tipe benarsalah (group30_0, group30_1, dst)
+          const value = localStorage.getItem(key);
 
-        if (value && value.trim() !== '') {
-          answersObj[number] = value; // ⬅️ SIMPAN APA ADANYA
+          if (value && value.trim() !== '') {
+            if (subIndex !== undefined) {
+              // ✅ Tipe BENAR/SALAH - gabungkan semua sub-jawaban
+              if (!answersObj[questionNumber]) {
+                answersObj[questionNumber] = [];
+              }
+              answersObj[questionNumber].push({
+                index: parseInt(subIndex),
+                value: value
+              });
+            } else {
+              // ✅ Tipe lainnya (pilihan ganda, checkbox, input angka)
+              answersObj[questionNumber] = value;
+            }
+          }
         }
       }
-    }
-  });
+    });
 
-  setAnswers(answersObj);
-}, []);
+    // ✅ Proses jawaban untuk format yang diinginkan
+    Object.keys(answersObj).forEach((key) => {
+      const answer = answersObj[key];
+      
+      if (Array.isArray(answer)) {
+        // ✅ Tipe BENAR/SALAH - urutkan berdasarkan index, lalu gabung tanpa koma
+        answersObj[key] = answer
+          .sort((a, b) => a.index - b.index)
+          .map(item => item.value)
+          .join('');
+      } else if (typeof answer === 'string' && answer.includes(',')) {
+        // ✅ Tipe CHECKBOX - urutkan angka, lalu gabung tanpa koma
+        const numbers = answer.split(',').map(num => parseInt(num.trim()));
+        answersObj[key] = numbers.sort((a, b) => a - b).join('');
+      }
+      // ✅ Tipe lainnya (A, B, C, D, E atau input angka) tetap apa adanya
+    });
 
-
-
-
-  
+    setAnswers(answersObj);
+  }, []);
 
   return (
     <div className="fixed inset-0 z-50 bg-gray-900 bg-opacity-75 flex justify-center items-center">
@@ -41,12 +67,12 @@ export default function QuestionNavigation({ totalQuestions, onClose,setCurrentP
         <button className="absolute top-2 right-2 text-gray-500" onClick={onClose}>
           ✖
         </button>
-        <SoalStatus/>
+        <SoalStatus />
         <h2 className="text-lg font-bold mb-4">Navigasi Soal</h2>
 
         {/* Daftar Soal */}
         <div className="grid grid-cols-4 gap-2">
-            {Array.from({ length: totalQuestions }, (_, index) => {
+          {Array.from({ length: totalQuestions }, (_, index) => {
             const questionNumber = index + 1;
             const answer = answers[questionNumber];
 
@@ -67,9 +93,6 @@ export default function QuestionNavigation({ totalQuestions, onClose,setCurrentP
             );
           })}
         </div>
-
-        {/* Tombol Kirim */}
-        
       </div>
     </div>
   );
