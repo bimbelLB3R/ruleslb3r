@@ -16,7 +16,7 @@ export default function Paginationsnbt({ totalPages, currentPage, setCurrentPage
   }, [currentPage]);
 
   return (
-    <div className="flex flex-row overflow-x-auto w-1/2 md:w-full mx-auto" ref={containerRef}>
+    <div className="flex flex-row overflow-x-auto w-1/2 md:w-1/3 mx-auto" ref={containerRef}>
       {Array.from(Array(totalPages).keys()).map((page) => (
         <button
           key={page}
@@ -36,7 +36,7 @@ export default function Paginationsnbt({ totalPages, currentPage, setCurrentPage
             ? isChecked[page + 1] 
               ? "font-bold bg-red-600 text-gray-50" 
               : "font-bold bg-green-600 text-gray-50" 
-            : "text-gray-50"} 
+            : "text-gray-50 bg-gray-600"} 
             p-1 rounded-full w-[2rem] h-[2rem] flex items-center justify-center`}
         >
             {/* {dataSaatIni[0] === "pilgan" ? (

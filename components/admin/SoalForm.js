@@ -396,6 +396,7 @@ function SoalOpsiSection({ formData, handleChange }) {
                   label={`Gambar Pilihan ${option.toUpperCase()}`}
                 />
               ) : (
+                <div>
                 <textarea
                   name={`pilihan_${option}`}
                   className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -404,6 +405,13 @@ function SoalOpsiSection({ formData, handleChange }) {
                   onChange={handleChange}
                   placeholder="Atau upload gambar dengan klik tombol di atas"
                 ></textarea>
+                {formData[`pilihan_${option}`] && (
+                  <div className="mt-2 p-3 bg-gray-50 rounded">
+                    <p className="text-xs text-gray-500 mb-2">Preview Soal:</p>
+                    <Latex>{formData[`pilihan_${option}`]}</Latex>
+                  </div>
+                )}
+                </div>
               )}
             </div>
           ))}

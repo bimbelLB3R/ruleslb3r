@@ -62,20 +62,20 @@ export default async function handler(req, res) {
         bacaan_6, bacaan_7, bacaan_8, bacaan_9, bacaan_10,
         bacaan_11, bacaan_12, bacaan_13, bacaan_14, bacaan_15, bacaan_16,
         link_gambar,
-        soal,
+        NULL,
         typeOpsi,
         inner_html,
-        pilihan_a, pilihan_a_img,
-        pilihan_b, pilihan_b_img,
-        pilihan_c, pilihan_c_img,
-        pilihan_d, pilihan_d_img,
-        pilihan_e, pilihan_e_img,
-        pernyataan_1, pernyataan_1_img,
-        pernyataan_2, pernyataan_2_img,
-        pernyataan_3, pernyataan_3_img,
-        pernyataan_4, pernyataan_4_img,
-        pernyataan_5, pernyataan_5_img,
-        kunci_jawaban
+        NULL, NULL,
+        NULL, NULL,
+        NULL, NULL,
+        NULL, NULL,
+        NULL, NULL,
+        NULL, NULL,
+        NULL, NULL,
+        NULL, NULL,
+        NULL, NULL,
+        NULL, NULL,
+        NULL
       FROM ${kategori}
       WHERE id = ?
       LIMIT 1

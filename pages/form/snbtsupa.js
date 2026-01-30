@@ -210,7 +210,7 @@ const MainPageSoal = () => {
     if (!timeLeft) return;
 
     const interval = setInterval(() => {
-      if (timeLeft.asSeconds() <= 0) {
+      if (timeLeft.asSeconds() === 0) {
         clearInterval(interval);
         setIsButtonDisabled(false);
         Swal.fire({
@@ -647,16 +647,26 @@ const submitForm = async (e) => {
                   );
                   const hasBacaan=item[`bacaan_1`].length>0;
                   // console.log(hasBacaan)
-                  console.log('typeOpsi:', item.typeOpsi);
-                  console.log('statements:', statements);
+                  // console.log('typeOpsi:', item.typeOpsi);
+                  // console.log('statements:', statements);
                    return(
                   <div
                     key={item.id}
                     className="bg-white  lg:m-10 p-2 text-base"
                   >
                     {/* {console.log(item.link_gambar)} */}
-                    {/* Bacaan */}
-                    
+                    <div className="flex items-center justify-center ">
+                            <div className="mt-10">
+                              <p className="bg-gray-300 text-gray-900 text-xs text-center font-semibold">Soal</p>
+                              <p
+                                className="text-justify mb-2 font-bold flex items-center p-1 bg-gray-900 text-gray-100"
+                                id={currentPage}
+                              >
+                              Nomor {currentPage}
+                              </p>
+                            </div>
+                        </div>
+                    {/* Bacaan */}                    
                     <div
                       className="lg:flex lg:p-10 lg:space-x-4 lg:w-full"
                       id="custom-text"
@@ -666,7 +676,7 @@ const submitForm = async (e) => {
                         id="textBacaan"
                         className={`${
                         hasBacaan
-                          ? "lg:w-1/2 overflow-auto max-h-[500px] rounded-t-lg mt-8 mb-4 p-4 border"
+                          ? "lg:w-1/2 overflow-auto max-h-[500px] rounded-t-lg mt-8  p-4 border"
                           : "hidden"
                       }`}
                       >     
@@ -732,23 +742,13 @@ const submitForm = async (e) => {
                       <div
                         className={`${
                         hasBacaan
-                          ? "lg:w-1/2 rounded-t-lg mt-10"
+                          ? "lg:w-1/2 rounded-t-lg mt-0 md:mt-9"
                           : "lg:max-w-2xl lg:mx-auto w-full"
                       }`}
                       >
                         <div>
                         {/* Pertanyaan */}
-                        <div className="flex items-center justify-center ">
-                            <div className={hasNoBacaan&&'mt-10'}>
-                              <p className="bg-gray-300 text-gray-900 text-xs text-center font-semibold">Soal</p>
-                              <p
-                                className="text-justify mb-2 font-bold flex items-center p-1 bg-gray-900 text-gray-100"
-                                id={currentPage}
-                              >
-                              Nomor {currentPage}
-                              </p>
-                            </div>
-                        </div>
+                        
                         <div className="flex items-center space-x-2 p-2">
                           <div>
                             <div>
