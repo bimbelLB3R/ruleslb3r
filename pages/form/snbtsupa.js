@@ -251,9 +251,9 @@ const MainPageSoal = () => {
   return () => clearInterval(interval);
 }, []); // Kosongkan dependency!
 
-  const onLoad = () => {
-    renderMathInElement(document.body);
-  };
+  // const onLoad = () => {
+  //   renderMathInElement(document.body);
+  // };
 
   // Kirim jawaban ke API (bukan Supabase)
   const kirimJawaban = async (data) => {
