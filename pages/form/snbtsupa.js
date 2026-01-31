@@ -205,14 +205,33 @@ const MainPageSoal = () => {
     }
   }, []);
 
-  // Timer countdown
+  // timer countdown
   useEffect(() => {
-    if (!timeLeft) return;
+  if (!timeLeft) return;
 
-    const interval = setInterval(() => {
-      if (timeLeft.asSeconds() === 0) {
+  // Cek apakah waktu sudah habis dari awal
+  if (timeLeft.asSeconds() === 0) {
+    setIsButtonDisabled(false);
+    Swal.fire({
+      title: "Waktu Habis ... !",
+      text: "Kirim Jawabanmu ya",
+      icon: "info",
+      confirmButtonText: "OK",
+    }).then(() => {
+      setIsRadioButtonDisabled(true);
+    });
+    return;
+  }
+
+  const interval = setInterval(() => {
+    setTimeLeft((prevTimeLeft) => {
+      const newTime = prevTimeLeft.subtract(1, "second");
+      
+      // Cek di dalam setter untuk akurasi
+      if (newTime.asSeconds() <= 0) {
         clearInterval(interval);
         setIsButtonDisabled(false);
+        
         Swal.fire({
           title: "Waktu Habis ... !",
           text: "Kirim Jawabanmu ya",
@@ -221,13 +240,16 @@ const MainPageSoal = () => {
         }).then(() => {
           setIsRadioButtonDisabled(true);
         });
-      } else {
-        setTimeLeft((prevTimeLeft) => prevTimeLeft.subtract(1, "second"));
+        
+        return prevTimeLeft; // Kembalikan nilai lama, jangan negatif
       }
-    }, 1000);
+      
+      return newTime;
+    });
+  }, 1000);
 
-    return () => clearInterval(interval);
-  }, [timeLeft]);
+  return () => clearInterval(interval);
+}, []); // Kosongkan dependency!
 
   const onLoad = () => {
     renderMathInElement(document.body);
