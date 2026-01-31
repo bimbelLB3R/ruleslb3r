@@ -575,19 +575,19 @@ const submitForm = async (e) => {
         integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
         crossOrigin="anonymous"
       ></link> */}
-      <script
+      {/* <script
         defer
         src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
         integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4"
         crossOrigin="anonymous"
-      ></script>
-      <script
+      ></script>*/}
+      {/* <script
         defer
         src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
         integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
         crossOrigin="anonymous"
         onLoad={onLoad}
-      ></script>
+      ></script>*/}
       {/* navigasi soal */}
       <div className="sm:flex justify-center fixed bottom-0 z-50 overflow-auto left-0 right-0 bg-gradient-to-bl from-gray-800 to-green-800">
         {/* <NavSoal
