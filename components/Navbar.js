@@ -41,7 +41,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
   return (
     <>
       <nav>
-        <div className="hidden lg:visible lg:bg-slate-100 shadow shadow-slate-400 lg:flex justify-between items-center p-4 fixed top-0 w-full z-50">
+        <div className="hidden md:visible md:bg-slate-100 shadow shadow-slate-400 md:flex justify-between items-center p-4 fixed top-0 w-full z-50 md:text-sm  lg:text-lg">
         
         <div className="flex items-center space-x-2">
               <Link href="/">
@@ -81,7 +81,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
 
         <div
           id="nav"
-          className="bg-slate-200 p-3 lg:hidden fixed  top-0 z-40 w-full lg:shadow lg:shadow-slate-400 items-center flex "
+          className="bg-slate-200 p-3 md:hidden fixed  top-0 z-40 w-full lg:shadow lg:shadow-slate-400 items-center flex "
         >
           
 
@@ -140,7 +140,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
             </div>
           </div>
           
-          <div className="md:flex md:items-center md:p-4">
+          <div className="lg:flex lg:items-center lg:p-4">
             <div
               className={`${
                 isMenuOpen
@@ -150,7 +150,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
             >
               {/* button */}
               <div className="overflow-auto">
-                <div className="flex justify-center items-center md:hidden  overflow-auto ">
+                <div className="flex justify-center items-center lg:hidden  overflow-auto ">
                   <div className="w-full flex flex-wrap p-2 justify-center items-center mt-10">
                     <Link href="/" title="Home">
                       <div className="bg-gray-900 p-1 text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
