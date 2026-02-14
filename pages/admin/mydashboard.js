@@ -13,15 +13,15 @@ const UJIAN_CONFIG = {
     label: "SNBT",
     icon: "🎓",
     color: "blue",
-    jenjang: null, // SNBT tidak ada jenjang
+    jenjang: null,
     subtes: [
-      { value: "pu", label: "Penalaran Umum", quota: 30 },
-      { value: "ppu", label: "Pengetahuan & Pemahaman Umum", quota: 20 },
-      { value: "pbm", label: "Pemahaman Bacaan & Menulis", quota: 20 },
-      { value: "pk", label: "Pengetahuan Kuantitatif", quota: 20 },
-      { value: "lbe", label: "Literasi Bahasa Inggris", quota: 20 },
-      { value: "lbi", label: "Literasi Bahasa Indonesia", quota: 30 },
-      { value: "pm", label: "Penalaran Matematika", quota: 20 },
+      { value: "pu",  label: "Penalaran Umum",                  quota: 30 },
+      { value: "ppu", label: "Pengetahuan & Pemahaman Umum",    quota: 20 },
+      { value: "pbm", label: "Pemahaman Bacaan & Menulis",      quota: 20 },
+      { value: "pk",  label: "Pengetahuan Kuantitatif",         quota: 20 },
+      { value: "lbe", label: "Literasi Bahasa Inggris",         quota: 20 },
+      { value: "lbi", label: "Literasi Bahasa Indonesia",       quota: 30 },
+      { value: "pm",  label: "Penalaran Matematika",            quota: 20 },
     ],
   },
   tka: {
@@ -33,37 +33,37 @@ const UJIAN_CONFIG = {
         label: "SD",
         icon: "🏫",
         subtes: [
-          { value: "matematika", label: "Matematika", quota: 30 },
-          { value: "ipa", label: "IPA", quota: 25 },
+          { value: "matematika",  label: "Matematika",       quota: 30 },
+          { value: "ipa",         label: "IPA",              quota: 25 },
           { value: "b_indonesia", label: "Bahasa Indonesia", quota: 25 },
-          { value: "ips", label: "IPS", quota: 20 },
+          { value: "ips",         label: "IPS",              quota: 20 },
         ],
       },
       smp: {
         label: "SMP",
         icon: "🏛️",
         subtes: [
-          { value: "matematika", label: "Matematika", quota: 35 },
-          { value: "ipa", label: "IPA", quota: 30 },
+          { value: "matematika",  label: "Matematika",       quota: 35 },
+          { value: "ipa",         label: "IPA",              quota: 30 },
           { value: "b_indonesia", label: "Bahasa Indonesia", quota: 25 },
-          { value: "b_inggris", label: "Bahasa Inggris", quota: 25 },
-          { value: "ips", label: "IPS", quota: 25 },
+          { value: "b_inggris",   label: "Bahasa Inggris",   quota: 25 },
+          { value: "ips",         label: "IPS",              quota: 25 },
         ],
       },
       sma: {
         label: "SMA",
         icon: "🏫",
         subtes: [
-          { value: "matematika", label: "Matematika", quota: 40 },
-          { value: "fisika", label: "Fisika", quota: 30 },
-          { value: "kimia", label: "Kimia", quota: 30 },
-          { value: "biologi", label: "Biologi", quota: 30 },
+          { value: "matematika",  label: "Matematika",       quota: 40 },
+          { value: "fisika",      label: "Fisika",           quota: 30 },
+          { value: "kimia",       label: "Kimia",            quota: 30 },
+          { value: "biologi",     label: "Biologi",          quota: 30 },
           { value: "b_indonesia", label: "Bahasa Indonesia", quota: 30 },
-          { value: "b_inggris", label: "Bahasa Inggris", quota: 30 },
-          { value: "ekonomi", label: "Ekonomi", quota: 30 },
-          { value: "geografi", label: "Geografi", quota: 30 },
-          { value: "sejarah", label: "Sejarah", quota: 30 },
-          { value: "sosiologi", label: "Sosiologi", quota: 30 },
+          { value: "b_inggris",   label: "Bahasa Inggris",   quota: 30 },
+          { value: "ekonomi",     label: "Ekonomi",          quota: 30 },
+          { value: "geografi",    label: "Geografi",         quota: 30 },
+          { value: "sejarah",     label: "Sejarah",          quota: 30 },
+          { value: "sosiologi",   label: "Sosiologi",        quota: 30 },
         ],
       },
     },
@@ -202,10 +202,10 @@ export default function AdminDashboard() {
   const [admin, setAdmin] = useState(null);
 
   // Seleksi Ujian — Step 1
-  const [jenisUjian, setJenisUjian] = useState("snbt"); // "snbt" | "tka"
+  const [jenisUjian, setJenisUjian] = useState("snbt");
 
   // Seleksi Jenjang — Step 2 (hanya TKA)
-  const [jenjang, setJenjang] = useState("sd"); // "sd" | "smp" | "sma"
+  const [jenjang, setJenjang] = useState("sd");
 
   // Seleksi Paket — Step 3
   const [paket, setPaket] = useState("01");
@@ -231,7 +231,6 @@ export default function AdminDashboard() {
     ? cfgUjian.subtes
     : cfgUjian.jenjang[jenjang]?.subtes ?? [];
 
-  // Slug kategori untuk API: contoh "snbt_pu_01" atau "tka_smp_matematika_01"
   const buildKategoriSlug = () =>
     isSnbt
       ? `snbt_${subtes}_${paket}`
@@ -255,7 +254,6 @@ export default function AdminDashboard() {
     }
   }, []);
 
-  // Reset subtes saat jenis/jenjang berubah agar tidak invalid
   useEffect(() => {
     const opts = isSnbt
       ? UJIAN_CONFIG.snbt.subtes
@@ -386,8 +384,9 @@ export default function AdminDashboard() {
                 subtes={subtes}
               />
             </div>
-            {/* Stats Chip */}
-            <div className="flex gap-3">
+
+            {/* Stats Chip + Tombol Cetak */}
+            <div className="flex gap-3 items-start">
               <div className={`${activeColor.bgLight} px-4 py-2 rounded-xl text-center min-w-[80px]`}>
                 <p className="text-xs text-gray-500 font-medium">Tersimpan</p>
                 {loadingStats ? (
@@ -402,6 +401,19 @@ export default function AdminDashboard() {
                   {currentSubtesConfig?.quota ?? "—"}
                 </p>
               </div>
+
+              {/* Tombol cetak PDF — hanya aktif jika ada soal */}
+              <button
+                disabled={totalSoal === 0 || loadingStats}
+                onClick={() => window.open(`/admin/cetak?kategori=${kategoriSlug}`, "_blank")}
+                title={`Cetak PDF soal ${kategoriSlug}`}
+                className="px-3 py-2 rounded-xl bg-gray-800 hover:bg-gray-700 disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs font-semibold flex flex-col items-center gap-1 transition"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                </svg>
+                <span>PDF</span>
+              </button>
             </div>
           </div>
 
@@ -558,9 +570,7 @@ export default function AdminDashboard() {
 
             {/* Info konteks di kanan */}
             <div className="ml-auto flex items-center gap-2 px-4">
-              <span
-                className={`text-xs font-semibold px-2.5 py-1 rounded-full ${activeColor.badge}`}
-              >
+              <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${activeColor.badge}`}>
                 {cfgUjian.icon} {cfgUjian.label}
                 {!isSnbt && ` ${UJIAN_CONFIG.tka.jenjang[jenjang]?.label}`}
               </span>
