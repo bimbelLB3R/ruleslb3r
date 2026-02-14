@@ -98,13 +98,10 @@ function lsSet(slug, key, value) {
 
 // ─── Hapus semua key milik slug ini, pertahankan key global ──────────────────
 function clearSlugKeys(slug) {
-  const keysToKeep = ["name", "nisn", "dataSoal", "paket",
-                      "jenisUjian", "jenjang", "mapelPilihanSiswa"];
-
+  if (typeof window === "undefined") return; // guard SSR
   const toDelete = [];
   for (let i = 0; i < localStorage.length; i++) {
     const k = localStorage.key(i);
-    // Hapus semua key milik slug ini
     if (k && k.startsWith(`${slug}__`)) toDelete.push(k);
   }
   toDelete.forEach((k) => localStorage.removeItem(k));
@@ -398,27 +395,21 @@ const MainPageSoal = () => {
   };
 
   // ─── Hitung soal yang sudah dijawab ──────────────────────────────────────────
+  // Dihitung dari selectedValues (React state) — AMAN di SSR, tidak pakai localStorage
+  // "group3"   → soal nomor 3 (pilgan/inputangka)
+  // "group3_0" → soal nomor 3 sub-pernyataan (benar/salah), tetap count sebagai nomor 3
   const countAnswered = () => {
-    const groups = new Set();
-    for (let i = 0; i < localStorage.length; i++) {
-      const k = localStorage.key(i);
-      // Key format: "{slug}__group{n}" atau "{slug}__group{n}_{m}"
-      if (k && k.startsWith(`${slug}__group`)) {
-        const val = localStorage.getItem(k);
-        if (val) {
-          // Ambil groupId: "group1" dari "snbt_pu_01__group1" atau "snbt_pu_01__group1_0"
-          const inner = k.replace(`${slug}__`, "");
-          const groupId = inner.split("_")[0] +
-            (inner.includes("group") ? inner.match(/group\d+/)?.[0]?.replace("group", "") ?? "" : "");
-          // Sederhananya: ambil prefix sebelum underscore terakhir jika ada sub-index
-          const cleanGroup = inner.includes("_") && !inner.match(/^group\d+$/)
-            ? inner.split("_").slice(0, -1).join("_") // group1_0 → group1
-            : inner;
-          groups.add(cleanGroup);
-        }
-      }
-    }
-    return groups.size;
+    const nomorDijawab = new Set();
+    Object.entries(selectedValues).forEach(([key, val]) => {
+      if (!key.startsWith("group")) return;
+      const match = key.match(/^group(\d+)/);
+      if (!match) return;
+      const hasValue = Array.isArray(val)
+        ? val.length > 0
+        : val !== "" && val !== null && val !== undefined;
+      if (hasValue) nomorDijawab.add(match[1]);
+    });
+    return nomorDijawab.size;
   };
 
   // ─── Kirim jawaban ke API ─────────────────────────────────────────────────────
@@ -541,7 +532,7 @@ const MainPageSoal = () => {
       willClose: () => clearInterval(timerInterval),
     });
 
-    router.push("/form/transisisoalcf");
+    router.push("/form/transisisoalsupa");
   };
 
   // ─── Derived ──────────────────────────────────────────────────────────────────
@@ -553,7 +544,7 @@ const MainPageSoal = () => {
 
   // ─── RENDER ───────────────────────────────────────────────────────────────────
 
-  const jumlahSelesai = countAnswered();
+  // jumlahSelesai dihitung langsung via countAnswered() di JSX
 
   return (
     <div>
