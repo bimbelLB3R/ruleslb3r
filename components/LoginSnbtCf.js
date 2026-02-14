@@ -9,7 +9,7 @@ import Image from "next/image";
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 import Link from "next/link";
-import Dropdown from "./DropdownTipeSoal";
+import MyDropdown from "./MyDropdownTipeSoal";
 
 dayjs.extend(duration);
 
@@ -65,7 +65,7 @@ const LoginSnbtCf = () => {
     const storedStart = localStorage.getItem(`${link}__startTime`);
     const startTime   = storedStart ? dayjs(storedStart) : dayjs();
     const remaining   = Math.max(0, parseInt(storedMaxTime) - dayjs().diff(startTime, "second"));
-    if (remaining > 0) router.push({ pathname: "/form/tolb3r", query: { link } });
+    if (remaining > 0) router.push({ pathname: "/form/snbtsupa", query: { link } });
   }, [router.isReady]);
 
   // ─── Cek NISN via API ──────────────────────────────────────────────────────
@@ -108,10 +108,19 @@ const LoginSnbtCf = () => {
 
       if (canSubmit) {
         // Paket dari DB — semua user dapat nilai yang sama
-        const paket     = paketAktif;
-        const dataSoal  = SUBTES_SNBT.map((s) => `snbt_${s}_${paket}`);
-        const link      = dataSoal[0];
-        const subtesKey = link.split("_").slice(0, 2).join("_"); // "snbt_pu"
+        const paket = paketAktif;
+
+        // Urutan subtes: ikuti pilihan user dari Dropdown, sisanya default
+        // subtesAwal di-set oleh DropdownTipeSoal saat user pilih
+        const subtesAwal = localStorage.getItem("subtesAwal") || SUBTES_SNBT[0];
+        const urutan = [
+          subtesAwal,
+          ...SUBTES_SNBT.filter((s) => s !== subtesAwal),
+        ];
+
+        const dataSoal  = urutan.map((s) => `snbt_${s}_${paket}`);
+        const link      = dataSoal[0]; // slug subtes pertama yang dikerjakan
+        const subtesKey = link.split("_").slice(0, 2).join("_"); // "snbt_lbi"
         const maxTime   = MAX_TIME_SNBT[subtesKey] ?? 1200;
 
         localStorage.setItem("jenisUjian", "snbt");
@@ -201,7 +210,7 @@ const LoginSnbtCf = () => {
                     disabled={isButtonDisabled || loadingPaket} />
                 </div>
 
-                <div><Dropdown disabled={isButtonDisabled || loadingPaket} /></div>
+                <div><MyDropdown disabled={isButtonDisabled || loadingPaket} /></div>
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-start">

@@ -274,7 +274,7 @@ export default function AdminDashboard() {
   const fetchTotalSoal = async () => {
     setLoadingStats(true);
     try {
-      const res = await fetch(`/api/admin/soal/stats?kategori=${kategoriSlug}`);
+      const res = await fetch(`/api/admin/soal/mystats?kategori=${kategoriSlug}`);
       const data = await res.json();
       setTotalSoal(res.ok ? data.total : 0);
     } catch {

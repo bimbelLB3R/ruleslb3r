@@ -18,7 +18,7 @@ import Latex from "react-latex";
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 import Paginationsnbt from "../../components/PaginasiSoalSnbt";
-import QuestionNavigation from "../../components/QuestionsNavigation";
+import MyQuestionNavigation from "../../components/MyQuestionsNavigation";
 import QuestionNavigationlg from "../../components/QuestionsNavigationlg";
 
 dayjs.extend(duration);
@@ -532,7 +532,7 @@ const MainPageSoal = () => {
       willClose: () => clearInterval(timerInterval),
     });
 
-    router.push("/form/transisisoalsupa");
+    router.push("/form/transisisoalcf");
   };
 
   // ─── Derived ──────────────────────────────────────────────────────────────────
@@ -603,7 +603,8 @@ const MainPageSoal = () => {
         </button>
       </div>
       {showNav && (
-        <QuestionNavigation
+        <MyQuestionNavigation
+          slug={slug} 
           totalQuestions={jumlahSoal}
           totalPages={totalPages}
           currentPage={currentPage}
@@ -678,7 +679,7 @@ const MainPageSoal = () => {
                               : "hidden"
                           }`}
                         >
-                          {questionnav && (
+                          {/* {questionnav && (
                             <QuestionNavigationlg
                               totalQuestions={jumlahSoal}
                               totalPages={totalPages}
@@ -689,7 +690,7 @@ const MainPageSoal = () => {
                                 lsSet(slug, "currentPage", p);
                               }}
                             />
-                          )}
+                          )} */}
                           <p className="text-center mb-2 font-semibold mt-8 lg:mt-0">{item.judul_text1}</p>
                           {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16].map((n) => {
                             const val = item[`bacaan_${n}`];
