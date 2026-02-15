@@ -59,9 +59,9 @@ export default function WarningSnbt() {
     if (jenisUjian === "diagnostik") {
       href = `/layanan/diagnostik/diagnostiktes?link=${linkKu}`;
     } else if (jenisUjian === "tka") {
-      href = `/form/tkasupa?link=${linkKu}`;
+      href = `/form/tolb3r?link=${linkKu}`;
     } else if (jenisUjian === "snbt") {
-      href = `/form/snbtsupaplus?link=${linkKu}`;
+      href = `/form/tolb3r?link=${linkKu}`;
     } else {
       // fallback: kalau tidak jelas
       href = `/form/snbtsupaplus?link=${linkKu}`;

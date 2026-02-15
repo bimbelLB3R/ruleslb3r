@@ -198,9 +198,9 @@ export default function Newmembersup() {
 
     if (success) {
       if (jenisujian === "tka" || jenjang === 'sd' || jenjang === 'smp') {
-        router.push("/form/logintka");
+        router.push("/form/logintkacf");
       } else if (jenisujian === "snbt") {
-        router.push("/form/loginsupa");
+        router.push("/form/loginsnbtcf");
       } else {
         router.push("/");
       }

@@ -65,7 +65,7 @@ const LoginSnbtCf = () => {
     const storedStart = localStorage.getItem(`${link}__startTime`);
     const startTime   = storedStart ? dayjs(storedStart) : dayjs();
     const remaining   = Math.max(0, parseInt(storedMaxTime) - dayjs().diff(startTime, "second"));
-    if (remaining > 0) router.push({ pathname: "/form/snbtsupa", query: { link } });
+    if (remaining > 0) router.push({ pathname: "/form/tolb3r", query: { link } });
   }, [router.isReady]);
 
   // ─── Cek NISN via API ──────────────────────────────────────────────────────

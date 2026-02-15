@@ -241,7 +241,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                       </div>
                     </Link>
 
-                    <Link href="/form/loginsupa">
+                    <Link href="/form/loginsnbtcf">
                       <div className="bg-gray-900 p-1 text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>
@@ -268,7 +268,7 @@ const Navbar = forwardRef(({ allPost, ...props }, ref) => {
                         </div>
                       </div>
                     </Link>
-                    <Link href="/form/logintka">
+                    <Link href="/form/logintkacf">
                       <div className="bg-gray-900 p-1 text-orange-400 m-1 rounded w-[75px] h-[75px] flex items-center justify-center">
                         <div className="">
                           <div>

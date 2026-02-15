@@ -77,7 +77,7 @@ export default function DropdownMenuSNBT() {
               Daftar
             </Link>
             <Link
-              href="/form/loginsupa"
+              href="/form/loginsnbtcf"
               className="text-gray-700 block px-4 py-2 text-sm hover:bg-slate-200"
               role="menuitem"
               tabIndex="-1"
@@ -86,7 +86,7 @@ export default function DropdownMenuSNBT() {
               try Out SNBT
             </Link>
             <Link
-              href="/form/logintka"
+              href="/form/logintkacf"
               className="text-gray-700 block px-4 py-2 text-sm hover:bg-slate-200"
               role="menuitem"
               tabIndex="-1"
