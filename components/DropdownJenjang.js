@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Dropdowntka from "./DropdownTipeSoalTka";
+import DropdownTipeSoalTka from "./DropdownTipeSoalTka";
 
 export default function Dropdownjenjang({ disabled }) {
   // console.log(disabled);
@@ -45,7 +46,8 @@ export default function Dropdownjenjang({ disabled }) {
           </option>
         ))}
       </select>
-      <Dropdowntka selectedJenjang={selectedOption}/>
+      {/* <Dropdowntka selectedJenjang={selectedOption}/> */}
+      <DropdownTipeSoalTka selectedJenjang={selectedOption}/>
     </>
   );
 }
