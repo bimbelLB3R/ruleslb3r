@@ -491,7 +491,7 @@ function SoalOpsiSection({ formData, handleChange, scheme }) {
 }
 
 // ─── Main: SoalForm ───────────────────────────────────────────────────────────
-export default function SoalForm({ kategori, editData, onSuccess, onCancel }) {
+export default function MySoalForm({ kategori, editData, onSuccess, onCancel }) {
   const [loading, setLoading] = useState(false);
   const [activeSection, setActiveSection] = useState("basic");
   const [useImageUpload, setUseImageUpload] = useState(false);

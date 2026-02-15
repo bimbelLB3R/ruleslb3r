@@ -56,8 +56,8 @@ const SUBTES_LABEL = {
 const TIPE_CONFIG = {
   pilgan: { label: "Pilihan Ganda", bg: "bg-blue-100", text: "text-blue-700" },
   benarsalah: { label: "Benar / Salah", bg: "bg-green-100", text: "text-green-700" },
-  menjodohkan: { label: "Menjodohkan", bg: "bg-purple-100", text: "text-purple-700" },
-  isian: { label: "Isian", bg: "bg-amber-100", text: "text-amber-700" },
+  checkbox: { label: "Checkbox", bg: "bg-purple-100", text: "text-purple-700" },
+  inputangka: { label: "Isian", bg: "bg-amber-100", text: "text-amber-700" },
 };
 
 // ─── Color scheme map ─────────────────────────────────────────────────────────
@@ -111,7 +111,7 @@ function SkeletonRow() {
 }
 
 // ─── Main Component ───────────────────────────────────────────────────────────
-export default function SoalList({ kategori, onEdit, refreshTrigger }) {
+export default function MySoalList({ kategori, onEdit, refreshTrigger }) {
   const [soalList, setSoalList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
