@@ -283,14 +283,40 @@ const MainPageSoal = () => {
     return () => clearInterval(interval);
   }, [timeLeft?.asSeconds() > 0]); // eslint-disable-line
 
+  // const handleTimeUp = () => {
+  //   Swal.fire({
+  //     title: "Waktu Habis!",
+  //     text: "Kirim jawabanmu sekarang.",
+  //     icon: "info",
+  //     confirmButtonText: "OK",
+  //   }).then(() => setIsRadioButtonDisabled(true));
+  // };
+
+  // ganti handleTimeUp supaya tetap aman saat direfresh
   const handleTimeUp = () => {
-    Swal.fire({
-      title: "Waktu Habis!",
-      text: "Kirim jawabanmu sekarang.",
-      icon: "info",
-      confirmButtonText: "OK",
-    }).then(() => setIsRadioButtonDisabled(true));
-  };
+  lsSet(slug, "timeUp", "1"); // SIMPAN STATUS
+
+  setIsRadioButtonDisabled(true);
+  // setIsButtonDisabled(true);
+
+  Swal.fire({
+    title: "Waktu Habis!",
+    text: "Kirim jawabanmu sekarang.",
+    icon: "info",
+    confirmButtonText: "OK",
+  });
+};
+
+useEffect(() => {
+  if (!slug) return;
+
+  const isTimeUp = lsGet(slug, "timeUp");
+  if (isTimeUp === "1") {
+    setIsRadioButtonDisabled(true);
+    // setIsButtonDisabled(true);
+  }
+}, [slug]);
+
 
   // ─── Visibilitychange: sinkron timer saat tab aktif kembali ──────────────────
   useEffect(() => {
