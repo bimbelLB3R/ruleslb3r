@@ -1,121 +1,85 @@
-// components/DropdownTipeSoal.jsx
-// Dropdown pilih subtes SNBT — user bisa pilih urutan mengerjakan sendiri.
-// Subtes yang dipilih akan dikerjakan PERTAMA, sisanya mengikuti urutan default.
-// Paket diambil dari localStorage("paket") yang sudah di-set oleh LoginSnbtCf
-// dari API /api/config/paket-aktif.
+// components/MyDropdownTipeSoal.jsx
+// Dropdown pilih subtes SNBT — user pilih mana yang dikerjakan pertama.
+// Menyimpan pilihan ke "snbt__subtesAwal" (bukan "subtesAwal" tanpa prefix).
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { sessionGet, sessionSet } from "../utils/lsSession";
 
-// Urutan default subtes SNBT (jika user tidak pilih / pilih "Urutan Normal")
-const URUTAN_DEFAULT = ["pu", "ppu", "pbm", "pk", "lbe", "lbi", "pm"];
+const JU = "snbt";
 
-const SUBTES_OPTIONS = [
+const SUBTES_SNBT = [
   { value: "pu",  label: "Penalaran Umum" },
-  { value: "lbi", label: "Literasi Bahasa Indonesia" },
-  { value: "pbm", label: "Pemahaman Bacaan & Menulis" },
-  { value: "lbe", label: "Literasi Bahasa Inggris" },
-  { value: "pm",  label: "Penalaran Matematika" },
   { value: "ppu", label: "Pengetahuan & Pemahaman Umum" },
+  { value: "pbm", label: "Pemahaman Bacaan & Menulis" },
   { value: "pk",  label: "Pengetahuan Kuantitatif" },
+  { value: "lbe", label: "Literasi Bahasa Inggris" },
+  { value: "lbi", label: "Literasi Bahasa Indonesia" },
+  { value: "pm",  label: "Penalaran Matematika" },
 ];
 
+const URUTAN_DEFAULT = SUBTES_SNBT.map((s) => s.value);
+
 export default function MyDropdownTipeSoal({ disabled }) {
-  const [selectedSubtes, setSelectedSubtes] = useState("");
+  const [selected, setSelected]   = useState("");
   const [linkSudah, setLinkSudah] = useState([]);
 
-  // ── Baca subtes yang sudah dikerjakan (untuk disable opsi) ────────────────
-  // linkSudah berisi array slug yang sudah selesai, e.g. ["snbt_pu_01"]
-  // Kita ekstrak key subtesnya saja: "snbt_pu_01" → "pu"
+  // Baca subtes yang sudah selesai
   useEffect(() => {
     if (typeof window === "undefined") return;
     try {
-      const stored = JSON.parse(localStorage.getItem("linkSudah") || "[]");
-      // Ekstrak subtes key dari slug: "snbt_pu_01" → "pu", "snbt_lbi_02" → "lbi"
-      const subtesSelesai = stored.map((slug) => {
-        const parts = slug.split("_");
-        // slug format: snbt_{subtes}_{paket}
-        // parts[0]=snbt, parts[last]=paket, sisanya=subtes
-        return parts.slice(1, -1).join("_");
-      });
-      setLinkSudah(subtesSelesai);
-    } catch {
-      setLinkSudah([]);
-    }
+      const stored = JSON.parse(sessionGet(JU, "linkSudah") || "[]");
+      const selesai = stored.map((slug) => slug.split("_").slice(1, -1).join("_"));
+      setLinkSudah(selesai);
+    } catch { setLinkSudah([]); }
   }, []);
 
-  // ── Saat user pilih subtes, update localStorage ───────────────────────────
-  // LoginSnbtCf akan baca paket dari DB lalu build dataSoal dengan urutan baru
-  const handleChange = (e) => {
-    const subtesKey = e.target.value; // e.g. "lbi"
-    setSelectedSubtes(subtesKey);
-
-    if (typeof window === "undefined") return;
-
-    if (!subtesKey) {
-      // User pilih "Pilih" (kosong) → hapus preferensi, urutan kembali default
-      localStorage.removeItem("subtesAwal");
-      return;
-    }
-
-    // Simpan pilihan subtes awal — LoginSnbtCf akan baca ini saat submit
-    localStorage.setItem("subtesAwal", subtesKey);
-
-    // Hitung ulang dataSoal dengan subtes pilihan di depan
-    // (preview saja — LoginSnbtCf yang rebuild saat submit dengan paket dari DB)
-    const paket = localStorage.getItem("paket") || "01";
-    const urutan = [
-      subtesKey,
-      ...URUTAN_DEFAULT.filter((s) => s !== subtesKey),
-    ];
-    const dataSoal = urutan.map((s) => `snbt_${s}_${paket}`);
-
-    // Update link = slug pertama yang akan dikerjakan
-    const link = dataSoal[0]; // e.g. "snbt_lbi_01"
-    localStorage.setItem("link", link);
-    localStorage.setItem("dataSoal", JSON.stringify(dataSoal));
-  };
-
-  // ── Restore pilihan jika user kembali ke halaman login ───────────────────
+  // Restore pilihan sebelumnya
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const storedSubtes = localStorage.getItem("subtesAwal");
-    if (storedSubtes) setSelectedSubtes(storedSubtes);
+    const stored = sessionGet(JU, "subtesAwal");
+    if (stored) setSelected(stored);
   }, []);
+
+  const handleChange = (e) => {
+    const val = e.target.value;
+    setSelected(val);
+    if (val) {
+      sessionSet(JU, "subtesAwal", val);
+    } else {
+      sessionGet(JU, "subtesAwal") && localStorage.removeItem(`${JU}__subtesAwal`);
+    }
+  };
+
+  // Preview urutan
+  const previewUrutan = selected
+    ? [selected, ...URUTAN_DEFAULT.filter((s) => s !== selected)]
+    : URUTAN_DEFAULT;
 
   return (
     <>
-      <label
-        htmlFor="tipesoal"
-        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >
+      <label htmlFor="tipesoalsnbt" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
         Mulai dari Subtes
       </label>
       <select
-        id="tipesoal"
-        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        value={selectedSubtes}
+        id="tipesoalsnbt"
+        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+        value={selected}
         onChange={handleChange}
         disabled={disabled}
-        required
       >
-        <option value="">Pilih subtes awal</option>
-        {SUBTES_OPTIONS.map((opt) => (
-          <option
-            key={opt.value}
-            value={opt.value}
-            disabled={linkSudah.includes(opt.value)}
-          >
-            {opt.label}
-            {linkSudah.includes(opt.value) ? " ✓ selesai" : ""}
+        <option value="">Pilih subtes awal (opsional)</option>
+        {SUBTES_SNBT.map((opt) => (
+          <option key={opt.value} value={opt.value} disabled={linkSudah.includes(opt.value)}>
+            {opt.label}{linkSudah.includes(opt.value) ? " ✓ selesai" : ""}
           </option>
         ))}
       </select>
 
-      {selectedSubtes && (
+      {selected && (
         <p className="text-xs text-gray-500 mt-1">
           Urutan:{" "}
-          {[selectedSubtes, ...URUTAN_DEFAULT.filter((s) => s !== selectedSubtes)]
-            .map((s) => SUBTES_OPTIONS.find((o) => o.value === s)?.label?.split(" ")[0])
+          {previewUrutan
+            .map((v) => SUBTES_SNBT.find((s) => s.value === v)?.label.split(" ")[0])
             .join(" → ")}
         </p>
       )}

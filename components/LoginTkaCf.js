@@ -10,34 +10,27 @@ import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 import Link from "next/link";
 import Dropdownjenjang from "./DropdownJenjang";
+import { sessionGet, sessionSet, clearSession, getActiveSesi } from "../utils/lsSession";
 
 dayjs.extend(duration);
-
-// ─── Konstanta ────────────────────────────────────────────────────────────────
 
 const MAX_TIME_TKA = {
   matematika: 1800, ipa: 1500, b_indonesia: 1500,
   b_inggris:  1500, ips: 1200, fisika:      1500,
-  kimia:      1500, biologi:   1500, ekonomi:    1500,
-  geografi:   1500, sejarah:   1500, sosiologi:  1500,
+  kimia:      1500, biologi: 1500, ekonomi: 1500,
+  geografi:   1500, sejarah: 1500, sosiologi: 1500,
 };
-
 const SUBTES_WAJIB = {
   sd:  ["matematika", "ipa", "b_indonesia", "ips"],
   smp: ["matematika", "ipa", "b_indonesia", "b_inggris", "ips"],
   sma: ["matematika", "b_indonesia", "b_inggris"],
 };
+const PEMINATAN_SMA = ["fisika","kimia","biologi","ekonomi","geografi","sejarah","sosiologi"];
+const JU = "tka";
 
-const PEMINATAN_SMA = ["fisika", "kimia", "biologi", "ekonomi", "geografi", "sejarah", "sosiologi"];
-
-// Ekstrak nama subtes dari slug: "tka_smp_b_indonesia_01" → "b_indonesia"
 function subtesFromSlug(slug) {
-  const parts = slug.split("_");
-  // parts[0]=tka, parts[1]=jenjang, parts[last]=paket, sisanya=subtes
-  return parts.slice(2, -1).join("_");
+  return slug.split("_").slice(2, -1).join("_");
 }
-
-// ─── Komponen ─────────────────────────────────────────────────────────────────
 
 const LoginTkaCf = () => {
   const [erorKoneksi, setErorKoneksi]           = useState(false);
@@ -45,198 +38,163 @@ const LoginTkaCf = () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const router                                  = useRouter();
   const [form, setForm]                         = useState({ nisn: "", nama: "" });
-
-  // Jenjang — dibaca dari localStorage, di-update via storage event
-  const [jenjang, setJenjang]           = useState(() => {
+  const [jenjang, setJenjang]                   = useState(() => {
     if (typeof window === "undefined") return null;
-    return localStorage.getItem("jenjang") || null;
+    return sessionGet(JU, "jenjang") || null;
   });
+  const [paketAktif, setPaketAktif]             = useState(null);
+  const [loadingPaket, setLoadingPaket]         = useState(false);
 
-  // Paket aktif dari DB — di-fetch setiap kali jenjang berubah
-  const [paketAktif, setPaketAktif]     = useState(null);
-  const [loadingPaket, setLoadingPaket] = useState(false);
-
-  // ─── Watch jenjang via storage event (lebih clean dari polling) ───────────
-  // DropdownJenjang menulis ke localStorage("jenjang") saat user pilih.
-  // storage event terpicu saat ada perubahan localStorage dari tab/komponen lain,
-  // TAPI tidak terpicu dari tab yang sama. Solusi: override localStorage.setItem
-  // di useEffect agar bisa detect perubahan dari komponen yang sama.
   useEffect(() => {
     if (typeof window === "undefined") return;
-
-    // Baca nilai awal jika sudah ada (user kembali ke halaman)
-    const stored = localStorage.getItem("jenjang");
+    const stored = sessionGet(JU, "jenjang");
     if (stored && stored !== jenjang) setJenjang(stored);
-
-    // Patch localStorage.setItem untuk detect perubahan dari komponen di tab yang sama
     const originalSetItem = localStorage.setItem.bind(localStorage);
     localStorage.setItem = function (key, value) {
       originalSetItem(key, value);
-      if (key === "jenjang") {
-        setJenjang(value);
-      }
+      if (key === "jenjang") { originalSetItem(`${JU}__jenjang`, value); setJenjang(value); }
+      if (key === `${JU}__jenjang`) setJenjang(value);
     };
-
-    return () => {
-      // Restore fungsi asli saat unmount
-      localStorage.setItem = originalSetItem;
-    };
+    return () => { localStorage.setItem = originalSetItem; };
   }, []);
 
-  // ─── Fetch paket aktif setiap kali jenjang berubah ───────────────────────
   useEffect(() => {
     if (!jenjang) return;
-
-    const fetchPaketAktif = async () => {
+    const fetch_ = async () => {
       setLoadingPaket(true);
       try {
         const res  = await fetch(`/api/config/paket-aktif?jenis=tka&jenjang=${jenjang}`);
         const data = await res.json();
         setPaketAktif(data.paket ?? "01");
-      } catch (err) {
-        console.error("Fetch paket aktif error:", err);
-        setPaketAktif("01"); // fallback
-      } finally {
-        setLoadingPaket(false);
-      }
+      } catch { setPaketAktif("01"); }
+      finally  { setLoadingPaket(false); }
     };
-
-    fetchPaketAktif();
+    fetch_();
   }, [jenjang]);
 
-  // ─── Redirect jika masih ada sesi TKA aktif ──────────────────────────────
+  // Redirect jika ada sesi yang belum selesai (aktif atau timeUp belum dikirim)
   useEffect(() => {
     if (!router.isReady) return;
-    const link          = localStorage.getItem("link");
-    const jenisUjian    = localStorage.getItem("jenisUjian");
-    const storedMaxTime = localStorage.getItem("maxTime");
-    if (!link || !storedMaxTime || jenisUjian !== "tka") return;
+    const sesi = getActiveSesi();
+    if (!sesi) return;
 
-    const storedStart = localStorage.getItem(`${link}__startTime`);
-    const startTime   = storedStart ? dayjs(storedStart) : dayjs();
-    const remaining   = Math.max(0, parseInt(storedMaxTime) - dayjs().diff(startTime, "second"));
-    if (remaining > 0) router.push({ pathname: "/form/tolb3r", query: { link } });
+    if (sesi.isTimeUp) {
+      Swal.fire({
+        title: "Ada Jawaban yang Belum Dikirim!",
+        text: "Waktu ujianmu sudah habis tapi jawaban belum dikirim. Kirim sekarang untuk melanjutkan.",
+        icon: "warning",
+        confirmButtonColor: "#d33",
+        confirmButtonText: "Kirim Jawaban Sekarang",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+      }).then(() => {
+        router.push({ pathname: "/form/tolb3r", query: { link: sesi.link } });
+      });
+    } else {
+      router.push({ pathname: "/form/tolb3r", query: { link: sesi.link } });
+    }
   }, [router.isReady]);
 
-  // ─── Cek NISN via API ────────────────────────────────────────────────────
   const cekPeserta = async (nisn) => {
     try {
-      const res = await fetch("/api/peserta/check", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nisn: `1${nisn}` }),
-      });
-      if (!res.ok) throw new Error("Network error");
-      const data = await res.json();
-      return data.exists;
-    } catch (err) {
-      setErorKoneksi(true);
-      return null;
-    }
+      const res  = await fetch("/api/peserta/check", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ nisn: `1${nisn}` }) });
+      if (!res.ok) throw new Error();
+      return (await res.json()).exists;
+    } catch { setErorKoneksi(true); return null; }
   };
 
-  // ─── Submit login ─────────────────────────────────────────────────────────
   const submitForm = async (e) => {
     e.preventDefault();
     setIsButtonDisabled(true);
-
     try {
-      if (!form.nisn || !form.nama) return;
-
-      // Validasi jenjang
-      const currentJenjang = localStorage.getItem("jenjang");
-      if (!currentJenjang || !SUBTES_WAJIB[currentJenjang]) {
-        Swal.fire({
-          title: "Jenjang Belum Dipilih",
-          text:  "Pilih jenjang (SD / SMP / SMA) terlebih dahulu.",
-          icon:  "warning",
-        });
+      if (!form.nisn || !form.nama) {
+        Swal.fire({ icon: "warning", text: "Lengkapi data terlebih dahulu" });
         return;
       }
-
-      // Validasi paket sudah di-fetch
+      const currentJenjang = sessionGet(JU, "jenjang") || localStorage.getItem("jenjang");
+      if (!currentJenjang || !SUBTES_WAJIB[currentJenjang]) {
+        Swal.fire({ title: "Jenjang Belum Dipilih", text: "Pilih jenjang (SD / SMP / SMA) terlebih dahulu.", icon: "warning" }); return;
+      }
       if (!paketAktif) {
-        Swal.fire({
-          title: "Mohon tunggu",
-          text:  "Memuat konfigurasi paket soal...",
-          icon:  "info",
-        });
+        Swal.fire({ title: "Mohon tunggu", text: "Memuat konfigurasi paket soal...", icon: "info" }); return;
+      }
+
+      // Tolak jika ada sesi yang belum selesai
+      const sesiAktif = getActiveSesi();
+      if (sesiAktif) {
+        if (sesiAktif.isTimeUp) {
+          await Swal.fire({
+            title: "Kirim Jawaban Dulu!",
+            text: "Kamu punya jawaban yang belum dikirim. Selesaikan dulu sebelum mulai ujian baru.",
+            icon: "warning",
+            confirmButtonColor: "#d33",
+            confirmButtonText: "Kirim Sekarang",
+            allowOutsideClick: false,
+          });
+          router.push({ pathname: "/form/tolb3r", query: { link: sesiAktif.link } });
+        } else {
+          const jenis = sesiAktif.ju === "snbt" ? "SNBT" : "TKA";
+          const menit = Math.ceil(sesiAktif.remaining / 60);
+          const hasil = await Swal.fire({
+            title: `Sedang Ada Sesi ${jenis} Aktif`,
+            text: `Kamu masih mengerjakan ${jenis} (sisa ±${menit} menit). Lanjutkan dulu atau batalkan?`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#2563eb",
+            cancelButtonColor: "#d33",
+            confirmButtonText: `Lanjutkan ${jenis}`,
+            cancelButtonText: "Batalkan sesi itu",
+          });
+          if (hasil.isConfirmed) {
+            router.push({ pathname: "/form/tolb3r", query: { link: sesiAktif.link } });
+          } else {
+            clearSession(sesiAktif.ju);
+            localStorage.removeItem(`${sesiAktif.link}__startTime`);
+          }
+        }
         return;
       }
 
       const canSubmit = await cekPeserta(form.nisn);
-
-      if (canSubmit === null) {
-        Swal.fire({
-          title: "Koneksi Bermasalah",
-          text:  "Gagal memeriksa NISN. Coba lagi.",
-          icon:  "error",
-          confirmButtonText: "Coba Lagi",
-        });
-        return;
-      }
+      if (canSubmit === null) { Swal.fire({ title: "Koneksi Bermasalah", text: "Gagal memeriksa NISN.", icon: "error", confirmButtonText: "Coba Lagi" }); return; }
 
       if (canSubmit) {
-        // Susun daftar subtes: wajib + peminatan (khusus SMA, maks 2)
         let subtesList = [...SUBTES_WAJIB[currentJenjang]];
         if (currentJenjang === "sma") {
-          const mapelPilihan = JSON.parse(localStorage.getItem("mapelPilihanSiswa") || "[]");
-          const peminatan    = mapelPilihan.filter((m) => PEMINATAN_SMA.includes(m)).slice(0, 2);
-          subtesList         = [...subtesList, ...peminatan];
+          const mapelPilihan = JSON.parse(sessionGet(JU, "mapelPilihanSiswa") || "[]");
+          subtesList = [...subtesList, ...mapelPilihan.filter((m) => PEMINATAN_SMA.includes(m)).slice(0, 2)];
         }
+        const subtesAwal = sessionGet(JU, "subtesAwalTka") || subtesList[0];
+        const urutan     = [subtesAwal, ...subtesList.filter((s) => s !== subtesAwal)];
+        const paket      = paketAktif;
+        const dataSoal   = urutan.map((s) => `tka_${currentJenjang}_${s}_${paket}`);
+        const link       = dataSoal[0];
+        const maxTime    = MAX_TIME_TKA[subtesFromSlug(link)] ?? 1200;
 
-        // Urutan subtes: ikuti pilihan user dari DropdownTipeSoalTka, sisanya default
-        // subtesAwalTka di-set oleh DropdownTipeSoalTka saat user pilih
-        const subtesAwal = localStorage.getItem("subtesAwalTka") || subtesList[0];
-        const urutan = [
-          subtesAwal,
-          ...subtesList.filter((s) => s !== subtesAwal),
-        ];
+        localStorage.setItem("name", form.nama);
+        localStorage.setItem("nisn", `1${form.nisn}`);
+        localStorage.setItem("link", link);
+        localStorage.setItem(`${link}__startTime`, new Date().toISOString());
 
-        // Paket dari DB — per jenjang
-        const paket    = paketAktif;
-        const dataSoal = urutan.map((s) => `tka_${currentJenjang}_${s}_${paket}`);
-        const link     = dataSoal[0];
-        const maxTime  = MAX_TIME_TKA[subtesFromSlug(link)] ?? 1200;
-
-        localStorage.setItem("jenisUjian", "tka");
-        localStorage.setItem("name",       form.nama);
-        localStorage.setItem("nisn",       `1${form.nisn}`);
-        localStorage.setItem("dataSoal",   JSON.stringify(dataSoal));
-        localStorage.setItem("link",       link);
-        localStorage.setItem("maxTime",    maxTime);
-        localStorage.setItem("paket",      paket);
+        sessionSet(JU, "dataSoal", JSON.stringify(dataSoal));
+        sessionSet(JU, "link",     link);
+        sessionSet(JU, "maxTime",  maxTime);
+        sessionSet(JU, "paket",    paket);
+        sessionSet(JU, "jenjang",  currentJenjang);
 
         router.push({ pathname: "/form/tolb3r", query: { link } });
-
       } else {
-        Swal.fire({
-          title: `${form.nisn} belum terdaftar`,
-          text:  "Silakan daftar terlebih dahulu.",
-          icon:  "warning",
-          confirmButtonText: "Daftar",
-        });
+        Swal.fire({ title: `${form.nisn} belum terdaftar`, text: "Silakan daftar terlebih dahulu.", icon: "warning", confirmButtonText: "Daftar" });
         router.push("/form/newmembersup?jenisujian=tka");
       }
-
-    } catch (err) {
-      Swal.fire({
-        title: "Terjadi Kesalahan",
-        text:  "Silakan coba lagi.",
-        icon:  "error",
-        confirmButtonText: "Oke",
-      });
-    } finally {
-      setIsButtonDisabled(false);
-    }
+    } catch { Swal.fire({ title: "Terjadi Kesalahan", text: "Silakan coba lagi.", icon: "error", confirmButtonText: "Oke" }); }
+    finally  { setIsButtonDisabled(false); }
   };
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-  const handleReset  = () => { localStorage.clear(); window.location.reload(); };
-
+  const handleReset  = () => { clearSession(JU); window.location.reload(); };
   const formDisabled = isButtonDisabled || loadingPaket;
 
-  // ─── Render ───────────────────────────────────────────────────────────────
   return (
     <>
       <Head>
@@ -245,18 +203,14 @@ const LoginTkaCf = () => {
         <meta property="og:image" itemProp="image" content="https://raw.githubusercontent.com/bimbelLB3R/bimbellb3r.github.io/main/img/slider/og.jpg" />
         <link rel="icon" type="image/png" sizes="4x16" href="/image/logolb3r.png" />
       </Head>
-
       <div className="bg-gray-50 dark:bg-gray-900 h-screen">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-full lg:py-0 animate__animated animate__slideInDown">
-
           <Link href="/" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
             <Image src="/image/logolb3r.png" width={72} height={48} alt="logo" priority className="mr-2" />
             Premium Member
           </Link>
-
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-
               {session && (
                 <div className="flex items-center justify-center">
                   <div className="border-2 border-white rounded-full relative shadow-md">
@@ -264,96 +218,40 @@ const LoginTkaCf = () => {
                   </div>
                 </div>
               )}
-
               <div>
-                <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                  UJI COBA SOAL TKA
-                </h1>
-                {/* Badge paket aktif — muncul setelah jenjang dipilih */}
+                <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">UJI COBA SOAL TKA</h1>
                 <p className="text-xs text-emerald-600 font-semibold mt-1">
-                  {!jenjang
-                    ? "👆 Pilih jenjang dulu"
-                    : loadingPaket
-                    ? "⏳ Memuat paket..."
-                    : `📦 Paket ${paketAktif} · ${jenjang.toUpperCase()}`
-                  }
+                  {!jenjang ? "👆 Pilih jenjang dulu" : loadingPaket ? "⏳ Memuat paket..." : `📦 Paket ${paketAktif} · ${jenjang.toUpperCase()}`}
                 </p>
               </div>
-
-              {erorKoneksi && (
-                <p className="text-red-600 text-sm font-medium">⚠️ Koneksi internet kamu kurang bagus!</p>
-              )}
-
+              {erorKoneksi && <p className="text-red-600 text-sm font-medium">⚠️ Koneksi internet kamu kurang bagus!</p>}
               <form className="space-y-4 md:space-y-6" onSubmit={submitForm}>
-
                 <div>
-                  <label htmlFor="nisn" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                    NISN
-                  </label>
-                  <input
-                    type="number" name="nisn" id="nisn"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                    placeholder="NISN Kamu" required onChange={handleChange} autoComplete="off"
-                    disabled={formDisabled}
-                  />
+                  <label htmlFor="nisn" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NISN</label>
+                  <input type="number" name="nisn" id="nisn" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="NISN Kamu" required onChange={handleChange} autoComplete="off" disabled={isButtonDisabled || loadingPaket} />
                 </div>
-
                 <div>
-                  <label htmlFor="nama" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                    Nama Panggilanmu
-                  </label>
-                  <input
-                    type="text" name="nama" id="nama"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                    placeholder="Nama panggilan" required onChange={handleChange} autoComplete="off"
-                    disabled={formDisabled}
-                  />
+                  <label htmlFor="nama" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Panggilanmu</label>
+                  <input type="text" name="nama" id="nama" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Nama panggilan" required onChange={handleChange} autoComplete="off" disabled={formDisabled} />
                 </div>
-
-                {/* Dropdown pilih jenjang — menulis ke localStorage("jenjang") */}
-                <div>
-                  <Dropdownjenjang disabled={formDisabled} />
-                </div>
-
+                <div><Dropdownjenjang disabled={formDisabled} /></div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-start">
-                    <input
-                      id="remember" type="checkbox"
-                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600"
-                      required
-                    />
-                    <label htmlFor="remember" className="ml-3 text-sm text-gray-500 dark:text-gray-300">
-                      Remember me
-                    </label>
+                    <input id="remember" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600" required />
+                    <label htmlFor="remember" className="ml-3 text-sm text-gray-500 dark:text-gray-300">Remember me</label>
                   </div>
-                  <a
-                    href="https://wa.me/6281392552459" target="_blank" rel="noreferrer"
-                    className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
-                  >
-                    Forgot NISN & Name?
-                  </a>
+                  <a href="https://wa.me/6281392552459" target="_blank" rel="noreferrer" className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">Forgot NISN & Name?</a>
                 </div>
-
                 {isButtonDisabled ? <Loader /> : (
-                  <button
-                    type="submit"
-                    disabled={formDisabled || !jenjang}
-                    className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-60"
-                  >
+                  <button type="submit" disabled={formDisabled || !jenjang} className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-60">
                     {loadingPaket ? "Memuat..." : "Mulai Kerjakan"}
                   </button>
                 )}
-
                 <div className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Belum punya akun?{" "}
-                  <a href="/form/newmembersup?jenisujian=tka" className="font-medium text-blue-600 hover:underline">
-                    Sign up
-                  </a>{" "}or{" "}
-                  <button type="button" className="underline" onClick={handleReset}>
-                    Reset
-                  </button>
+                  <a href="/form/newmembersup?jenisujian=tka" className="font-medium text-blue-600 hover:underline">Sign up</a>{" "}or{" "}
+                  <button type="button" className="underline" onClick={handleReset}>Reset</button>
                 </div>
-
               </form>
             </div>
           </div>

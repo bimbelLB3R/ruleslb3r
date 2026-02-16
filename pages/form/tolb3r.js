@@ -1,6 +1,6 @@
-// pages/form/soalsupa.jsx
+// pages/form/tolb3r.jsx
 // ─── Template halaman soal universal: SNBT & TKA ─────────────────────────────
-// Dipakai untuk: /form/snbtsupa  dan  /form/tkasupa (atau satu route saja)
+// Dipakai untuk: /form/tolb3r dan  /form/tolb3r(atau satu route saja)
 //
 // ISOLASI STATE: semua jawaban disimpan di localStorage dengan prefix slug,
 // sehingga tidak ada tabrakan antar sesi SNBT & TKA meski dibuka bersamaan.
@@ -20,6 +20,7 @@ import duration from "dayjs/plugin/duration";
 import Paginationsnbt from "../../components/PaginasiSoalSnbt";
 import MyQuestionNavigation from "../../components/MyQuestionsNavigation";
 import QuestionNavigationlg from "../../components/QuestionsNavigationlg";
+import { getJenisUjian, sessionGet, juFromSlug } from "../../utils/lsSession";
 
 dayjs.extend(duration);
 
@@ -149,17 +150,23 @@ const MainPageSoal = () => {
 
   // ─── INIT: baca slug dari localStorage, redirect jika tidak ada ──────────────
   useEffect(() => {
-    const katSoal = localStorage.getItem("link");
-    if (!katSoal) {
-      router.push("/form/loginsupa");
-      return;
-    }
+    // const katSoal = localStorage.getItem("link");
+    // const ju      = getJenisUjian();  // "snbt" | "tka" | null
+    // const katSoal = (ju && sessionGet(ju, "link")) || localStorage.getItem("link");
+    // if (!katSoal) {
+    //   router.push("/form/loginsnbtcf");
+    //   return;
+    // }
+      const katSoal = localStorage.getItem("link");  // global, ditulis Login & Transition
+      const ju      = juFromSlug(katSoal);           // ekstrak dari slug-nya sendiri
+      if (!katSoal || !ju) { router.push("/form/loginsnbtcf"); return; }
+      // -- lalu baca maxTime dari sessionGet(ju, "maxTime") seperti sebelumnya
 
     const storedNisn = localStorage.getItem("nisn");
     const name = localStorage.getItem("name");
 
     if (!storedNisn || !name) {
-      router.push("/form/loginsupa");
+      router.push("/form/loginsnbtcf");
       return;
     }
 
@@ -225,28 +232,16 @@ const MainPageSoal = () => {
 
   // ─── INIT TIMER ───────────────────────────────────────────────────────────────
   useEffect(() => {
-    if (!slug) return;
+  if (!slug) return;
 
-    const storedMaxTime = localStorage.getItem("maxTime");
-    if (!storedMaxTime) return;
+  // Jika timeUp sudah ada: langsung set 00:00, skip hitung dari startTime
+  // Ini mencegah timer reset dari awal saat siswa login ulang setelah timeUp
+  const isAlreadyTimeUp = lsGet(slug, "timeUp") === "1";
+  if (isAlreadyTimeUp) {
+    setTimeLeft(dayjs.duration(0, "second")); // tampilkan 00:00
+    setIsRadioButtonDisabled(true);
 
-    const maxSec = parseInt(storedMaxTime);
-    const now = dayjs();
-
-    // startTime per slug agar timer tiap ujian independent
-    const startKey = lsKey(slug, "startTime");
-    const storedStart = localStorage.getItem(startKey);
-    const startTime = storedStart ? dayjs(storedStart) : now;
-
-    if (!storedStart) {
-      localStorage.setItem(startKey, now.toISOString());
-    }
-
-    const elapsed = now.diff(startTime, "second");
-    const remaining = Math.max(0, maxSec - elapsed);
-    setTimeLeft(dayjs.duration(remaining, "second"));
-
-    // Restore currentPage
+    // Restore currentPage tetap jalan
     const savedPage = lsGet(slug, "currentPage");
     if (savedPage) {
       setIsLoading(true);
@@ -254,10 +249,38 @@ const MainPageSoal = () => {
         setCurrentPage(Number(savedPage));
         setIsLoading(false);
       }, 600);
-    } else {
-      setCurrentPage(1);
     }
-  }, [slug]);
+    return; // ← KELUAR, tidak hitung ulang dari startTime
+  }
+
+  // Lanjutkan logika normal jika belum timeUp
+  const ju            = juFromSlug(slug);
+  const storedMaxTime = (ju && sessionGet(ju, "maxTime")) || localStorage.getItem("maxTime");
+  if (!storedMaxTime) return;
+
+  const maxSec  = parseInt(storedMaxTime);
+  const now     = dayjs();
+  const startKey    = lsKey(slug, "startTime");
+  const storedStart = localStorage.getItem(startKey);
+  const startTime   = storedStart ? dayjs(storedStart) : now;
+
+  if (!storedStart) localStorage.setItem(startKey, now.toISOString());
+
+  const elapsed   = now.diff(startTime, "second");
+  const remaining = Math.max(0, maxSec - elapsed);
+  setTimeLeft(dayjs.duration(remaining, "second"));
+
+  const savedPage = lsGet(slug, "currentPage");
+  if (savedPage) {
+    setIsLoading(true);
+    setTimeout(() => {
+      setCurrentPage(Number(savedPage));
+      setIsLoading(false);
+    }, 600);
+  } else {
+    setCurrentPage(1);
+  }
+}, [slug]);
 
   // ─── COUNTDOWN ────────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -324,7 +347,12 @@ useEffect(() => {
 
     const onVisible = () => {
       if (document.visibilityState !== "visible") return;
-      const storedMaxTime = localStorage.getItem("maxTime");
+      // const ju            = getJenisUjian();
+      // const storedMaxTime = (ju && sessionGet(ju, "maxTime")) || localStorage.getItem("maxTime");
+      // const storedMaxTime = localStorage.getItem("maxTime");
+      const ju            = juFromSlug(slug);
+      const storedMaxTime = (ju && sessionGet(ju, "maxTime")) || localStorage.getItem("maxTime");
+
       const startKey = lsKey(slug, "startTime");
       const startTime = localStorage.getItem(startKey)
         ? dayjs(localStorage.getItem(startKey))

@@ -2,71 +2,33 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
-
 import CountdownTimer from "./CountDownTimer";
+import { getActiveSesi } from "../utils/lsSession";
 
 dayjs.extend(duration);
 
 export default function WarningSnbt() {
   const targetDate = "2026-04-23T23:59:59";
-  const [nameKu, setNameKu] = useState("");
-  const [linkKu, setLinkKu] = useState("");
-  const [jenisUjian, setJenisUjian] = useState("");
+  const [nameKu, setNameKu]       = useState("");
+  const [href, setHref]           = useState("#");
   const [sisawaktu, setSisaWaktu] = useState(0);
 
   useEffect(() => {
-    const storedName = localStorage.getItem("name");
-    const linkSoal = localStorage.getItem("link");
-    const storedJenisUjian = localStorage.getItem("jenisUjian") || "";
-    const storedMaxTime = localStorage.getItem("maxTime");
+    if (typeof window === "undefined") return;
 
-    const maxTimeInSeconds = parseInt(storedMaxTime);
-    const currentTime = dayjs();
-    const startTime = localStorage.getItem("startTime")
-      ? dayjs(localStorage.getItem("startTime"))
-      : currentTime;
+    const sesi = getActiveSesi(); // cek snbt__ dan tka__ sekaligus
 
-    const elapsedTime = currentTime.diff(startTime, "second");
-    const remainingTime = Math.max(0, maxTimeInSeconds - elapsedTime);
-
-    setNameKu(storedName);
-    setLinkKu(linkSoal);
-    setJenisUjian(storedJenisUjian);
-    setSisaWaktu(remainingTime);
-  }, []);
-
-  // Soal TKA (boleh tetap ada, tapi sekarang pengecekan pakai jenisUjian)
-  const tkaSoalList = [
-    "mattka",
-    "indtka",
-    "engtka",
-    "bindolanjut",
-    "binglanjut",
-    "fisika",
-    "kimia",
-    "biologi",
-    "ekonomi",
-    "geografi",
-    "sosiologi",
-    "sejarah",
-    "jepang",
-  ];
-
-  // Tentukan href final
-  let href = "#"; // default fallback
-
-  if (sisawaktu > 0) {
-    if (jenisUjian === "diagnostik") {
-      href = `/layanan/diagnostik/diagnostiktes?link=${linkKu}`;
-    } else if (jenisUjian === "tka") {
-      href = `/form/tolb3r?link=${linkKu}`;
-    } else if (jenisUjian === "snbt") {
-      href = `/form/tolb3r?link=${linkKu}`;
-    } else {
-      // fallback: kalau tidak jelas
-      href = `/form/snbtsupaplus?link=${linkKu}`;
+    if (!sesi) {
+      setSisaWaktu(0);
+      return;
     }
-  }
+
+    setNameKu(localStorage.getItem("name") || "");
+    setSisaWaktu(sesi.remaining);
+
+    // Tentukan href dari slug aktif — tidak perlu cek jenisUjian lagi
+    setHref(`/form/tolb3r?link=${sesi.link}`);
+  }, []);
 
   return (
     <>
@@ -82,7 +44,6 @@ export default function WarningSnbt() {
         <div className="w-full grid m-auto p-4 bg-gradient-to-b from-purple-900 via-gray-900 to-purple-900">
           <CountdownTimer targetDate={targetDate} />
         </div>
-      
       )}
     </>
   );

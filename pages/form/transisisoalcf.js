@@ -1,117 +1,105 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
+import {
+  sessionGet, sessionSet, clearSession, juFromSlug
+} from "../../utils/lsSession";
+
+const MAX_TIME_SNBT = {
+  pu: 2250, ppu: 1200, pbm: 1500,
+  pk: 1200, lbe: 1200, lbi: 1800, pm: 1200,
+};
+const MAX_TIME_TKA = {
+  matematika: 1800, ipa: 1500, b_indonesia: 1500,
+  b_inggris:  1500, ips: 1200, fisika:      1500,
+  kimia:      1500, biologi: 1500, ekonomi: 1500,
+  geografi:   1500, sejarah: 1500, sosiologi: 1500,
+};
+
+function getMaxTime(slug) {
+  if (!slug) return null;
+  const parts = slug.split("_");
+  if (parts[0] === "snbt") return MAX_TIME_SNBT[parts.slice(1, -1).join("_")] ?? null;
+  if (parts[0] === "tka")  return MAX_TIME_TKA[parts.slice(2, -1).join("_")]  ?? null;
+  return null;
+}
+
+function getPathname(slug) {
+  return slug?.startsWith("snbt") ? "/form/tolb3r" : "/form/tolb3r";
+}
 
 export default function TransitionPage() {
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
 
-  // mencegah back
   useEffect(() => {
-    const handleBack = () => {
-      history.pushState(null, "", location.href);
-    };
-
+    const handleBack = () => history.pushState(null, "", location.href);
     history.pushState(null, "", location.href);
     window.addEventListener("popstate", handleBack);
-
-    return () => {
-      window.removeEventListener("popstate", handleBack);
-    };
+    return () => window.removeEventListener("popstate", handleBack);
   }, []);
-  // mencegah back end
-
-
-  // pengecualian penghapusan data localstorage
-  const clearLocalStorageExcept = (keysToKeep) => {
-    // Simpan nilai dari keys yang ingin dipertahankan
-    const savedData = {};
-    keysToKeep.forEach((key) => {
-      const value = localStorage.getItem(key);
-      if (value !== null) {
-        savedData[key] = value;
-      }
-    });
-  
-    // Hapus seluruh localStorage
-    localStorage.clear();
-  
-    // Kembalikan data yang dipertahankan
-    Object.keys(savedData).forEach((key) => {
-      localStorage.setItem(key, savedData[key]);
-    });
-  };
 
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // Ambil data dari localStorage
-    const linkSudah = JSON.parse(localStorage.getItem("linkSudah") || "[]");
-    const dataSoal = JSON.parse(localStorage.getItem("dataSoal") || "[]");
-    const nisn = localStorage.getItem("nisn");
-    const name = localStorage.getItem("name");
-    const lastSoal = localStorage.getItem("link"); // Soal yang baru selesai
+    // ── Tentukan ju dari slug yang baru selesai ───────────────────────────
+    // tolb3r selalu simpan "link" ke global untuk backward compat
+    const lastSoal = localStorage.getItem("link");
+    const ju       = juFromSlug(lastSoal); // "snbt" | "tka" | null
 
-    if (!nisn || !name || dataSoal.length === 0) {
-      router.push("/");
-      return;
-    }
+    if (!ju) { router.push("/"); return; }
 
-    // Tambahkan soal terakhir ke linkSudah jika belum ada
+    const linkSudah = JSON.parse(sessionGet(ju, "linkSudah") || "[]");
+    const dataSoal  = JSON.parse(sessionGet(ju, "dataSoal")  || "[]");
+    const nisn      = localStorage.getItem("nisn");
+    const name      = localStorage.getItem("name");
+
+    if (!nisn || !name || dataSoal.length === 0) { router.push("/"); return; }
+
+    // Tandai soal yang baru selesai
     if (lastSoal && !linkSudah.includes(lastSoal)) {
       linkSudah.push(lastSoal);
-      localStorage.setItem("linkSudah", JSON.stringify(linkSudah));
+      sessionSet(ju, "linkSudah", JSON.stringify(linkSudah));
     }
 
-    // Cari soal yang belum dikerjakan
-    const linkBelum = dataSoal.filter((soal) => !linkSudah.includes(soal));
-
-    // Simpan linkBelum ke localStorage
-    localStorage.setItem("linkBelum", JSON.stringify(linkBelum));
+    const linkBelum = dataSoal.filter((s) => !linkSudah.includes(s));
+    sessionSet(ju, "linkBelum", JSON.stringify(linkBelum));
 
     if (linkBelum.length === 0) {
-      // Jika semua soal sudah dikerjakan, arahkan ke home
       alert("Kamu sudah selesai mengerjakan semua soal, skor nanti akan diumumkan oleh Admin LB3R");
+      const linkSudahVal = sessionGet(ju, "linkSudah");
+      clearSession(ju);
+      if (linkSudahVal) sessionSet(ju, "linkSudah", linkSudahVal);
+      // Hapus global "link" agar WarningSnbt tidak tampil lagi
+      localStorage.removeItem("link");
       router.push("/");
-      clearLocalStorageExcept(["linkSudah"])
       return;
     }
 
-    // Ambil soal pertama dari linkBelum sebagai soal berikutnya
-    const link = linkBelum[0];
-    localStorage.setItem("link", link);
+    const nextSlug = linkBelum[0];
+    sessionSet(ju, "link", nextSlug);
 
-    // Tentukan maxTime berdasarkan soal yang dipilih
-    const maxTimeMapping = {
-      snbt: 2700, // 30 soal 45 menit
-      kuantitatif: 1200, // 15 soal 20 menit
-      matematika: 1800, // 20 soal 30 menit
-      english: 1800, // 20 soal 30 menit
-      bacaan: 5200, // 20 soal 25 menit
-      penalaran: 1800, // 30 soal 30 menit
-      pengetahuan: 900, // 20 soal 15 menit
-    };
+    // Update global "link" agar tolb3r INIT bisa baca
+    localStorage.setItem("link", nextSlug);
 
-    const maxTime = maxTimeMapping[link] || null;
-
+    const maxTime = getMaxTime(nextSlug);
     if (maxTime) {
-      localStorage.setItem("maxTime", maxTime);
-    } else {
-      console.log("link undetect");
+      sessionSet(ju, "maxTime", String(maxTime));
+      localStorage.setItem("maxTime", String(maxTime)); // backward compat tolb3r
     }
 
-    // Simpan waktu mulai pengerjaan soal baru
-    localStorage.setItem("startTime", new Date().toISOString());
+    // startTime per slug (dibaca tolb3r via lsKey(slug, "startTime"))
+    const now = new Date().toISOString();
+    localStorage.setItem(`${nextSlug}__startTime`, now);
 
-    // Arahkan ke halaman soal setelah delay singkat (agar efek transisi terasa)
     setTimeout(() => {
-      router.push(`/form/tolb3r?link=${link}`);
+      router.push({ pathname: getPathname(nextSlug), query: { link: nextSlug } });
     }, 2000);
 
   }, [router]);
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <p className="text-lg font-semibold">Memproses soal berikutnya...</p>
+    <div className="flex flex-col justify-center items-center h-screen gap-3">
+      <div className="w-8 h-8 border-4 border-gray-300 border-t-blue-600 rounded-full animate-spin" />
+      <p className="text-lg font-semibold text-gray-700">Memproses soal berikutnya...</p>
     </div>
   );
 }
