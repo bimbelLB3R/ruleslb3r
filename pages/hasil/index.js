@@ -2,13 +2,13 @@
 import { useSession, signIn } from "next-auth/react";
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import ProfilSiswa        from "../../components/hasil/ProfilSiswa";
-import TabJenisUjian      from "../../components/hasil/TabJenisUjian";
-import KartuSkorTotal     from "../../components/hasil/KartuSkorTotal";
-import GrafikRadar        from "../../components/hasil/GrafikRadar";
-import TabelSubtes        from "../../components/hasil/TabelSubtes";
-import CatatanInterpretasi from "../../components/hasil/CatatanInterpretasi";
-import StatusBelumAda     from "../../components/hasil/StatusBelumAda";
+import { ProfilSiswa } from "../../components/hasil/ProfilSiswa";
+import {TabJenisUjian}      from "../../components/hasil/TabJenisUjian";
+import { KartuSkorTotal } from "../../components/hasil/KartuSkorTotal";
+import {GrafikRadar}        from "../../components/hasil/GrafikRadar";
+import {TabelSubtes }       from "../../components/hasil/TabelSubtes";
+import {CatatanInterpretasi} from "../../components/hasil/CatatanInterpretasi";
+import {StatusBelumAda  }   from "../../components/hasil/StatusBelumAda";
 
 export default function HalamanHasil() {
   const { data: session, status } = useSession();
