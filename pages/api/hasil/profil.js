@@ -2,7 +2,8 @@
 // GET /api/hasil/profil?email=...
 // Lookup nisn dari email, cek apakah punya data SNBT/TKA di irt_scores
 
-import { createPool } from "../../../lib/db";
+// import { createPool } from "../../../lib/db";
+import pool from "../../../libs/dbaws";
 
 export default async function handler(req, res) {
   if (req.method !== "GET") return res.status(405).end();
@@ -10,12 +11,12 @@ export default async function handler(req, res) {
   const { email } = req.query;
   if (!email) return res.status(400).json({ error: "email diperlukan" });
 
-  const pool = createPool();
-  const conn = await pool.getConnection();
+//   const pool = createPool();
+//   const conn = await pool.getConnection();
 
   try {
     // 1. Cari nisn dari email
-    const [peserta] = await conn.execute(
+    const [peserta] = await pool.execute(
       "SELECT nisn, nama FROM peserta_snbt WHERE email = ? LIMIT 1",
       [email]
     );
@@ -27,11 +28,11 @@ export default async function handler(req, res) {
     const { nisn, nama } = peserta[0];
 
     // 2. Cek apakah punya data irt_scores untuk SNBT dan/atau TKA
-    const [cekSnbt] = await conn.execute(
+    const [cekSnbt] = await pool.execute(
       "SELECT COUNT(*) as total FROM irt_scores WHERE nisn = ? AND kategori LIKE 'snbt_%' LIMIT 1",
       [nisn]
     );
-    const [cekTka] = await conn.execute(
+    const [cekTka] = await pool.execute(
       "SELECT COUNT(*) as total FROM irt_scores WHERE nisn = ? AND kategori LIKE 'tka_%' LIMIT 1",
       [nisn]
     );
@@ -45,6 +46,6 @@ export default async function handler(req, res) {
     });
 
   } finally {
-    conn.release();
+    pool.release();
   }
 }

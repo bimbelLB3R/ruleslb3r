@@ -2,7 +2,8 @@
 // GET /api/analisis-siswa?nisn=...&jenis=snbt
 // GET /api/analisis-siswa?nisn=...&jenis=tka
 
-import { createPool } from "../../lib/db";
+// import { createPool } from "../../lib/db";
+import pool from "../../libs/dbaws";
 
 const LABEL_SUBTES = {
   // SNBT
@@ -48,12 +49,12 @@ export default async function handler(req, res) {
   if (!["snbt", "tka"].includes(jenis))
     return res.status(400).json({ error: "jenis harus snbt atau tka" });
 
-  const pool = createPool();
-  const conn = await pool.getConnection();
+//   const pool = createPool();
+//   const conn = await pool.getConnection();
 
   try {
     // 1. Ambil semua skor subtes siswa ini
-    const [rows] = await conn.execute(
+    const [rows] = await pool.execute(
       `SELECT kategori, F1, score_1000, total_benar, kategori_siswa
        FROM irt_scores
        WHERE nisn = ? AND kategori LIKE ?
@@ -69,7 +70,7 @@ export default async function handler(req, res) {
     // Tentukan paket dari kategori pertama (ambil bagian terakhir slug)
     const paket = rows[0].kategori.split("_").at(-1);
 
-    const [totalRows] = await conn.execute(
+    const [totalRows] = await pool.execute(
       `SELECT skor_total, ranking, jumlah_subtes
        FROM irt_scores_total
        WHERE nisn = ? AND paket = ?
@@ -84,12 +85,12 @@ export default async function handler(req, res) {
       const label = LABEL_SUBTES[key] ?? key;
 
       // Hitung persentil: berapa persen siswa punya F1 < siswa ini
-      const [[{ lebihRendah }]] = await conn.execute(
+      const [[{ lebihRendah }]] = await pool.execute(
         `SELECT COUNT(*) as lebihRendah FROM irt_scores
          WHERE kategori = ? AND F1 < ?`,
         [row.kategori, row.F1]
       );
-      const [[{ totalPeserta }]] = await conn.execute(
+      const [[{ totalPeserta }]] = await pool.execute(
         `SELECT COUNT(*) as totalPeserta FROM irt_scores WHERE kategori = ?`,
         [row.kategori]
       );
@@ -120,6 +121,6 @@ export default async function handler(req, res) {
     });
 
   } finally {
-    conn.release();
+    pool.release();
   }
 }
