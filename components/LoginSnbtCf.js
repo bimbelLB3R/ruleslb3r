@@ -9,7 +9,7 @@ import Image from "next/image";
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 import Link from "next/link";
-import MyDropdown from "./MyDropdownTipeSoal";
+import MyDropdownTpeSoal from "./MyDropdownTipeSoal";
 import { sessionGet, sessionSet, clearSession, getActiveSesi } from "../utils/lsSession";
 
 dayjs.extend(duration);
@@ -123,21 +123,118 @@ const LoginSnbtCf = () => {
         return;
       }
 
+      // ═══════════════════════════════════════════════════════════════════════
+      // CEK SUBTES SELESAI SEBELUM MASUK
+      // ═══════════════════════════════════════════════════════════════════════
+      const paket         = paketAktif;
+      const linkSudah     = JSON.parse(sessionGet(JU, "linkSudah") || "[]");
+      const subtesSelesai = linkSudah
+        .filter((slug) => slug.endsWith(`_${paket}`)) // hanya paket aktif
+        .map((slug) => slug.split("_").slice(1, -1).join("_"));
+
+      const totalSubtes   = SUBTES_SNBT.length;
+      const jumlahSelesai = subtesSelesai.length;
+
+      // Skenario 1: SEMUA SUBTES SUDAH SELESAI
+      if (jumlahSelesai === totalSubtes) {
+        await Swal.fire({
+          title: "Semua Subtes Sudah Selesai!",
+          html: `
+            <p class="text-sm text-gray-600 mb-3">
+              Kamu sudah menyelesaikan semua ${totalSubtes} subtes SNBT paket ${paket}.
+            </p>
+            <p class="text-sm font-semibold text-red-600">
+              Klik "Reset" di bawah jika ingin mengulang dari awal.
+            </p>
+          `,
+          icon: "info",
+          confirmButtonColor: "#2563eb",
+          confirmButtonText: "OK",
+          allowOutsideClick: false,
+        });
+        return;
+      }
+
+      // Skenario 2: SEBAGIAN SUBTES SELESAI
+      if (jumlahSelesai > 0) {
+        const subtesLabel = subtesSelesai
+          .map((s) => s.toUpperCase())
+          .join(", ");
+
+        const hasil = await Swal.fire({
+          title: `${jumlahSelesai} Subtes Sudah Selesai`,
+          html: `
+            <p class="text-sm text-gray-600 mb-2">
+              Subtes yang sudah selesai: <strong>${subtesLabel}</strong>
+            </p>
+            <p class="text-sm text-gray-600">
+              Sisa ${totalSubtes - jumlahSelesai} subtes belum dikerjakan.
+            </p>
+          `,
+          icon: "info",
+          showCancelButton: true,
+          confirmButtonColor: "#16a34a",
+          cancelButtonColor: "#dc2626",
+          confirmButtonText: "Lanjutkan yang Belum",
+          cancelButtonText: "Reset & Ulang Semua",
+        });
+
+        if (!hasil.isConfirmed) {
+          // User pilih reset — hapus semua data SNBT
+          clearSession(JU);
+          await Swal.fire({
+            title: "Data Direset!",
+            text: "Kamu bisa mulai dari awal. Silakan login lagi.",
+            icon: "success",
+            timer: 2000,
+            showConfirmButton: false,
+          });
+          window.location.reload();
+          return;
+        }
+        // Lanjut ke flow normal — biarkan submitForm handle urutan
+      }
+
+      // ═══════════════════════════════════════════════════════════════════════
+      // LANJUT FLOW NORMAL
+      // ═══════════════════════════════════════════════════════════════════════
+
       const canSubmit = await cekPeserta(form.nisn);
-      if (canSubmit === null) { Swal.fire({ title: "Koneksi Bermasalah", text: "Gagal memeriksa NISN.", icon: "error", confirmButtonText: "Coba Lagi" }); return; }
+      if (canSubmit === null) { 
+        Swal.fire({ 
+          title: "Koneksi Bermasalah", 
+          text: "Gagal memeriksa NISN.", 
+          icon: "error", 
+          confirmButtonText: "Coba Lagi" 
+        }); 
+        return; 
+      }
 
       if (canSubmit) {
-        const paket      = paketAktif;
         const subtesAwal = sessionGet(JU, "subtesAwal") || SUBTES_SNBT[0];
-        const urutan     = [subtesAwal, ...SUBTES_SNBT.filter((s) => s !== subtesAwal)];
-        const dataSoal   = urutan.map((s) => `snbt_${s}_${paket}`);
-        const link       = dataSoal[0];
-        const subtesKey  = link.split("_").slice(0, 2).join("_");
-        const maxTime    = MAX_TIME_SNBT[subtesKey] ?? 1200;
+        
+        // Filter: hapus subtes yang sudah selesai dari urutan
+        const subtesAktif = SUBTES_SNBT.filter(
+          (s) => !subtesSelesai.includes(s)
+        );
+
+        // Urutan: mulai dari subtesAwal yang dipilih (jika masih aktif), 
+        // atau mulai dari subtes aktif pertama
+        let urutan;
+        if (subtesAktif.includes(subtesAwal)) {
+          urutan = [subtesAwal, ...subtesAktif.filter((s) => s !== subtesAwal)];
+        } else {
+          urutan = subtesAktif;
+        }
+
+        const dataSoal = urutan.map((s) => `snbt_${s}_${paket}`);
+        const link     = dataSoal[0];
+        const subtesKey = link.split("_").slice(0, 2).join("_");
+        const maxTime   = MAX_TIME_SNBT[subtesKey] ?? 1200;
 
         localStorage.setItem("name", form.nama);
         localStorage.setItem("nisn", `1${form.nisn}`);
-        localStorage.setItem("link", link);
+        localStorage.setItem("link", link); //wajib pake
         localStorage.setItem(`${link}__startTime`, new Date().toISOString());
 
         sessionSet(JU, "dataSoal", JSON.stringify(dataSoal));
@@ -147,10 +244,22 @@ const LoginSnbtCf = () => {
 
         router.push({ pathname: "/form/tolb3r", query: { link } });
       } else {
-        Swal.fire({ title: `${form.nisn} belum terdaftar`, text: "Silakan daftar terlebih dahulu.", icon: "warning", confirmButtonText: "Daftar" });
+        Swal.fire({ 
+          title: `${form.nisn} belum terdaftar`, 
+          text: "Silakan daftar terlebih dahulu.", 
+          icon: "warning", 
+          confirmButtonText: "Daftar" 
+        });
         router.push("/form/newmembersup?jenisujian=snbt");
       }
-    } catch { Swal.fire({ title: "Terjadi Kesalahan", text: "Silakan coba lagi.", icon: "error", confirmButtonText: "Oke" }); }
+    } catch { 
+      Swal.fire({ 
+        title: "Terjadi Kesalahan", 
+        text: "Silakan coba lagi.", 
+        icon: "error", 
+        confirmButtonText: "Oke" 
+      }); 
+    }
     finally  { setIsButtonDisabled(false); }
   };
 
@@ -194,7 +303,7 @@ const LoginSnbtCf = () => {
                   <label htmlFor="nama" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Panggilanmu</label>
                   <input type="text" name="nama" id="nama" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Nama panggilan" required onChange={handleChange} autoComplete="off" disabled={isButtonDisabled || loadingPaket} />
                 </div>
-                <div><MyDropdown disabled={isButtonDisabled || loadingPaket} /></div>
+                <div><MyDropdownTpeSoal disabled={isButtonDisabled || loadingPaket} /></div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-start">
                     <input id="remember" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600" required />

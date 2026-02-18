@@ -22,9 +22,41 @@ export function sessionRemove(ju, key) {
   if (typeof window === "undefined") return;
   localStorage.removeItem(sessionKey(ju, key));
 }
+
+// ─── Hapus semua key slug (startTime, timeUp, jumlahSoal, dll) ───────────────
+// Dipanggil saat reset atau saat semua subtes selesai
+export function clearAllSlugKeys(ju) {
+  if (typeof window === "undefined") return;
+  
+  // Ambil daftar slug dari dataSoal
+  const dataSoalRaw = sessionGet(ju, "dataSoal");
+  if (!dataSoalRaw) return;
+  
+  try {
+    const dataSoal = JSON.parse(dataSoalRaw);
+    dataSoal.forEach((slug) => {
+      // Hapus semua key yang dimulai dengan slug__
+      const keysToDelete = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && key.startsWith(`${slug}__`)) {
+          keysToDelete.push(key);
+        }
+      }
+      keysToDelete.forEach((k) => localStorage.removeItem(k));
+    });
+  } catch (err) {
+    console.error("clearAllSlugKeys error:", err);
+  }
+}
+
 export function clearSession(ju) {
   if (typeof window === "undefined") return;
+  // Hapus juga semua key slug milik dataSoal
+  clearAllSlugKeys(ju);
   SESSION_KEYS.forEach((k) => localStorage.removeItem(sessionKey(ju, k)));
+  
+  
 }
 
 export function juFromSlug(slug) {
