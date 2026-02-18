@@ -220,6 +220,7 @@ export default function AdminDashboard() {
 
   // Stats
   const [totalSoal, setTotalSoal] = useState(0);
+  const [jumlahSiswa, setJumlahSiswa] = useState(0);
   const [loadingStats, setLoadingStats] = useState(false);
 
   // ─── Derived ────────────────────────────────────────────────────────────────
@@ -272,11 +273,18 @@ export default function AdminDashboard() {
   const fetchTotalSoal = async () => {
     setLoadingStats(true);
     try {
-      const res = await fetch(`/api/admin/soal/mystats?kategori=${kategoriSlug}`);
-      const data = await res.json();
-      setTotalSoal(res.ok ? data.total : 0);
+      // Fetch total soal
+      const resSoal = await fetch(`/api/admin/soal/mystats?kategori=${kategoriSlug}`);
+      const dataSoal = await resSoal.json();
+      setTotalSoal(resSoal.ok ? dataSoal.total : 0);
+
+      // Fetch jumlah siswa
+      const resSiswa = await fetch(`/api/admin/soal/siswa-count?kategori=${kategoriSlug}`);
+      const dataSiswa = await resSiswa.json();
+      setJumlahSiswa(resSiswa.ok ? dataSiswa.jumlah_siswa : 0);
     } catch {
       setTotalSoal(0);
+      setJumlahSiswa(0);
     } finally {
       setLoadingStats(false);
     }
@@ -387,6 +395,17 @@ export default function AdminDashboard() {
 
             {/* Stats Chip + Tombol Cetak */}
             <div className="flex gap-3 items-start">
+              {/* Jumlah Siswa */}
+              <div className="bg-purple-50 px-4 py-2 rounded-xl text-center min-w-[80px]">
+                <p className="text-xs text-gray-500 font-medium">Siswa</p>
+                {loadingStats ? (
+                  <div className="mx-auto mt-1 animate-spin rounded-full h-5 w-5 border-2 border-transparent border-purple-600 border-t-current" />
+                ) : (
+                  <p className="text-xl font-extrabold text-purple-600">{jumlahSiswa}</p>
+                )}
+              </div>
+
+              {/* Soal Tersimpan */}
               <div className={`${activeColor.bgLight} px-4 py-2 rounded-xl text-center min-w-[80px]`}>
                 <p className="text-xs text-gray-500 font-medium">Tersimpan</p>
                 {loadingStats ? (
@@ -395,6 +414,8 @@ export default function AdminDashboard() {
                   <p className={`text-xl font-extrabold ${activeColor.text}`}>{totalSoal}</p>
                 )}
               </div>
+
+              {/* Kuota */}
               <div className="bg-gray-50 px-4 py-2 rounded-xl text-center min-w-[80px]">
                 <p className="text-xs text-gray-500 font-medium">Kuota</p>
                 <p className="text-xl font-extrabold text-gray-700">
