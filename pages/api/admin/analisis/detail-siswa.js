@@ -38,12 +38,12 @@ export default async function handler(req, res) {
   try {
     const offset = (parseInt(page) - 1) * parseInt(limit);
 
-    // ═══ 1. Get list siswa dari irt_scores_total ═════════════════════════
+    // ═══ 1. Get list siswa dari irt_scores_total JOIN peserta_snbt ══════
     const conditions = ["t.paket = ?", "t.jenis = ?"];
     const params = [paket, jenis];
 
     if (search) {
-      conditions.push("(t.nisn LIKE ? OR t.nama LIKE ?)");
+      conditions.push("(t.nisn COLLATE utf8mb4_unicode_ci LIKE ? OR p.nama LIKE ?)");
       const searchPattern = `%${search}%`;
       params.push(searchPattern, searchPattern);
     }
@@ -54,21 +54,31 @@ export default async function handler(req, res) {
     const [countResult] = await pool.query(
       `SELECT COUNT(*) as total
        FROM irt_scores_total t
+       LEFT JOIN peserta_snbt p ON t.nisn COLLATE utf8mb4_unicode_ci = p.nisn
        WHERE ${whereClause}`,
       params
     );
     const total = countResult[0].total;
 
-    // Fetch siswa list
+    // Fetch siswa list - nama SELALU dari peserta_snbt
     const allowedSortFields = ["ranking", "skor_total", "nama", "nisn", "jumlah_subtes"];
     const safeSortBy = allowedSortFields.includes(sortBy) ? sortBy : "ranking";
     const safeSortOrder = sortOrder.toUpperCase() === "DESC" ? "DESC" : "ASC";
 
+    // Jika sort by nama, gunakan p.nama (dari peserta_snbt)
+    const sortField = safeSortBy === "nama" ? "p.nama" : `t.${safeSortBy}`;
+
     const [siswaRows] = await pool.query(
-      `SELECT t.nisn, t.nama, t.skor_total, t.ranking, t.jumlah_subtes, t.subtes_selesai
+      `SELECT t.nisn, 
+              COALESCE(p.nama, t.nama) as nama,
+              t.skor_total, 
+              t.ranking, 
+              t.jumlah_subtes, 
+              t.subtes_selesai
        FROM irt_scores_total t
+       LEFT JOIN peserta_snbt p ON t.nisn COLLATE utf8mb4_unicode_ci = p.nisn
        WHERE ${whereClause}
-       ORDER BY t.${safeSortBy} ${safeSortOrder}
+       ORDER BY ${sortField} ${safeSortOrder}
        LIMIT ? OFFSET ?`,
       [...params, parseInt(limit), offset]
     );

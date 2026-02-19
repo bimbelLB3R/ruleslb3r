@@ -27,7 +27,7 @@ export default async function handler(req, res) {
 
   try {
     // ═══ 1. Skor Total ═══════════════════════════════════════════════════
-    const [totalRows] = await pool.execute(
+    const [totalRows] = await pool.query(
       `SELECT COUNT(*) as jumlah_siswa,
               AVG(skor_total) as rata_skor,
               MIN(skor_total) as skor_min,
@@ -45,7 +45,7 @@ export default async function handler(req, res) {
       ? `snbt_%_${paket}` 
       : `tka_${jenjang}_%_${paket}`;
 
-    const [subtesRows] = await pool.execute(
+    const [subtesRows] = await pool.query(
       `SELECT kategori,
               COUNT(*) as jumlah_siswa,
               AVG(score_1000) as rata_skor,
@@ -71,7 +71,7 @@ export default async function handler(req, res) {
     }));
 
     // ═══ 3. Distribusi Kategori Siswa ════════════════════════════════════
-    const [kategoriRows] = await pool.execute(
+    const [kategoriRows] = await pool.query(
       `SELECT kategori_siswa, COUNT(*) as jumlah
        FROM irt_scores
        WHERE kategori LIKE ?
@@ -95,11 +95,16 @@ export default async function handler(req, res) {
     }, {});
 
     // ═══ 4. Top 10 Siswa ══════════════════════════════════════════════════
-    const [topRows] = await pool.execute(
-      `SELECT nisn, nama, skor_total, ranking, jumlah_subtes
-       FROM irt_scores_total
-       WHERE paket = ? AND jenis = ?
-       ORDER BY skor_total DESC
+    const [topRows] = await pool.query(
+      `SELECT t.nisn, 
+              COALESCE(p.nama, t.nama) as nama, 
+              t.skor_total, 
+              t.ranking, 
+              t.jumlah_subtes
+       FROM irt_scores_total t
+       LEFT JOIN peserta_snbt p ON t.nisn COLLATE utf8mb4_unicode_ci = p.nisn
+       WHERE t.paket = ? AND t.jenis = ?
+       ORDER BY t.skor_total DESC
        LIMIT 10`,
       [paket, jenis]
     );

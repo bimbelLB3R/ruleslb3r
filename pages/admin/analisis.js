@@ -1,10 +1,8 @@
 // pages/admin/analisis.jsx
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import AdminLayout from "../../components/admin/AdminLayout";
 import LoginForm from "../../components/admin/LoginForm";
-import React from "react";
-
 
 const PAKET_LIST = Array.from({ length: 10 }, (_, i) => String(i + 1).padStart(2, "0"));
 
@@ -17,12 +15,13 @@ export default function AnalisisPage() {
   const [jenis, setJenis] = useState("snbt");
   const [jenjang, setJenjang] = useState("sd");
   const [paket, setPaket] = useState("01");
-  const [activeTab, setActiveTab] = useState("paket"); // 'paket' | 'siswa' | 'detail'
+  const [activeTab, setActiveTab] = useState("paket"); // 'paket' | 'siswa' | 'detail' | 'jawaban'
 
   // Data
   const [dataPaket, setDataPaket] = useState(null);
   const [dataHasil, setDataHasil] = useState(null);
   const [dataDetail, setDataDetail] = useState(null);
+  const [dataJawaban, setDataJawaban] = useState(null);
   const [loading, setLoading] = useState(false);
 
   // Pagination & Filter untuk tab detail
@@ -33,6 +32,10 @@ export default function AnalisisPage() {
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("ranking");
   const [sortOrder, setSortOrder] = useState("ASC");
+
+  // Filter untuk tab jawaban
+  const [selectedNisn, setSelectedNisn] = useState("");
+  const [selectedKategori, setSelectedKategori] = useState("");
 
   // ─── Auth Check ────────────────────────────────────────────────────────
   useEffect(() => {
@@ -53,8 +56,9 @@ export default function AnalisisPage() {
       if (activeTab === "paket") fetchPaketSoal();
       if (activeTab === "siswa") fetchHasilSiswa();
       if (activeTab === "detail") fetchDetailSiswa();
+      if (activeTab === "jawaban" && selectedNisn && selectedKategori) fetchJawabanSiswa();
     }
-  }, [isLoggedIn, jenis, jenjang, paket, activeTab, page, search, sortBy, sortOrder]);
+  }, [isLoggedIn, jenis, jenjang, paket, activeTab, page, search, sortBy, sortOrder, selectedNisn, selectedKategori]);
 
   const fetchPaketSoal = async () => {
     setLoading(true);
@@ -115,6 +119,32 @@ export default function AnalisisPage() {
       setLoading(false);
     }
   };
+
+  const fetchJawabanSiswa = async () => {
+  setLoading(true);
+  setDataJawaban(null); // 🔥 WAJIB RESET
+
+  try {
+    const res = await fetch(
+      `/api/admin/analisis/jawaban-siswa?kategori=${selectedKategori}&nisn=${selectedNisn}`
+    );
+
+    if (!res.ok) {
+      setDataJawaban(null);
+      return;
+    }
+
+    const data = await res.json();
+    setDataJawaban(data);
+
+  } catch (error) {
+    console.error("Fetch jawaban siswa error:", error);
+    setDataJawaban(null);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   // ─── Handlers ──────────────────────────────────────────────────────────
   const handleLoginSuccess = (adminData) => {
@@ -276,10 +306,10 @@ export default function AnalisisPage() {
 
         {/* Tab Navigation */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 mb-6">
-          <div className="flex border-b border-gray-100">
+          <div className="flex border-b border-gray-100 overflow-x-auto">
             <button
               onClick={() => setActiveTab("paket")}
-              className={`px-6 py-3.5 font-medium text-sm transition-all ${
+              className={`px-6 py-3.5 font-medium text-sm transition-all whitespace-nowrap ${
                 activeTab === "paket"
                   ? isSnbt
                     ? "border-b-2 border-blue-600 text-blue-600 bg-blue-50"
@@ -291,7 +321,7 @@ export default function AnalisisPage() {
             </button>
             <button
               onClick={() => setActiveTab("siswa")}
-              className={`px-6 py-3.5 font-medium text-sm transition-all ${
+              className={`px-6 py-3.5 font-medium text-sm transition-all whitespace-nowrap ${
                 activeTab === "siswa"
                   ? isSnbt
                     ? "border-b-2 border-blue-600 text-blue-600 bg-blue-50"
@@ -303,7 +333,7 @@ export default function AnalisisPage() {
             </button>
             <button
               onClick={() => setActiveTab("detail")}
-              className={`px-6 py-3.5 font-medium text-sm transition-all ${
+              className={`px-6 py-3.5 font-medium text-sm transition-all whitespace-nowrap ${
                 activeTab === "detail"
                   ? isSnbt
                     ? "border-b-2 border-blue-600 text-blue-600 bg-blue-50"
@@ -312,6 +342,18 @@ export default function AnalisisPage() {
               }`}
             >
               📊 Detail Skor Siswa
+            </button>
+            <button
+              onClick={() => setActiveTab("jawaban")}
+              className={`px-6 py-3.5 font-medium text-sm transition-all whitespace-nowrap ${
+                activeTab === "jawaban"
+                  ? isSnbt
+                    ? "border-b-2 border-blue-600 text-blue-600 bg-blue-50"
+                    : "border-b-2 border-emerald-600 text-emerald-600 bg-emerald-50"
+                  : "text-gray-500 hover:text-gray-800 hover:bg-gray-50"
+              }`}
+            >
+              🔍 Analisis Jawaban
             </button>
           </div>
         </div>
@@ -345,6 +387,22 @@ export default function AnalisisPage() {
                 onSearch={handleSearch}
                 onSort={handleSort}
                 onReset={handleReset}
+              />
+            )}
+            {activeTab === "jawaban" && (
+              <JawabanSiswaTab
+                data={dataJawaban}
+                dataDetail={dataDetail}
+                jenis={jenis}
+                jenjang={jenjang}
+                paket={paket}
+                colorClass={activeColor}
+                selectedNisn={selectedNisn}
+                selectedKategori={selectedKategori}
+                onSelectSiswa={(nisn, kategori) => {
+                  setSelectedNisn(nisn);
+                  setSelectedKategori(kategori);
+                }}
               />
             )}
           </>
@@ -801,6 +859,255 @@ function DetailSiswaTab({
   );
 }
 
+// ═══════════════════════════════════════════════════════════════════════════
+// TAB 4: ANALISIS JAWABAN SISWA
+// ═══════════════════════════════════════════════════════════════════════════
+
+function JawabanSiswaTab({
+  data,
+  dataDetail,
+  jenis,
+  jenjang,
+  paket,
+  colorClass,
+  selectedNisn,
+  selectedKategori,
+  onSelectSiswa,
+}) {
+  const [siswaList, setSiswaList] = useState([]);
+  const [kategoriList, setKategoriList] = useState([]);
+
+  useEffect(() => {
+  if (!selectedNisn || !dataDetail) return;
+
+  const siswa = dataDetail.find((s) => s.nisn === selectedNisn);
+  if (!siswa) {
+    setKategoriList([]);
+    return;
+  }
+
+  const kategori = siswa.detail_subtes.map((sub) => sub.kategori);
+  setKategoriList(kategori);
+
+}, [selectedNisn, dataDetail]);
+
+  // Extract list siswa dan kategori dari dataDetail
+  useEffect(() => {
+    if (!dataDetail || dataDetail.length === 0) return;
+
+    // Unique siswa
+    const uniqueSiswa = [];
+    const seenNisn = new Set();
+    dataDetail.forEach((s) => {
+      if (!seenNisn.has(s.nisn)) {
+        uniqueSiswa.push({ nisn: s.nisn, nama: s.nama });
+        seenNisn.add(s.nisn);
+      }
+    });
+    setSiswaList(uniqueSiswa);
+
+    // Unique kategori from detail_subtes
+   
+
+
+    // Auto-select first siswa & kategori if not selected
+    // if (!selectedNisn && uniqueSiswa.length > 0) {
+    //   const firstSiswa = uniqueSiswa[0];
+    //   const firstKategori = Array.from(uniqueKategori).sort()[0];
+    //   onSelectSiswa(firstSiswa.nisn, firstKategori);
+    // }
+  }, [dataDetail]);
+
+  if (!dataDetail || dataDetail.length === 0) {
+    return (
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-12 text-center">
+        <p className="text-gray-500">Belum ada data siswa untuk paket ini</p>
+        <p className="text-sm text-gray-400 mt-2">Silakan ke tab "Detail Skor Siswa" terlebih dahulu</p>
+      </div>
+    );
+  }
+
+  const subtesLabel = selectedKategori ? 
+    selectedKategori.split("_").slice(jenis === "snbt" ? 1 : 2, -1).join("_").toUpperCase() : 
+    "";
+
+  return (
+    <div className="space-y-6">
+      
+      {/* Selector */}
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Pilih Siswa */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">👤 Pilih Siswa</label>
+            <select
+              value={selectedNisn}
+              onChange={(e) => {
+  const nisn = e.target.value;
+
+  const siswa = dataDetail.find(s => s.nisn === nisn);
+  const firstKategori = siswa?.detail_subtes?.[0]?.kategori || "";
+
+  onSelectSiswa(nisn, firstKategori);
+}}
+
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">-- Pilih Siswa --</option>
+              {siswaList.map((s) => (
+                <option key={s.nisn} value={s.nisn}>
+                  {s.nisn} - {s.nama}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Pilih Subtes */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">📝 Pilih Subtes</label>
+            <select
+              value={selectedKategori}
+              onChange={(e) => {
+                const kategori = e.target.value;
+                onSelectSiswa(selectedNisn, kategori);
+              }}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">-- Pilih Subtes --</option>
+              {kategoriList.map((kat) => (
+                <option key={kat} value={kat}>
+                  {kat}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+      </div>
+
+      {/* Hasil Analisis */}
+      {data ? (
+        <>
+          {/* Header Info */}
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h3 className="text-lg font-bold text-gray-800">{data.nama}</h3>
+                <p className="text-sm text-gray-600">NISN: {data.nisn} · {subtesLabel}</p>
+              </div>
+              {data.skor_irt && (
+                <div className="text-right">
+                  <p className="text-3xl font-bold text-gray-800">{data.skor_irt.score}</p>
+                  <p className="text-xs text-gray-500">{data.skor_irt.kategori}</p>
+                </div>
+              )}
+            </div>
+
+            {/* Statistik */}
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+              <StatCard label="Total Soal" value={data.statistik.total_soal} subtitle="Soal" color={colorClass} />
+              <StatCard label="Benar" value={data.statistik.benar} subtitle={`${data.statistik.persentase_benar}%`} color="green" />
+              <StatCard label="Salah" value={data.statistik.salah} subtitle="Jawaban" color="red" />
+              <StatCard label="Kosong" value={data.statistik.kosong} subtitle="Tidak dijawab" color="gray" />
+              {data.skor_irt && (
+                <StatCard label="Theta (F1)" value={data.skor_irt.F1} subtitle="IRT ability" color={colorClass} />
+              )}
+            </div>
+          </div>
+
+          {/* Tabel Detail Soal */}
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-gray-50 border-b border-gray-200">
+                  <tr>
+                    <th className="px-4 py-3 text-center text-xs font-semibold text-gray-600">No</th>
+                    <th className="px-4 py-3 text-center text-xs font-semibold text-gray-600">Status</th>
+                    <th className="px-4 py-3 text-center text-xs font-semibold text-gray-600">Jawaban</th>
+                    <th className="px-4 py-3 text-center text-xs font-semibold text-gray-600">Kunci</th>
+                    <th className="px-4 py-3 text-center text-xs font-semibold text-gray-600">Kesulitan (b)</th>
+                    <th className="px-4 py-3 text-center text-xs font-semibold text-gray-600">Kategori Soal</th>
+                    {data.detail_soal[0]?.a !== null && (
+                      <th className="px-4 py-3 text-center text-xs font-semibold text-gray-600">Daya Beda (a)</th>
+                    )}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {data.detail_soal.map((soal) => (
+                    <tr 
+                      key={soal.nomor_soal} 
+                      className={`hover:bg-gray-50 ${
+                        soal.status === "benar" ? "bg-green-50" :
+                        soal.status === "salah" ? "bg-red-50" :
+                        ""
+                      }`}
+                    >
+                      <td className="px-4 py-3 text-center font-semibold text-gray-800">
+                        {soal.nomor_soal}
+                      </td>
+                      <td className="px-4 py-3 text-center">
+                        {soal.status === "benar" && (
+                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            ✓ Benar
+                          </span>
+                        )}
+                        {soal.status === "salah" && (
+                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                            ✗ Salah
+                          </span>
+                        )}
+                        {soal.status === "kosong" && (
+                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+                            — Kosong
+                          </span>
+                        )}
+                      </td>
+                      <td className="px-4 py-3 text-center font-mono font-bold text-gray-800">
+                        {soal.jawaban_siswa}
+                      </td>
+                      <td className="px-4 py-3 text-center font-mono font-bold text-green-700">
+                        {soal.kunci_jawaban}
+                      </td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">
+                        {soal.b}
+                      </td>
+                      <td className="px-4 py-3 text-center text-xs text-gray-600">
+                        {soal.kategori_soal}
+                      </td>
+                      {soal.a !== null && (
+                        <td className="px-4 py-3 text-center text-sm text-gray-700">
+                          {soal.a}
+                        </td>
+                      )}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Catatan Interpretasi */}
+          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6">
+            <h4 className="font-semibold text-blue-900 mb-2">📌 Interpretasi Parameter IRT</h4>
+            <ul className="text-sm text-blue-800 space-y-1">
+              <li><strong>Kesulitan (b):</strong> Nilai tinggi = soal sulit. Rentang -2 (sangat mudah) hingga +2 (sangat sulit)</li>
+              <li><strong>Daya Beda (a):</strong> Nilai tinggi = soal membedakan siswa pandai vs kurang. Minimal 0.5 untuk soal baik</li>
+              <li><strong>Theta (F1):</strong> Kemampuan siswa. Nilai tinggi = kemampuan tinggi</li>
+              <li><strong>Skor 200-800:</strong> Transformasi theta ke skala standar (rata-rata 500, std dev 100)</li>
+            </ul>
+          </div>
+        </>
+      ) : (
+        selectedNisn && selectedKategori && (
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-12 text-center">
+            <p className="text-gray-500">Memuat data jawaban siswa...</p>
+          </div>
+        )
+      )}
+
+    </div>
+  );
+}
+
 // ─── Sortable Header Component ─────────────────────────────────────────────
 function SortableHeader({ label, field, sortBy, sortOrder, onSort, className = "" }) {
   const active = sortBy === field;
@@ -831,6 +1138,7 @@ function StatCard({ label, value, subtitle, color = "blue" }) {
     emerald: "bg-emerald-50 text-emerald-700",
     red: "bg-red-50 text-red-700",
     green: "bg-green-50 text-green-700",
+    gray: "bg-gray-50 text-gray-700",
   };
 
   return (
