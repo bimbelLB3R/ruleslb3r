@@ -8,7 +8,7 @@ import { getActiveSesi } from "../utils/lsSession";
 dayjs.extend(duration);
 
 export default function WarningSnbt() {
-  const targetDate = "2026-04-23T23:59:59";
+  const targetDate = "2026-04-21T23:59:59";
   const [nameKu, setNameKu]       = useState("");
   const [href, setHref]           = useState("#");
   const [sisawaktu, setSisaWaktu] = useState(0);
